@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <dmitriy.deomin.aimpradioplalist.Fon_item
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="3dp"
+        app:cardPreventCornerOverlap="false"
+        android:elevation="0dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp">
+
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dialog_fon"
+            android:showDividers="none">
+
+            <dmitriy.deomin.aimpradioplalist.Text
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="текст"
+                android:layout_gravity="center_horizontal"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/text_voprosa_del_stncii"
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"
+                android:textStyle="normal|bold" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:showDividers="none"
+                android:layout_gravity="center_horizontal"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/linearLayout2"
+                android:layout_below="@+id/text_voprosa_del_stncii"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/button_dialog_delete"
+                    android:layout_gravity="left"
+                    android:layout_marginRight="30dp"
+                    android:textSize="14sp"
+                    android:text="Да"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/green" />
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/button_dialog_no"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="5dp"
+                    android:text="Нет"
+                    android:textSize="14sp"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/green" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </dmitriy.deomin.aimpradioplalist.Fon_item>
+
+</LinearLayout>

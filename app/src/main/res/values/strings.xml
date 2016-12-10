@@ -1,0 +1,1112 @@
+<resources>
+    <string name="app_name">AIMP radio</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7908895047124036/8879720700</string>
+    <string name="abaut_text">
+         \n
+        +++++
+         \n
+         © 2016 , Deomin Dmitriy
+         \n
+         E-mail:58627@bk.ru
+        \n\n
+        libraries used:
+        \n\n
+        * Color-picker-view
+        \n
+        com.github.danielnilsson9:color-picker-view:1.4.0@aar
+        \n\n
+         * Android View Animations
+         \n
+         com.nineoldandroids:library:2.4.0\n
+         com.daimajia.easing:library:1.0.1@aar\n
+         com.daimajia.androidanimations:library:1.1.3@aar\n
+         \n
+         \n
+        * Roundedimageview
+        \n
+        com.makeramen:roundedimageview:2.2.1
+        \n\n
+        <!--* ViewPagerTransforms-->
+        <!--\n-->
+        <!--com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar-->
+        <!--\n-->
+        <!--\n-->
+        * Supertoasts
+        \n
+        com.github.johnpersano:supertoasts:1.3.4@aar
+        \n\n
+        * Picasso
+         \n
+         com.squareup.picasso:picasso:2.5.2
+         \n
+         \n
+    </string>
+
+
+    <string-array name="anim_logo_list">
+        <item>Выключить</item>
+        <item>Tada</item>
+        <item>TakingOff</item>
+        <item>Flash</item>
+        <item>Pulse</item>
+        <item>RubberBand</item>
+        <item>Shake</item>
+        <item>Swing</item>
+        <item>Wobble</item>
+        <item>Landing</item>
+        <item>Bounce</item>
+        <item>StandUp</item>
+        <item>Wave</item>
+        <item>Hinge</item>
+        <item>RollIn</item>
+        <item>RollOut</item>
+        <item>BounceIn</item>
+        <item>BounceInDown</item>
+        <item>BounceInLeft</item>
+        <item>BounceInRight</item>
+        <item>BounceInUp</item>
+        <item>FadeIn</item>
+        <item>FadeInUp</item>
+        <item>FadeInDown</item>
+        <item>FadeInLeft</item>
+        <item>FadeInRight</item>
+        <item>FadeOut</item>
+        <item>FadeOutDown</item>
+        <item>FadeOutLeft</item>
+        <item>FadeOutRight</item>
+        <item>FadeOutUp</item>
+        <item>FlipInX</item>
+        <item>FlipOutX</item>
+        <item>FlipOutY</item>
+        <item>RotateIn</item>
+        <item>RotateInDownLeft</item>
+        <item>RotateInDownRight</item>
+        <item>RotateInUpLeft</item>
+        <item>RotateInUpRight</item>
+        <item>RotateOut</item>
+        <item>RotateOutDownLeft</item>
+        <item>RotateOutDownRight</item>
+        <item>RotateOutUpLeft</item>
+        <item>RotateOutUpRight</item>
+        <item>SlideInLeft</item>
+        <item>SlideInRight</item>
+        <item>SlideInUp</item>
+        <item>SlideInDown</item>
+        <item>SlideOutLeft</item>
+        <item>SlideOutRight</item>
+        <item>SlideOutUp</item>
+        <item>SlideOutDown</item>
+        <item>ZoomIn</item>
+        <item>ZoomInDown</item>
+        <item>ZoomInLeft</item>
+        <item>ZoomInRight</item>
+        <item>ZoomInUp</item>
+        <item>ZoomOut</item>
+        <item>ZoomOutDown</item>
+        <item>ZoomOutLeft</item>
+        <item>ZoomOutRight</item>
+        <item>ZoomOutUp</item>
+        <item>DropOut</item>
+    </string-array>
+
+    <string-array name="pop_radio">
+
+        <item>Русское радио\nruskoe_radio.png\n
+            128kbps~kbps~http://stream05.akaver.com/russkoeradio_hi.mp3~kbps~
+            96kbps~kbps~http://icecast.russkoeradio.cdnvideo.ru/rr.mp3~kbps~
+            32kbps~kbps~http://online-rusradio.tavrmedia.ua:8000/RusRadio_32~kbps~
+        </item>
+        <item>ENERGY\nenergy.png\n
+            256kbps~kbps~http://ic2.101.ru:8000/v1_1~kbps~
+        </item>
+        <item>DFM Москва\ndfm_moskva.png\n
+            96kbps~kbps~http://icecast.radiodfm.cdnvideo.ru/dfm.mp3~kbps~
+            96kbps2~kbps~http://radio.2kom.ru:8000/Dfm~kbps~
+        </item>
+        <item>Авторадио\navtoradio.png\n
+            256kbps~kbps~http://ic7.101.ru:8000/v3_1~kbps~
+        </item>
+        <item>Наше Радио\nnashe.png\n
+            128kbps~kbps~http://nashe2.hostingradio.ru/nashe-128.mp3~kbps~
+            128kbps2~kbps~http://nashe.streamr.ru/nashe-128.mp3~kbps~
+            64kbps~kbps~http://nashe1.hostingradio.ru/nashe-64.mp3~kbps~
+            2.0-64k~kbps~http://nashe1.hostingradio.ru/nashe20-64.mp3~kbps~
+        </item>
+        <item>Радио МИМ! Маша и Медведи\nmim.png\n
+            128kbps~kbps~http://listen2.myradio24.com:9000/8106~kbps~
+        </item>
+        <item>Юмор Fm\nym_fm.png\n
+            128kbps~kbps~http://yumfm128.streamr.ru~kbps~
+            256kbps~kbps~http://81.19.85.196/umor128.mp3~kbps~
+            256kbps2~kbps~http://ic7.101.ru:8000/v5_1~kbps~
+            24kbps~kbps~http://ic2.101.ru:8000/n5_1~kbps~
+        </item>
+        <item>Европа плюс\nevropa_plus.png\n
+            128kbps~kbps~http://radio.2kom.ru:8000/europaplus~kbps~
+        </item>
+        <item>HR Radio\nhr_radio.png\n
+            128kbps~kbps~http://hrradio.hostingradio.ru:8077/hrradio128.mp3~kbps~
+        </item>
+        <item>Билайн FM\nbilele_fm.png\n
+            128kbps~kbps~http://beelinefm128.streamr.ru~kbps~
+        </item>
+        <item>Love радио\nloveradio.png\n
+            32kbps~kbps~http://stream.variant.fm:8000/LOVE-32~kbps~
+        </item>
+        <item>Дорожное Радио\ndorognoe.png\n
+            64kbps~kbps~http://dorognoe.hostingradio.ru:8000/dorognoe~kbps~
+        </item>
+        <item>Радио Дача\nradio_dacha.png\n
+            96kbps~kbps~http://listen.vdfm.ru:8000/dacha~kbps~
+        </item>
+        <item>Радио Ваня\nradiovanya.png\n
+            96kbps~kbps~http://icecast.piktv.cdnvideo.ru/vanya~kbps~
+        </item>
+        <item>Новое Радио\nnovoe_radio.png\n
+            128kbps~kbps~http://icecast.newradio.cdnvideo.ru/newradio2~kbps~
+        </item>
+        <item>SHTORM.fm – Русский\nshtorm.png\n
+            128kbps~kbps~http://radio.rushtorm.ru:8000/mp3~kbps~
+            46kbps~kbps~http://radio.rushtorm.ru:8000/aac64~kbps~
+        </item>
+        <item>РУССКИЙ ХИТ\nrus_hit.png\n
+            48kbps~kbps~http://ruhit.imgradio.pro/RusHit48~kbps~
+            48kbps2~kbps~http://s3.imgradio.pro/RusHit48~kbps~
+        </item>
+        <item>Радио 7 на семи холмах\nsemhom.png\n
+            128kbps~kbps~http://radio7128.streamr.ru/~kbps~
+            64kbps~kbps~http://radio764.streamr.ru/~kbps~
+            32kbps~kbps~http://radio732.streamr.ru/~kbps~
+        </item>
+        <item>Радио ПАССАЖ\npassag.png\n
+            48kbps~kbps~http://listen.radiopassazh.ru/aac-48~kbps~
+            48kbps2~kbps~http://s2.radiopassazh.ru/aac-48~kbps~
+        </item>
+        <item>Радио ВТемпе\nv_tempe.png\n
+            256kbps~kbps~http://62.141.42.139:8000/vtempe~kbps~
+        </item>
+        <item>Максимум\nmaximum.png\n
+            128kbps~kbps~http://radio.karelia.pro:8000/maximumbalakovo~kbps~
+            96kbps~kbps~http://icecast.radiomaximum.cdnvideo.ru/maximum.mp3~kbps~
+            64kbps~kbps~http://online1.gkvr.ru:8000/maximum_srt_64.aac~kbps~
+        </item>
+        <item>Шансон\nshnson.png\n
+            128kbps~kbps~http://chanson.hostingradio.ru:8041/chanson128.mp3~kbps~
+        </item>
+        <item>Эхо Москвы\necho_moskvy.png\n
+            128kbps~kbps~http://radio.2kom.ru:8000/moscowecho128.mp3~kbps~
+            128kbps2~kbps~http://81.19.85.197/echo.mp3~kbps~
+            96kbps~kbps~http://den.101.ru:4000/ho_63_05~kbps~
+            16kbps~kbps~http://184.154.58.146:29378/ch12_16.mp3~kbps~
+        </item>
+        <item>Радио Лучшие Песни\nluchsie_radio_pesni.png\n
+            128kbps~kbps~http://85.114.140.64:8000/666~kbps~
+        </item>
+        <item>Анекдоты \nanekdoty.png\n
+            128kbps~kbps~http://ic2.101.ru:8000/c3_5~kbps~
+        </item>
+        <item>Детские песни \ndetskie_pesni.png\n
+            128kbps~kbps~http://music.myradio.com.ua:8000/kids-songs128.mp3~kbps~
+        </item>
+        <item>Классика \nclasik_radio.png\n
+            128kbps~kbps~http://music.myradio.com.ua:8000/Classica128.mp3~kbps~
+        </item>
+        <item>Литературное радио\nliteraturnoe_radio.png\n
+            64kbps~kbps~http://79.137.234.183:8000/;~kbps~
+        </item>
+
+
+    </string-array>
+
+    <string-array name="vse_radio">
+
+        <item>Radio Record 320kbps\nhttp://air.radiorecord.ru:805/rr_320</item>
+        <item>Radio Record 128kbps\nhttp://air.radiorecord.ru:805/rr_128</item>
+        <item>Radio Record 64kbps\nhttp://air.radiorecord.ru:805/rr_64</item>
+        <item>Megamix 320kbps\nhttp://air.radiorecord.ru:805/mix_320</item>
+        <item>Megamix 128kbps\nhttp://air.radiorecord.ru:805/mix_128</item>
+        <item>Megamix 64kbps\nhttp://air.radiorecord.ru:805/mix_64</item>
+        <item>Record Deep 320kbps\nhttp://air.radiorecord.ru:805/deep_320</item>
+        <item>Record Deep 128kbps\nhttp://air.radiorecord.ru:805/deep_128</item>
+        <item>Record Deep 64kbps\nhttp://air.radiorecord.ru:805/deep_64</item>
+        <item>Record EDM 320kbps\nhttp://air.radiorecord.ru:805/club_320</item>
+        <item>Record EDM 128kbps\nhttp://air.radiorecord.ru:805/club_128</item>
+        <item>Record EDM 64kbps\nhttp://air.radiorecord.ru:805/club_64</item>
+        <item>Future House 320kbps\nhttp://air.radiorecord.ru:805/fut_320</item>
+        <item>Future House 128kbps\nhttp://air.radiorecord.ru:805/fut_128</item>
+        <item>Future House 64kbps\nhttp://air.radiorecord.ru:805/fut_64</item>
+        <item>Trancemission 320kbps\nhttp://air.radiorecord.ru:805/tm_320</item>
+        <item>Trancemission 128kbps\nhttp://air.radiorecord.ru:805/tm_128</item>
+        <item>Trancemission 64kbps\nhttp://air.radiorecord.ru:805/tm_64</item>
+        <item>Record Chill-Out 320kbps\nhttp://air.radiorecord.ru:805/chil_320</item>
+        <item>Record Chill-Out 128kbps\nhttp://air.radiorecord.ru:805/chil_128</item>
+        <item>Record Chill-Out 64kbps\nhttp://air.radiorecord.ru:805/chil_64</item>
+        <item>Minimal/Tech 320kbps\nhttp://air.radiorecord.ru:805/mini_320</item>
+        <item>Minimal/Tech 128kbps\nhttp://air.radiorecord.ru:805/mini_128</item>
+        <item>Minimal/Tech 64kbps\nhttp://air.radiorecord.ru:805/mini_64</item>
+        <item>Pirate Station 320kbps\nhttp://air.radiorecord.ru:805/ps_320</item>
+        <item>Pirate Station 128kbps\nhttp://air.radiorecord.ru:805/ps_128</item>
+        <item>Pirate Station 64kbps\nhttp://air.radiorecord.ru:805/ps_64</item>
+        <item>Russian Mix 320kbps\nhttp://air.radiorecord.ru:805/rus_320</item>
+        <item>Russian Mix 128kbps\nhttp://air.radiorecord.ru:805/rus_128</item>
+        <item>Russian Mix 64kbps\nhttp://air.radiorecord.ru:805/rus_64</item>
+        <item>Vip House 320kbps\nhttp://air.radiorecord.ru:805/vip_320</item>
+        <item>Vip House 128kbps\nhttp://air.radiorecord.ru:805/vip_128</item>
+        <item>Vip House 64kbps\nhttp://air.radiorecord.ru:805/vip_64</item>
+        <item>Супердиско 90-х 320kbps\nhttp://air.radiorecord.ru:805/sd90_320</item>
+        <item>Супердиско 90-х 128kbps\nhttp://air.radiorecord.ru:805/sd90_128</item>
+        <item>Супердиско 90-х 64kbps\nhttp://air.radiorecord.ru:805/sd90_64</item>
+        <item>Record Breaks 320kbps\nhttp://air.radiorecord.ru:805/brks_320</item>
+        <item>Record Breaks 128kbps\nhttp://air.radiorecord.ru:805/brks_128</item>
+        <item>Record Breaks 64kbps\nhttp://air.radiorecord.ru:805/brks_64</item>
+        <item>Record Dubstep 320kbps\nhttp://air.radiorecord.ru:805/dub_320</item>
+        <item>Record Dubstep 128kbps\nhttp://air.radiorecord.ru:805/dub_128</item>
+        <item>Record Dubstep 64kbps\nhttp://air.radiorecord.ru:805/dub_64</item>
+        <item>Record Dancecore 320kbps\nhttp://air.radiorecord.ru:805/dc_320</item>
+        <item>Record Dancecore 128kbps\nhttp://air.radiorecord.ru:805/dc_128</item>
+        <item>Record Dancecore 64kbps\nhttp://air.radiorecord.ru:805/dc_64</item>
+        <item>Record Techno 320kbps\nhttp://air.radiorecord.ru:805/techno_320</item>
+        <item>Record Techno 128kbps\nhttp://air.radiorecord.ru:805/techno_128</item>
+        <item>Record Techno 64kbps\nhttp://air.radiorecord.ru:805/techno_64</item>
+        <item>Record Hardstyle 320kbps\nhttp://air.radiorecord.ru:805/teo_320</item>
+        <item>Record Hardstyle 128kbps\nhttp://air.radiorecord.ru:805/teo_128</item>
+        <item>Record Hardstyle 64kbps\nhttp://air.radiorecord.ru:805/teo_64</item>
+        <item>Record Trap 320kbps\nhttp://air.radiorecord.ru:805/trap_320</item>
+        <item>Record Trap 128kbps\nhttp://air.radiorecord.ru:805/trap_128</item>
+        <item>Record Trap 64kbps\nhttp://air.radiorecord.ru:805/trap_64</item>
+        <item>Pump 320kbps\nhttp://air.radiorecord.ru:805/pump_320</item>
+        <item>Pump 128kbps\nhttp://air.radiorecord.ru:805/pump_128</item>
+        <item>Pump 64kbps\nhttp://air.radiorecord.ru:805/pump_64</item>
+        <item>Record Rock 320kbps\nhttp://air.radiorecord.ru:805/rock_320</item>
+        <item>Record Rock 128kbps\nhttp://air.radiorecord.ru:805/rock_128</item>
+        <item>Record Rock 64kbps\nhttp://air.radiorecord.ru:805/rock_64</item>
+        <item>Медляк FM 320kbps\nhttp://air.radiorecord.ru:805/mdl_320</item>
+        <item>Медляк FM 128kbps\nhttp://air.radiorecord.ru:805/mdl_128</item>
+        <item>Медляк FM 64kbps\nhttp://air.radiorecord.ru:805/mdl_64</item>
+        <item>Гоп FM 320kbps\nhttp://air.radiorecord.ru:805/gop_320</item>
+        <item>Гоп FM 128kbps\nhttp://air.radiorecord.ru:805/gop_128</item>
+        <item>Гоп FM 64kbps\nhttp://air.radiorecord.ru:805/gop_64</item>
+        <item>Yo!FM 320kbps\nhttp://air.radiorecord.ru:805/yo_320</item>
+        <item>Yo!FM 128kbps\nhttp://air.radiorecord.ru:805/yo_128</item>
+        <item>Yo!FM 64kbps\nhttp://air.radiorecord.ru:805/yo_64</item>
+        <item>Rave FM 320kbps\nhttp://air.radiorecord.ru:805/rave_320</item>
+        <item>Rave FM 128kbps\nhttp://air.radiorecord.ru:805/rave_128</item>
+        <item>Rave FM 64kbps\nhttp://air.radiorecord.ru:805/rave_64</item>
+
+
+
+        <item>Дискография,Red Hot Chili Peppers 48kbps\nhttp://s_mobile.cienradios.com/852_Red_Hot_Chili_Peppers_48.mp3</item>
+        <item>Лаунж 128kbps\nhttp://music.myradio.ua:80/LOUNGE128.ogg</item>
+        <item>Fun Day 128kbps\nhttp://138.201.199.164/;;</item>
+        <item>Руский рок 128kbps\nhttp://music.myradio.ua:80/RusRock128.ogg</item>
+        <item>Parallel 128kbps\nhttp://music.myradio.ua:80/pophit128.ogg</item>
+        <item>Эйсид джас 128kbps\nhttp://music.myradio.ua:80/newjazz128.ogg</item>
+        <item>Блюз 128kbps\nhttp://music.myradio.ua:80/blues128.ogg</item>
+        <item>Российская поп-музыка 128kbps\nhttp://music.myradio.ua:80/Rus-pop128.ogg</item>
+        <item>Шансон 128kbps\nhttp://music.myradio.ua:80/shanson128.ogg</item>
+        <item>Рок-н-рол 128kbps\nhttp://music.myradio.ua:80/rock-n-roll128.ogg</item>
+        <item>RnB 128kbps\nhttp://music.myradio.ua:80/RnB128.ogg</item>
+        <item>Electro-House 128kbps\nhttp://music.myradio.ua:80/Electro-House128.ogg</item>
+        <item>Лучшие песни 70-80х 128kbps\nhttp://music.myradio.ua:80/Old128.ogg</item>
+        <item>Мейнстрим рок 128kbps\nhttp://music.myradio.ua:80/main_stream_rock128.ogg</item>
+        <item>Русский рэп 128kbps\nhttp://music.myradio.ua:80/rep128.ogg</item>
+        <item>Брейкбит 128kbps\nhttp://music.myradio.ua:80/breakbeat128.ogg</item>
+        <item>Этно 128kbps\nhttp://music.myradio.ua:80/sheshory128.ogg</item>
+        <item>Русская лирика 128kbps\nhttp://music.myradio.ua:80/RusLyrics128.ogg</item>
+        <item>Драм-н-бэйс 128kbps\nhttp://music.myradio.ua:80/DrumAndBass128.ogg</item>
+        <item>Музыка кино 128kbps\nhttp://music.myradio.ua:80/kino128.ogg</item>
+        <item>Классическая музыка 128kbps\nhttp://music.myradio.ua:80/Classica128.ogg</item>
+        <item>Баллады 128kbps\nhttp://music.myradio.ua:80/Ballads128.ogg</item>
+        <item>Дискотека 80-х 128kbps\nhttp://music.myradio.ua:80/Disco128.ogg</item>
+        <item>Джас 128kbps\nhttp://music.myradio.ua:80/Jazz128.ogg</item>
+        <item>Готическая музыка 128kbps\nhttp://music.myradio.ua:80/Gothic128.ogg</item>
+        <item>Зарубежные хиты 90-х 128kbps\nhttp://music.myradio.ua:80/Hits90s128.ogg</item>
+        <item>Джаз-рок энд фьюжн 128kbps\nhttp://music.myradio.ua:80/JazzRockFusion128.ogg</item>
+        <item>Танцевальные хиты 128kbps\nhttp://music.myradio.ua:80/dance128.ogg</item>
+
+        <item>Авторадио Москва 256kbps\nhttp://ic3.101.ru:8000/v3_1</item>
+        <item>Авторадио Санкт-Петербург\nhttp://den.101.ru:4000/ar_78_01</item>
+        <item>Авторадио Альметьевс\nhttp://den.101.ru:4000/ar_16_03</item>
+        <item>Авторадио Архангельск\nhttp://r2.101.ru:4000/ar_29_01</item>
+        <item>Авторадио Березники\nhttp://den.101.ru:4000/ar_59_03</item>
+        <item>Авторадио Биробиджан\nhttp://den.101.ru:4000/ar_79_01</item>
+        <item>Авторадио Благовещенск\nhttp://den.101.ru:4000/ar_28_01</item>
+        <item>Авторадио Бугульма\nhttp://den.101.ru:4000/ar_16_02</item>
+        <item>Авторадио Владимир\nhttp://den.101.ru:4000/ar_33_01</item>
+        <item>Авторадио Волгоград\nhttp://den.101.ru:4000/ar_34_01</item>
+        <item>Авторадио Волоколамск\nhttp://den.101.ru:4000/ar_50_01</item>
+        <item>Авторадио Гуково\nhttp://den.101.ru:4000/ar_61_04</item>
+        <item>Авторадио Екатеринбург\nhttp://den.101.ru:4000/ar_66_03</item>
+        <item>Авторадио Елец\nhttp://den.101.ru:4000/ar_48_02</item>
+        <item>Авторадио Ижевск\nhttp://den.101.ru:4000/ar_18_01</item>
+        <item>Авторадио Казань\nhttp://den.101.ru:4000/ar_16_01</item>
+        <item>Авторадио Калининград\nhttp://den.101.ru:4000/ar_39_01</item>
+        <item>Авторадио Калуга\nhttp://den.101.ru:4000/ar_40_01</item>
+        <item>Авторадио Канск\nhttp://den.101.ru:4000/ar_24_02</item>
+        <item>Авторадио Котлас\nhttp://den.101.ru:4000/ar_29_01</item>
+        <item>Авторадио Красноуфимск\nhttp://den.101.ru:4000/ar_66_05</item>
+        <item>Авторадио Красноярск\nhttp://den.101.ru:4000/ar_24_01</item>
+        <item>Авторадио Курган\nhttp://den.101.ru:4000/ar_45_01</item>
+        <item>Авторадио Липецк\nhttp://den.101.ru:4000/ar_48_01</item>
+        <item>Авторадио Нижний Новгород\nhttp://den.101.ru:4000/ar_52_01</item>
+        <item>Авторадио Рига\nhttp://den.101.ru:4000/ar_riga</item>
+
+        <item>Рэтро FM Челябинск\nhttp://retroserver.streamr.ru:8043/retro64</item>
+        <item>Радио 100 FM Челябинск 256kbps\nhttp://195.54.20.148:9000/radio100fm</item>
+        <item>Радио Олимп Челябинск 128kbps\nhttp://online.olimpfm.ru:8000/olimp_mp3</item>
+        <item>Радио Континеталь Челябинск\nhttp://stream01.radiocon.ru:8000/live</item>
+        <item>l-radio\nhttp://server.lradio.ru:8000/lradio320.ogg</item>
+        <item>Radio Record\nhttp://air.radiorecord.ru:8101/rr_320</item>
+        <item>Super Diskoteka 90\nhttp://air.radiorecord.ru:8102/sd90_320</item>
+        <item>Record Trancemission\nhttp://air.radiorecord.ru:8102/tm_320</item>
+        <item>Record Russian Mix\nhttp://air.radiorecord.ru:8102/rus_320</item>
+        <item>Record Chill-Out\nhttp://air.radiorecord.ru:8102/chil_320</item>
+        <item>Record Vip Mix\nhttp://air.radiorecord.ru:8102/vip_320</item>
+        <item>Record Pirate Station\nhttp://air.radiorecord.ru:8102/ps_320</item>
+        <item>Record Deep\nhttp://air.radiorecord.ru:8102/deep_320</item>
+        <item>Record Breaks\nhttp://air.radiorecord.ru:8102/brks_320</item>
+        <item>Record Dancecore\nhttp://air.radiorecord.ru:8102/dc_320</item>
+        <item>Record Dubstep\nhttp://air.radiorecord.ru:8102/dub_320</item>
+        <item>Record Trap\nhttp://air.radiorecord.ru:8102/trap_320</item>
+        <item>Teodor Hardstyle\nhttp://air.radiorecord.ru:8102/teo_320</item>
+        <item>Yo! FM\nhttp://air.radiorecord.ru:8102/yo_320</item>
+        <item>Pump n Klubb\nhttp://air.radiorecord.ru:8102/pump_320</item>
+        <item>City-FM\nhttp://79.143.70.114:8000/cityfm-64k.aac</item>
+        <item>Кот-ФМ Самара 96kbps\nhttp://80.252.19.34:8000/KOTFMogg</item>
+        <item>Пионер FM Базируется в Москве 128kbps\nhttp://pioner.hostingradio.ru:8008/ppr128</item>
+        <item>Europa plus\nhttp://ep128server.streamr.ru:8030/ep128</item>
+        <item>Зайцев FM\nhttp://radio.zaycev.fm:9001/ZaycevFM(256)?type=.flv&amp;file=\nhttp://www.zaycev.fm:9001/ZaycevFM(256)?type=.flv&amp;start=0</item>
+        <item>Русская служба новостей\nhttp://stream02.media.rambler.ru/rsn96.mp3</item>
+        <item>Радонежское радио\nhttp://icecast.radonezh.cdnvideo.ru:8000/rad</item>
+        <item>Радио Jazz\nhttp://jazz.streamr.ru/jazz-128.mp3</item>
+        <item>Наше подмосковье\nhttp://109.238.242.92:8000/rtvp_mp3</item>
+        <item>Megapolis  FM\nhttp://81.19.85.200/megapolis128.mp3</item>
+        <item>Радио Комсомольская правда\nhttp://kraskp.ru:8000/64</item>
+        <item>Russian Hit\nhttp://apps.imgradio.ru/Dorojnoe-001</item>
+        <item>Radio Chocolate\nhttp://choco.hostingradio.ru:10010/fm128</item>
+        <item>Radio 100 FM (Челябинск)\nhttp://195.54.20.148:9000/radio100fm?39</item>
+        <item>Power Fm\nhttp://sh.mncdn.com:8108/;stream.mp3"</item>
+        <item>BFM\nhttp://bfm.hostingradio.ru:8004/fm</item>
+        <item>GlobalFM 1074\nhttp://s07.radio-tochka.com:6455/</item>
+        <item>Heart FM Барнаул 256kbps\nhttp://83.246.143.25:8000/HFMHigh</item>
+        <item>MC Radio\nhttp://onair.mc-radio.ru:8000/</item>
+        <item>NN-Radio 99.5 FM\nhttp://cast.r52.ru:8000/nrd</item>
+        <item>Rock Arsenal Екатеринбург 104.5 FM\nhttp://online.rockarsenal.ru:8000/rockarsenal</item>
+        <item>Авторитетное радио (MP3 128) (Красноярск 102.8)\nhttp://84.22.142.130:8000/arstream</item>
+        <item>Балтик плюс Калининград 105.2(mp3 128)\nhttp://217.168.64.61:8081/balticpl.mp3</item>
+        <item>Белое Радио Березники 96.6(mp3 160)\nhttp://beloeradio.ru:8080/whiteradio.mp3</item>
+        <item>Болид FM Пермь 88.0(mp3 128)\nhttp://178.161.130.30:8128/</item>
+        <item>Большое радио Мурманск 106.9(mp3 128)\nhttp://listen.myradio24.com:9000/8286</item>
+        <item>Вести FM Москва 97.6(mp3 16)\nhttp://184.154.58.146:29378/ra_radiovesti.ru_16.mp3</item>
+        <item>Воскресение Екатеринбург 72.82(ogg 64)\nhttp://217.24.181.164:8000/stream.ogg</item>
+        <item>Восток России Хабаровск 103.7(mp3 192)\nhttp://192.240.102.3:9036/</item>
+        <item>Голос Ангары Братск 103.5(mp3 256)\nhttp://31.41.192.74:8006/</item>
+        <item>Город FM Екатеринбург 107.6(mp3 128)\nhttp://radio.gorodfm.ru:8000/gorodfm</item>
+        <item>Городская Волна Новосибирск 101.4(mp3 128)\nhttp://online.gorvolna.ru:8000/gorvolna</item>
+        <item>Губерния FM Брянск 87.9(mp3 128)\nhttp://3n2.ru:8010/guberniya</item>
+        <item>Джем FM, Екатеринбург, 102.5 FM\nhttp://online.radiojamfm.ru:8000/jam_aacplus</item>
+        <item>Динамит Нижний Новгород Нижний Новгород 96.0(mp3 64)\nhttp://82.208.90.58:2000/</item>
+        <item>Диполь FM Тюмень 105.6(mp3 128)\nhttp://icecast.sibinformburo.cdnvideo.ru:8000/dipolfm</item>
+        <item>Дорожное радио Санкт-Петербург 87.5(mp3 256)\nhttp://dorognoe.hostingradio.ru:8000/radio</item>
+        <item>Железо ФМ Железногорск 99.0(mp3 192)\nhttp://fefm.signaltv.ru</item>
+        <item>Интер Радио Jazz Екатеринбург 73.97(mp3 128)\nhttp://www.intervolna.com:8000/Inter</item>
+        <item>Интерра FM Первоуральск 97.6(mp3 320)\nhttp://ice.interra.fm:8000/barix.m3u</item>
+        <item>Кавказ Радио Владикавказ 90.8(mp3 128)\nhttp://radio.alania.net:8000/kvk</item>
+        <item>Радио За облаками Курган 101.5(mp3 64)\nhttp://195.88.63.114:8000/zaoblakami</item>
+        <item>Камышин FM Камышин 88.2(mp3 160)\nhttp://188.130.230.132:8000/</item>
+        <item>Красная Армия (mp3 256) (Тюмень 104.6)\nhttp://live.rzs.ru/ka256</item>
+        <item>Лайт-Радио (mp3 128) (Кинешма 105.6)\nhttp://s5.radioheart.ru:8010/LiteRadioKineshma</item>
+        <item>Липецк-FM (mp3 128) (Липецк 90.7)\nhttp://media.lipetsk.ru:9009/r_lt.mp3</item>
+        <item>Макс FM (mp3 128) (Сочи 107.4)\nhttp://mxsel.maksmedia.ru:8000/maksfm128</item>
+        <item>Макс FM (mp3 192) (Сочи 107.4)\nhttp://mxsel.maksmedia.ru:8000/maksfm192</item>
+        <item>Мега FM (mp3 128) (Архангельск 106.4)\nhttp://radio.arkhnet.ru:6001/megafm.mp3</item>
+        <item>Мегаполис FM (mp3 128) (Москва 89.5)\nhttp://stream04.media.rambler.ru/megapolis128.mp3</item>
+        <item>Мелодия - Воронеж (mp3 192) (Воронеж 71.39)\nhttp://icecast.mediaalliance.cdnvideo.ru/mediaalliance</item>
+        <item>Москва FM (mp3 128) (Москва 92.0)\nhttp://icecast.vgtrk.cdnvideo.ru/moscowfm128</item>
+        <item>Мост-Радио (mp3 128) (Пенза 102.8)\nhttp://94.181.181.72:8000/</item>
+        <item>Моя Удмуртия (mp3 96) (Ижевск 100.1)\nhttp://radio.myudm.ru:10010/mp3</item>
+        <item>Н-Радио (mp3 128) (Новоуральск 107.9)\nhttp://5.199.192.107:8000/n-radio</item>
+        <item>Народная Волна (mp3 128) (Екатеринбург 91.9)\nhttp://www.intervolna.com:8000/rnv</item>
+        <item>Наши Песни-Екатеринбург 128kbps\nhttp://online.nashipesni.ru:8000/nashipesni</item>
+        <item>Наши Песни-Екатеринбург 64kbps\nhttp://online.nashipesni.ru:8000/nashipesni_aacplus</item>
+        <item>Наши Песни-Красноярск 64kbps\nhttp://online.nashipesni.ru:8000/np-kras</item>
+        <item>Ника FM Калуга 103.1 128kbps\nhttp://radio.nikatv.ru:8959/</item>
+        <item>Новая Волна Волгоград 102.0 96kbps\nhttp://89.249.224.121:8010/</item>
+        <item>Новая Жизнь Магадан 71.36 64kbps\nhttp://50.22.253.46:80/nlradio</item>
+        <item>Первое Радио Краснодар 102.7 (mp3 112)\nhttp://217.19.105.43:8000/</item>
+        <item>Радио 2x2 Ульяновск 102.1 (ogg 128)\nhttp://95.104.192.220:8001/radio2x2.ogg</item>
+        <item>Радио 7 Тюмень 103.1 (mp3 128)\nhttp://rain72.ru:8000/radio7</item>
+        <item>Радио 40 Рок Калуга 105.1)\nhttp://radio40.ru/public/stream.php/</item>
+        <item>Радио 53 Великий Новгород 102.7(mp3 128) \nhttp://84.242.241.66:8000/</item>
+        <item>Радио 100 FM Челябинск 100.0 (mp3 128)\nhttp://195.54.20.148:9000/radio100online</item>
+        <item>Радио 106.9 FM Тольятти 106.9 (mp3 128)\nhttp://online.106i9fm.ru:8000/106i9_mp3</item>
+        <item>Радио 107 Краснодар 107.7 (mp3 256)\nhttp://62.183.34.109:8000/radio107_256.mp3</item>
+        <item>Радио AVN Артём 101.0 (mp3 128)\nhttp://radiohost.artem-catv.ru:8001/radio-avn-128</item>
+        <item>Радио HIT Орск 103.7 (mp3 128\nhttp://radio.trkeurasia.ru:8000/hitfmural128</item>
+        <item>Радио МСМ Иркутск 102.1 (mp3 128)\nhttp://91.227.68.150:10000/hit128</item>
+        <item>Радио OK Рязань 107.2 (mp3 256)\nhttp://radiook.nlink.ru:8000/OKradio256.mp3</item>
+        <item>Радио OK Рязань 107.2 (mp3 128)\nhttp://radiook.nlink.ru:8000/OKradio128.mp3</item>
+        <item>Радио VBC Владивосток 101.7 (mp3 256)\nhttp://air.radiovbc.ru:8000/Radio256</item>
+        <item>Радио Август Тольятти 102.3 (mp3 40)\nhttp://81.28.166.36:8000</item>
+        <item>Радио Альфа Пермь 104.1 (aac+ 64)\nhttp://online.alfafm.ru:8000/alfa</item>
+        <item>ACCA\nhttp://stream3.radiostyle.ru:8003/radioacca</item>
+        <item>Радио Прибой Махачкала 100.7 (mp3 96)\nhttp://stream6.radiostyle.ru:8006/priboyfm</item>
+        <item>Радио Ир Владикавказ 105.3 (mp3 112)\nhttp://78.110.148.237:8000/</item>
+        <item>Радио Ватан Махачкала 104.8 (mp3 96)\nhttp://stream1.radiostyle.ru:8001/radiovatan</item>
+        <item>Кавказ FM\nhttp://music.nextweb.ru:9500/kavkaz-fm</item>
+        <item>Кавказ FM Чеченский хит\nhttp://music.nextweb.ru:9500/hehenskii_XIT</item>
+        <item>Кавказ FM Кумыкское радио\nhttp://music.nextweb.ru:9500/kumikskay</item>
+        <item>Кавказ FM Армянский хит\nhttp://music.nextweb.ru:9500/armynskiy_XIT</item>
+        <item>Кавказкая любовь\nhttp://music.nextweb.ru:9500/kavkaz-lubov</item>
+        <item>RNB Кавказ Radio\nhttp://music.nextweb.ru:9500/kavkaz-rap-rnb</item>
+        <item>Золотые хиты Азии\nhttp://music.nextweb.ru:9500/zha</item>
+        <item>Прибой Аварское радио\nhttp://music.nextweb.ru:9500/avarskaya</item>
+        <item>Чеченское радио\nhttp://music.nextweb.ru:9500/hehenskay</item>
+        <item>Карачаевское радио\nhttp://music.nextweb.ru:9500/karahaevskay</item>
+        <item>Грузинское радио\nhttp://music.nextweb.ru:9500/gruzinskaya</item>
+        <item>Кавказ FM Азебайджанский хит\nhttp://music.nextweb.ru:9500/azerbaidjanskiy_XIT</item>
+        <item>Радио Нашид\nhttp://music.nextweb.ru:9500/radionashid</item>
+        <item>Мейхана FM\nhttp://music.nextweb.ru:9500/radio_meyhana</item>
+        <item>Адыгейское радио\nhttp://music.nextweb.ru:9500/adigeiskaya</item>
+        <item>Лезгинское радио\nhttp://music.nextweb.ru:9500/lezginskay</item>
+        <item>Даргинское радио\nhttp://music.nextweb.ru:9500/darginskay</item>
+        <item>Табасаранское радио\nhttp://music.nextweb.ru:9500/tabasaranskay</item>
+        <item>Лакское радио\nhttp://music.nextweb.ru:9500/lakskay</item>
+        <item>Балкарское радио\nhttp://music.nextweb.ru:9500/balkarian</item>
+        <item>Ингушское радио\nhttp://music.nextweb.ru:9500/inguhskay</item>
+        <item>Радио Ашкадар Уфа 66.68 256kbps\nhttp://player.bonus-tv.ru:8090/radio1.mp3</item>
+        <item>Радио Вера Москва 100.9 128kbps\nhttp://radiovera.hostingradio.ru:8007/radiovera_128</item>
+        <item>Радио Весна Смоленск 102.7 48kbps\nhttp://91.203.176.214:8000/vesnafm</item>
+        <item>Радио Гардарика Ленинградская область 128kbps\nhttp://metroclub.ru:8260/</item>
+        <item>Радио Губерния Воронеж 100.7 128kbps\nhttp://www.gubernia-media.ru:8000/gubernia</item>
+        <item>Радио Заречный Пенза 103.3 160kbps\nhttp://85.234.36.51:8000/radio</item>
+        <item>Радио Звезда Москва 95.6 128kbps\nhttp://89.208.99.16:8088/zvezda_128</item>
+        <item>Радио Карнавал  Москва 92.8 128kbps\nhttp://online.carnivalfm.ru:8000/stream/2/</item>
+        <item>Радио Карнавал Москва 92.8 64kbps\nhttp://online.carnivalfm.ru:8000/stream/3/</item>
+        <item>Радио Комета Чехов 92.6 64kbps\nhttp://online.kometa.fm:8000/live</item>
+        <item>Радио Континенталь Челябинск 100.4 64kbps\nhttp://stream01.radiocon.ru:8000/aac64</item>
+        <item>Радио Континенталь Челябинск 100.4 32kbps\nhttp://stream01.radiocon.ru:8000/aac32</item>
+        <item>Радио Кунел Набережные Челны 67.79 128kbps\nhttp://live.kunelradio.ru:8000/128.mp3</item>
+        <item>Радио Курс  Курск 103.7 256kbps\nhttp://195.3.252.115/kurs</item>
+        <item>Радио Лемма Владивосток 102.7 128kbps\nhttp://212.107.192.130:8000/;stream.nsv"</item>
+        <item>Радио Миллениум Казань 107.3 (aac)\nhttp://95.211.15.193:9994</item>
+        <item>Радио Мир Первое Доброе Радио Москва (mp3 128)\nhttp://icecast.mirtv.cdnvideo.ru:8000/radio_mir128</item>
+        <item>Радио Н Новочеркасск 102.6 (mp3 128)\nhttp://online.radio-n.ru:8000/radio</item>
+        <item>Радио Ноябрьск 103.0 (mp3 128\nhttp://88.205.232.218:8000/RadioNoyabrsk</item>
+        <item>Радио Олимп Челябинск 104.5 (aac+ 64)\nhttp://online.olimpfm.ru:8000/olimp</item>
+        <item>Радио Радонеж Москва 72.92 (mp3 128)\nhttp://icecast.radonezh.cdnvideo.ru:8000/rad128</item>
+        <item>Радио Радонеж Москва 72.92 (mp3 32)\nhttp://icecast.radonezh.cdnvideo.ru:8000/rad</item>
+        <item>Радио Рандеву Нижний Новгород 103.4 (mp3 128)\nhttp://212.92.183.74:8370/</item>
+        <item>Радио Рекорд Санкт-Петербург 106.3 (mp3 320)\nhttp://online.radiorecord.ru:8101/rr_320</item>
+        <item>Радио РСН Москва 107.0 (mp3 128)\nhttp://stream02.media.rambler.ru/rsn96.mp3</item>
+        <item>Радио Си Екатеринбург 103.7 (mp3 128)\nhttp://online.radioc.ru:8000/radioc</item>
+        <item>Радио Си Екатеринбург 103.7 (aac+ 64)\nhttp://online.radioc.ru:8000/radioc_aacplus</item>
+        <item>Радио Си Екатеринбург 103.7 (mp3 32)\nhttp://online.radioc.ru:8000/radioc32</item>
+        <item>Радио Сибирь Томск 104.6 (mp3 192)\nhttp://radiosibir.ru:8090/HQ</item>
+        <item>Радио Сибирь Чита 102.6 (mp3 192)\nhttp://188.168.81.200:8000/radiosibir192</item>
+        <item>Радио Сибирь-Байкал Улан-Удэ 106.5 (mp3 128)\nhttp://92.124.196.44:8000/radiosibiruu</item>
+        <item>Радио Сити Тюмень 100.6 (aac+ 64)\nhttp://online.100i6fm.ru:8000/city</item>
+        <item>Радио Столица Махачкала 107.1 (mp3 128)\nhttp://skycast.su:2007/3894</item>
+        <item>Радио Точка Ру Орск 100.7 (128)\nhttp://dotru.trkeurasia.ru:8000/dotru128</item>
+        <item>Радио Точка Ру (aac 128)\nhttp://dotru.trkeurasia.ru:8000/dotru128aac</item>
+        <item>Радио Точка Ру Орск 100.7 (mp3 64)\nhttp://dotru.trkeurasia.ru:8000/dotru64</item>
+        <item>Радио Фортуна Волгодонск 106.3 (mp3 128)\nhttp://listen.vdfm.ru:8000/fortuna</item>
+        <item>Радио Шоколад Москва 98.0 (mp3 128)\nhttp://choco.hostingradio.ru:10010/fm128</item>
+        <item>Радио Экспресс Пенза 105.2 (mp3 128)\nhttp://91.144.176.199:8000/</item>
+        <item>Радио Эрмитаж Санкт-петербург 90.1 (mp3 128)\nhttp://91.190.117.131:8000/live</item>
+        <item>Ретро FM Москва 88.3 (mp3 128)\nhttp://retroserver.streamr.ru:8043/retro128</item>
+        <item>Самара-Максимум Самара 104.3 (mp3 128)\nhttp://193.219.125.89:8000/maximum</item>
+        <item>Солнечное Радио Ленинск-Кузнецкий 99.3 (mp3 128)\nhttp://setmedia.ru:8000/high2</item>
+        <item>Спутник FM Уфа 107.0 (mp3 128)\nhttp://player.bonus-tv.ru:8090/radio3.mp3</item>
+        <item>Старое доброе радио Братск 105.3 (mp3 128)\nhttp://31.41.192.74:8008</item>
+        <item>Тихий Дон Ростов-На-Дону 73.76 (mp3 128)\nhttp://skycast.su:2007/3749</item>
+        <item>Ток FM Самара 91.5 (mp3 128)\nhttp://online.tokfm.ru:8000/tokfm</item>
+        <item>Удачное Радио Хабаровск 103.1 (mp3 128)\nhttp://radio.gubernia.com:8000/radio1</item>
+        <item>ЭкоРадио Нижний Тагил 103.0 (mp3 128)\nhttp://109.198.108.42:8000/</item>
+        <item>Экспресс Радио Орёл 100.4 (mp3 128)\nhttp://159.253.18.97:8000/128kbit.mp3</item>
+        <item>Южная волна Астрахань 104.1 (mp3 128)\nhttp://213.80.160.102:8000/channel4</item>
+        <item>Сelestia Radio\nhttp://celestia.aiverse.org:8000/mp3_256</item>
+        <item>Радио Русские песни (поток 1)\nhttp://listen.rusongs.ru/ru-aac-48</item>
+        <item>Радио Русские песни (поток 2)\nhttp://s2.rusongs.ru/ru-aac-48</item>
+        <item>Новое Радио Минск Беларусь\nhttp://212.98.181.84:8000/novoeradio_128</item>
+        <item>Unistar Беларусь\nhttp://unistar.by:8000/unistar-128kb</item>
+        <item>Радио Минск Беларусь\nhttp://93.84.113.142:8000/radio</item>
+        <item>Plus Radio Беларусь\nhttp://live.bn.by:8000/aplus_top_128</item>
+        <item>Harmony radio Бельгия\nhttp://91.121.49.52:8000/harmonyradio.mp3</item>
+        <item>Новая Волна Волгоград\nhttp://89.249.224.121:8010/;</item>
+        <item>Radio 7 Германия\nhttp://srv01.radio7.fmstreams.de/stream1/livestream.mp3</item>
+        <item>Радио BunkerTV Германия\nhttp://www.bunkertv.de:8002/bb.mp3</item>
+        <item>Rocky FM Германия\nhttp://tuner.rockyfm.com:80/;</item>
+        <item>Народная Волна Екатеринбург\nhttp://www.intervolna.com:8000/rnv</item>
+        <item>Радио MCM Иркутск\nhttp://91.227.68.150:10000/hit128</item>
+        <item>Радио NS Казахстан\nhttp://live26.kiwi.kz:8000/radions</item>
+        <item>Радио Paradise Калифорния\nhttp://www.radioparadise.com/musiclinks/rp_128.m3u</item>
+        <item>Радио Динамо Киев\nhttp://cast.radiogroup.com.ua:8000/106fm</item>
+        <item>Радио 107 Краснодар\nhttp://62.183.34.109:8000/radio107.mp3</item>
+        <item>Авторитетное радио Красноярск\nhttp://84.22.142.130:8000/arstream</item>
+        <item>Первое Радио Кубань\nhttp://217.19.105.43:8000</item>
+        <item>Радио Ватан Махачкала\nhttp://stream1.radiostyle.ru:8001/radiovatan</item>
+        <item>Mfm Украина\nhttp://radio.mfm.ua:8080/online128</item>
+        <item>Перец Украина\nhttp://radio.stilnoe.fm:8080/radio-stilnoe</item>
+        <item>Наше радiо Украина\nhttp://cast.radiogroup.com.ua:8000/nashe</item>
+        <item>Джем Украина\nhttp://cast.radiogroup.com.ua:8000/jamfm</item>
+        <item>Хiт FM Украина\nhttp://195.95.206.17/HitFM_32</item>
+        <item>Хит ФМ Урал\nhttp://radio.trkeurasia.ru:8000/hitfmural64.m3u</item>
+        <item>Шарманка Украина\nhttp://217.20.164.163:8006/;</item>
+        <item>Радio РОКС Украина\nhttp://online-radioroks.tavrmedia.ua/RadioROKS_32</item>
+        <item>УХ радiо Украина\nhttp://online.uhradio.com.ua:8001/efir</item>
+        <item>Radio Mix Украина\nhttp://www.rmix.dp.ua/listen_low.m3u</item>
+        <item>Авторадио Украина\nhttp://cast.radiogroup.com.ua:8000/avtoradio</item>
+        <item>Динамо Украина\nhttp://cast.radiogroup.com.ua:8000/106fm</item>
+        <item>Молодое радио Украина\nhttp://molode.com.ua:8128/;</item>
+        <item>Народное Радио Украина\nhttp://62.80.190.247:8001/NaRadiO128</item>
+        <item>Радио Шансон Украина\nhttp://217.20.164.163:8002/;</item>
+        <item>Бiзнес Украина\nhttp://217.20.164.163:8018/;</item>
+        <item>Радiо Люкс Украина\nhttp://icecast.luxnet.ua/lux</item>
+        <item>Просто Ради.о Украина\nhttp://62.80.190.246:8000/ProstoRadiO128</item>
+        <item>Киев Украина\nhttp://217.76.201.26:8000/;stream.nsv</item>
+        <item>Best FM Украина\nhttp://radio.bestfm.fm:8080/bestfm64</item>
+        <item>Эра FM Украина\nhttp://212.26.129.2:8000/era96</item>
+        <item>Feel Украина(Одесса)\nhttp://62.80.190.246:8000/Feel</item>
+        <item>Мелодiя  Украина\nhttp://melodia.ipfm.net/RadioMelodia_32</item>
+        <item>Frequence 3 Франция\nhttp://ice.stream.frequence3.net/frequence3-128.mp3</item>
+        <item>Радио Alouette Франция\nhttp://broadcast.infomaniak.net/alouette-high.mp3</item>
+        <item>Big FM Штутгарт\nhttp://srv04.bigstreams.de/bigfm-mp3-64</item>
+        <item>ElectroN\nhttp://radio-electron.ru:8000/128</item>
+        <item>Monte Carlo\nhttp://radio.2kom.ru:8000/monte_carlo</item>
+        <item>Rock FM\nhttp://radio.2kom.ru:8000/RockFM</item>
+        <item>Вести ФМ\nhttp://radio.2kom.ru:8000/Vesti.FM</item>
+        <item>Говорит Москва(64kbt)\nhttp://radio.2kom.ru:8000/govoritmoskva</item>
+        <item>Детское радио\nhttp://radio.2kom.ru:8000/detskoe</item>
+        <item>Дорожное радио\nhttp://radio.2kom.ru:8000/Dorognoe</item>
+        <item>Европа плюс\nhttp://radio.2kom.ru:8000/europaplus</item>
+        <item>Карнавал ФМ\nhttp://radio.2kom.ru:8000/Karnaval.FM</item>
+        <item>Мегаполис FM\nhttp://radio.2kom.ru:8000/Megapolis_FM</item>
+        <item>Радио 7\nhttp://radio.2kom.ru:8000/Radio7</item>
+        <item>Радио Звезда\nhttp://radio.2kom.ru:8000/Zvezda</item>
+        <item>Радио Маяк 192kbps\nhttp://radio.2kom.ru:8000/Mayak</item>
+        <item>Радио Ретро\nhttp://radio.2kom.ru:8000/RetroFM</item>
+        <item>Серебряный дождь\nhttp://radio.2kom.ru:8000/silver</item>
+        <item>Эра FM (96kbt)\nhttp://212.26.129.2:8000/era96</item>
+        <item>Фонтанка ФМ\nhttp://bcs1.fontanka.fm:8000/stream.mp3</item>
+        <item>FM BLUES\nhttp://sc-blues.1.fm:7042/;</item>
+        <item>HITS 80s\nhttp://radio.2kom.ru:8000/1hits80s</item>
+        <item>1000 Oldies\nhttp://radio.2kom.ru:8000/1000oldies</item>
+        <item>Радио Минск 92 4 ФМ\nhttp://93.84.113.142:8000/radio</item>
+        <item>80s\nhttp://energy80s.ice.infomaniak.ch/energy80s-high.mp3</item>
+        <item>80s Lite Hits\nhttp://208.77.21.13:9410</item>
+        <item>Energy 90s\nhttp://energy90s.ice.infomaniak.ch/energy90s-high.mp3</item>
+        <item>Plus Radio\nhttp://live.bn.by:8000/aplus_top_128</item>
+        <item>SOMA.FM Tags Trance Trip\nhttp://ice.somafm.com/thetrip-64.aac</item>
+        <item>AddictedToRadio\nhttp://208.77.21.13:15130</item>
+        <item>AddictedToRadio\nhttp://208.77.21.13:14730</item>
+        <item>AddictedToRadio\nhttp://208.77.21.15:11510</item>
+        <item>AddictedToRadio\nhttp://208.77.21.15:11530</item>
+        <item>AddictedToRadio\nhttp://208.77.21.13:9010</item>
+        <item>AddictedToRadio\nhttp://208.77.21.13:14710</item>
+        <item>AddictedToRadio\nhttp://208.77.21.13:9310</item>
+        <item>AddictedToRadio\nhttp://208.77.21.13:9030</item>
+        <item>Radio MusiKA\nhttp://89.22.96.12:7777</item>
+        <item>AfterHours\nhttp://radio.2kom.ru:8000/afterhours</item>
+        <item>Ah.FM\nhttp://www.ah.fm/192k.m3u</item>
+        <item>All4Fun Radio\nhttp://46.163.108.110:30716</item>
+        <item>Amsterdam Trance Radio\nhttp://sc-atr.1.fm:7700/;</item>
+        <item>Anison FM\nhttp://s1.radio.ru-hoster.com:8000/AniSonFM(320)</item>
+        <item>Arrow Classic Rock\nhttp://radio.2kom.ru:8000/Arrow_Classic_Rock</item>
+        <item>Baltcom Radio\nhttp://91.90.255.111:80/baltkom</item>
+        <item>SomaFM - BeatBlender\nhttp://radio.2kom.ru:8000/SomaFM-BeatBlender</item>
+        <item>Best FM\nhttp://radio.bestfm.fm:8080/bestfm64</item>
+        <item>Big Beat radio\nhttp://us.bigbeatradio.com:8100/hi-fi.mp3</item>
+        <item>Big FM\nhttp://srv04.bigstreams.de/bigfm-mp3-64</item>
+        <item>Biker FM\nhttp://radio.2kom.ru:8000/MusicManiacs</item>
+        <item>Biker FM\nhttp://stream1.radiostyle.ru:8001/biker-fm</item>
+        <item>Black\nhttp://energyblack.ice.infomaniak.ch/energyblack-high.mp3</item>
+        <item>Capitol.fm\nhttp://38.96.148.138:5898</item>
+        <item>Charts\nhttp://energycharts.ice.infomaniak.ch/energycharts-high.mp3</item>
+        <item>m - Chilled Out\nhttp://radio.2kom.ru:8000/181fm.ChilledOut</item>
+        <item>CjClub Radio\nhttp://radio.2kom.ru:8000/CjClub</item>
+        <item>Dance Radio\nhttp://radio.2kom.ru:8000/Dance.radio</item>
+        <item>Dance.FM\nhttp://radio.2kom.ru:8000/Dance.FM</item>
+        <item>Deepvibes Radio\nhttp://88.208.218.19:9106/stream</item>
+        <item>DEFJAY Radio Deutschland\nhttp://he-srv4.defjay.de/;stream.nsv</item>
+        <item>DJ Station\nhttp://s.djstation.ru/stream192</item>
+        <item>DNB FM\nhttp://go.dnbfm.ru:8000/play</item>
+        <item>Drums.ro Радио\nhttp://radio.drums.ro:8000/;</item>
+        <item>Entranced.FM\nhttp://209.9.229.216:80</item>
+        <item>EuropaRussia\nhttp://radio.2kom.ru:8000/europarussia</item>
+        <item>Exitos 80 y 90\nhttp://5.9.65.9:8014</item>
+        <item>Feel\nhttp://62.80.190.246:8000/Feel</item>
+        <item>Fly Fm\nhttp://flyfm.net:8000/flyfm.m3u</item>
+        <item>Frequence 3\nhttp://ice.stream.frequence3.net/frequence3-128.mp3</item>
+        <item>German\nhttp://energygerman.ice.infomaniak.ch/energygerman-high.mp3</item>
+        <item>Ghost Anime Radio\nhttp://animeradio.su:8000/;</item>
+        <item>Girl\nhttp://energygirl.ice.infomaniak.ch/energygirl-high.mp3</item>
+        <item>GlobalBeats FM\nhttp://radio.2kom.ru:8000/GlobalBeats.FM</item>
+        <item>Goldradio\nhttp://184.154.145.114:8085</item>
+        <item>Gr8 80\'s\nhttp://184.107.202.178:8138</item>
+        <item>Grind.FM\nhttp://radio.goha.ru:8000/grind.fm</item>
+        <item>SomaFM - Groove Salad\nhttp://radio.2kom.ru:8000/SomaFM-GrooveSalad</item>
+        <item>GTI Radio\nhttp://radio.globaltranceinvasion.com:8000/radiomid.m3u</item>
+        <item>HardBase.FM\nhttp://radio.2kom.ru:8000/HardBase.FM</item>
+        <item>HardRockin80s\nhttp://74.208.105.119:8018</item>
+        <item>Harmony radio\nhttp://91.121.49.52:8000/harmonyradio.mp3</item>
+        <item>Hit FM\nhttp://online-hitfm.tavrmedia.ua/HitFM</item>
+        <item>Hit FM\nhttp://hitfm.ipfm.net:8000/HitFM</item>
+        <item>Hit FM\nhttp://radio.2kom.ru:8000/hit</item>
+        <item>Inolvidable FM\nhttp://198.178.123.20:7608</item>
+        <item>Jazz-Rock &amp; Fusion\nhttp://radio.2kom.ru:8000/FlareSound</item>
+        <item>Jazz-Rock &amp; Fusion\nhttp://music.myradio.com.ua:8000/JazzRockFusion128.mp3</item>
+        <item>Ragga - Jungle (Psychoradio)\nhttp://stream.psychoradio.org:8000/;"</item>
+        <item>JUNGLETRAIN.NET\nhttp://radio.2kom.ru:8000/jungletrain</item>
+        <item>KAOS-Sound\nhttp://87.117.193.5:8030</item>
+        <item>KCSM Jazz 91\nhttp://ice5.securenetsystems.net/KCSM</item>
+        <item>m - Kickin Country\nhttp://radio.2kom.ru:8000/Kickin_Country</item>
+        <item>Kiev98FM\nhttp://217.76.201.26:8000</item>
+        <item>kiss fm\nhttp://67.228.150.184:6540</item>
+        <item>KissFM Romania\nhttp://radio.2kom.ru:8000/kiss</item>
+        <item>KoolMixRadio\nhttp://198.178.123.20:8004</item>
+        <item>Latin\nhttp://nrjlatin.ice.infomaniak.ch/nrjlatin-high.mp3</item>
+        <item>Live Ireland\nhttp://66.90.73.250:8080/;"</item>
+        <item>Lounge FM Acoustic\nhttp://radio.2kom.ru:8000/lounge_fm_acoustic</item>
+        <item>Lux Fm\nhttp://stream1.lux.fm:8088</item>
+        <item>M2 80\nhttp://87.98.163.222:9080</item>
+        <item>Master of Hardcore radio\nhttp://radio.2kom.ru:8000/Master.of.Hardcore.radio</item>
+        <item>Megapolis FM\nhttp://81.19.85.204:80/megapolis128.mp3</item>
+        <item>Mfmа\nhttp://radio.mfm.ua:8080/online128</item>
+        <item>MOH Radio\nhttp://radiostream.akado.ru/playlist/radio.m3u?station=mohradio&amp;stream=96</item>
+        <item>Molode радiо\nhttp://molode.com.ua:8128/;"</item>
+        <item>NAXI 80-e RADIO\nhttp://109.206.96.34:8045</item>
+        <item>novaclassicrock\nhttp://173.236.29.52:80</item>
+        <item>NRJ 00s\nhttp://energy00s.ice.infomaniak.ch/energy00s-high.mp3</item>
+        <item>NRJ 80s\nhttp://energy80s.ice.infomaniak.ch/energy80s-high.mp3</item>
+        <item>NRJ 90s\nhttp://energy90s.ice.infomaniak.ch/energy90s-high.mp3</item>
+        <item>NRJ Dance\nhttp://energydance.ice.infomaniak.ch/energydance-high.mp3</item>
+        <item>NRJ German\nhttp://energygerman.ice.infomaniak.ch/energygerman-high.mp3</item>
+        <item>NRJ Girl\nhttp://energygirl.ice.infomaniak.ch/energygirl-high.mp3</item>
+        <item>NRJ Hot\nhttp://energyhot.ice.infomaniak.ch/energyhot-high.mp3</item>
+        <item>NRJ Italy\nhttp://energyitaly.ice.infomaniak.ch/energyitaly-high.mp3</item>
+        <item>NRJ Latin\nhttp://nrjlatin.ice.infomaniak.ch/nrjlatin-high.mp3</item>
+        <item>NRJ Lounge\nhttp://energylounge.ice.infomaniak.ch/energylounge-high.mp3</item>
+        <item>NRJ Love\nhttp://energylove.ice.infomaniak.ch/energylove-high.mp3</item>
+        <item>NRJ Mix\nhttp://energymix.ice.infomaniak.ch/energymix-high.mp3</item>
+        <item>NRJ Rock\nhttp://energyrock.ice.infomaniak.ch/energyrock-high.mp3</item>
+        <item>NRJ Soundtrack\nhttp://energysoundtrack.ice.infomaniak.ch/energysoundtrack-high.mp3</item>
+        <item>Party Hit Radio\nhttp://partyhitradio.com:8000/;"</item>
+        <item>Partyradio24\nhttp://84.19.182.20:8070</item>
+        <item>PDJ Fm 186mph\nhttp://radio.2kom.ru:8000/pdj_186mph</item>
+        <item>PDJ Fm 300kmh\nhttp://radio.2kom.ru:8000/pdj_300km</item>
+        <item>PDJ Fm Brainfck\nhttp://radio.2kom.ru:8000/pdj_brainfuck</item>
+        <item>PDJ Fm Channel 5\nhttp://radio.2kom.ru:8000/pdj_channel5</item>
+        <item>PDJ Fm Deep\nhttp://radio.2kom.ru:8000/pdj_deep-192</item>
+        <item>PDJ Fm Dubstep\nhttp://radio.2kom.ru:8000/pdj_dubstep</item>
+        <item>PDJ Fm Full Moon\nhttp://radio.2kom.ru:8000/pdj_fullmoon</item>
+        <item>PDJ Fm Klubb\nhttp://radio.2kom.ru:8000/pdj_klubb-192</item>
+        <item>PDJ Fm Mini\nhttp://radio.2kom.ru:8000/pdj_mini</item>
+        <item>PDJ Fm Nu\nhttp://radio.2kom.ru:8000/pdj_nu</item>
+        <item>PDJ Fm Old-School\nhttp://radio.2kom.ru:8000/pdj_oldschool</item>
+        <item>PDJ Fm Pop\nhttp://radio.2kom.ru:8000/pdj_pop</item>
+        <item>PDJ Fm Strange\nhttp://radio.2kom.ru:8000/pdj_strange</item>
+        <item>PDJ Fm Too Nu\nhttp://radio.2kom.ru:8000/pdj_toonu</item>
+        <item>PDJ Fm Top 100\nhttp://radio.2kom.ru:8000/pdj_top100</item>
+        <item>PDJ Fm Vata\nhttp://radio.2kom.ru:8000/vata</item>
+        <item>PDJ Fm Yo\nhttp://radio.2kom.ru:8000/pdj_yo</item>
+        <item>PIRATE STATION\nhttp://online.radiorecord.ru:8102/ps_128</item>
+        <item>Proton Radio\nhttp://www.protonradio.com/itunes.pls</item>
+        <item>Psychic Radio Station\nhttp://psyradio.com.ua/PsyRadio_128kbps.m3u</item>
+        <item>PSYRadio.FM\nhttp://radiostream.akado.ru/playlist/radio.m3u?station=psyradiofm&amp;stream=128</item>
+        <item>Pump n Klubb\nhttp://air.radiorecord.ru:8102/pump_320</item>
+        <item>PUMP N KLUBB\nhttp://online.radiorecord.ru:8102/pump_128</item>
+        <item>RADIO 7\nhttp://94.23.36.107:443</item>
+        <item>Radio Cafe Romania\nhttp://94.176.168.66:8048</item>
+        <item>Radio Chantre\nhttp://188.138.91.134:9000</item>
+        <item>Radio Chocolate\nhttp://81.19.85.204/chocolad128.mp3</item>
+        <item>RADIO DEE JAY-DEEP HOUSE MUSIC\nhttp://50.7.77.114:8101</item>
+        <item>Radio Dismuke\nhttp://74.208.71.58:8078/;stream.nsv"</item>
+        <item>Radio IREC Instrumental\nhttp://198.105.220.12:4251/Live</item>
+        <item>Radio Italo4you\nhttp://s6.radiohost.pl:8080/;"</item>
+        <item>Radio Jazz International\nhttp://broadcast.infomaniak.net/radiojazz-high.mp3</item>
+        <item>Radio Karanval\nhttp://81.19.85.200:80/karnaval128.mp3</item>
+        <item>Radio Mega Dance\nhttp://188.134.10.11:8000/;stream.nsv"</item>
+        <item>Radio Melodia\nhttp://melodia.ipfm.net:8000/RadioMelodia</item>
+        <item>Radio Mix\nhttp://www.rmix.dp.ua/listen_low.m3u</item>
+        <item>RADIO RECORD\nhttp://online.radiorecord.ru:8101/rr_128</item>
+        <item>Radio Record\nhttp://air.radiorecord.ru:8101/rr_320</item>
+        <item>Radio ROKS\nhttp://roks.ipfm.net:8000/RadioROKS</item>
+        <item>Radio Swiss Jazz\nhttp://radio.2kom.ru:8000/Radio_Swiss_Jazz</item>
+        <item>RADIO TOP 80\nhttp://109.71.41.250:8086</item>
+        <item>Radio ZVEZDA (Moscow) 95.6 FM\nhttp://81.19.85.200:80/zvezda128.mp3</item>
+        <item>Radio-Heimatmelodie\nhttp://212.77.178.166:8020</item>
+        <item>RADIO.IPIP.CZ\nhttp://212.96.160.160:8000</item>
+        <item>Radio075\nhttp://95.211.195.194:8020</item>
+        <item>Radio13\nhttp://radio13.ru/save.mp3.php?mp3.m3u</item>
+        <item>RadioBobo\nhttp://206.190.136.141:6682/Live</item>
+        <item>RadioCafe\nhttp://stream.makradio.ru:80/radiocafe128.mp3</item>
+        <item>RadioCrazy Jazz\nhttp://stream2138.init7.net/;stream.nsv"</item>
+        <item>RadioMETRO\nhttp://195.182.132.18:8230</item>
+        <item>RadioMillenium Kazan\nhttp://95.211.15.193:9994/</item>
+        <item>RadioWoM\nhttp://91.232.4.24:9120</item>
+        <item>RAM FM Eighties Hit Radio\nhttp://83.170.89.19:9866</item>
+        <item>Record Chill-Out\nhttp://air.radiorecord.ru:8102/chil_320</item>
+        <item>RECORD CHILL-OUT\nhttp://online.radiorecord.ru:8102/chil_128</item>
+        <item>Record Club\nhttp://air.radiorecord.ru:8102/club_320</item>
+        <item>RECORD CLUB\nhttp://online.radiorecord.ru:8102/club_128</item>
+        <item>Record Dancecore\nhttp://air.radiorecord.ru:8102/dc_320</item>
+        <item>RECORD DANCECORE\nhttp://online.radiorecord.ru:8102/dc_128</item>
+        <item>Record Deep\nhttp://air.radiorecord.ru:8102/deep_320</item>
+        <item>Record Hardstyle\nhttp://air.radiorecord.ru:8102/teo_320</item>
+        <item>RECORD URBAN\nhttp://online.radiorecord.ru:8102/dub_128</item>
+        <item>Rock Arsenal\nhttp://online.rockarsenal.ru:8000/rockarsenal_aacplus</item>
+        <item>Rock Radio\nhttp://air.radiorecord.ru:8102/rock_320</item>
+        <item>Rocky FM\nhttp://tuner.rockyfm.com:80/;"</item>
+        <item>Russian Mix\nhttp://air.radiorecord.ru:8102/rus_320</item>
+        <item>RUSSIAN MIX\nhttp://online.radiorecord.ru:8102/rus_128</item>
+        <item>Русское радио Украина\nhttp://russkoe.ipfm.net:8000/RusRadio</item>
+        <item>S4 Radio\nhttp://188.138.1.183:10030/stream</item>
+        <item>Sanctuary Radio\nhttp://radio.2kom.ru:8000/Sanctuary.Radio</item>
+        <item>SomaFM - Secret Agent\nhttp://radio.2kom.ru:8000/SomaFM-SecretAgent</item>
+        <item>Шансон Киев 101.9 (128kbts)\nhttp://217.20.164.170:8002</item>
+        <item>Любимое радио Киев 104.0\nhttp://217.20.164.170:8006</item>
+        <item>SoulLive.ru\nhttp://radio.soullive.ru:8000/livedj</item>
+        <item>Soulplay Radiostation\nhttp://31.193.195.50:8022/stream</item>
+        <item>Synth Radio\nhttp://radio.2kom.ru:8000/Synth_Radio</item>
+        <item>Tags Trance Trip\nhttp://ice.somafm.com/thetrip-64.aac</item>
+        <item>Techno4ever Radio\nhttp://radio.2kom.ru:8000/Techno4ever</item>
+        <item>Techno4ever.FM\nhttp://tunein.t4e.dj/main/dsl/mp3</item>
+        <item>TEODOR HARDSTYLE\nhttp://online.radiorecord.ru:8102/teo_128</item>
+        <item>AddictedtoRadio.com - THIS STATION WILL CONTINUE TO PLAY AFTER THIS BREAK\nhttp://208.77.21.13:15110</item>
+        <item>TOP Radio\nhttp://195.13.200.164:8000/;"</item>
+        <item>TOP100RAP\nhttp://radio-tochka.com:6570/;stream.nsv"</item>
+        <item>Trance Channel\nhttp://radio.2kom.ru:8000/ETN.Trance</item>
+        <item>Trancemission\nhttp://air.radiorecord.ru:8102/tm_320</item>
+        <item>TRANCEMISSION\nhttp://online.radiorecord.ru:8102/tm_128</item>
+        <item>Trancemission.FM\nhttp://83.169.1.182:6669</item>
+        <item>Trancemission.FM\nhttp://87.230.21.161:6660</item>
+        <item>U2 by Radio UNO Digital\nhttp://87.117.202.97:9538</item>
+        <item>Unistar\nhttp://unistar.by:8000/unistar-128kb</item>
+        <item>Venice Classic Radio\nhttp://174.36.206.197:8000/;"</item>
+        <item>Verdure Station\nhttp://95.211.217.163:8881/stream/192/</item>
+        <item>Vip Mix\nhttp://air.radiorecord.ru:8102/vip_320</item>
+        <item>VIP MIX\nhttp://online.radiorecord.ru:8102/vip_128</item>
+        <item>Volldampfradio\nhttp://88.198.195.229:4010</item>
+        <item>Week-FM\nhttp://87.118.78.80:8030</item>
+        <item>Week-FM Rock\nhttp://87.118.78.80:10170</item>
+        <item>Авторитетное радио\nhttp://84.22.142.130:8000/arstream</item>
+        <item>Аплюс Радио Релакс\nhttp://shoutcast.aplus.by:9000/aplus_relax_128</item>
+        <item>Аюрведа Радио\nhttp://listen.vedaradio.fm:8000/high</item>
+        <item>Аюрведа Радио\nhttp://radio.2kom.ru:8000/Veda</item>
+        <item>Бизнес FM\nhttp://bfm.hostingradio.ru:8004/fm</item>
+        <item>Борнео\nhttp://live.borneo.ru:8888/128</item>
+        <item>Вести ФМ\nhttp://icecast.vgtrk.cdnvideo.ru/vestifm_mp3_192kbps</item>
+        <item>Волшебный шансон\nhttp://listen.myradio24.com:9000/8144</item>
+        <item>Голос России\nhttp://audio1.video.ria.ru/voicerus</item>
+        <item>Гоп FM\nhttp://air.radiorecord.ru:8102/gop_320</item>
+        <item>Гоп ФМ\nhttp://online.radiorecord.ru:8102/gop_128</item>
+        <item>Град Петров\nhttp://www.grad-petrov.ru:8093/mp3-40</item>
+        <item>Детские песни\nhttp://music.myradio.com.ua:8000/kids-songs128.mp3</item>
+        <item>Детское\nhttp://www.staroeradio.ru/detskoe32.m3u</item>
+        <item>Джем\nhttp://cast.radiogroup.com.ua:8000/jamfm</item>
+        <item>Динамо\nhttp://cast.radiogroup.com.ua:8000/106fm</item>
+        <item>Дорожное Радио\nhttp://dorognoe.hostingradio.ru:8000/dorognoe</item>
+        <item>Зайцев ФМ Alternative\nhttp://www.zaycev.fm:9002/alternative/ZaycevFM(128)</item>
+        <item>Зайцев ФМ Club\nhttp://www.zaycev.fm:9002/electronic/ZaycevFM(128)</item>
+        <item>Зайцев ФМ Disco\nhttp://www.zaycev.fm:9002/disco/ZaycevFM(128)</item>
+        <item>Зайцев ФМ RNB\nhttp://www.zaycev.fm:9002/rnb/ZaycevFM(128)</item>
+        <item>Интернет радио KMC\nhttp://radiokmc.optizone.ru:8000/live</item>
+        <item>Кабриолет\nhttp://setmedia.ru:8000/high3</item>
+        <item>Киев\nhttp://217.76.201.26:8000/;stream.nsv"</item>
+        <item>Классика\nhttp://music.myradio.com.ua:8000/Classica128.mp3</item>
+        <item>Липецк ФМ\nhttp://media.lipetsk.ru:9009/r_lt.mp3.m3u</item>
+        <item>Литературное радио\nhttp://79.137.234.183:8000/;</item>
+        <item>МЕДЛЯК FM\nhttp://online.radiorecord.ru:8102/mdl_128</item>
+        <item>МОСТ Радио\nhttp://94.181.181.72:8000/;stream.nsv?82"</item>
+        <item>Мега Радио\nhttp://megaradio.pro/SP/megaradio.m3u</item>
+        <item>Мегаполис FM\nhttp://stream04.media.rambler.ru/megapolis128.mp3</item>
+        <item>Медляк FM\nhttp://air.radiorecord.ru:8102/mdl_320</item>
+        <item>Мелодiя\nhttp://melodia.ipfm.net/RadioMelodia_32</item>
+        <item>Модель для Сборки\nhttp://mds-station.com:8000/mds</item>
+        <item>Музыка\nhttp://www.staroeradio.ru/music32.m3u</item>
+        <item>Cinemix - Музыка из фильмов\nhttp://radio.2kom.ru:8000/CineMix</item>
+        <item>Народная Волна\nhttp://www.intervolna.com:8000/rnv</item>
+        <item>Народное Радио\nhttp://62.80.190.247:8001/NaRadiO128</item>
+        <item>Новая Волна\nhttp://89.249.224.121:8010/;"</item>
+        <item>Первое Радио\nhttp://217.19.105.43:8000</item>
+        <item>Первое железнодорожное радио\nhttp://s07.radio-tochka.com:6240/;"</item>
+        <item>Перец\nhttp://radio.stilnoe.fm:8080/radio-stilnoe</item>
+        <item>Пилот ФМ\nhttp://online.pilotfm.ru:8000/pilot</item>
+        <item>Пионер ФМ\nhttp://pioner.hostingradio.ru:8008/ppr128</item>
+        <item>Пионер ФМ\nhttp://radio.2kom.ru:8000/PionerFM</item>
+        <item>Приморское радио\nhttp://mp3.ptr-vlad.ru:8000/Radio96</item>
+        <item>Просто Радио\nhttp://62.80.190.246:8000/ProstoRadiO128</item>
+        <item>РАДИО Fanat1k\nhttp://fanat1k.ru/playlist.m3u</item>
+        <item>Радio РОКС\nhttp://online-radioroks.tavrmedia.ua/RadioROKS_32</item>
+        <item>Радiо Люкс\nhttp://icecast.luxnet.ua/lux</item>
+        <item>Радiо Ренесанс\nhttp://217.20.164.163:8014/;"</item>
+        <item>Радио "Голос Ангары"\nhttp://radio.2kom.ru:8000/Radio_Angara"</item>
+        <item>Радио 107\nhttp://62.183.34.109:8000/radio107.mp3</item>
+        <item>Радио 21\nhttp://radio-21.org.ru/playlist.m3u</item>
+        <item>Радио Alouette\nhttp://broadcast.infomaniak.net/alouette-high.mp3</item>
+        <item>Радио BunkerTV\nhttp://www.bunkertv.de:8002/bb.mp3</item>
+        <item>Радио Disney\nhttp://disney2.streamr.ru:8060/disney</item>
+        <item>Радио Fanat1k\nhttp://fanat1k.ru/playlist.m3u</item>
+        <item>Радио Heart FM\nhttp://83.246.143.25:8000/HFMHigh.m3u</item>
+        <item>Радио MakkiRUS Light\nhttp://stream.makradio.ru:80/light128.mp3</item>
+        <item>Радио MakkiRUS-Mix\nhttp://stream.makradio.ru:80/mix128.mp3</item>
+        <item>Радио MCM\nhttp://91.227.68.150:10000/hit128</item>
+        <item>Радио Metro Россия 102.4 (128kbs)\nhttp://195.182.132.18:8230/;"</item>
+        <item>Радио Paradise\nhttp://www.radioparadise.com/musiclinks/rp_128.m3u</item>
+        <item>Радио PREMIUM\nhttp://listen.rpfm.ru:9000/premium128</item>
+        <item>Радио Premium\nhttp://radio.2kom.ru:8000/Premium</item>
+        <item>Радио PSLAN\nhttp://pslan.com:8000/;"</item>
+        <item>Радио Shizoid Chillout\nhttp://88.198.48.36:8000/chill</item>
+        <item>Радио Ultra\nhttp://radio.2kom.ru:8000/Ultra</item>
+        <item>Радио Аккерман 102.9\nhttp://195.138.73.30:8000/;"</item>
+        <item>Радио Алиса+ Daugavpils 101.6\nhttp://fm2inet.aliseplus.lv:8000/;"</item>
+        <item>Радио Алла\nhttp://air-online2.hitfm.md/radioalla.mp3</item>
+        <item>Радио Гардарика\nhttp://metroclub.ru:8260/;"</item>
+        <item>Радио Динамо\nhttp://cast.radiogroup.com.ua:8000/106fm</item>
+        <item>Радио ЗВЕЗДА Москва 95.6\nhttp://89.208.99.16:8088/zvezda_128</item>
+        <item>Радио Зайцев.FM (128kbs)\nhttp://zaycev.fm:9002/ZaycevFM(128)</item>
+        <item>Радио Золотой Век\nhttp://setmedia.ru:8000/high</item>
+        <item>Радио Индиго\nhttp://stream0.radiostyle.ru:8000/indigo128.m3u</item>
+        <item>Радио Красная Армия\nhttp://live.rzs.ru:8000/ka.128.mp3</item>
+        <item>Радио Маяк (mp3 192kbs)\nhttp://icecast.vgtrk.cdnvideo.ru/mayakfm_mp3_192kbps</item>
+        <item>Радио Мелодия\nhttp://melodia.ipfm.net:80/RadioMelodia</item>
+        <item>Радио Минск\nhttp://93.84.113.142:8000/radio</item>
+        <item>Радио Мир\nhttp://icecast.mirtv.cdnvideo.ru:8000/radio_mir128</item>
+        <item>Радио Моя Удмуртия\nhttp://radio.myudm.ru:10010/mp3</item>
+        <item>Радио Натали\nhttp://setmedia.ru:8000/high4</item>
+        <item>Радио Олимп Челябинск 104.5\nhttp://online.olimpfm.ru:8000/olimp</item>
+        <item>Радио Пассаж\nhttp://radiopassazh.ru/passazh.m3u</item>
+        <item>Радио Пассаж\nhttp://radio.2kom.ru:8000/Passage</item>
+        <item>Радио Прибой\nhttp://46.174.49.15:8006/priboyfm</item>
+        <item>Радио Рекорд\nhttp://radio.2kom.ru:8000/Radio_Record</item>
+        <item>Радио Русский Хит\nhttp://ruhit.imgradio.pro/RusHit48</item>
+        <item>Радио СИ Екатеринбург 103.7\nhttp://online.olimpfm.ru:8000/radioc_aacplus</item>
+        <item>Радио СК Екатеринбург 90.2\nhttp://online.radiosk.ru:8000/sk_aacplus</item>
+        <item>Радио Свобода\nhttp://radio.2kom.ru:8000/Svoboda</item>
+        <item>Радио Фантастики\nhttp://fantasyradioru.no-ip.biz:8008/;stream.nsv"</item>
+        <item>Радио ЧипльДук\nhttp://radio.4duk.ru/4duk64.mp3</item>
+        <item>Радио Чипльдук\nhttp://radio.2kom.ru:8000/4duk</item>
+        <item>Радио Шансон Киев 101.9 (128kbs)\nhttp://217.20.164.163:8002/;"</item>
+        <item>Радио Шторм\nhttp://radio-shtorm.ru:8000/112</item>
+        <item>Русская Служба Новостей\nhttp://stream02.media.rambler.ru/rsn96.mp3</item>
+        <item>СУПЕРДИСКОТЭКА 90-Х\nhttp://online.radiorecord.ru:8102/sd90_128</item>
+        <item>Свежее радио\nhttp://radio.2kom.ru:8000/Svejee.Radio</item>
+        <item>Старое радио\nhttp://www.staroeradio.ru/ices32.m3u</item>
+        <item>Старое радио: Детское\nhttp://www.staroeradio.ru/detskoe32.m3u</item>
+        <item>Старое радио: Музыка\nhttp://www.staroeradio.ru/music32.m3u</item>
+        <item>Супердискотека 90-х\nhttp://air.radiorecord.ru:8102/sd90_320</item>
+        <item>Твое Радио\nhttp://s6.radioheart.ru:8016/live</item>
+        <item>Стильное радио  - Перец фм\nhttp://radio.urg.com.ua:80/radio-stilnoe</item>
+        <item>16Bit.FM Main Channel 192k MP3\nhttp://stream.16bit.fm:8000/main_mp3_192</item>
+        <item>ColorSound\nhttp://play.colorsound.com.ua:80/colorsound</item>
+        <item>Radio Aplus.FM\nhttp://shoutcast.aplus.by:9000/aplus_128</item>
+        <item>Західний полюс (Zakhidny Polus, Ivano-Frankivsk, UA)\nhttp://online.1043.com.ua:8000/1043fm</item>
+        <item>Auto-DJ\nhttp://radio.angelsradio.ru:9000/8162</item>
+        <item>ERadio\nhttp://62.149.13.129:8500/eradio_hi</item>
+        <item>Makradio_Detskiy_Hit_128\nhttp://stream.makradio.ru/makdeti128.mp3/title</item>
+        <item>Galychyna FM\nhttp://ua.uar.net:8000/galychyna</item>
+        <item>Staroe Radio\nhttp://195.91.237.50:8000/music128</item>
+        <item>Радио Мегаполис, Самара, 103.6 FM (64 kbps aacplus)\nhttp://online.radio-megapolis.ru:8000/megapolis</item>
+        <item>Musik.Club\nhttp://club-high.rautemusik.fm</item>
+        <item>RadioMix Fregat Radio Server\nhttp://media.fregat.com:8000/RadioMIX</item>
+        <item>Радио Премьер Днепропетровск\nhttp://server.rpr.dp.ua:8000/live</item>
+        <item>Makradio_Top_Hit_128\nhttp://stream.makradio.ru/tophit128.mp3/title</item>
+        <item>Makradio_Rus_Hit_128\nhttp://stream.makradio.ru/rushit128.mp3/title</item>
+        <item>Makradio_Retro_Hit_128\nhttp://stream.makradio.ru/retrohit128.mp3/title</item>
+        <item>Makradio_Radiocafe_128\nhttp://stream.makradio.ru/radiocafe128.mp3/title</item>
+        <item>Makradio_Fresh_128\nhttp://stream.makradio.ru/makfresh128.mp3/title</item>
+        <item>Psychic Radio Station\nhttp://stream.psyradio.com.ua:8000/128kbps</item>
+        <item>Absolute Country Hits Radio\nhttp://strm112.1.fm/acountry_mobile_mp3</item>
+        <item>Amsterdam Trance Radio\nhttp://strm112.1.fm/atr_mobile_mp3</item>
+        <item>1rad.io\nhttp://onair.1rad.io:7000/live256.mp3</item>
+        <item>2Capitales Radio - First Russian Station From Paris - Only Best Music\nhttp://eu.radioboss.fm:8024/stream</item>
+        <item>3DO\nhttp://s3.radioheart.ru:8006/3DO</item>
+        <item>16Bit.FM CLUB Channel | 128K | Dance Music 24/7\nhttp://16bit.fm:8000/club_mp3_128</item>
+        <item>42fm radio station\nhttp://listen.42fm.ru:8000/stealkill</item>
+        <item>109 FM UKRAINE\nhttp://stream1.radiostyle.ru:8001/109fm</item>
+        <item>161FM\nhttp://stream.161.fm:8000/256</item>
+        <item>300kmh HQ\nhttp://radio.promodj.com:8000/300kmh-192</item>
+        <item>Afc radio\nhttp://stream.afc-radio.com/320k</item>
+        <item>FLAT FM\nhttp://air.flat.fm/air.mp3</item>
+        <item>brks_128\nhttp://online.radiorecord.ru:8102/brks_128</item>
+        <item>Radio Bolid\nhttp://178.161.132.182:8128/;stream.nsv</item>
+        <item>Закарпатия ФМ\nhttp://195.234.148.51:8000/;stream.mp3</item>
+        <item>chebfm\nhttp://play.cheb.fm:8000/chebfm.ogg</item>
+
+        <item>Дискография,Abba\nhttp://s_mobile.cienradios.com/620_Abba_y_Art_Relac_48.mp3</item>
+        <item>Дискография,ADELE\nhttp://s_mobile.cienradios.com/948_Adele_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Adigeiskaya music\nhttp://109.234.157.227:9500/adigeiskaya</item>
+        <item>Дискография,AEROSMITH\nhttp://s_mobile.cienradios.com/829_Aerosmith_y_Art_Rel_48.mp3</item>
+        <item>Дискография,ALEJANDRO LERNER\nhttp://s_mobile.cienradios.com/1033_Alejandro_Lerner_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Alejandro Sanz\nhttp://s_mobile.cienradios.com/635_Alejandro_Sanz_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,AMY WINEHOUSE\nhttp://s_mobile.cienradios.com/854_Amy_Winehouse_48.mp3</item>
+        <item>Дискография,ANDRES CALAMARO\nhttp://s_mobile.cienradios.com/641_Andres_Calamaro_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,Armynskaya music\nhttp://109.234.157.227:9500/armynskaya</item>
+        <item>Дискография,Armynskiy XIT\nhttp://109.234.157.227:9500/armynskiy_XIT</item>
+        <item>Дискография,Asian music\nhttp://109.234.157.227:9500/zha</item>
+        <item>Дискография,Asian music 2\nhttp://109.234.157.227:9500/radio_meyhana</item>
+        <item>Дискография,Attaque 77\nhttp://s_mobile.cienradios.com/636_Attaque_77_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,Avarskaya music\nhttp://109.234.157.227:9500/avarskaya</item>
+        <item>Дискография,AVICII\nhttp://s_mobile.cienradios.com/1363_Avicii_y_Art_Rel_48.mp3</item>
+        <item>Дискография,AXEL\nhttp://s_mobile.cienradios.com/618_Axel_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,Azerbaidganskaya music\nhttp://109.234.157.227:9500/azerbaidganskaya</item>
+        <item>Дискография,Azerbaidjanskiy XIT\nhttp://music.nextweb.ru:9500/azerbaidjanskiy_XIT</item>
+        <item>Дискография,BABASONICOS\nhttp://s_mobile.cienradios.com/859_Babasonicos_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Balkarian music\nhttp://109.234.157.227:9500/balkarian</item>
+        <item>Дискография,BEE GEES\nhttp://s_mobile.cienradios.com/954_Bee_Gees_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Bersuit Vergarabat\nhttp://s_mobile.cienradios.com/614_Bersuit_Vergarabat_y_Art_Relac_48.mp3</item>
+        <item>Дискография,Beyonce\nhttp://s_mobile.cienradios.com/986_Beyonce_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Beyonces Hits\nhttp://cdn.nrjaudio.fm/audio1/fr/31189/mp3_128.mp3</item>
+        <item>Дискография,BILLY JOEL\nhttp://s_mobile.cienradios.com/966_Billy_Joel_y_Art_Rel_48.mp3</item>
+        <item>Дискография,BLACK EYED PEAS\nhttp://s_mobile.cienradios.com/883_Black_Eyed_Peas_48.mp3</item>
+        <item>Дискография,BOB DYLAN\nhttp://s_mobile.cienradios.com/965_Bob_Dylan_y_Art_Rel_48.mp3</item>
+        <item>Дискография,BOB MARLEY\nhttp://s_mobile.cienradios.com/617_Bob_Marley_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,BON JOVI\nhttp://s_mobile.cienradios.com/913_Bon_Jovi_y_Art_Rel_48.mp3</item>
+        <item>Дискография,BRUNO MARS\nhttp://s_mobile.cienradios.com/1364_Bruno_Mars_y_Art_Rel_48.mp3</item>
+        <item>Дискография,BRYAN ADAMS\nhttp://s_mobile.cienradios.com/887_Bryan_Adams_y_Art_Rel_48.mp3</item>
+        <item>Дискография,CACHO CASTANA\nhttp://s_mobile.cienradios.com/837_Cacho_Castana_y_Art_Rel_48.mp3</item>
+        <item>Дискография,CAETANO VELOSO\nhttp://s_mobile.cienradios.com/952_Caetano_Veloso_y_Art_Rel_48.mp3</item>
+        <item>Дискография,CALLE 13\nhttp://s_mobile.cienradios.com/1027_Calle_13_y_Art_Rel_48.mp3</item>
+        <item>Дискография,REIK\nhttp://s_mobile.cienradios.com/985_Reik_y_Art_Rel_48.mp3</item>
+        <item>Дискография,RICARDO ARJONA\nhttp://s_mobile.cienradios.com/788_Ricardo_Arjona_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,Ricardo Montaner\nhttp://s_mobile.cienradios.com/719_Ricardo_Montaner_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,RICKY MARTIN\nhttp://s_mobile.cienradios.com/762_Ricky_Martin_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,Rihannas Hits\nhttp://cdn.nrjaudio.fm/audio1/fr/30029/mp3_128.mp3</item>
+        <item>Дискография,Rod Stewart\nhttp://panel2.raven-radio.com:7086/;?1448239358562.mp3</item>
+        <item>Дискография,ROD STEWART\nhttp://s_mobile.cienradios.com/874_Rod_Stewart_y_Art_Rel_48.mp3</item>
+        <item>Дискография,SANDRO\nhttp://s_mobile.cienradios.com/769_Sandro_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,SANTANA\nhttp://s_mobile.cienradios.com/1036_Santana_y_Art_Rel_48.mp3</item>
+        <item>Дискография,SELENA GOMEZ\nhttp://s_mobile.cienradios.com/818_Selena_Gomez_y_Art_Rel_48.mp3</item>
+        <item>Дискография,SHAKIRA\nhttp://s_mobile.cienradios.com/746_Shakira_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,SODA STEREO\nhttp://s_mobile.cienradios.com/772_Soda_Stereo_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,Tabasaranskay music\nhttp://109.234.157.227:9500/tabasaranskay</item>
+        <item>Дискография,TARANTINO\nhttp://s_mobile.cienradios.com/1024_Tarantino_48.mp3</item>
+        <item>Дискография,Taylor Swift\nhttp://cdn.nrjaudio.fm/audio1/fr/31187/mp3_128.mp3</item>
+        <item>Дискография,Thalia\nhttp://s_mobile.cienradios.com/1017_Thalia_y_Art_Rel_48.mp3</item>
+        <item>Дискография,THE BEACH BOYS\nhttp://s_mobile.cienradios.com/960_Beach_Boys_y_Art_Rel_48.mp3</item>
+        <item>Дискография,The Cure\nhttp://s_mobile.cienradios.com/836_The_Cure_y_Art_Rel_48.mp3</item>
+        <item>Дискография,THE POLICE\nhttp://s_mobile.cienradios.com/775_The_Police_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,THE ROLLING STONES\nhttp://s_mobile.cienradios.com/765_The_Rolling_Stones_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,TINA TURNER\nhttp://s_mobile.cienradios.com/987_Tina_Turner_y_Art_Rel_48.mp3</item>
+        <item>Дискография,TIZIANO FERRO\nhttp://icy.unitedradio.it/Ferro.mp3?</item>
+        <item>Дискография,U2\nhttp://s_mobile.cienradios.com/805_U2_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,VASCO\nhttp://icy.unitedradio.it/Vasco.mp3?</item>
+        <item>Дискография,VICENTICO\nhttp://s_mobile.cienradios.com/1044_Vicentico_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Westlife\nhttp://198.154.106.109:7998/</item>
+        <item>Дискография,Zucchero\nhttp://icy.unitedradio.it/Zucchero.mp3?</item>
+        <item>Дискография,Би-2\nhttp://ic2.101.ru:8000/c15_23?</item>
+        <item>Дискография,CARLOS BAUTE\nhttp://s_mobile.cienradios.com/1051_Carlos_Baute_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Catupecu Machu\nhttp://s_mobile.cienradios.com/918_Catupecu_Machu_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Celine Dion\nhttp://s_mobile.cienradios.com/1004_Celine_Dion_y_Art_Rel_48.mp3</item>
+        <item>Дискография,CHAQUENO PALAVECINO\nhttp://s_mobile.cienradios.com/1009_Chaqueno_Palavecino_y_Art_Rel_48.mp3</item>
+        <item>Дискография,CHARLY GARCIA\nhttp://s_mobile.cienradios.com/644_Charly_Garcia_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,CHAYANNE\nhttp://s_mobile.cienradios.com/797_Chayanne_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,Chehenskay music\nhttp://109.234.157.227:9500/hehenskay</item>
+        <item>Дискография,Chehenskii XIT\nhttp://109.234.157.227:9500/hehenskii_XIT</item>
+        <item>Дискография,Cliff Richard Radio\nhttp://s9.voscast.com:8032</item>
+        <item>Дискография,COLDPLAY\nhttp://icy.unitedradio.it/ColdPlay.mp3?</item>
+        <item>Дискография,COLDPLAY\nhttp://s_mobile.cienradios.com/877_Coldplay_y_Art_Rel_48.mp3</item>
+        <item>Дискография,CREEDENCE\nhttp://s_mobile.cienradios.com/827_Creedence_y_Art_Rel_48.mp3</item>
+        <item>Дискография,CRISTIAN CASTRO\nhttp://s_mobile.cienradios.com/921_Cristian_Castro_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Darginskaya music\nhttp://109.234.157.227:9500/darginskay</item>
+        <item>Дискография,DAVID BISBAL\nhttp://s_mobile.cienradios.com/856_David_Bisbal_y_Art_Rel_48.mp3</item>
+        <item>Дискография,David Bowie\nhttp://s_mobile.cienradios.com/892_David_Bowie_y_Art_Rel_48.mp3</item>
+        <item>Дискография,David Guettas Hits\nhttp://cdn.nrjaudio.fm/audio1/fr/31053/mp3_128.mp3</item>
+        <item>Дискография,ДДТ\nhttp://ic2.101.ru:8000/c13_21?</item>
+        <item>Дискография,DEEP PURPLE\nhttp://s_mobile.cienradios.com/901_Deep_Purple_y_Art_Rel_48.mp3</item>
+        <item>Дискография,DEMI LOVATO\nhttp://s_mobile.cienradios.com/875_Demi_Lovato_y_Art_Rel_48.mp3</item>
+        <item>Дискография,DEPECHE MODE\nhttp://s_mobile.cienradios.com/963_Depeche_Mode_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Diego Torres\nhttp://s_mobile.cienradios.com/649_Diego_Torres_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,DIVIDIDOS\nhttp://s_mobile.cienradios.com/604_Divididos_y_Art_Relac_48.mp3</item>
+        <item>Дискография,Dread Mar I\nhttp://s_mobile.cienradios.com/1013_Dread_Mar_I_y_Art_Rel_48.mp3</item>
+        <item>Дискография,DURAN DURAN\nhttp://s_mobile.cienradios.com/969_Duran_Duran_y_Art_Rel_48.mp3</item>
+        <item>Дискография,ED SHEERAN\nhttp://s_mobile.cienradios.com/1269_Ed_Sheeran_y_Art_Rel_48.mp3</item>
+        <item>Дискография,ELTON JOHN\nhttp://s_mobile.cienradios.com/903_Elton_John_y_Art_Rel_48.mp3</item>
+        <item>Дискография,ELVIS PRESLEY\nhttp://s_mobile.cienradios.com/651_Elvis_Presley_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,ENRIQUE IGLESIAS\nhttp://s_mobile.cienradios.com/922_Enrique_Iglesias_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Erasure\nhttp://s_mobile.cienradios.com/855_Erasure_y_Art_Rel_48.mp3</item>
+        <item>Дискография,ERIC CLAPTON\nhttp://s_mobile.cienradios.com/879_Eric_Clapton_y_Art_Rel_48.mp3</item>
+        <item>Дискография,EROS RAMAZZOTTI\nhttp://s_mobile.cienradios.com/923_Eros_Ramazzotti_y_Art_Rel_48.mp3</item>
+        <item>Дискография,FABIANA CANTILO\nhttp://s_mobile.cienradios.com/975_Fabiana_Cantilo_y_Art_Rel_48.mp3</item>
+        <item>Дискография,FITO PAEZ\nhttp://s_mobile.cienradios.com/654_Fito_Paez_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,FOO FIGHTERS\nhttp://s_mobile.cienradios.com/961_Foo_Fighters_y_Art_Rel_48.mp3</item>
+        <item>Дискография,FRANK SINATRA\nhttp://s_mobile.cienradios.com/687_Frank_Sinatra_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,FRANK ZAPPA\nhttp://s_mobile.cienradios.com/657_Frank_Zappa_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,FREDDIE MERCURY\nhttp://s_mobile.cienradios.com/1048_Freddie_Mercury_y_Art_Rel_48.mp3</item>
+        <item>Дискография,GENESIS\nhttp://s_mobile.cienradios.com/890_Genesis_y_Art_Rel_48.mp3</item>
+        <item>Дискография,GEORGE HARRISON\nhttp://s_mobile.cienradios.com/911_George_Harrison_y_Art_Rel_48.mp3</item>
+        <item>Дискография,GIORGIA\nhttp://icy.unitedradio.it/Giorgia.mp3?</item>
+        <item>Дискография,GLEE\nhttp://s_mobile.cienradios.com/847_Glee_y_Art_Rel_48.mp3</item>
+        <item>Дискография,GLORIA ESTEFAN\nhttp://s_mobile.cienradios.com/958_Gloria_Estefan_y_Art_Rel_48.mp3</item>
+        <item>Дискография,GREEN DAY\nhttp://s_mobile.cienradios.com/1031_Green_Day_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Gruzinskay music\nhttp://109.234.157.227:9500/gruzinskaya</item>
+        <item>Дискография,GUNS N´ ROSES\nhttp://s_mobile.cienradios.com/664_Guns_N_Roses_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,Iggy Pop\nhttp://s_mobile.cienradios.com/1016_Iggy_Pop_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Illya Kuryaki and the Valderramas \ IKV\nhttp://s_mobile.cienradios.com/1054_IKV_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Inguhskay music\nhttp://109.234.157.227:9500/inguhskay</item>
+        <item>Дискография,ISMAEL SERRANO\nhttp://s_mobile.cienradios.com/1035_Ismael_Serrano_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Ivan Noble\nhttp://s_mobile.cienradios.com/680_Ivan_Noble_y_Art_Relac_48.mp3</item>
+        <item>Дискография,JAMES BLUNT\nhttp://s_mobile.cienradios.com/942_James_Blunt_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Janis Joplin\nhttp://149.202.94.241:7258/</item>
+        <item>Дискография,Jean Michael Jarre\nhttp://149.202.94.241:7182/</item>
+        <item>Дискография,Jethro Tull\nhttp://149.202.94.241:7204</item>
+        <item>Дискография,JOAN MANUEL SERRAT\nhttp://s_mobile.cienradios.com/721_Joan_Manuel_Serrat_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,JOAQUIN SABINA\nhttp://s_mobile.cienradios.com/767_Joaquin_Sabina_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,JOHN LENNON\nhttp://s_mobile.cienradios.com/682_John_Lennon_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,John\ Paul\ George and Ringo\nhttp://s_mobile.cienradios.com/683_John_Paul_George_and_Ringo_48.mp3</item>
+        <item>Дискография,JONAS BROTHERS\nhttp://s_mobile.cienradios.com/684_Jonas_Brothers_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,Joss Stone\nhttp://s_mobile.cienradios.com/1026_Joss_Stone_y_Art_Rel_48.mp3</item>
+        <item>Дискография,JOVANOTTI\nhttp://icy.unitedradio.it/Jovanotti.mp3</item>
+        <item>Дискография,JUAN LUIS GUERRA\nhttp://s_mobile.cienradios.com/909_Juan_L_Guerra_y_Art_Rel_48.mp3</item>
+        <item>Дискография,JUANES\nhttp://s_mobile.cienradios.com/685_Juanes_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,JULIETA VENEGAS\nhttp://s_mobile.cienradios.com/686_Julieta_Venegas_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,Justin Bieber\nhttp://cdn.nrjaudio.fm/audio1/fr/30167/mp3_128.mp3</item>
+        <item>Дискография,KATY PERRY\nhttp://s_mobile.cienradios.com/873_Katy_Perry_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Kavkaz-rap-rnb\nhttp://109.234.157.227:9500/kavkaz-rap-rnb</item>
+        <item>Дискография,KEANE\nhttp://s_mobile.cienradios.com/927_Keane_y_Art_Rel_48.mp3</item>
+        <item>Дискография,KEVIN JOHANSEN\nhttp://s_mobile.cienradios.com/1018_Kevin_Johansen_y_Art_Rel_48.mp3</item>
+        <item>Дискография,KISS\nhttp://s_mobile.cienradios.com/968_Kiss_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Kumikskay music\nhttp://109.234.157.227:9500/kumikskay</item>
+        <item>Дискография,La Oreja de Van Gogh\nhttp://s_mobile.cienradios.com/972_La_Oreja_de_Van_Gogh_y_Art_Rel_48.mp3</item>
+        <item>Дискография,La Renga\nhttp://s_mobile.cienradios.com/897_La_Renga_y_Art_Rel_48.mp3</item>
+        <item>Дискография,LADY GAGA\nhttp://s_mobile.cienradios.com/876_Lady_Gaga_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Lakskay music\nhttp://109.234.157.227:9500/lakskay</item>
+        <item>Дискография,LENNY KRAVITZ\nhttp://s_mobile.cienradios.com/872_Lenny_Kravitz_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Lezginskay music\nhttp://109.234.157.227:9500/lezginskay</item>
+        <item>Дискография,LIGABUE\nhttp://icy.unitedradio.it/Ligabue.mp3?</item>
+        <item>Дискография,LITFIBA\nhttp://icy.unitedradio.it/Litfiba.mp3?</item>
+        <item>Дискография,LOS AUTENTICOS DECADENTES\nhttp://s_mobile.cienradios.com/940_Autenticos_Decadentes_y_Art_Rel_48.mp3</item>
+        <item>Дискография,LOS CHALCHALEROS\nhttp://s_mobile.cienradios.com/705_Los_Chalchaleros_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,LOS FABULOSOS CADILLACS\nhttp://s_mobile.cienradios.com/653_Los_Fabulosos_Cadillacs_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,LOS NOCHEROS\nhttp://s_mobile.cienradios.com/706_Los_Nocheros_y_Art_Relac_48.mp3</item>
+        <item>Дискография,Los Pericos\nhttp://s_mobile.cienradios.com/789_Los_Pericos_y_Art_Relac_48.mp3</item>
+        <item>Дискография,LOS PIOJOS\nhttp://s_mobile.cienradios.com/707_Los_Piojos_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,Los Redondos\nhttp://s_mobile.cienradios.com/763_Los_Redondos_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,Luis Miguel\nhttp://s_mobile.cienradios.com/710_Luis_Miguel_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,MADONNA\nhttp://s_mobile.cienradios.com/711_Madonna_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,MANA\nhttp://s_mobile.cienradios.com/712_Mana_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,Maria Callas\nhttp://s_mobile.cienradios.com/1023_Maria_Callas_y_Art_Rel_48.mp3</item>
+        <item>Дискография,MARIA ELENA WALSH\nhttp://s_mobile.cienradios.com/790_Maria_Elena_Walsh_y_Art_Rel_48.mp3</item>
+        <item>Дискография,MAROON 5\nhttp://s_mobile.cienradios.com/1008_Maroon_5_y_Art_Rel_48.mp3</item>
+        <item>Дискография,MERCEDES SOSA\nhttp://s_mobile.cienradios.com/713_Mercedes_Sosa_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,MICHAEL JACKSON\nhttp://s_mobile.cienradios.com/714_Michael_Jackson_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,Miley Cyrus\nhttp://s_mobile.cienradios.com/715_Miley_Cyrus_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,MINA\nhttp://icy.unitedradio.it/Mina.mp3?</item>
+        <item>Дискография,Muse\nhttp://s_mobile.cienradios.com/980_Muse_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Nashid\nhttp://109.234.157.227:9500/radionashid.m3u</item>
+        <item>Дискография,Norah Jones\nhttp://s_mobile.cienradios.com/1012_Norah_Jones_y_Art_Rel_48.mp3</item>
+        <item>Дискография,ONE DIRECTION\nhttp://s_mobile.cienradios.com/990_One_Direction_y_Art_Rel_48.mp3</item>
+        <item>Дискография,Osetian music\nhttp://109.234.157.227:9500/osetian.m3u</item>
+        <item>Дискография,PAUL MCCARTNEY\nhttp://s_mobile.cienradios.com/735_Paul_McCartney_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,PIAZZOLA\nhttp://s_mobile.cienradios.com/737_Piazzolla_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,Pink Floyd {RTBF}\nhttp://ice12.infomaniak.ch:80/wr-eventradio-128.mp3</item>
+        <item>Дискография,Pink Floyd FM\nhttp://95.173.184.17:9926</item>
+        <item>Дискография,PINO DANIELE\nhttp://icy.unitedradio.it/Daniele.mp3?</item>
+        <item>Дискография,Prince\nhttp://149.202.94.241:7256/</item>
+        <item>Дискография,QUEEN\nhttp://s_mobile.cienradios.com/743_Queen_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,RAMONES\nhttp://s_mobile.cienradios.com/757_The_Ramones_y_Artistas_Relacionados_48.mp3</item>
+
+    </string-array>
+
+</resources>

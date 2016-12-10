@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dmitriy.deomin.aimpradioplalist.Main"
+    android:orientation="vertical"
+    android:background="@android:color/darker_gray">
+
+
+    <ImageSwitcher
+        android:id="@+id/imageSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="Menu_progi"
+        android:layout_margin="1dp">
+    </ImageSwitcher>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <Button
+            android:text="Все радио"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/vse_radio"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:background="@android:color/darker_gray"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:text="Популярное"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/popularnoe"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:background="@android:color/darker_gray" />
+
+        <Button
+            android:text="Мой плейлист"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/moy_plalist"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:background="@android:color/darker_gray" />
+
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/pager"
+        android:layout_weight="1">
+    </android.support.v4.view.ViewPager>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"
+        android:layout_weight="0">
+    </com.google.android.gms.ads.AdView>
+</LinearLayout>

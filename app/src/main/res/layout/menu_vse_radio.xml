@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <dmitriy.deomin.aimpradioplalist.Fon_item
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="3dp"
+        app:cardPreventCornerOverlap="false"
+        android:elevation="0dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        app:cardBackgroundColor="@color/cardview_shadow_start_color">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/menu_progi_alert_vse"
+            android:gravity="center"
+            android:background="@android:color/transparent">
+
+
+            <dmitriy.deomin.aimpradioplalist.Text
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_vse_radio"
+                android:background="@android:color/transparent"
+                android:textStyle="normal|bold"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Добавить в мой плейлист"
+                android:id="@+id/button_add_plalist"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/transparent"
+                android:textColor="@color/green"
+                android:textSize="16sp" />
+
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Открыть в Aimp"
+                android:id="@+id/button_open_aimp"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/transparent"
+                android:textColor="@color/green"
+                android:textSize="16sp" />
+
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Установить Aimp"
+                android:id="@+id/button_instal_aimp"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/transparent"
+                android:textColor="@color/green"
+                android:textSize="16sp" />
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Открыть в системе"
+                android:id="@+id/button_open_sistem"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/transparent"
+                android:textColor="@color/green"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </dmitriy.deomin.aimpradioplalist.Fon_item>
+
+</LinearLayout>
