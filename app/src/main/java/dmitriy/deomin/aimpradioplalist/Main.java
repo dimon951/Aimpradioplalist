@@ -37,6 +37,8 @@ import com.github.johnpersano.supertoasts.util.Style;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+
+
 public class Main extends FragmentActivity {
 
     public static Context context;
@@ -52,6 +54,8 @@ public class Main extends FragmentActivity {
     Button vse_r;
     Button popul;
     Button moy_pl;
+
+    String herna; //затестим комит
 
     //шрифт
     public static Typeface face;
@@ -80,6 +84,7 @@ public class Main extends FragmentActivity {
 
 
         face = Typeface.createFromAsset(getAssets(), ((save_read("fonts").equals("")) ? "fonts/Tweed.ttf" : save_read("fonts")));
+
 
 
 
