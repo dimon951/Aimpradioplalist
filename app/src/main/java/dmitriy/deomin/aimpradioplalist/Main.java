@@ -55,8 +55,6 @@ public class Main extends FragmentActivity {
     Button popul;
     Button moy_pl;
 
-    String herna; //затестим комит
-
     //шрифт
     public static Typeface face;
     //для текста
