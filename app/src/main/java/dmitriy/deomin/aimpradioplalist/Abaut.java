@@ -48,8 +48,7 @@ public class Abaut extends Activity {
         textView.setText(getString(R.string.abaut_text).replace("+++++", "Aimp radio plalist " + getVersion()));
         textView.setVisibility(View.GONE);
 
-        ((ImageButton)findViewById(R.id.imageButton)).setVisibility(View.GONE);
-
+        ((ImageButton) findViewById(R.id.imageButton)).setVisibility(View.GONE);
 
 
         live = 0; // 2
@@ -68,7 +67,7 @@ public class Abaut extends Activity {
 
         hTextView.setVisibility(View.GONE);
         textView.setVisibility(View.VISIBLE);
-        ((ImageButton)findViewById(R.id.imageButton)).setVisibility(View.VISIBLE);
+        ((ImageButton) findViewById(R.id.imageButton)).setVisibility(View.VISIBLE);
     }
 
     public void finish(View view) {
