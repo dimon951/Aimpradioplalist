@@ -34,11 +34,11 @@
 
                 <ImageView
                     android:id="@+id/ava_pop"
-                    android:layout_width="match_parent"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_margin="4dp"
                     android:adjustViewBounds="true"
-                    android:scaleType="fitStart"
+                    android:scaleType="fitCenter"
                     android:src="@mipmap/ic_launcher" />
             </LinearLayout>
 
