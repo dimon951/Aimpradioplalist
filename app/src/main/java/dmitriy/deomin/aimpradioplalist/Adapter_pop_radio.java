@@ -772,7 +772,7 @@ public class Adapter_pop_radio extends SimpleAdapter {
                     intent.setComponent(cm);
 
                     intent.setAction(Intent.ACTION_VIEW);
-                    intent.setDataAndType(Uri.parse(Environment.getExternalStorageDirectory().toString()+"/aimp_radio/"+results.get(position).get("stancia").toString()+".m3u"),"audio/mpegurl");
+                    intent.setDataAndType(Uri.parse("file://"+Environment.getExternalStorageDirectory().toString()+"/aimp_radio/"+results.get(position).get("stancia").toString()+".m3u"),"audio/mpegurl");
                     intent.setFlags(0x3000000);
 
                     Main.context.startActivity(intent);

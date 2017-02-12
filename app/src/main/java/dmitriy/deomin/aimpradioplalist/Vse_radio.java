@@ -341,7 +341,7 @@ public class Vse_radio extends Fragment {
                             intent.setComponent(cm);
 
                             intent.setAction(Intent.ACTION_VIEW);
-                            intent.setDataAndType(Uri.parse(Environment.getExternalStorageDirectory().toString()+"/aimp_radio/"+name+".m3u"),"audio/mpegurl");
+                            intent.setDataAndType(Uri.parse("file://"+Environment.getExternalStorageDirectory().toString()+"/aimp_radio/"+name+".m3u"),"audio/mpegurl");
                             intent.setFlags(0x3000000);
 
                             startActivity(intent);
