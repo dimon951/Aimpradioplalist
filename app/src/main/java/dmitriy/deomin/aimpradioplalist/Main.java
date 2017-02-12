@@ -18,6 +18,7 @@ import android.support.v4.view.ViewPager;
 import android.text.Spannable;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -55,6 +56,12 @@ public class Main extends FragmentActivity {
     Button popul;
     Button moy_pl;
 
+    //размеры экрана
+    //--------------------
+    public static int wd;
+    public static int hd;
+    //--------------------
+
     //шрифт
     public static Typeface face;
     //для текста
@@ -83,7 +90,12 @@ public class Main extends FragmentActivity {
 
         face = Typeface.createFromAsset(getAssets(), ((save_read("fonts").equals("")) ? "fonts/Tweed.ttf" : save_read("fonts")));
 
-
+        //размеры экрана
+        //----------------------
+        Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+            wd = display.getWidth();
+            hd = display.getHeight();
+        //----------------------
 
 
         //ставим цвет фона
@@ -720,6 +732,8 @@ public class Main extends FragmentActivity {
         }
         return false;
     }
+
+
 
     @Override
     protected void onPause() {

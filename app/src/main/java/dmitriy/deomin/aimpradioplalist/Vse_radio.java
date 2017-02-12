@@ -2,6 +2,7 @@ package dmitriy.deomin.aimpradioplalist;
 
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
+import android.content.ClipData;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -47,6 +48,7 @@ public class Vse_radio extends Fragment {
         context = container.getContext();
 
         find =(EditText)v.findViewById(R.id.editText_find);
+        find.setTypeface(Main.face);
 
         listView =(ListView)v.findViewById(R.id.listviw_vse_radio);
 
@@ -244,7 +246,17 @@ public class Vse_radio extends Fragment {
                 open_sistem.setTypeface(Main.face);
                 open_sistem.setTextColor(Main.COLOR_TEXT);
 
-                ((TextView)content.findViewById(R.id.textView_vse_radio)).setText(name+"\n"+url_link);
+                TextView text_name_i_url = (TextView)content.findViewById(R.id.textView_vse_radio);
+                text_name_i_url.setText(name+"\n"+url_link);
+                text_name_i_url.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Animation anim = AnimationUtils.loadAnimation(context, R.anim.myalpha);
+                        view.startAnimation(anim);
+                        putText(url_link,context);
+                        Toast.makeText(context,"url скопирован в буфер",Toast.LENGTH_SHORT).show();
+                    }
+                });
 
 
 
@@ -354,4 +366,20 @@ public class Vse_radio extends Fragment {
 
         return v;
     }
+
+
+    //запись
+    @SuppressWarnings("deprecation")
+    public void putText(String text,Context context){
+        int sdk = android.os.Build.VERSION.SDK_INT;
+        if(sdk < android.os.Build.VERSION_CODES. HONEYCOMB) {
+            android.text.ClipboardManager clipboard = (android.text.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+            clipboard.setText(text);
+        } else {
+            android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+            android.content.ClipData clip = ClipData.newPlainText(text, text);
+            clipboard.setPrimaryClip(clip);
+        }
+    }
+
 }

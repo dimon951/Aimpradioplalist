@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +23,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -111,6 +114,98 @@ public class Moy_plalist extends Fragment implements AdapterView.OnItemLongClick
                 }else {
                     Main.Toast_error("Плейлист пуст");
                 }
+            }
+
+        });
+
+
+        ((Button)v.findViewById(R.id.button_add_url)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                final Animation anim = AnimationUtils.loadAnimation(context, R.anim.myalpha);
+                v.startAnimation(anim);
+
+                final AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(context, android.R.style.Theme_Holo));
+                final View content = LayoutInflater.from(context).inflate(R.layout.add_url_user, null);
+                builder.setView(content);
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+                ((TextView)content.findViewById(R.id.textView_logo_add)).setTypeface(Main.face);
+                final EditText edit = (EditText)content.findViewById(R.id.editText_add_url);
+                edit.setTypeface(Main.face);
+
+                Button paste  = (Button) content.findViewById(R.id.button_paste_url_add);
+                paste.setTypeface(Main.face);
+                paste.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view1) {
+                        view1.startAnimation(anim);
+                        edit.setText(getText(context));
+                    }
+                });
+
+                Button add  = (Button) content.findViewById(R.id.button_add_url);
+                add.setTypeface(Main.face);
+                add.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View vie) {
+                        vie.startAnimation(anim);
+
+                        //проверим на пустоту
+                        if(edit.getText().toString().length()>0) {
+
+                            Main.number_page = 2;
+
+                            //фильтр для нашего сигнала
+                            IntentFilter intentFilter = new IntentFilter();
+                            intentFilter.addAction("File_created");
+
+                            //приёмник  сигналов
+                            BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+                                @Override
+                                public void onReceive(Context context, Intent intent) {
+                                    if (intent.getAction().equals("File_created")) {
+                                        //получим данные
+                                        String s = intent.getStringExtra("update");
+                                        if (s.equals("zaebis")) {
+                                            //  Toast.makeText(context,"Готово",Toast.LENGTH_SHORT).show();
+                                            alertDialog.cancel();
+                                            //обновим старницу
+                                            Main.myadapter.notifyDataSetChanged();
+                                            Main.viewPager.setAdapter(Main.myadapter);
+                                            Main.viewPager.setCurrentItem(Main.number_page);
+                                        } else {
+                                            Toast.makeText(context, "Ошибочка вышла тыкниете еще раз", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                }
+                            };
+
+                            //регистрируем приёмник
+                            Main.context.registerReceiver(broadcastReceiver, intentFilter);
+
+
+                            File_function file_function = new File_function();
+                            file_function.Add_may_plalist_stansiy(edit.getText().toString());
+
+
+                            alertDialog.cancel();
+
+                        }else{
+                            Toast.makeText(context, "Нечего добавлять", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
+
+
+
+
+
+
+
             }
 
         });
@@ -345,5 +440,20 @@ public class Moy_plalist extends Fragment implements AdapterView.OnItemLongClick
 
 
         return true;
+    }
+
+    //чтение
+    @SuppressWarnings("deprecation")
+    public  String getText(Context context){
+        String text = null;
+        int sdk = android.os.Build.VERSION.SDK_INT;
+        if(sdk < android.os.Build.VERSION_CODES. HONEYCOMB ) {
+            android.text.ClipboardManager clipboard = (android.text.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+            text = clipboard.getText().toString();
+        } else {
+            android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+            text = clipboard.getText().toString();
+        }
+        return text;
     }
 }

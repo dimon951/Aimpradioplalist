@@ -8,6 +8,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Environment;
@@ -31,6 +34,8 @@ import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -103,7 +108,13 @@ public class Adapter_pop_radio extends SimpleAdapter {
 
         viewHolder.text.setTypeface(Main.face);
         viewHolder.text.setText(results.get(position).get("stancia").toString());
-        Picasso.with(context).load("file:///android_asset/ava_pop/"+results.get(position).get("avapop").toString()).fit().transform(transformation).into(viewHolder.ava);
+
+        Picasso.with(context)
+                .load("file:///android_asset/ava_pop/"+results.get(position).get("avapop").toString())
+                .transform(transformation)
+                .into(viewHolder.ava);
+
+        //viewHolder.ava.setMaxWidth(viewHolder.ava.getHeight());
 
 
         //смотрим че там передлось в параметрах какаое качество и покажем нужные кнопки
@@ -849,4 +860,5 @@ public class Adapter_pop_radio extends SimpleAdapter {
 
         return v;
     }
+
 }
