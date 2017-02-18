@@ -54,14 +54,24 @@
                 android:gravity="center">
 
                 <Button
+                    android:id="@+id/button_dialog_dowload_aimp_market"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/button_dialog_dowload_aimp"
                     android:layout_gravity="left"
-                    android:textSize="14sp"
-                    android:text="Скачать AIMP"
                     android:background="@android:color/transparent"
-                    android:textColor="@color/green" />
+                    android:text="Установить Aimp через Play Market"
+                    android:textColor="@color/green"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/button_dialog_dowload_aimp_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:background="@android:color/transparent"
+                    android:text="Скачать Aimp "
+                    android:textColor="@color/green"
+                    android:textSize="14sp" />
 
                 <Button
                     android:layout_width="match_parent"

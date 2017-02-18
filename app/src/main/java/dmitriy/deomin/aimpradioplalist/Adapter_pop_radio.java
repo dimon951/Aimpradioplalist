@@ -759,21 +759,12 @@ public class Adapter_pop_radio extends SimpleAdapter {
                 Main.number_page = 1;
 
                 //сохраним  временый файл сслку
-                File_function file_function= new File_function();
-               // file_function.Save_temp_file(results.get(position).get("stancia").toString()+".m3u",results.get(position).get("link").toString());
-                file_function.Save_temp_file(results.get(position).get("stancia").toString()+".m3u",viewHolder.link);
+                File_function file_function = new File_function();
+                // file_function.Save_temp_file(results.get(position).get("stancia").toString()+".m3u",results.get(position).get("link").toString());
+                file_function.Save_temp_file(results.get(position).get("stancia").toString() + ".m3u", viewHolder.link);
 
 
-                //проверим есть вообще аимп
-                PackageManager pm = Main.context.getPackageManager();
-                PackageInfo pi = null;
-                try {
-                    pi = pm.getPackageInfo("com.aimp.player", 0);
-                } catch (PackageManager.NameNotFoundException e) {
-                    e.printStackTrace();
-                }
-
-                if (pi != null) {
+                if (Main.install_app("com.aimp.player")) {
                     //откроем файл с сылкой в плеере
                     ComponentName cm = new ComponentName(
                             "com.aimp.player",
@@ -783,57 +774,20 @@ public class Adapter_pop_radio extends SimpleAdapter {
                     intent.setComponent(cm);
 
                     intent.setAction(Intent.ACTION_VIEW);
-                    intent.setDataAndType(Uri.parse("file://"+Environment.getExternalStorageDirectory().toString()+"/aimp_radio/"+results.get(position).get("stancia").toString()+".m3u"),"audio/mpegurl");
+                    intent.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + results.get(position).get("stancia").toString() + ".m3u"), "audio/mpegurl");
                     intent.setFlags(0x3000000);
 
                     Main.context.startActivity(intent);
-                    //иначе предложим системе открыть
-                }else {
 
-                    final AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(context, android.R.style.Theme_Holo));
-                    final View content = LayoutInflater.from(context).inflate(R.layout.custom_dialog_no_aimp, null);
-                    builder.setView(content);
-                    final AlertDialog alertDialog = builder.create();
-                    alertDialog.show();
-                    Button dw_aimp = (Button)content.findViewById(R.id.button_dialog_dowload_aimp);
-                    Button open_sys = (Button)content.findViewById(R.id.button_dialog_open_sistem);
-
-                    dw_aimp.setTypeface(Main.face);
-                    dw_aimp.setTextColor(Main.COLOR_TEXT);
-                    dw_aimp.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Animation anim = AnimationUtils.loadAnimation(context, R.anim.myalpha);
-                            v.startAnimation(anim);
-                            Intent intent = new Intent(Intent.ACTION_VIEW);
-                            intent.setData(Uri.parse("market://details?id=com.aimp.player"));
-                            Main.context.startActivity(intent);
-                        }
-                    });
-                    open_sys.setTypeface(Main.face);
-                    open_sys.setTextColor(Main.COLOR_TEXT);
-                    open_sys.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Animation anim = AnimationUtils.loadAnimation(context, R.anim.myalpha);
-                            v.startAnimation(anim);
-                            Intent i = new Intent(android.content.Intent.ACTION_VIEW);
-                         //   Uri data = Uri.parse(Environment.getExternalStorageDirectory().toString()+"/aimp_radio/"+results.get(position).get("stancia").toString()+".m3u");
-                           // Uri data = Uri.parse(results.get(position).get("link").toString());
-                            Uri data = Uri.parse(viewHolder.link);
-                            i.setData(data);
-                            //проверим есть чем открыть или нет
-                            if (i.resolveActivity(Main.context.getPackageManager()) != null) {
-                                Main.context.startActivity(i);
-                            }else {
-                                Toast.makeText(context,"Системе не удалось ( ",Toast.LENGTH_LONG).show();
-                            }
-                        }
-                    });
+                } else {
+                    //иначе предложим системе открыть или установить аимп
+                    Main.setup_aimp(viewHolder.link,
+                            "file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + results.get(position).get("stancia").toString() + ".m3u");
                 }
-
             }
-        });
+
+            });
+
 
         viewHolder.share.setOnClickListener(new View.OnClickListener() {
             @Override

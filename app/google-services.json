@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "375647819527",
+    "firebase_url": "https://aimpradioplalist.firebaseio.com",
+    "project_id": "aimpradioplalist",
+    "storage_bucket": "aimpradioplalist.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375647819527:android:71b31b74e90ed0ae",
+        "android_client_info": {
+          "package_name": "dmitriy.deomin.aimpradioplalist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375647819527-e7jva933ns1h20hdpq607eghsavmvurv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY2q_PU_BY12arz33h7zAXSWPA2Prc7ek"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "375647819527-e7jva933ns1h20hdpq607eghsavmvurv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

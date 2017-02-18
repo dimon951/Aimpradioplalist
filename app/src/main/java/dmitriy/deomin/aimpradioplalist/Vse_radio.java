@@ -214,28 +214,34 @@ public class Vse_radio extends Fragment {
                 Button add_pls = (Button) content.findViewById(R.id.button_add_plalist);
                 Button open_aimp = (Button) content.findViewById(R.id.button_open_aimp);
                 Button instal_aimp  =(Button) content.findViewById(R.id.button_instal_aimp);
+                Button instal_aimp2  =(Button) content.findViewById(R.id.button_download_yandex_aimp);
                 Button open_sistem = (Button) content.findViewById(R.id.button_open_sistem);
 
-                //проверим есть вообще аимп
-                PackageManager pm = Main.context.getPackageManager();
-                PackageInfo pi = null;
-                try {
-                    pi = pm.getPackageInfo("com.aimp.player", 0);
-                } catch (PackageManager.NameNotFoundException e) {
-                    e.printStackTrace();
-                }
 
                 //если aimp установлен скроем кнопку установить аимп
-                if(pi!=null){
+                if(Main.install_app("com.aimp.player")){
                     instal_aimp.setVisibility(View.GONE);
+                    instal_aimp2.setVisibility(View.GONE);
                     open_aimp.setVisibility(View.VISIBLE);
                     open_aimp.setTypeface(Main.face);
                     open_aimp.setTextColor(Main.COLOR_TEXT);
                 }else {
+                    //если есть магазин покажем и установку через него
+                    if(Main.install_app("com.google.android.gms")){
+                        instal_aimp.setVisibility(View.VISIBLE);
+                        instal_aimp.setTypeface(Main.face);
+                        instal_aimp.setTextColor(Main.COLOR_TEXT);
+                    }else {
+                        instal_aimp.setVisibility(View.GONE);
+                    }
+
+                    //скачать по ссылке будем показывать всегда
+                    instal_aimp2.setVisibility(View.VISIBLE);
+                    instal_aimp2.setTypeface(Main.face);
+                    instal_aimp2.setTextColor(Main.COLOR_TEXT);
+
                     open_aimp.setVisibility(View.GONE);
-                    instal_aimp.setVisibility(View.VISIBLE);
-                    instal_aimp.setTypeface(Main.face);
-                    instal_aimp.setTextColor(Main.COLOR_TEXT);
+
                 }
 
 
@@ -265,10 +271,13 @@ public class Vse_radio extends Fragment {
                     public void onClick(View v) {
                         Animation anim = AnimationUtils.loadAnimation(context, R.anim.myalpha);
                         v.startAnimation(anim);
+
+                        //сохраним  временый файл сслку
+                        File_function file_function= new File_function();
+                        file_function.Save_temp_file(name+".m3u",url_link);
+
                         Intent i = new Intent(android.content.Intent.ACTION_VIEW);
-                        //Uri data = Uri.parse(Environment.getExternalStorageDirectory().toString()+"/aimp_radio/"+name+".m3u");
-                        Uri data = Uri.parse(url_link);
-                        i.setData(data);
+                        i.setDataAndType(Uri.parse("file://"+Environment.getExternalStorageDirectory().toString()+"/aimp_radio/"+name+".m3u"),"audio/mpegurl");
                         //проверим есть чем открыть или нет
                         if (i.resolveActivity(Main.context.getPackageManager()) != null) {
                             Main.context.startActivity(i);
@@ -287,6 +296,16 @@ public class Vse_radio extends Fragment {
                         Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setData(Uri.parse("market://details?id=com.aimp.player"));
                         Main.context.startActivity(intent);
+                    }
+                });
+
+                instal_aimp2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Animation anim = AnimationUtils.loadAnimation(context, R.anim.myalpha);
+                        v.startAnimation(anim);
+                        Intent openlink = new Intent(Intent.ACTION_VIEW, Uri.parse("https://yadi.sk/d/oo0XXTPZ3E3SYt"));
+                        startActivity(openlink);
                     }
                 });
 

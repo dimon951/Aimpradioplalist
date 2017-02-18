@@ -67,8 +67,18 @@
             <Button
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:text="Установить Aimp"
+                android:text="Установить Aimp через Play Market"
                 android:id="@+id/button_instal_aimp"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/transparent"
+                android:textColor="@color/green"
+                android:textSize="16sp" />
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Скачать Aimp "
+                android:id="@+id/button_download_yandex_aimp"
                 android:layout_gravity="center_horizontal"
                 android:background="@android:color/transparent"
                 android:textColor="@color/green"

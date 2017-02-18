@@ -4,11 +4,15 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -29,6 +33,7 @@ import android.widget.Button;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -722,6 +727,100 @@ public class Main extends FragmentActivity {
         SuperToast.create(context, mesag, SuperToast.Duration.LONG,
                 Style.getStyle(Style.RED, SuperToast.Animations.POPUP)).show();
     }
+
+
+    public static boolean install_app(String app){
+        PackageManager pm = Main.context.getPackageManager();
+        PackageInfo pi = null;
+        try {
+            pi = pm.getPackageInfo(app, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        if(pi==null){
+            return false;
+        }else {
+            return true;
+        }
+    }
+
+    public static void setup_aimp(final String potok, final String file){
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(context, android.R.style.Theme_Holo));
+        final View content = LayoutInflater.from(context).inflate(R.layout.custom_dialog_no_aimp, null);
+        builder.setView(content);
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+        Button dw_aimp_market = (Button)content.findViewById(R.id.button_dialog_dowload_aimp_market);
+        Button dw_aimp_link = (Button)content.findViewById(R.id.button_dialog_dowload_aimp_link);
+        Button open_sys = (Button)content.findViewById(R.id.button_dialog_open_sistem);
+
+        //если есть магазин покажем и установку через него
+        if(install_app("com.google.android.gms")){
+            dw_aimp_market.setVisibility(View.VISIBLE);
+        }else {
+            dw_aimp_market.setVisibility(View.GONE);
+        }
+
+        dw_aimp_market.setTypeface(Main.face);
+        dw_aimp_market.setTextColor(Main.COLOR_TEXT);
+        dw_aimp_market.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation anim = AnimationUtils.loadAnimation(context, R.anim.myalpha);
+                v.startAnimation(anim);
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("market://details?id=com.aimp.player"));
+                Main.context.startActivity(intent);
+            }
+        });
+
+
+        dw_aimp_link.setTypeface(Main.face);
+        dw_aimp_link.setTextColor(Main.COLOR_TEXT);
+        dw_aimp_link.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation anim = AnimationUtils.loadAnimation(context, R.anim.myalpha);
+                v.startAnimation(anim);
+                Intent openlink = new Intent(Intent.ACTION_VIEW, Uri.parse("https://yadi.sk/d/oo0XXTPZ3E3SYt"));
+                context.startActivity(openlink);
+            }
+        });
+
+        open_sys.setTypeface(Main.face);
+        open_sys.setTextColor(Main.COLOR_TEXT);
+        open_sys.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation anim = AnimationUtils.loadAnimation(context, R.anim.myalpha);
+                v.startAnimation(anim);
+
+                //передаётся один поток то создадим файл и откроем его иначе передаётся уже созданый файл
+                if(potok.length()>0) {
+                    String name = file.replace("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/", "");
+
+                    //сохраним  временый файл сслку
+                    File_function file_function = new File_function();
+                    file_function.Save_temp_file(name, potok);
+                }
+
+                Intent i = new Intent(android.content.Intent.ACTION_VIEW);
+                i.setDataAndType(Uri.parse(file),"audio/mpegurl");
+                //проверим есть чем открыть или нет
+                if (i.resolveActivity(Main.context.getPackageManager()) != null) {
+                    Main.context.startActivity(i);
+                }else {
+                    Toast.makeText(context,"Системе не удалось ( ",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+
+
 
     public static boolean isOnline(Context context) {
         ConnectivityManager cm =

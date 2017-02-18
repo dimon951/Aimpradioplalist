@@ -116,7 +116,6 @@
     <string-array name="pop_radio">
 
         <item>Русское радио\nruskoe_radio.png\n
-            128kbps~kbps~http://stream05.akaver.com/russkoeradio_hi.mp3~kbps~
             96kbps~kbps~http://icecast.russkoeradio.cdnvideo.ru/rr.mp3~kbps~
             32kbps~kbps~http://online-rusradio.tavrmedia.ua:8000/RusRadio_32~kbps~
         </item>
@@ -153,6 +152,7 @@
         </item>
         <item>Love радио\nloveradio.png\n
             32kbps~kbps~http://stream.variant.fm:8000/LOVE-32~kbps~
+            192kbps~kbps~http://stream.variant.fm:8000/LOVE-192~kbps~
         </item>
         <item>Дорожное Радио\ndorognoe.png\n
             64kbps~kbps~http://dorognoe.hostingradio.ru:8000/dorognoe~kbps~
@@ -160,9 +160,9 @@
         <item>Радио Дача\nradio_dacha.png\n
             96kbps~kbps~http://listen.vdfm.ru:8000/dacha~kbps~
         </item>
-        <item>Радио Ваня\nradiovanya.png\n
-            96kbps~kbps~http://icecast.piktv.cdnvideo.ru/vanya~kbps~
-        </item>
+        <!--<item>Радио Ваня\nradiovanya.png\n-->
+            <!--96kbps~kbps~http://icecast.piktv.cdnvideo.ru/vanya~kbps~-->
+        <!--</item>-->
         <item>Новое Радио\nnovoe_radio.png\n
             128kbps~kbps~http://icecast.newradio.cdnvideo.ru/newradio2~kbps~
         </item>
@@ -189,7 +189,6 @@
         <item>Максимум\nmaximum.png\n
             128kbps~kbps~http://radio.karelia.pro:8000/maximumbalakovo~kbps~
             96kbps~kbps~http://icecast.radiomaximum.cdnvideo.ru/maximum.mp3~kbps~
-            64kbps~kbps~http://online1.gkvr.ru:8000/maximum_srt_64.aac~kbps~
         </item>
         <item>Шансон\nshnson.png\n
             128kbps~kbps~http://chanson.hostingradio.ru:8041/chanson128.mp3~kbps~
@@ -198,7 +197,7 @@
             128kbps~kbps~http://radio.2kom.ru:8000/moscowecho128.mp3~kbps~
             128kbps2~kbps~http://81.19.85.197/echo.mp3~kbps~
             96kbps~kbps~http://den.101.ru:4000/ho_63_05~kbps~
-            16kbps~kbps~http://184.154.58.146:29378/ch12_16.mp3~kbps~
+            56kbps~kbps~http://184.154.58.146:29378/ch12_56.mp3~kbps~
         </item>
         <item>Радио Лучшие Песни\nluchsie_radio_pesni.png\n
             128kbps~kbps~http://85.114.140.64:8000/666~kbps~
@@ -208,6 +207,10 @@
         </item>
         <item>Детские песни \ndetskie_pesni.png\n
             128kbps~kbps~http://music.myradio.com.ua:8000/kids-songs128.mp3~kbps~
+        </item>
+        <item>Радио Гамаюн \ngamanun.png\n
+            64kbps~kbps~http://gamaun.online:8010/radio~kbps~
+            64kbps~kbps~http://gamaun.online:8000/radio~kbps~
         </item>
         <item>Классика \nclasik_radio.png\n
             128kbps~kbps~http://music.myradio.com.ua:8000/Classica128.mp3~kbps~
@@ -393,12 +396,12 @@
         <item>MC Radio\nhttp://onair.mc-radio.ru:8000/</item>
         <item>NN-Radio 99.5 FM\nhttp://cast.r52.ru:8000/nrd</item>
         <item>Rock Arsenal Екатеринбург 104.5 FM\nhttp://online.rockarsenal.ru:8000/rockarsenal</item>
-        <item>Авторитетное радио (MP3 128) (Красноярск 102.8)\nhttp://84.22.142.130:8000/arstream</item>
-        <item>Балтик плюс Калининград 105.2(mp3 128)\nhttp://217.168.64.61:8081/balticpl.mp3</item>
-        <item>Белое Радио Березники 96.6(mp3 160)\nhttp://beloeradio.ru:8080/whiteradio.mp3</item>
-        <item>Болид FM Пермь 88.0(mp3 128)\nhttp://178.161.130.30:8128/</item>
-        <item>Большое радио Мурманск 106.9(mp3 128)\nhttp://listen.myradio24.com:9000/8286</item>
-        <item>Вести FM Москва 97.6(mp3 16)\nhttp://184.154.58.146:29378/ra_radiovesti.ru_16.mp3</item>
+        <item>Авторитетное радио Красноярск 102.8 128kbps\nhttp://84.22.142.130:8000/arstream</item>
+        <item>Балтик плюс Калининград 105.2 128kbps\nhttp://217.168.64.61:8081/balticpl.mp3</item>
+        <item>Белое Радио Березники 96.6 160kbps\nhttp://beloeradio.ru:8080/whiteradio.mp3</item>
+        <item>Болид FM Пермь 88.0 128kbps\nhttp://178.161.130.30:8128/</item>
+        <item>Большое радио Мурманск 106.9 128kbps\nhttp://listen.myradio24.com:9000/8286</item>
+        <item>Вести FM Москва 97.6 16kbps\nhttp://184.154.58.146:29378/ra_radiovesti.ru_16.mp3</item>
         <item>Воскресение Екатеринбург 72.82(ogg 64)\nhttp://217.24.181.164:8000/stream.ogg</item>
         <item>Восток России Хабаровск 103.7(mp3 192)\nhttp://192.240.102.3:9036/</item>
         <item>Голос Ангары Братск 103.5(mp3 256)\nhttp://31.41.192.74:8006/</item>
@@ -1107,6 +1110,7 @@
         <item>Дискография,Prince\nhttp://149.202.94.241:7256/</item>
         <item>Дискография,QUEEN\nhttp://s_mobile.cienradios.com/743_Queen_y_Artistas_Relacionados_48.mp3</item>
         <item>Дискография,RAMONES\nhttp://s_mobile.cienradios.com/757_The_Ramones_y_Artistas_Relacionados_48.mp3</item>
+        <item>Дискография,Розенбаум Александр\nhttp://ic3.101.ru:8000/c16_26</item>
 
     </string-array>
 
