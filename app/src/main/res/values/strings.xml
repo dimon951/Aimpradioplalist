@@ -121,8 +121,10 @@
         </item>
         <item>ENERGY\nenergy.png\n
             256kbps~kbps~http://ic2.101.ru:8000/v1_1~kbps~
+            128kbps~kbps~http://nrj.babahhcdn.com/NRJ?.mp3~kbps~
         </item>
-        <item>DFM Москва\ndfm_moskva.png\n
+        <item>DFM \ndfm_moskva.png\n
+            128kbps~kbps~http://217.146.71.24:80/dfm.mp3~kbps~
             96kbps~kbps~http://icecast.radiodfm.cdnvideo.ru/dfm.mp3~kbps~
             96kbps2~kbps~http://radio.2kom.ru:8000/Dfm~kbps~
         </item>
@@ -160,9 +162,9 @@
         <item>Радио Дача\nradio_dacha.png\n
             96kbps~kbps~http://listen.vdfm.ru:8000/dacha~kbps~
         </item>
-        <!--<item>Радио Ваня\nradiovanya.png\n-->
-            <!--96kbps~kbps~http://icecast.piktv.cdnvideo.ru/vanya~kbps~-->
-        <!--</item>-->
+        <item>Радио Ваня\nradiovanya.png\n
+            96kbps~kbps~http://cdn.radiopiterfm.ru/vanya~kbps~
+        </item>
         <item>Новое Радио\nnovoe_radio.png\n
             128kbps~kbps~http://icecast.newradio.cdnvideo.ru/newradio2~kbps~
         </item>
@@ -209,11 +211,13 @@
             128kbps~kbps~http://music.myradio.com.ua:8000/kids-songs128.mp3~kbps~
         </item>
         <item>Радио Гамаюн \ngamanun.png\n
-            64kbps~kbps~http://gamaun.online:8010/radio~kbps~
+            128kbps~kbps~http://gamaun.online:8010/radio~kbps~
             64kbps~kbps~http://gamaun.online:8000/radio~kbps~
+            256kbps~kbps~http://gamaun.online:8020/radio~kbps~
         </item>
         <item>Классика \nclasik_radio.png\n
             128kbps~kbps~http://music.myradio.com.ua:8000/Classica128.mp3~kbps~
+            128kbps2~kbps~http://icecast.err.ee:80/klassikaraadio.mp3~kbps~
         </item>
         <item>Литературное радио\nliteraturnoe_radio.png\n
             64kbps~kbps~http://79.137.234.183:8000/;~kbps~
@@ -223,6 +227,33 @@
     </string-array>
 
     <string-array name="vse_radio">
+
+        <item>MyHits 128kbps\nhttp://striiming.trio.ee:8008/myhits_low.mp3</item>
+        <item>MyHits 320kbps\nhttp://striiming.trio.ee:8008/myhits_high.mp3</item>
+        <item>NRJ FM DnB 128kbps\nhttp://nrj.babahhcdn.com/NRJdnb?.mp3</item>
+        <item>NRJ FM House 128kbps\nhttp://nrj.babahhcdn.com/NRJhouse?.mp3</item>
+        <item>Радио Волна aac\nhttp://volna.babahhcdn.com:8100/volna?.mp3</item>
+        <item>Raadio 4 128kbps\nhttp://icecast.err.ee:80/raadio4.mp3</item>
+        <item>Narodnoe Radio 128kbps\nhttp://217.146.71.24:80/narodnoe.mp3</item>
+        <item>Vikerraadio 128kbps\nhttp://icecast.err.ee:80/vikerraadio.mp3</item>
+        <item>Tre Raadio 128kbps\nhttp://sc1.treraadio.ee:8002/;.mp3</item>
+        <item>Sky Radio 128kbps\nhttp://194.106.119.241:8500/skyradio_hi.mp3</item>
+        <item>Sky Plus TOP 128kbps\nhttp://skyplus.babahhcdn.com/skyplus_top40.mp3</item>
+        <item>Sky Plus RUN 128kbps\nhttp://skyplus.babahhcdn.com/skyplus_eesti.mp3</item>
+        <item>Sky Plus GOLD 128kbps\nhttp://skyplus.babahhcdn.com/skyplus_gold.mp3</item>
+        <item>Sky Plus DANCE 128kbps\nhttp://skyplus.babahhcdn.com/skyplus_dance.mp3</item>
+        <item>Sky Plus 128kbps\nhttp://194.106.119.241:8500/skyplus_hi.mp3</item>
+        <item>Ring FM aac\nhttp://stream.ringfm.ee/?.mp3</item>
+        <item>Raadio Tallinn 128kbps\nhttp://icecast.err.ee:80/raadiotallinn.mp3</item>
+        <item>Raadio Kuku 256kbps\nhttp://217.146.71.24:80/kuku_high.mp3</item>
+        <item>Raadio Kuku 128kbps\nhttp://217.146.71.24:80/kuku.mp3</item>
+        <item>Raadio Kadi 128kbps\nhttp://icecast.mmm.elion.ee:8080/Kadi?.mp3</item>
+        <item>Raadio HIT FM 192kbps\nhttp://37.0.26.55/HitFM_192?.mp3</item>
+        <item>Raadio Elmar 256kbps\nhttp://217.146.71.24:80/elmar_high.mp3</item>
+        <item>Raadio Elmar 128kbps\nhttp://217.146.71.24:80/elmar.mp3</item>
+        <item>Raadio 7 128kbps\nhttp://icecast.mmm.elion.ee:8080/Raadio7?.mp3</item>
+        <item>Raadio 2 128kbps\nhttp://icecast.err.ee:80/raadio2.mp3</item>
+
 
         <item>Radio Record 320kbps\nhttp://air.radiorecord.ru:805/rr_320</item>
         <item>Radio Record 128kbps\nhttp://air.radiorecord.ru:805/rr_128</item>
@@ -765,6 +796,7 @@
         <item>Russian Mix\nhttp://air.radiorecord.ru:8102/rus_320</item>
         <item>RUSSIAN MIX\nhttp://online.radiorecord.ru:8102/rus_128</item>
         <item>Русское радио Украина\nhttp://russkoe.ipfm.net:8000/RusRadio</item>
+        <item>Русское радио 128kbps\nhttp://194.106.119.241:8500/russkoeradio_hi.mp3</item>
         <item>S4 Radio\nhttp://188.138.1.183:10030/stream</item>
         <item>Sanctuary Radio\nhttp://radio.2kom.ru:8000/Sanctuary.Radio</item>
         <item>SomaFM - Secret Agent\nhttp://radio.2kom.ru:8000/SomaFM-SecretAgent</item>
