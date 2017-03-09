@@ -7,8 +7,8 @@ android {
         applicationId "dmitriy.deomin.aimpradioplalist"
         minSdkVersion 15
         targetSdkVersion 19
-        versionCode 19
-        versionName "1.9"
+        versionCode 20
+        versionName "2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

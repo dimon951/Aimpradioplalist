@@ -158,12 +158,14 @@
         </item>
         <item>Дорожное Радио\ndorognoe.png\n
             64kbps~kbps~http://dorognoe.hostingradio.ru:8000/dorognoe~kbps~
+            256kbps~kbps~http://dorognoe256.streamr.ru~kbps~
         </item>
         <item>Радио Дача\nradio_dacha.png\n
             96kbps~kbps~http://listen.vdfm.ru:8000/dacha~kbps~
         </item>
         <item>Радио Ваня\nradiovanya.png\n
-            96kbps~kbps~http://cdn.radiopiterfm.ru/vanya~kbps~
+            96kbps~kbps~http://radiom10.gcdn.co/piktv_radio/vanya_aac/playlist.m3u8~kbps~
+            96kbps~kbps~http://radiom10.gcdn.co/piktv_radio/vanya/playlist.m3u8~kbps~
         </item>
         <item>Новое Радио\nnovoe_radio.png\n
             128kbps~kbps~http://icecast.newradio.cdnvideo.ru/newradio2~kbps~
@@ -178,6 +180,7 @@
         </item>
         <item>Радио 7 на семи холмах\nsemhom.png\n
             128kbps~kbps~http://radio7128.streamr.ru/~kbps~
+            128kbps~kbps~http://radio7server.streamr.ru:8040/radio7128.mp3~kbps~
             64kbps~kbps~http://radio764.streamr.ru/~kbps~
             32kbps~kbps~http://radio732.streamr.ru/~kbps~
         </item>
@@ -194,6 +197,7 @@
         </item>
         <item>Шансон\nshnson.png\n
             128kbps~kbps~http://chanson.hostingradio.ru:8041/chanson128.mp3~kbps~
+            256kbps~kbps~http://chanson.hostingradio.ru:8041/chanson256.mp3~kbps~
         </item>
         <item>Эхо Москвы\necho_moskvy.png\n
             128kbps~kbps~http://radio.2kom.ru:8000/moscowecho128.mp3~kbps~
@@ -228,6 +232,39 @@
 
     <string-array name="vse_radio">
 
+        <item>Хит FM Украина 32kbps\nhttp://online-hitfm.tavrmedia.ua/HitFM_32</item>
+        <item>Хит FM Украина 128kbps\nhttp://online-hitfm.tavrmedia.ua/HitFM</item>
+        <item>87.5 Business FM 131kbps\nhttp://bfm.hostingradio.ru:8004/fm</item>
+        <item>87.9 Like FM 128kbps\nhttp://ic2.101.ru:8000/v12_1</item>
+        <item>88.3 Ретро FM 256kbps\nhttp://retro256.streamr.ru</item>
+        <item>88.7 Юмор FM 256kbps\nhttp://ic3.101.ru:8000/s11</item>
+        <item>89.1 Радио Jazz 128kbps\nhttp://jazz128.streamr.ru</item>
+        <item>89.5 Мегаполис 128kbps\nhttp://stream04.media.rambler.ru/megapolis128.mp3</item>
+        <item>89.9 Страна FM 320kbps\nhttp://icecast.stranafm.cdnvideo.ru/stranafm</item>
+        <item>90.3 Авторадио 256kbps\nhttp://ic3.101.ru:8000/s1</item>
+        <item>90.8 Relax FM 256kbps\nhttp://ic3.101.ru:8000/s40</item>
+        <item>91.2 Эхо Москвы 140kbps\nhttp://81.19.85.197/echo.mp3</item>
+        <item>91.6 Культура 320kbps\nhttp://icecast.vgtrk.cdnvideo.ru/kulturafm</item>
+        <item>92.0 Москва FM 128kbps\nhttp://icecast.vgtrk.cdnvideo.ru:8000/moscowfm128</item>
+        <item>93.2 Спорт FM 128kbps\nhttp://sportfm128.streamr.ru</item>
+        <item>94.0 Восток FM 128kbps\nhttp://vostokfm128.streamr.ru</item>
+        <item>94.8 Говорит Москва 128kbps\nhttp://media.govoritmoskva.ru:8000/rufm_m.mp3</item>
+        <item>95.2 Rock FM 128kbps\nhttp://rock128.streamr.ru</item>
+        <item>96.8 Детское радио 128kbps\nhttp://ic3.101.ru:8000/v14_1</item>
+        <item>97.2 КП-FM 256kbps\nhttp://kraskp.ru:8000/mskregion</item>
+        <item>98.8 Romantika 256kbps\nhttp://ic3.101.ru:8000/s30</item>
+        <item>99.2 Орфей 192kbps\nhttp://icecast.orpheus.cdnvideo.ru/orpheus_192</item>
+        <item>100.5 Best FM 128kbps\nhttp://best128.streamr.ru</item>
+        <item>101.7 Наше радио 128kbps\nhttp://nashe128.streamr.ru</item>
+        <item>102.5 Comedy Radio 256kbps\nhttp://ic3.101.ru:8000/s60</item>
+        <item>103.4 Маяк 320kbps\nhttp://icecast.vgtrk.cdnvideo.ru/mayakfm</item>
+        <item>104.2 NRJ 256kbps\nhttp://ic3.101.ru:8000/s20</item>
+        <item>105.0 Радио Книга 75kbps\nhttp://bookradio.hostingradio.ru:8069/fm</item>
+        <item>105.3 Moscow FM  128kbps\nhttp://icecast.vgtrk.cdnvideo.ru:8000/moscowfmen128</item>
+        <item>106.2 Европа Плюс 256kbps\nhttp://ep256.streamr.ru</item>
+        <item>Радио Рекорд 320kbps\nhttp://air2.radiorecord.ru:805/rr_320</item>
+        <item>Радио России 320kbps\nhttp://icecast.vgtrk.cdnvideo.ru/rrzonam</item>
+        <item>Радио Ultra 192kbps\nhttp://ultra192.streamr.ru</item>
         <item>MyHits 128kbps\nhttp://striiming.trio.ee:8008/myhits_low.mp3</item>
         <item>MyHits 320kbps\nhttp://striiming.trio.ee:8008/myhits_high.mp3</item>
         <item>NRJ FM DnB 128kbps\nhttp://nrj.babahhcdn.com/NRJdnb?.mp3</item>
@@ -525,7 +562,6 @@
         <item>Радио Курс  Курск 103.7 256kbps\nhttp://195.3.252.115/kurs</item>
         <item>Радио Лемма Владивосток 102.7 128kbps\nhttp://212.107.192.130:8000/;stream.nsv"</item>
         <item>Радио Миллениум Казань 107.3 (aac)\nhttp://95.211.15.193:9994</item>
-        <item>Радио Мир Первое Доброе Радио Москва (mp3 128)\nhttp://icecast.mirtv.cdnvideo.ru:8000/radio_mir128</item>
         <item>Радио Н Новочеркасск 102.6 (mp3 128)\nhttp://online.radio-n.ru:8000/radio</item>
         <item>Радио Ноябрьск 103.0 (mp3 128\nhttp://88.205.232.218:8000/RadioNoyabrsk</item>
         <item>Радио Олимп Челябинск 104.5 (aac+ 64)\nhttp://online.olimpfm.ru:8000/olimp</item>
@@ -908,7 +944,7 @@
         <item>Радио Маяк (mp3 192kbs)\nhttp://icecast.vgtrk.cdnvideo.ru/mayakfm_mp3_192kbps</item>
         <item>Радио Мелодия\nhttp://melodia.ipfm.net:80/RadioMelodia</item>
         <item>Радио Минск\nhttp://93.84.113.142:8000/radio</item>
-        <item>Радио Мир\nhttp://icecast.mirtv.cdnvideo.ru:8000/radio_mir128</item>
+        <item>Радио Мир 128kbps\nhttp://icecast.mirtv.cdnvideo.ru:8000/radio_mir128</item>
         <item>Радио Моя Удмуртия\nhttp://radio.myudm.ru:10010/mp3</item>
         <item>Радио Натали\nhttp://setmedia.ru:8000/high4</item>
         <item>Радио Олимп Челябинск 104.5\nhttp://online.olimpfm.ru:8000/olimp</item>
