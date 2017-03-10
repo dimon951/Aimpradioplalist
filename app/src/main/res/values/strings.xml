@@ -178,6 +178,10 @@
             48kbps~kbps~http://ruhit.imgradio.pro/RusHit48~kbps~
             48kbps2~kbps~http://s3.imgradio.pro/RusHit48~kbps~
         </item>
+        <item>ХИТ FM\nhitfm.png\n
+            256kbps~kbps~http://91.227.148.59/hit.mp3~kbps~
+            224kbps~kbps~http://satradio.ddns.net:8000/hit~kbps~
+        </item>
         <item>Радио 7 на семи холмах\nsemhom.png\n
             128kbps~kbps~http://radio7128.streamr.ru/~kbps~
             128kbps~kbps~http://radio7server.streamr.ru:8040/radio7128.mp3~kbps~
@@ -721,7 +725,6 @@
         <item>HardBase.FM\nhttp://radio.2kom.ru:8000/HardBase.FM</item>
         <item>HardRockin80s\nhttp://74.208.105.119:8018</item>
         <item>Harmony radio\nhttp://91.121.49.52:8000/harmonyradio.mp3</item>
-        <item>Hit FM\nhttp://online-hitfm.tavrmedia.ua/HitFM</item>
         <item>Hit FM\nhttp://hitfm.ipfm.net:8000/HitFM</item>
         <item>Hit FM\nhttp://radio.2kom.ru:8000/hit</item>
         <item>Inolvidable FM\nhttp://198.178.123.20:7608</item>

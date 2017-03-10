@@ -14,14 +14,14 @@
         android:layout_alignParentBottom="false" />
 
     <dmitriy.deomin.aimpradioplalist.Text
+        android:id="@+id/textView_abaut"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/textView_abaut"
-        android:textSize="12dp"
-        android:textIsSelectable="true"
-        android:onClick="finish"
         android:gravity="center"
-        android:linksClickable="true" />
+        android:linksClickable="true"
+        android:onClick="finish"
+        android:textIsSelectable="true"
+        android:textSize="20sp" />
 
     <ImageButton
 android:layout_width="40dp"
