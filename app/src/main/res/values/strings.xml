@@ -489,42 +489,42 @@
         <item>Интерра FM Первоуральск 97.6(mp3 320)\nhttp://ice.interra.fm:8000/barix.m3u</item>
         <item>Кавказ Радио Владикавказ 90.8(mp3 128)\nhttp://radio.alania.net:8000/kvk</item>
         <item>Радио За облаками Курган 101.5(mp3 64)\nhttp://195.88.63.114:8000/zaoblakami</item>
-        <item>Камышин FM Камышин 88.2(mp3 160)\nhttp://188.130.230.132:8000/</item>
-        <item>Красная Армия (mp3 256) (Тюмень 104.6)\nhttp://live.rzs.ru/ka256</item>
-        <item>Лайт-Радио (mp3 128) (Кинешма 105.6)\nhttp://s5.radioheart.ru:8010/LiteRadioKineshma</item>
-        <item>Липецк-FM (mp3 128) (Липецк 90.7)\nhttp://media.lipetsk.ru:9009/r_lt.mp3</item>
-        <item>Макс FM (mp3 128) (Сочи 107.4)\nhttp://mxsel.maksmedia.ru:8000/maksfm128</item>
-        <item>Макс FM (mp3 192) (Сочи 107.4)\nhttp://mxsel.maksmedia.ru:8000/maksfm192</item>
-        <item>Мега FM (mp3 128) (Архангельск 106.4)\nhttp://radio.arkhnet.ru:6001/megafm.mp3</item>
-        <item>Мегаполис FM (mp3 128) (Москва 89.5)\nhttp://stream04.media.rambler.ru/megapolis128.mp3</item>
-        <item>Мелодия - Воронеж (mp3 192) (Воронеж 71.39)\nhttp://icecast.mediaalliance.cdnvideo.ru/mediaalliance</item>
-        <item>Москва FM (mp3 128) (Москва 92.0)\nhttp://icecast.vgtrk.cdnvideo.ru/moscowfm128</item>
-        <item>Мост-Радио (mp3 128) (Пенза 102.8)\nhttp://94.181.181.72:8000/</item>
-        <item>Моя Удмуртия (mp3 96) (Ижевск 100.1)\nhttp://radio.myudm.ru:10010/mp3</item>
-        <item>Н-Радио (mp3 128) (Новоуральск 107.9)\nhttp://5.199.192.107:8000/n-radio</item>
-        <item>Народная Волна (mp3 128) (Екатеринбург 91.9)\nhttp://www.intervolna.com:8000/rnv</item>
+        <item>Камышин FM Камышин 88.2 160kbps\nhttp://188.130.230.132:8000/</item>
+        <item>Красная Армия Тюмень 104.6 256kbps\nhttp://live.rzs.ru/ka256</item>
+        <item>Лайт-Радио Кинешма 105.6 128kbps\nhttp://s5.radioheart.ru:8010/LiteRadioKineshma</item>
+        <item>Липецк-FM Липецк 90.7 128kbps\nhttp://media.lipetsk.ru:9009/r_lt.mp3</item>
+        <item>Макс FM Сочи 107.4 128kbps\nhttp://mxsel.maksmedia.ru:8000/maksfm128</item>
+        <item>Макс FM Сочи 107.4 192kbps\nhttp://mxsel.maksmedia.ru:8000/maksfm192</item>
+        <item>Мега FM Архангельск 106.4 128kbps\nhttp://radio.arkhnet.ru:6001/megafm.mp3</item>
+        <item>Мегаполис FM Москва 89.5 128kbps\nhttp://stream04.media.rambler.ru/megapolis128.mp3</item>
+        <item>Мелодия - Воронеж 71.39 192kbps\nhttp://icecast.mediaalliance.cdnvideo.ru/mediaalliance</item>
+        <item>Москва FM 92.0 128kbps\nhttp://icecast.vgtrk.cdnvideo.ru/moscowfm128</item>
+        <item>Мост-Радио Пенза 102.8 128kbps\nhttp://94.181.181.72:8000/</item>
+        <item>Моя Удмуртия Ижевск 100.1 96kbps\nhttp://radio.myudm.ru:10010/mp3</item>
+        <item>Н-Радио Новоуральск 107.9 128kbps\nhttp://5.199.192.107:8000/n-radio</item>
+        <item>Народная Волна Екатеринбург 91.9 128kbps\nhttp://www.intervolna.com:8000/rnv</item>
         <item>Наши Песни-Екатеринбург 128kbps\nhttp://online.nashipesni.ru:8000/nashipesni</item>
         <item>Наши Песни-Екатеринбург 64kbps\nhttp://online.nashipesni.ru:8000/nashipesni_aacplus</item>
         <item>Наши Песни-Красноярск 64kbps\nhttp://online.nashipesni.ru:8000/np-kras</item>
         <item>Ника FM Калуга 103.1 128kbps\nhttp://radio.nikatv.ru:8959/</item>
         <item>Новая Волна Волгоград 102.0 96kbps\nhttp://89.249.224.121:8010/</item>
         <item>Новая Жизнь Магадан 71.36 64kbps\nhttp://50.22.253.46:80/nlradio</item>
-        <item>Первое Радио Краснодар 102.7 (mp3 112)\nhttp://217.19.105.43:8000/</item>
-        <item>Радио 2x2 Ульяновск 102.1 (ogg 128)\nhttp://95.104.192.220:8001/radio2x2.ogg</item>
-        <item>Радио 7 Тюмень 103.1 (mp3 128)\nhttp://rain72.ru:8000/radio7</item>
+        <item>Первое Радио Краснодар 102.7 112kbps\nhttp://217.19.105.43:8000/</item>
+        <item>Радио 2x2 Ульяновск 102.1 128kbps\nhttp://95.104.192.220:8001/radio2x2.ogg</item>
+        <item>Радио 7 Тюмень 103.1 128kbps\nhttp://rain72.ru:8000/radio7</item>
         <item>Радио 40 Рок Калуга 105.1)\nhttp://radio40.ru/public/stream.php/</item>
-        <item>Радио 53 Великий Новгород 102.7(mp3 128) \nhttp://84.242.241.66:8000/</item>
-        <item>Радио 100 FM Челябинск 100.0 (mp3 128)\nhttp://195.54.20.148:9000/radio100online</item>
-        <item>Радио 106.9 FM Тольятти 106.9 (mp3 128)\nhttp://online.106i9fm.ru:8000/106i9_mp3</item>
-        <item>Радио 107 Краснодар 107.7 (mp3 256)\nhttp://62.183.34.109:8000/radio107_256.mp3</item>
-        <item>Радио AVN Артём 101.0 (mp3 128)\nhttp://radiohost.artem-catv.ru:8001/radio-avn-128</item>
-        <item>Радио HIT Орск 103.7 (mp3 128\nhttp://radio.trkeurasia.ru:8000/hitfmural128</item>
-        <item>Радио МСМ Иркутск 102.1 (mp3 128)\nhttp://91.227.68.150:10000/hit128</item>
-        <item>Радио OK Рязань 107.2 (mp3 256)\nhttp://radiook.nlink.ru:8000/OKradio256.mp3</item>
-        <item>Радио OK Рязань 107.2 (mp3 128)\nhttp://radiook.nlink.ru:8000/OKradio128.mp3</item>
-        <item>Радио VBC Владивосток 101.7 (mp3 256)\nhttp://air.radiovbc.ru:8000/Radio256</item>
-        <item>Радио Август Тольятти 102.3 (mp3 40)\nhttp://81.28.166.36:8000</item>
-        <item>Радио Альфа Пермь 104.1 (aac+ 64)\nhttp://online.alfafm.ru:8000/alfa</item>
+        <item>Радио 53 Великий Новгород 102.7 128kbps\nhttp://84.242.241.66:8000/</item>
+        <item>Радио 100 FM Челябинск 100.0 128kbps\nhttp://195.54.20.148:9000/radio100online</item>
+        <item>Радио 106.9 FM Тольятти 106.9 128kbps\nhttp://online.106i9fm.ru:8000/106i9_mp3</item>
+        <item>Радио 107 Краснодар 107.7 256kbps\nhttp://62.183.34.109:8000/radio107_256.mp3</item>
+        <item>Радио AVN Артём 101.0 128kbps\nhttp://radiohost.artem-catv.ru:8001/radio-avn-128</item>
+        <item>Радио HIT Орск 103.7 128kbps\nhttp://radio.trkeurasia.ru:8000/hitfmural128</item>
+        <item>Радио МСМ Иркутск 102.1 128kbps\nhttp://91.227.68.150:10000/hit128</item>
+        <item>Радио OK Рязань 107.2 256kbps\nhttp://radiook.nlink.ru:8000/OKradio256.mp3</item>
+        <item>Радио OK Рязань 107.2 128kbps\nhttp://radiook.nlink.ru:8000/OKradio128.mp3</item>
+        <item>Радио VBC Владивосток 101.7 256kbps\nhttp://air.radiovbc.ru:8000/Radio256</item>
+        <item>Радио Август Тольятти 102.3 40kbps\nhttp://81.28.166.36:8000</item>
+        <item>Радио Альфа Пермь 104.1 64kbps\nhttp://online.alfafm.ru:8000/alfa</item>
         <item>ACCA\nhttp://stream3.radiostyle.ru:8003/radioacca</item>
         <item>Радио Прибой Махачкала 100.7 (mp3 96)\nhttp://stream6.radiostyle.ru:8006/priboyfm</item>
         <item>Радио Ир Владикавказ 105.3 (mp3 112)\nhttp://78.110.148.237:8000/</item>
