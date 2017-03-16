@@ -25,13 +25,11 @@ public class Fonts_vibor extends Activity {
         ((Button)findViewById(R.id.button_font_tweed)).setTypeface(Typeface.createFromAsset(getAssets(),"fonts/Tweed.ttf"));
         ((Button)findViewById(R.id.button_font_kramola)).setTypeface(Typeface.createFromAsset(getAssets(),"fonts/Kramola.ttf"));
         ((Button)findViewById(R.id.button_font_badaboom)).setTypeface(Typeface.createFromAsset(getAssets(),"fonts/Badaboom.ttf"));
-        ((Button)findViewById(R.id.button_font_capture)).setTypeface(Typeface.createFromAsset(getAssets(),"fonts/Capture.ttf"));
         ((Button)findViewById(R.id.button_font_bemount)).setTypeface(Typeface.createFromAsset(getAssets(),"fonts/Bemount.ttf"));
         ((Button)findViewById(R.id.button_font_Smeshariki)).setTypeface(Typeface.createFromAsset(getAssets(),"fonts/Smeshariki.ttf"));
         ((Button)findViewById(R.id.button_font_Snowstorm)).setTypeface(Typeface.createFromAsset(getAssets(),"fonts/Snowstorm.ttf"));
         ((Button)findViewById(R.id.button_font_Izhitsa)).setTypeface(Typeface.createFromAsset(getAssets(),"fonts/Izhitsa.ttf"));
         ((Button)findViewById(R.id.button_font_Sensei)).setTypeface(Typeface.createFromAsset(getAssets(),"fonts/Sensei.ttf"));
-        ((Button)findViewById(R.id.button_font_PF_DinText)).setTypeface(Typeface.createFromAsset(getAssets(),"fonts/PF_DinText.ttf"));
         ((Button)findViewById(R.id.button_font_Yarin)).setTypeface(Typeface.createFromAsset(getAssets(),"fonts/Yarin.ttf"));
         ((Button)findViewById(R.id.button_font_Frezer)).setTypeface(Typeface.createFromAsset(getAssets(),"fonts/Frezer.ttf"));
         ((Button)findViewById(R.id.button_font_Futured)).setTypeface(Typeface.createFromAsset(getAssets(),"fonts/Futured.ttf"));
@@ -40,13 +38,11 @@ public class Fonts_vibor extends Activity {
         ((Button)findViewById(R.id.button_font_tweed)).setTextColor(Main.COLOR_TEXT);
         ((Button)findViewById(R.id.button_font_kramola)).setTextColor(Main.COLOR_TEXT);
         ((Button)findViewById(R.id.button_font_badaboom)).setTextColor(Main.COLOR_TEXT);
-        ((Button)findViewById(R.id.button_font_capture)).setTextColor(Main.COLOR_TEXT);
         ((Button)findViewById(R.id.button_font_bemount)).setTextColor(Main.COLOR_TEXT);
         ((Button)findViewById(R.id.button_font_Smeshariki)).setTextColor(Main.COLOR_TEXT);
         ((Button)findViewById(R.id.button_font_Snowstorm)).setTextColor(Main.COLOR_TEXT);
         ((Button)findViewById(R.id.button_font_Izhitsa)).setTextColor(Main.COLOR_TEXT);
-        ((Button)findViewById(R.id.button_font_Sensei)).setTextColor(Main.COLOR_TEXT);
-        ((Button)findViewById(R.id.button_font_PF_DinText)).setTextColor(Main.COLOR_TEXT);
+        ((Button)findViewById(R.id.button_font_Sensei)).setTextColor(Main.COLOR_TEXT);;
         ((Button)findViewById(R.id.button_font_Yarin)).setTextColor(Main.COLOR_TEXT);
         ((Button)findViewById(R.id.button_font_Frezer)).setTextColor(Main.COLOR_TEXT);
         ((Button)findViewById(R.id.button_font_Futured)).setTextColor(Main.COLOR_TEXT);

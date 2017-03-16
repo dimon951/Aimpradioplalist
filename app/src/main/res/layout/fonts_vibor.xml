@@ -36,13 +36,7 @@
                 android:id="@+id/button_font_kramola"
                 android:onClick="save_Kramola"
                 android:background="@android:color/transparent" />
-            <Button
-                android:text="Выбрать этот шрифт(Capture)"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/button_font_capture"
-                android:onClick="save_Capture"
-                android:background="@android:color/transparent" />
+
             <Button
                 android:text="Выбрать этот шрифт(Bemount)"
                 android:layout_width="match_parent"
@@ -113,14 +107,6 @@
                 android:id="@+id/button_font_Sensei"
                 android:onClick="save_Sensei"
                 android:background="@android:color/transparent" />
-            <Button
-                android:text="Выбрать этот шрифт(PF_DinText)"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/button_font_PF_DinText"
-                android:onClick="save_PF_DinText"
-                android:background="@android:color/transparent" />
-
 
 
         </LinearLayout>
