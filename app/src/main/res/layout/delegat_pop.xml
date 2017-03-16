@@ -6,20 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/fon">
+
     <dmitriy.deomin.aimpradioplalist.Fon_item
+        android:id="@+id/fon_pop_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="3dp"
-        app:cardPreventCornerOverlap="false"
-        android:elevation="0dp"
+        android:layout_marginBottom="2dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        app:cardBackgroundColor="@color/green"
+        android:layout_marginTop="2dp"
         android:alpha="0.8"
-        android:id="@+id/fon_pop_card">
+        android:elevation="0dp"
+        app:cardBackgroundColor="@color/green"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="3dp"
+        app:cardPreventCornerOverlap="false">
 
 
         <LinearLayout

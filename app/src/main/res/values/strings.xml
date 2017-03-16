@@ -236,6 +236,10 @@
 
     <string-array name="vse_radio">
 
+        <item>Европа Плюс 96kbps\nhttp://emgspb.hostingradio.ru/europaplus96.aac</item>
+        <item>ХИТЫ ЕВРОПЫ ПЛЮС 64kbps\nhttp://ic4.101.ru:8000/p450704</item>
+        <item>Хит FM 90е 96kbps\nhttp://icecast.radiohitfm.cdnvideo.ru/st13.mp3</item>
+        <item>Хит FM 2000е 96kbps\nhttp://icecast.radiohitfm.cdnvideo.ru/st12.mp3</item>
         <item>Хит FM Украина 32kbps\nhttp://online-hitfm.tavrmedia.ua/HitFM_32</item>
         <item>Хит FM Украина 128kbps\nhttp://online-hitfm.tavrmedia.ua/HitFM</item>
         <item>87.5 Business FM 131kbps\nhttp://bfm.hostingradio.ru:8004/fm</item>
@@ -527,8 +531,8 @@
         <item>Радио Альфа Пермь 104.1 64kbps\nhttp://online.alfafm.ru:8000/alfa</item>
         <item>ACCA\nhttp://stream3.radiostyle.ru:8003/radioacca</item>
         <item>Радио Прибой Махачкала 100.7 (mp3 96)\nhttp://stream6.radiostyle.ru:8006/priboyfm</item>
-        <item>Радио Ир Владикавказ 105.3 (mp3 112)\nhttp://78.110.148.237:8000/</item>
-        <item>Радио Ватан Махачкала 104.8 (mp3 96)\nhttp://stream1.radiostyle.ru:8001/radiovatan</item>
+        <item>Радио Ир Владикавказ 105.3 112kbps\nhttp://78.110.148.237:8000/</item>
+        <item>Радио Ватан Махачкала 104.8 96kbps\nhttp://stream1.radiostyle.ru:8001/radiovatan</item>
         <item>Кавказ FM\nhttp://music.nextweb.ru:9500/kavkaz-fm</item>
         <item>Кавказ FM Чеченский хит\nhttp://music.nextweb.ru:9500/hehenskii_XIT</item>
         <item>Кавказ FM Кумыкское радио\nhttp://music.nextweb.ru:9500/kumikskay</item>
@@ -566,40 +570,40 @@
         <item>Радио Курс  Курск 103.7 256kbps\nhttp://195.3.252.115/kurs</item>
         <item>Радио Лемма Владивосток 102.7 128kbps\nhttp://212.107.192.130:8000/;stream.nsv"</item>
         <item>Радио Миллениум Казань 107.3 (aac)\nhttp://95.211.15.193:9994</item>
-        <item>Радио Н Новочеркасск 102.6 (mp3 128)\nhttp://online.radio-n.ru:8000/radio</item>
-        <item>Радио Ноябрьск 103.0 (mp3 128\nhttp://88.205.232.218:8000/RadioNoyabrsk</item>
-        <item>Радио Олимп Челябинск 104.5 (aac+ 64)\nhttp://online.olimpfm.ru:8000/olimp</item>
-        <item>Радио Радонеж Москва 72.92 (mp3 128)\nhttp://icecast.radonezh.cdnvideo.ru:8000/rad128</item>
-        <item>Радио Радонеж Москва 72.92 (mp3 32)\nhttp://icecast.radonezh.cdnvideo.ru:8000/rad</item>
-        <item>Радио Рандеву Нижний Новгород 103.4 (mp3 128)\nhttp://212.92.183.74:8370/</item>
-        <item>Радио Рекорд Санкт-Петербург 106.3 (mp3 320)\nhttp://online.radiorecord.ru:8101/rr_320</item>
-        <item>Радио РСН Москва 107.0 (mp3 128)\nhttp://stream02.media.rambler.ru/rsn96.mp3</item>
-        <item>Радио Си Екатеринбург 103.7 (mp3 128)\nhttp://online.radioc.ru:8000/radioc</item>
-        <item>Радио Си Екатеринбург 103.7 (aac+ 64)\nhttp://online.radioc.ru:8000/radioc_aacplus</item>
-        <item>Радио Си Екатеринбург 103.7 (mp3 32)\nhttp://online.radioc.ru:8000/radioc32</item>
-        <item>Радио Сибирь Томск 104.6 (mp3 192)\nhttp://radiosibir.ru:8090/HQ</item>
-        <item>Радио Сибирь Чита 102.6 (mp3 192)\nhttp://188.168.81.200:8000/radiosibir192</item>
-        <item>Радио Сибирь-Байкал Улан-Удэ 106.5 (mp3 128)\nhttp://92.124.196.44:8000/radiosibiruu</item>
-        <item>Радио Сити Тюмень 100.6 (aac+ 64)\nhttp://online.100i6fm.ru:8000/city</item>
-        <item>Радио Столица Махачкала 107.1 (mp3 128)\nhttp://skycast.su:2007/3894</item>
-        <item>Радио Точка Ру Орск 100.7 (128)\nhttp://dotru.trkeurasia.ru:8000/dotru128</item>
-        <item>Радио Точка Ру (aac 128)\nhttp://dotru.trkeurasia.ru:8000/dotru128aac</item>
-        <item>Радио Точка Ру Орск 100.7 (mp3 64)\nhttp://dotru.trkeurasia.ru:8000/dotru64</item>
-        <item>Радио Фортуна Волгодонск 106.3 (mp3 128)\nhttp://listen.vdfm.ru:8000/fortuna</item>
-        <item>Радио Шоколад Москва 98.0 (mp3 128)\nhttp://choco.hostingradio.ru:10010/fm128</item>
-        <item>Радио Экспресс Пенза 105.2 (mp3 128)\nhttp://91.144.176.199:8000/</item>
-        <item>Радио Эрмитаж Санкт-петербург 90.1 (mp3 128)\nhttp://91.190.117.131:8000/live</item>
-        <item>Ретро FM Москва 88.3 (mp3 128)\nhttp://retroserver.streamr.ru:8043/retro128</item>
-        <item>Самара-Максимум Самара 104.3 (mp3 128)\nhttp://193.219.125.89:8000/maximum</item>
-        <item>Солнечное Радио Ленинск-Кузнецкий 99.3 (mp3 128)\nhttp://setmedia.ru:8000/high2</item>
-        <item>Спутник FM Уфа 107.0 (mp3 128)\nhttp://player.bonus-tv.ru:8090/radio3.mp3</item>
-        <item>Старое доброе радио Братск 105.3 (mp3 128)\nhttp://31.41.192.74:8008</item>
-        <item>Тихий Дон Ростов-На-Дону 73.76 (mp3 128)\nhttp://skycast.su:2007/3749</item>
-        <item>Ток FM Самара 91.5 (mp3 128)\nhttp://online.tokfm.ru:8000/tokfm</item>
-        <item>Удачное Радио Хабаровск 103.1 (mp3 128)\nhttp://radio.gubernia.com:8000/radio1</item>
-        <item>ЭкоРадио Нижний Тагил 103.0 (mp3 128)\nhttp://109.198.108.42:8000/</item>
-        <item>Экспресс Радио Орёл 100.4 (mp3 128)\nhttp://159.253.18.97:8000/128kbit.mp3</item>
-        <item>Южная волна Астрахань 104.1 (mp3 128)\nhttp://213.80.160.102:8000/channel4</item>
+        <item>Радио Н Новочеркасск 102.6 128kbps\nhttp://online.radio-n.ru:8000/radio</item>
+        <item>Радио Ноябрьск 103.0 128kbps\nhttp://88.205.232.218:8000/RadioNoyabrsk</item>
+        <item>Радио Олимп Челябинск 104.5 64kbps\nhttp://online.olimpfm.ru:8000/olimp</item>
+        <item>Радио Радонеж Москва 72.92 128kbps\nhttp://icecast.radonezh.cdnvideo.ru:8000/rad128</item>
+        <item>Радио Радонеж Москва 72.92 32kbps\nhttp://icecast.radonezh.cdnvideo.ru:8000/rad</item>
+        <item>Радио Рандеву Нижний Новгород 103.4 128kbps\nhttp://212.92.183.74:8370/</item>
+        <item>Радио Рекорд Санкт-Петербург 106.3 320kbps\nhttp://online.radiorecord.ru:8101/rr_320</item>
+        <item>Радио РСН Москва 107.0 128kbps\nhttp://stream02.media.rambler.ru/rsn96.mp3</item>
+        <item>Радио Си Екатеринбург 103.7 128kbps\nhttp://online.radioc.ru:8000/radioc</item>
+        <item>Радио Си Екатеринбург 103.7 64kbps\nhttp://online.radioc.ru:8000/radioc_aacplus</item>
+        <item>Радио Си Екатеринбург 103.7 32kbps\nhttp://online.radioc.ru:8000/radioc32</item>
+        <item>Радио Сибирь Томск 104.6 192kbps\nhttp://radiosibir.ru:8090/HQ</item>
+        <item>Радио Сибирь Чита 102.6 192kbps\nhttp://188.168.81.200:8000/radiosibir192</item>
+        <item>Радио Сибирь-Байкал Улан-Удэ 106.5 128kbps\nhttp://92.124.196.44:8000/radiosibiruu</item>
+        <item>Радио Сити Тюмень 100.6 64kbps\nhttp://online.100i6fm.ru:8000/city</item>
+        <item>Радио Столица Махачкала 107.1 128kbps\nhttp://skycast.su:2007/3894</item>
+        <item>Радио Точка Ру Орск 100.7 128kbps\nhttp://dotru.trkeurasia.ru:8000/dotru128</item>
+        <item>Радио Точка Ру 128kbps\nhttp://dotru.trkeurasia.ru:8000/dotru128aac</item>
+        <item>Радио Точка Ру Орск 100.7 64kbps\nhttp://dotru.trkeurasia.ru:8000/dotru64</item>
+        <item>Радио Фортуна Волгодонск 106.3 128kbps\nhttp://listen.vdfm.ru:8000/fortuna</item>
+        <item>Радио Шоколад Москва 98.0 128kbps\nhttp://choco.hostingradio.ru:10010/fm128</item>
+        <item>Радио Экспресс Пенза 105.2 128kbps\nhttp://91.144.176.199:8000/</item>
+        <item>Радио Эрмитаж Санкт-петербург 90.1 128kbps\nhttp://91.190.117.131:8000/live</item>
+        <item>Ретро FM Москва 88.3 128kbps\nhttp://retroserver.streamr.ru:8043/retro128</item>
+        <item>Самара-Максимум Самара 104.3 128kbps\nhttp://193.219.125.89:8000/maximum</item>
+        <item>Солнечное Радио Ленинск-Кузнецкий 99.3 128kbps\nhttp://setmedia.ru:8000/high2</item>
+        <item>Спутник FM Уфа 107.0 128kbps\nhttp://player.bonus-tv.ru:8090/radio3.mp3</item>
+        <item>Старое доброе радио Братск 105.3 128kbps\nhttp://31.41.192.74:8008</item>
+        <item>Тихий Дон Ростов-На-Дону 73.76 128kbps\nhttp://skycast.su:2007/3749</item>
+        <item>Ток FM Самара 91.5 128kbps\nhttp://online.tokfm.ru:8000/tokfm</item>
+        <item>Удачное Радио Хабаровск 103.1 128kbps\nhttp://radio.gubernia.com:8000/radio1</item>
+        <item>ЭкоРадио Нижний Тагил 103.0 128kbps\nhttp://109.198.108.42:8000/</item>
+        <item>Экспресс Радио Орёл 100.4 128kbps\nhttp://159.253.18.97:8000/128kbit.mp3</item>
+        <item>Южная волна Астрахань 104.1 128kbps\nhttp://213.80.160.102:8000/channel4</item>
         <item>Сelestia Radio\nhttp://celestia.aiverse.org:8000/mp3_256</item>
         <item>Радио Русские песни (поток 1)\nhttp://listen.rusongs.ru/ru-aac-48</item>
         <item>Радио Русские песни (поток 2)\nhttp://s2.rusongs.ru/ru-aac-48</item>
@@ -651,7 +655,7 @@
         <item>Monte Carlo\nhttp://radio.2kom.ru:8000/monte_carlo</item>
         <item>Rock FM\nhttp://radio.2kom.ru:8000/RockFM</item>
         <item>Вести ФМ\nhttp://radio.2kom.ru:8000/Vesti.FM</item>
-        <item>Говорит Москва(64kbt)\nhttp://radio.2kom.ru:8000/govoritmoskva</item>
+        <item>Говорит Москва 64kbps\nhttp://radio.2kom.ru:8000/govoritmoskva</item>
         <item>Детское радио\nhttp://radio.2kom.ru:8000/detskoe</item>
         <item>Дорожное радио\nhttp://radio.2kom.ru:8000/Dorognoe</item>
         <item>Европа плюс\nhttp://radio.2kom.ru:8000/europaplus</item>
@@ -898,7 +902,8 @@
         <item>Мегаполис FM\nhttp://stream04.media.rambler.ru/megapolis128.mp3</item>
         <item>Медляк FM\nhttp://air.radiorecord.ru:8102/mdl_320</item>
         <item>Мелодiя\nhttp://melodia.ipfm.net/RadioMelodia_32</item>
-        <item>Модель для Сборки\nhttp://mds-station.com:8000/mds</item>
+        <item>Модель для Сборки (Германия)\nhttp://mds-station.com:8000/mds</item>
+        <item>Модель для Сборки (Казань)\nhttp://stream.kazancity.net:8000/27-mds</item>
         <item>Музыка\nhttp://www.staroeradio.ru/music32.m3u</item>
         <item>Cinemix - Музыка из фильмов\nhttp://radio.2kom.ru:8000/CineMix</item>
         <item>Народная Волна\nhttp://www.intervolna.com:8000/rnv</item>
