@@ -145,6 +145,7 @@
         </item>
         <item>Европа плюс\nevropa_plus.png\n
             128kbps~kbps~http://radio.2kom.ru:8000/europaplus~kbps~
+            96kbps~kbps~http://emgspb.hostingradio.ru/europaplus96.aac~kbps~
         </item>
         <item>HR Radio\nhr_radio.png\n
             128kbps~kbps~http://hrradio.hostingradio.ru:8077/hrradio128.mp3~kbps~
@@ -236,7 +237,6 @@
 
     <string-array name="vse_radio">
 
-        <item>Европа Плюс 96kbps\nhttp://emgspb.hostingradio.ru/europaplus96.aac</item>
         <item>ХИТЫ ЕВРОПЫ ПЛЮС 64kbps\nhttp://ic4.101.ru:8000/p450704</item>
         <item>Хит FM 90е 96kbps\nhttp://icecast.radiohitfm.cdnvideo.ru/st13.mp3</item>
         <item>Хит FM 2000е 96kbps\nhttp://icecast.radiohitfm.cdnvideo.ru/st12.mp3</item>
