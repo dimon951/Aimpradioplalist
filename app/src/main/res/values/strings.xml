@@ -137,6 +137,9 @@
             64kbps~kbps~http://nashe1.hostingradio.ru/nashe-64.mp3~kbps~
             2.0-64k~kbps~http://nashe1.hostingradio.ru/nashe20-64.mp3~kbps~
         </item>
+        <item>Радио Нашествие\nnashestvie.png\n
+            320kbps~kbps~http://320kbps.radio-nashestvie.ru:9000/9857~kbps~
+        </item>
         <item>Юмор Fm\nym_fm.png\n
             128kbps~kbps~http://yumfm128.streamr.ru~kbps~
             256kbps~kbps~http://81.19.85.196/umor128.mp3~kbps~
@@ -165,7 +168,6 @@
             96kbps~kbps~http://listen.vdfm.ru:8000/dacha~kbps~
         </item>
         <item>Радио Ваня\nradiovanya.png\n
-            96kbps~kbps~http://radiom10.gcdn.co/piktv_radio/vanya_aac/playlist.m3u8~kbps~
             96kbps~kbps~http://radiom10.gcdn.co/piktv_radio/vanya/playlist.m3u8~kbps~
         </item>
         <item>Новое Радио\nnovoe_radio.png\n
