@@ -239,6 +239,16 @@
 
     <string-array name="vse_radio">
 
+        <item>Fresh FM Сосновый Бор 192kbps\nhttp://s7.radioheart.ru:8007/live</item>
+        <item>Радио Mix FM 128kbps\nhttp://free.radioheart.ru:8000/mixfm</item>
+        <item>Радио Таблетка FM 160kbps\nhttp://tabletka-fm.ru:8000/play</item>
+        <item>Record Trap Radio 128kbps\nhttp://air.radiorecord.ru:8102/trap_128</item>
+        <item>Радио Плазма Кингисепп 128kbps\nhttp://icecast.radioplasma.ru:8001/RADIOPLASMA128</item>
+        <item>Сома ФМ Секретный Агент 128kbps\nhttp://ice.somafm.com/secretagent</item>
+        <item>Радио Медиа няня 128kbps\nhttp://stream5.radiostyle.ru:8005/mediananny</item>
+        <item>Радио Подвиг 32kbps\nhttp://stream0.radiostyle.ru:8000/feat</item>
+        <item>Радио Музыка кино 128kbps\nhttp://music.myradio.com.ua:8000/kino128.mp3</item>
+        <item>Радио ExciteBit 128kbps\nhttp://46.105.180.202:8100/stream</item>
         <item>ХИТЫ ЕВРОПЫ ПЛЮС 64kbps\nhttp://ic4.101.ru:8000/p450704</item>
         <item>Хит FM 90е 96kbps\nhttp://icecast.radiohitfm.cdnvideo.ru/st13.mp3</item>
         <item>Хит FM 2000е 96kbps\nhttp://icecast.radiohitfm.cdnvideo.ru/st12.mp3</item>
@@ -653,7 +663,7 @@
         <item>Frequence 3 Франция\nhttp://ice.stream.frequence3.net/frequence3-128.mp3</item>
         <item>Радио Alouette Франция\nhttp://broadcast.infomaniak.net/alouette-high.mp3</item>
         <item>Big FM Штутгарт\nhttp://srv04.bigstreams.de/bigfm-mp3-64</item>
-        <item>ElectroN\nhttp://radio-electron.ru:8000/128</item>
+        <item>ElectroN 128kbps\nhttp://radio-electron.ru:8000/128</item>
         <item>Monte Carlo\nhttp://radio.2kom.ru:8000/monte_carlo</item>
         <item>Rock FM\nhttp://radio.2kom.ru:8000/RockFM</item>
         <item>Вести ФМ\nhttp://radio.2kom.ru:8000/Vesti.FM</item>
