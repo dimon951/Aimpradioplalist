@@ -12,16 +12,12 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.romainpiel.shimmer.Shimmer;
-import com.romainpiel.shimmer.ShimmerTextView;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Abaut extends Activity {
 
-    ShimmerTextView hTextView;
-    Shimmer shimmer;
+    TextView hTextView;
     TextView textView;
     int live;
     Timer mTimer;
@@ -37,12 +33,9 @@ public class Abaut extends Activity {
 
         ((RelativeLayout) findViewById(R.id.fon_abaut)).setBackgroundColor(Main.COLOR_FON);
 
-        hTextView = (ShimmerTextView) findViewById(R.id.ShimmerTextView);
+        hTextView = (TextView) findViewById(R.id.ShimmerTextView);
         hTextView.setTypeface(Main.face);
         hTextView.setText(getVersion());
-
-        shimmer = new Shimmer();
-        shimmer.start(hTextView);
 
         textView = (TextView) findViewById(R.id.textView_abaut);
         textView.setText(getString(R.string.abaut_text).replace("+++++", "Aimp radio plalist " + getVersion()));
@@ -62,8 +55,6 @@ public class Abaut extends Activity {
         if (mTimer != null) {
             mTimer.cancel();
         }
-
-        shimmer.cancel();
 
         hTextView.setVisibility(View.GONE);
         textView.setVisibility(View.VISIBLE);

@@ -14,23 +14,13 @@
         * Color-picker-view
         \n
         com.github.danielnilsson9:color-picker-view:1.4.0@aar
-        \n\n
-         * Android View Animations
-         \n
-         com.nineoldandroids:library:2.4.0\n
-         com.daimajia.easing:library:1.0.1@aar\n
-         com.daimajia.androidanimations:library:1.1.3@aar\n
          \n
          \n
         * Roundedimageview
         \n
         com.makeramen:roundedimageview:2.2.1
-        \n\n
-        <!--* ViewPagerTransforms-->
-        <!--\n-->
-        <!--com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar-->
-        <!--\n-->
-        <!--\n-->
+        \n
+        \n
         * Supertoasts
         \n
         com.github.johnpersano:supertoasts:1.3.4@aar
@@ -239,6 +229,10 @@
 
     <string-array name="vse_radio">
 
+        <item>Cпокойное радио онлайн 128kbps\nhttp://listen1.myradio24.com:9000/6262</item>
+        <item>Радио FRMX 320kbps\nhttp://front.kgts.ru:8000/live</item>
+        <item>Радио SpyNet Station 320kbps\nhttp://s1.spynetstation.com/</item>
+        <item>Секретная лаборатория 128kbps\nhttp://secretlaboratory.ru:8000/secretlab</item>
         <item>Fresh FM Сосновый Бор 192kbps\nhttp://s7.radioheart.ru:8007/live</item>
         <item>Радио Mix FM 128kbps\nhttp://free.radioheart.ru:8000/mixfm</item>
         <item>Радио Таблетка FM 160kbps\nhttp://tabletka-fm.ru:8000/play</item>

@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
+<dmitriy.deomin.aimpradioplalist.Fon_item
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@android:color/darker_gray"
-    android:id="@+id/fon_menu">
-
-    <dmitriy.deomin.aimpradioplalist.Fon_item
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="3dp"
@@ -22,39 +14,30 @@
         android:layout_marginTop="5dp"
         app:cardBackgroundColor="@color/cardview_shadow_start_color">
 
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/menu_progi_alert"
-    android:gravity="center">
+    <LinearLayout
+        android:id="@+id/menu_progi_alert"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:orientation="vertical">
 
-
-    <Button
-    android:layout_width="200dp"
-    android:layout_height="50dp"
-    android:text="Цвет,шрифт"
-    android:id="@+id/button_setting"
-    android:layout_gravity="center_horizontal"
-    android:background="@android:color/transparent" />
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:text="Анимация"
-        android:id="@+id/button_setting_anim"
-        android:layout_gravity="center_horizontal"
-        android:background="@android:color/transparent" />
 
         <Button
+            android:id="@+id/button_setting"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:text="О программе"
-            android:id="@+id/button_abaut"
             android:layout_gravity="center_horizontal"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:text="Цвет,шрифт" />
+
+        <Button
+            android:id="@+id/button_abaut"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/transparent"
+            android:text="О программе" />
 
     </LinearLayout>
-    </dmitriy.deomin.aimpradioplalist.Fon_item>
-
-</LinearLayout>
+</dmitriy.deomin.aimpradioplalist.Fon_item>

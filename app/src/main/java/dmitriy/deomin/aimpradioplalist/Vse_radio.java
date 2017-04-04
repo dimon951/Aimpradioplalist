@@ -51,6 +51,7 @@ public class Vse_radio extends Fragment {
         find.setTypeface(Main.face);
 
         listView =(ListView)v.findViewById(R.id.listviw_vse_radio);
+        listView.setFastScrollAlwaysVisible(true);
 
         final String [] mas_radio=getResources().getStringArray(R.array.vse_radio);
 
