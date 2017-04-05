@@ -229,10 +229,38 @@
 
     <string-array name="vse_radio">
 
+
+        <item>Обозреватель.com Абсолютный хит 128kbps\nhttp://relay.radio.obozrevatel.com/absolute-hit128.mp3</item>
+        <item>Обозреватель.com Авторская песня 128kbps\nhttp://relay.radio.obozrevatel.com/bard128.mp3</item>
+        <item>Обозреватель.com Альтернативный рок 128kbps\nhttp://relay.radio.obozrevatel.com/Alternative_Rock128.mp3</item>
+        <item>Обозреватель.com Балканская музыка 128kbps\nhttp://relay.radio.obozrevatel.com/balkanmusic128.mp3</item>
+        <item>Обозреватель.com Баллады 128kbps\nhttp://relay.radio.obozrevatel.com/Ballads128.mp3</item>
+        <item>Обозреватель.com Блюз 128kbps\nhttp://relay.radio.obozrevatel.com/blues128.mp3</item>
+        <item>Обозреватель.com Breakbeat 128kbps\nhttp://relay.radio.obozrevatel.com/breakbeat128.mp3</item>
+        <item>Обозреватель.com Виктор Цой и Кино 128kbps\nhttp://relay.radio.obozrevatel.com/viktor-tsoy-i-gruppa-kino128.mp3</item>
+        <item>Обозреватель.com Владимир Высоцкий 128kbps\nhttp://relay.radio.obozrevatel.com/pesni-vysockogo128.mp3</item>
+
+
+        <item>ZaycevFM Шансон 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_shanson_256.mp3</item>
+        <item>ZaycevFM Шансон 128kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_shanson_128.mp3</item>
+        <item>ZaycevFM Русские 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_rus_256.mp3</item>
+        <item>ZaycevFM Русские 128kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_rus_128.mp3</item>
+        <item>ZaycevFM RnB 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_rnb_256.mp3</item>
+        <item>ZaycevFM RnB 128kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_rnb_128.mp3</item>
+        <item>ZaycevFM Relax 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_relax_256.mp3</item>
+        <item>ZaycevFM Relax 128kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_relax_128.mp3</item>
+        <item>ZaycevFM Pop 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_pop_256.mp3</item>
+        <item>ZaycevFM Pop 128kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_pop_128.mp3</item>
+        <item>ZaycevFM Club 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_club_256.mp3</item>
+        <item>ZaycevFM Club 128kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_club_128.mp3</item>
+        <item>ZaycevFM Disco 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_disco_256.mp3</item>
+        <item>ZaycevFM Disco 128kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_disco_128.mp3</item>
+        <item>ZaycevFM Alternative Rock 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_rock_256.mp3</item>
+        <item>ZaycevFM Alternative Rock 128kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_rock_128.mp3</item>
+
         <item>Cпокойное радио онлайн 128kbps\nhttp://listen1.myradio24.com:9000/6262</item>
         <item>Радио FRMX 320kbps\nhttp://front.kgts.ru:8000/live</item>
         <item>Радио SpyNet Station 320kbps\nhttp://s1.spynetstation.com/</item>
-        <item>Секретная лаборатория 128kbps\nhttp://secretlaboratory.ru:8000/secretlab</item>
         <item>Fresh FM Сосновый Бор 192kbps\nhttp://s7.radioheart.ru:8007/live</item>
         <item>Радио Mix FM 128kbps\nhttp://free.radioheart.ru:8000/mixfm</item>
         <item>Радио Таблетка FM 160kbps\nhttp://tabletka-fm.ru:8000/play</item>
