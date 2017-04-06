@@ -159,6 +159,7 @@
         </item>
         <item>Радио Ваня\nradiovanya.png\n
             96kbps~kbps~http://radiom10.gcdn.co/piktv_radio/vanya/playlist.m3u8~kbps~
+            28kbps~kbps~http://188.93.22.163:8080/vanya_vk_com_app2462~kbps~
         </item>
         <item>Новое Радио\nnovoe_radio.png\n
             128kbps~kbps~http://icecast.newradio.cdnvideo.ru/newradio2~kbps~
@@ -230,15 +231,27 @@
     <string-array name="vse_radio">
 
 
-        <item>Обозреватель.com Абсолютный хит 128kbps\nhttp://relay.radio.obozrevatel.com/absolute-hit128.mp3</item>
-        <item>Обозреватель.com Авторская песня 128kbps\nhttp://relay.radio.obozrevatel.com/bard128.mp3</item>
-        <item>Обозреватель.com Альтернативный рок 128kbps\nhttp://relay.radio.obozrevatel.com/Alternative_Rock128.mp3</item>
-        <item>Обозреватель.com Балканская музыка 128kbps\nhttp://relay.radio.obozrevatel.com/balkanmusic128.mp3</item>
-        <item>Обозреватель.com Баллады 128kbps\nhttp://relay.radio.obozrevatel.com/Ballads128.mp3</item>
-        <item>Обозреватель.com Блюз 128kbps\nhttp://relay.radio.obozrevatel.com/blues128.mp3</item>
-        <item>Обозреватель.com Breakbeat 128kbps\nhttp://relay.radio.obozrevatel.com/breakbeat128.mp3</item>
-        <item>Обозреватель.com Виктор Цой и Кино 128kbps\nhttp://relay.radio.obozrevatel.com/viktor-tsoy-i-gruppa-kino128.mp3</item>
-        <item>Обозреватель.com Владимир Высоцкий 128kbps\nhttp://relay.radio.obozrevatel.com/pesni-vysockogo128.mp3</item>
+        <item>Абсолютный хит 128kbps\nhttp://relay.radio.obozrevatel.com/absolute-hit128.mp3</item>
+        <item>Авторская песня 128kbps\nhttp://relay.radio.obozrevatel.com/bard128.mp3</item>
+        <item>Альтернативный рок 128kbps\nhttp://relay.radio.obozrevatel.com/Alternative_Rock128.mp3</item>
+        <item>Балканская музыка 128kbps\nhttp://relay.radio.obozrevatel.com/balkanmusic128.mp3</item>
+        <item>Баллады 128kbps\nhttp://relay.radio.obozrevatel.com/Ballads128.mp3</item>
+        <item>Блюз 128kbps\nhttp://relay.radio.obozrevatel.com/blues128.mp3</item>
+        <item>Breakbeat 128kbps\nhttp://relay.radio.obozrevatel.com/breakbeat128.mp3</item>
+        <item>Виктор Цой и Кино 128kbps\nhttp://relay.radio.obozrevatel.com/viktor-tsoy-i-gruppa-kino128.mp3</item>
+        <item>Владимир Высоцкий 128kbps\nhttp://relay.radio.obozrevatel.com/pesni-vysockogo128.mp3</item>
+        <item>Gangsta Rap 128kbps\nhttp://relay.radio.obozrevatel.com/gangstarap128.mp3</item>
+        <item>Gotic 128kbps\nhttp://relay.radio.obozrevatel.com/Gothic128.mp3</item>
+        <item>Depeche Mode 128kbps\nhttp://relay.radio.obozrevatel.com/depechemode128.mp3</item>
+        <item>Dubstep 128kbps\nhttp://relay.radio.obozrevatel.com/dubstep128.mp3</item>
+        <item>Детские песни 128kbps\nhttp://relay.radio.obozrevatel.com/kids-songs128.mp3</item>
+        <item>Детские сказки 128kbps\nhttp://relay.radio.obozrevatel.com/fairytales128.mp3</item>
+        <item>Джаз 128kbps\nhttp://relay.radio.obozrevatel.com/Jazz128.mp3</item>
+        <item>Джаз-Рок 128kbps\nhttp://relay.radio.obozrevatel.com/JazzRockFusion128.mp3</item>
+        <item>Дискотека 80-х 128kbps\nhttp://relay.radio.obozrevatel.com/Disco128.mp3</item>
+        <item>Дискотека 90-х 128kbps\nhttp://relay.radio.obozrevatel.com/disco90128.mp3</item>
+        <item>Drum n Bass 128kbps\nhttp://relay.radio.obozrevatel.com/DrumAndBass128.mp3</item>
+        <item>Евровидение 128kbps\nhttp://relay.radio.obozrevatel.com/eurovision2010128.mp3</item>
 
 
         <item>ZaycevFM Шансон 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_shanson_256.mp3</item>
@@ -258,6 +271,7 @@
         <item>ZaycevFM Alternative Rock 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_rock_256.mp3</item>
         <item>ZaycevFM Alternative Rock 128kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_rock_128.mp3</item>
 
+        <item>Секретная лаборатория 128kbps\nhttp://secretlaboratory.ru:8000/secretlab</item>
         <item>Cпокойное радио онлайн 128kbps\nhttp://listen1.myradio24.com:9000/6262</item>
         <item>Радио FRMX 320kbps\nhttp://front.kgts.ru:8000/live</item>
         <item>Радио SpyNet Station 320kbps\nhttp://s1.spynetstation.com/</item>
@@ -406,8 +420,6 @@
         <item>Rave FM 320kbps\nhttp://air.radiorecord.ru:805/rave_320</item>
         <item>Rave FM 128kbps\nhttp://air.radiorecord.ru:805/rave_128</item>
         <item>Rave FM 64kbps\nhttp://air.radiorecord.ru:805/rave_64</item>
-
-
 
         <item>Дискография,Red Hot Chili Peppers 48kbps\nhttp://s_mobile.cienradios.com/852_Red_Hot_Chili_Peppers_48.mp3</item>
         <item>Лаунж 128kbps\nhttp://music.myradio.ua:80/LOUNGE128.ogg</item>
