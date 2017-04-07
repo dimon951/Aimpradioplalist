@@ -252,6 +252,19 @@
         <item>Дискотека 90-х 128kbps\nhttp://relay.radio.obozrevatel.com/disco90128.mp3</item>
         <item>Drum n Bass 128kbps\nhttp://relay.radio.obozrevatel.com/DrumAndBass128.mp3</item>
         <item>Евровидение 128kbps\nhttp://relay.radio.obozrevatel.com/eurovision2010128.mp3</item>
+        <item>Итальянская музыка 128kbps\nhttp://relay.radio.obozrevatel.com/italjanskaja-muzyka128.mp3</item>
+        <item>Кантри 128kbps\nhttp://relay.radio.obozrevatel.com/country128.mp3</item>
+        <item>Классика рока (ex Hard Rock) 128kbps\nhttp://relay.radio.obozrevatel.com/HardRock128.mp3</item>
+        <item>Классическая музыка 128kbps\nhttp://relay.radio.obozrevatel.com/Classica128.mp3</item>
+        <item>Cool-school 128kbps\nhttp://relay.radio.obozrevatel.com/coolschool128.mp3</item>
+        <item>Михаил Круг 128kbps\nhttp://relay.radio.obozrevatel.com/mihail-krug128.mp3</item>
+        <item>Мировые хиты 128kbps\nhttp://relay.radio.obozrevatel.com/world-hit128.mp3</item>
+        <item>Океан Ельзи 128kbps\nhttp://relay.radio.obozrevatel.com/okeanelzy128.mp3</item>
+        <item>Прикольные песни 128kbps\nhttp://relay.radio.obozrevatel.com/Kapec128.mp3</item>
+        <item>Queen 128kbps\nhttp://relay.radio.obozrevatel.com/queen128.mp3</item>
+        <item>Музыка для сна 128kbps\nhttp://relay.radio.obozrevatel.com/sleepmusic128.mp3</item>
+        <item>Музыка Казантипа 128kbps\nhttp://relay.radio.obozrevatel.com/Kazantip128.mp3</item>
+        <item>Музыка из фильмов 128kbps\nhttp://relay.radio.obozrevatel.com/kino128.mp3</item>
 
 
         <item>ZaycevFM Шансон 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_shanson_256.mp3</item>
@@ -346,7 +359,6 @@
         <item>Raadio Elmar 128kbps\nhttp://217.146.71.24:80/elmar.mp3</item>
         <item>Raadio 7 128kbps\nhttp://icecast.mmm.elion.ee:8080/Raadio7?.mp3</item>
         <item>Raadio 2 128kbps\nhttp://icecast.err.ee:80/raadio2.mp3</item>
-
 
         <item>Radio Record 320kbps\nhttp://air.radiorecord.ru:805/rr_320</item>
         <item>Radio Record 128kbps\nhttp://air.radiorecord.ru:805/rr_128</item>
@@ -964,7 +976,6 @@
         <item>Приморское радио\nhttp://mp3.ptr-vlad.ru:8000/Radio96</item>
         <item>Просто Радио\nhttp://62.80.190.246:8000/ProstoRadiO128</item>
         <item>РАДИО Fanat1k\nhttp://fanat1k.ru/playlist.m3u</item>
-        <item>Радio РОКС\nhttp://online-radioroks.tavrmedia.ua/RadioROKS_32</item>
         <item>Радiо Люкс\nhttp://icecast.luxnet.ua/lux</item>
         <item>Радiо Ренесанс\nhttp://217.20.164.163:8014/;"</item>
         <item>Радио "Голос Ангары"\nhttp://radio.2kom.ru:8000/Radio_Angara"</item>

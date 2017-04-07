@@ -483,7 +483,7 @@ public class Main extends FragmentActivity {
             public void onClick(View v) {
                 Animation anim = AnimationUtils.loadAnimation(context, R.anim.myalpha);
                 v.startAnimation(anim);
-                Intent openlink = new Intent(Intent.ACTION_VIEW, Uri.parse("https://yadi.sk/d/oo0XXTPZ3E3SYt"));
+                Intent openlink = new Intent(Intent.ACTION_VIEW, Uri.parse("https://yadi.sk/d/Ghx0n9eN3GjCvX"));
                 context.startActivity(openlink);
             }
         });
