@@ -39,17 +39,12 @@ import android.widget.ViewSwitcher;
 
 import com.github.johnpersano.supertoasts.SuperToast;
 import com.github.johnpersano.supertoasts.util.Style;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
 
 
 public class Main extends FragmentActivity {
 
     public static Context context;
     public static LinearLayout liner_boss;
-
-    TextView time_reklama;
 
     public static   ViewPager viewPager;
     public static Myadapter myadapter;
@@ -80,9 +75,7 @@ public class Main extends FragmentActivity {
     public static int COLOR_ITEM;
     public static int COLOR_TEXT;
 
-    static public int TIME_SHOW_REKLAMA = 10; // сколько показывать рекламу сек
     boolean visi;//true при активном приложении
-    boolean time_show_reklamma; //
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,7 +178,6 @@ public class Main extends FragmentActivity {
         viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(myadapter);
-       // viewPager.setPageTransformer(true, new CubeOutTransformer());
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -204,78 +196,7 @@ public class Main extends FragmentActivity {
         //пролистаем на вип радио
         viewPager.setCurrentItem(1);
 
-
         visi = true;  // приложение активно
-
-        //реклама
-        final AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
-        time_reklama = (TextView)findViewById(R.id.time_reklama_text);
-
-        time_show_reklamma = false;  //если бы черти isVisible mAdView сделали это херня бы не пригодилась
-
-        //если нет интеренета скроем еЁ
-        if (!isOnline(context)) {
-            mAdView.setVisibility(View.GONE);
-            time_reklama.setVisibility(View.GONE);
-        } else {
-            //через 10 секунд скроем её(пока так потом можно регулировать от количества постов)
-            final Handler handler = new Handler();
-            handler.post(new Runnable() {
-                @Override
-                public void run() {
-                    Log.v("TTT","ebasit");
-                    if (visi) {
-                        if (time_show_reklamma) {
-                            mAdView.setVisibility(View.GONE); // скроем рекламу и поток больше не запустится
-                            time_reklama.setVisibility(View.GONE);
-                        } else {
-                            //иначе покажем рекламу
-                            mAdView.setVisibility(View.VISIBLE);
-                            time_show_reklamma = true; // это нужно чтоб знать что реклама показна
-                            //и текст сколько осталось времени
-                            time_reklama.setVisibility(View.VISIBLE);
-                            pokaz_smeny_time();
-
-                            handler.postDelayed(this, 1000 * TIME_SHOW_REKLAMA); // через 10 секунд вырубим рекламу
-                        }
-                    }else {
-                        handler.postDelayed(this, 1000 * 2); // если приложение свернуто пока в пустую погоняем поток
-                    }
-                }
-            });
-        }
-
-    }
-
-
-
-    public void pokaz_smeny_time(){
-
-        final int[] time_visible = {TIME_SHOW_REKLAMA};
-
-        final Handler handler = new Handler();
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                Log.v("TTT","ebasit");
-                if (visi) {
-                    time_visible[0]--;
-                    time_reklama.setText("Реклама скроется через  " + String.valueOf(time_visible[0]));
-
-                    if(time_visible[0]>0){
-                        handler.postDelayed(this, 1000); // через 10 секунд вырубим рекламу
-                    }else{
-                        time_reklama.setVisibility(View.GONE);
-                    }
-
-                }else {
-                    handler.postDelayed(this, 1000 * 2); // если приложение свернуто пока в пустую погоняем поток
-                }
-            }
-        });
     }
 
     public void Menu_progi(View view) {
@@ -483,7 +404,7 @@ public class Main extends FragmentActivity {
             public void onClick(View v) {
                 Animation anim = AnimationUtils.loadAnimation(context, R.anim.myalpha);
                 v.startAnimation(anim);
-                Intent openlink = new Intent(Intent.ACTION_VIEW, Uri.parse("https://yadi.sk/d/Ghx0n9eN3GjCvX"));
+                Intent openlink = new Intent(Intent.ACTION_VIEW, Uri.parse("https://yadi.sk/d/QhgzmO7t3GnBb3"));
                 context.startActivity(openlink);
             }
         });
@@ -516,21 +437,6 @@ public class Main extends FragmentActivity {
             }
         });
     }
-
-
-
-
-    public static boolean isOnline(Context context) {
-        ConnectivityManager cm =
-                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-            return true;
-        }
-        return false;
-    }
-
-
 
     @Override
     protected void onPause() {

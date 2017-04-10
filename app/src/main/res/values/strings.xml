@@ -5,10 +5,14 @@
          \n
         +++++
          \n
-         © 2017 , Deomin Dmitriy
+        \n
+         2017 , Deomin Dmitriy
          \n
          E-mail:58627@bk.ru
-        \n\n
+        \n
+        Telegram:@Dimon951
+        \n
+        \n
         libraries used:
         \n\n
         * Color-picker-view
@@ -24,18 +28,16 @@
         * Supertoasts
         \n
         com.github.johnpersano:supertoasts:1.3.4@aar
-        \n\n
+        \n
+        \n
         * Picasso
          \n
          com.squareup.picasso:picasso:2.5.2
          \n
          \n
+         Поддержать проект
+         QIWI: +79027228625
     </string>
-
-
-    <!--<item>Радио МИМ! Маша и Медведи\nmim.png\n-->
-        <!--128kbps~kbps~http://listen2.myradio24.com:9000/8106~kbps~-->
-    <!--</item>-->
 
     <string-array name="anim_logo_list">
         <item>Выключить</item>
@@ -231,6 +233,55 @@
     <string-array name="vse_radio">
 
 
+        <item>Весна FM 64kbps\nhttp://potokovoe.ru:8008/Radio_Vesna_FM.aac</item>
+
+        <item>Ethnic 128kbps\nhttp://relay.radio.obozrevatel.com/sheshory128.mp3</item>
+        <item>Электро хаус 128kbps\nhttp://relay.radio.obozrevatel.com/Electro-House128.mp3</item>
+        <item>Acid Jazz 128kbps\nhttp://relay.radio.obozrevatel.com/newjazz128.mp3</item>
+        <item>Шансон (Лирика) 128kbps\nhttp://relay.radio.obozrevatel.com/shansonlyrics128.mp3</item>
+        <item>Шансон 128kbps\nhttp://relay.radio.obozrevatel.com/shanson128.mp3</item>
+        <item>ChillOut 128kbps\nhttp://relay.radio.obozrevatel.com/chillout128.mp3</item>
+        <item>Хиты 90-х (Русские) 128kbps\nhttp://relay.radio.obozrevatel.com/russkie-hity-90-h128.mp3</item>
+        <item>Хиты 90-х (Зарубежные) 128kbps\nhttp://relay.radio.obozrevatel.com/Hits90s128.mp3</item>
+        <item>Хиты 70-80-х 128kbps\nhttp://relay.radio.obozrevatel.com/Old128.mp3</item>
+        <item>Hip-Hop and RnB Topical 128kbps\nhttp://relay.radio.obozrevatel.com/hiphopandrnb128.mp3</item>
+        <item>Hip-Hop 128kbps\nhttp://relay.radio.obozrevatel.com/hip-hop128.mp3</item>
+        <item>Heavy Metal 128kbps\nhttp://relay.radio.obozrevatel.com/heavymetal128.mp3</item>
+        <item>Французская музыка 128kbps\nhttp://relay.radio.obozrevatel.com/france128.mp3</item>
+        <item>Фраза Мьюзик 128kbps\nhttp://relay.radio.obozrevatel.com/phrases128.mp3</item>
+        <item>Украинский хит 128kbps\nhttp://relay.radio.obozrevatel.com/UkrPophit128.mp3</item>
+        <item>Украинский рэп 128kbps\nhttp://relay.radio.obozrevatel.com/ukrainian-rap128.mp3</item>
+        <item>Украинский рок 128kbps\nhttp://relay.radio.obozrevatel.com/PopRock128.mp3</item>
+        <item>Украинская свадьба 128kbps\nhttp://relay.radio.obozrevatel.com/ukrainian_wedding128.mp3</item>
+        <item>Thrash Metal 128kbps\nhttp://relay.radio.obozrevatel.com/Trash_Metal128.mp3</item>
+        <item>Trip-Hop 128kbps\nhttp://relay.radio.obozrevatel.com/trip-hop128.mp3</item>
+        <item>Trance 128kbps\nhttp://relay.radio.obozrevatel.com/trance128.mp3</item>
+        <item>Топ 100 Киев 128kbps\nhttp://relay.radio.obozrevatel.com/top-100-kiev128.mp3</item>
+        <item>Только украинское 128kbps\nhttp://relay.radio.obozrevatel.com/onlyukraine128.mp3</item>
+        <item>ТНМК 128kbps\nhttp://relay.radio.obozrevatel.com/tnmk128.mp3</item>
+        <item>Техно 128kbps\nhttp://relay.radio.obozrevatel.com/techno128.mp3</item>
+        <item>Танцевальные хиты 128kbps\nhttp://relay.radio.obozrevatel.com/dance128.mp3</item>
+        <item>Соул 128kbps\nhttp://relay.radio.obozrevatel.com/soul128.mp3</item>
+        <item>Скрябин 128kbps\nhttp://relay.radio.obozrevatel.com/skryabin128.mp3</item>
+        <item>Саундтреки 128kbps\nhttp://relay.radio.obozrevatel.com/soundtrack128.mp3</item>
+        <item>Русский рэп 128kbps\nhttp://relay.radio.obozrevatel.com/rep128.mp3</item>
+        <item>Русский рок 128kbps\nhttp://relay.radio.obozrevatel.com/RusRock128.mp3</item>
+        <item>Русская поп-музыка 128kbps\nhttp://relay.radio.obozrevatel.com/Rus-pop128.mp3</item>
+        <item>Русская лирика 128kbps\nhttp://relay.radio.obozrevatel.com/RusLyrics128.mp3</item>
+        <item>Рок-н-ролл 128kbps\nhttp://relay.radio.obozrevatel.com/rock-n-roll128.mp3</item>
+        <item>Рок 128kbps\nhttp://relay.radio.obozrevatel.com/rockmusic128.mp3</item>
+        <item>RnB 128kbps\nhttp://relay.radio.obozrevatel.com/RnB128.mp3</item>
+        <item>Ретро 128kbps\nhttp://relay.radio.obozrevatel.com/retro128.mp3</item>
+        <item>Reggie, Ska, Rocksteady 128kbps\nhttp://relay.radio.obozrevatel.com/funkreggi128.mp3</item>
+        <item>Parallel (ex Pop-Hit) 128kbps\nhttp://relay.radio.obozrevatel.com/pophit128.mp3</item>
+        <item>Парковка 128kbps\nhttp://relay.radio.obozrevatel.com/parkovka128.mp3</item>
+        <item>Панк 128kbps\nhttp://relay.radio.obozrevatel.com/Punk128.mp3</item>
+        <item>Нью эйдж 128kbps\nhttp://relay.radio.obozrevatel.com/new-age128.mp3</item>
+        <item>Новогодние песни 128kbps\nhttp://relay.radio.obozrevatel.com/novogodnie_pesni128.mp3</item>
+        <item>Мелодичный Рок 128kbps\nhttp://relay.radio.obozrevatel.com/melodicrock128.mp3</item>
+        <item>Mainstream Rock 128kbps\nhttp://relay.radio.obozrevatel.com/main_stream_rock128.mp3</item>
+        <item>Lounge 128kbps\nhttp://relay.radio.obozrevatel.com/LOUNGE128.mp3</item>
+        <item>Латинская музыка 128kbps\nhttp://relay.radio.obozrevatel.com/latino128.mp3</item>
         <item>Абсолютный хит 128kbps\nhttp://relay.radio.obozrevatel.com/absolute-hit128.mp3</item>
         <item>Авторская песня 128kbps\nhttp://relay.radio.obozrevatel.com/bard128.mp3</item>
         <item>Альтернативный рок 128kbps\nhttp://relay.radio.obozrevatel.com/Alternative_Rock128.mp3</item>
