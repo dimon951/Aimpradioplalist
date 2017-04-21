@@ -46,7 +46,7 @@ public class Main extends FragmentActivity {
     public static Context context;
     public static LinearLayout liner_boss;
 
-    public static   ViewPager viewPager;
+    public static ViewPager viewPager;
     public static Myadapter myadapter;
     public static int number_page;
 
@@ -57,11 +57,6 @@ public class Main extends FragmentActivity {
     Button popul;
     Button moy_pl;
 
-    //размеры экрана
-    //--------------------
-    public static int wd;
-    public static int hd;
-    //--------------------
 
     //шрифт
     public static Typeface face;
@@ -88,13 +83,6 @@ public class Main extends FragmentActivity {
 
 
         face = Typeface.createFromAsset(getAssets(), ((save_read("fonts").equals("")) ? "fonts/Tweed.ttf" : save_read("fonts")));
-
-        //размеры экрана
-        //----------------------
-        Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-            wd = display.getWidth();
-            hd = display.getHeight();
-        //----------------------
 
 
         //ставим цвет фона
@@ -211,9 +199,10 @@ public class Main extends FragmentActivity {
         final AlertDialog alertDialog = builder.create();
         alertDialog.show();
 
-        ((Button)content.findViewById(R.id.button_abaut)).setTextColor(COLOR_TEXT);
-        ((Button)content.findViewById(R.id.button_abaut)).setTypeface(face);
-        ((Button)content.findViewById(R.id.button_abaut)).setOnClickListener(new View.OnClickListener() {
+        Button b_a = (Button)content.findViewById(R.id.button_abaut);
+        b_a.setTextColor(COLOR_TEXT);
+        b_a.setTypeface(face);
+        b_a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Animation anim = AnimationUtils.loadAnimation(context, R.anim.myalpha);
@@ -223,9 +212,10 @@ public class Main extends FragmentActivity {
                 alertDialog.cancel();
             }
         });
-        ((Button)content.findViewById(R.id.button_setting)).setTextColor(COLOR_TEXT);
-        ((Button)content.findViewById(R.id.button_setting)).setTypeface(face);
-        ((Button)content.findViewById(R.id.button_setting)).setOnClickListener(new View.OnClickListener() {
+        Button b_s =(Button)content.findViewById(R.id.button_setting);
+        b_s.setTextColor(COLOR_TEXT);
+        b_s.setTypeface(face);
+        b_s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Animation anim = AnimationUtils.loadAnimation(context, R.anim.myalpha);
@@ -296,22 +286,6 @@ public class Main extends FragmentActivity {
         }
     }
 
-
-    //*******************************************************
-    public static void save_value_bool(String Key, boolean Value) { //сохранение строки
-        SharedPreferences.Editor editor = mSettings.edit();
-        editor.putBoolean(Key, Value);
-        editor.apply();
-    }
-
-    public static boolean save_read_bool(String key_save) {  // чтение настройки
-        if (mSettings.contains(key_save)) {
-            return (mSettings.getBoolean(key_save, false));
-        } else {
-            return false;
-        }
-    }
-
     public static void save_value(String Key, String Value) { //сохранение строки
         SharedPreferences.Editor editor = mSettings.edit();
         editor.putString(Key, Value);
@@ -346,7 +320,6 @@ public class Main extends FragmentActivity {
         SuperToast.create(context, mesag, SuperToast.Duration.LONG,
                 Style.getStyle(Style.RED, SuperToast.Animations.POPUP)).show();
     }
-
 
     public static boolean install_app(String app){
         PackageManager pm = Main.context.getPackageManager();

@@ -80,14 +80,14 @@ public class Moy_plalist extends Fragment implements AdapterView.OnItemLongClick
                     final AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(context, android.R.style.Theme_Holo));
                     final View content = LayoutInflater.from(context).inflate(R.layout.custon_dialog_delete_plalist, null);
                     builder.setView(content);
-                    // builder.show();
 
                     final AlertDialog alertDialog = builder.create();
                     alertDialog.show();
 
-                    ((Button) content.findViewById(R.id.button_dialog_delete)).setTextColor(Main.COLOR_TEXT);
-                    ((Button) content.findViewById(R.id.button_dialog_delete)).setTypeface(Main.face);
-                    ((Button) content.findViewById(R.id.button_dialog_delete)).setOnClickListener(new View.OnClickListener() {
+                    Button b_d_D =(Button) content.findViewById(R.id.button_dialog_delete);
+                    b_d_D.setTextColor(Main.COLOR_TEXT);
+                    b_d_D.setTypeface(Main.face);
+                    b_d_D.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Animation anim = AnimationUtils.loadAnimation(context, R.anim.myalpha);
@@ -101,9 +101,10 @@ public class Moy_plalist extends Fragment implements AdapterView.OnItemLongClick
                         }
 
                     });
-                    ((Button) content.findViewById(R.id.button_dialog_no)).setTextColor(Main.COLOR_TEXT);
-                    ((Button) content.findViewById(R.id.button_dialog_no)).setTypeface(Main.face);
-                    ((Button) content.findViewById(R.id.button_dialog_no)).setOnClickListener(new View.OnClickListener() {
+                    Button b_d_N = (Button) content.findViewById(R.id.button_dialog_no);
+                    b_d_N.setTextColor(Main.COLOR_TEXT);
+                    b_d_N.setTypeface(Main.face);
+                    b_d_N.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             Animation anim = AnimationUtils.loadAnimation(context, R.anim.myalpha);
@@ -189,7 +190,6 @@ public class Moy_plalist extends Fragment implements AdapterView.OnItemLongClick
                             File_function file_function = new File_function();
                             file_function.Add_may_plalist_stansiy(edit.getText().toString());
 
-
                             alertDialog.cancel();
 
                         }else{
@@ -197,14 +197,6 @@ public class Moy_plalist extends Fragment implements AdapterView.OnItemLongClick
                         }
                     }
                 });
-
-
-
-
-
-
-
-
 
             }
 

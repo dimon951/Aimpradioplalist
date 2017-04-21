@@ -10,7 +10,9 @@
          \n
          E-mail:58627@bk.ru
         \n
-        Telegram:@Dimon951
+        Telegram:
+        \n
+        https://t.me/Dimon951
         \n
         \n
         libraries used:
@@ -233,6 +235,14 @@
     <string-array name="vse_radio">
 
 
+        <item>Relax Украина 128kbps\nhttp://relay.myradio.ua/radiorelaxfm128.mp3</item>
+        <item>Radio Nostalgie Украина 128kbps\nhttp://relay.myradio.ua/nostalgie128.mp3</item>
+        <item>Radio Emmanuel Украина 128kbps\nhttp://relay.myradio.ua/sre128.mp3</item>
+        <item>NRJ Украина (ex Europa plus) 128kbps\nhttp://relay.myradio.ua/europaplusfm128.mp3</item>
+        <item>More.FM Украина 128kbps\nhttp://relay.myradio.ua/more128.mp3</item>
+        <item>Lounge FM Украина 128kbps\nhttp://relay.myradio.ua/loungefm128.mp3</item>
+        <item>KISS FM Украина 128kbps\nhttp://relay.myradio.ua/kissfm128.mp3</item>
+        <item>DJFM 96 Украина 128kbps\nhttp://relay.myradio.ua/djfm128.mp3</item>
         <item>Весна FM 64kbps\nhttp://potokovoe.ru:8008/Radio_Vesna_FM.aac</item>
 
         <item>Ethnic 128kbps\nhttp://relay.radio.obozrevatel.com/sheshory128.mp3</item>
@@ -317,7 +327,6 @@
         <item>Музыка Казантипа 128kbps\nhttp://relay.radio.obozrevatel.com/Kazantip128.mp3</item>
         <item>Музыка из фильмов 128kbps\nhttp://relay.radio.obozrevatel.com/kino128.mp3</item>
 
-
         <item>ZaycevFM Шансон 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_shanson_256.mp3</item>
         <item>ZaycevFM Шансон 128kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_shanson_128.mp3</item>
         <item>ZaycevFM Русские 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_rus_256.mp3</item>
@@ -336,7 +345,7 @@
         <item>ZaycevFM Alternative Rock 128kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_rock_128.mp3</item>
 
         <item>Секретная лаборатория 128kbps\nhttp://secretlaboratory.ru:8000/secretlab</item>
-        <item>Cпокойное радио онлайн 128kbps\nhttp://listen1.myradio24.com:9000/6262</item>
+        <item>Спокойное радио онлайн 128kbps\nhttp://listen1.myradio24.com:9000/6262</item>
         <item>Радио FRMX 320kbps\nhttp://front.kgts.ru:8000/live</item>
         <item>Радио SpyNet Station 320kbps\nhttp://s1.spynetstation.com/</item>
         <item>Fresh FM Сосновый Бор 192kbps\nhttp://s7.radioheart.ru:8007/live</item>
@@ -390,7 +399,7 @@
         <item>NRJ FM DnB 128kbps\nhttp://nrj.babahhcdn.com/NRJdnb?.mp3</item>
         <item>NRJ FM House 128kbps\nhttp://nrj.babahhcdn.com/NRJhouse?.mp3</item>
         <item>Радио Волна aac\nhttp://volna.babahhcdn.com:8100/volna?.mp3</item>
-        <item>Raadio 4 128kbps\nhttp://icecast.err.ee:80/raadio4.mp3</item>
+        <item>Radio 4 128kbps\nhttp://icecast.err.ee:80/raadio4.mp3</item>
         <item>Narodnoe Radio 128kbps\nhttp://217.146.71.24:80/narodnoe.mp3</item>
         <item>Vikerraadio 128kbps\nhttp://icecast.err.ee:80/vikerraadio.mp3</item>
         <item>Tre Raadio 128kbps\nhttp://sc1.treraadio.ee:8002/;.mp3</item>

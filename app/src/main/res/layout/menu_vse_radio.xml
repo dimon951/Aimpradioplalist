@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
+<dmitriy.deomin.aimpradioplalist.Fon_item
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@android:color/transparent">
-
-    <dmitriy.deomin.aimpradioplalist.Fon_item
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="3dp"
@@ -93,8 +86,5 @@
                 android:background="@android:color/transparent"
                 android:textColor="@color/green"
                 android:textSize="16sp" />
-
         </LinearLayout>
-    </dmitriy.deomin.aimpradioplalist.Fon_item>
-
-</LinearLayout>
+</dmitriy.deomin.aimpradioplalist.Fon_item>
