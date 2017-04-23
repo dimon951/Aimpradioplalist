@@ -163,6 +163,7 @@
         </item>
         <item>Радио Ваня\nradiovanya.png\n
             96kbps~kbps~http://radiom10.gcdn.co/piktv_radio/vanya/playlist.m3u8~kbps~
+            96kbps~kbps~http://potokovoe.ru:8008/Radio_Vanya_FM.mp3~kbps~
             28kbps~kbps~http://188.93.22.163:8080/vanya_vk_com_app2462~kbps~
         </item>
         <item>Новое Радио\nnovoe_radio.png\n
@@ -235,6 +236,42 @@
     <string-array name="vse_radio">
 
 
+        <item>Програма Хоризонт Болгария 32kbps\nhttp://stream.bnr.bg:8011/horizont.aac</item>
+        <item>Радио София Болгария 32kbps\nhttp://stream.bnr.bg:8030/radio-sofia.aac</item>
+        <item>Радио Бургас Болгария 32kbps\nhttp://stream.bnr.bg:8037/radio-burgas.aac</item>
+        <item>Радио Видин Болгария 32kbps\nhttp://stream.bnr.bg:8036/radio-vidin.aac</item>
+        <item>Програма Христо Ботев Болгария 32kbps\nhttp://stream.bnr.bg:8012/hristo-botev.aac</item>
+        <item>Радио Благоевград Болгария 32kbps\nhttp://stream.bnr.bg:8035/radio-blagoevgrad.aac</item>
+        <item>Радио Варна Болгария 32kbps\nhttp://stream.bnr.bg:8031/radio-varna.aac</item>
+        <item>Радио Пловдив Болгария 32kbps\nhttp://stream.bnr.bg:8031/radio-varna.aac</item>
+        <item>Радио Стара Загора Болгария 32kbps\nhttp://stream.bnr.bg:8034/radio-stara-zagora.aac</item>
+        <item>Радио Кърджали Болгария 32kbps\nhttp://stream.bnr.bg:8038/radio-kardzhali.aac</item>
+        <item>Бинар - Инди Болгария 32kbps\nhttp://stream.bnr.bg:8020/binar-indie.aac</item>
+
+        <item>Relax  Nature 128kbps\nhttp://ic2.101.ru:8000/c19_1</item>
+        <item>Relax-JAZZ 128kbps\nhttp://ic2.101.ru:8000/c19_2</item>
+        <item>Relax–LATINO 128kbps\nhttp://ic2.101.ru:8000/c19_3</item>
+        <item>Relax-GOLD 128kbps\nhttp://ic2.101.ru:8000/c19_4</item>
+        <item>Relax-LIFE 128kbps\nhttp://ic2.101.ru:8000/c19_5</item>
+
+        <item>Шарманка Украина 128kbps\nhttp://relay.myradio.ua/sharmankafm128.mp3</item>
+        <item>Шансон Украина 128kbps\nhttp://relay.myradio.ua/shansonkievfm128.mp3</item>
+        <item>Хіт FM Украина 128kbps\nhttp://relay.myradio.ua/hitfm128.mp3</item>
+        <item>Русское Радио Украина 128kbps\nhttp://relay.myradio.ua/rusradiofm128.mp3</item>
+        <item>Ретро FM Украина 128kbps\nhttp://relay.myradio.ua/retrofm128.mp3</item>
+        <item>РАДІО ЄС0 Украина 128kbps\nhttp://relay.myradio.ua/radioec128.mp3</item>
+        <item>Радио Обоз Украина 128kbps\nhttp://relay.myradio.ua/radio.oboz128.mp3</item>
+        <item>Радио Голос Столицы Украина 128kbps\nhttp://relay.myradio.ua/106fm128.mp3</item>
+        <item>Просто Радио Украина 128kbps\nhttp://relay.myradio.ua/PRK128.mp3</item>
+        <item>Наше радио Украина 128kbps\nhttp://relay.myradio.ua/nashefm128.mp3</item>
+        <item>Мелодия Украина 128kbps\nhttp://relay.myradio.ua/radiomelodiafm128.mp3</item>
+        <item>Киев FM Украина 128kbps\nhttp://relay.myradio.ua/kyyivfm128.mp3</item>
+        <item>Джем FM Украина 128kbps\nhttp://relay.myradio.ua/jamfm128.mp3</item>
+        <item>Бизнес Радио Украина 128kbps\nhttp://relay.myradio.ua/businessfm128.mp3</item>
+        <item>Авторадио Украина 128kbps\nhttp://relay.myradio.ua/avtoradiofm128.mp3</item>
+        <item>Takt FM Украина 128kbps\nhttp://relay.myradio.ua/taktfm128.mp3</item>
+        <item>Стильное радио (Перец.FM) Украина 128kbps\nhttp://relay.myradio.ua/radio-stilnoe128.mp3</item>
+        <item>ROKS Украина 128kbps\nhttp://relay.myradio.ua/radiorocksfm128.mp3</item>
         <item>Relax Украина 128kbps\nhttp://relay.myradio.ua/radiorelaxfm128.mp3</item>
         <item>Radio Nostalgie Украина 128kbps\nhttp://relay.myradio.ua/nostalgie128.mp3</item>
         <item>Radio Emmanuel Украина 128kbps\nhttp://relay.myradio.ua/sre128.mp3</item>
@@ -603,7 +640,7 @@
         <item>Городская Волна Новосибирск 101.4(mp3 128)\nhttp://online.gorvolna.ru:8000/gorvolna</item>
         <item>Губерния FM Брянск 87.9(mp3 128)\nhttp://3n2.ru:8010/guberniya</item>
         <item>Джем FM, Екатеринбург, 102.5 FM\nhttp://online.radiojamfm.ru:8000/jam_aacplus</item>
-        <item>Динамит Нижний Новгород Нижний Новгород 96.0(mp3 64)\nhttp://82.208.90.58:2000/</item>
+        <item>Динамит Нижний Новгород 96.0 64kbps\nhttp://82.208.90.58:2000/</item>
         <item>Диполь FM Тюмень 105.6(mp3 128)\nhttp://icecast.sibinformburo.cdnvideo.ru:8000/dipolfm</item>
         <item>Дорожное радио Санкт-Петербург 87.5(mp3 256)\nhttp://dorognoe.hostingradio.ru:8000/radio</item>
         <item>Железо ФМ Железногорск 99.0(mp3 192)\nhttp://fefm.signaltv.ru</item>
@@ -738,7 +775,7 @@
         <item>Радио MCM Иркутск\nhttp://91.227.68.150:10000/hit128</item>
         <item>Радио NS Казахстан\nhttp://live26.kiwi.kz:8000/radions</item>
         <item>Радио Paradise Калифорния\nhttp://www.radioparadise.com/musiclinks/rp_128.m3u</item>
-        <item>Радио Динамо Киев\nhttp://cast.radiogroup.com.ua:8000/106fm</item>
+        <item>Радио Динамо Украина 128kbps\nhttp://cast.radiogroup.com.ua:8000/106fm</item>
         <item>Радио 107 Краснодар\nhttp://62.183.34.109:8000/radio107.mp3</item>
         <item>Авторитетное радио Красноярск\nhttp://84.22.142.130:8000/arstream</item>
         <item>Первое Радио Кубань\nhttp://217.19.105.43:8000</item>
@@ -754,7 +791,6 @@
         <item>УХ радiо Украина\nhttp://online.uhradio.com.ua:8001/efir</item>
         <item>Radio Mix Украина\nhttp://www.rmix.dp.ua/listen_low.m3u</item>
         <item>Авторадио Украина\nhttp://cast.radiogroup.com.ua:8000/avtoradio</item>
-        <item>Динамо Украина\nhttp://cast.radiogroup.com.ua:8000/106fm</item>
         <item>Молодое радио Украина\nhttp://molode.com.ua:8128/;</item>
         <item>Народное Радио Украина\nhttp://62.80.190.247:8001/NaRadiO128</item>
         <item>Радио Шансон Украина\nhttp://217.20.164.163:8002/;</item>
@@ -850,8 +886,8 @@
         <item>Hit FM\nhttp://hitfm.ipfm.net:8000/HitFM</item>
         <item>Hit FM\nhttp://radio.2kom.ru:8000/hit</item>
         <item>Inolvidable FM\nhttp://198.178.123.20:7608</item>
-        <item>Jazz-Rock &amp; Fusion\nhttp://radio.2kom.ru:8000/FlareSound</item>
-        <item>Jazz-Rock &amp; Fusion\nhttp://music.myradio.com.ua:8000/JazzRockFusion128.mp3</item>
+        <item>Jazz-Rock Fusion\nhttp://radio.2kom.ru:8000/FlareSound</item>
+        <item>Jazz-Rock Fusion\nhttp://music.myradio.com.ua:8000/JazzRockFusion128.mp3</item>
         <item>Ragga - Jungle (Psychoradio)\nhttp://stream.psychoradio.org:8000/;"</item>
         <item>JUNGLETRAIN.NET\nhttp://radio.2kom.ru:8000/jungletrain</item>
         <item>KAOS-Sound\nhttp://87.117.193.5:8030</item>
@@ -1002,7 +1038,6 @@
         <item>Детские песни\nhttp://music.myradio.com.ua:8000/kids-songs128.mp3</item>
         <item>Детское\nhttp://www.staroeradio.ru/detskoe32.m3u</item>
         <item>Джем\nhttp://cast.radiogroup.com.ua:8000/jamfm</item>
-        <item>Динамо\nhttp://cast.radiogroup.com.ua:8000/106fm</item>
         <item>Дорожное Радио\nhttp://dorognoe.hostingradio.ru:8000/dorognoe</item>
         <item>Зайцев ФМ Alternative\nhttp://www.zaycev.fm:9002/alternative/ZaycevFM(128)</item>
         <item>Зайцев ФМ Club\nhttp://www.zaycev.fm:9002/electronic/ZaycevFM(128)</item>
@@ -1060,7 +1095,6 @@
         <item>Радио Алиса+ Daugavpils 101.6\nhttp://fm2inet.aliseplus.lv:8000/;"</item>
         <item>Радио Алла\nhttp://air-online2.hitfm.md/radioalla.mp3</item>
         <item>Радио Гардарика\nhttp://metroclub.ru:8260/;"</item>
-        <item>Радио Динамо\nhttp://cast.radiogroup.com.ua:8000/106fm</item>
         <item>Радио ЗВЕЗДА Москва 95.6\nhttp://89.208.99.16:8088/zvezda_128</item>
         <item>Радио Зайцев.FM (128kbs)\nhttp://zaycev.fm:9002/ZaycevFM(128)</item>
         <item>Радио Золотой Век\nhttp://setmedia.ru:8000/high</item>
