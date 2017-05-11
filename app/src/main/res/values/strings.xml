@@ -12,7 +12,7 @@
         \n
         Telegram:
         \n
-        https://t.me/Dimon951
+        @DmitriyDeomin
         \n
         \n
         libraries used:
@@ -122,6 +122,11 @@
             96kbps~kbps~http://icecast.radiodfm.cdnvideo.ru/dfm.mp3~kbps~
             96kbps2~kbps~http://radio.2kom.ru:8000/Dfm~kbps~
         </item>
+        <item>Радио Гамаюн \ngamanun.png\n
+            128kbps~kbps~http://gamaun.online:8010/radio~kbps~
+            64kbps~kbps~http://gamaun.online:8000/radio~kbps~
+            256kbps~kbps~http://gamaun.online:8020/radio~kbps~
+        </item>
         <item>Авторадио\navtoradio.png\n
             256kbps~kbps~http://ic7.101.ru:8000/v3_1~kbps~
         </item>
@@ -162,12 +167,13 @@
             96kbps~kbps~http://listen.vdfm.ru:8000/dacha~kbps~
         </item>
         <item>Радио Ваня\nradiovanya.png\n
-            96kbps~kbps~http://radiom10.gcdn.co/piktv_radio/vanya/playlist.m3u8~kbps~
-            96kbps~kbps~http://potokovoe.ru:8008/Radio_Vanya_FM.mp3~kbps~
             28kbps~kbps~http://188.93.22.163:8080/vanya_vk_com_app2462~kbps~
+            96kbps~kbps~http://potokovoe.ru:8008/Radio_Vanya_FM.mp3~kbps~
         </item>
         <item>Новое Радио\nnovoe_radio.png\n
-            128kbps~kbps~http://icecast.newradio.cdnvideo.ru/newradio2~kbps~
+            64kbps~kbps~http://live.novoeradio.by:8000/novoeradio-64k~kbps~
+            128kbps~kbps~http://live.novoeradio.by:8000/novoeradio-128k~kbps~
+            256kbps~kbps~http://live.novoeradio.by:8000/novoeradio-256k~kbps~
         </item>
         <item>SHTORM.fm – Русский\nshtorm.png\n
             128kbps~kbps~http://radio.rushtorm.ru:8000/mp3~kbps~
@@ -195,7 +201,6 @@
             256kbps~kbps~http://62.141.42.139:8000/vtempe~kbps~
         </item>
         <item>Максимум\nmaximum.png\n
-            128kbps~kbps~http://radio.karelia.pro:8000/maximumbalakovo~kbps~
             96kbps~kbps~http://icecast.radiomaximum.cdnvideo.ru/maximum.mp3~kbps~
         </item>
         <item>Шансон\nshnson.png\n
@@ -217,11 +222,6 @@
         <item>Детские песни \ndetskie_pesni.png\n
             128kbps~kbps~http://music.myradio.com.ua:8000/kids-songs128.mp3~kbps~
         </item>
-        <item>Радио Гамаюн \ngamanun.png\n
-            128kbps~kbps~http://gamaun.online:8010/radio~kbps~
-            64kbps~kbps~http://gamaun.online:8000/radio~kbps~
-            256kbps~kbps~http://gamaun.online:8020/radio~kbps~
-        </item>
         <item>Классика \nclasik_radio.png\n
             128kbps~kbps~http://music.myradio.com.ua:8000/Classica128.mp3~kbps~
             128kbps2~kbps~http://icecast.err.ee:80/klassikaraadio.mp3~kbps~
@@ -235,6 +235,55 @@
 
     <string-array name="vse_radio">
 
+        <item>Машина Времени 64kbps\nhttp://ic4.101.ru:8000/a59</item>
+        <item>ДДТ 64kbps\nhttp://ic4.101.ru:8000/a112</item>
+        <item>Алиса 64kbps\nhttp://ic4.101.ru:8000/a137</item>
+        <item>Ария 64kbps\nhttp://ic4.101.ru:8000/a118</item>
+        <item>Виктор Цой и группа «КИНО» 64kbps\nhttp://ic4.101.ru:8000/a103</item>
+        <item>БГ и Аквариум 64kbps\nhttp://ic4.101.ru:8000/a57</item>
+        <item>Пикник 64kbps\nhttp://ic4.101.ru:8000/a157</item>
+        <item>Наутилус Помпилиус 64kbps\nhttp://ic4.101.ru:8000/a126</item>
+        <item>Агата Кристи 64kbps\nhttp://ic4.101.ru:8000/a139</item>
+        <item>Король и Шут 64kbps\nhttp://ic4.101.ru:8000/a191</item>
+        <item>Любэ 64kbps\nhttp://ic4.101.ru:8000/a158</item>
+        <item>Сплин 64kbps\nhttp://ic4.101.ru:8000/a129</item>
+        <item>БИ-2 64kbps\nhttp://ic4.101.ru:8000/a135</item>
+        <item>Муслим Магомаев 64kbps\nhttp://ic4.101.ru:8000/a156</item>
+        <item>Филипп Киркоров 64kbps\nhttp://ic4.101.ru:8000/a116</item>
+        <item>Стас Михайлов 64kbps\nhttp://ic4.101.ru:8000/a154</item>
+        <item>Руки Вверх! 64kbps\nhttp://ic4.101.ru:8000/a163</item>
+        <item>Высоцкий 64kbps\nhttp://ic4.101.ru:8000/a58</item>
+        <item>Михаил Круг 64kbps\nhttp://ic4.101.ru:8000/a110</item>
+        <item>Александр Розенбаум 64kbps\nhttp://ic4.101.ru:8000/a153</item>
+        <item>Елена Ваенга 64kbps\nhttp://ic4.101.ru:8000/a171</item>
+        <item>Каста 64kbps\nhttp://ic4.101.ru:8000/a121</item>
+        <item>Баста aka НоГГано 64kbps\nhttp://ic4.101.ru:8000/a162</item>
+
+        <item>Elvis Presley 64kbps\nhttp://ic4.101.ru:8000/a111</item>
+        <item>The Rolling Stones 64kbps\nhttp://ic4.101.ru:8000/a117</item>
+        <item>Pink Floyd 64kbps\nhttp://ic4.101.ru:8000/a53</item>
+        <item>Queen 64kbps\nhttp://ic4.101.ru:8000/a54</item>
+        <item>U2 64kbps\nhttp://ic4.101.ru:8000/a109</item>
+        <item>Scorpions 64kbps\nhttp://ic4.101.ru:8000/a113</item>
+        <item>Metallica 64kbps\nhttp://ic4.101.ru:8000/a123</item>
+        <item>Deep Purple 64kbps\nhttp://ic4.101.ru:8000/a125</item>
+        <item>Linkin Park 64kbps\nhttp://ic4.101.ru:8000/a149</item>
+        <item>Michael Jackson 64kbps\nhttp://ic4.101.ru:8000/a52</item>
+        <item>Madonna 64kbps\nhttp://ic4.101.ru:8000/a128</item>
+        <item>Mylene Farmer 64kbps\nhttp://ic4.101.ru:8000/a166</item>
+        <item>Sandra 64kbps\nhttp://ic4.101.ru:8000/a179</item>
+        <item>Robbie Williams 64kbps\nhttp://ic4.101.ru:8000/a138</item>
+        <item>Elton John 64kbps\nhttp://ic4.101.ru:8000/a142</item>
+        <item>ABBA 64kbps\nhttp://ic4.101.ru:8000/a104</item>
+        <item>Boney M 64kbps\nhttp://ic4.101.ru:8000/a114</item>
+        <item>Modern Talking 64kbps\nhttp://ic4.101.ru:8000/a115</item>
+        <item>Depeche Mode 64kbps\nhttp://ic4.101.ru:8000/a105</item>
+        <item>Enigma 64kbps\nhttp://ic3.101.ru:8000/c7_24</item>
+
+
+        <item>Радио Гамаюн 64kbps\nhttp://gamaun.online:8000/radio</item>
+        <item>Радио Гамаюн 128kbps\nhttp://gamaun.online:8010/radio</item>
+        <item>Радио Гамаюн 256kbps\nhttp://gamaun.online:8020/radio</item>
 
         <item>Програма Хоризонт Болгария 32kbps\nhttp://stream.bnr.bg:8011/horizont.aac</item>
         <item>Радио София Болгария 32kbps\nhttp://stream.bnr.bg:8030/radio-sofia.aac</item>
