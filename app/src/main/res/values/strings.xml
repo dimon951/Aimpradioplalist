@@ -1,12 +1,11 @@
 <resources>
     <string name="app_name">AIMP radio</string>
-    <string name="banner_ad_unit_id">ca-app-pub-7908895047124036/8879720700</string>
     <string name="abaut_text">
          \n
         +++++
          \n
         \n
-         2017 , Deomin Dmitriy
+         2018 , Deomin Dmitriy
          \n
          E-mail:58627@bk.ru
         \n
@@ -27,100 +26,29 @@
         com.makeramen:roundedimageview:2.2.1
         \n
         \n
-        * Supertoasts
-        \n
-        com.github.johnpersano:supertoasts:1.3.4@aar
-        \n
-        \n
         * Picasso
          \n
          com.squareup.picasso:picasso:2.5.2
          \n
          \n
-         Поддержать проект
-         QIWI: +79027228625
+         Поддержать проект:
+          карта сб +79027228625
     </string>
-
-    <string-array name="anim_logo_list">
-        <item>Выключить</item>
-        <item>Tada</item>
-        <item>TakingOff</item>
-        <item>Flash</item>
-        <item>Pulse</item>
-        <item>RubberBand</item>
-        <item>Shake</item>
-        <item>Swing</item>
-        <item>Wobble</item>
-        <item>Landing</item>
-        <item>Bounce</item>
-        <item>StandUp</item>
-        <item>Wave</item>
-        <item>Hinge</item>
-        <item>RollIn</item>
-        <item>RollOut</item>
-        <item>BounceIn</item>
-        <item>BounceInDown</item>
-        <item>BounceInLeft</item>
-        <item>BounceInRight</item>
-        <item>BounceInUp</item>
-        <item>FadeIn</item>
-        <item>FadeInUp</item>
-        <item>FadeInDown</item>
-        <item>FadeInLeft</item>
-        <item>FadeInRight</item>
-        <item>FadeOut</item>
-        <item>FadeOutDown</item>
-        <item>FadeOutLeft</item>
-        <item>FadeOutRight</item>
-        <item>FadeOutUp</item>
-        <item>FlipInX</item>
-        <item>FlipOutX</item>
-        <item>FlipOutY</item>
-        <item>RotateIn</item>
-        <item>RotateInDownLeft</item>
-        <item>RotateInDownRight</item>
-        <item>RotateInUpLeft</item>
-        <item>RotateInUpRight</item>
-        <item>RotateOut</item>
-        <item>RotateOutDownLeft</item>
-        <item>RotateOutDownRight</item>
-        <item>RotateOutUpLeft</item>
-        <item>RotateOutUpRight</item>
-        <item>SlideInLeft</item>
-        <item>SlideInRight</item>
-        <item>SlideInUp</item>
-        <item>SlideInDown</item>
-        <item>SlideOutLeft</item>
-        <item>SlideOutRight</item>
-        <item>SlideOutUp</item>
-        <item>SlideOutDown</item>
-        <item>ZoomIn</item>
-        <item>ZoomInDown</item>
-        <item>ZoomInLeft</item>
-        <item>ZoomInRight</item>
-        <item>ZoomInUp</item>
-        <item>ZoomOut</item>
-        <item>ZoomOutDown</item>
-        <item>ZoomOutLeft</item>
-        <item>ZoomOutRight</item>
-        <item>ZoomOutUp</item>
-        <item>DropOut</item>
-    </string-array>
 
     <string-array name="pop_radio">
 
         <item>Русское радио\nruskoe_radio.png\n
-            96kbps~kbps~http://icecast.russkoeradio.cdnvideo.ru/rr.mp3~kbps~
-            32kbps~kbps~http://online-rusradio.tavrmedia.ua:8000/RusRadio_32~kbps~
+            96kbps~kbps~http://icecast.russkoeradio.cdnvideo.ru/rr_m.aac~kbps~
+            32kbps~kbps~http://193.218.140.91:8003/rusradio.aac~kbps~
         </item>
         <item>ENERGY\nenergy.png\n
             256kbps~kbps~http://ic2.101.ru:8000/v1_1~kbps~
             128kbps~kbps~http://nrj.babahhcdn.com/NRJ?.mp3~kbps~
+            32kbps~kbps~http://193.218.140.91:8003/nrj.aac~kbps~
         </item>
         <item>DFM \ndfm_moskva.png\n
-            128kbps~kbps~http://217.146.71.24:80/dfm.mp3~kbps~
-            96kbps~kbps~http://icecast.radiodfm.cdnvideo.ru/dfm.mp3~kbps~
-            96kbps2~kbps~http://radio.2kom.ru:8000/Dfm~kbps~
+            96kbps~kbps~http://icecast.radiodfm.cdnvideo.ru/dfm_m.aac~kbps~
+            32kbps~kbps~http://193.218.140.91:8003/dfm.aac~kbps~
         </item>
         <item>Радио Гамаюн \ngamanun.png\n
             128kbps~kbps~http://gamaun.online:8010/radio~kbps~
@@ -129,11 +57,13 @@
         </item>
         <item>Авторадио\navtoradio.png\n
             256kbps~kbps~http://ic7.101.ru:8000/v3_1~kbps~
+            32kbps~kbps~http://193.218.140.91:8003/avtoradio.aac~kbps~
         </item>
         <item>Наше Радио\nnashe.png\n
             128kbps~kbps~http://nashe2.hostingradio.ru/nashe-128.mp3~kbps~
             128kbps2~kbps~http://nashe.streamr.ru/nashe-128.mp3~kbps~
             64kbps~kbps~http://nashe1.hostingradio.ru/nashe-64.mp3~kbps~
+            32kbps~kbps~http://193.218.140.91:8003/nashe.aac~kbps~
             2.0-64k~kbps~http://nashe1.hostingradio.ru/nashe20-64.mp3~kbps~
         </item>
         <item>Радио Нашествие\nnashestvie.png\n
@@ -141,13 +71,14 @@
         </item>
         <item>Юмор Fm\nym_fm.png\n
             128kbps~kbps~http://yumfm128.streamr.ru~kbps~
-            256kbps~kbps~http://81.19.85.196/umor128.mp3~kbps~
-            256kbps2~kbps~http://ic7.101.ru:8000/v5_1~kbps~
+            256kbps~kbps~http://ic7.101.ru:8000/v5_1~kbps~
+            32kbps~kbps~http://193.218.140.91:8003/humor.aac~kbps~
             24kbps~kbps~http://ic2.101.ru:8000/n5_1~kbps~
         </item>
         <item>Европа плюс\nevropa_plus.png\n
             128kbps~kbps~http://radio.2kom.ru:8000/europaplus~kbps~
             96kbps~kbps~http://emgspb.hostingradio.ru/europaplus96.aac~kbps~
+            32kbps~kbps~http://193.218.140.91:9000/europaplus.aac~kbps~
         </item>
         <item>HR Radio\nhr_radio.png\n
             128kbps~kbps~http://hrradio.hostingradio.ru:8077/hrradio128.mp3~kbps~
@@ -157,23 +88,28 @@
         </item>
         <item>Love радио\nloveradio.png\n
             32kbps~kbps~http://stream.variant.fm:8000/LOVE-32~kbps~
+            32kbps~kbps~http://193.218.140.91:8003/love.aac~kbps~
             192kbps~kbps~http://stream.variant.fm:8000/LOVE-192~kbps~
         </item>
         <item>Дорожное Радио\ndorognoe.png\n
             64kbps~kbps~http://dorognoe.hostingradio.ru:8000/dorognoe~kbps~
             256kbps~kbps~http://dorognoe256.streamr.ru~kbps~
+            32kbps~kbps~http://193.218.140.91:9000/dorozhnoe.aac~kbps~
         </item>
         <item>Радио Дача\nradio_dacha.png\n
             96kbps~kbps~http://listen.vdfm.ru:8000/dacha~kbps~
+            32kbps~kbps~http://193.218.140.91:8003/dacha.aac~kbps~
         </item>
         <item>Радио Ваня\nradiovanya.png\n
+            32kbps~kbps~http://193.218.140.91:8003/vanya.aac~kbps~
             28kbps~kbps~http://188.93.22.163:8080/vanya_vk_com_app2462~kbps~
-            96kbps~kbps~http://potokovoe.ru:8008/Radio_Vanya_FM.mp3~kbps~
+            96kbps~kbps~https://radiom10.gcdn.co/piktv_radio/vanya_aac/tracks-a1/index.m3u8~kbps~
         </item>
         <item>Новое Радио\nnovoe_radio.png\n
             64kbps~kbps~http://live.novoeradio.by:8000/novoeradio-64k~kbps~
             128kbps~kbps~http://live.novoeradio.by:8000/novoeradio-128k~kbps~
             256kbps~kbps~http://live.novoeradio.by:8000/novoeradio-256k~kbps~
+            32kbps~kbps~http://193.218.140.91:8003/novoe.aac~kbps~
         </item>
         <item>SHTORM.fm – Русский\nshtorm.png\n
             128kbps~kbps~http://radio.rushtorm.ru:8000/mp3~kbps~
@@ -182,16 +118,14 @@
         <item>РУССКИЙ ХИТ\nrus_hit.png\n
             48kbps~kbps~http://ruhit.imgradio.pro/RusHit48~kbps~
             48kbps2~kbps~http://s3.imgradio.pro/RusHit48~kbps~
+            32kbps~kbps~http://193.218.140.91:8003/ruhit.aac~kbps~
         </item>
         <item>ХИТ FM\nhitfm.png\n
-            256kbps~kbps~http://91.227.148.59/hit.mp3~kbps~
-            224kbps~kbps~http://satradio.ddns.net:8000/hit~kbps~
+            32kbps~kbps~http://193.218.140.91:8003/hitfm.aac~kbps~
         </item>
         <item>Радио 7 на семи холмах\nsemhom.png\n
-            128kbps~kbps~http://radio7128.streamr.ru/~kbps~
             128kbps~kbps~http://radio7server.streamr.ru:8040/radio7128.mp3~kbps~
-            64kbps~kbps~http://radio764.streamr.ru/~kbps~
-            32kbps~kbps~http://radio732.streamr.ru/~kbps~
+            32kbps~kbps~http://193.218.140.91:9000/radio7.aac~kbps~
         </item>
         <item>Радио ПАССАЖ\npassag.png\n
             48kbps~kbps~http://listen.radiopassazh.ru/aac-48~kbps~
@@ -201,15 +135,15 @@
             256kbps~kbps~http://62.141.42.139:8000/vtempe~kbps~
         </item>
         <item>Максимум\nmaximum.png\n
-            96kbps~kbps~http://icecast.radiomaximum.cdnvideo.ru/maximum.mp3~kbps~
+            32kbps~kbps~http://193.218.140.91:8003/maximum.aac~kbps~
         </item>
         <item>Шансон\nshnson.png\n
             128kbps~kbps~http://chanson.hostingradio.ru:8041/chanson128.mp3~kbps~
             256kbps~kbps~http://chanson.hostingradio.ru:8041/chanson256.mp3~kbps~
+            32kbps~kbps~http://193.218.140.91:8003/shanson.aac~kbps~
         </item>
         <item>Эхо Москвы\necho_moskvy.png\n
-            128kbps~kbps~http://radio.2kom.ru:8000/moscowecho128.mp3~kbps~
-            128kbps2~kbps~http://81.19.85.197/echo.mp3~kbps~
+            32kbps~kbps~http://193.218.140.91:8003/echo.aac~kbps~
             96kbps~kbps~http://den.101.ru:4000/ho_63_05~kbps~
             56kbps~kbps~http://184.154.58.146:29378/ch12_56.mp3~kbps~
         </item>
@@ -221,19 +155,90 @@
         </item>
         <item>Детские песни \ndetskie_pesni.png\n
             128kbps~kbps~http://music.myradio.com.ua:8000/kids-songs128.mp3~kbps~
+            32kbps~kbps~http://193.218.140.91:8003/detskoe.aac~kbps~
         </item>
         <item>Классика \nclasik_radio.png\n
             128kbps~kbps~http://music.myradio.com.ua:8000/Classica128.mp3~kbps~
             128kbps2~kbps~http://icecast.err.ee:80/klassikaraadio.mp3~kbps~
+            32kbps2~kbps~http://193.218.140.91:8003/classic.aac~kbps~
         </item>
         <item>Литературное радио\nliteraturnoe_radio.png\n
             64kbps~kbps~http://79.137.234.183:8000/;~kbps~
+            32kbps~kbps~http://193.218.140.91:8003/kniga.aac~kbps~
         </item>
 
 
     </string-array>
 
     <string-array name="vse_radio">
+
+        <item>Hip-Hop Barada (laradiofm.com) 128kbps\nhttp://listen1.myradio24.com:9000/4455</item>
+        <item>ХИПХОПБАЙ (laradiofm.com) 128kbps\nhttp://listen2.myradio24.com:9000/8000</item>
+        <item>Радио Правильного Рэпа (laradiofm.com) 24kbps\nhttp://rpr-stream.pp.ua:8005/mrpr</item>
+        <item>Радио Правильного Рэпа (laradiofm.com) 64kbps\nhttp://rpr-stream.pp.ua:8005/prpr</item>
+        <item>Радио Правильного Рэпа (laradiofm.com) 128kbps\nhttp://rpr-stream.pp.ua:8005/rpr</item>
+        <item>ЯсенБит (laradiofm.com) 192kbps\nhttp://radio.yasenbit.net:8000/yasenbit192k</item>
+
+        <item>D100 Radio (laradiofm.com) 128kbps\nhttp://los.cdnstream.com/1119_128</item>
+        <item>100 XR (laradiofm.com) 64kbps\nhttp://107.170.188.129:8000/;</item>
+        <item>100 XR (laradiofm.com) 128kbps\nhttp://107.170.188.129/;</item>
+        <item>Non-Stop Rhythm  Dance (laradiofm.com) 32kbps\nhttp://stream.nonstopplay.co.uk/nsp-32k-mp3</item>
+        <item>Non-Stop Rhythm  Dance (laradiofm.com) 64kbps\nhttp://stream.nonstopplay.co.uk/nsp-64k-mp3</item>
+        <item>Non-Stop Rhythm  Dance (laradiofm.com) 128kbps\nhttp://stream.nonstopplay.co.uk/nsp-128k-mp3</item>
+        <item>Non-Stop Rhythm  Dance (laradiofm.com) 192kbps\nhttp://stream.nonstopplay.co.uk/nsp-192k-mp3</item>
+
+
+        <item>A State Of Trance 192kbps\nhttp://radio-srv1.11one.ru/asot192k.mp3</item>
+        <item>Радио Маяк 32kbps\nhttp://193.218.140.91:8003/mayak.aac</item>
+        <item>Capital FM 32kbps\nhttp://193.218.140.91:8003/capital.aac</item>
+        <item>Best FM 32kbps\nhttp://193.218.140.91:8003/best.aac</item>
+        <item>Comedy Radio 32kbps\nhttp://193.218.140.91:8003/comedy.aac</item>
+        <item>Jazz FM 32kbps\nhttp://193.218.140.91:8003/jazz.aac</item>
+        <item>Like FM 32kbps\nhttp://193.218.140.91:8003/like.aac</item>
+        <item>Monte Carlo SPb 32kbps\nhttp://193.218.140.91:8003/mcarlospb.aac</item>
+        <item>Relax FM 32kbps\nhttp://193.218.140.91:8003/relax.aac</item>
+        <item>Rock FM 32kbps\nhttp://193.218.140.91:8003/rock.aac</item>
+        <item>Бизнес FM 32kbps\nhttp://193.218.140.91:8003/bfm.aac</item>
+        <item>Вести FM 32kbps\nhttp://193.218.140.91:8003/vesti.aac</item>
+        <item>Восток FM 32kbps\nhttp://193.218.140.91:8003/vostok.aac</item>
+        <item>Говорит Москва 32kbps\nhttp://193.218.140.91:8003/gmoskva.aac</item>
+        <item>Карнавал FM 32kbps\nhttp://193.218.140.91:8003/karnaval.aac</item>
+        <item>Кекс FM 32kbps\nhttp://193.218.140.91:8003/keks.aac</item>
+        <item>Коммерсантъ FM 32kbps\nhttp://193.218.140.91:8003/kommersant.aac</item>
+        <item>Комсомольская Правда 32kbps\nhttp://193.218.140.91:8003/kpravda.aac</item>
+        <item>Мегаполис FM 32kbps\nhttp://193.218.140.91:8003/megapolis.aac</item>
+        <item>Милицейская Волна 32kbps\nhttp://193.218.140.91:8003/mvolna.aac</item>
+        <item>Москва FM 32kbps\nhttp://193.218.140.91:8003/moscow.aac</item>
+        <item>Орфей 32kbps\nhttp://193.218.140.91:8003/orfey.aac</item>
+        <item>Пионер FM 32kbps\nhttp://193.218.140.91:8003/pioner.aac</item>
+        <item>Питер FM 32kbps\nhttp://193.218.140.91:8003/piter.aac</item>
+        <item>Радио Record 32kbps\nhttp://193.218.140.91:8003/record.aac</item>
+        <item>Радио ULTRA 32kbps\nhttp://193.218.140.91:8003/ultra.aac</item>
+        <item>Радио Вера 32kbps\nhttp://193.218.140.91:8003/vera.aac</item>
+        <item>Радио Весна FM 32kbps\nhttp://193.218.140.91:8003/vesna.aac</item>
+        <item>Радио Для Двоих 32kbps\nhttp://193.218.140.91:8003/rdd.aac</item>
+        <item>Радио Звезда 32kbps\nhttp://193.218.140.91:8003/zvezda.aac</item>
+        <item>Радио Искатель 32kbps\nhttp://193.218.140.91:8003/iskatel.aac</item>
+        <item>Радио Культура 32kbps\nhttp://193.218.140.91:8003/kultura.aac</item>
+        <item>Радио МИР 32kbps\nhttp://193.218.140.91:8003/mir.aac</item>
+        <item>Радио Маяк 32kbps\nhttp://193.218.140.91:8003/mayak.aac</item>
+        <item>Радио Монте-Карло 32kbps\nhttp://193.218.140.91:8003/mcarlo.aac</item>
+        <item>Радио Родных Дорог 32kbps\nhttp://193.218.140.91:8003/rrd.aac</item>
+        <item>Радио России 32kbps\nhttp://193.218.140.91:8003/rrossii.aac</item>
+        <item>Радио Шоколад 32kbps\nhttp://193.218.140.91:8003/chocolate.aac</item>
+        <item>Ретро FM 32kbps\nhttp://193.218.140.91:9000/retro.aac</item>
+        <item>Романтика 32kbps\nhttp://193.218.140.91:8003/romantika.aac</item>
+        <item>Спорт FM 32kbps\nhttp://193.218.140.91:9000/sport.aac</item>
+        <item>Страна FM 32kbps\nhttp://193.218.140.91:8003/strana.aac</item>
+        <item>Такси FM 32kbps\nhttp://193.218.140.91:8003/taxi.aac</item>
+        <item>Эльдорадио 32kbps\nhttp://193.218.140.91:8003/eldoradio.aac</item>
+
+
+        <item>Радио Сибирь Омск 64kbps\nhttp://176.120.25.59:8090/omsk2</item>
+        <item>Радио Сибирь Чита 64kbps\nhttp://185.108.196.182:8090/HQ</item>
+        <item>Радио Сибирь Улан-Удэ 64kbps\nhttp://92.124.196.44:8000/radiosibiruu</item>
+        <item>Радио Сибирь Горно-Алтайск 64kbps\nhttp://176.120.25.59:8090/RadioSibir-Altay</item>
+        <item>Радио Сибирь Новокузнецк 64kbps\nhttp://94.251.4.194:8090/livenovokuz</item>
 
         <item>Машина Времени 64kbps\nhttp://ic4.101.ru:8000/a59</item>
         <item>ДДТ 64kbps\nhttp://ic4.101.ru:8000/a112</item>

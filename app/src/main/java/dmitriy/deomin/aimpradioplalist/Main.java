@@ -8,21 +8,16 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.Spannable;
-import android.util.Log;
 import android.view.ContextThemeWrapper;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -33,13 +28,8 @@ import android.widget.Button;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
-
-import com.github.johnpersano.supertoasts.SuperToast;
-import com.github.johnpersano.supertoasts.util.Style;
-
 
 public class Main extends FragmentActivity {
 
@@ -313,12 +303,10 @@ public class Main extends FragmentActivity {
     }
 
     public static void  Toast(String mesag){
-        SuperToast.create(context, mesag, SuperToast.Duration.LONG,
-                Style.getStyle(Style.GREEN, SuperToast.Animations.FLYIN)).show();
+        Toast.makeText(context,mesag,Toast.LENGTH_LONG).show();
     }
     public static void Toast_error(String mesag){
-        SuperToast.create(context, mesag, SuperToast.Duration.LONG,
-                Style.getStyle(Style.RED, SuperToast.Animations.POPUP)).show();
+        Toast.makeText(context,mesag,Toast.LENGTH_LONG).show();
     }
 
     public static boolean install_app(String app){
