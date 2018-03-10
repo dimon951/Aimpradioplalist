@@ -14,10 +14,6 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
-/**
- * Created by Admin on 25.10.2016.
- */
-
 public class File_function {
 
 
@@ -102,8 +98,8 @@ public class File_function {
                     //послать сигнал
                     Intent i  = new Intent("File_created");
                     i.putExtra("update","zaebis");
-                    Main.context.sendBroadcast(i);
-                    Toast.makeText(Main.context,"Такая станция уже есть в плейлисте",Toast.LENGTH_LONG).show();
+                    Main.Companion.getContext().sendBroadcast(i);
+                    Toast.makeText(Main.Companion.getContext(),"Такая станция уже есть в плейлисте",Toast.LENGTH_LONG).show();
                     return;
                 }
             }
@@ -184,7 +180,7 @@ private String read(String fileName) throws FileNotFoundException {
             //послать сигнал
             Intent i  = new Intent("File_created");
             i.putExtra("update","zaebis");
-            Main.context.sendBroadcast(i);
+            Main.Companion.getContext().sendBroadcast(i);
         }
         catch (IOException e)
         {
@@ -194,7 +190,7 @@ private String read(String fileName) throws FileNotFoundException {
             //послать сигнал
             Intent i  = new Intent("File_created");
             i.putExtra("update","pizdec");
-            Main.context.sendBroadcast(i);
+            Main.Companion.getContext().sendBroadcast(i);
         }
     }
 

@@ -98,7 +98,6 @@
         </item>
         <item>Радио Дача\nradio_dacha.png\n
             96kbps~kbps~http://listen.vdfm.ru:8000/dacha~kbps~
-            32kbps~kbps~http://193.218.140.91:8003/dacha.aac~kbps~
         </item>
         <item>Радио Ваня\nradiovanya.png\n
             32kbps~kbps~http://193.218.140.91:8003/vanya.aac~kbps~
@@ -239,52 +238,6 @@
         <item>Радио Сибирь Улан-Удэ 64kbps\nhttp://92.124.196.44:8000/radiosibiruu</item>
         <item>Радио Сибирь Горно-Алтайск 64kbps\nhttp://176.120.25.59:8090/RadioSibir-Altay</item>
         <item>Радио Сибирь Новокузнецк 64kbps\nhttp://94.251.4.194:8090/livenovokuz</item>
-
-        <item>Машина Времени 64kbps\nhttp://ic4.101.ru:8000/a59</item>
-        <item>ДДТ 64kbps\nhttp://ic4.101.ru:8000/a112</item>
-        <item>Алиса 64kbps\nhttp://ic4.101.ru:8000/a137</item>
-        <item>Ария 64kbps\nhttp://ic4.101.ru:8000/a118</item>
-        <item>Виктор Цой и группа «КИНО» 64kbps\nhttp://ic4.101.ru:8000/a103</item>
-        <item>БГ и Аквариум 64kbps\nhttp://ic4.101.ru:8000/a57</item>
-        <item>Пикник 64kbps\nhttp://ic4.101.ru:8000/a157</item>
-        <item>Наутилус Помпилиус 64kbps\nhttp://ic4.101.ru:8000/a126</item>
-        <item>Агата Кристи 64kbps\nhttp://ic4.101.ru:8000/a139</item>
-        <item>Король и Шут 64kbps\nhttp://ic4.101.ru:8000/a191</item>
-        <item>Любэ 64kbps\nhttp://ic4.101.ru:8000/a158</item>
-        <item>Сплин 64kbps\nhttp://ic4.101.ru:8000/a129</item>
-        <item>БИ-2 64kbps\nhttp://ic4.101.ru:8000/a135</item>
-        <item>Муслим Магомаев 64kbps\nhttp://ic4.101.ru:8000/a156</item>
-        <item>Филипп Киркоров 64kbps\nhttp://ic4.101.ru:8000/a116</item>
-        <item>Стас Михайлов 64kbps\nhttp://ic4.101.ru:8000/a154</item>
-        <item>Руки Вверх! 64kbps\nhttp://ic4.101.ru:8000/a163</item>
-        <item>Высоцкий 64kbps\nhttp://ic4.101.ru:8000/a58</item>
-        <item>Михаил Круг 64kbps\nhttp://ic4.101.ru:8000/a110</item>
-        <item>Александр Розенбаум 64kbps\nhttp://ic4.101.ru:8000/a153</item>
-        <item>Елена Ваенга 64kbps\nhttp://ic4.101.ru:8000/a171</item>
-        <item>Каста 64kbps\nhttp://ic4.101.ru:8000/a121</item>
-        <item>Баста aka НоГГано 64kbps\nhttp://ic4.101.ru:8000/a162</item>
-
-        <item>Elvis Presley 64kbps\nhttp://ic4.101.ru:8000/a111</item>
-        <item>The Rolling Stones 64kbps\nhttp://ic4.101.ru:8000/a117</item>
-        <item>Pink Floyd 64kbps\nhttp://ic4.101.ru:8000/a53</item>
-        <item>Queen 64kbps\nhttp://ic4.101.ru:8000/a54</item>
-        <item>U2 64kbps\nhttp://ic4.101.ru:8000/a109</item>
-        <item>Scorpions 64kbps\nhttp://ic4.101.ru:8000/a113</item>
-        <item>Metallica 64kbps\nhttp://ic4.101.ru:8000/a123</item>
-        <item>Deep Purple 64kbps\nhttp://ic4.101.ru:8000/a125</item>
-        <item>Linkin Park 64kbps\nhttp://ic4.101.ru:8000/a149</item>
-        <item>Michael Jackson 64kbps\nhttp://ic4.101.ru:8000/a52</item>
-        <item>Madonna 64kbps\nhttp://ic4.101.ru:8000/a128</item>
-        <item>Mylene Farmer 64kbps\nhttp://ic4.101.ru:8000/a166</item>
-        <item>Sandra 64kbps\nhttp://ic4.101.ru:8000/a179</item>
-        <item>Robbie Williams 64kbps\nhttp://ic4.101.ru:8000/a138</item>
-        <item>Elton John 64kbps\nhttp://ic4.101.ru:8000/a142</item>
-        <item>ABBA 64kbps\nhttp://ic4.101.ru:8000/a104</item>
-        <item>Boney M 64kbps\nhttp://ic4.101.ru:8000/a114</item>
-        <item>Modern Talking 64kbps\nhttp://ic4.101.ru:8000/a115</item>
-        <item>Depeche Mode 64kbps\nhttp://ic4.101.ru:8000/a105</item>
-        <item>Enigma 64kbps\nhttp://ic3.101.ru:8000/c7_24</item>
-
 
         <item>Радио Гамаюн 64kbps\nhttp://gamaun.online:8000/radio</item>
         <item>Радио Гамаюн 128kbps\nhttp://gamaun.online:8010/radio</item>
@@ -584,7 +537,6 @@
         <item>Rave FM 128kbps\nhttp://air.radiorecord.ru:805/rave_128</item>
         <item>Rave FM 64kbps\nhttp://air.radiorecord.ru:805/rave_64</item>
 
-        <item>Дискография,Red Hot Chili Peppers 48kbps\nhttp://s_mobile.cienradios.com/852_Red_Hot_Chili_Peppers_48.mp3</item>
         <item>Лаунж 128kbps\nhttp://music.myradio.ua:80/LOUNGE128.ogg</item>
         <item>Fun Day 128kbps\nhttp://138.201.199.164/;;</item>
         <item>Руский рок 128kbps\nhttp://music.myradio.ua:80/RusRock128.ogg</item>
@@ -668,8 +620,6 @@
         <item>Русская служба новостей\nhttp://stream02.media.rambler.ru/rsn96.mp3</item>
         <item>Радонежское радио\nhttp://icecast.radonezh.cdnvideo.ru:8000/rad</item>
         <item>Радио Jazz\nhttp://jazz.streamr.ru/jazz-128.mp3</item>
-        <item>Наше подмосковье\nhttp://109.238.242.92:8000/rtvp_mp3</item>
-        <item>Megapolis  FM\nhttp://81.19.85.200/megapolis128.mp3</item>
         <item>Радио Комсомольская правда\nhttp://kraskp.ru:8000/64</item>
         <item>Russian Hit\nhttp://apps.imgradio.ru/Dorojnoe-001</item>
         <item>Radio Chocolate\nhttp://choco.hostingradio.ru:10010/fm128</item>
@@ -948,7 +898,6 @@
         <item>KCSM Jazz 91\nhttp://ice5.securenetsystems.net/KCSM</item>
         <item>m - Kickin Country\nhttp://radio.2kom.ru:8000/Kickin_Country</item>
         <item>Kiev98FM\nhttp://217.76.201.26:8000</item>
-        <item>kiss fm\nhttp://67.228.150.184:6540</item>
         <item>KissFM Romania\nhttp://radio.2kom.ru:8000/kiss</item>
         <item>KoolMixRadio\nhttp://198.178.123.20:8004</item>
         <item>Latin\nhttp://nrjlatin.ice.infomaniak.ch/nrjlatin-high.mp3</item>
@@ -1217,181 +1166,64 @@
         <item>brks_128\nhttp://online.radiorecord.ru:8102/brks_128</item>
         <item>Radio Bolid\nhttp://178.161.132.182:8128/;stream.nsv</item>
         <item>Закарпатия ФМ\nhttp://195.234.148.51:8000/;stream.mp3</item>
-        <item>chebfm\nhttp://play.cheb.fm:8000/chebfm.ogg</item>
+        <item>ChebFM ЧебФМ\nhttp://play.cheb.fm:8000/chebfm.ogg</item>
 
-        <item>Дискография,Abba\nhttp://s_mobile.cienradios.com/620_Abba_y_Art_Relac_48.mp3</item>
-        <item>Дискография,ADELE\nhttp://s_mobile.cienradios.com/948_Adele_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Adigeiskaya music\nhttp://109.234.157.227:9500/adigeiskaya</item>
-        <item>Дискография,AEROSMITH\nhttp://s_mobile.cienradios.com/829_Aerosmith_y_Art_Rel_48.mp3</item>
-        <item>Дискография,ALEJANDRO LERNER\nhttp://s_mobile.cienradios.com/1033_Alejandro_Lerner_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Alejandro Sanz\nhttp://s_mobile.cienradios.com/635_Alejandro_Sanz_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,AMY WINEHOUSE\nhttp://s_mobile.cienradios.com/854_Amy_Winehouse_48.mp3</item>
-        <item>Дискография,ANDRES CALAMARO\nhttp://s_mobile.cienradios.com/641_Andres_Calamaro_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,Armynskaya music\nhttp://109.234.157.227:9500/armynskaya</item>
-        <item>Дискография,Armynskiy XIT\nhttp://109.234.157.227:9500/armynskiy_XIT</item>
-        <item>Дискография,Asian music\nhttp://109.234.157.227:9500/zha</item>
-        <item>Дискография,Asian music 2\nhttp://109.234.157.227:9500/radio_meyhana</item>
-        <item>Дискография,Attaque 77\nhttp://s_mobile.cienradios.com/636_Attaque_77_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,Avarskaya music\nhttp://109.234.157.227:9500/avarskaya</item>
-        <item>Дискография,AVICII\nhttp://s_mobile.cienradios.com/1363_Avicii_y_Art_Rel_48.mp3</item>
-        <item>Дискография,AXEL\nhttp://s_mobile.cienradios.com/618_Axel_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,Azerbaidganskaya music\nhttp://109.234.157.227:9500/azerbaidganskaya</item>
-        <item>Дискография,Azerbaidjanskiy XIT\nhttp://music.nextweb.ru:9500/azerbaidjanskiy_XIT</item>
-        <item>Дискография,BABASONICOS\nhttp://s_mobile.cienradios.com/859_Babasonicos_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Balkarian music\nhttp://109.234.157.227:9500/balkarian</item>
-        <item>Дискография,BEE GEES\nhttp://s_mobile.cienradios.com/954_Bee_Gees_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Bersuit Vergarabat\nhttp://s_mobile.cienradios.com/614_Bersuit_Vergarabat_y_Art_Relac_48.mp3</item>
-        <item>Дискография,Beyonce\nhttp://s_mobile.cienradios.com/986_Beyonce_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Beyonces Hits\nhttp://cdn.nrjaudio.fm/audio1/fr/31189/mp3_128.mp3</item>
-        <item>Дискография,BILLY JOEL\nhttp://s_mobile.cienradios.com/966_Billy_Joel_y_Art_Rel_48.mp3</item>
-        <item>Дискография,BLACK EYED PEAS\nhttp://s_mobile.cienradios.com/883_Black_Eyed_Peas_48.mp3</item>
-        <item>Дискография,BOB DYLAN\nhttp://s_mobile.cienradios.com/965_Bob_Dylan_y_Art_Rel_48.mp3</item>
-        <item>Дискография,BOB MARLEY\nhttp://s_mobile.cienradios.com/617_Bob_Marley_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,BON JOVI\nhttp://s_mobile.cienradios.com/913_Bon_Jovi_y_Art_Rel_48.mp3</item>
-        <item>Дискография,BRUNO MARS\nhttp://s_mobile.cienradios.com/1364_Bruno_Mars_y_Art_Rel_48.mp3</item>
-        <item>Дискография,BRYAN ADAMS\nhttp://s_mobile.cienradios.com/887_Bryan_Adams_y_Art_Rel_48.mp3</item>
-        <item>Дискография,CACHO CASTANA\nhttp://s_mobile.cienradios.com/837_Cacho_Castana_y_Art_Rel_48.mp3</item>
-        <item>Дискография,CAETANO VELOSO\nhttp://s_mobile.cienradios.com/952_Caetano_Veloso_y_Art_Rel_48.mp3</item>
-        <item>Дискография,CALLE 13\nhttp://s_mobile.cienradios.com/1027_Calle_13_y_Art_Rel_48.mp3</item>
-        <item>Дискография,REIK\nhttp://s_mobile.cienradios.com/985_Reik_y_Art_Rel_48.mp3</item>
-        <item>Дискография,RICARDO ARJONA\nhttp://s_mobile.cienradios.com/788_Ricardo_Arjona_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,Ricardo Montaner\nhttp://s_mobile.cienradios.com/719_Ricardo_Montaner_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,RICKY MARTIN\nhttp://s_mobile.cienradios.com/762_Ricky_Martin_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,Rihannas Hits\nhttp://cdn.nrjaudio.fm/audio1/fr/30029/mp3_128.mp3</item>
-        <item>Дискография,Rod Stewart\nhttp://panel2.raven-radio.com:7086/;?1448239358562.mp3</item>
-        <item>Дискография,ROD STEWART\nhttp://s_mobile.cienradios.com/874_Rod_Stewart_y_Art_Rel_48.mp3</item>
-        <item>Дискография,SANDRO\nhttp://s_mobile.cienradios.com/769_Sandro_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,SANTANA\nhttp://s_mobile.cienradios.com/1036_Santana_y_Art_Rel_48.mp3</item>
-        <item>Дискография,SELENA GOMEZ\nhttp://s_mobile.cienradios.com/818_Selena_Gomez_y_Art_Rel_48.mp3</item>
-        <item>Дискография,SHAKIRA\nhttp://s_mobile.cienradios.com/746_Shakira_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,SODA STEREO\nhttp://s_mobile.cienradios.com/772_Soda_Stereo_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,Tabasaranskay music\nhttp://109.234.157.227:9500/tabasaranskay</item>
-        <item>Дискография,TARANTINO\nhttp://s_mobile.cienradios.com/1024_Tarantino_48.mp3</item>
-        <item>Дискография,Taylor Swift\nhttp://cdn.nrjaudio.fm/audio1/fr/31187/mp3_128.mp3</item>
-        <item>Дискография,Thalia\nhttp://s_mobile.cienradios.com/1017_Thalia_y_Art_Rel_48.mp3</item>
-        <item>Дискография,THE BEACH BOYS\nhttp://s_mobile.cienradios.com/960_Beach_Boys_y_Art_Rel_48.mp3</item>
-        <item>Дискография,The Cure\nhttp://s_mobile.cienradios.com/836_The_Cure_y_Art_Rel_48.mp3</item>
-        <item>Дискография,THE POLICE\nhttp://s_mobile.cienradios.com/775_The_Police_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,THE ROLLING STONES\nhttp://s_mobile.cienradios.com/765_The_Rolling_Stones_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,TINA TURNER\nhttp://s_mobile.cienradios.com/987_Tina_Turner_y_Art_Rel_48.mp3</item>
-        <item>Дискография,TIZIANO FERRO\nhttp://icy.unitedradio.it/Ferro.mp3?</item>
-        <item>Дискография,U2\nhttp://s_mobile.cienradios.com/805_U2_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,VASCO\nhttp://icy.unitedradio.it/Vasco.mp3?</item>
-        <item>Дискография,VICENTICO\nhttp://s_mobile.cienradios.com/1044_Vicentico_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Westlife\nhttp://198.154.106.109:7998/</item>
-        <item>Дискография,Zucchero\nhttp://icy.unitedradio.it/Zucchero.mp3?</item>
-        <item>Дискография,Би-2\nhttp://ic2.101.ru:8000/c15_23?</item>
-        <item>Дискография,CARLOS BAUTE\nhttp://s_mobile.cienradios.com/1051_Carlos_Baute_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Catupecu Machu\nhttp://s_mobile.cienradios.com/918_Catupecu_Machu_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Celine Dion\nhttp://s_mobile.cienradios.com/1004_Celine_Dion_y_Art_Rel_48.mp3</item>
-        <item>Дискография,CHAQUENO PALAVECINO\nhttp://s_mobile.cienradios.com/1009_Chaqueno_Palavecino_y_Art_Rel_48.mp3</item>
-        <item>Дискография,CHARLY GARCIA\nhttp://s_mobile.cienradios.com/644_Charly_Garcia_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,CHAYANNE\nhttp://s_mobile.cienradios.com/797_Chayanne_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,Chehenskay music\nhttp://109.234.157.227:9500/hehenskay</item>
-        <item>Дискография,Chehenskii XIT\nhttp://109.234.157.227:9500/hehenskii_XIT</item>
-        <item>Дискография,Cliff Richard Radio\nhttp://s9.voscast.com:8032</item>
-        <item>Дискография,COLDPLAY\nhttp://icy.unitedradio.it/ColdPlay.mp3?</item>
-        <item>Дискография,COLDPLAY\nhttp://s_mobile.cienradios.com/877_Coldplay_y_Art_Rel_48.mp3</item>
-        <item>Дискография,CREEDENCE\nhttp://s_mobile.cienradios.com/827_Creedence_y_Art_Rel_48.mp3</item>
-        <item>Дискография,CRISTIAN CASTRO\nhttp://s_mobile.cienradios.com/921_Cristian_Castro_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Darginskaya music\nhttp://109.234.157.227:9500/darginskay</item>
-        <item>Дискография,DAVID BISBAL\nhttp://s_mobile.cienradios.com/856_David_Bisbal_y_Art_Rel_48.mp3</item>
-        <item>Дискография,David Bowie\nhttp://s_mobile.cienradios.com/892_David_Bowie_y_Art_Rel_48.mp3</item>
-        <item>Дискография,David Guettas Hits\nhttp://cdn.nrjaudio.fm/audio1/fr/31053/mp3_128.mp3</item>
-        <item>Дискография,ДДТ\nhttp://ic2.101.ru:8000/c13_21?</item>
-        <item>Дискография,DEEP PURPLE\nhttp://s_mobile.cienradios.com/901_Deep_Purple_y_Art_Rel_48.mp3</item>
-        <item>Дискография,DEMI LOVATO\nhttp://s_mobile.cienradios.com/875_Demi_Lovato_y_Art_Rel_48.mp3</item>
-        <item>Дискография,DEPECHE MODE\nhttp://s_mobile.cienradios.com/963_Depeche_Mode_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Diego Torres\nhttp://s_mobile.cienradios.com/649_Diego_Torres_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,DIVIDIDOS\nhttp://s_mobile.cienradios.com/604_Divididos_y_Art_Relac_48.mp3</item>
-        <item>Дискография,Dread Mar I\nhttp://s_mobile.cienradios.com/1013_Dread_Mar_I_y_Art_Rel_48.mp3</item>
-        <item>Дискография,DURAN DURAN\nhttp://s_mobile.cienradios.com/969_Duran_Duran_y_Art_Rel_48.mp3</item>
-        <item>Дискография,ED SHEERAN\nhttp://s_mobile.cienradios.com/1269_Ed_Sheeran_y_Art_Rel_48.mp3</item>
-        <item>Дискография,ELTON JOHN\nhttp://s_mobile.cienradios.com/903_Elton_John_y_Art_Rel_48.mp3</item>
-        <item>Дискография,ELVIS PRESLEY\nhttp://s_mobile.cienradios.com/651_Elvis_Presley_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,ENRIQUE IGLESIAS\nhttp://s_mobile.cienradios.com/922_Enrique_Iglesias_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Erasure\nhttp://s_mobile.cienradios.com/855_Erasure_y_Art_Rel_48.mp3</item>
-        <item>Дискография,ERIC CLAPTON\nhttp://s_mobile.cienradios.com/879_Eric_Clapton_y_Art_Rel_48.mp3</item>
-        <item>Дискография,EROS RAMAZZOTTI\nhttp://s_mobile.cienradios.com/923_Eros_Ramazzotti_y_Art_Rel_48.mp3</item>
-        <item>Дискография,FABIANA CANTILO\nhttp://s_mobile.cienradios.com/975_Fabiana_Cantilo_y_Art_Rel_48.mp3</item>
-        <item>Дискография,FITO PAEZ\nhttp://s_mobile.cienradios.com/654_Fito_Paez_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,FOO FIGHTERS\nhttp://s_mobile.cienradios.com/961_Foo_Fighters_y_Art_Rel_48.mp3</item>
-        <item>Дискография,FRANK SINATRA\nhttp://s_mobile.cienradios.com/687_Frank_Sinatra_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,FRANK ZAPPA\nhttp://s_mobile.cienradios.com/657_Frank_Zappa_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,FREDDIE MERCURY\nhttp://s_mobile.cienradios.com/1048_Freddie_Mercury_y_Art_Rel_48.mp3</item>
-        <item>Дискография,GENESIS\nhttp://s_mobile.cienradios.com/890_Genesis_y_Art_Rel_48.mp3</item>
-        <item>Дискография,GEORGE HARRISON\nhttp://s_mobile.cienradios.com/911_George_Harrison_y_Art_Rel_48.mp3</item>
-        <item>Дискография,GIORGIA\nhttp://icy.unitedradio.it/Giorgia.mp3?</item>
-        <item>Дискография,GLEE\nhttp://s_mobile.cienradios.com/847_Glee_y_Art_Rel_48.mp3</item>
-        <item>Дискография,GLORIA ESTEFAN\nhttp://s_mobile.cienradios.com/958_Gloria_Estefan_y_Art_Rel_48.mp3</item>
-        <item>Дискография,GREEN DAY\nhttp://s_mobile.cienradios.com/1031_Green_Day_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Gruzinskay music\nhttp://109.234.157.227:9500/gruzinskaya</item>
-        <item>Дискография,GUNS N´ ROSES\nhttp://s_mobile.cienradios.com/664_Guns_N_Roses_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,Iggy Pop\nhttp://s_mobile.cienradios.com/1016_Iggy_Pop_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Illya Kuryaki and the Valderramas \ IKV\nhttp://s_mobile.cienradios.com/1054_IKV_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Inguhskay music\nhttp://109.234.157.227:9500/inguhskay</item>
-        <item>Дискография,ISMAEL SERRANO\nhttp://s_mobile.cienradios.com/1035_Ismael_Serrano_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Ivan Noble\nhttp://s_mobile.cienradios.com/680_Ivan_Noble_y_Art_Relac_48.mp3</item>
-        <item>Дискография,JAMES BLUNT\nhttp://s_mobile.cienradios.com/942_James_Blunt_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Janis Joplin\nhttp://149.202.94.241:7258/</item>
-        <item>Дискография,Jean Michael Jarre\nhttp://149.202.94.241:7182/</item>
-        <item>Дискография,Jethro Tull\nhttp://149.202.94.241:7204</item>
-        <item>Дискография,JOAN MANUEL SERRAT\nhttp://s_mobile.cienradios.com/721_Joan_Manuel_Serrat_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,JOAQUIN SABINA\nhttp://s_mobile.cienradios.com/767_Joaquin_Sabina_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,JOHN LENNON\nhttp://s_mobile.cienradios.com/682_John_Lennon_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,John\ Paul\ George and Ringo\nhttp://s_mobile.cienradios.com/683_John_Paul_George_and_Ringo_48.mp3</item>
-        <item>Дискография,JONAS BROTHERS\nhttp://s_mobile.cienradios.com/684_Jonas_Brothers_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,Joss Stone\nhttp://s_mobile.cienradios.com/1026_Joss_Stone_y_Art_Rel_48.mp3</item>
-        <item>Дискография,JOVANOTTI\nhttp://icy.unitedradio.it/Jovanotti.mp3</item>
-        <item>Дискография,JUAN LUIS GUERRA\nhttp://s_mobile.cienradios.com/909_Juan_L_Guerra_y_Art_Rel_48.mp3</item>
-        <item>Дискография,JUANES\nhttp://s_mobile.cienradios.com/685_Juanes_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,JULIETA VENEGAS\nhttp://s_mobile.cienradios.com/686_Julieta_Venegas_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,Justin Bieber\nhttp://cdn.nrjaudio.fm/audio1/fr/30167/mp3_128.mp3</item>
-        <item>Дискография,KATY PERRY\nhttp://s_mobile.cienradios.com/873_Katy_Perry_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Kavkaz-rap-rnb\nhttp://109.234.157.227:9500/kavkaz-rap-rnb</item>
-        <item>Дискография,KEANE\nhttp://s_mobile.cienradios.com/927_Keane_y_Art_Rel_48.mp3</item>
-        <item>Дискография,KEVIN JOHANSEN\nhttp://s_mobile.cienradios.com/1018_Kevin_Johansen_y_Art_Rel_48.mp3</item>
-        <item>Дискография,KISS\nhttp://s_mobile.cienradios.com/968_Kiss_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Kumikskay music\nhttp://109.234.157.227:9500/kumikskay</item>
-        <item>Дискография,La Oreja de Van Gogh\nhttp://s_mobile.cienradios.com/972_La_Oreja_de_Van_Gogh_y_Art_Rel_48.mp3</item>
-        <item>Дискография,La Renga\nhttp://s_mobile.cienradios.com/897_La_Renga_y_Art_Rel_48.mp3</item>
-        <item>Дискография,LADY GAGA\nhttp://s_mobile.cienradios.com/876_Lady_Gaga_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Lakskay music\nhttp://109.234.157.227:9500/lakskay</item>
-        <item>Дискография,LENNY KRAVITZ\nhttp://s_mobile.cienradios.com/872_Lenny_Kravitz_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Lezginskay music\nhttp://109.234.157.227:9500/lezginskay</item>
-        <item>Дискография,LIGABUE\nhttp://icy.unitedradio.it/Ligabue.mp3?</item>
-        <item>Дискография,LITFIBA\nhttp://icy.unitedradio.it/Litfiba.mp3?</item>
-        <item>Дискография,LOS AUTENTICOS DECADENTES\nhttp://s_mobile.cienradios.com/940_Autenticos_Decadentes_y_Art_Rel_48.mp3</item>
-        <item>Дискография,LOS CHALCHALEROS\nhttp://s_mobile.cienradios.com/705_Los_Chalchaleros_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,LOS FABULOSOS CADILLACS\nhttp://s_mobile.cienradios.com/653_Los_Fabulosos_Cadillacs_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,LOS NOCHEROS\nhttp://s_mobile.cienradios.com/706_Los_Nocheros_y_Art_Relac_48.mp3</item>
-        <item>Дискография,Los Pericos\nhttp://s_mobile.cienradios.com/789_Los_Pericos_y_Art_Relac_48.mp3</item>
-        <item>Дискография,LOS PIOJOS\nhttp://s_mobile.cienradios.com/707_Los_Piojos_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,Los Redondos\nhttp://s_mobile.cienradios.com/763_Los_Redondos_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,Luis Miguel\nhttp://s_mobile.cienradios.com/710_Luis_Miguel_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,MADONNA\nhttp://s_mobile.cienradios.com/711_Madonna_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,MANA\nhttp://s_mobile.cienradios.com/712_Mana_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,Maria Callas\nhttp://s_mobile.cienradios.com/1023_Maria_Callas_y_Art_Rel_48.mp3</item>
-        <item>Дискография,MARIA ELENA WALSH\nhttp://s_mobile.cienradios.com/790_Maria_Elena_Walsh_y_Art_Rel_48.mp3</item>
-        <item>Дискография,MAROON 5\nhttp://s_mobile.cienradios.com/1008_Maroon_5_y_Art_Rel_48.mp3</item>
-        <item>Дискография,MERCEDES SOSA\nhttp://s_mobile.cienradios.com/713_Mercedes_Sosa_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,MICHAEL JACKSON\nhttp://s_mobile.cienradios.com/714_Michael_Jackson_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,Miley Cyrus\nhttp://s_mobile.cienradios.com/715_Miley_Cyrus_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,MINA\nhttp://icy.unitedradio.it/Mina.mp3?</item>
-        <item>Дискография,Muse\nhttp://s_mobile.cienradios.com/980_Muse_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Nashid\nhttp://109.234.157.227:9500/radionashid.m3u</item>
-        <item>Дискография,Norah Jones\nhttp://s_mobile.cienradios.com/1012_Norah_Jones_y_Art_Rel_48.mp3</item>
-        <item>Дискография,ONE DIRECTION\nhttp://s_mobile.cienradios.com/990_One_Direction_y_Art_Rel_48.mp3</item>
-        <item>Дискография,Osetian music\nhttp://109.234.157.227:9500/osetian.m3u</item>
-        <item>Дискография,PAUL MCCARTNEY\nhttp://s_mobile.cienradios.com/735_Paul_McCartney_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,PIAZZOLA\nhttp://s_mobile.cienradios.com/737_Piazzolla_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,Pink Floyd {RTBF}\nhttp://ice12.infomaniak.ch:80/wr-eventradio-128.mp3</item>
-        <item>Дискография,Pink Floyd FM\nhttp://95.173.184.17:9926</item>
-        <item>Дискография,PINO DANIELE\nhttp://icy.unitedradio.it/Daniele.mp3?</item>
-        <item>Дискография,Prince\nhttp://149.202.94.241:7256/</item>
-        <item>Дискография,QUEEN\nhttp://s_mobile.cienradios.com/743_Queen_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,RAMONES\nhttp://s_mobile.cienradios.com/757_The_Ramones_y_Artistas_Relacionados_48.mp3</item>
-        <item>Дискография,Розенбаум Александр\nhttp://ic3.101.ru:8000/c16_26</item>
+
+        <item>Дискография Машина Времени 64kbps\nhttp://ic4.101.ru:8000/a59</item>
+        <item>Дискография ДДТ 64kbps\nhttp://ic4.101.ru:8000/a112</item>
+        <item>Дискография Алиса 64kbps\nhttp://ic4.101.ru:8000/a137</item>
+        <item>Дискография Ария 64kbps\nhttp://ic4.101.ru:8000/a118</item>
+        <item>Дискография Виктор Цой и группа «КИНО» 64kbps\nhttp://ic4.101.ru:8000/a103</item>
+        <item>Дискография БГ и Аквариум 64kbps\nhttp://ic4.101.ru:8000/a57</item>
+        <item>Дискография Пикник 64kbps\nhttp://ic4.101.ru:8000/a157</item>
+        <item>Дискография Наутилус Помпилиус 64kbps\nhttp://ic4.101.ru:8000/a126</item>
+        <item>Дискография Агата Кристи 64kbps\nhttp://ic4.101.ru:8000/a139</item>
+        <item>Дискография Король и Шут 64kbps\nhttp://ic4.101.ru:8000/a191</item>
+        <item>Дискография Любэ 64kbps\nhttp://ic4.101.ru:8000/a158</item>
+        <item>Дискография Сплин 64kbps\nhttp://ic4.101.ru:8000/a129</item>
+        <item>Дискография БИ-2 64kbps\nhttp://ic4.101.ru:8000/a135</item>
+        <item>Дискография Муслим Магомаев 64kbps\nhttp://ic4.101.ru:8000/a156</item>
+        <item>Дискография Филипп Киркоров 64kbps\nhttp://ic4.101.ru:8000/a116</item>
+        <item>Дискография Стас Михайлов 64kbps\nhttp://ic4.101.ru:8000/a154</item>
+        <item>Дискография Руки Вверх! 64kbps\nhttp://ic4.101.ru:8000/a163</item>
+        <item>Дискография Высоцкий 64kbps\nhttp://ic4.101.ru:8000/a58</item>
+        <item>Дискография Михаил Круг 64kbps\nhttp://ic4.101.ru:8000/a110</item>
+        <item>Дискография Александр Розенбаум 64kbps\nhttp://ic4.101.ru:8000/a153</item>
+        <item>Дискография Елена Ваенга 64kbps\nhttp://ic4.101.ru:8000/a171</item>
+        <item>Дискография Каста 64kbps\nhttp://ic4.101.ru:8000/a121</item>
+        <item>Дискография Баста aka НоГГано 64kbps\nhttp://ic4.101.ru:8000/a162</item>
+        <item>Дискография Elvis Presley 64kbps\nhttp://ic4.101.ru:8000/a111</item>
+        <item>Дискография The Rolling Stones 64kbps\nhttp://ic4.101.ru:8000/a117</item>
+        <item>Дискография Pink Floyd 64kbps\nhttp://ic4.101.ru:8000/a53</item>
+        <item>Дискография Queen 64kbps\nhttp://ic4.101.ru:8000/a54</item>
+        <item>Дискография U2 64kbps\nhttp://ic4.101.ru:8000/a109</item>
+        <item>Дискография Scorpions 64kbps\nhttp://ic4.101.ru:8000/a113</item>
+        <item>Дискография Metallica 64kbps\nhttp://ic4.101.ru:8000/a123</item>
+        <item>Дискография Deep Purple 64kbps\nhttp://ic4.101.ru:8000/a125</item>
+        <item>Дискография Linkin Park 64kbps\nhttp://ic4.101.ru:8000/a149</item>
+        <item>Дискография Michael Jackson 64kbps\nhttp://ic4.101.ru:8000/a52</item>
+        <item>Дискография Madonna 64kbps\nhttp://ic4.101.ru:8000/a128</item>
+        <item>Дискография Mylene Farmer 64kbps\nhttp://ic4.101.ru:8000/a166</item>
+        <item>Дискография Sandra 64kbps\nhttp://ic4.101.ru:8000/a179</item>
+        <item>Дискография Robbie Williams 64kbps\nhttp://ic4.101.ru:8000/a138</item>
+        <item>Дискография Elton John 64kbps\nhttp://ic4.101.ru:8000/a142</item>
+        <item>Дискография ABBA 64kbps\nhttp://ic4.101.ru:8000/a104</item>
+        <item>Дискография Boney M 64kbps\nhttp://ic4.101.ru:8000/a114</item>
+        <item>Дискография Modern Talking 64kbps\nhttp://ic4.101.ru:8000/a115</item>
+        <item>Дискография Depeche Mode64kbps\nhttp://ic4.101.ru:8000/a105</item>
+        <item>Дискография Enigma 64kbps\nhttp://ic3.101.ru:8000/c7_24</item>
+        <item>Дискография TIZIANO FERRO\nhttp://icy.unitedradio.it/Ferro.mp3?</item>
+        <item>Дискография VASCO\nhttp://icy.unitedradio.it/Vasco.mp3?</item>
+        <item>Дискография Zucchero\nhttp://icy.unitedradio.it/Zucchero.mp3?</item>
+        <item>Дискография Би-2\nhttp://ic2.101.ru:8000/c15_23?</item>
+        <item>Дискография Cliff Richard Radio\nhttp://s9.voscast.com:8032</item>
+        <item>Дискография COLDPLAY\nhttp://icy.unitedradio.it/ColdPlay.mp3?</item>
+        <item>Дискография ДДТ\nhttp://ic2.101.ru:8000/c13_21?</item>
+        <item>Дискография JOVANOTTI\nhttp://icy.unitedradio.it/Jovanotti.mp3</item>
+        <item>Дискография LIGABUE\nhttp://icy.unitedradio.it/Ligabue.mp3?</item>
+        <item>Дискография MINA\nhttp://icy.unitedradio.it/Mina.mp3?</item>
+        <item>Дискография PINO DANIELE\nhttp://icy.unitedradio.it/Daniele.mp3?</item>
+        <item>Дискография Розенбаум Александр\nhttp://ic3.101.ru:8000/c16_26</item>
 
     </string-array>
 
