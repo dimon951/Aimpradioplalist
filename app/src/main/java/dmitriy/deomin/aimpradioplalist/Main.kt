@@ -210,6 +210,7 @@ class Main : FragmentActivity() {
         liner_boss.setBackgroundColor(COLOR_FON)
 
 
+
         //анимация на кнопках*****************************************.
         val anim = AnimationUtils.loadAnimation(context, R.anim.myscale)
         vse_r = findViewById<View>(R.id.vse_radio) as Button

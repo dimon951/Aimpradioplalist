@@ -2,11 +2,7 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.content.BroadcastReceiver
-import android.content.ComponentName
-import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
+import android.content.*
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -26,10 +22,17 @@ import org.jetbrains.anko.support.v4.toast
 
 import java.util.ArrayList
 import java.util.HashMap
+import android.content.Intent
+
+
+
+
 
 class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
 
-   lateinit var file_function: File_function
+
+
+    lateinit var file_function: File_function
 
     @SuppressLint("WrongConstant")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -171,6 +174,47 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
             }
         }
 
+        (v.findViewById<View>(R.id.load_file) as Button).setOnClickListener { v ->
+            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
+            v.startAnimation(anim)
+
+            val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
+            val content = LayoutInflater.from(context).inflate(R.layout.load_file, null)
+            builder.setView(content)
+            val alertDialog = builder.create()
+            alertDialog.show()
+
+
+            var file_m3u_custom:String
+
+            val add_fs = content.findViewById<View>(R.id.load_fs) as Button
+                add_fs.typeface = Main.face
+                add_fs.setOnClickListener { vie ->
+                    vie.startAnimation(anim)
+                    //----
+                    val fileDialog = OpenFileDialog(context)
+                            .setFilter(".*\\.m3u")
+                            .setOpenDialogListener {
+                                if(it!=null) {
+                                    file_m3u_custom = it
+                                    //проверим на наличие файла и будем действовать дальше
+                                    alertDialog.cancel()
+                                    toast(file_m3u_custom)
+                                }
+                            }
+                    fileDialog.show()
+
+                    //----
+                }
+
+
+
+
+        }
+
+
+
+
 
         (v.findViewById<View>(R.id.open_aimp) as Button).setOnClickListener { v ->
             val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
@@ -221,7 +265,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                 intent.putExtra(Intent.EXTRA_TEXT, send)
                 try {
                     startActivity(Intent.createChooser(intent, "Поделиться через"))
-                } catch (ex: android.content.ActivityNotFoundException) {
+                } catch (ex: ActivityNotFoundException) {
                    toast("Ошибка")
                 }
 
@@ -234,6 +278,8 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
 
         return v
     }
+
+
 
     override fun onItemLongClick(parent: AdapterView<*>, view: View, position: Int, id: Long): Boolean {
         val selectedItem = parent.getItemAtPosition(position).toString() //получаем строку
