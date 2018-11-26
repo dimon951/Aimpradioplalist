@@ -23,9 +23,7 @@ import org.jetbrains.anko.support.v4.toast
 import java.util.ArrayList
 import java.util.HashMap
 import android.content.Intent
-
-
-
+import android.util.Log
 
 
 class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
@@ -52,6 +50,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
 
         for (i in mas_radio.indices) {
             m = HashMap()
+            Log.e("rrrrr",mas_radio[i]);
             m[STANCIA] = mas_radio[i]
             data.add(m)
         }
@@ -61,6 +60,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
         // массив ID View-компонентов, в которые будут вставлять данные
         val to = intArrayOf(R.id.textView)
 
+        //адаптер содержит один текствью
         val adapter_vse_radio = Adapter_vse_radio(context, data, R.layout.delegat_vse_radio_list, from, to)
         listView.adapter = adapter_vse_radio
 
@@ -118,6 +118,9 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
             val edit = content.findViewById<View>(R.id.editText_add_url) as EditText
             edit.typeface = Main.face
 
+            val edit_name = content.findViewById<View>(R.id.editText_add_url_name) as EditText
+            edit_name.typeface = Main.face
+
             val paste = content.findViewById<View>(R.id.button_paste_url_add) as Button
             paste.typeface = Main.face
             paste.setOnClickListener { view1 ->
@@ -164,7 +167,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
 
 
                     val file_function = File_function()
-                    file_function.Add_may_plalist_stansiy(edit.text.toString())
+                    file_function.Add_may_plalist_stansiy(edit.text.toString(),edit_name.text.toString())
 
                     alertDialog.cancel()
 
@@ -211,10 +214,6 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
 
 
         }
-
-
-
-
 
         (v.findViewById<View>(R.id.open_aimp) as Button).setOnClickListener { v ->
             val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
@@ -351,7 +350,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                     }
 
                     val file_function = File_function()
-                    file_function.Add_may_plalist_stansiy(url_link)
+                    file_function.Add_may_plalist_stansiy(url_link,"")
                 } else {
                     Toast.makeText(context, "Ошибка", Toast.LENGTH_SHORT).show()
                 }
@@ -373,7 +372,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
         return true
     }
 
-    //чтение
+    //чтение из буфера
     fun getText(context: Context): String {
         var text: String? = null
         val sdk = android.os.Build.VERSION.SDK_INT

@@ -17,8 +17,9 @@ import java.util.ArrayList;
 public class File_function {
 
 
-    //прочитает файл и вернёт массив
+    //прочитает файл из памяти устройства и вернёт массив радиопотоков
     public  String[] My_plalist() {
+
         //прочитаем старыйе данные
         String text = "";
         try {
@@ -27,28 +28,32 @@ public class File_function {
             e.printStackTrace();
         }
 
-        if(text.length()>4){
-            //если есть чё разобьём на массив и вернём после удаления пустых строк
+        //если есть чё разобьём на массив и вернём после удаления пустых строк
+        if(text.length()>11){
 
             //скинем все сюда , а потом обратно
             ArrayList<String> mas = new ArrayList<>();
 
-            for(String s:text.split("\\n")){
-                if(!s.equals("")){
-                    mas.add(s);
+            //разделим стороку на масссив
+            for(String s:text.split("#EXTINF:-1,")){
+
+                //если строка не пустая
+                if(!s.equals("")&!s.equals("\n")){
+                        //удалим вначале файла тег
+                        s =  s.replace("#EXTM3U","");
+                        mas.add(s);
                 }
             }
 
-            // конвертируем ArrayList в массив
+            // конвертируем ArrayList в список
             String[] myArray = {};
-            myArray = mas.toArray(new String[mas.size()]);
+            myArray = mas.toArray(new String[0]);
 
 
             return myArray;
         }else {
             //врнём свой моссив с подсказкой
-            String [] info = {"Плейлист пуст",
-                    "Чтобы добавить станцию , выберите <добавить в плейлист> во <Всё радио>. Или нажмите + в <Популярное>\n-долгий тап на станции предложит удалить её"};
+            String [] info = {"Плейлист пуст. Чтобы добавить станцию , выберите <добавить в плейлист> во <Всё радио>. Или нажмите + в <Популярное> долгий тап на станции предложит удалить её"};
             return  info;
         }
 
@@ -73,8 +78,9 @@ public class File_function {
         SaveFile_vizov(name,link);
     }
 
-//добавляется в текущему плейлисту ещё
-    public  void Add_may_plalist_stansiy(String link) {
+     //добавляется в текущему плейлисту ещё станцию
+    public  void Add_may_plalist_stansiy(String link,String name) {
+
         //создадим папки если нет
         File sddir = new File(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/");
         if (!sddir.exists()) {
@@ -89,12 +95,26 @@ public class File_function {
             e.printStackTrace();
         }
 
+
+        //нужно записывать файл плейлиста в нор виде со всеми закорючками
+        //#EXTM3U
+        //#EXTINF:-1,bbc_radio_one
+        //http://as-hls-ww-live.akamaized.net/pool_7/live/bbc_radio_one/bbc_radio_one.isml/bbc_radio_one-audio%3d320000.norewind.m3u8
+        //#EXTINF:-1,bbc_1xtra
+        //http://as-hls-ww-live.akamaized.net/pool_7/live/bbc_1xtra/bbc_1xtra.isml/bbc_1xtra-audio%3d320000.norewind.m3u8
+
+
+        //link - ссыка на поток
+        //name - название станции
+
+
         //если эта станция уже есть забьём
-        if(old_text.length()>3){
-            String mas[] = old_text.split("\\n");
+        if(old_text.length()>11){
+           //разобьём всю кучу
+            String mas[] = old_text.split("\n");
             for(String s:mas){
+                //если такая уже есть выходим и шлём сигнал что закрылось окошко
                 if(s.equals(link)){
-                    //если такая уже есть выходим и шлём сигнал што закрылось окошко
                     //послать сигнал
                     Intent i  = new Intent("File_created");
                     i.putExtra("update","zaebis");
@@ -104,10 +124,10 @@ public class File_function {
                 }
             }
             //если цикл прошёл мимо то добавим станцию
-            SaveFile_vizov("my_plalist.m3u",old_text+"\n"+link);
+            SaveFile_vizov("my_plalist.m3u",old_text+"\n"+"#EXTINF:-1,"+name+"\n"+link);
         }else {
-            //если наш плейлист пуст
-            SaveFile_vizov("my_plalist.m3u",old_text+"\n"+link);
+            //если наш плейлист пуст добавим в начале файла #EXTM3U
+            SaveFile_vizov("my_plalist.m3u","#EXTM3U"+"\n"+"#EXTINF:-1,"+name+"\n"+link);
         }
 
     }
@@ -158,7 +178,7 @@ private String read(String fileName) throws FileNotFoundException {
         {
             SaveFile(fullpath, link_text);
         }else{
-            Log.i("TTT","память рнельзяписать");
+            Log.i("TTT","в память нельзя писать");
         }
     }
 

@@ -283,7 +283,7 @@ class Vse_radio : Fragment() {
 
 
                 val file_function = File_function()
-                file_function.Add_may_plalist_stansiy(url_link)
+                file_function.Add_may_plalist_stansiy(url_link,name)
             }
 
             open_aimp.setOnClickListener { v ->

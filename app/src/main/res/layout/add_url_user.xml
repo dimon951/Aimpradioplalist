@@ -13,6 +13,14 @@
         android:text="Добавить поток"
         android:textSize="18sp" />
 
+    <EditText
+        android:id="@+id/editText_add_url_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Название" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

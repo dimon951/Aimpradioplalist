@@ -13,6 +13,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
 import android.text.style.UnderlineSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -105,8 +106,9 @@ public class Adapter_pop_radio extends SimpleAdapter {
         //viewHolder.ava.setMaxWidth(viewHolder.ava.getHeight());
 
 
-        //смотрим че там передлось в параметрах какаое качество и покажем нужные кнопки
+        //смотрим че там передалось в параметрах какаое качество и покажем нужные кнопки
         final String[] mass_link_parametr = results.get(position).get("link").toString().split("~kbps~");
+        Log.e("rrr",String.valueOf(mass_link_parametr.length));
 
         switch (mass_link_parametr.length){
             case 2:
@@ -298,6 +300,7 @@ public class Adapter_pop_radio extends SimpleAdapter {
                 viewHolder.kbps1.setText(Main.Companion.getText());
 
                 viewHolder.link = mass_link_parametr[1].toString();
+
             }
         });
 
@@ -713,7 +716,7 @@ public class Adapter_pop_radio extends SimpleAdapter {
                             //получим данные
                             String s = intent.getStringExtra("update");
                             if(s.equals("zaebis")){
-                               // Toast.makeText(context,"Готово",Toast.LENGTH_SHORT).show();
+
                                 //обновим старницу
 
                                 Main.Companion.getMyadapter().notifyDataSetChanged();
@@ -731,8 +734,9 @@ public class Adapter_pop_radio extends SimpleAdapter {
 
 
                 File_function file_function= new File_function();
-                //file_function.Add_may_plalist_stansiy(results.get(position).get("link").toString());
-                file_function.Add_may_plalist_stansiy(viewHolder.link);
+
+                //запишем в файл выбранную станцию
+                file_function.Add_may_plalist_stansiy(viewHolder.link,results.get(position).get("stancia").toString());
             }
         });
 
