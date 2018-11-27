@@ -169,6 +169,11 @@
 
     </string-array>
 
+
+    <string name="help">
+         Чтобы добавить станцию , выберите *добавить в плейлист* во Всё радио. Или нажмите + в Популярное долгий тап на станции предложит удалить её
+    </string>
+
     <string-array name="vse_radio">
 
         <item>Hip-Hop Barada (laradiofm.com) 128kbps\nhttp://listen1.myradio24.com:9000/4455</item>

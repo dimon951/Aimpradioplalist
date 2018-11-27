@@ -50,7 +50,6 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
 
         for (i in mas_radio.indices) {
             m = HashMap()
-            Log.e("rrrrr",mas_radio[i]);
             m[STANCIA] = mas_radio[i]
             data.add(m)
         }
@@ -285,7 +284,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
 
 
         val m = file_function.My_plalist()
-        if (m[0] != "Плейлист пуст") {
+        if (m[0] != "Плейлист пуст.") {
 
             val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
             val content = LayoutInflater.from(context).inflate(R.layout.custom_dialog_delete_stancii, null)

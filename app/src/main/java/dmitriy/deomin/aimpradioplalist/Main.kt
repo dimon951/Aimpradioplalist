@@ -294,6 +294,18 @@ class Main : FragmentActivity() {
             startActivity(i)
             alertDialog.cancel()
         }
+
+        val b_h = content.findViewById<View>(R.id.button_help) as Button
+        b_h.setTextColor(COLOR_TEXT)
+        b_h.typeface = face
+        b_h.setOnClickListener { v ->
+            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
+            v.startAnimation(anim)
+            val s = Intent(this@Main, Help::class.java)
+            startActivity(s)
+            alertDialog.cancel()
+        }
+
         val b_s = content.findViewById<View>(R.id.button_setting) as Button
         b_s.setTextColor(COLOR_TEXT)
         b_s.typeface = face
