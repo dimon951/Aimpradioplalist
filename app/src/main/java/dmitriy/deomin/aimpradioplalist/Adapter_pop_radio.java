@@ -716,9 +716,7 @@ public class Adapter_pop_radio extends SimpleAdapter {
                             //получим данные
                             String s = intent.getStringExtra("update");
                             if(s.equals("zaebis")){
-
                                 //обновим старницу
-
                                 Main.Companion.getMyadapter().notifyDataSetChanged();
                                 Main.Companion.getViewPager().setAdapter(Main.Companion.getMyadapter());
                                 Main.Companion.getViewPager().setCurrentItem(Main.Companion.getNumber_page());
@@ -731,7 +729,6 @@ public class Adapter_pop_radio extends SimpleAdapter {
 
                 //регистрируем приёмник
                 Main.Companion.getContext().registerReceiver(broadcastReceiver,intentFilter);
-
 
                 File_function file_function= new File_function();
 
@@ -751,9 +748,8 @@ public class Adapter_pop_radio extends SimpleAdapter {
                 //Изменим текущию вкладку при обновлении что тутж остаться
                 Main.Companion.setNumber_page(1);
 
-                //сохраним  временый файл сслку
+                //сохраним  временый файл ссылку
                 File_function file_function = new File_function();
-                // file_function.Save_temp_file(results.get(position).get("stancia").toString()+".m3u",results.get(position).get("link").toString());
                 file_function.Save_temp_file(results.get(position).get("stancia").toString() + ".m3u", viewHolder.link);
 
 

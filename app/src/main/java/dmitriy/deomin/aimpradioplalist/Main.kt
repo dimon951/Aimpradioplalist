@@ -22,6 +22,7 @@ import android.view.*
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.*
+import java.util.*
 
 class Main : FragmentActivity() {
 
@@ -52,6 +53,15 @@ class Main : FragmentActivity() {
         var number_page: Int = 0
 
 
+        //кодировка файла плейлиста
+        val File_Text_Code:String = "UTF8"
+
+
+        //текст в пустом плейлисте(много где требуется)
+        @JvmField
+        val PUSTO:String = "Плейлист пуст."
+
+
         //шрифт
        lateinit  var face: Typeface
         //для текста
@@ -63,6 +73,13 @@ class Main : FragmentActivity() {
         var COLOR_ITEM: Int = 0
         var COLOR_TEXT: Int = 0
 
+
+
+        val MY_PLALIST =  Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u"
+
+
+        //сохранялки
+        //----------------------------
         fun save_value(Key: String, Value: String) { //сохранение строки
             val editor = mSettings.edit()
             editor.putString(Key, Value)
@@ -86,6 +103,7 @@ class Main : FragmentActivity() {
                 mSettings.getInt(key_save, 0)
             } else 0
         }
+        //-------------------
 
         fun install_app(app: String): Boolean {
             val pm = Main.context.packageManager
@@ -96,11 +114,7 @@ class Main : FragmentActivity() {
                 e.printStackTrace()
             }
 
-            return if (pi == null) {
-                false
-            } else {
-                true
-            }
+            return pi != null
         }
 
         fun setup_aimp(potok: String, file: String) {
@@ -292,17 +306,6 @@ class Main : FragmentActivity() {
             v.startAnimation(anim)
             val i = Intent(applicationContext, Abaut::class.java)
             startActivity(i)
-            alertDialog.cancel()
-        }
-
-        val b_h = content.findViewById<View>(R.id.button_help) as Button
-        b_h.setTextColor(COLOR_TEXT)
-        b_h.typeface = face
-        b_h.setOnClickListener { v ->
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v.startAnimation(anim)
-            val s = Intent(this@Main, Help::class.java)
-            startActivity(s)
             alertDialog.cancel()
         }
 

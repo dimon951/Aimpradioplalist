@@ -26,7 +26,10 @@ class Abaut : Activity() {
 
     }
 
-    fun opengruppa() {
+    fun opengruppa(v: View) {
         browse("https://vk.com/aimp_radio_plalist")
+    }
+    fun donat(v: View) {
+        browse("https://money.yandex.ru/to/41001566605499")
     }
 }

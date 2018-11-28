@@ -31,8 +31,6 @@
          com.squareup.picasso:picasso:2.5.2
          \n
          \n
-         Поддержать проект:
-          карта сб +79027228625
     </string>
 
     <string-array name="pop_radio">
@@ -169,6 +167,16 @@
 
     </string-array>
 
+    <string-array name="list_ok">
+        <item>Хорошо</item>
+        <item>Отлично</item>
+        <item>Ок</item>
+        <item>Нормалёк</item>
+        <item>Обалденно</item>
+        <item>Зашибись</item>
+        <item>Очень хорошо</item>
+        <item>Замечательно</item>
+    </string-array>
 
     <string name="help">
          Чтобы добавить станцию , выберите *добавить в плейлист* во Всё радио. Или нажмите + в Популярное долгий тап на станции предложит удалить её

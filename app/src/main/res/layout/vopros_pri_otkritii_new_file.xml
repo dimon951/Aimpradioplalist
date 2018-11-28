@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dmitriy.deomin.aimpradioplalist.Fon_item
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardPreventCornerOverlap="false"
+    android:elevation="0dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
+    app:cardBackgroundColor="@color/cardview_shadow_start_color">
+
+    <LinearLayout
+        android:id="@+id/menu_progi_alert"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView_vopros_pro_old_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Что сделать с текущим плейлистом?" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/separator"
+        android:orientation="horizontal"
+        android:showDividers="beginning|middle|end">
+
+        <Button
+            android:id="@+id/button_dell_old_plalist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Удалить" />
+
+        <Button
+            android:id="@+id/button_add_old_plalist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Дописать" />
+
+        <Button
+            android:id="@+id/button_save_old"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:text="Сохранить" />
+    </LinearLayout>
+
+    </LinearLayout>
+</dmitriy.deomin.aimpradioplalist.Fon_item>

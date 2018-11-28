@@ -22,7 +22,6 @@
         <activity android:name=".Abaut" />
         <activity android:name=".Setting" />
         <activity android:name=".Fonts_vibor" />
-        <activity android:name=".Help"></activity>
     </application>
 
 </manifest>
