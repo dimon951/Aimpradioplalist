@@ -32,7 +32,6 @@ import org.jetbrains.anko.toast
 class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
 
 
-
     lateinit var file_function: File_function
 
     @SuppressLint("WrongConstant")
@@ -44,7 +43,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
 
         val listView: ListView = v.findViewById<View>(R.id.listvew_my_plalist) as ListView
 
-        file_function= File_function()
+        file_function = File_function()
 
         val mas_radio = file_function.My_plalist(Main.MY_PLALIST)
         val data = ArrayList<Map<String, Any>>(mas_radio.size)
@@ -68,8 +67,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
 
 
         //Слушаем кнопки
-
-        (v.findViewById<View>(R.id.button_delete) as Button).setOnClickListener {v->
+        (v.findViewById<View>(R.id.button_delete) as Button).setOnClickListener { v ->
             val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
             v.startAnimation(anim)
             if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
@@ -107,7 +105,6 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
             }
         }
 
-
         (v.findViewById<View>(R.id.button_add_url) as Button).setOnClickListener { v ->
             val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
             v.startAnimation(anim)
@@ -118,37 +115,37 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
             val alertDialog = builder.create()
             alertDialog.show()
 
-            val logo  = content.findViewById<View>(R.id.textView_logo_add) as TextView
-                logo.typeface = Main.face
-                logo.textColor = Main.COLOR_TEXT
+            val logo = content.findViewById<View>(R.id.textView_logo_add) as TextView
+            logo.typeface = Main.face
+            logo.textColor = Main.COLOR_TEXT
 
             val edit = content.findViewById<View>(R.id.editText_add_url) as EditText
-                edit.typeface = Main.face
-                edit.textColor = Main.COLOR_TEXT
+            edit.typeface = Main.face
+            edit.textColor = Main.COLOR_TEXT
 
             val edit_name = content.findViewById<View>(R.id.editText_add_url_name) as EditText
-                edit_name.typeface = Main.face
-                edit_name.textColor = Main.COLOR_TEXT
+            edit_name.typeface = Main.face
+            edit_name.textColor = Main.COLOR_TEXT
 
             val paste = content.findViewById<View>(R.id.button_paste_url_add) as Button
-                paste.typeface = Main.face
-                paste.textColor = Main.COLOR_TEXT
-                paste.setOnClickListener { view1 ->
-                  view1.startAnimation(anim)
-                   edit.setText(getText(context))
-                 }
+            paste.typeface = Main.face
+            paste.textColor = Main.COLOR_TEXT
+            paste.setOnClickListener { view1 ->
+                view1.startAnimation(anim)
+                edit.setText(getText(context))
+            }
 
             val add = content.findViewById<View>(R.id.button_add_url) as Button
-                add.typeface = Main.face
-                add.textColor = Main.COLOR_TEXT
-                add.setOnClickListener { vie ->
+            add.typeface = Main.face
+            add.textColor = Main.COLOR_TEXT
+            add.setOnClickListener { vie ->
                 vie.startAnimation(anim)
 
                 //проверим на пустоту
                 if (edit.text.toString().length > 7) {
 
                     //проверим есть ли в начале ссылки http:// - ато от неё много чего зависит
-                    if(edit.text.toString().substring(0,7).equals("http://")){
+                    if (edit.text.toString().substring(0, 7).equals("http://")) {
                         Main.number_page = 2
 
                         //фильтр для нашего сигнала
@@ -182,11 +179,11 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
 
                         //делаем
                         val file_function = File_function()
-                        file_function.Add_may_plalist_stansiy(edit.text.toString(),edit_name.text.toString())
+                        file_function.Add_may_plalist_stansiy(edit.text.toString(), edit_name.text.toString())
 
                         alertDialog.cancel()
-                    }else{
-                        edit.setText("http://"+edit.text.toString())
+                    } else {
+                        edit.setText("http://" + edit.text.toString())
                         context.toast("В начале ссылки потока должна быть http://, добавил , повторите :)")
                     }
 
@@ -197,19 +194,18 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
         }
 
         //будем предлогать сохранить этот плейлист в отдельный файл
-       val button_savev = v.findViewById<View>(R.id.save_v_file) as Button
-           button_savev.setOnClickListener { v ->
+        (v.findViewById<View>(R.id.save_v_file) as Button).setOnClickListener { v ->
 
             val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
             v.startAnimation(anim)
 
 
             //прочитаем плейлист весь с закорючками
-            val data:String = file_function.read(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u")
+            val data: String = file_function.read(Main.MY_PLALIST)
 
-            if(data.length<7){
+            if (data.length < 7) {
                 context.toast("Нечего сохранять добавьте хотябы одну станцию")
-            }else {
+            } else {
 
                 //покажем оконо в котором нужно будет ввести имя
                 val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
@@ -233,10 +229,10 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                     vie.startAnimation(anim)
 
                     //----
-                    if(name.text.toString().length<1){
+                    if (name.text.toString().length < 1) {
                         //пока покажем это потом будум генерерить свои если не захотят вводить
                         context.toast("Введите имя")
-                    }else{
+                    } else {
                         //нужно чтоб после обновления открылась таже вкладка
                         Main.number_page = 2
 
@@ -261,7 +257,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                                         Main.viewPager.currentItem = Main.number_page
 
                                         //тут злоябучий выскакивает глюк
-                                      //  context.toast(rnd_ok())
+                                        //  context.toast(rnd_ok())
                                         context.toast("Готово")
 
                                         //попробуем уничтожить слушителя
@@ -277,7 +273,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
 
                         //сохраним  временый файл ссылку и ждём сигналы
                         val file_function = File_function()
-                        file_function.Save_temp_file(name.text.toString() + ".m3u",data)
+                        file_function.Save_temp_file(name.text.toString() + ".m3u", data)
 
                         //закроем окошко
                         alertDialog.cancel()
@@ -293,7 +289,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
             v.startAnimation(anim)
 
             //если в плейлисте есть чето предложим чегонибуть
-            if(file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO){
+            if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
 
                 val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
                 val content = LayoutInflater.from(context).inflate(R.layout.vopros_pri_otkritii_new_file, null)
@@ -301,24 +297,46 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                 val alertDialog = builder.create()
                 alertDialog.show()
 
-                //наводим красоту
-                val inf =  content.findViewById<View>(R.id.textView_vopros_pro_old_file) as TextView
-                    inf.typeface = Main.face
-                    inf.setTextColor(Main.COLOR_TEXT)
+                (content.findViewById<View>(R.id.textView_vopros_pro_old_file) as TextView).typeface = Main.face
+                (content.findViewById<View>(R.id.textView_vopros_pro_old_file) as TextView).setTextColor(Main.COLOR_TEXT)
+
 
                 //затираем старое
                 val del = content.findViewById<View>(R.id.button_dell_old_plalist) as Button
-                    del.typeface = Main.face
-                    del.setTextColor(Main.COLOR_TEXT)
+                del.typeface = Main.face
+                del.setTextColor(Main.COLOR_TEXT)
+                del.onClick { v_del ->
+                    val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
+                    v_del!!.startAnimation(anim)
+
+                    //отправим с пустым старым текстом , старое затрётся
+                    open_load_file(context, "")
+                    //закрываем окошко
+                    alertDialog.cancel()
+                }
 
 
                 //добавляем к старому
-                val add  = content.findViewById<View>(R.id.button_add_old_plalist) as Button
-                    add.typeface = Main.face
-                    add.setTextColor(Main.COLOR_TEXT)
+                val add = content.findViewById<View>(R.id.button_add_old_plalist) as Button
+                add.typeface = Main.face
+                add.setTextColor(Main.COLOR_TEXT)
+                add.onClick { v_add ->
+                    val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
+                    v_add!!.startAnimation(anim)
 
-            }else{
-                open_load_file(context)
+                    //прочтём текущий со всеми закорючками и отправим для добавления
+                    val old_text: String = file_function.read(Main.MY_PLALIST)
+
+                    //после выбора файла он прочётся и добавится к старым данным
+                    open_load_file(context, old_text)
+                    //закрываем окошко
+                    alertDialog.cancel()
+
+                }
+
+
+            } else {
+                open_load_file(context, "")
             }
         }
         (v.findViewById<View>(R.id.open_aimp) as Button).setOnClickListener { v ->
@@ -354,8 +372,6 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
             }
         }
 
-
-
         (v.findViewById<View>(R.id.button_otpravit) as Button).setOnClickListener { v ->
             val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
             v.startAnimation(anim)
@@ -388,7 +404,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
         return v
     }
 
-    private fun open_load_file(context:Context) {
+    private fun open_load_file(context: Context, str_old: String) {
         //если плейлист пуст откроем окно выбора загрузки файла(память или ссылка)
         val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
         val content = LayoutInflater.from(context).inflate(R.layout.load_file, null)
@@ -397,7 +413,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
         alertDialog.show()
 
 
-        var file_m3u_custom:String
+        var file_m3u_custom: String
 
         //при выборе из памяти устройства
         val add_fs = content.findViewById<View>(R.id.load_fs) as Button
@@ -410,15 +426,15 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
             val fileDialog = OpenFileDialog(context)
                     .setFilter(".*\\.m3u")
                     .setOpenDialogListener {
-                        if(it!=null) {
+                        if (it != null) {
                             file_m3u_custom = it
                             alertDialog.cancel()
 
 
                             //проверим на наличие файла и будем действовать дальше
-                            val str = file_function.read(file_m3u_custom)
+                            var str = file_function.read(file_m3u_custom)
                             //если файл есть и он не пустой зальём его в список по умолчанию
-                            if(str.length>1){
+                            if (str.length > 1) {
                                 //нужно чтоб после обновления открылась таже вкладка
                                 Main.number_page = 2
 
@@ -452,10 +468,18 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                                 //регистрируем приёмник
                                 context.registerReceiver(broadcastReceiver, intentFilter)
 
-                                //поехали , сохраняем  и ждём сигналы
-                                file_function.SaveFile(Main.MY_PLALIST,str)
+                                //если в параметрах данные были поставим их вначале
+                                if (str_old.length > 7) {
+                                    //заменим тег #EXTM3U если есть в начале файла на перенос строки
+                                    str = str.replace("#EXTM3U", "\n")
+                                    //поехали , сохраняем  и ждём сигналы
+                                    file_function.SaveFile(Main.MY_PLALIST, str_old + str)
+                                } else {
+                                    //поехали , сохраняем  и ждём сигналы
+                                    file_function.SaveFile(Main.MY_PLALIST, str)
+                                }
 
-                            }else{
+                            } else {
                                 context.toast("Файл: $file_m3u_custom пуст")
                             }
 
@@ -502,34 +526,34 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
 
                 //когда прийдёт сигнал что удалилось все хорошо обновим плейлист
 
-                 //приёмник  сигналов
-                    // фильтр для приёмника
-                    val intentFilter = IntentFilter()
-                    intentFilter.addAction("File_created")
+                //приёмник  сигналов
+                // фильтр для приёмника
+                val intentFilter = IntentFilter()
+                intentFilter.addAction("File_created")
 
-                    //
-                    val broadcastReceiver = object : BroadcastReceiver() {
-                        override fun onReceive(c: Context, intent: Intent) {
-                            if (intent.action == "File_created") {
-                                //получим данные
-                                val s = intent.getStringExtra("update")
-                                if (s == "zaebis") {
-                                    //обновим старницу
-                                    Main.myadapter.notifyDataSetChanged()
-                                    Main.viewPager.adapter = Main.myadapter
-                                    Main.viewPager.currentItem = Main.number_page
+                //
+                val broadcastReceiver = object : BroadcastReceiver() {
+                    override fun onReceive(c: Context, intent: Intent) {
+                        if (intent.action == "File_created") {
+                            //получим данные
+                            val s = intent.getStringExtra("update")
+                            if (s == "zaebis") {
+                                //обновим старницу
+                                Main.myadapter.notifyDataSetChanged()
+                                Main.viewPager.adapter = Main.myadapter
+                                Main.viewPager.currentItem = Main.number_page
 
-                                    //попробуем уничтожить слушителя
-                                    context!!.unregisterReceiver(this)
-                                } else {
-                                    context!!.toast("Ошибочка вышла тыкниете еще раз")
-                                }
+                                //попробуем уничтожить слушителя
+                                context!!.unregisterReceiver(this)
+                            } else {
+                                context!!.toast("Ошибочка вышла тыкниете еще раз")
                             }
                         }
                     }
+                }
 
-                    //регистрируем приёмник
-                    context!!.registerReceiver(broadcastReceiver, intentFilter)
+                //регистрируем приёмник
+                context!!.registerReceiver(broadcastReceiver, intentFilter)
 
                 //поехали ,удаляем и ждём сигналы
                 file_function.Delet_one_potok(selectedItem)
@@ -570,10 +594,10 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
     //
     fun rnd_ok(): CharSequence {
         val mas = resources.getStringArray(R.array.list_ok)
-        val i = rnd_int(0,mas.size-1)
-        return if(i<mas.size){
+        val i = rnd_int(0, mas.size - 1)
+        return if (i < mas.size) {
             mas[i]
-        }else{
+        } else {
             mas[0]
         }
 
