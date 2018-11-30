@@ -18,12 +18,12 @@ import java.util.ArrayList
 class File_function {
 
     /* Проверяет, доступно ли external storage для чтения и записи */
-    val isExternalStorageWritable: Boolean
+    private val isExternalStorageWritable: Boolean
         get() {
             val state = Environment.getExternalStorageState()
-            return if (Environment.MEDIA_MOUNTED == state) {
-                true
-            } else false
+            Log.e("ggggggoooopaaa", (Environment.MEDIA_MOUNTED == state).toString())
+            return Environment.MEDIA_MOUNTED == state
+
         }
 
     //прочитает файл из памяти устройства и вернёт массив радиопотоков распарсеный вида
@@ -214,11 +214,11 @@ class File_function {
         val fullpath: String
         //Сохранение файла на External Storage:
         fullpath = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + filename
-        Log.i("TTT", fullpath)
+        Log.e("TTT", fullpath)
         if (isExternalStorageWritable) {
             SaveFile(fullpath, link_text)
         } else {
-            Log.i("TTT", "в память нельзя писать")
+            Log.e("TTT", "в память нельзя писать")
             Toast.makeText(Main.context, "Нет доступа к памяти", Toast.LENGTH_LONG).show()
         }
     }

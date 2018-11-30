@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:text="Удалить" />
+            android:text="Затереть" />
 
         <Button
             android:id="@+id/button_add_old_plalist"
@@ -50,13 +50,6 @@
             android:background="@android:color/transparent"
             android:text="Дописать" />
 
-        <Button
-            android:id="@+id/button_save_old"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:text="Сохранить" />
     </LinearLayout>
 
     </LinearLayout>

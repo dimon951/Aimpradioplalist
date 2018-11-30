@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.ListView
 
 import java.util.ArrayList
-import java.util.HashMap
 
 
 class Vip_radio : Fragment() {
@@ -26,22 +25,33 @@ class Vip_radio : Fragment() {
 
         val mas_radio = resources.getStringArray(R.array.pop_radio)
 
-        val data = ArrayList<Map<String, Any>>(mas_radio.size)
+        val data = ArrayList<HashMap<String, String>>(mas_radio.size)
 
-        var m: MutableMap<String, Any>
+        var m: MutableMap<String, String>
 
         for (i in mas_radio.indices) {
             m = HashMap()
             m[STANCIA] = mas_radio[i].split("\\n".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[0]
             m[AVAPOP] = mas_radio[i].split("\\n".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[1]
-            m[LINK] = mas_radio[i].split("\\n".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[2] //ссылка тоже список ссылок разбываться буде в адаптере
+            //ссылка тоже список ссылок, разбиваться будет в адаптере
+            m[LINK] = mas_radio[i].split("\\n".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[2]
             data.add(m)
         }
 
-        val adapter_pop_radio = Adapter_pop_radio(context, data, R.layout.delegat_vse_radio_list, null, null)
+
+        //кусок какахи чтоб все работало
+        // массив имен атрибутов, из которых будут читаться данные
+        val from = arrayOf(STANCIA)
+        // массив ID View-компонентов, в которые будут вставлять данные
+        val to = intArrayOf(R.id.Text_name_pop)
+
+
+        // создаем адаптер
+        val adapter_pop_radio = Adapter_pop_radio(context = context, data = data, resource = R.layout.delegat_pop, from = from, to = to)
         listView.adapter = adapter_pop_radio
 
 
         return v
     }
+
 }

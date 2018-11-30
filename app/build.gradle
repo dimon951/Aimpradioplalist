@@ -10,9 +10,9 @@ android {
     defaultConfig {
         applicationId "dmitriy.deomin.aimpradioplalist"
         minSdkVersion 16
-        targetSdkVersion 19
-        versionCode 31
-        versionName "3.1"
+        targetSdkVersion 28
+        versionCode 33
+        versionName "3.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     //эта дич нужна чтобы получить версию приложения стрингом
@@ -35,6 +35,7 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    //noinspection GradleCompatible
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.github.danielnilsson9:color-picker-view:1.4.0@aar'
@@ -43,6 +44,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'org.jetbrains.anko:anko:0.10.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'ru.superjob:kotlin-permissions:1.0.2'
 }
 
 repositories {

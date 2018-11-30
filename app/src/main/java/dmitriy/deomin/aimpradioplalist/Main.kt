@@ -1,5 +1,6 @@
 package dmitriy.deomin.aimpradioplalist
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
@@ -10,18 +11,23 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.Typeface
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
+import android.os.StrictMode
+import android.support.v4.app.*
+import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewPager
 import android.text.Spannable
+import android.util.Log
 import android.view.*
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.*
+import com.kotlinpermissions.KotlinPermissions
+import org.jetbrains.anko.browse
+import org.jetbrains.anko.support.v4.browse
+import org.jetbrains.anko.toast
 import java.util.*
 
 class Main : FragmentActivity() {
@@ -37,45 +43,45 @@ class Main : FragmentActivity() {
     internal var visi: Boolean = false//true при активном приложении
 
 
-
+    //тут куча всего что может использоваться в любом классе проекта
     companion object {
 
-       @SuppressLint("StaticFieldLeak")
-       lateinit var context: Context
-
-       @SuppressLint("StaticFieldLeak")
-       lateinit var liner_boss: LinearLayout
+        @SuppressLint("StaticFieldLeak")
+        lateinit var context: Context
 
         @SuppressLint("StaticFieldLeak")
-       lateinit var viewPager: ViewPager
+        lateinit var liner_boss: LinearLayout
 
-       lateinit var myadapter: Myadapter
+        @SuppressLint("StaticFieldLeak")
+        lateinit var viewPager: ViewPager
+
+        lateinit var myadapter: Myadapter
         var number_page: Int = 0
 
-
         //кодировка файла плейлиста
-        val File_Text_Code:String = "UTF8"
+        val File_Text_Code: String = "UTF8"
+
+        val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.80.631.apk"
 
 
         //текст в пустом плейлисте(много где требуется)
         @JvmField
-        val PUSTO:String = "Плейлист пуст."
+        val PUSTO: String = "Плейлист пуст."
 
 
         //шрифт
-       lateinit  var face: Typeface
+        lateinit var face: Typeface
         //для текста
-       lateinit var text: Spannable
+        lateinit var text: Spannable
         //сохранялка
-       lateinit var mSettings: SharedPreferences // сохранялка
+        lateinit var mSettings: SharedPreferences // сохранялка
 
         var COLOR_FON: Int = 0
         var COLOR_ITEM: Int = 0
         var COLOR_TEXT: Int = 0
 
 
-
-        val MY_PLALIST =  Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u"
+        val MY_PLALIST = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u"
 
 
         //сохранялки
@@ -141,9 +147,7 @@ class Main : FragmentActivity() {
             dw_aimp_market.setOnClickListener { v ->
                 val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
                 v.startAnimation(anim)
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse("market://details?id=com.aimp.player")
-                Main.context.startActivity(intent)
+                context.browse("market://details?id=com.aimp.player")
             }
 
 
@@ -152,8 +156,7 @@ class Main : FragmentActivity() {
             dw_aimp_link.setOnClickListener { v ->
                 val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
                 v.startAnimation(anim)
-                val openlink = Intent(Intent.ACTION_VIEW, Uri.parse("https://yadi.sk/d/QhgzmO7t3GnBb3"))
-                context.startActivity(openlink)
+                context.browse(Main.LINK_DOWLOAD_AIMP)
             }
 
             open_sys.typeface = Main.face
@@ -182,15 +185,47 @@ class Main : FragmentActivity() {
             }
         }
     }
-    
-    
-    
-    
-    
 
+
+    @SuppressLint("ClickableViewAccessibility", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
+
+        //эта штука нужна чтобы выключить нововведение чертей, и сократить 100500 строк ненужного кода
+        //It will ignore URI exposure  (оставляет "file://" как я понял )
+        //---------------------------------------------------------------------------------------------
+        val builder: StrictMode.VmPolicy.Builder = StrictMode.VmPolicy.Builder()
+        StrictMode.setVmPolicy(builder.build())
+        //-----------------------------------------------------------------------------------------
+
+
+        //посмотрим есть ли разрешения
+        val permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)
+        val permissionFileR = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+        val permissionFileW = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+
+        //получим ебучие разрешения , если не дали их еще
+        if (permissionFileR < 0) {
+            //----------------------
+            this.onPause()
+            KotlinPermissions.with(this).permissions(Manifest.permission.READ_EXTERNAL_STORAGE).ask()
+            //------------------------
+        }
+        if (permissionFileW < 0) {
+            //----------------------
+            this.onPause()
+            KotlinPermissions.with(this).permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE).ask()
+            //------------------------
+        }
+        if (permissionCheck < 0) {
+            //----------------------
+            this.onPause()
+            KotlinPermissions.with(this).permissions(Manifest.permission.INTERNET).ask()
+            //------------------------
+        }
+
+
         //во весь экран
         this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         context = this
@@ -222,7 +257,6 @@ class Main : FragmentActivity() {
 
         liner_boss = findViewById<View>(R.id.main) as LinearLayout
         liner_boss.setBackgroundColor(COLOR_FON)
-
 
 
         //анимация на кнопках*****************************************.
@@ -260,7 +294,6 @@ class Main : FragmentActivity() {
         imageSwitcher.setFactory {
             val myView = ImageView(applicationContext)
             myView.scaleType = ImageView.ScaleType.FIT_CENTER
-          //  myView.layoutParams = ViewGroup.LayoutParams(ViewPager.LayoutParams.WRAP_CONTENT, ViewPager.LayoutParams.WRAP_CONTENT)
             myView
         }
         imageSwitcher.setImageResource(mImageIds[1])
@@ -284,6 +317,7 @@ class Main : FragmentActivity() {
         viewPager.currentItem = 1
 
         visi = true  // приложение активно
+
     }
 
     fun Menu_progi(view: View) {
@@ -378,5 +412,5 @@ class Main : FragmentActivity() {
         super.onResume()
         visi = true
     }
-    
+
 }

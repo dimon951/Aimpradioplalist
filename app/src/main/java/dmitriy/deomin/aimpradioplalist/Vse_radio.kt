@@ -24,9 +24,12 @@ import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.vse_radio.view.*
+import org.jetbrains.anko.browse
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.sdk25.coroutines.textChangedListener
+import org.jetbrains.anko.support.v4.browse
 import org.jetbrains.anko.support.v4.toast
+import org.jetbrains.anko.toast
 
 import java.util.ArrayList
 import java.util.HashMap
@@ -219,41 +222,68 @@ class Vse_radio : Fragment() {
                 val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
                 v.startAnimation(anim)
 
+                //когда прийдёт сигнал что сохранилось передадим этот файл в аим для открытия
+                //-----------------------------------------------------------------------
+                //приёмник  сигналов
+                // фильтр для приёмника
+                val intentFilter = IntentFilter()
+                intentFilter.addAction("File_created")
+
+                //
+                val broadcastReceiver = object : BroadcastReceiver() {
+                    override fun onReceive(c: Context, intent: Intent) {
+                        if (intent.action == "File_created") {
+                            //получим данные
+                            val s = intent.getStringExtra("update")
+                            if (s == "zaebis") {
+
+                                val i = Intent(android.content.Intent.ACTION_VIEW)
+                                i.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u"), "audio/mpegurl")
+                                //проверим есть чем открыть или нет
+                                if (i.resolveActivity(Main.context.packageManager) != null) {
+                                    context.startActivity(i)
+                                } else {
+                                    context.toast("Системе не удалось ( ")
+                                }
+
+                                //попробуем уничтожить слушителя
+                                context.unregisterReceiver(this)
+                            } else {
+                                context.toast("Ошибочка вышла тыкниете еще раз")
+                            }
+                        }
+                    }
+                }
+                //регистрируем приёмник
+                context.registerReceiver(broadcastReceiver, intentFilter)
+                //------------------------------------------------------------------------------------------------
+
                 //сохраним  временый файл сслку
                 val file_function = File_function()
                 file_function.Save_temp_file("$name.m3u", url_link)
 
-                val i = Intent(android.content.Intent.ACTION_VIEW)
-                i.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u"), "audio/mpegurl")
-                //проверим есть чем открыть или нет
-                if (i.resolveActivity(Main.context.packageManager) != null) {
-                    Main.context.startActivity(i)
-                } else {
-                    Toast.makeText(context, "Системе не удалось ( ", Toast.LENGTH_LONG).show()
-                }
             }
 
 
             instal_aimp.setOnClickListener { v ->
                 val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
                 v.startAnimation(anim)
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = Uri.parse("market://details?id=com.aimp.player")
-                Main.context.startActivity(intent)
+                browse("market://details?id=com.aimp.player")
             }
 
             instal_aimp2.setOnClickListener { v ->
                 val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
                 v.startAnimation(anim)
-                val openlink = Intent(Intent.ACTION_VIEW, Uri.parse("https://yadi.sk/d/XYi0fZps3RrD9i"))
-                startActivity(openlink)
+                browse(Main.LINK_DOWLOAD_AIMP)
             }
 
 
             add_pls.setOnClickListener { v ->
                 val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
                 v.startAnimation(anim)
+
                 Main.number_page = 0
+
                 //фильтр для нашего сигнала
                 val intentFilter = IntentFilter()
                 intentFilter.addAction("File_created")
@@ -265,12 +295,13 @@ class Vse_radio : Fragment() {
                             //получим данные
                             val s = intent.getStringExtra("update")
                             if (s == "zaebis") {
-                                //  Toast.makeText(context,"Готово",Toast.LENGTH_SHORT).show();
-                                alertDialog.cancel()
                                 //обновим старницу
                                 Main.myadapter.notifyDataSetChanged()
                                 Main.viewPager.adapter = Main.myadapter
                                 Main.viewPager.currentItem = Main.number_page
+
+                                //попробуем уничтожить слушителя
+                                context.unregisterReceiver(this)
                             } else {
                                 toast("Ошибочка вышла тыкниете еще раз")
                             }
@@ -279,33 +310,72 @@ class Vse_radio : Fragment() {
                 }
 
                 //регистрируем приёмник
-                Main.context.registerReceiver(broadcastReceiver, intentFilter)
+                context.registerReceiver(broadcastReceiver, intentFilter)
 
 
                 val file_function = File_function()
                 file_function.Add_may_plalist_stansiy(url_link,name)
+
+                alertDialog.cancel()
             }
 
             open_aimp.setOnClickListener { v ->
                 val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
                 v.startAnimation(anim)
-                //сохраним  временый файл сслку
+
+                //когда прийдёт сигнал что сохранилось передадим этот файл в аим для открытия
+                //-----------------------------------------------------------------------
+                //приёмник  сигналов
+                // фильтр для приёмника
+                val intentFilter = IntentFilter()
+                intentFilter.addAction("File_created")
+
+                //
+                val broadcastReceiver = object : BroadcastReceiver() {
+                    override fun onReceive(c: Context, intent: Intent) {
+                        if (intent.action == "File_created") {
+                            //получим данные
+                            val s = intent.getStringExtra("update")
+                            if (s == "zaebis") {
+
+                                //откроем файл с сылкой в плеере
+                                val cm = ComponentName(
+                                        "com.aimp.player",
+                                        "com.aimp.player.views.MainActivity.MainActivity")
+
+                                val intent = Intent()
+                                intent.component = cm
+
+                                intent.action = Intent.ACTION_VIEW
+                                intent.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u"), "audio/mpegurl")
+                                intent.flags = 0x3000000
+
+                                context.startActivity(intent)
+
+                                //попробуем уничтожить слушителя
+                                context.unregisterReceiver(this)
+                            } else {
+                                context.toast("Ошибочка вышла тыкниете еще раз")
+                            }
+                        }
+                    }
+                }
+                //регистрируем приёмник
+                context.registerReceiver(broadcastReceiver, intentFilter)
+                //------------------------------------------------------------------------------------------------
+
+
+                //сохраним  временый файл ссылку и будем ждать сигнала
                 val file_function = File_function()
-                file_function.Save_temp_file("$name.m3u", url_link)
+                file_function.Save_temp_file("$name.m3u",
+                        "#EXTM3U"
+                                + "\n"
+                                + "#EXTINF:-1," + "$name.m3u"
+                                + "\n"
+                                + url_link)
 
-                //откроем файл с сылкой в плеере
-                val cm = ComponentName(
-                        "com.aimp.player",
-                        "com.aimp.player.views.MainActivity.MainActivity")
 
-                val intent = Intent()
-                intent.component = cm
 
-                intent.action = Intent.ACTION_VIEW
-                intent.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u"), "audio/mpegurl")
-                intent.flags = 0x3000000
-
-                startActivity(intent)
             }
         }
 

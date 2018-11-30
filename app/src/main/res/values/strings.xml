@@ -31,22 +31,24 @@
          com.squareup.picasso:picasso:2.5.2
          \n
          \n
+         ru.superjob:kotlin-permissions:1.0.2
+        \n
+         \n
     </string>
 
     <string-array name="pop_radio">
 
         <item>Русское радио\nruskoe_radio.png\n
             96kbps~kbps~http://icecast.russkoeradio.cdnvideo.ru/rr_m.aac~kbps~
-            32kbps~kbps~http://193.218.140.91:8003/rusradio.aac~kbps~
+            96kbps~kbps~https://rusradio.gcdn.co/rr_m.aac?~kbps~
         </item>
         <item>ENERGY\nenergy.png\n
             256kbps~kbps~http://ic2.101.ru:8000/v1_1~kbps~
-            128kbps~kbps~http://nrj.babahhcdn.com/NRJ?.mp3~kbps~
-            32kbps~kbps~http://193.218.140.91:8003/nrj.aac~kbps~
+            320kbps~kbps~http://nrj.babahhcdn.com/NRJ?.mp3~kbps~
+            128kbps~kbps~http://energydance.ice.infomaniak.ch/energydance-high.mp3~kbps~
         </item>
-        <item>DFM \ndfm_moskva.png\n
+        <item>DFM\ndfm_moskva.png\n
             96kbps~kbps~http://icecast.radiodfm.cdnvideo.ru/dfm_m.aac~kbps~
-            32kbps~kbps~http://193.218.140.91:8003/dfm.aac~kbps~
         </item>
         <item>Радио Гамаюн \ngamanun.png\n
             128kbps~kbps~http://gamaun.online:8010/radio~kbps~
@@ -55,13 +57,11 @@
         </item>
         <item>Авторадио\navtoradio.png\n
             256kbps~kbps~http://ic7.101.ru:8000/v3_1~kbps~
-            32kbps~kbps~http://193.218.140.91:8003/avtoradio.aac~kbps~
         </item>
         <item>Наше Радио\nnashe.png\n
             128kbps~kbps~http://nashe2.hostingradio.ru/nashe-128.mp3~kbps~
             128kbps2~kbps~http://nashe.streamr.ru/nashe-128.mp3~kbps~
             64kbps~kbps~http://nashe1.hostingradio.ru/nashe-64.mp3~kbps~
-            32kbps~kbps~http://193.218.140.91:8003/nashe.aac~kbps~
             2.0-64k~kbps~http://nashe1.hostingradio.ru/nashe20-64.mp3~kbps~
         </item>
         <item>Радио Нашествие\nnashestvie.png\n
@@ -70,13 +70,11 @@
         <item>Юмор Fm\nym_fm.png\n
             128kbps~kbps~http://yumfm128.streamr.ru~kbps~
             256kbps~kbps~http://ic7.101.ru:8000/v5_1~kbps~
-            32kbps~kbps~http://193.218.140.91:8003/humor.aac~kbps~
             24kbps~kbps~http://ic2.101.ru:8000/n5_1~kbps~
         </item>
         <item>Европа плюс\nevropa_plus.png\n
             128kbps~kbps~http://radio.2kom.ru:8000/europaplus~kbps~
             96kbps~kbps~http://emgspb.hostingradio.ru/europaplus96.aac~kbps~
-            32kbps~kbps~http://193.218.140.91:9000/europaplus.aac~kbps~
         </item>
         <item>HR Radio\nhr_radio.png\n
             128kbps~kbps~http://hrradio.hostingradio.ru:8077/hrradio128.mp3~kbps~
@@ -86,21 +84,21 @@
         </item>
         <item>Love радио\nloveradio.png\n
             32kbps~kbps~http://stream.variant.fm:8000/LOVE-32~kbps~
-            32kbps~kbps~http://193.218.140.91:8003/love.aac~kbps~
             192kbps~kbps~http://stream.variant.fm:8000/LOVE-192~kbps~
         </item>
         <item>Дорожное Радио\ndorognoe.png\n
             64kbps~kbps~http://dorognoe.hostingradio.ru:8000/dorognoe~kbps~
             256kbps~kbps~http://dorognoe256.streamr.ru~kbps~
-            32kbps~kbps~http://193.218.140.91:9000/dorozhnoe.aac~kbps~
         </item>
         <item>Радио Дача\nradio_dacha.png\n
             96kbps~kbps~http://listen.vdfm.ru:8000/dacha~kbps~
         </item>
         <item>Радио Ваня\nradiovanya.png\n
-            32kbps~kbps~http://193.218.140.91:8003/vanya.aac~kbps~
-            28kbps~kbps~http://188.93.22.163:8080/vanya_vk_com_app2462~kbps~
-            96kbps~kbps~https://radiom10.gcdn.co/piktv_radio/vanya_aac/tracks-a1/index.m3u8~kbps~
+            128kbps~kbps~http://88.86.81.61:8021/siv~kbps~
+            96kbps~kbps~http://91.219.74.220:8000/Vanya-high.mp3~kbps~
+            96kbps~kbps~http://net37.ru:8000/radio_vanya_net37ru.mp3~kbps~
+            96kbps~kbps~http://net37.ru:8000/radio_vanya_net37ru.mp3~kbps~
+            56kbps~kbps~http://str2.pcradio.ru/radio_vanya-hi~kbps~
         </item>
         <item>Новое Радио\nnovoe_radio.png\n
             64kbps~kbps~http://live.novoeradio.by:8000/novoeradio-64k~kbps~
@@ -170,7 +168,7 @@
     <string-array name="list_ok">
         <item>Хорошо</item>
         <item>Отлично</item>
-        <item>Ок</item>
+        <item>Океюшки</item>
         <item>Нормалёк</item>
         <item>Обалденно</item>
         <item>Зашибись</item>
@@ -183,6 +181,14 @@
     </string>
 
     <string-array name="vse_radio">
+
+        <item>DFM ДИСКАЧ 90х 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st18.mp3</item>
+        <item>DFM DEEP 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st24.mp3</item>
+        <item>DFM CLUB 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st01.mp3</item>
+        <item>DFM RUSSIAN DANCE 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st03.mp3</item>
+        <item>DFM СПОКОЙНОЙ НОЧИ, ГОЛЫШИ! 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st05.mp3</item>
+        <item>DFM ДИНАМИТ 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st16.mp3</item>
+        <item>DFM TRAP 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st07.mp3</item>
 
         <item>Hip-Hop Barada (laradiofm.com) 128kbps\nhttp://listen1.myradio24.com:9000/4455</item>
         <item>ХИПХОПБАЙ (laradiofm.com) 128kbps\nhttp://listen2.myradio24.com:9000/8000</item>
@@ -308,9 +314,9 @@
         <item>Шансон (Лирика) 128kbps\nhttp://relay.radio.obozrevatel.com/shansonlyrics128.mp3</item>
         <item>Шансон 128kbps\nhttp://relay.radio.obozrevatel.com/shanson128.mp3</item>
         <item>ChillOut 128kbps\nhttp://relay.radio.obozrevatel.com/chillout128.mp3</item>
-        <item>Хиты 90-х (Русские) 128kbps\nhttp://relay.radio.obozrevatel.com/russkie-hity-90-h128.mp3</item>
-        <item>Хиты 90-х (Зарубежные) 128kbps\nhttp://relay.radio.obozrevatel.com/Hits90s128.mp3</item>
-        <item>Хиты 70-80-х 128kbps\nhttp://relay.radio.obozrevatel.com/Old128.mp3</item>
+        <item>Хиты 90х (Русские) 128kbps\nhttp://relay.radio.obozrevatel.com/russkie-hity-90-h128.mp3</item>
+        <item>Хиты 90х (Зарубежные) 128kbps\nhttp://relay.radio.obozrevatel.com/Hits90s128.mp3</item>
+        <item>Хиты 70х 80х 128kbps\nhttp://relay.radio.obozrevatel.com/Old128.mp3</item>
         <item>Hip-Hop and RnB Topical 128kbps\nhttp://relay.radio.obozrevatel.com/hiphopandrnb128.mp3</item>
         <item>Hip-Hop 128kbps\nhttp://relay.radio.obozrevatel.com/hip-hop128.mp3</item>
         <item>Heavy Metal 128kbps\nhttp://relay.radio.obozrevatel.com/heavymetal128.mp3</item>
@@ -561,7 +567,7 @@
         <item>Рок-н-рол 128kbps\nhttp://music.myradio.ua:80/rock-n-roll128.ogg</item>
         <item>RnB 128kbps\nhttp://music.myradio.ua:80/RnB128.ogg</item>
         <item>Electro-House 128kbps\nhttp://music.myradio.ua:80/Electro-House128.ogg</item>
-        <item>Лучшие песни 70-80х 128kbps\nhttp://music.myradio.ua:80/Old128.ogg</item>
+        <item>Лучшие песни 70х 80х 128kbps\nhttp://music.myradio.ua:80/Old128.ogg</item>
         <item>Мейнстрим рок 128kbps\nhttp://music.myradio.ua:80/main_stream_rock128.ogg</item>
         <item>Русский рэп 128kbps\nhttp://music.myradio.ua:80/rep128.ogg</item>
         <item>Брейкбит 128kbps\nhttp://music.myradio.ua:80/breakbeat128.ogg</item>
