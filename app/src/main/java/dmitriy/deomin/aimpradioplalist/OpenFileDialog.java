@@ -3,6 +3,7 @@ package dmitriy.deomin.aimpradioplalist;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
@@ -27,6 +28,9 @@ import java.util.*;
 public class OpenFileDialog extends AlertDialog.Builder {
 
     private String currentPath = Environment.getExternalStorageDirectory().getPath();
+    //какаха небольшая
+    private String currentPathHome = Environment.getExternalStorageDirectory().getPath();
+
     private List<File> files = new ArrayList<File>();
     private TextView title;
     private ListView listView;
@@ -64,6 +68,7 @@ public class OpenFileDialog extends AlertDialog.Builder {
                         view.setBackgroundColor(getContext().getResources().getColor(android.R.color.transparent));
                 }
             }
+
             return view;
         }
 
@@ -102,6 +107,7 @@ public class OpenFileDialog extends AlertDialog.Builder {
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null);
+
     }
 
     @Override
@@ -158,6 +164,12 @@ public class OpenFileDialog extends AlertDialog.Builder {
         return this;
     }
 
+    //изменение начальной директории
+    public OpenFileDialog setStartDirectory(String dir) {
+        this.currentPath = dir;
+        return this;
+    }
+
     private static Display getDefaultDisplay(Context context) {
         return ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
     }
@@ -206,7 +218,7 @@ public class OpenFileDialog extends AlertDialog.Builder {
     private TextView createBackItem(Context context) {
         TextView textView = createTextView(context, android.R.style.TextAppearance_DeviceDefault_Small);
         Drawable drawable = getContext().getResources().getDrawable(android.R.drawable.ic_menu_revert);
-        drawable.setBounds(0, 0, 90, 90);
+        drawable.setBounds(0, 0, 70, 70);
         textView.setCompoundDrawables(drawable, null, null, null);
         textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         textView.setOnClickListener(new View.OnClickListener() {
@@ -251,7 +263,7 @@ public class OpenFileDialog extends AlertDialog.Builder {
     private List<File> getFiles(String directoryPath) {
         File directory = new File(directoryPath);
         File[] list = directory.listFiles(filenameFilter);
-        if(list == null)
+        if (list == null)
             list = new File[]{};
         List<File> fileList = Arrays.asList(list);
         Collections.sort(fileList, new Comparator<File>() {
@@ -270,6 +282,11 @@ public class OpenFileDialog extends AlertDialog.Builder {
 
     private void RebuildFiles(ArrayAdapter<File> adapter) {
         try {
+            //если ушли в попу вернёмся на старт
+            if (currentPath.length() < 2) {
+                currentPath = currentPathHome;
+            }
+
             List<File> fileList = getFiles(currentPath);
             files.clear();
             selectedIndex = -1;

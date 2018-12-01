@@ -34,6 +34,9 @@
          ru.superjob:kotlin-permissions:1.0.2
         \n
          \n
+        github.com/Scogun/Android-OpenFileDialog
+        \n
+         \n
     </string>
 
     <string-array name="pop_radio">
@@ -180,89 +183,36 @@
         <item>DFM ДИНАМИТ 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st16.mp3</item>
         <item>DFM TRAP 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st07.mp3</item>
 
-        <item>Hip-Hop Barada (laradiofm.com) 128kbps\nhttp://listen1.myradio24.com:9000/4455</item>
+
         <item>ХИПХОПБАЙ (laradiofm.com) 128kbps\nhttp://listen2.myradio24.com:9000/8000</item>
         <item>Радио Правильного Рэпа (laradiofm.com) 24kbps\nhttp://rpr-stream.pp.ua:8005/mrpr</item>
         <item>Радио Правильного Рэпа (laradiofm.com) 64kbps\nhttp://rpr-stream.pp.ua:8005/prpr</item>
         <item>Радио Правильного Рэпа (laradiofm.com) 128kbps\nhttp://rpr-stream.pp.ua:8005/rpr</item>
         <item>ЯсенБит (laradiofm.com) 192kbps\nhttp://radio.yasenbit.net:8000/yasenbit192k</item>
 
-        <item>D100 Radio (laradiofm.com) 128kbps\nhttp://los.cdnstream.com/1119_128</item>
-        <item>100 XR (laradiofm.com) 64kbps\nhttp://107.170.188.129:8000/;</item>
-        <item>100 XR (laradiofm.com) 128kbps\nhttp://107.170.188.129/;</item>
+        <item>D100 Radio (laradiofm.com) 192kbps\nhttp://los.cdnstream.com/1119_128</item>
+
         <item>Non-Stop Rhythm  Dance (laradiofm.com) 32kbps\nhttp://stream.nonstopplay.co.uk/nsp-32k-mp3</item>
         <item>Non-Stop Rhythm  Dance (laradiofm.com) 64kbps\nhttp://stream.nonstopplay.co.uk/nsp-64k-mp3</item>
         <item>Non-Stop Rhythm  Dance (laradiofm.com) 128kbps\nhttp://stream.nonstopplay.co.uk/nsp-128k-mp3</item>
         <item>Non-Stop Rhythm  Dance (laradiofm.com) 192kbps\nhttp://stream.nonstopplay.co.uk/nsp-192k-mp3</item>
 
-
         <item>A State Of Trance 192kbps\nhttp://radio-srv1.11one.ru/asot192k.mp3</item>
-        <item>Радио Маяк 32kbps\nhttp://193.218.140.91:8003/mayak.aac</item>
-        <item>Capital FM 32kbps\nhttp://193.218.140.91:8003/capital.aac</item>
-        <item>Best FM 32kbps\nhttp://193.218.140.91:8003/best.aac</item>
-        <item>Comedy Radio 32kbps\nhttp://193.218.140.91:8003/comedy.aac</item>
-        <item>Jazz FM 32kbps\nhttp://193.218.140.91:8003/jazz.aac</item>
-        <item>Like FM 32kbps\nhttp://193.218.140.91:8003/like.aac</item>
-        <item>Monte Carlo SPb 32kbps\nhttp://193.218.140.91:8003/mcarlospb.aac</item>
-        <item>Relax FM 32kbps\nhttp://193.218.140.91:8003/relax.aac</item>
-        <item>Rock FM 32kbps\nhttp://193.218.140.91:8003/rock.aac</item>
-        <item>Бизнес FM 32kbps\nhttp://193.218.140.91:8003/bfm.aac</item>
-        <item>Вести FM 32kbps\nhttp://193.218.140.91:8003/vesti.aac</item>
-        <item>Восток FM 32kbps\nhttp://193.218.140.91:8003/vostok.aac</item>
-        <item>Говорит Москва 32kbps\nhttp://193.218.140.91:8003/gmoskva.aac</item>
-        <item>Карнавал FM 32kbps\nhttp://193.218.140.91:8003/karnaval.aac</item>
-        <item>Кекс FM 32kbps\nhttp://193.218.140.91:8003/keks.aac</item>
-        <item>Коммерсантъ FM 32kbps\nhttp://193.218.140.91:8003/kommersant.aac</item>
-        <item>Комсомольская Правда 32kbps\nhttp://193.218.140.91:8003/kpravda.aac</item>
-        <item>Мегаполис FM 32kbps\nhttp://193.218.140.91:8003/megapolis.aac</item>
-        <item>Милицейская Волна 32kbps\nhttp://193.218.140.91:8003/mvolna.aac</item>
-        <item>Москва FM 32kbps\nhttp://193.218.140.91:8003/moscow.aac</item>
-        <item>Орфей 32kbps\nhttp://193.218.140.91:8003/orfey.aac</item>
-        <item>Пионер FM 32kbps\nhttp://193.218.140.91:8003/pioner.aac</item>
-        <item>Питер FM 32kbps\nhttp://193.218.140.91:8003/piter.aac</item>
-        <item>Радио Record 32kbps\nhttp://193.218.140.91:8003/record.aac</item>
-        <item>Радио ULTRA 32kbps\nhttp://193.218.140.91:8003/ultra.aac</item>
-        <item>Радио Вера 32kbps\nhttp://193.218.140.91:8003/vera.aac</item>
-        <item>Радио Весна FM 32kbps\nhttp://193.218.140.91:8003/vesna.aac</item>
-        <item>Радио Для Двоих 32kbps\nhttp://193.218.140.91:8003/rdd.aac</item>
-        <item>Радио Звезда 32kbps\nhttp://193.218.140.91:8003/zvezda.aac</item>
-        <item>Радио Искатель 32kbps\nhttp://193.218.140.91:8003/iskatel.aac</item>
-        <item>Радио Культура 32kbps\nhttp://193.218.140.91:8003/kultura.aac</item>
-        <item>Радио МИР 32kbps\nhttp://193.218.140.91:8003/mir.aac</item>
-        <item>Радио Маяк 32kbps\nhttp://193.218.140.91:8003/mayak.aac</item>
-        <item>Радио Монте-Карло 32kbps\nhttp://193.218.140.91:8003/mcarlo.aac</item>
-        <item>Радио Родных Дорог 32kbps\nhttp://193.218.140.91:8003/rrd.aac</item>
-        <item>Радио России 32kbps\nhttp://193.218.140.91:8003/rrossii.aac</item>
-        <item>Радио Шоколад 32kbps\nhttp://193.218.140.91:8003/chocolate.aac</item>
-        <item>Ретро FM 32kbps\nhttp://193.218.140.91:9000/retro.aac</item>
-        <item>Романтика 32kbps\nhttp://193.218.140.91:8003/romantika.aac</item>
-        <item>Спорт FM 32kbps\nhttp://193.218.140.91:9000/sport.aac</item>
-        <item>Страна FM 32kbps\nhttp://193.218.140.91:8003/strana.aac</item>
-        <item>Такси FM 32kbps\nhttp://193.218.140.91:8003/taxi.aac</item>
-        <item>Эльдорадио 32kbps\nhttp://193.218.140.91:8003/eldoradio.aac</item>
 
+        <item>Радио Сибирь Омск 128kbps\nhttp://176.120.25.59:8090/omsk2</item>
+        <item>Радио Сибирь Чита 192kbps\nhttp://185.108.196.182:8090/HQ</item>
+        <item>Радио Сибирь Улан-Удэ 128kbps\nhttp://92.124.196.44:8000/radiosibiruu</item>
 
-        <item>Радио Сибирь Омск 64kbps\nhttp://176.120.25.59:8090/omsk2</item>
-        <item>Радио Сибирь Чита 64kbps\nhttp://185.108.196.182:8090/HQ</item>
-        <item>Радио Сибирь Улан-Удэ 64kbps\nhttp://92.124.196.44:8000/radiosibiruu</item>
-        <item>Радио Сибирь Горно-Алтайск 64kbps\nhttp://176.120.25.59:8090/RadioSibir-Altay</item>
-        <item>Радио Сибирь Новокузнецк 64kbps\nhttp://94.251.4.194:8090/livenovokuz</item>
-
-        <item>Радио Гамаюн 64kbps\nhttp://gamaun.online:8000/radio</item>
-        <item>Радио Гамаюн 128kbps\nhttp://gamaun.online:8010/radio</item>
-        <item>Радио Гамаюн 256kbps\nhttp://gamaun.online:8020/radio</item>
-
-        <item>Програма Хоризонт Болгария 32kbps\nhttp://stream.bnr.bg:8011/horizont.aac</item>
-        <item>Радио София Болгария 32kbps\nhttp://stream.bnr.bg:8030/radio-sofia.aac</item>
-        <item>Радио Бургас Болгария 32kbps\nhttp://stream.bnr.bg:8037/radio-burgas.aac</item>
-        <item>Радио Видин Болгария 32kbps\nhttp://stream.bnr.bg:8036/radio-vidin.aac</item>
-        <item>Програма Христо Ботев Болгария 32kbps\nhttp://stream.bnr.bg:8012/hristo-botev.aac</item>
-        <item>Радио Благоевград Болгария 32kbps\nhttp://stream.bnr.bg:8035/radio-blagoevgrad.aac</item>
-        <item>Радио Варна Болгария 32kbps\nhttp://stream.bnr.bg:8031/radio-varna.aac</item>
-        <item>Радио Пловдив Болгария 32kbps\nhttp://stream.bnr.bg:8031/radio-varna.aac</item>
-        <item>Радио Стара Загора Болгария 32kbps\nhttp://stream.bnr.bg:8034/radio-stara-zagora.aac</item>
-        <item>Радио Кърджали Болгария 32kbps\nhttp://stream.bnr.bg:8038/radio-kardzhali.aac</item>
-        <item>Бинар - Инди Болгария 32kbps\nhttp://stream.bnr.bg:8020/binar-indie.aac</item>
+        <item>Програма Хоризонт Болгария 36kbps\nhttp://stream.bnr.bg:8011/horizont.aac</item>
+        <item>Радио София Болгария 36kbps\nhttp://stream.bnr.bg:8030/radio-sofia.aac</item>
+        <item>Радио Бургас Болгария 36kbps\nhttp://stream.bnr.bg:8037/radio-burgas.aac</item>
+        <item>Радио Видин Болгария 36kbps\nhttp://stream.bnr.bg:8036/radio-vidin.aac</item>
+        <item>Програма Христо Ботев Болгария 36kbps\nhttp://stream.bnr.bg:8012/hristo-botev.aac</item>
+        <item>Радио Благоевград Болгария 36kbps\nhttp://stream.bnr.bg:8035/radio-blagoevgrad.aac</item>
+        <item>Радио Варна Болгария 36kbps\nhttp://stream.bnr.bg:8031/radio-varna.aac</item>
+        <item>Радио Стара Загора Болгария 36kbps\nhttp://stream.bnr.bg:8034/radio-stara-zagora.aac</item>
+        <item>Радио Кърджали Болгария 36kbps\nhttp://stream.bnr.bg:8038/radio-kardzhali.aac</item>
+        <item>Бинар - Инди Болгария 36kbps\nhttp://stream.bnr.bg:8020/binar-indie.aac</item>
 
         <item>Relax  Nature 128kbps\nhttp://ic2.101.ru:8000/c19_1</item>
         <item>Relax-JAZZ 128kbps\nhttp://ic2.101.ru:8000/c19_2</item>
@@ -270,8 +220,8 @@
         <item>Relax-GOLD 128kbps\nhttp://ic2.101.ru:8000/c19_4</item>
         <item>Relax-LIFE 128kbps\nhttp://ic2.101.ru:8000/c19_5</item>
 
-        <item>Шарманка Украина 128kbps\nhttp://relay.myradio.ua/sharmankafm128.mp3</item>
-        <item>Шансон Украина 128kbps\nhttp://relay.myradio.ua/shansonkievfm128.mp3</item>
+        <item>Шарманка Украина 192kbps\nhttp://relay.myradio.ua/sharmankafm128.mp3</item>
+        <item>Шансон Украина 192kbps\nhttp://relay.myradio.ua/shansonkievfm128.mp3</item>
         <item>Хіт FM Украина 128kbps\nhttp://relay.myradio.ua/hitfm128.mp3</item>
         <item>Русское Радио Украина 128kbps\nhttp://relay.myradio.ua/rusradiofm128.mp3</item>
         <item>Ретро FM Украина 128kbps\nhttp://relay.myradio.ua/retrofm128.mp3</item>
@@ -281,22 +231,18 @@
         <item>Просто Радио Украина 128kbps\nhttp://relay.myradio.ua/PRK128.mp3</item>
         <item>Наше радио Украина 128kbps\nhttp://relay.myradio.ua/nashefm128.mp3</item>
         <item>Мелодия Украина 128kbps\nhttp://relay.myradio.ua/radiomelodiafm128.mp3</item>
-        <item>Киев FM Украина 128kbps\nhttp://relay.myradio.ua/kyyivfm128.mp3</item>
         <item>Джем FM Украина 128kbps\nhttp://relay.myradio.ua/jamfm128.mp3</item>
         <item>Бизнес Радио Украина 128kbps\nhttp://relay.myradio.ua/businessfm128.mp3</item>
         <item>Авторадио Украина 128kbps\nhttp://relay.myradio.ua/avtoradiofm128.mp3</item>
         <item>Takt FM Украина 128kbps\nhttp://relay.myradio.ua/taktfm128.mp3</item>
-        <item>Стильное радио (Перец.FM) Украина 128kbps\nhttp://relay.myradio.ua/radio-stilnoe128.mp3</item>
         <item>ROKS Украина 128kbps\nhttp://relay.myradio.ua/radiorocksfm128.mp3</item>
         <item>Relax Украина 128kbps\nhttp://relay.myradio.ua/radiorelaxfm128.mp3</item>
-        <item>Radio Nostalgie Украина 128kbps\nhttp://relay.myradio.ua/nostalgie128.mp3</item>
         <item>Radio Emmanuel Украина 128kbps\nhttp://relay.myradio.ua/sre128.mp3</item>
         <item>NRJ Украина (ex Europa plus) 128kbps\nhttp://relay.myradio.ua/europaplusfm128.mp3</item>
-        <item>More.FM Украина 128kbps\nhttp://relay.myradio.ua/more128.mp3</item>
         <item>Lounge FM Украина 128kbps\nhttp://relay.myradio.ua/loungefm128.mp3</item>
         <item>KISS FM Украина 128kbps\nhttp://relay.myradio.ua/kissfm128.mp3</item>
-        <item>DJFM 96 Украина 128kbps\nhttp://relay.myradio.ua/djfm128.mp3</item>
-        <item>Весна FM 64kbps\nhttp://potokovoe.ru:8008/Radio_Vesna_FM.aac</item>
+        <item>DJFM 96 Украина 64kbps\nhttp://relay.myradio.ua/djfm128.mp3</item>
+        <item>Весна FM 56kbps\nhttp://potokovoe.ru:8008/Radio_Vesna_FM.aac</item>
 
         <item>Ethnic 128kbps\nhttp://relay.radio.obozrevatel.com/sheshory128.mp3</item>
         <item>Электро хаус 128kbps\nhttp://relay.radio.obozrevatel.com/Electro-House128.mp3</item>
@@ -379,7 +325,7 @@
         <item>Музыка для сна 128kbps\nhttp://relay.radio.obozrevatel.com/sleepmusic128.mp3</item>
         <item>Музыка Казантипа 128kbps\nhttp://relay.radio.obozrevatel.com/Kazantip128.mp3</item>
         <item>Музыка из фильмов 128kbps\nhttp://relay.radio.obozrevatel.com/kino128.mp3</item>
-
+//до сюда проверил
         <item>ZaycevFM Шансон 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_shanson_256.mp3</item>
         <item>ZaycevFM Шансон 128kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_shanson_128.mp3</item>
         <item>ZaycevFM Русские 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_rus_256.mp3</item>
@@ -1175,64 +1121,15 @@
         <item>brks_128\nhttp://online.radiorecord.ru:8102/brks_128</item>
         <item>Radio Bolid\nhttp://178.161.132.182:8128/;stream.nsv</item>
         <item>Закарпатия ФМ\nhttp://195.234.148.51:8000/;stream.mp3</item>
-        <item>ChebFM ЧебФМ\nhttp://play.cheb.fm:8000/chebfm.ogg</item>
-
-
-        <item>Дискография Машина Времени 64kbps\nhttp://ic4.101.ru:8000/a59</item>
-        <item>Дискография ДДТ 64kbps\nhttp://ic4.101.ru:8000/a112</item>
-        <item>Дискография Алиса 64kbps\nhttp://ic4.101.ru:8000/a137</item>
-        <item>Дискография Ария 64kbps\nhttp://ic4.101.ru:8000/a118</item>
-        <item>Дискография Виктор Цой и группа «КИНО» 64kbps\nhttp://ic4.101.ru:8000/a103</item>
-        <item>Дискография БГ и Аквариум 64kbps\nhttp://ic4.101.ru:8000/a57</item>
-        <item>Дискография Пикник 64kbps\nhttp://ic4.101.ru:8000/a157</item>
-        <item>Дискография Наутилус Помпилиус 64kbps\nhttp://ic4.101.ru:8000/a126</item>
-        <item>Дискография Агата Кристи 64kbps\nhttp://ic4.101.ru:8000/a139</item>
-        <item>Дискография Король и Шут 64kbps\nhttp://ic4.101.ru:8000/a191</item>
-        <item>Дискография Любэ 64kbps\nhttp://ic4.101.ru:8000/a158</item>
-        <item>Дискография Сплин 64kbps\nhttp://ic4.101.ru:8000/a129</item>
-        <item>Дискография БИ-2 64kbps\nhttp://ic4.101.ru:8000/a135</item>
-        <item>Дискография Муслим Магомаев 64kbps\nhttp://ic4.101.ru:8000/a156</item>
-        <item>Дискография Филипп Киркоров 64kbps\nhttp://ic4.101.ru:8000/a116</item>
-        <item>Дискография Стас Михайлов 64kbps\nhttp://ic4.101.ru:8000/a154</item>
-        <item>Дискография Руки Вверх! 64kbps\nhttp://ic4.101.ru:8000/a163</item>
-        <item>Дискография Высоцкий 64kbps\nhttp://ic4.101.ru:8000/a58</item>
-        <item>Дискография Михаил Круг 64kbps\nhttp://ic4.101.ru:8000/a110</item>
-        <item>Дискография Александр Розенбаум 64kbps\nhttp://ic4.101.ru:8000/a153</item>
-        <item>Дискография Елена Ваенга 64kbps\nhttp://ic4.101.ru:8000/a171</item>
-        <item>Дискография Каста 64kbps\nhttp://ic4.101.ru:8000/a121</item>
-        <item>Дискография Баста aka НоГГано 64kbps\nhttp://ic4.101.ru:8000/a162</item>
-        <item>Дискография Elvis Presley 64kbps\nhttp://ic4.101.ru:8000/a111</item>
-        <item>Дискография The Rolling Stones 64kbps\nhttp://ic4.101.ru:8000/a117</item>
-        <item>Дискография Pink Floyd 64kbps\nhttp://ic4.101.ru:8000/a53</item>
-        <item>Дискография Queen 64kbps\nhttp://ic4.101.ru:8000/a54</item>
-        <item>Дискография U2 64kbps\nhttp://ic4.101.ru:8000/a109</item>
-        <item>Дискография Scorpions 64kbps\nhttp://ic4.101.ru:8000/a113</item>
-        <item>Дискография Metallica 64kbps\nhttp://ic4.101.ru:8000/a123</item>
-        <item>Дискография Deep Purple 64kbps\nhttp://ic4.101.ru:8000/a125</item>
-        <item>Дискография Linkin Park 64kbps\nhttp://ic4.101.ru:8000/a149</item>
-        <item>Дискография Michael Jackson 64kbps\nhttp://ic4.101.ru:8000/a52</item>
-        <item>Дискография Madonna 64kbps\nhttp://ic4.101.ru:8000/a128</item>
-        <item>Дискография Mylene Farmer 64kbps\nhttp://ic4.101.ru:8000/a166</item>
-        <item>Дискография Sandra 64kbps\nhttp://ic4.101.ru:8000/a179</item>
-        <item>Дискография Robbie Williams 64kbps\nhttp://ic4.101.ru:8000/a138</item>
-        <item>Дискография Elton John 64kbps\nhttp://ic4.101.ru:8000/a142</item>
-        <item>Дискография ABBA 64kbps\nhttp://ic4.101.ru:8000/a104</item>
-        <item>Дискография Boney M 64kbps\nhttp://ic4.101.ru:8000/a114</item>
-        <item>Дискография Modern Talking 64kbps\nhttp://ic4.101.ru:8000/a115</item>
-        <item>Дискография Depeche Mode64kbps\nhttp://ic4.101.ru:8000/a105</item>
-        <item>Дискография Enigma 64kbps\nhttp://ic3.101.ru:8000/c7_24</item>
-        <item>Дискография TIZIANO FERRO\nhttp://icy.unitedradio.it/Ferro.mp3?</item>
-        <item>Дискография VASCO\nhttp://icy.unitedradio.it/Vasco.mp3?</item>
-        <item>Дискография Zucchero\nhttp://icy.unitedradio.it/Zucchero.mp3?</item>
-        <item>Дискография Би-2\nhttp://ic2.101.ru:8000/c15_23?</item>
-        <item>Дискография Cliff Richard Radio\nhttp://s9.voscast.com:8032</item>
-        <item>Дискография COLDPLAY\nhttp://icy.unitedradio.it/ColdPlay.mp3?</item>
-        <item>Дискография ДДТ\nhttp://ic2.101.ru:8000/c13_21?</item>
-        <item>Дискография JOVANOTTI\nhttp://icy.unitedradio.it/Jovanotti.mp3</item>
-        <item>Дискография LIGABUE\nhttp://icy.unitedradio.it/Ligabue.mp3?</item>
-        <item>Дискография MINA\nhttp://icy.unitedradio.it/Mina.mp3?</item>
-        <item>Дискография PINO DANIELE\nhttp://icy.unitedradio.it/Daniele.mp3?</item>
-        <item>Дискография Розенбаум Александр\nhttp://ic3.101.ru:8000/c16_26</item>
+        <item>ChebFM ЧебФМ 128kbps\nhttp://play.cheb.fm:8000/chebfm.ogg</item>
+        <item>Дискография TIZIANO FERRO 128kbps\nhttp://icy.unitedradio.it/Ferro.mp3?</item>
+        <item>Дискография VASCO 128kbps\nhttp://icy.unitedradio.it/Vasco.mp3?</item>
+        <item>Дискография Zucchero 128kbps\nhttp://icy.unitedradio.it/Zucchero.mp3?</item>
+        <item>Дискография Cliff Richard Radio 128kbps\nhttp://s9.voscast.com:8032</item>
+        <item>Дискография COLDPLAY128kbps\nhttp://icy.unitedradio.it/ColdPlay.mp3?</item>
+        <item>Дискография JOVANOTTI 128kbps\nhttp://icy.unitedradio.it/Jovanotti.mp3</item>
+        <item>Дискография LIGABUE 128kbps\nhttp://icy.unitedradio.it/Ligabue.mp3?</item>
+        <item>Дискография PINO DANIELE 128kbps\nhttp://icy.unitedradio.it/Daniele.mp3?</item>
 
     </string-array>
 

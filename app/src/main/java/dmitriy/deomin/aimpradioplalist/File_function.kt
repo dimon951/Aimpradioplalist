@@ -40,8 +40,14 @@ class File_function {
             e.printStackTrace()
         }
 
+        //удалим мусор
+        val kontent = text
+                .replace("\n","")
+                .replace(" ","")
+                .replace("#EXTM3U","")
+
         //если есть чё разобьём на массив и вернём после удаления пустых строк
-        if (text.length > 11) {
+        if (kontent.length > 11) {
 
             //удалим вначале файла тег
             text = text.replace("#EXTM3U", "")
@@ -176,6 +182,13 @@ class File_function {
     //чтение файла
     @Throws(FileNotFoundException::class)
     fun read(fileName: String): String {
+
+        //создадим папки если нет
+        val sddir = File(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/")
+        if (!sddir.exists()) {
+            sddir.mkdirs()
+        }
+
         //Этот спец. объект для построения строки
         val sb = StringBuilder()
 

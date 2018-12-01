@@ -23,10 +23,12 @@ import org.jetbrains.anko.support.v4.toast
 import java.util.ArrayList
 import java.util.HashMap
 import android.content.Intent
+import android.graphics.Color
 import android.util.Log
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
+import java.io.File
 
 
 class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
@@ -257,8 +259,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                                         Main.viewPager.currentItem = Main.number_page
 
                                         //тут злоябучий выскакивает глюк
-                                        //  context.toast(rnd_ok())
-                                        context.toast("Готово")
+                                        context.toast(Main.rnd_ok())
 
                                         //попробуем уничтожить слушителя
                                         context.unregisterReceiver(this)
@@ -419,14 +420,27 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
         add_fs.setOnClickListener { vie ->
             val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
             vie.startAnimation(anim)
+
+            //посмотрим есть старый пусть
+            val old_dir= Main.save_read("startdir")
+            var startdir:String
+            if(old_dir.length>2){
+                startdir = old_dir
+            }else{
+                startdir = Environment.getExternalStorageDirectory().path
+            }
+
             //----
             val fileDialog = OpenFileDialog(context)
                     .setFilter(".*\\.m3u")
+                    .setStartDirectory(startdir)
                     .setOpenDialogListener {
                         if (it != null) {
                             file_m3u_custom = it
                             alertDialog.cancel()
 
+                            //сохраним путь ,потом тамж и откроем
+                            Main.save_value("startdir",File(file_m3u_custom).parent)
 
                             //проверим на наличие файла и будем действовать дальше
                             var str = file_function.read(file_m3u_custom)
@@ -482,8 +496,8 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
 
                         }
                     }
-            fileDialog.show()
 
+            fileDialog.show()
             //----
         }
     }
@@ -586,23 +600,4 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
         return text
     }
 
-
-    //
-    fun rnd_ok(): CharSequence {
-        val mas = resources.getStringArray(R.array.list_ok)
-        val i = rnd_int(0, mas.size - 1)
-        return if (i < mas.size) {
-            mas[i]
-        } else {
-            mas[0]
-        }
-
-    }
-
-    fun rnd_int(min: Int, max: Int): Int {
-        var max = max
-        max -= min
-        return (Math.random() * ++max).toInt() + min
-    }
-    //
 }
