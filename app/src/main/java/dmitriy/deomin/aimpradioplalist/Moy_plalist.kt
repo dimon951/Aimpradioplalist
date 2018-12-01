@@ -488,7 +488,6 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
         }
     }
 
-
     override fun onItemLongClick(parent: AdapterView<*>, view: View, position: Int, id: Long): Boolean {
 
         //получаем выбранную строку
@@ -500,8 +499,8 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
         if (mas[0] != Main.PUSTO) {
 
             //покажем окошко с вопросом подтверждения удаления
-            val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
-            val content = LayoutInflater.from(context).inflate(R.layout.custom_dialog_delete_stancii, null)
+            val builder = AlertDialog.Builder(ContextThemeWrapper(view.context, android.R.style.Theme_Holo))
+            val content = LayoutInflater.from(view.context).inflate(R.layout.custom_dialog_delete_stancii, null)
             builder.setView(content)
 
             val alertDialog = builder.create()
@@ -514,7 +513,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
             (content.findViewById<View>(R.id.button_dialog_delete) as Button).setTextColor(Main.COLOR_TEXT)
             (content.findViewById<View>(R.id.button_dialog_delete) as Button).typeface = Main.face
             (content.findViewById<View>(R.id.button_dialog_delete) as Button).setOnClickListener { v ->
-                val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
+                val anim = AnimationUtils.loadAnimation(view.context, R.anim.myalpha)
                 v.startAnimation(anim)
                 alertDialog.dismiss()
 
@@ -541,16 +540,16 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                                 Main.viewPager.currentItem = Main.number_page
 
                                 //попробуем уничтожить слушителя
-                                context!!.unregisterReceiver(this)
+                                view.context.unregisterReceiver(this)
                             } else {
-                                context!!.toast("Ошибочка вышла тыкниете еще раз")
+                                view.context.toast("Ошибочка вышла тыкниете еще раз")
                             }
                         }
                     }
                 }
 
                 //регистрируем приёмник
-                context!!.registerReceiver(broadcastReceiver, intentFilter)
+                view.context.registerReceiver(broadcastReceiver, intentFilter)
 
                 //поехали ,удаляем и ждём сигналы
                 file_function.Delet_one_potok(selectedItem)
@@ -561,7 +560,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
             (content.findViewById<View>(R.id.button_dialog_no) as Button).setTextColor(Main.COLOR_TEXT)
             (content.findViewById<View>(R.id.button_dialog_no) as Button).typeface = Main.face
             (content.findViewById<View>(R.id.button_dialog_no) as Button).setOnClickListener { v ->
-                val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
+                val anim = AnimationUtils.loadAnimation(view.context, R.anim.myalpha)
                 v.startAnimation(anim)
                 alertDialog.dismiss()
             }
