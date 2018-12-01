@@ -388,11 +388,8 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                 intent.type = "text/plain"
 
                 intent.putExtra(Intent.EXTRA_TEXT, send)
-                try {
-                    startActivity(Intent.createChooser(intent, "Поделиться через"))
-                } catch (ex: ActivityNotFoundException) {
-                    context.toast("Ошибка")
-                }
+
+                context.startActivity(Intent.createChooser(intent, "Поделиться через"))
 
             } else {
                 context.toast("Нечего отпралять, плейлист пуст")

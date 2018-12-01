@@ -97,69 +97,59 @@
             128kbps~kbps~http://88.86.81.61:8021/siv~kbps~
             96kbps~kbps~http://91.219.74.220:8000/Vanya-high.mp3~kbps~
             96kbps~kbps~http://net37.ru:8000/radio_vanya_net37ru.mp3~kbps~
-            96kbps~kbps~http://net37.ru:8000/radio_vanya_net37ru.mp3~kbps~
             56kbps~kbps~http://str2.pcradio.ru/radio_vanya-hi~kbps~
         </item>
         <item>Новое Радио\nnovoe_radio.png\n
             64kbps~kbps~http://live.novoeradio.by:8000/novoeradio-64k~kbps~
             128kbps~kbps~http://live.novoeradio.by:8000/novoeradio-128k~kbps~
             256kbps~kbps~http://live.novoeradio.by:8000/novoeradio-256k~kbps~
-            32kbps~kbps~http://193.218.140.91:8003/novoe.aac~kbps~
         </item>
         <item>SHTORM.fm – Русский\nshtorm.png\n
             128kbps~kbps~http://radio.rushtorm.ru:8000/mp3~kbps~
             46kbps~kbps~http://radio.rushtorm.ru:8000/aac64~kbps~
         </item>
         <item>РУССКИЙ ХИТ\nrus_hit.png\n
-            48kbps~kbps~http://ruhit.imgradio.pro/RusHit48~kbps~
-            48kbps2~kbps~http://s3.imgradio.pro/RusHit48~kbps~
-            32kbps~kbps~http://193.218.140.91:8003/ruhit.aac~kbps~
+            48kbps~kbps~http://stream2.n340.com/19_ruhit_24_reg_1?type=.aac&amp;UID=1A242952D26B3D13026F839A34AB0F36~kbps~
         </item>
         <item>ХИТ FM\nhitfm.png\n
-            32kbps~kbps~http://193.218.140.91:8003/hitfm.aac~kbps~
+            128kbps~kbps~http://icecast.radiohitfm.cdnvideo.ru:8000/hit_m.mp3~kbps~
         </item>
         <item>Радио 7 на семи холмах\nsemhom.png\n
             128kbps~kbps~http://radio7server.streamr.ru:8040/radio7128.mp3~kbps~
-            32kbps~kbps~http://193.218.140.91:9000/radio7.aac~kbps~
         </item>
         <item>Радио ПАССАЖ\npassag.png\n
             48kbps~kbps~http://listen.radiopassazh.ru/aac-48~kbps~
             48kbps2~kbps~http://s2.radiopassazh.ru/aac-48~kbps~
         </item>
         <item>Радио ВТемпе\nv_tempe.png\n
-            256kbps~kbps~http://62.141.42.139:8000/vtempe~kbps~
+            128kbps~kbps~http://icecast.radiohitfm.cdnvideo.ru:8000/hit_m.mp3~kbps~
         </item>
         <item>Максимум\nmaximum.png\n
-            32kbps~kbps~http://193.218.140.91:8003/maximum.aac~kbps~
+            96kbps~kbps~https://maximum.gcdn.co/max_m.aac~kbps~
         </item>
         <item>Шансон\nshnson.png\n
             128kbps~kbps~http://chanson.hostingradio.ru:8041/chanson128.mp3~kbps~
             256kbps~kbps~http://chanson.hostingradio.ru:8041/chanson256.mp3~kbps~
-            32kbps~kbps~http://193.218.140.91:8003/shanson.aac~kbps~
         </item>
         <item>Эхо Москвы\necho_moskvy.png\n
-            32kbps~kbps~http://193.218.140.91:8003/echo.aac~kbps~
             96kbps~kbps~http://den.101.ru:4000/ho_63_05~kbps~
             56kbps~kbps~http://184.154.58.146:29378/ch12_56.mp3~kbps~
         </item>
         <item>Радио Лучшие Песни\nluchsie_radio_pesni.png\n
-            128kbps~kbps~http://85.114.140.64:8000/666~kbps~
+            48kbps~kbps~http://85.114.140.64:8000/666~kbps~
         </item>
         <item>Анекдоты \nanekdoty.png\n
             128kbps~kbps~http://ic2.101.ru:8000/c3_5~kbps~
         </item>
         <item>Детские песни \ndetskie_pesni.png\n
             128kbps~kbps~http://music.myradio.com.ua:8000/kids-songs128.mp3~kbps~
-            32kbps~kbps~http://193.218.140.91:8003/detskoe.aac~kbps~
         </item>
         <item>Классика \nclasik_radio.png\n
             128kbps~kbps~http://music.myradio.com.ua:8000/Classica128.mp3~kbps~
-            128kbps2~kbps~http://icecast.err.ee:80/klassikaraadio.mp3~kbps~
-            32kbps2~kbps~http://193.218.140.91:8003/classic.aac~kbps~
+            128kbps~kbps~http://icecast.err.ee:80/klassikaraadio.mp3~kbps~
         </item>
         <item>Литературное радио\nliteraturnoe_radio.png\n
             64kbps~kbps~http://79.137.234.183:8000/;~kbps~
-            32kbps~kbps~http://193.218.140.91:8003/kniga.aac~kbps~
         </item>
 
 
