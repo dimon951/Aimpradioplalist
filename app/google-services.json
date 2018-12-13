@@ -15,6 +15,38 @@
       },
       "oauth_client": [
         {
+          "client_id": "375647819527-c3800jh4rer64672ojd1vjclbbddnjtf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dmitriy.deomin.aimpradioplalist",
+            "certificate_hash": "2df5b9090ccfd6ab7e2e3e872777891060d35a57"
+          }
+        },
+        {
+          "client_id": "375647819527-eo58c7vk6igap6k97sbk4u69b6prm1h5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dmitriy.deomin.aimpradioplalist",
+            "certificate_hash": "bc75881c1aa7285fbd102f4eefc10ce4b4bcfce3"
+          }
+        },
+        {
+          "client_id": "375647819527-qhr45r9h3cmict1iuqm5if7ak4nkhuoh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dmitriy.deomin.aimpradioplalist",
+            "certificate_hash": "678f3e2c1fa427f4043578e0b4a3c2f5df77093a"
+          }
+        },
+        {
+          "client_id": "375647819527-sl39j0beuq21vd0o2op37j15ehhgfnre.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dmitriy.deomin.aimpradioplalist",
+            "certificate_hash": "34071da8c6d50c35ce319c218cbed8f7a30f2497"
+          }
+        },
+        {
           "client_id": "375647819527-e7jva933ns1h20hdpq607eghsavmvurv.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -40,7 +72,8 @@
         "ads_service": {
           "status": 2
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-7908895047124036~7402987509"
     }
   ],
   "configuration_version": "1"

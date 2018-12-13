@@ -12,6 +12,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.support.v4.app.Fragment
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
@@ -86,8 +88,13 @@ class Vse_radio : Fragment() {
 
 
         // текст только что изменили в строке поиска
-        find.textChangedListener { onTextChanged{text, start, before, count ->adapter_vse_radio.filter.filter(text)}}
-
+        find.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable) {}
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(text: CharSequence, start: Int, before: Int, count: Int) {
+                adapter_vse_radio.filter.filter(text)
+            }
+        })
 
         v.kod_diskografii.onClick {
             val anim = AnimationUtils.loadAnimation(v.context, R.anim.myalpha)

@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <!--<meta-data-->
+            <!--android:name="com.google.android.gms.ads.ca-app-pub-7908895047124036~7402987509"-->
+            <!--android:value="ca-app-pub-7908895047124036/8879720700"/>-->
         <activity android:name=".Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -24,6 +24,9 @@ import android.view.*
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.*
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.kotlinpermissions.KotlinPermissions
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.support.v4.browse
@@ -32,6 +35,7 @@ import java.util.*
 
 class Main : FragmentActivity() {
 
+    lateinit var mAdView: AdView
     lateinit var imageSwitcher: ImageSwitcher
     lateinit var mImageIds: IntArray
 
@@ -254,23 +258,28 @@ class Main : FragmentActivity() {
         face = Typeface.createFromAsset(assets, if (save_read("fonts") == "") "fonts/Tweed.ttf" else save_read("fonts"))
 
 
+        //реклама
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
         //ставим цвет фона
-        if (save_read_int("color_fon") == 0) {
-            COLOR_FON = Color.DKGRAY
+        COLOR_FON = if (save_read_int("color_fon") == 0) {
+            Color.DKGRAY
         } else {
-            COLOR_FON = save_read_int("color_fon")
+            save_read_int("color_fon")
         }
         //ставим цвет постов
-        if (save_read_int("color_post1") == 0) {
-            COLOR_ITEM = resources.getColor(R.color.green)
+        COLOR_ITEM = if (save_read_int("color_post1") == 0) {
+            resources.getColor(R.color.green)
         } else {
-            COLOR_ITEM = save_read_int("color_post1")
+            save_read_int("color_post1")
         }
         //ставим цвеи текста
-        if (save_read_int("color_text") == 0) {
-            COLOR_TEXT = Color.BLACK
+        COLOR_TEXT = if (save_read_int("color_text") == 0) {
+            Color.BLACK
         } else {
-            COLOR_TEXT = save_read_int("color_text")
+            save_read_int("color_text")
         }
 
 
