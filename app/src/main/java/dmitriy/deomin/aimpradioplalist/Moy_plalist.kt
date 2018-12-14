@@ -17,15 +17,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
 import android.widget.TextView
-import android.widget.Toast
 import org.jetbrains.anko.support.v4.toast
-
 import java.util.ArrayList
 import java.util.HashMap
 import android.content.Intent
-import android.graphics.Color
-import android.util.Log
-import org.jetbrains.anko.sdk25.coroutines.onClick
+import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
 import java.io.File
@@ -422,11 +418,11 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
             vie.startAnimation(anim)
 
             //посмотрим есть старый пусть
-            val old_dir= Main.save_read("startdir")
-            var startdir:String
-            if(old_dir.length>2){
+            val old_dir = Main.save_read("startdir")
+            var startdir: String
+            if (old_dir.length > 2) {
                 startdir = old_dir
-            }else{
+            } else {
                 startdir = Environment.getExternalStorageDirectory().path
             }
 
@@ -440,7 +436,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                             alertDialog.cancel()
 
                             //сохраним путь ,потом тамж и откроем
-                            Main.save_value("startdir",File(file_m3u_custom).parent)
+                            Main.save_value("startdir", File(file_m3u_custom).parent)
 
                             //проверим на наличие файла и будем действовать дальше
                             var str = file_function.read(file_m3u_custom)

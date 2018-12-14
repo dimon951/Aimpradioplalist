@@ -2,13 +2,49 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.content.Context
 import android.graphics.Canvas
+import android.support.v7.widget.CardView
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.RelativeSizeSpan
 import android.text.style.UnderlineSpan
 import android.util.AttributeSet
+import android.widget.Button
 import android.widget.TextView
 
+class But_Kod : Button {
+    constructor(context: Context) : super(context) {}
+
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
+
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
+
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+        this.typeface = Main.face
+        this.setTextColor(Main.COLOR_TEXT)
+    }
+}
+
+class Fon_item : CardView {
+
+    constructor(context: Context) : super(context) {
+        this.setCardBackgroundColor(Main.COLOR_ITEM)
+    }
+
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+        this.setCardBackgroundColor(Main.COLOR_ITEM)
+    }
+
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        this.setCardBackgroundColor(Main.COLOR_ITEM)
+    }
+
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+        this.setCardBackgroundColor(Main.COLOR_ITEM)
+
+    }
+}
 
 class Text : TextView {
 

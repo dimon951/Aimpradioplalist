@@ -3,9 +3,7 @@ package dmitriy.deomin.aimpradioplalist
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
+import android.content.*
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -25,6 +23,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.*
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.kotlinpermissions.KotlinPermissions
@@ -35,14 +34,14 @@ import java.util.*
 
 class Main : FragmentActivity() {
 
-    lateinit var mAdView: AdView
+    private lateinit var mAdView: AdView
     lateinit var imageSwitcher: ImageSwitcher
-    lateinit var mImageIds: IntArray
+    private lateinit var mImageIds: IntArray
 
-    lateinit var vse_r: Button
-    lateinit var popul: Button
-    lateinit var moy_pl: Button
-    val APP_PREFERENCES = "mysettings" // файл сохранялки
+    private lateinit var vse_r: Button
+    private lateinit var popul: Button
+    private lateinit var moy_pl: Button
+    private val APP_PREFERENCES = "mysettings" // файл сохранялки
 
     internal var visi: Boolean = false//true при активном приложении
 
@@ -221,37 +220,11 @@ class Main : FragmentActivity() {
         val builder: StrictMode.VmPolicy.Builder = StrictMode.VmPolicy.Builder()
         StrictMode.setVmPolicy(builder.build())
         //-----------------------------------------------------------------------------------------
-
-
-        //посмотрим есть ли разрешения
-        val permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)
-        val permissionFileR = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-        val permissionFileW = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-
-        //получим ебучие разрешения , если не дали их еще
-        if (permissionFileR < 0) {
-            //----------------------
-            this.onPause()
-            KotlinPermissions.with(this).permissions(Manifest.permission.READ_EXTERNAL_STORAGE).ask()
-            //------------------------
-        }
-        if (permissionFileW < 0) {
-            //----------------------
-            this.onPause()
-            KotlinPermissions.with(this).permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE).ask()
-            //------------------------
-        }
-        if (permissionCheck < 0) {
-            //----------------------
-            this.onPause()
-            KotlinPermissions.with(this).permissions(Manifest.permission.INTERNET).ask()
-            //------------------------
-        }
+        context = this
 
 
         //во весь экран
         this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        context = this
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
 
 
@@ -259,6 +232,7 @@ class Main : FragmentActivity() {
 
 
         //реклама
+        MobileAds.initialize(this, "ca-app-pub-7908895047124036~7402987509")
         mAdView = findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
@@ -326,23 +300,88 @@ class Main : FragmentActivity() {
         }
         imageSwitcher.setImageResource(mImageIds[1])
 
-
-        myadapter = Myadapter(supportFragmentManager)
         viewPager = findViewById<View>(R.id.pager) as ViewPager
         viewPager.offscreenPageLimit = 3
-        viewPager.adapter = myadapter
-        viewPager.setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
-            override fun onPageSelected(position: Int) {
-                // номер страницы
-                fon_button(position)
+        //если сработает запрос разрешений отключим последнию проверку(ато приемник примет только один сигнал и сгорит в аду)
+        var openDialogPermin: Boolean = false
+
+        //когда получим сигнал что все пучком и все разрешения есть загрузим вьюпейджер
+        //приёмник  сигналов
+        // фильтр для приёмника
+        val intentFilter = IntentFilter()
+        intentFilter.addAction("Dostup")
+
+        //
+        val broadcastReceiver = object : BroadcastReceiver() {
+            override fun onReceive(c: Context, intent: Intent) {
+                if (intent.action == "Dostup") {
+                    //получим данные
+                    val s = intent.getStringExtra("signal")
+                    if (s == "ok") {
+                        //--------------------------------
+                        //заполнение и настройка вью пейджера
+
+
+                        myadapter = Myadapter(supportFragmentManager)
+                        viewPager.adapter = myadapter
+                        viewPager.setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+                            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+
+                            override fun onPageSelected(position: Int) {
+                                // номер страницы
+                                fon_button(position)
+                            }
+
+                            override fun onPageScrollStateChanged(state: Int) {}
+                        })
+                        //пролистаем на вип радио
+                        viewPager.currentItem = 1
+                        //----------------------------------------
+
+
+                        //попробуем уничтожить слушителя
+                        context.unregisterReceiver(this)
+                    } else {
+                        context.toast("Ошибочка вышла перезапустите программу")
+                    }
+                }
             }
+        }
+        //регистрируем приёмник
+        context.registerReceiver(broadcastReceiver, intentFilter)
 
-            override fun onPageScrollStateChanged(state: Int) {}
-        })
-        //пролистаем на вип радио
-        viewPager.currentItem = 1
+
+        //посмотрим есть ли разрешения и пошлём сигнал
+        // 0 есть
+        // -1 нет
+        //для интернета вроде всегда есть , спрашивает только для записи , автоматом и на чтение ставится
+        //поставлю на все накройняк
+        val permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)
+        val permissionFileR = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+        val permissionFileW = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+
+        if (permissionCheck == 0 && permissionFileR == 0 && permissionFileW == 0) {
+            //пошлём сигнал что все хорошо
+            val i = Intent("Dostup")
+            i.putExtra("signal", "ok")
+            context.sendBroadcast(i)
+        } else {
+            //получим ебучие разрешения , если не дали их еще
+            //----------------------
+            KotlinPermissions.with(context as Main).permissions(Manifest.permission.READ_EXTERNAL_STORAGE
+                    , Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.INTERNET)
+                    .onAccepted {
+                        Log.e("44444","signal poshol")
+                        //пошлём сигнал что все хорошо
+                        val i = Intent("Dostup")
+                        i.putExtra("signal", "ok")
+                        context.sendBroadcast(i)
+                    }
+                    .onDenied { toast("Нет нужных разрешений для работы программы") }
+                    .ask()
+            //------------------------
+        }
 
         visi = true  // приложение активно
 
@@ -384,7 +423,7 @@ class Main : FragmentActivity() {
     }
 
     //заполняем наш скролер
-    inner class Myadapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
+    class Myadapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
         override fun getItem(position: Int): Fragment? {
             when (position) {

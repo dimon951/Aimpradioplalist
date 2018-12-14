@@ -19,16 +19,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.AdapterView
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ListView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import kotlinx.android.synthetic.main.vse_radio.view.*
-import org.jetbrains.anko.browse
-import org.jetbrains.anko.sdk25.coroutines.onClick
-import org.jetbrains.anko.sdk25.coroutines.textChangedListener
+import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.browse
 import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.toast
@@ -405,3 +398,6 @@ class Vse_radio : Fragment() {
     }
 
 }
+
+
+class Adapter_vse_radio(context: Context, data: List<Map<String, *>>, resource: Int, from: Array<String>, to: IntArray) : SimpleAdapter(context, data, resource, from, to)

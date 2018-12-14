@@ -39,6 +39,9 @@
          \n
     </string>
 
+
+    <string name="banner_ad_unit_id">ca-app-pub-7908895047124036/8879720700</string>
+
     <string-array name="pop_radio">
 
         <item>Русское радио\nruskoe_radio.png\n
@@ -172,6 +175,7 @@
     <string name="help">
          Чтобы добавить станцию , выберите *добавить в плейлист* во Всё радио. Или нажмите + в Популярное долгий тап на станции предложит удалить её
     </string>
+
 
     <string-array name="vse_radio">
 
