@@ -70,7 +70,7 @@ class File_function {
             }
 
             // конвертируем ArrayList в список
-            var myArray = arrayOf<String>()
+            var myArray: Array<String>
             myArray = mas.toTypedArray()
 
 

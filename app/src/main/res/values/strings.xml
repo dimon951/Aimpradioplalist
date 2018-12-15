@@ -48,6 +48,9 @@
             96kbps~kbps~http://icecast.russkoeradio.cdnvideo.ru/rr_m.aac~kbps~
             96kbps~kbps~https://rusradio.gcdn.co/rr_m.aac?~kbps~
         </item>
+        <item>Русская Волна\nruskay_volna.png\n
+            48kbps~kbps~http://rp.volna.top/RuWave48~kbps~
+        </item>
         <item>ENERGY\nenergy.png\n
             256kbps~kbps~http://ic2.101.ru:8000/v1_1~kbps~
             320kbps~kbps~http://nrj.babahhcdn.com/NRJ?.mp3~kbps~
@@ -179,6 +182,34 @@
 
     <string-array name="vse_radio">
 
+        <item>Vocal Trance Radio 128kbps\nhttp://176.9.36.203:8000/vocaltrance_128</item>
+        <item>Vocal Trance Radio 256kbps\nhttp://vocaltrance.ru:8000/vocaltrance</item>
+        <item>Vocal Trance Radio 256kbps\nhttp://176.9.36.203:8000/vocaltrance_256</item>
+        <item>Vocal Trance Radio 320kbps\nhttp://176.9.36.203:8000/vocaltrance_320</item>
+
+        <item>Поляна сказок 81kbps\nhttp://misato.ru-hoster.com:8082/stream</item>
+        <item>Старое радио 128kbps\nhttp://server.audiopedia.su:8000/ices128</item>
+        <item>Старое радио 64kbps\nhttp://server.audiopedia.su:8000/ices64</item>
+        <item>Старое радио 32kbps\nhttp://server.audiopedia.su:8000/ices32</item>
+        <item>ХАЙП FM 46kbps\nhttp://air.volna.top/HypeFM</item>
+        <item>Black Star Radio 128kbps\nhttps://blackstarradio.hostingradio.ru:8024/blackstarradio128.mp3?radiostatistica=radiopotok</item>
+        <item>Black Star Radio 128kbps\nhttp://blackstarradio.hostingradio.ru:8024/blackstarradio128.mp3</item>
+        <item>Турбо FM 128kbps\nhttp://m2m128.hostingradio.ru:8074/m2m128.mp3</item>
+        <item>Радио День 48kbps\nhttp://air.radioday.fm/48</item>
+        <item>Радио День 192kbps\nhttp://air.radioday.fm/mp3</item>
+
+        <item>NewTone FM 112kbps\nhttp://play.newtone.fm/live_01</item>
+        <item>NewTone FM 320kbps\nhttp://play.newtone.fm/live_320</item>
+
+        <item>Маруся ФМ 190kbps\nhttp://radio-holding.ru:9000/marusya_default</item>
+        <item>Маруся ФМ 64kbps\nhttp://radio-holding.ru:9000/marusya_aac_64</item>
+        <item>Маруся ФМ 64kbps\nhttp://radio-holding.ru:9000/marusya_aac_32</item>
+
+        <item>Комсомольская правда Россия 128kbps\nhttp://kpradio.hostingradio.ru:8000/russia.radiokp128.mp3</item>
+        <item>Комсомольская правда Россия 64kbps\nhttp://kpradio.hostingradio.ru:8000/russia.radiokp64.mp3</item>
+        <item>Комсомольская правда Россия 32kbps\nhttp://kpradio.hostingradio.ru:8000/russia.radiokp32.mp3</item>
+
+
         <item>DFM ДИСКАЧ 90х 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st18.mp3</item>
         <item>DFM DEEP 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st24.mp3</item>
         <item>DFM CLUB 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st01.mp3</item>
@@ -186,7 +217,6 @@
         <item>DFM СПОКОЙНОЙ НОЧИ, ГОЛЫШИ! 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st05.mp3</item>
         <item>DFM ДИНАМИТ 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st16.mp3</item>
         <item>DFM TRAP 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st07.mp3</item>
-
 
         <item>ХИПХОПБАЙ (laradiofm.com) 128kbps\nhttp://listen2.myradio24.com:9000/8000</item>
         <item>Радио Правильного Рэпа (laradiofm.com) 24kbps\nhttp://rpr-stream.pp.ua:8005/mrpr</item>
@@ -247,7 +277,6 @@
         <item>KISS FM Украина 128kbps\nhttp://relay.myradio.ua/kissfm128.mp3</item>
         <item>DJFM 96 Украина 64kbps\nhttp://relay.myradio.ua/djfm128.mp3</item>
         <item>Весна FM 56kbps\nhttp://potokovoe.ru:8008/Radio_Vesna_FM.aac</item>
-
         <item>Ethnic 128kbps\nhttp://relay.radio.obozrevatel.com/sheshory128.mp3</item>
         <item>Электро хаус 128kbps\nhttp://relay.radio.obozrevatel.com/Electro-House128.mp3</item>
         <item>Acid Jazz 128kbps\nhttp://relay.radio.obozrevatel.com/newjazz128.mp3</item>
@@ -329,7 +358,6 @@
         <item>Музыка для сна 128kbps\nhttp://relay.radio.obozrevatel.com/sleepmusic128.mp3</item>
         <item>Музыка Казантипа 128kbps\nhttp://relay.radio.obozrevatel.com/Kazantip128.mp3</item>
         <item>Музыка из фильмов 128kbps\nhttp://relay.radio.obozrevatel.com/kino128.mp3</item>
-//до сюда проверил
         <item>ZaycevFM Шансон 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_shanson_256.mp3</item>
         <item>ZaycevFM Шансон 128kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_shanson_128.mp3</item>
         <item>ZaycevFM Русские 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_rus_256.mp3</item>
@@ -346,72 +374,56 @@
         <item>ZaycevFM Disco 128kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_disco_128.mp3</item>
         <item>ZaycevFM Alternative Rock 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_rock_256.mp3</item>
         <item>ZaycevFM Alternative Rock 128kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_rock_128.mp3</item>
-
         <item>Секретная лаборатория 128kbps\nhttp://secretlaboratory.ru:8000/secretlab</item>
         <item>Спокойное радио онлайн 128kbps\nhttp://listen1.myradio24.com:9000/6262</item>
         <item>Радио FRMX 320kbps\nhttp://front.kgts.ru:8000/live</item>
         <item>Радио SpyNet Station 320kbps\nhttp://s1.spynetstation.com/</item>
-        <item>Fresh FM Сосновый Бор 192kbps\nhttp://s7.radioheart.ru:8007/live</item>
-        <item>Радио Mix FM 128kbps\nhttp://free.radioheart.ru:8000/mixfm</item>
-        <item>Радио Таблетка FM 160kbps\nhttp://tabletka-fm.ru:8000/play</item>
         <item>Record Trap Radio 128kbps\nhttp://air.radiorecord.ru:8102/trap_128</item>
-        <item>Радио Плазма Кингисепп 128kbps\nhttp://icecast.radioplasma.ru:8001/RADIOPLASMA128</item>
         <item>Сома ФМ Секретный Агент 128kbps\nhttp://ice.somafm.com/secretagent</item>
         <item>Радио Медиа няня 128kbps\nhttp://stream5.radiostyle.ru:8005/mediananny</item>
         <item>Радио Подвиг 32kbps\nhttp://stream0.radiostyle.ru:8000/feat</item>
         <item>Радио Музыка кино 128kbps\nhttp://music.myradio.com.ua:8000/kino128.mp3</item>
         <item>Радио ExciteBit 128kbps\nhttp://46.105.180.202:8100/stream</item>
-        <item>ХИТЫ ЕВРОПЫ ПЛЮС 64kbps\nhttp://ic4.101.ru:8000/p450704</item>
-        <item>Хит FM 90е 96kbps\nhttp://icecast.radiohitfm.cdnvideo.ru/st13.mp3</item>
-        <item>Хит FM 2000е 96kbps\nhttp://icecast.radiohitfm.cdnvideo.ru/st12.mp3</item>
-        <item>Хит FM Украина 32kbps\nhttp://online-hitfm.tavrmedia.ua/HitFM_32</item>
         <item>Хит FM Украина 128kbps\nhttp://online-hitfm.tavrmedia.ua/HitFM</item>
         <item>87.5 Business FM 131kbps\nhttp://bfm.hostingradio.ru:8004/fm</item>
         <item>87.9 Like FM 128kbps\nhttp://ic2.101.ru:8000/v12_1</item>
         <item>88.3 Ретро FM 256kbps\nhttp://retro256.streamr.ru</item>
         <item>88.7 Юмор FM 256kbps\nhttp://ic3.101.ru:8000/s11</item>
         <item>89.1 Радио Jazz 128kbps\nhttp://jazz128.streamr.ru</item>
-        <item>89.5 Мегаполис 128kbps\nhttp://stream04.media.rambler.ru/megapolis128.mp3</item>
         <item>89.9 Страна FM 320kbps\nhttp://icecast.stranafm.cdnvideo.ru/stranafm</item>
         <item>90.3 Авторадио 256kbps\nhttp://ic3.101.ru:8000/s1</item>
         <item>90.8 Relax FM 256kbps\nhttp://ic3.101.ru:8000/s40</item>
-        <item>91.2 Эхо Москвы 140kbps\nhttp://81.19.85.197/echo.mp3</item>
         <item>91.6 Культура 320kbps\nhttp://icecast.vgtrk.cdnvideo.ru/kulturafm</item>
         <item>92.0 Москва FM 128kbps\nhttp://icecast.vgtrk.cdnvideo.ru:8000/moscowfm128</item>
         <item>93.2 Спорт FM 128kbps\nhttp://sportfm128.streamr.ru</item>
-        <item>94.0 Восток FM 128kbps\nhttp://vostokfm128.streamr.ru</item>
         <item>94.8 Говорит Москва 128kbps\nhttp://media.govoritmoskva.ru:8000/rufm_m.mp3</item>
         <item>95.2 Rock FM 128kbps\nhttp://rock128.streamr.ru</item>
         <item>96.8 Детское радио 128kbps\nhttp://ic3.101.ru:8000/v14_1</item>
         <item>97.2 КП-FM 256kbps\nhttp://kraskp.ru:8000/mskregion</item>
         <item>98.8 Romantika 256kbps\nhttp://ic3.101.ru:8000/s30</item>
-        <item>99.2 Орфей 192kbps\nhttp://icecast.orpheus.cdnvideo.ru/orpheus_192</item>
+
         <item>100.5 Best FM 128kbps\nhttp://best128.streamr.ru</item>
         <item>101.7 Наше радио 128kbps\nhttp://nashe128.streamr.ru</item>
         <item>102.5 Comedy Radio 256kbps\nhttp://ic3.101.ru:8000/s60</item>
         <item>103.4 Маяк 320kbps\nhttp://icecast.vgtrk.cdnvideo.ru/mayakfm</item>
         <item>104.2 NRJ 256kbps\nhttp://ic3.101.ru:8000/s20</item>
-        <item>105.0 Радио Книга 75kbps\nhttp://bookradio.hostingradio.ru:8069/fm</item>
+        <item>Радио Книга 128kbps\nhttp://bookradio.hostingradio.ru:8069/fm</item>
         <item>105.3 Moscow FM  128kbps\nhttp://icecast.vgtrk.cdnvideo.ru:8000/moscowfmen128</item>
         <item>106.2 Европа Плюс 256kbps\nhttp://ep256.streamr.ru</item>
-        <item>Радио Рекорд 320kbps\nhttp://air2.radiorecord.ru:805/rr_320</item>
+        <item>Радио Рекорд 192kbps\nhttp://air2.radiorecord.ru:805/rr_320</item>
         <item>Радио России 320kbps\nhttp://icecast.vgtrk.cdnvideo.ru/rrzonam</item>
-        <item>Радио Ultra 192kbps\nhttp://ultra192.streamr.ru</item>
         <item>MyHits 128kbps\nhttp://striiming.trio.ee:8008/myhits_low.mp3</item>
         <item>MyHits 320kbps\nhttp://striiming.trio.ee:8008/myhits_high.mp3</item>
         <item>NRJ FM DnB 128kbps\nhttp://nrj.babahhcdn.com/NRJdnb?.mp3</item>
-        <item>NRJ FM House 128kbps\nhttp://nrj.babahhcdn.com/NRJhouse?.mp3</item>
-        <item>Радио Волна aac\nhttp://volna.babahhcdn.com:8100/volna?.mp3</item>
+        <item>Радио Волна 109kbps\nhttp://volna.babahhcdn.com:8100/volna?.mp3</item>
         <item>Radio 4 128kbps\nhttp://icecast.err.ee:80/raadio4.mp3</item>
         <item>Narodnoe Radio 128kbps\nhttp://217.146.71.24:80/narodnoe.mp3</item>
         <item>Vikerraadio 128kbps\nhttp://icecast.err.ee:80/vikerraadio.mp3</item>
         <item>Tre Raadio 128kbps\nhttp://sc1.treraadio.ee:8002/;.mp3</item>
-        <item>Sky Radio 128kbps\nhttp://194.106.119.241:8500/skyradio_hi.mp3</item>
         <item>Sky Plus TOP 128kbps\nhttp://skyplus.babahhcdn.com/skyplus_top40.mp3</item>
-        <item>Sky Plus RUN 128kbps\nhttp://skyplus.babahhcdn.com/skyplus_eesti.mp3</item>
         <item>Sky Plus GOLD 128kbps\nhttp://skyplus.babahhcdn.com/skyplus_gold.mp3</item>
         <item>Sky Plus DANCE 128kbps\nhttp://skyplus.babahhcdn.com/skyplus_dance.mp3</item>
-        <item>Sky Plus 128kbps\nhttp://194.106.119.241:8500/skyplus_hi.mp3</item>
+ //до сюда проверил
         <item>Ring FM aac\nhttp://stream.ringfm.ee/?.mp3</item>
         <item>Raadio Tallinn 128kbps\nhttp://icecast.err.ee:80/raadiotallinn.mp3</item>
         <item>Raadio Kuku 256kbps\nhttp://217.146.71.24:80/kuku_high.mp3</item>

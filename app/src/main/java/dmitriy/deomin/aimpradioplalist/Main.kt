@@ -369,8 +369,8 @@ class Main : FragmentActivity() {
         } else {
             //получим ебучие разрешения , если не дали их еще
             //----------------------
-            KotlinPermissions.with(context as Main).permissions(Manifest.permission.READ_EXTERNAL_STORAGE
-                    , Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.INTERNET)
+            KotlinPermissions.with(this)
+                    .permissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.INTERNET)
                     .onAccepted {
                         Log.e("44444","signal poshol")
                         //пошлём сигнал что все хорошо
