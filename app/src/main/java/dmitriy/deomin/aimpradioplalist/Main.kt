@@ -62,9 +62,9 @@ class Main : FragmentActivity() {
         var number_page: Int = 0
 
         //кодировка файла плейлиста
-        val File_Text_Code: String = "UTF8"
+        const val File_Text_Code: String = "UTF8"
 
-        val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.80.631.apk"
+        const val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.80.631.apk"
 
 
         //текст в пустом плейлисте(много где требуется)
@@ -303,9 +303,6 @@ class Main : FragmentActivity() {
         viewPager = findViewById<View>(R.id.pager) as ViewPager
         viewPager.offscreenPageLimit = 3
 
-        //если сработает запрос разрешений отключим последнию проверку(ато приемник примет только один сигнал и сгорит в аду)
-        var openDialogPermin: Boolean = false
-
         //когда получим сигнал что все пучком и все разрешения есть загрузим вьюпейджер
         //приёмник  сигналов
         // фильтр для приёмника
@@ -372,7 +369,6 @@ class Main : FragmentActivity() {
             KotlinPermissions.with(this)
                     .permissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.INTERNET)
                     .onAccepted {
-                        Log.e("44444","signal poshol")
                         //пошлём сигнал что все хорошо
                         val i = Intent("Dostup")
                         i.putExtra("signal", "ok")
