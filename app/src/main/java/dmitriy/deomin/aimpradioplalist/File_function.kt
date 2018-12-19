@@ -5,6 +5,7 @@ import android.os.Environment
 import android.util.Log
 import android.widget.Toast
 import dmitriy.deomin.aimpradioplalist.Main.Companion
+import org.jetbrains.anko.toast
 
 import java.io.BufferedReader
 import java.io.File
@@ -201,19 +202,17 @@ class File_function {
             try {
                 //Объект для чтения файла в буфер(хер просыш че тут творится)
                 val reader = BufferedReader(FileReader(file.absoluteFile))
-                try {
+                reader.use { reader ->
                     //В цикле построчно считываем файл
                     var s: String? =null
                     while ({ s = reader.readLine(); s }() != null){
                         sb.append(s)
                         sb.append("\n")
                     }
-                } finally {
-                    //Также не забываем закрыть файл
-                    reader.close()
                 }
             } catch (e: IOException) {
-                throw RuntimeException(e)
+                //если нет доступа или еще чего там вернём пусоту
+                return ""
             }
 
             //Возвращаем полученный текст с файла
@@ -224,14 +223,11 @@ class File_function {
 
     //Вызов функции SaveFile, который выполняет задачу сохранения файла в External-носителе:
     private fun SaveFile_vizov(filename: String, link_text: String) {
-        val fullpath: String
+        val fullpath: String = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + filename
         //Сохранение файла на External Storage:
-        fullpath = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + filename
-        Log.e("TTT", fullpath)
         if (isExternalStorageWritable) {
             SaveFile(fullpath, link_text)
         } else {
-            Log.e("TTT", "в память нельзя писать")
             Toast.makeText(Main.context, "Нет доступа к памяти", Toast.LENGTH_LONG).show()
         }
     }

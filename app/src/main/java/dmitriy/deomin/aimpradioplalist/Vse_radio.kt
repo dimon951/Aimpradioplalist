@@ -33,7 +33,7 @@ import java.util.HashMap
 class Vse_radio : Fragment() {
     private lateinit var listView: ListView
     internal lateinit var context: Context
-    lateinit var find:EditText
+    lateinit var find: EditText
     private val STANCIA = "stancia"
 
 
@@ -71,11 +71,9 @@ class Vse_radio : Fragment() {
 
 
         //пролистываем до нужного элемента
-        if (Main.save_read("nomer_stroki") != null) {
-            if (Main.save_read("nomer_stroki") != "") {
-                if (Integer.valueOf(Main.save_read("nomer_stroki")) > 0) {
-                    listView.setSelection(Integer.valueOf(Main.save_read("nomer_stroki")))
-                }
+        if (Main.save_read("nomer_stroki") != "") {
+            if (Integer.valueOf(Main.save_read("nomer_stroki")) > 0) {
+                listView.setSelection(Integer.valueOf(Main.save_read("nomer_stroki")))
             }
         }
 
@@ -249,7 +247,11 @@ class Vse_radio : Fragment() {
                                 //попробуем уничтожить слушителя
                                 context.unregisterReceiver(this)
                             } else {
-                                context.toast("Ошибочка вышла тыкниете еще раз")
+                                context.toast(context.getString(R.string.error))
+                                //Изменим текущию вкладку при обновлении что тутж остаться
+                                Main.number_page = 0
+                                //запросим разрешения
+                                Main.EbuchieRazreshenia()
                             }
                         }
                     }
@@ -303,7 +305,11 @@ class Vse_radio : Fragment() {
                                 //попробуем уничтожить слушителя
                                 context.unregisterReceiver(this)
                             } else {
-                                toast("Ошибочка вышла тыкниете еще раз")
+                                toast(context.getString(R.string.error))
+                                //Изменим текущию вкладку при обновлении что тутж остаться
+                                Main.number_page = 0
+                                //запросим разрешения
+                                Main.EbuchieRazreshenia()
                             }
                         }
                     }
@@ -314,7 +320,7 @@ class Vse_radio : Fragment() {
 
 
                 val file_function = File_function()
-                file_function.Add_may_plalist_stansiy(url_link,name)
+                file_function.Add_may_plalist_stansiy(url_link, name)
 
                 alertDialog.cancel()
             }
@@ -355,7 +361,11 @@ class Vse_radio : Fragment() {
                                 //попробуем уничтожить слушителя
                                 context.unregisterReceiver(this)
                             } else {
-                                context.toast("Ошибочка вышла тыкниете еще раз")
+                                context.toast(context.getString(R.string.error))
+                                //Изменим текущию вкладку при обновлении что тутж остаться
+                                Main.number_page = 0
+                                //запросим разрешения
+                                Main.EbuchieRazreshenia()
                             }
                         }
                     }
@@ -373,7 +383,6 @@ class Vse_radio : Fragment() {
                                 + "#EXTINF:-1," + "$name.m3u"
                                 + "\n"
                                 + url_link)
-
 
 
             }

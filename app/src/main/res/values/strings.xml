@@ -39,7 +39,6 @@
          \n
     </string>
 
-
     <string name="banner_ad_unit_id">ca-app-pub-7908895047124036/8879720700</string>
 
     <string-array name="pop_radio">
@@ -160,8 +159,6 @@
         <item>Литературное радио\nliteraturnoe_radio.png\n
             64kbps~kbps~http://79.137.234.183:8000/;~kbps~
         </item>
-
-
     </string-array>
 
     <string-array name="list_ok">
@@ -175,10 +172,7 @@
         <item>Замечательно</item>
     </string-array>
 
-    <string name="help">
-         Чтобы добавить станцию , выберите *добавить в плейлист* во Всё радио. Или нажмите + в Популярное долгий тап на станции предложит удалить её
-    </string>
-
+    <string name="error">Ошибочка, возможно нет разрешений</string>
 
     <string-array name="vse_radio">
 

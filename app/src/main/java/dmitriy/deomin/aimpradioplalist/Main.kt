@@ -41,10 +41,6 @@ class Main : FragmentActivity() {
     private lateinit var vse_r: Button
     private lateinit var popul: Button
     private lateinit var moy_pl: Button
-    private val APP_PREFERENCES = "mysettings" // файл сохранялки
-
-    internal var visi: Boolean = false//true при активном приложении
-
 
     //тут куча всего что может использоваться в любом классе проекта
     companion object {
@@ -63,14 +59,11 @@ class Main : FragmentActivity() {
 
         //кодировка файла плейлиста
         const val File_Text_Code: String = "UTF8"
-
         const val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.80.631.apk"
-
-
         //текст в пустом плейлисте(много где требуется)
         @JvmField
         val PUSTO: String = "Плейлист пуст."
-
+        val MY_PLALIST = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u"
 
         //шрифт
         lateinit var face: Typeface
@@ -82,10 +75,6 @@ class Main : FragmentActivity() {
         var COLOR_FON: Int = 0
         var COLOR_ITEM: Int = 0
         var COLOR_TEXT: Int = 0
-
-
-        val MY_PLALIST = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u"
-
 
         //сохранялки
         //----------------------------
@@ -206,6 +195,37 @@ class Main : FragmentActivity() {
             return (Math.random() * ++max).toInt() + min
         }
         //
+
+
+        @JvmStatic
+        fun EbuchieRazreshenia() {
+
+            //посмотрим есть ли разрешения
+            // 0 есть
+            // -1 нет
+            //для интернета вроде всегда есть , спрашивает только для записи , автоматом и на чтение ставится
+            //поставлю на все накройняк
+            val permissionCheck = ContextCompat.checkSelfPermission(context, Manifest.permission.INTERNET)
+            val permissionFileR = ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)
+            val permissionFileW = ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+
+            if (permissionCheck == 0 && permissionFileR == 0 && permissionFileW == 0) {
+            } else {
+                //----------------------
+                KotlinPermissions.with(context as FragmentActivity)
+                        .permissions(Manifest.permission.READ_EXTERNAL_STORAGE,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                Manifest.permission.INTERNET)
+                        .onAccepted {
+                            //обновим
+                            Main.myadapter.notifyDataSetChanged()
+                            Main.viewPager.adapter = Main.myadapter
+                            Main.viewPager.currentItem = Main.number_page
+                        }
+                        .ask()
+                //------------------------
+            }
+        }
     }
 
 
@@ -225,17 +245,18 @@ class Main : FragmentActivity() {
 
         //во весь экран
         this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
+        mSettings = getSharedPreferences("mysettings", Context.MODE_PRIVATE)
 
 
         face = Typeface.createFromAsset(assets, if (save_read("fonts") == "") "fonts/Tweed.ttf" else save_read("fonts"))
 
-
         //реклама
+        //-------------------------------------------------------------------------
         MobileAds.initialize(this, "ca-app-pub-7908895047124036~7402987509")
         mAdView = findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
+        //--------------------------------------------------------------------------
 
         //ставим цвет фона
         COLOR_FON = if (save_read_int("color_fon") == 0) {
@@ -290,7 +311,6 @@ class Main : FragmentActivity() {
         }
         //****************************************************************
 
-
         mImageIds = intArrayOf(R.drawable.titl_text1, R.drawable.titl_text2, R.drawable.titl_text3)
         imageSwitcher = findViewById<View>(R.id.imageSwitcher) as ImageSwitcher
         imageSwitcher.setFactory {
@@ -302,84 +322,26 @@ class Main : FragmentActivity() {
 
         viewPager = findViewById<View>(R.id.pager) as ViewPager
         viewPager.offscreenPageLimit = 3
+        myadapter = Myadapter(supportFragmentManager)
+        viewPager.adapter = myadapter
+        viewPager.setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
-        //когда получим сигнал что все пучком и все разрешения есть загрузим вьюпейджер
-        //приёмник  сигналов
-        // фильтр для приёмника
-        val intentFilter = IntentFilter()
-        intentFilter.addAction("Dostup")
+            override fun onPageSelected(position: Int) {
+                // номер страницы
+                fon_button(position)
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {}
+        })
 
         //
-        val broadcastReceiver = object : BroadcastReceiver() {
-            override fun onReceive(c: Context, intent: Intent) {
-                if (intent.action == "Dostup") {
-                    //получим данные
-                    val s = intent.getStringExtra("signal")
-                    if (s == "ok") {
-                        //--------------------------------
-                        //заполнение и настройка вью пейджера
+        number_page = 1
+        //пролистаем на вип радио
+        viewPager.currentItem = 1
 
-
-                        myadapter = Myadapter(supportFragmentManager)
-                        viewPager.adapter = myadapter
-                        viewPager.setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-                            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
-
-                            override fun onPageSelected(position: Int) {
-                                // номер страницы
-                                fon_button(position)
-                            }
-
-                            override fun onPageScrollStateChanged(state: Int) {}
-                        })
-                        //пролистаем на вип радио
-                        viewPager.currentItem = 1
-                        //----------------------------------------
-
-
-                        //попробуем уничтожить слушителя
-                        context.unregisterReceiver(this)
-                    } else {
-                        context.toast("Ошибочка вышла перезапустите программу")
-                    }
-                }
-            }
-        }
-        //регистрируем приёмник
-        context.registerReceiver(broadcastReceiver, intentFilter)
-
-
-        //посмотрим есть ли разрешения и пошлём сигнал
-        // 0 есть
-        // -1 нет
-        //для интернета вроде всегда есть , спрашивает только для записи , автоматом и на чтение ставится
-        //поставлю на все накройняк
-        val permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)
-        val permissionFileR = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-        val permissionFileW = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-
-        if (permissionCheck == 0 && permissionFileR == 0 && permissionFileW == 0) {
-            //пошлём сигнал что все хорошо
-            val i = Intent("Dostup")
-            i.putExtra("signal", "ok")
-            context.sendBroadcast(i)
-        } else {
-            //получим ебучие разрешения , если не дали их еще
-            //----------------------
-            KotlinPermissions.with(this)
-                    .permissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.INTERNET)
-                    .onAccepted {
-                        //пошлём сигнал что все хорошо
-                        val i = Intent("Dostup")
-                        i.putExtra("signal", "ok")
-                        context.sendBroadcast(i)
-                    }
-                    .onDenied { toast("Нет нужных разрешений для работы программы") }
-                    .ask()
-            //------------------------
-        }
-
-        visi = true  // приложение активно
+        //получим ебучие разрешения , если не дали их еще
+        EbuchieRazreshenia()
 
     }
 
@@ -465,15 +427,4 @@ class Main : FragmentActivity() {
             }
         }
     }
-
-    override fun onPause() {
-        super.onPause()
-        visi = false
-    }
-
-    override fun onResume() {
-        super.onResume()
-        visi = true
-    }
-
 }

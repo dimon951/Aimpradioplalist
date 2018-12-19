@@ -165,7 +165,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                                         //попробуем уничтожить слушителя
                                         context.unregisterReceiver(this)
                                     } else {
-                                        context.toast("Ошибочка вышла тыкниете еще раз")
+                                        context.toast(context.getString(R.string.error))
                                     }
                                 }
                             }
@@ -260,7 +260,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                                         //попробуем уничтожить слушителя
                                         context.unregisterReceiver(this)
                                     } else {
-                                        context.toast("Ошибочка вышла тыкниете еще раз")
+                                        context.toast(context.getString(R.string.error))
                                     }
                                 }
                             }
@@ -466,7 +466,11 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                                                 //попробуем уничтожить слушителя
                                                 context.unregisterReceiver(this)
                                             } else {
-                                                context.toast("Ошибочка вышла тыкниете еще раз")
+                                                context.toast(context.getString(R.string.error))
+                                                //Изменим текущию вкладку при обновлении что тутж остаться
+                                                Main.number_page = 2
+                                                //запросим разрешения
+                                                Main.EbuchieRazreshenia()
                                             }
                                         }
                                     }
@@ -552,7 +556,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                                 //попробуем уничтожить слушителя
                                 view.context.unregisterReceiver(this)
                             } else {
-                                view.context.toast("Ошибочка вышла тыкниете еще раз")
+                                view.context.toast(view.context.getString(R.string.error))
                             }
                         }
                     }

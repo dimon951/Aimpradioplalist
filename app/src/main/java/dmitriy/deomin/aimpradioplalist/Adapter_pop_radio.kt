@@ -210,7 +210,11 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
                             //попробуем уничтожить слушителя
                             context.unregisterReceiver(this)
                         } else {
-                            context.toast("Ошибочка вышла тыкниете еще раз")
+                            context.toast(context.getString(R.string.error))
+                            //Изменим текущию вкладку при обновлении что тутж остаться
+                            Main.number_page = 1
+                            //запросим разрешения
+                            Main.EbuchieRazreshenia()
                         }
                     }
                 }
@@ -250,14 +254,14 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
                                         "com.aimp.player",
                                         "com.aimp.player.views.MainActivity.MainActivity")
 
-                                val intent = Intent()
-                                intent.component = cm
+                                val i = Intent()
+                                i.component = cm
 
-                                intent.action = Intent.ACTION_VIEW
-                                intent.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + results[p]["stancia"]!!.toString() + ".m3u"), "audio/mpegurl")
-                                intent.flags = 0x3000000
+                                i.action = Intent.ACTION_VIEW
+                                i.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + results[p]["stancia"]!!.toString() + ".m3u"), "audio/mpegurl")
+                                i.flags = 0x3000000
 
-                                context.startActivity(intent)
+                                context.startActivity(i)
 
                             } else {
                                 //иначе предложим системе открыть или установить аимп
@@ -269,7 +273,11 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
                             //попробуем уничтожить слушителя
                             context.unregisterReceiver(this)
                         } else {
-                            context.toast("Ошибочка вышла тыкниете еще раз")
+                            context.toast(context.getString(R.string.error))
+                            //Изменим текущию вкладку при обновлении что тутж остаться
+                            Main.number_page = 1
+                            //запросим разрешения
+                            Main.EbuchieRazreshenia()
                         }
                     }
                 }
