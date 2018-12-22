@@ -85,7 +85,6 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
         viewHolder.text!!.text = results[p]["stancia"]!!.toString()
 
 
-
         // скроем и покажем кнопки , заполним их
         when (mass_link_parametr.size) {
             2 -> {
@@ -178,7 +177,7 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
 
 
         //ставим картинку
-        Picasso.with(context)
+        Picasso.get()
                 .load("file:///android_asset/ava_pop/" + results[p]["avapop"]!!.toString())
                 .transform(transformation)
                 .into(viewHolder.ava)
@@ -207,8 +206,6 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
                             Main.myadapter.notifyDataSetChanged()
                             Main.viewPager.adapter = Main.myadapter
                             Main.viewPager.currentItem = Main.number_page
-                            //попробуем уничтожить слушителя
-                            context.unregisterReceiver(this)
                         } else {
                             context.toast(context.getString(R.string.error))
                             //Изменим текущию вкладку при обновлении что тутж остаться
@@ -216,6 +213,8 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
                             //запросим разрешения
                             Main.EbuchieRazreshenia()
                         }
+                        //попробуем уничтожить слушителя
+                        context.unregisterReceiver(this)
                     }
                 }
             }
@@ -268,10 +267,6 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
                                 Main.setup_aimp(viewHolder.link!!,
                                         "file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + results[p]["stancia"]!!.toString() + ".m3u")
                             }
-
-
-                            //попробуем уничтожить слушителя
-                            context.unregisterReceiver(this)
                         } else {
                             context.toast(context.getString(R.string.error))
                             //Изменим текущию вкладку при обновлении что тутж остаться
@@ -279,6 +274,8 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
                             //запросим разрешения
                             Main.EbuchieRazreshenia()
                         }
+                        //попробуем уничтожить слушителя
+                        context.unregisterReceiver(this)
                     }
                 }
             }

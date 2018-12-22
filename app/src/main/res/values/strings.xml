@@ -158,6 +158,8 @@
         </item>
         <item>Литературное радио\nliteraturnoe_radio.png\n
             64kbps~kbps~http://79.137.234.183:8000/;~kbps~
+            64kbps~kbps~http://79.137.234.183:8000/;stream.mp3~kbps~
+            32kbps mono~kbps~http://79.137.234.183:8005/;stream.mp3~kbps~
         </item>
     </string-array>
 
@@ -176,21 +178,30 @@
 
     <string-array name="vse_radio">
 
-        <item>Vocal Chillout 320kbps\nhttp://vocaltrance.fm:8000/vocalchillout_320</item>
-        <item>Vocal Chillout 256kbps\nhttp://vocaltrance.fm:8000/vocalchillout_256</item>
-        <item>Vocal Chillout 128kbps\nhttp://vocaltrance.fm:8000/vocalchillout_128</item>
-        <item>Vocal Trance Radio 128kbps\nhttp://176.9.36.203:8000/vocaltrance_128</item>
-        <item>Vocal Trance Radio 256kbps\nhttp://vocaltrance.ru:8000/vocaltrance</item>
-        <item>Vocal Trance Radio 256kbps\nhttp://176.9.36.203:8000/vocaltrance_256</item>
-        <item>Vocal Trance Radio 320kbps\nhttp://176.9.36.203:8000/vocaltrance_320</item>
+        <item>Vocal Chillout -Чилаут- 320kbps\nhttp://vocaltrance.fm:8000/vocalchillout_320</item>
+        <item>Vocal Chillout -Чилаут- 256kbps\nhttp://vocaltrance.fm:8000/vocalchillout_256</item>
+        <item>Vocal Chillout -Чилаут- 128kbps\nhttp://vocaltrance.fm:8000/vocalchillout_128</item>
+        <item>Vocal Trance Radio -Транс- 128kbps\nhttp://176.9.36.203:8000/vocaltrance_128</item>
+        <item>Vocal Trance Radio -Транс- 256kbps\nhttp://vocaltrance.ru:8000/vocaltrance</item>
+        <item>Vocal Trance Radio -Транс- 256kbps\nhttp://176.9.36.203:8000/vocaltrance_256</item>
+        <item>Vocal Trance Radio -Транс- 320kbps\nhttp://176.9.36.203:8000/vocaltrance_320</item>
 
-        <item>Поляна сказок 81kbps\nhttp://misato.ru-hoster.com:8082/stream</item>
+        <item>Поляна сказок -Аудиокниги- 81kbps\nhttp://misato.ru-hoster.com:8082/stream</item>
+        <item>Старое радио -Аудиокниги- 128kbps\nhttp://server.audiopedia.su:8000/ices128</item>
+        <item>Старое радио -Аудиокниги- 64kbps\nhttp://server.audiopedia.su:8000/ices64</item>
+        <item>Старое радио -Аудиокниги- 32kbps\nhttp://server.audiopedia.su:8000/ices32</item>
+        <item>ЗвукоКнига -Аудиокниги- 128kbps\nhttp://94.181.45.104:8005/;</item>
+        <item>Old Time Radio -Аудиокниги- mono 64kbps\nhttp://199.189.86.43:8170/;</item>
+        <item>Cornucopia Broadcasting -Аудиокниги- 96kbps\nhttp://8.38.78.173:8002/;audio.mp3</item>
+        <item>BBC Radio 4 Extra -Аудиокниги- 128kbps\nhttp://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4extra_mf_p</item>
 
-        <item>Старое радио 128kbps\nhttp://server.audiopedia.su:8000/ices128</item>
-        <item>Старое радио 64kbps\nhttp://server.audiopedia.su:8000/ices64</item>
-        <item>Старое радио 32kbps\nhttp://server.audiopedia.su:8000/ices32</item>
+        <item>ХАЙП FM -Поп- 46kbps\nhttp://air.volna.top/HypeFM</item>
 
-        <item>ХАЙП FM 46kbps\nhttp://air.volna.top/HypeFM</item>
+        <item>RETRO BOLLYWOOD -Саундтреки- 128kbps\nhttp://64.71.79.181:5124/stream</item>
+        <item>Soundtrax Movie Soundtracks -Саундтреки- 128kbps\nhttp://edge2.peta.live365.net/b31436_128mp3?cb=688524.mp3</item>
+        <item>Музыка кино Украина -Саундтреки- 128kbps\nhttp://music.myradio.ua/kino128.mp3</item>
+        <item>Музыка кино Украина -Саундтреки- 192kbps\nhttp://relay.radio.obozrevatel.com:8000/kino192.mp3</item>
+        <item>Музыка кино Украина -Саундтреки- 128kbps\nhttp://relay.radio.obozrevatel.com:8000/kino128.ogg</item>
 
         <item>Black Star Radio 128kbps\nhttps://blackstarradio.hostingradio.ru:8024/blackstarradio128.mp3?radiostatistica=radiopotok</item>
         <item>Black Star Radio 128kbps\nhttp://blackstarradio.hostingradio.ru:8024/blackstarradio128.mp3</item>
@@ -219,7 +230,17 @@
         <item>RADIO MADONNA 128kbps\nhttp://mp3stream4.abradio.cz/madonna128.mp3</item>
         <item>RADIO MADONNA 64kbps\nhttp://mp3stream4.abradio.cz/madonna64.mp3</item>
 
-        <item>SomaFM: Secret Agent 128kbps\nhttp://ice3.somafm.com/secretagent-128-mp3</item>
+        <item>SomaFM: Secret Agent -Саундтреки- 128kbps\nhttp://ice3.somafm.com/secretagent-128-mp3</item>
+        <item>Русское Радио: Русское Кино -Саундтреки- 192kbps\nhttp://icecast.russkoeradio.cdnvideo.ru/st19.mp3</item>
+        <item>Bolly FM -Саундтреки- 192kbps\nhttp://stream.radiobollyfm.in:8201/hd</item>
+        <item>Музыка кино -Саундтреки- 192kbps\nhttp://channels.fonotron.ru:8000/Chan_67_128.mp3</item>
+        <item>Музыка кино -Саундтреки- 256kbps\nhttp://channels.fonotron.ru:8000/Chan_67_256.mp3</item>
+        <item>Музыка кино -Саундтреки- 64kbps\nhttp://channels.fonotron.ru:8000/Chan_67_64.mp3</item>
+
+        <item>Музыка мюзиклов -Саундтреки- 128kbps\nhttp://channels.fonotron.ru:8000/Chan_66_128.mp3</item>
+        <item>Музыка мюзиклов -Саундтреки- 256kbps\nhttp://channels.fonotron.ru:8000/Chan_66_256.mp3</item>
+        <item>Музыка мюзиклов -Саундтреки- 64kbps\nhttp://channels.fonotron.ru:8000/Chan_66_64.mp3</item>
+
         <item>Атмосфера 128kbps\nhttp://185.53.169.120:8000/128</item>
         <item>Relax FM 90.8 256kbps\nhttp://ic2.101.ru:8000/v13_1?setst=094548200140236612420140625&amp;tok=75urgZKbvvpyTQMDZ1H4Hfqy5FKeKsXaPod7argnUF%2BwRqI%2Fy3MhBg%3D%3D</item>
         <item>Radio Schizoid 128kbps\nhttp://schizoid.in:8000/chill</item>
@@ -296,17 +317,17 @@
         <item>Aplus Beat Беларусь 24kbps\nhttp://shoutcast.aplus.by:9000/aplus_24.aac</item>
         <item>Aplus Beat Беларусь 16kbps\nhttp://shoutcast.aplus.by:9000/aplus_16.aac</item>
 
-        <item>House Monkey 128kbps\nhttp://radio.housemonkey.ru:8001/radiomid</item>
+        <item>House Monkey -хаус- 128kbps\nhttp://radio.housemonkey.ru:8001/radiomid</item>
         <item>Радио Чё - Dance Station 128kbps\nhttp://s1.radio-hoster.ru:8126/stream</item>
-        <item>Радио Dendy-Collection 128kbps\nhttp://s01.radio-tochka.com:4480/radio</item>
-        <item>Radio GamePlay из консолей 128kbps\nhttp://62.109.3.230/gameplay.mp3</item>
-        <item>Radio SEGA 65kbps\nhttp://content.radiosega.net:8006/live</item>
-        <item>Legend Fm 128kbps\nhttp://play.legendfm.in:8000/live128</item>
-        <item>Первое игровое радио Fox FM в России 128kbps\nhttp://31.192.104.139:8000/live</item>
-        <item>Wargaming.FM 128kbps\nhttp://wargaming.fm/1</item>
-        <item>Wargaming.FM - ROCK 128kbps\nhttp://sv.wargaming.fm:8054/128</item>
-        <item>Wargaming.FM - ROCK 64kbps\nhttp://sv.wargaming.fm:8054/64</item>
-        <item>Fallout.FM 64kbps\nhttp://fallout.fm:8000/falloutfm1.ogg</item>
+        <item>Радио Dendy-Collection -Саундтреки- 128kbps\nhttp://s01.radio-tochka.com:4480/radio</item>
+        <item>Radio GamePlay из консолей -Саундтреки- 128kbps\nhttp://62.109.3.230/gameplay.mp3</item>
+        <item>Radio SEGA -Саундтреки- 65kbps\nhttp://content.radiosega.net:8006/live</item>
+        <item>Legend Fm -Саундтреки- 128kbps\nhttp://play.legendfm.in:8000/live128</item>
+        <item>Первое игровое радио Fox FM в России -Саундтреки- 128kbps\nhttp://31.192.104.139:8000/live</item>
+        <item>Wargaming.FM -Саундтреки- 128kbps\nhttp://wargaming.fm/1</item>
+        <item>Wargaming.FM - ROCK -Саундтреки- 128kbps\nhttp://sv.wargaming.fm:8054/128</item>
+        <item>Wargaming.FM - ROCK -Саундтреки- 64kbps\nhttp://sv.wargaming.fm:8054/64</item>
+        <item>Fallout.FM -Саундтреки- 64kbps\nhttp://fallout.fm:8000/falloutfm1.ogg</item>
 
         <item>Радио Лучшие Песни 48kbps\nhttp://s.rbs.fm/</item>
         <item>Машенька 128kbps\nhttp://s01.radio-tochka.com:5380/radio</item>
@@ -512,7 +533,7 @@
         <item>102.5 Comedy Radio 256kbps\nhttp://ic3.101.ru:8000/s60</item>
         <item>103.4 Маяк 320kbps\nhttp://icecast.vgtrk.cdnvideo.ru/mayakfm</item>
         <item>104.2 NRJ 256kbps\nhttp://ic3.101.ru:8000/s20</item>
-        <item>Радио Книга 128kbps\nhttp://bookradio.hostingradio.ru:8069/fm</item>
+        <item>Радио Книга -Аудиокниги- 128kbps\nhttp://bookradio.hostingradio.ru:8069/fm</item>
         <item>105.3 Moscow FM  128kbps\nhttp://icecast.vgtrk.cdnvideo.ru:8000/moscowfmen128</item>
         <item>106.2 Европа Плюс 256kbps\nhttp://ep256.streamr.ru</item>
         <item>Радио Рекорд 192kbps\nhttp://air2.radiorecord.ru:805/rr_320</item>
@@ -1137,8 +1158,8 @@
         <item>Мегаполис FM\nhttp://stream04.media.rambler.ru/megapolis128.mp3</item>
         <item>Медляк FM\nhttp://air.radiorecord.ru:8102/mdl_320</item>
         <item>Мелодiя\nhttp://melodia.ipfm.net/RadioMelodia_32</item>
-        <item>Модель для Сборки (Германия)\nhttp://mds-station.com:8000/mds</item>
-        <item>Модель для Сборки (Казань)\nhttp://stream.kazancity.net:8000/27-mds</item>
+        <item>Модель для Сборки (Германия) -Аудиокниги- 128kbps\nhttp://mds-station.com:8000/mds</item>
+        <item>Модель для Сборки (Казань) -Аудиокниги- 128kbps\nhttp://stream.kazancity.net:8000/27-mds</item>
         <item>Музыка\nhttp://www.staroeradio.ru/music32.m3u</item>
         <item>Cinemix - Музыка из фильмов\nhttp://radio.2kom.ru:8000/CineMix</item>
         <item>Народная Волна\nhttp://www.intervolna.com:8000/rnv</item>

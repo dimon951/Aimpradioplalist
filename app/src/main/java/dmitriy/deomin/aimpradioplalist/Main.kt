@@ -9,7 +9,6 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.Typeface
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.os.StrictMode
@@ -17,20 +16,14 @@ import android.support.v4.app.*
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewPager
 import android.text.Spannable
-import android.util.Log
 import android.view.*
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.*
 import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.kotlinpermissions.KotlinPermissions
 import org.jetbrains.anko.browse
-import org.jetbrains.anko.support.v4.browse
-import org.jetbrains.anko.toast
-import java.util.*
 
 class Main : FragmentActivity() {
 
@@ -64,6 +57,9 @@ class Main : FragmentActivity() {
         @JvmField
         val PUSTO: String = "Плейлист пуст."
         val MY_PLALIST = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u"
+
+        //имя файла сохранения нсатроек темы
+        val MY_SAVE_SETTING_FILE = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/theme.xtx"
 
         //шрифт
         lateinit var face: Typeface
@@ -258,7 +254,9 @@ class Main : FragmentActivity() {
         mAdView.loadAd(adRequest)
         //--------------------------------------------------------------------------
 
+
         //ставим цвет фона
+        //--------------------------------------------------------------------
         COLOR_FON = if (save_read_int("color_fon") == 0) {
             Color.DKGRAY
         } else {
@@ -276,6 +274,8 @@ class Main : FragmentActivity() {
         } else {
             save_read_int("color_text")
         }
+        //------------------------------------------------------------------------------
+
 
 
         liner_boss = findViewById<View>(R.id.main) as LinearLayout

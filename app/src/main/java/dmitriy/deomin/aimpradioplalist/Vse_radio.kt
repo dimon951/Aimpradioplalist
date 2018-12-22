@@ -244,8 +244,6 @@ class Vse_radio : Fragment() {
                                     context.toast("Системе не удалось ( ")
                                 }
 
-                                //попробуем уничтожить слушителя
-                                context.unregisterReceiver(this)
                             } else {
                                 context.toast(context.getString(R.string.error))
                                 //Изменим текущию вкладку при обновлении что тутж остаться
@@ -253,6 +251,8 @@ class Vse_radio : Fragment() {
                                 //запросим разрешения
                                 Main.EbuchieRazreshenia()
                             }
+                            //попробуем уничтожить слушителя
+                            context.unregisterReceiver(this)
                         }
                     }
                 }
@@ -301,9 +301,6 @@ class Vse_radio : Fragment() {
                                 Main.myadapter.notifyDataSetChanged()
                                 Main.viewPager.adapter = Main.myadapter
                                 Main.viewPager.currentItem = Main.number_page
-
-                                //попробуем уничтожить слушителя
-                                context.unregisterReceiver(this)
                             } else {
                                 toast(context.getString(R.string.error))
                                 //Изменим текущию вкладку при обновлении что тутж остаться
@@ -311,6 +308,8 @@ class Vse_radio : Fragment() {
                                 //запросим разрешения
                                 Main.EbuchieRazreshenia()
                             }
+                            //попробуем уничтожить слушителя
+                            context.unregisterReceiver(this)
                         }
                     }
                 }
@@ -358,8 +357,6 @@ class Vse_radio : Fragment() {
 
                                 context.startActivity(intent)
 
-                                //попробуем уничтожить слушителя
-                                context.unregisterReceiver(this)
                             } else {
                                 context.toast(context.getString(R.string.error))
                                 //Изменим текущию вкладку при обновлении что тутж остаться
@@ -367,6 +364,8 @@ class Vse_radio : Fragment() {
                                 //запросим разрешения
                                 Main.EbuchieRazreshenia()
                             }
+                            //попробуем уничтожить слушителя
+                            context.unregisterReceiver(this)
                         }
                     }
                 }

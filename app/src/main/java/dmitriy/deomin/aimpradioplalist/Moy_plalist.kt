@@ -162,11 +162,11 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                                         Main.myadapter.notifyDataSetChanged()
                                         Main.viewPager.adapter = Main.myadapter
                                         Main.viewPager.currentItem = Main.number_page
-                                        //попробуем уничтожить слушителя
-                                        context.unregisterReceiver(this)
                                     } else {
                                         context.toast(context.getString(R.string.error))
                                     }
+                                    //попробуем уничтожить слушителя
+                                    context.unregisterReceiver(this)
                                 }
                             }
                         }
@@ -256,12 +256,11 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
 
                                         //тут злоябучий выскакивает глюк
                                         context.toast(Main.rnd_ok())
-
-                                        //попробуем уничтожить слушителя
-                                        context.unregisterReceiver(this)
                                     } else {
                                         context.toast(context.getString(R.string.error))
                                     }
+                                    //попробуем уничтожить слушителя
+                                    context.unregisterReceiver(this)
                                 }
                             }
                         }
@@ -463,8 +462,6 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                                                 Main.myadapter.notifyDataSetChanged()
                                                 Main.viewPager.adapter = Main.myadapter
                                                 Main.viewPager.currentItem = Main.number_page
-                                                //попробуем уничтожить слушителя
-                                                context.unregisterReceiver(this)
                                             } else {
                                                 context.toast(context.getString(R.string.error))
                                                 //Изменим текущию вкладку при обновлении что тутж остаться
@@ -472,6 +469,8 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                                                 //запросим разрешения
                                                 Main.EbuchieRazreshenia()
                                             }
+                                            //попробуем уничтожить слушителя
+                                            context.unregisterReceiver(this)
                                         }
                                     }
                                 }
@@ -552,12 +551,11 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                                 Main.myadapter.notifyDataSetChanged()
                                 Main.viewPager.adapter = Main.myadapter
                                 Main.viewPager.currentItem = Main.number_page
-
-                                //попробуем уничтожить слушителя
-                                view.context.unregisterReceiver(this)
                             } else {
                                 view.context.toast(view.context.getString(R.string.error))
                             }
+                            //попробуем уничтожить слушителя
+                            view.context.unregisterReceiver(this)
                         }
                     }
                 }
@@ -590,12 +588,12 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
     fun getText(c: Context): String {
         var text: String? = null
         val sdk = android.os.Build.VERSION.SDK_INT
-        if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
+        text = if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
             val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
-            text = clipboard.text.toString()
+            clipboard.text.toString()
         } else {
             val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
-            text = clipboard.text.toString()
+            clipboard.text.toString()
         }
         return text
     }

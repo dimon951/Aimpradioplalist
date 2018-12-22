@@ -1,77 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <EditText
+            android:id="@+id/editText_find"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText_find"
-            android:hint="Введите название нужной станции"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:hint="Введите название нужной станции" />
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
             <dmitriy.deomin.aimpradioplalist.But_Kod
-                android:text="Дискография"
-                android:layout_width="wrap_content"
                 android:id="@+id/kod_diskografii"
-                android:layout_weight="1"
-                android:textSize="10sp"
+                android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:background="@android:color/transparent" />
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:text="Дискография"
+                android:textSize="10sp" />
 
             <dmitriy.deomin.aimpradioplalist.But_Kod
-                android:text="32kbps"
-                android:layout_width="wrap_content"
                 android:id="@+id/kod_32bit"
-                android:layout_weight="1"
-                android:textSize="10sp"
-                android:layout_height="30dp"
-                android:background="@android:color/transparent" />
-            <dmitriy.deomin.aimpradioplalist.But_Kod
-                android:text="64kbps"
                 android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:text="32kbps"
+                android:textSize="10sp" />
+
+            <dmitriy.deomin.aimpradioplalist.But_Kod
                 android:id="@+id/kod_64bit"
-                android:layout_weight="1"
-                android:textSize="10sp"
-                android:layout_height="30dp"
-                android:background="@android:color/transparent" />
-            <dmitriy.deomin.aimpradioplalist.But_Kod
-                android:text="96kbps"
                 android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:text="64kbps"
+                android:textSize="10sp" />
+
+            <dmitriy.deomin.aimpradioplalist.But_Kod
                 android:id="@+id/kod_96bit"
-                android:layout_weight="1"
-                android:textSize="10sp"
-                android:layout_height="30dp"
-                android:background="@android:color/transparent" />
-            <dmitriy.deomin.aimpradioplalist.But_Kod
-                android:text="128kbps"
                 android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:text="96kbps"
+                android:textSize="10sp" />
+
+            <dmitriy.deomin.aimpradioplalist.But_Kod
                 android:id="@+id/kod_128bit"
-                android:layout_weight="1"
-                android:textSize="10sp"
-                android:layout_height="30dp"
-                android:background="@android:color/transparent" />
-            <dmitriy.deomin.aimpradioplalist.But_Kod
-                android:text="256kbps"
                 android:layout_width="wrap_content"
-                android:id="@+id/kod_256bit"
-                android:layout_weight="1"
-                android:textSize="10sp"
                 android:layout_height="30dp"
-                android:background="@android:color/transparent" />
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:text="128kbps"
+                android:textSize="10sp" />
+
+            <dmitriy.deomin.aimpradioplalist.But_Kod
+                android:id="@+id/kod_256bit"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:text="256kbps"
+                android:textSize="10sp" />
 
 
         </LinearLayout>
@@ -79,11 +82,10 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/listviw_vse_radio"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:divider="@null">
-    </ListView>
+    android:id="@+id/listviw_vse_radio"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:divider="@null" />
 
 </LinearLayout>

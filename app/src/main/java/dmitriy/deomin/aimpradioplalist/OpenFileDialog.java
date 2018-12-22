@@ -43,7 +43,7 @@ public class OpenFileDialog extends AlertDialog.Builder {
     private boolean isOnlyFoldersFilter;
 
     public interface OpenDialogListener {
-        public void OnSelectedFile(String fileName);
+        void OnSelectedFile(String fileName);
     }
 
     private class FileAdapter extends ArrayAdapter<File> {

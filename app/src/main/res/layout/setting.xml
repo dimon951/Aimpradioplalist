@@ -77,14 +77,33 @@
     </LinearLayout>
 
     <Button
-        android:text="Изменить шрифт"
+        android:id="@+id/button_edit_fonts"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/button_edit_fonts"
-        android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/transparent"
         android:onClick="edit_fonts"
-        android:background="@android:color/transparent" />
+        android:text="Изменить шрифт" />
+
+    <Button
+        android:id="@+id/save_this_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/transparent"
+        android:text="Сохранить текущию тему" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recirl_theme"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp" />
 
 
 </LinearLayout>
