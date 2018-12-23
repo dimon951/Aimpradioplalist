@@ -1,11 +1,20 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
     android:orientation="vertical"
     android:gravity="center"
     android:id="@+id/fon_setting">
+
+    <Button
+        android:id="@+id/button_edit_fonts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:onClick="edit_fonts"
+        android:text="Изменить шрифт" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -74,36 +83,49 @@
             android:id="@+id/button_edit_color_text"
             android:onClick="Edit_color_fon"
             android:text="Изменить" />
+
     </LinearLayout>
 
     <Button
-        android:id="@+id/button_edit_fonts"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@android:color/transparent"
-        android:onClick="edit_fonts"
-        android:text="Изменить шрифт" />
-
-    <Button
         android:id="@+id/save_this_theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/ic_menu_save" />
+
+
+    <TextView
+        android:id="@+id/logo_pagera_inumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@android:color/transparent"
-        android:text="Сохранить текущию тему" />
+        android:gravity="center"
+        android:text="number them"
+        android:textSize="18sp" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recirl_theme"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp" />
+        android:layout_height="wrap_content"
+        android:divider="@drawable/separator"
+        android:gravity="center"
+        android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/button_themeleft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/ic_media_previous" />
+
+        <Button
+            android:id="@+id/button_themedel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/ic_menu_delete" />
+
+        <Button
+            android:id="@+id/buttonthemenext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/ic_media_next" />
+
+    </LinearLayout>
 
 </LinearLayout>
