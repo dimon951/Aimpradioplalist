@@ -29,7 +29,14 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:background="@android:color/transparent"
-            android:text="Цвет,шрифт" />
+            android:text="Изменить тему" />
+
+        <Button
+            android:id="@+id/button_edit_fonts"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:text="Изменить шрифт" />
 
         <Button
             android:id="@+id/button_abaut"

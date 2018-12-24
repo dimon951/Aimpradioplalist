@@ -29,7 +29,13 @@ class Abaut : Activity() {
     fun View.opengruppa() {
         browse("https://vk.com/aimp_radio_plalist")
     }
+    fun View.opentelega() {
+        browse("https://t.me/joinchat/AAAAAFW3nSmcsxx9TJ9yUA")
+    }
     fun View.donat() {
+        //если даже просто нажмут отключим показ рекламы
+        Main.save_value("reklama_pokaz","of")
+
         browse("https://money.yandex.ru/to/41001566605499")
     }
 }

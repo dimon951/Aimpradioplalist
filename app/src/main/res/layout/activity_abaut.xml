@@ -10,7 +10,9 @@
         android:id="@+id/textView_abaut"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:enabled="true"
         android:focusable="auto"
@@ -19,31 +21,49 @@
         android:textSize="20sp" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/telegram"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:contentDescription="TODO"
-        android:onClick="donat"
+        android:onClick="opentelega"
         android:scaleType="centerCrop"
-        android:src="@drawable/donat" />
+        android:src="@drawable/telega" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/vk"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:contentDescription="TODO"
         android:onClick="opengruppa"
         android:scaleType="centerCrop"
         android:src="@drawable/vk" />
+
+    <ImageButton
+        android:id="@+id/donat"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:contentDescription="TODO"
+        android:onClick="donat"
+        android:scaleType="centerCrop"
+        android:src="@drawable/donat" />
 
 
 </RelativeLayout>

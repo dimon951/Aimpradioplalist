@@ -24,6 +24,8 @@ import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.kotlinpermissions.KotlinPermissions
 import org.jetbrains.anko.browse
+import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.startActivity
 
 class Main : FragmentActivity() {
 
@@ -246,6 +248,8 @@ class Main : FragmentActivity() {
 
         face = Typeface.createFromAsset(assets, if (save_read("fonts") == "") "fonts/Tweed.ttf" else save_read("fonts"))
 
+
+
         //реклама
         //-------------------------------------------------------------------------
         MobileAds.initialize(this, "ca-app-pub-7908895047124036~7402987509")
@@ -253,7 +257,12 @@ class Main : FragmentActivity() {
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
         //--------------------------------------------------------------------------
-
+        //если нажмут кнопку доната в о проге то отключим показ рекламы
+        if(save_read("reklama_pokaz")=="of"){
+            mAdView.visibility = View.GONE
+        }else{
+            mAdView.visibility = View.VISIBLE
+        }
 
         //ставим цвет фона
         //--------------------------------------------------------------------
@@ -357,27 +366,36 @@ class Main : FragmentActivity() {
         val alertDialog = builder.create()
         alertDialog.show()
 
-        val b_a = content.findViewById<View>(R.id.button_abaut) as Button
+        val b_a = content.findViewById<Button>(R.id.button_abaut)
         b_a.setTextColor(COLOR_TEXT)
         b_a.typeface = face
         b_a.setOnClickListener { v ->
             val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
             v.startAnimation(anim)
-            val i = Intent(applicationContext, Abaut::class.java)
-            startActivity(i)
+            startActivity<Abaut>()
             alertDialog.cancel()
         }
 
-        val b_s = content.findViewById<View>(R.id.button_setting) as Button
+        val b_s = content.findViewById<Button>(R.id.button_setting)
         b_s.setTextColor(COLOR_TEXT)
         b_s.typeface = face
         b_s.setOnClickListener { v ->
             val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
             v.startAnimation(anim)
-            val s = Intent(this@Main, Setting::class.java)
-            startActivity(s)
+            startActivity<Setting>()
             alertDialog.cancel()
         }
+
+        val b_f= content.findViewById<Button>(R.id.button_edit_fonts)
+        b_f.setTextColor(COLOR_TEXT)
+        b_f.typeface = face
+        b_f.onClick {v->
+            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
+            v?.startAnimation(anim)
+            startActivity<Fonts_vibor>()
+            alertDialog.cancel()
+        }
+
     }
 
     //заполняем наш скролер
