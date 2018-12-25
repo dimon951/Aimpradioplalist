@@ -83,6 +83,9 @@
         <item>Радио Нашествие\nnashestvie.png\n
             320kbps~kbps~http://320kbps.radio-nashestvie.ru:9000/9857~kbps~
         </item>
+        <item>Радио ULTRA\nultra.png\n
+            128kbps~kbps~https://nashe1.hostingradio.ru:18000/ultra-128.mp3~kbps~
+        </item>
         <item>Юмор Fm\nyomorfm.png\n
             128kbps~kbps~http://yumfm128.streamr.ru~kbps~
             256kbps~kbps~http://ic7.101.ru:8000/v5_1~kbps~
@@ -193,14 +196,36 @@
 
     <string-array name="vse_radio">
 
-
-        //москва монтекарло
+        //последнее новосибирск
 
         <item>BEST FM 100,5 FM Москва -Музыка- 128kbps\nhttp://nashe1.hostingradio.ru/best-128.mp3</item>
         <item>Comedy Radio Москва -Юмор- 256kbps\nhttp://ic2.101.ru:8000/v11_1</item>
         <item>Радио Монте-Карло Москва -Музыка- 128kbps\nhttps://montecarlo.hostingradio.ru/montecarlo128.mp3</item>
         <item>Радио Монте-Карло Москва -Музыка- 64kbps\nhttps://montecarlo.hostingradio.ru/montecarlo64.mp3</item>
         <item>Радио Монте-Карло Москва -Музыка- 96kbps\nhttps://montecarlo.hostingradio.ru/montecarlo96.aacp</item>
+        <item>Коммерсантъ FM Москва -Разговорное- 128kbps\nhttp://kommersant77.hostingradio.ru:8016/kommersant128.mp3</item>
+        <item>Коммерсантъ FM Москва -Разговорное- mono 64kbps\nhttp://kommersant77.hostingradio.ru:8016/kommersant64.mp3</item>
+        <item>Коммерсантъ FM Москва -Разговорное- mono 32kbps\nhttp://kommersant77.hostingradio.ru:8016/kommersant32.mp3</item>
+        <item>Радио Джаз 89.1 Москва -Музыка- mono 32kbps\nhttp://nashe1.hostingradio.ru/jazz-128.mp3</item>
+        <item>Говорит Москва -Разговорное- 128kbps\nhttp://video.govoritmoskva.ru:8880/rufm_m.mp3</item>
+        <item>Говорит Москва -Разговорное- 64kbps\nhttp://video.govoritmoskva.ru:8880/ru64.mp3</item>
+        <item>Говорит Москва -Разговорное- mono 32kbps\nhttp://video.govoritmoskva.ru:8880/ru32.mp3</item>
+        <item>Радио Мегаполис Москва -Разговорное- 49kbps\nhttp://109.239.129.43:8010/megapolis-48.aac</item>
+        <item>МосРадио Москва -Музыка- 128kbps\nhttp://217.70.28.155:8004/mosradio128</item>
+        <item>МосРадио Москва -Музыка- 192kbps\nhttp://217.70.28.155:8004/mosradio192</item>
+        <item>МосРадио Москва -Музыка- 320kbps\nhttp://217.70.28.155:8004/mosradio320</item>
+        <item>Комсомольская правда Москва -Разговорное- 128kbps\nhttp://kpradio128.streamr.ru/</item>
+        <item>Комсомольская правда Москва -Разговорное- 64kbps\nhttp://kpradio64.streamr.ru/</item>
+        <item>Комсомольская правда Москва -Разговорное- 32kbps\nhttp://kpradio32.streamr.ru</item>
+
+        <item>Радио Рандеву Нижний Новгород -Музыка- 128kbps\nhttp://212.92.183.74:8370/;</item>
+        <item>Радио «Образ» Нижний Новгород -Музыка- 128kbps\nhttp://213.177.106.78:8006/;?6358</item>
+        <item>Ralph radio Нижний Новгород -Музыка- 48kbps\nhttp://eu3.radioboss.fm:8110/ralph48</item>
+        <item>Ralph radio Нижний Новгород -Музыка- 256kbps\nhttp://eu3.radioboss.fm:8110/ralph128</item>
+
+        <item>Комсомольская правда Нижний Новгород -Разговорное- 128kbps\nhttp://nnovgorod.radiokp128.mp3.streamr.ru</item>
+        <item>Комсомольская правда Нижний Новгород -Разговорное- mono 64kbps\nhttp://nnovgorod.radiokp64.mp3.streamr.ru</item>
+        <item>Комсомольская правда Нижний Новгород -Разговорное- mono 32kbps\nhttp://nnovgorod.radiokp32.mp3.streamr.ru</item>
 
         <item>Комсомольская правда Барнаул -Разговорное- 128kbps\nhttp://barnaul.radiokp128.mp3.streamr.ru</item>
         <item>Комсомольская правда Барнаул -Разговорное- 64kbps\nhttp://barnaul.radiokp64.mp3.streamr.ru</item>
@@ -793,7 +818,7 @@
         <item>Радио Jazz\nhttp://jazz.streamr.ru/jazz-128.mp3</item>
         <item>Радио Комсомольская правда\nhttp://kraskp.ru:8000/64</item>
         <item>Russian Hit\nhttp://apps.imgradio.ru/Dorojnoe-001</item>
-        <item>Radio Chocolate\nhttp://choco.hostingradio.ru:10010/fm128</item>
+        <item>Chocolate Radio 98FM Москва -Музыка- 160kbps\nhttp://choco.hostingradio.ru:10010/fm128</item>
         <item>Radio 100 FM (Челябинск)\nhttp://195.54.20.148:9000/radio100fm?39</item>
         <item>Power Fm\nhttp://sh.mncdn.com:8108/;stream.mp3"</item>
         <item>BFM\nhttp://bfm.hostingradio.ru:8004/fm</item>
@@ -832,7 +857,7 @@
         <item>Мега FM Архангельск 106.4 128kbps\nhttp://radio.arkhnet.ru:6001/megafm.mp3</item>
         <item>Мегаполис FM Москва 89.5 128kbps\nhttp://stream04.media.rambler.ru/megapolis128.mp3</item>
         <item>Мелодия - Воронеж 71.39 192kbps\nhttp://icecast.mediaalliance.cdnvideo.ru/mediaalliance</item>
-        <item>Москва FM 92.0 128kbps\nhttp://icecast.vgtrk.cdnvideo.ru/moscowfm128</item>
+        <item>Москва FM 92.0 -Разговорное- 128kbps\nhttp://icecast.vgtrk.cdnvideo.ru/moscowfm128</item>
         <item>Мост-Радио Пенза 102.8 128kbps\nhttp://94.181.181.72:8000/</item>
         <item>Моя Удмуртия Ижевск 100.1 96kbps\nhttp://radio.myudm.ru:10010/mp3</item>
         <item>Н-Радио Новоуральск 107.9 128kbps\nhttp://5.199.192.107:8000/n-radio</item>
@@ -892,8 +917,8 @@
         <item>Радио Губерния Воронеж 100.7 -Разговорное- 128kbps\nhttp://www.gubernia-media.ru:8000/gubernia</item>
         <item>Радио Заречный Пенза 103.3 160kbps\nhttp://85.234.36.51:8000/radio</item>
         <item>Радио Звезда Москва 95.6 128kbps\nhttp://89.208.99.16:8088/zvezda_128</item>
-        <item>Радио Карнавал  Москва 92.8 128kbps\nhttp://online.carnivalfm.ru:8000/stream/2/</item>
-        <item>Радио Карнавал Москва 92.8 64kbps\nhttp://online.carnivalfm.ru:8000/stream/3/</item>
+        <item>Радио Карнавал  Москва 92.8 -Музыка- 128kbps\nhttp://online.carnivalfm.ru:8000/stream/2/</item>
+        <item>Радио Карнавал Москва 92.8 -Музыка- 64kbps\nhttp://online.carnivalfm.ru:8000/stream/3/</item>
         <item>Радио Комета Чехов 92.6 64kbps\nhttp://online.kometa.fm:8000/live</item>
         <item>Радио Континенталь Челябинск 100.4 64kbps\nhttp://stream01.radiocon.ru:8000/aac64</item>
         <item>Радио Континенталь Челябинск 100.4 32kbps\nhttp://stream01.radiocon.ru:8000/aac32</item>

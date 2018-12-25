@@ -37,7 +37,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:text="32kbps"
+                android:text="Музыка"
                 android:textSize="10sp" />
 
             <dmitriy.deomin.aimpradioplalist.But_Kod
@@ -46,7 +46,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:text="64kbps"
+                android:text="Юмор"
                 android:textSize="10sp" />
 
             <dmitriy.deomin.aimpradioplalist.But_Kod
@@ -55,7 +55,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:text="96kbps"
+                android:text="Разговорное"
                 android:textSize="10sp" />
 
             <dmitriy.deomin.aimpradioplalist.But_Kod
@@ -64,7 +64,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:text="128kbps"
+                android:text="Аудиокниги"
                 android:textSize="10sp" />
 
             <dmitriy.deomin.aimpradioplalist.But_Kod
@@ -73,7 +73,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:text="256kbps"
+                android:text="Саундтреки"
                 android:textSize="10sp" />
 
 

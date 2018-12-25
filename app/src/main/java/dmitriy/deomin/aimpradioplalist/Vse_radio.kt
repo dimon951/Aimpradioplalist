@@ -35,6 +35,7 @@ class Vse_radio : Fragment() {
     internal lateinit var context: Context
     lateinit var find: EditText
     private val STANCIA = "stancia"
+    val PREFIX = "-"
 
 
     @SuppressLint("WrongConstant")
@@ -99,46 +100,46 @@ class Vse_radio : Fragment() {
         v.kod_32bit.onClick {
             val anim = AnimationUtils.loadAnimation(v.context, R.anim.myalpha)
             v.kod_32bit.startAnimation(anim)
-            if (find.text.toString() == v.kod_32bit.text) {
+            if (find.text.toString() == (PREFIX+v.kod_32bit.text+PREFIX)) {
                 find.setText("")
             } else {
-                find.setText(v.kod_32bit.text)
+                find.setText(PREFIX+v.kod_32bit.text+PREFIX)
             }
         }
         v.kod_64bit.onClick {
             val anim = AnimationUtils.loadAnimation(v.context, R.anim.myalpha)
             v.kod_64bit.startAnimation(anim)
-            if (find.text.toString() == v.kod_64bit.text) {
+            if (find.text.toString() == (PREFIX+v.kod_64bit.text+PREFIX)) {
                 find.setText("")
             } else {
-                find.setText(v.kod_64bit.text)
+                find.setText(PREFIX+v.kod_64bit.text+PREFIX)
             }
         }
         v.kod_96bit.onClick {
             val anim = AnimationUtils.loadAnimation(v.context, R.anim.myalpha)
             v.kod_96bit.startAnimation(anim)
-            if (find.text.toString() == v.kod_96bit.text) {
+            if (find.text.toString() == (PREFIX+v.kod_96bit.text+PREFIX)) {
                 find.setText("")
             } else {
-                find.setText(v.kod_96bit.text)
+                find.setText(PREFIX+v.kod_96bit.text+PREFIX)
             }
         }
         v.kod_128bit.onClick {
             val anim = AnimationUtils.loadAnimation(v.context, R.anim.myalpha)
             v.kod_128bit.startAnimation(anim)
-            if (find.text.toString() == v.kod_128bit.text) {
+            if (find.text.toString() == (PREFIX+v.kod_128bit.text+PREFIX)) {
                 find.setText("")
             } else {
-                find.setText(v.kod_128bit.text)
+                find.setText(PREFIX+v.kod_128bit.text+PREFIX)
             }
         }
         v.kod_256bit.onClick {
             val anim = AnimationUtils.loadAnimation(v.context, R.anim.myalpha)
             v.kod_256bit.startAnimation(anim)
-            if (find.text.toString() == v.kod_256bit.text) {
+            if (find.text.toString() == (PREFIX+v.kod_256bit.text+PREFIX)) {
                 find.setText("")
             } else {
-                find.setText(v.kod_256bit.text)
+                find.setText(PREFIX+v.kod_256bit.text+PREFIX)
             }
         }
 

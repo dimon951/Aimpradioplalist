@@ -35,7 +35,6 @@ class Abaut : Activity() {
     fun View.donat() {
         //если даже просто нажмут отключим показ рекламы
         Main.save_value("reklama_pokaz","of")
-
         browse("https://money.yandex.ru/to/41001566605499")
     }
 }

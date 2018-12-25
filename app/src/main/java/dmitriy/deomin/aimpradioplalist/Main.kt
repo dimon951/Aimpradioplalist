@@ -23,6 +23,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.kotlinpermissions.KotlinPermissions
+import org.jetbrains.anko.alert
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
@@ -54,14 +55,11 @@ class Main : FragmentActivity() {
 
         //кодировка файла плейлиста
         const val File_Text_Code: String = "UTF8"
-        const val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.80.631.apk"
+        const val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.85.718.apk"
         //текст в пустом плейлисте(много где требуется)
         @JvmField
         val PUSTO: String = "Плейлист пуст."
         val MY_PLALIST = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u"
-
-        //имя файла сохранения нсатроек темы
-        val MY_SAVE_SETTING_FILE = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/theme.xtx"
 
         //шрифт
         lateinit var face: Typeface
@@ -175,7 +173,7 @@ class Main : FragmentActivity() {
             }
         }
 
-        //
+        //даёт рандомну положительную фразу
         fun rnd_ok(): String {
             val mas = context.resources.getStringArray(R.array.list_ok)
             val i = rnd_int(0, mas.size - 1)
@@ -264,7 +262,7 @@ class Main : FragmentActivity() {
             mAdView.visibility = View.VISIBLE
         }
 
-        //ставим цвет фона
+        //ставим цвет фона(тема)
         //--------------------------------------------------------------------
         COLOR_FON = if (save_read_int("color_fon") == 0) {
             Color.DKGRAY
@@ -357,7 +355,6 @@ class Main : FragmentActivity() {
     fun Menu_progi(view: View) {
         val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
         view.startAnimation(anim)
-
 
         val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
         val content = LayoutInflater.from(context).inflate(R.layout.menu_progi, null)
