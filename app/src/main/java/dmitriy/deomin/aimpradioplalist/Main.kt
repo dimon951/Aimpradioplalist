@@ -23,10 +23,10 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.kotlinpermissions.KotlinPermissions
-import org.jetbrains.anko.alert
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 
 class Main : FragmentActivity() {
 
@@ -119,9 +119,9 @@ class Main : FragmentActivity() {
             val alertDialog = builder.create()
             alertDialog.show()
 
-            val dw_aimp_market = content.findViewById<View>(R.id.button_dialog_dowload_aimp_market) as Button
-            val dw_aimp_link = content.findViewById<View>(R.id.button_dialog_dowload_aimp_link) as Button
-            val open_sys = content.findViewById<View>(R.id.button_dialog_open_sistem) as Button
+            val dw_aimp_market = content.findViewById<Button>(R.id.button_dialog_dowload_aimp_market)
+            val dw_aimp_link = content.findViewById<Button>(R.id.button_dialog_dowload_aimp_link)
+            val open_sys = content.findViewById<Button>(R.id.button_dialog_open_sistem)
 
             //если есть магазин покажем и установку через него
             if (install_app("com.google.android.gms")) {
@@ -166,9 +166,9 @@ class Main : FragmentActivity() {
                 i.setDataAndType(Uri.parse(file), "audio/mpegurl")
                 //проверим есть чем открыть или нет
                 if (i.resolveActivity(Main.context.packageManager) != null) {
-                    Main.context.startActivity(i)
+                    context.startActivity(i)
                 } else {
-                    Toast.makeText(context, "Системе не удалось ( ", Toast.LENGTH_LONG).show()
+                    context.toast("Системе не удалось ( ")
                 }
             }
         }
@@ -285,13 +285,13 @@ class Main : FragmentActivity() {
 
 
 
-        liner_boss = findViewById<View>(R.id.main) as LinearLayout
+        liner_boss = findViewById<LinearLayout>(R.id.main)
         liner_boss.setBackgroundColor(COLOR_FON)
 
 
         //анимация на кнопках*****************************************.
         val anim = AnimationUtils.loadAnimation(context, R.anim.myscale)
-        vse_r = findViewById<View>(R.id.vse_radio) as Button
+        vse_r = findViewById<Button>(R.id.vse_radio)
         vse_r.typeface = face
         vse_r.setTextColor(COLOR_TEXT)
         vse_r.text = vse_r.text.toString() + "(" + resources.getStringArray(R.array.vse_radio).size.toString() + ")"
