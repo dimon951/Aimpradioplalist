@@ -22,8 +22,10 @@ import android.view.animation.AnimationUtils
 import android.widget.*
 import kotlinx.android.synthetic.main.vse_radio.view.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.browse
 import org.jetbrains.anko.support.v4.toast
+import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
 
 import java.util.ArrayList
@@ -88,15 +90,66 @@ class Vse_radio : Fragment() {
             }
         })
 
+
+        //при первой загрузке будем ставить текст на кнопке , потом при смене будем менять тамже
+        val t = if(Main.save_read("button_text_filter1").length>=1){
+            Main.save_read("button_text_filter1") }else{ "Дискография" }
+        v.kod_diskografii.text = t
+
+        //при клике будем вставлять в строку поиска для отфильтровки
         v.kod_diskografii.onClick {
             val anim = AnimationUtils.loadAnimation(v.context, R.anim.myalpha)
             v.kod_diskografii.startAnimation(anim)
+
             if (find.text.toString() == v.kod_diskografii.text) {
                 find.setText("")
             } else {
                 find.setText(v.kod_diskografii.text)
             }
         }
+        //при долгом нажатиии будем предлогать изменить текст
+        v.kod_diskografii.onLongClick {
+            val anim = AnimationUtils.loadAnimation(v.context, R.anim.myalpha)
+            v.kod_diskografii.startAnimation(anim)
+
+            val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
+            val content = LayoutInflater.from(context).inflate(R.layout.vvod_new_text_vse_radio_filtr, null)
+            builder.setView(content)
+
+            val alertDialog = builder.create()
+            alertDialog.show()
+
+
+            (content.findViewById<TextView>(R.id.new_text_filter_logo)).typeface = Main.face
+            (content.findViewById<TextView>(R.id.new_text_filter_logo)).textColor = Main.COLOR_TEXT
+
+            val e_t = content.findViewById<EditText>(R.id.new_text_filter_editText)
+            e_t.typeface  = Main.face
+            e_t.setTextColor(Main.COLOR_TEXT)
+            e_t.setText(if(Main.save_read("button_text_filter1").length>=1){
+                Main.save_read("button_text_filter1") }else{ "Дискография" })
+
+            val bt_ok = content.findViewById<Button>(R.id.new_text_filter_button)
+            bt_ok.typeface = Main.face
+            bt_ok.setTextColor(Main.COLOR_TEXT)
+            bt_ok.onClick {
+                val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
+                bt_ok.startAnimation(anim)
+
+
+                if(e_t.text.toString().length>=1){
+                    Main.save_value("button_text_filter1",e_t.text.toString())
+                    v.kod_diskografii.text=Main.save_read("button_text_filter1")
+                }else{
+                    toast("Значения нет, восстановим по умолчанию")
+                    Main.save_value("button_text_filter1","Дискография")
+                    v.kod_diskografii.text=Main.save_read("button_text_filter1")
+                }
+                alertDialog.cancel()
+            }
+
+        }
+
         v.kod_32bit.onClick {
             val anim = AnimationUtils.loadAnimation(v.context, R.anim.myalpha)
             v.kod_32bit.startAnimation(anim)

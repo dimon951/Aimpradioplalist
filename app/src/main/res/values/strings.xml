@@ -65,10 +65,10 @@
             128kbps~kbps~https://dfm.hostingradio.ru/dfm128.mp3~kbps~
         </item>
         <item>Питер FM 100.9\npiterfm.png\n
-            160kbps~kbps~https://piterfm-hls.cdnvideo.ru/piterfm-live/piterfm.stream/playlist.m3u8~kbps~s~
+            160kbps~kbps~https://piterfm-hls.cdnvideo.ru/piterfm-live/piterfm.stream/playlist.m3u8~kbps~
         </item>
         <item>ТМ-Радио\ntm.png\n
-            128kbps~kbps~http://radio.tmstudia.ru:8001/live~kbps~s~
+            128kbps~kbps~http://radio.tmstudia.ru:8001/live~kbps~
         </item>
         <item>Радио Гамаюн \ngamanun.png\n
             128kbps~kbps~http://gamaun.online:8010/radio~kbps~
@@ -202,9 +202,26 @@
 
     <string-array name="vse_radio">
 
+        <item>Радио Континеталь Челябинск -Музыка- 128kbps\nhttp://stream01.radiocon.ru:8000/live</item>
+        <item>Радио Континенталь Челябинск 100.4 -Музыка- 64kbps\nhttp://stream01.radiocon.ru:8000/aac64</item>
+        <item>Радио Континенталь Челябинск 100.4 -Музыка- 32kbps\nhttp://stream01.radiocon.ru:8000/aac32</item>
 
-        //дошел до Саратова
+        <item>Комсомольская Правда Челябинск -Разговорное- 128kbps\nhttp://chelyabinsk.radiokp128.mp3.streamr.ru</item>
+        <item>Комсомольская Правда Челябинск -Разговорное- mono 64kbps\nhttp://chelyabinsk.radiokp64.mp3.streamr.ru</item>
+        <item>Комсомольская Правда Челябинск -Разговорное- mono 32kbps\nhttp://chelyabinsk.radiokp32.mp3.streamr.ru</item>
 
+        <item>Комсомольская правда Ставрополь, Армавир -Разговорное- 128kbps\nhttp://stavropol.radiokp128.mp3.streamr.ru</item>
+        <item>Комсомольская правда Ставрополь, Армавир -Разговорное- mono 64kbps\nhttp://stavropol.radiokp64.mp3.streamr.ru</item>
+        <item>Комсомольская правда Ставрополь, Армавир -Разговорное- mono 32kbps\nhttp://stavropol.radiokp32.mp3.streamr.ru</item>
+        <item>5Rock`s Ставрополь -Музыка- 256kbps\nhttp://str.simpex.ru/;stream.nsv</item>
+
+        <item>Радио Роксана 103.0FM Уфа -Музыка- 128kbps\nhttps://listen1.myradio24.com/2761</item>
+
+        <item>Радиола 103 FM Саратов -Музыка- 69kbps\nhttp://online1.gkvr.ru:8000/radiola_srt_64.aac</item>
+        <item>RADIO RECORD САРАТОВ -Музыка- 63kbps\nhttp://online2.gkvr.ru:8000/record_srt_64.aac</item>
+        <item>Комсомольская правда Саратов, Энгельс -Разговорное- 128kbps\nhttp://saratov.radiokp128.mp3.streamr.ru</item>
+        <item>Комсомольская правда Саратов, Энгельс -Разговорное- mono 64kbps\nhttp://saratov.radiokp64.mp3.streamr.ru</item>
+        <item>Комсомольская правда Саратов, Энгельс -Разговорное- mono 32kbps\nhttp://saratov.radiokp32.mp3.streamr.ru</item>
 
         <item>Эльдорадио 101,4 Санкт-Петербург -Музыка- 128kbps\nhttp://emgspb.hostingradio.ru/eldoradio128.mp3</item>
         <item>Эльдорадио 101,4 Санкт-Петербург -Музыка- mono 64kbps\nhttp://emgspb.hostingradio.ru/eldoradio64.mp3</item>
@@ -295,6 +312,7 @@
         <item>Комсомольская правда Екатеринбург -Разговорное- 64kbps\nhttp://ekaterinburg.radiokp64.mp3.streamr.ru</item>
         <item>Комсомольская правда Екатеринбург -Разговорное- 32kbps\nhttp://ekaterinburg.radiokp32.mp3.streamr.ru</item>
         <item>Детское радио Екатеринбург -Детское- 128kbps\nhttp://den.101.ru:4000/det_66_01</item>
+        <item>Детское радио (Старое радио) -Детское- 128kbps\nhttp://195.91.237.50:8000/detskoe128</item>
         <item>Comedy Radio Екатеринбург -Юмор- 128kbps\nhttp://den.101.ru:4000/com_66_01</item>
         <item>Радио Март Хиты 80-90-х Иркутск -Музыка- 128kbps\nhttp://radio.radiomart38.com:8040/stream</item>
         <item>Комсомольская правда Иркутск -Разговорное- 128kbps\nhttp://irkutsk.radiokp128.mp3.streamr.ru</item>
@@ -364,10 +382,10 @@
         <item>Комсомольская правда Россия 64kbps\nhttp://kpradio.hostingradio.ru:8000/russia.radiokp64.mp3</item>
         <item>Комсомольская правда Россия 32kbps\nhttp://kpradio.hostingradio.ru:8000/russia.radiokp32.mp3</item>
 
-        <item>L-Radio Эль радио Челябинск 104,9 FM 96kbps\nhttps://96mp3.lradio.ru/lradio.stereo.96.mp3</item>
-        <item>L-Radio Эль радио Челябинск 104,9 FM 64kbps\nhttp://server.lradio.ru:8000/lradio64.aac</item>
-        <item>L-Radio Эль радио Челябинск 104,9 FM 32kbps\nhttp://server.lradio.ru:8000/lradio32.aac</item>
-        <item>L-Radio Эль радио Челябинск 104,9 FM 320kbps\nhttp://server.lradio.ru:8000/lradio320.ogg</item>
+        <item>L-Radio Эль радио Челябинск 104,9 FM -Музыка- 96kbps\nhttps://96mp3.lradio.ru/lradio.stereo.96.mp3</item>
+        <item>L-Radio Эль радио Челябинск 104,9 FM -Музыка- 64kbps\nhttp://server.lradio.ru:8000/lradio64.aac</item>
+        <item>L-Radio Эль радио Челябинск 104,9 FM -Музыка- 32kbps\nhttp://server.lradio.ru:8000/lradio32.aac</item>
+        <item>L-Radio Эль радио Челябинск 104,9 FM -Музыка- 320kbps\nhttp://server.lradio.ru:8000/lradio320.ogg</item>
 
         <item>RADIO MADONNA 128kbps\nhttp://mp3stream4.abradio.cz/madonna128.mp3</item>
         <item>RADIO MADONNA 64kbps\nhttp://mp3stream4.abradio.cz/madonna64.mp3</item>
@@ -435,7 +453,7 @@
         <item>161Fm Ростов-На-Дону -Музыка- 256kbps\nhttp://stream.161fm.ru:8000/256</item>
 
         <item>EDM Radio 320kbps\nhttp://s1.edmradio.ru:8000/live</item>
-        <item>Radio Sgom-plus Dance Club 128kbps\nhttp://109.233.211.75:8128/;stream.mp3</item>
+        <item>Radio Sgom-plus Dance Club Челябинск -Музыка- 128kbps\nhttp://109.233.211.75:8128/;stream.mp3</item>
         <item>Deep Techno 192kbps\nhttp://www.radio-nice.ru:5110/radio</item>
 
         <item>PRODj Radio 320kbps\nhttp://live.prodjradio.net:8000/;stream.nsv</item>
@@ -472,8 +490,8 @@
         <item>Wargaming.FM - ROCK -Саундтреки- 64kbps\nhttp://sv.wargaming.fm:8054/64</item>
         <item>Fallout.FM -Саундтреки- 64kbps\nhttp://fallout.fm:8000/falloutfm1.ogg</item>
 
-        <item>Радио Лучшие Песни Красноярск -Музыка- 48kbps\nhttp://s.rbs.fm/</item>
-        <item>Машенька 128kbps\nhttp://s01.radio-tochka.com:5380/radio</item>
+        <item>Радио Лучшие Песни -Музыка- 48kbps\nhttp://s.rbs.fm/</item>
+        <item>Машенька -Детское- 128kbps\nhttp://s01.radio-tochka.com:5380/radio</item>
 
         <item>DFM ДИСКАЧ 90х 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st18.mp3</item>
         <item>DFM DEEP 192kbps\nhttp://icecast.radiodfm.cdnvideo.ru/st24.mp3</item>
@@ -838,11 +856,7 @@
         <item>Авторадио Липецк\nhttp://den.101.ru:4000/ar_48_01</item>
         <item>Авторадио Нижний Новгород\nhttp://den.101.ru:4000/ar_52_01</item>
         <item>Авторадио Рига\nhttp://den.101.ru:4000/ar_riga</item>
-
         <item>Рэтро FM Челябинск\nhttp://retroserver.streamr.ru:8043/retro64</item>
-        <item>Радио 100 FM Челябинск 256kbps\nhttp://195.54.20.148:9000/radio100fm</item>
-        <item>Радио Олимп Челябинск 128kbps\nhttp://online.olimpfm.ru:8000/olimp_mp3</item>
-        <item>Радио Континеталь Челябинск\nhttp://stream01.radiocon.ru:8000/live</item>
         <item>Radio Record\nhttp://air.radiorecord.ru:8101/rr_320</item>
         <item>Super Diskoteka 90\nhttp://air.radiorecord.ru:8102/sd90_320</item>
         <item>Record Trancemission\nhttp://air.radiorecord.ru:8102/tm_320</item>
@@ -869,7 +883,7 @@
         <item>Радио Комсомольская правда\nhttp://kraskp.ru:8000/64</item>
         <item>Russian Hit\nhttp://apps.imgradio.ru/Dorojnoe-001</item>
         <item>Chocolate Radio 98FM Москва -Музыка- 160kbps\nhttp://choco.hostingradio.ru:10010/fm128</item>
-        <item>Radio 100 FM (Челябинск)\nhttp://195.54.20.148:9000/radio100fm?39</item>
+
         <item>Power Fm\nhttp://sh.mncdn.com:8108/;stream.mp3"</item>
         <item>BFM\nhttp://bfm.hostingradio.ru:8004/fm</item>
         <item>GlobalFM 1074\nhttp://s07.radio-tochka.com:6455/</item>
@@ -923,7 +937,6 @@
         <item>Радио 7 Тюмень 103.1 128kbps\nhttp://rain72.ru:8000/radio7</item>
         <item>Радио 40 Рок Калуга 105.1)\nhttp://radio40.ru/public/stream.php/</item>
         <item>Радио 53 Великий Новгород 102.7 128kbps\nhttp://84.242.241.66:8000/</item>
-        <item>Радио 100 FM Челябинск 100.0 128kbps\nhttp://195.54.20.148:9000/radio100online</item>
         <item>Радио 106.9 FM Тольятти 106.9 128kbps\nhttp://online.106i9fm.ru:8000/106i9_mp3</item>
         <item>Радио 107 Краснодар 107.7 -Музыка- 256kbps\nhttp://62.183.34.109:8000/radio107_256.mp3</item>
         <item>Радио 107 Краснодар 107.7 -Музыка- 64kbps\nhttp://62.183.34.109:8000/radio107_64.mp3</item>
@@ -970,8 +983,6 @@
         <item>Радио Карнавал  Москва 92.8 -Музыка- 128kbps\nhttp://online.carnivalfm.ru:8000/stream/2/</item>
         <item>Радио Карнавал Москва 92.8 -Музыка- 64kbps\nhttp://online.carnivalfm.ru:8000/stream/3/</item>
         <item>Радио Комета Чехов 92.6 64kbps\nhttp://online.kometa.fm:8000/live</item>
-        <item>Радио Континенталь Челябинск 100.4 64kbps\nhttp://stream01.radiocon.ru:8000/aac64</item>
-        <item>Радио Континенталь Челябинск 100.4 32kbps\nhttp://stream01.radiocon.ru:8000/aac32</item>
         <item>Радио Кунел Набережные Челны 67.79 128kbps\nhttp://live.kunelradio.ru:8000/128.mp3</item>
         <item>Радио Курс  Курск 103.7 256kbps\nhttp://195.3.252.115/kurs</item>
         <item>Радио Лемма Владивосток 102.7 128kbps\nhttp://212.107.192.130:8000/;stream.nsv"</item>
@@ -1283,8 +1294,13 @@
         <item>Гоп FM\nhttp://air.radiorecord.ru:8102/gop_320</item>
         <item>Гоп ФМ\nhttp://online.radiorecord.ru:8102/gop_128</item>
         <item>Град Петров Санкт-Петербург mono 48kbps\nhttp://www.grad-petrov.ru:8093/mp3-40</item>
-        <item>Детские песни\nhttp://music.myradio.com.ua:8000/kids-songs128.mp3</item>
+        <item>Детские песни -Детское- 128kbps\nhttp://music.myradio.com.ua:8000/kids-songs128.mp3</item>
+        <item>KIDS HITS -Детское- 128kbps\nhttp://92.255.229.74:8888/;</item>
+        <item>Детское радио -Детское- 112kbps\nhttp://ic7.101.ru:8000/a199</item>
         <item>Детское\nhttp://www.staroeradio.ru/detskoe32.m3u</item>
+        <item>Детское -Детское- 128kbps\nhttps://a5.radioheart.ru:9012/RH1916</item>
+        <item>Детское -Детское- 128kbps\nhttp://a5.radioheart.ru:8012/RH1916</item>
+        <item>РОДничок -Детское- 112kbps\nhttp://195.218.153.250:8000/live</item>
         <item>Джем\nhttp://cast.radiogroup.com.ua:8000/jamfm</item>
 
         <item>Зайцев ФМ Alternative\nhttp://www.zaycev.fm:9002/alternative/ZaycevFM(128)</item>

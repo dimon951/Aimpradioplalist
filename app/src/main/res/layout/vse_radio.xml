@@ -46,7 +46,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
-                android:text="Юмор"
+                android:text="Детское"
                 android:textSize="10sp" />
 
             <dmitriy.deomin.aimpradioplalist.But_Kod
