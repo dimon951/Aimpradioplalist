@@ -4,9 +4,6 @@ import android.content.Intent
 import android.os.Environment
 import android.util.Log
 import android.widget.Toast
-import dmitriy.deomin.aimpradioplalist.Main.Companion
-import org.jetbrains.anko.toast
-
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileNotFoundException
@@ -71,7 +68,7 @@ class File_function {
             }
 
             // конвертируем ArrayList в список
-            var myArray: Array<String>
+            val myArray: Array<String>
             myArray = mas.toTypedArray()
 
 

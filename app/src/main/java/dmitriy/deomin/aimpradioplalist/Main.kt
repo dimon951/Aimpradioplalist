@@ -26,11 +26,12 @@ import com.kotlinpermissions.KotlinPermissions
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
 
 class Main : FragmentActivity() {
 
-    private lateinit var mAdView: AdView
+
     lateinit var imageSwitcher: ImageSwitcher
     private lateinit var mImageIds: IntArray
 
@@ -67,6 +68,8 @@ class Main : FragmentActivity() {
         lateinit var text: Spannable
         //сохранялка
         lateinit var mSettings: SharedPreferences // сохранялка
+        //реклама
+        lateinit var mAdView: AdView
 
         var COLOR_FON: Int = 0
         var COLOR_ITEM: Int = 0
@@ -246,22 +249,6 @@ class Main : FragmentActivity() {
 
         face = Typeface.createFromAsset(assets, if (save_read("fonts") == "") "fonts/Tweed.ttf" else save_read("fonts"))
 
-
-
-        //реклама
-        //-------------------------------------------------------------------------
-        MobileAds.initialize(this, "ca-app-pub-7908895047124036~7402987509")
-        mAdView = findViewById(R.id.adView)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
-        //--------------------------------------------------------------------------
-        //если нажмут кнопку доната в о проге то отключим показ рекламы
-        if(save_read("reklama_pokaz")=="of"){
-            mAdView.visibility = View.GONE
-        }else{
-            mAdView.visibility = View.VISIBLE
-        }
-
         //ставим цвет фона(тема)
         //--------------------------------------------------------------------
         COLOR_FON = if (save_read_int("color_fon") == 0) {
@@ -283,43 +270,56 @@ class Main : FragmentActivity() {
         }
         //------------------------------------------------------------------------------
 
+        //реклама
+        //-------------------------------------------------------------------------
+        MobileAds.initialize(this, "ca-app-pub-7908895047124036~7402987509")
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+        //--------------------------------------------------------------------------
+        //если нажмут кнопку доната в о проге то отключим показ рекламы
+        if(save_read("reklama_pokaz")=="of"){
+            mAdView.visibility = View.GONE
+        }else{
+            mAdView.visibility = View.VISIBLE
+        }
 
 
-        liner_boss = findViewById<LinearLayout>(R.id.main)
+
+
+
+        liner_boss = findViewById(R.id.main)
         liner_boss.setBackgroundColor(COLOR_FON)
 
 
         //анимация на кнопках*****************************************.
         val anim = AnimationUtils.loadAnimation(context, R.anim.myscale)
-        vse_r = findViewById<Button>(R.id.vse_radio)
+        vse_r = findViewById(R.id.vse_radio)
         vse_r.typeface = face
-        vse_r.setTextColor(COLOR_TEXT)
+        vse_r.textColor=COLOR_TEXT
         vse_r.text = vse_r.text.toString() + "(" + resources.getStringArray(R.array.vse_radio).size.toString() + ")"
-        vse_r.setOnTouchListener { v, event ->
-            v.startAnimation(anim)
+        vse_r.onClick {
+            vse_r.startAnimation(anim)
             viewPager.currentItem = 0
-            false
         }
-        popul = findViewById<View>(R.id.popularnoe) as Button
+        popul = findViewById(R.id.popularnoe)
         popul.typeface = face
-        popul.setTextColor(COLOR_TEXT)
-        popul.setOnTouchListener { v, event ->
-            v.startAnimation(anim)
+        popul.textColor=COLOR_TEXT
+        popul.onClick{
+            popul.startAnimation(anim)
             viewPager.currentItem = 1
-            false
         }
-        moy_pl = findViewById<View>(R.id.moy_plalist) as Button
+        moy_pl = findViewById(R.id.moy_plalist)
         moy_pl.typeface = face
-        moy_pl.setTextColor(COLOR_TEXT)
-        moy_pl.setOnTouchListener { v, event ->
-            v.startAnimation(anim)
+        moy_pl.textColor=COLOR_TEXT
+        moy_pl.onClick {
+            moy_pl.startAnimation(anim)
             viewPager.currentItem = 2
-            false
         }
         //****************************************************************
 
         mImageIds = intArrayOf(R.drawable.titl_text1, R.drawable.titl_text2, R.drawable.titl_text3)
-        imageSwitcher = findViewById<View>(R.id.imageSwitcher) as ImageSwitcher
+        imageSwitcher = findViewById(R.id.imageSwitcher)
         imageSwitcher.setFactory {
             val myView = ImageView(applicationContext)
             myView.scaleType = ImageView.ScaleType.FIT_CENTER
@@ -327,19 +327,14 @@ class Main : FragmentActivity() {
         }
         imageSwitcher.setImageResource(mImageIds[1])
 
-        viewPager = findViewById<View>(R.id.pager) as ViewPager
+        viewPager = findViewById(R.id.pager)
         viewPager.offscreenPageLimit = 3
         myadapter = Myadapter(supportFragmentManager)
         viewPager.adapter = myadapter
-        viewPager.setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
-
-            override fun onPageSelected(position: Int) {
-                // номер страницы
-                fon_button(position)
-            }
-
+        viewPager.addOnPageChangeListener (object: ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {}
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+            override fun onPageSelected(position: Int) { fon_button(position) }
         })
 
         //
@@ -366,9 +361,9 @@ class Main : FragmentActivity() {
         val b_a = content.findViewById<Button>(R.id.button_abaut)
         b_a.setTextColor(COLOR_TEXT)
         b_a.typeface = face
-        b_a.setOnClickListener { v ->
+        b_a.onClick {
             val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v.startAnimation(anim)
+            b_a.startAnimation(anim)
             startActivity<Abaut>()
             alertDialog.cancel()
         }
@@ -376,9 +371,9 @@ class Main : FragmentActivity() {
         val b_s = content.findViewById<Button>(R.id.button_setting)
         b_s.setTextColor(COLOR_TEXT)
         b_s.typeface = face
-        b_s.setOnClickListener { v ->
+        b_s.onClick {
             val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v.startAnimation(anim)
+            b_s.startAnimation(anim)
             startActivity<Setting>()
             alertDialog.cancel()
         }
@@ -386,9 +381,9 @@ class Main : FragmentActivity() {
         val b_f= content.findViewById<Button>(R.id.button_edit_fonts)
         b_f.setTextColor(COLOR_TEXT)
         b_f.typeface = face
-        b_f.onClick {v->
+        b_f.onClick {
             val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v?.startAnimation(anim)
+            b_f.startAnimation(anim)
             startActivity<Fonts_vibor>()
             alertDialog.cancel()
         }

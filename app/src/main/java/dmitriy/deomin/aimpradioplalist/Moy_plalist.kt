@@ -22,6 +22,9 @@ import java.util.ArrayList
 import java.util.HashMap
 import android.content.Intent
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.sdk27.coroutines.onLongClick
+import org.jetbrains.anko.support.v4.email
+import org.jetbrains.anko.support.v4.share
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
 import java.io.File
@@ -360,7 +363,6 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                 } else {
                     Main.setup_aimp("",
                             "file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u")
-
                 }
 
             } else {
@@ -368,9 +370,10 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
             }
         }
 
-        (v.findViewById<View>(R.id.button_otpravit) as Button).setOnClickListener { v ->
+        val bt_send =v.findViewById<Button>(R.id.button_otpravit)
+        bt_send.onClick {
             val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v.startAnimation(anim)
+            bt_send.startAnimation(anim)
 
             if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
                 var send = ""
@@ -379,14 +382,23 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                     send += s + "\n"
                 }
 
+                share("Поделиться через:",send)
+            } else {
+                context.toast("Нечего отпралять, плейлист пуст")
+            }
+        }
+        //при долгом нажатиии будем предлогать отправить мне письмом этот плейлист
+        bt_send.onLongClick {
+            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
+            bt_send.startAnimation(anim)
 
-                val intent = Intent(Intent.ACTION_SEND)
-                intent.type = "text/plain"
+            if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
+                var send = ""
 
-                intent.putExtra(Intent.EXTRA_TEXT, send)
-
-                context.startActivity(Intent.createChooser(intent, "Поделиться через"))
-
+                for (s in file_function.My_plalist(Main.MY_PLALIST)) {
+                    send += s + "\n"
+                }
+                email("deomindmitriy@gmail.com","aimp_radio_plalist",send)
             } else {
                 context.toast("Нечего отпралять, плейлист пуст")
             }
@@ -418,11 +430,11 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
 
             //посмотрим есть старый пусть
             val old_dir = Main.save_read("startdir")
-            var startdir: String
-            if (old_dir.length > 2) {
-                startdir = old_dir
+            val startdir: String
+            startdir = if (old_dir.length > 2) {
+                old_dir
             } else {
-                startdir = Environment.getExternalStorageDirectory().path
+                Environment.getExternalStorageDirectory().path
             }
 
             //----

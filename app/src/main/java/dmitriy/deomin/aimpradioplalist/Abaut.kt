@@ -7,6 +7,7 @@ import android.view.WindowManager
 import android.widget.RelativeLayout
 import android.widget.TextView
 import org.jetbrains.anko.browse
+import org.jetbrains.anko.toast
 
 class Abaut : Activity() {
 
@@ -35,6 +36,8 @@ class Abaut : Activity() {
     fun View.donat() {
         //если даже просто нажмут отключим показ рекламы
         Main.save_value("reklama_pokaz","of")
+        Main.mAdView.visibility = View.GONE
+        toast("Реклама отключена")
         browse("https://money.yandex.ru/to/41001566605499")
     }
 }

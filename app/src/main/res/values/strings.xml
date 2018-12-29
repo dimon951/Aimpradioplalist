@@ -167,6 +167,9 @@
             56kbps~kbps~http://184.154.58.146:29378/ch12_56.mp3~kbps~
             32kbps~kbps~http://ice912.echo.msk.ru:9120/stream~kbps~
         </item>
+        <item>Маяк\nmayk.png\n
+            192kbps~kbps~http://icecast.vgtrk.cdnvideo.ru/mayakfm_mp3_192kbps~kbps~
+        </item>
         <item>Радио Лучшие Песни\nluchsie_radio_pesni.png\n
             48kbps~kbps~http://85.114.140.64:8000/666~kbps~
         </item>
@@ -710,15 +713,14 @@
         <item>Sky Plus TOP 128kbps\nhttp://skyplus.babahhcdn.com/skyplus_top40.mp3</item>
         <item>Sky Plus GOLD 128kbps\nhttp://skyplus.babahhcdn.com/skyplus_gold.mp3</item>
         <item>Sky Plus DANCE 128kbps\nhttp://skyplus.babahhcdn.com/skyplus_dance.mp3</item>
-        <item>Вести ФМ 192kbps\nhttp://icecast.vgtrk.cdnvideo.ru/vestifm_mp3_192kbps</item>
-        <item>Вести ФМ 192kbps\nhttp://radio.2kom.ru:8000/Vesti.FM</item>
-        <item>Вести ФМ 64kbps\nhttp://icecast.vgtrk.cdnvideo.ru/vestifm_mp3_64kbps</item>
-        <item>Вести FM mono 16kbps\nhttp://184.154.58.146:29378/ra_radiovesti.ru_16.mp3</item>
+        <item>Вести ФМ -Разговорное- 192kbps\nhttp://icecast.vgtrk.cdnvideo.ru/vestifm_mp3_192kbps</item>
+        <item>Вести ФМ -Разговорное- 192kbps\nhttp://radio.2kom.ru:8000/Vesti.FM</item>
+        <item>Вести ФМ -Разговорное- 64kbps\nhttp://icecast.vgtrk.cdnvideo.ru/vestifm_mp3_64kbps</item>
+        <item>Вести FM mono -Разговорное- 16kbps\nhttp://184.154.58.146:29378/ra_radiovesti.ru_16.mp3</item>
 
         <item>Grind.FM 192kbps\nhttp://radio.goha.ru:8000/grind.fm</item>
         <item>Grind.FM 192kbps\nhttp://radio.goha.ru:8000/grindfm.ogg</item>
 
-        //до сюда проверил
         <item>Ring FM aac\nhttp://stream.ringfm.ee/?.mp3</item>
         <item>Raadio Tallinn 128kbps\nhttp://icecast.err.ee:80/raadiotallinn.mp3</item>
         <item>Raadio Kuku 256kbps\nhttp://217.146.71.24:80/kuku_high.mp3</item>
@@ -1364,7 +1366,6 @@
         <item>Радио Золотой Век\nhttp://setmedia.ru:8000/high</item>
         <item>Радио Индиго\nhttp://stream0.radiostyle.ru:8000/indigo128.m3u</item>
         <item>Радио Красная Армия\nhttp://live.rzs.ru:8000/ka.128.mp3</item>
-        <item>Радио Маяк (mp3 192kbs)\nhttp://icecast.vgtrk.cdnvideo.ru/mayakfm_mp3_192kbps</item>
         <item>Радио Мелодия\nhttp://melodia.ipfm.net:80/RadioMelodia</item>
         <item>Радио Минск\nhttp://93.84.113.142:8000/radio</item>
         <item>Радио Мир 128kbps\nhttp://icecast.mirtv.cdnvideo.ru:8000/radio_mir128</item>

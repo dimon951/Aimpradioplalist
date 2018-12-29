@@ -1,25 +1,15 @@
 package dmitriy.deomin.aimpradioplalist
 
-import android.content.BroadcastReceiver
 import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.*
-import android.util.Log
-import android.view.View
 import android.view.WindowManager
-import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.TextView
-
 import com.github.danielnilsson9.colorpickerview.dialog.ColorPickerDialogFragment
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.textColor
-import org.jetbrains.anko.toast
-import java.util.*
+
 
 
 class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogListener {
@@ -30,31 +20,27 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
     private lateinit var edit_text_color: Button
     lateinit var context: Context
 
-    internal lateinit var textView_edit_color_posty: TextView
-    internal lateinit var textView_edit_fon_color: TextView
-    internal lateinit var textView_edit_color_text: TextView
     private lateinit var linerfon: LinearLayout
-
-    var nember: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.setting)
-
         //во весь экран
         this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         context = this
 
-        textView_edit_color_posty = findViewById<TextView>(R.id.textView_edit_color_posty)
-        textView_edit_fon_color = findViewById<TextView>(R.id.textView_edit_fon_color)
-        textView_edit_color_text = findViewById<TextView>(R.id.textView_edit_color_text)
-        edit_fon = findViewById<Button>(R.id.button_edit_fon_color)
-        edit_pos1 = findViewById<Button>(R.id.button_edit_color_posty)
-        edit_text_color = findViewById<Button>(R.id.button_edit_color_text)
-        linerfon = findViewById<LinearLayout>(R.id.fon_setting)
+        edit_fon = findViewById(R.id.button_edit_fon_color)
+        edit_pos1 = findViewById(R.id.button_edit_color_posty)
+        edit_text_color = findViewById(R.id.button_edit_color_text)
+        linerfon = findViewById(R.id.fon_setting)
 
-        edit_fon.setOnClickListener {
+        //устанавливаем шрифт
+        edit_fon.typeface = Main.face
+        edit_pos1.typeface = Main.face
+        edit_text_color.typeface = Main.face
+
+        edit_fon.onClick {
             DIALOG_ID = 0
             val f = ColorPickerDialogFragment
                     .newInstance(DIALOG_ID, null, null, resources.getColor(R.color.fon), true)
@@ -63,7 +49,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
             f.show(fragmentManager, "d")
         }
 
-        edit_pos1.setOnClickListener {
+        edit_pos1.onClick {
             DIALOG_ID = 1
             val f = ColorPickerDialogFragment
                     .newInstance(DIALOG_ID, null, null, resources.getColor(R.color.green), true)
@@ -72,7 +58,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
             f.show(fragmentManager, "d")
         }
 
-        edit_text_color.setOnClickListener {
+        edit_text_color.onClick {
             DIALOG_ID = 3
             val f = ColorPickerDialogFragment
                     .newInstance(DIALOG_ID, null, null, Color.BLACK, true)
@@ -89,16 +75,12 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
     fun pererisovka_color() {
         Main.liner_boss.setBackgroundColor(Main.COLOR_FON)
 
-        textView_edit_color_posty.setTextColor(Main.COLOR_TEXT)
-        textView_edit_fon_color.setTextColor(Main.COLOR_TEXT)
-        textView_edit_color_text.setTextColor(Main.COLOR_TEXT)
         linerfon.setBackgroundColor(Main.COLOR_FON)
         edit_fon.setTextColor(Main.COLOR_TEXT)
         edit_fon.setBackgroundColor(Main.COLOR_FON)
         edit_pos1.setTextColor(Main.COLOR_TEXT)
         edit_pos1.setBackgroundColor(Main.COLOR_ITEM)
         edit_text_color.setTextColor(Main.COLOR_TEXT)
-        edit_text_color.setBackgroundColor(Main.COLOR_FON)
     }
 
     override fun onColorSelected(dialogId: Int, color: Int) {
