@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<dmitriy.deomin.aimpradioplalist.Fon_item
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<dmitriy.deomin.aimpradioplalist.Fon_item xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="3dp"
-        app:cardElevation="3dp"
-        app:cardPreventCornerOverlap="false"
-        android:elevation="0dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-        app:cardBackgroundColor="@color/cardview_shadow_start_color">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="@null"
+    android:elevation="0dp"
+    app:cardBackgroundColor="@color/cardview_shadow_start_color"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardPreventCornerOverlap="false">
 
     <LinearLayout
         android:id="@+id/menu_progi_alert"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/transparent"
+        android:background="@null"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -28,14 +28,14 @@
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            android:background="@android:color/transparent"
+            android:background="@null"
             android:text="Изменить тему" />
 
         <Button
             android:id="@+id/button_edit_fonts"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:background="@android:color/transparent"
+            android:background="@null"
             android:text="Изменить шрифт" />
 
         <Button
@@ -43,7 +43,7 @@
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            android:background="@android:color/transparent"
+            android:background="@null"
             android:text="О программе" />
 
     </LinearLayout>

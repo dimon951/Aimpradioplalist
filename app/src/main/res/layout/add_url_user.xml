@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<dmitriy.deomin.aimpradioplalist.Fon_item
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<dmitriy.deomin.aimpradioplalist.Fon_item xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="3dp"
-    app:cardElevation="3dp"
-    app:cardPreventCornerOverlap="false"
-    android:elevation="0dp"
     android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
     android:layout_marginRight="5dp"
     android:layout_marginBottom="5dp"
-    android:layout_marginTop="5dp"
-    app:cardBackgroundColor="@color/cardview_shadow_start_color">
+    android:background="@null"
+    android:elevation="0dp"
+    app:cardBackgroundColor="@color/cardview_shadow_start_color"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardPreventCornerOverlap="false">
 
     <LinearLayout
         android:id="@+id/menu_progi_alert"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/transparent"
+        android:background="@null"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -26,6 +26,7 @@
             android:id="@+id/textView_logo_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@null"
             android:gravity="center"
             android:text="Добавить поток"
             android:textSize="18sp" />
@@ -33,46 +34,52 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@null"
             android:orientation="vertical">
 
             <EditText
                 android:id="@+id/editText_add_url_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@null"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Название" />
         </LinearLayout>
 
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/editText_add_url"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:background="@null"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="url потока"
                 android:paddingLeft="50dp" />
 
-        <Button
-            android:id="@+id/button_paste_url_add"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_weight="7"
-            android:background="?android:attr/actionModePasteDrawable" />
+            <Button
+                android:id="@+id/button_paste_url_add"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="7"
+                android:background="?android:attr/actionModePasteDrawable" />
 
-    </LinearLayout>
+        </LinearLayout>
 
         <Button
             android:id="@+id/button_add_url"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
+            android:background="@null"
             android:text="@android:string/ok" />
     </LinearLayout>
 </dmitriy.deomin.aimpradioplalist.Fon_item>

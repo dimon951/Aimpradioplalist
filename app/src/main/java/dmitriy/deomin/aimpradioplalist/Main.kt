@@ -189,9 +189,9 @@ class Main : FragmentActivity() {
         }
 
         fun rnd_int(min: Int, max: Int): Int {
-            var max = max
-            max -= min
-            return (Math.random() * ++max).toInt() + min
+            var Max = max
+            Max -= min
+            return (Math.random() * ++Max).toInt() + min
         }
         //
 
@@ -244,6 +244,7 @@ class Main : FragmentActivity() {
 
         //во весь экран
         this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        //сохранялка
         mSettings = getSharedPreferences("mysettings", Context.MODE_PRIVATE)
 
 
@@ -283,9 +284,6 @@ class Main : FragmentActivity() {
         }else{
             mAdView.visibility = View.VISIBLE
         }
-
-
-
 
 
         liner_boss = findViewById(R.id.main)

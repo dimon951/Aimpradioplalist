@@ -4,65 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fon_abaut">
+    android:id="@+id/fon_abaut"
+    android:background="@null">
 
     <dmitriy.deomin.aimpradioplalist.Text
         android:id="@+id/textView_abaut"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:enabled="true"
         android:focusable="auto"
         android:gravity="center"
         android:textIsSelectable="true"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:background="@null"/>
 
-    <ImageButton
+    <Button
         android:id="@+id/telegram"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="3dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="3dp"
-        android:contentDescription="TODO"
+        android:background="@drawable/telega"
         android:onClick="opentelega"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         android:src="@drawable/telega" />
 
-    <ImageButton
+    <Button
         android:id="@+id/vk"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="43dp"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="3dp"
-        android:contentDescription="TODO"
+        android:background="@drawable/vk"
         android:onClick="opengruppa"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         android:src="@drawable/vk" />
 
-    <ImageButton
+    <Button
         android:id="@+id/donat"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="86dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="4dp"
         android:layout_marginRight="3dp"
-        android:contentDescription="TODO"
+        android:background="@drawable/donat"
         android:onClick="donat"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         android:src="@drawable/donat" />
 
 

@@ -1,8 +1,8 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fon_setting"
     android:layout_width="match_parent"
-
+    android:background="@null"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
@@ -11,7 +11,7 @@
         android:id="@+id/button_edit_fon_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
+        android:background="@null"
         android:onClick="Edit_color_fon"
         android:text="Цвет фона" />
 
@@ -19,7 +19,7 @@
         android:id="@+id/button_edit_color_posty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
+        android:background="@null"
         android:onClick="Edit_color_fon"
         android:text="Цвет станций" />
 
@@ -27,7 +27,7 @@
         android:id="@+id/button_edit_color_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
+        android:background="@null"
         android:onClick="Edit_color_fon"
         android:text="Цвет текста" />
 

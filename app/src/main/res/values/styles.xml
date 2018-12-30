@@ -2,7 +2,9 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.NoActionBar">
-        <!-- Customize your theme here. -->
+        //тест
+        <item name="android:windowBackground">@null</item>
+
     </style>
 
 

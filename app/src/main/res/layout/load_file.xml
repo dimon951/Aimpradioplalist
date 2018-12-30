@@ -8,6 +8,7 @@
     app:cardElevation="3dp"
     app:cardPreventCornerOverlap="false"
     android:elevation="0dp"
+    android:background="@null"
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
     android:layout_marginBottom="5dp"
@@ -18,7 +19,7 @@
         android:id="@+id/menu_progi_alert"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/transparent"
+        android:background="@null"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -26,13 +27,14 @@
             android:id="@+id/load_fs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
+            android:background="@null"
             android:text="Выбрать файл" />
 
         <Button
             android:id="@+id/load_url"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@null"
             android:text="Ссылка на файл"
             android:visibility="gone" />
     </LinearLayout>

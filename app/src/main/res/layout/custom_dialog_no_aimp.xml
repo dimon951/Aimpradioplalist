@@ -11,7 +11,8 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+    android:background="@null">
 
 
         <RelativeLayout
@@ -20,22 +21,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/dialog_fon"
-            android:showDividers="none">
+            android:showDividers="none"
+            android:background="@null">
 
             <dmitriy.deomin.aimpradioplalist.Text
+                android:id="@+id/text_voprosa_del_stncii"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="AIMP не найден\nЧто делать?"
-                android:layout_gravity="center_horizontal"
-                android:layout_alignParentTop="true"
-                android:gravity="center"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:id="@+id/text_voprosa_del_stncii"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp" />
+                android:background="@null"
+                android:gravity="center"
+                android:text="AIMP не найден\nЧто делать?" />
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -52,7 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:background="@android:color/transparent"
+                    android:background="@null"
                     android:text="Установить Aimp через Play Market"
                     android:textColor="@color/green"
                     android:textSize="14sp" />
@@ -62,7 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:background="@android:color/transparent"
+                    android:background="@null"
                     android:text="Скачать Aimp "
                     android:textColor="@color/green"
                     android:textSize="14sp" />
@@ -75,7 +78,7 @@
                     android:layout_marginLeft="5dp"
                     android:text="Попробовать открыть в системе"
                     android:textSize="14sp"
-                    android:background="@android:color/transparent"
+                    android:background="@null"
                     android:textColor="@color/green" />
             </LinearLayout>
         </RelativeLayout>

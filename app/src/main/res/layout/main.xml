@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context="dmitriy.deomin.aimpradioplalist.Main"
     android:orientation="vertical"
-    android:background="@android:color/darker_gray">
+    android:background="@null">
 
 
     <ImageSwitcher
@@ -16,13 +16,15 @@
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
         android:onClick="Menu_progi"
-        android:layout_margin="1dp" />
+        android:layout_margin="1dp"
+        android:background="@null"/>
 
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:layout_height="30dp"
+        android:background="@null">
 
         <Button
             android:text="Все радио"
@@ -31,7 +33,7 @@
             android:id="@+id/vse_radio"
             android:layout_weight="1"
             android:textSize="14sp"
-            android:background="@android:color/darker_gray"
+            android:background="@null"
             android:textStyle="normal|bold" />
 
         <Button
@@ -41,7 +43,7 @@
             android:id="@+id/popularnoe"
             android:layout_weight="1"
             android:textSize="14sp"
-            android:background="@android:color/darker_gray" />
+            android:background="@null" />
 
         <Button
             android:text="Мой плейлист"
@@ -50,7 +52,7 @@
             android:id="@+id/moy_plalist"
             android:layout_weight="1"
             android:textSize="14sp"
-            android:background="@android:color/darker_gray" />
+            android:background="@null" />
 
     </LinearLayout>
 
@@ -58,12 +60,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:id="@+id/pager"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:background="@null"/>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         ads:adSize="SMART_BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id"/>
+        ads:adUnitId="@string/banner_ad_unit_id"
+        android:background="@null"/>
 </LinearLayout>

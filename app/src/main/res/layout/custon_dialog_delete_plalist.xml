@@ -11,7 +11,8 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+    android:background="@null">
 
 
 <RelativeLayout
@@ -20,7 +21,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/dialog_fon"
-    android:showDividers="none">
+    android:showDividers="none"
+    android:background="@null">
 
     <dmitriy.deomin.aimpradioplalist.Text
         android:layout_width="wrap_content"
@@ -35,7 +37,8 @@
         android:layout_alignParentEnd="true"
         android:id="@+id/text_voprosa_del_stncii"
         android:layout_marginBottom="10dp"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:background="@null"/>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -45,7 +48,8 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/linearLayout2"
         android:layout_below="@+id/text_voprosa_del_stncii"
-        android:gravity="center">
+        android:gravity="center"
+        android:background="@null">
 
         <Button
             android:layout_width="50dp"
@@ -55,7 +59,7 @@
             android:layout_marginRight="30dp"
             android:textSize="14sp"
             android:text="Да"
-            android:background="@android:color/transparent"
+            android:background="@null"
             android:textColor="@color/green" />
 
         <Button
@@ -66,7 +70,7 @@
             android:layout_marginLeft="5dp"
             android:text="Нет"
             android:textSize="14sp"
-            android:background="@android:color/transparent"
+            android:background="@null"
             android:textColor="@color/green" />
 
     </LinearLayout>

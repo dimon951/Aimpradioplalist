@@ -5,6 +5,7 @@ import android.content.*
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Environment
+import android.provider.Contacts
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.StyleSpan
@@ -20,6 +21,9 @@ import android.widget.TextView
 import com.makeramen.roundedimageview.RoundedTransformationBuilder
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import org.jetbrains.anko.email
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
@@ -181,15 +185,11 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
         Main.text.setSpan(StyleSpan(Typeface.BOLD), 0, viewHolder.kbps1.text.toString().length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         viewHolder.kbps1.text = Main.text
 
-
         //ставим картинку
         Picasso.get()
                 .load("file:///android_asset/ava_pop/" + results[p]["avapop"].toString())
                 .transform(transformation)
                 .into(viewHolder.ava)
-
-
-
 
         viewHolder.add.setOnClickListener { v ->
             val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
