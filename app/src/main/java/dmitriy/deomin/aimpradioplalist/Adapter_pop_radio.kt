@@ -5,7 +5,6 @@ import android.content.*
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Environment
-import android.provider.Contacts
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.StyleSpan
@@ -191,9 +190,8 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
                 .transform(transformation)
                 .into(viewHolder.ava)
 
-        viewHolder.add.setOnClickListener { v ->
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v.startAnimation(anim)
+        viewHolder.add.onClick {
+            viewHolder.add.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
             Main.number_page = 1
 
@@ -233,9 +231,8 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
             //запишем в файл выбранную станцию
             file_function.Add_may_plalist_stansiy(viewHolder.link, results[p]["stancia"].toString())
         }
-        viewHolder.play.setOnClickListener { v ->
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v.startAnimation(anim)
+        viewHolder.play.onClick {
+            viewHolder.play.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
             //Изменим текущию вкладку при обновлении что тутж остаться
             Main.number_page = 1
@@ -313,9 +310,8 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
         }
 
         //будем слушать кнопки и менять ссылку
-        viewHolder.kbps1.setOnClickListener { v ->
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v.startAnimation(anim)
+        viewHolder.kbps1.onClick{
+            viewHolder.kbps1.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
             Main.text = SpannableString(viewHolder.kbps1.text.toString())
             Main.text.setSpan(UnderlineSpan(), 0, viewHolder.kbps1.text.toString().length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
@@ -408,9 +404,8 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
 
             viewHolder.link = mass_link_parametr[1]
         }
-        viewHolder.kbps2.setOnClickListener { v ->
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v.startAnimation(anim)
+        viewHolder.kbps2.onClick {
+            viewHolder.kbps2.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
             Main.text = SpannableString(viewHolder.kbps2.text.toString())
             Main.text.setSpan(UnderlineSpan(), 0, viewHolder.kbps2.text.toString().length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
@@ -502,9 +497,8 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
 
             viewHolder.link = mass_link_parametr[3]
         }
-        viewHolder.kbps3.setOnClickListener { v ->
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v.startAnimation(anim)
+        viewHolder.kbps3.onClick {
+            viewHolder.kbps3.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
             Main.text = SpannableString(viewHolder.kbps3.text.toString())
             Main.text.setSpan(UnderlineSpan(), 0, viewHolder.kbps3.text.toString().length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
@@ -596,9 +590,8 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
 
             viewHolder.link = mass_link_parametr[5]
         }
-        viewHolder.kbps4.setOnClickListener { v ->
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v.startAnimation(anim)
+        viewHolder.kbps4.onClick {
+            viewHolder.kbps4.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
             Main.text = SpannableString(viewHolder.kbps4.text.toString())
             Main.text.setSpan(UnderlineSpan(), 0, viewHolder.kbps4.text.toString().length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
@@ -689,9 +682,8 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
 
             viewHolder.link = mass_link_parametr[7]
         }
-        viewHolder.kbps5.setOnClickListener { v ->
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v.startAnimation(anim)
+        viewHolder.kbps5.onClick {
+            viewHolder.kbps5.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
             Main.text = SpannableString(viewHolder.kbps5.text.toString())
             Main.text.setSpan(UnderlineSpan(), 0, viewHolder.kbps5.text.toString().length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)

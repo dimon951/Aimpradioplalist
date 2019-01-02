@@ -55,12 +55,15 @@ class Main : FragmentActivity() {
         var number_page: Int = 0
 
         //кодировка файла плейлиста
-        const val File_Text_Code: String = "UTF8"
-        const val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.85.718.apk"
+        val File_Text_Code: String = "UTF8"
+        //ссылка на аимп
+        val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.85.718.apk"
         //текст в пустом плейлисте(много где требуется)
-        @JvmField
-        val PUSTO: String = "Плейлист пуст."
+        val PUSTO: String = "Плейлист пуст.\n"
+        //название файла моего плейлиста
         val MY_PLALIST = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u"
+
+
 
         //шрифт
         lateinit var face: Typeface
@@ -157,7 +160,7 @@ class Main : FragmentActivity() {
                 v.startAnimation(anim)
 
                 //передаётся один поток то создадим файл и откроем его иначе передаётся уже созданый файл
-                if (potok.length > 0) {
+                if (potok.isNotEmpty()) {
                     val name = file.replace("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/", "")
 
                     //сохраним  временый файл сслку
@@ -360,8 +363,7 @@ class Main : FragmentActivity() {
         b_a.setTextColor(COLOR_TEXT)
         b_a.typeface = face
         b_a.onClick {
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            b_a.startAnimation(anim)
+            b_a.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             startActivity<Abaut>()
             alertDialog.cancel()
         }
@@ -370,8 +372,7 @@ class Main : FragmentActivity() {
         b_s.setTextColor(COLOR_TEXT)
         b_s.typeface = face
         b_s.onClick {
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            b_s.startAnimation(anim)
+            b_s.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             startActivity<Setting>()
             alertDialog.cancel()
         }
@@ -380,8 +381,7 @@ class Main : FragmentActivity() {
         b_f.setTextColor(COLOR_TEXT)
         b_f.typeface = face
         b_f.onClick {
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            b_f.startAnimation(anim)
+            b_f.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             startActivity<Fonts_vibor>()
             alertDialog.cancel()
         }

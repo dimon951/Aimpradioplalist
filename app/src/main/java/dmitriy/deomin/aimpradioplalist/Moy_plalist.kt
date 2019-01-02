@@ -12,15 +12,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.AdapterView
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ListView
-import android.widget.TextView
-import org.jetbrains.anko.support.v4.toast
 import java.util.ArrayList
-import java.util.HashMap
 import android.content.Intent
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.util.Log
+import android.widget.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.email
@@ -30,7 +27,7 @@ import org.jetbrains.anko.toast
 import java.io.File
 
 
-class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
+class Moy_plalist : Fragment() {
 
 
     lateinit var file_function: File_function
@@ -40,37 +37,31 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
         val v = inflater.inflate(R.layout.my_plalist, null)
         val context: Context = container!!.context
 
-        val STANCIA = "stancia"
-
-        val listView: ListView = v.findViewById<View>(R.id.listvew_my_plalist) as ListView
+        val recikl_list = v.findViewById<RecyclerView>(R.id.recicl_my_list)
+        recikl_list.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
 
         file_function = File_function()
 
+        //прочитали файл Main.MY_PLALIST и получили список строк , каждая строка содержит имя и адрес станции
+        //или получили Main.PUSTO если ам нет нечего
         val mas_radio = file_function.My_plalist(Main.MY_PLALIST)
-        val data = ArrayList<Map<String, Any>>(mas_radio.size)
 
-        var m: MutableMap<String, Any>
+        //адаптеру будем слать список классов Radio
+        val data = ArrayList<Radio>()
+
+
 
         for (i in mas_radio.indices) {
-            m = HashMap()
-            m[STANCIA] = mas_radio[i]
-            data.add(m)
+            data.add(Radio(mas_radio[i].split("\n")[0], mas_radio[i].split("\n")[1]))
         }
 
-        // массив имен атрибутов, из которых будут читаться данные
-        val from = arrayOf(STANCIA)
-        // массив ID View-компонентов, в которые будут вставлять данные
-        val to = intArrayOf(R.id.textView)
-
-        //адаптер содержит один текствью
-        val adapter_vse_radio = Adapter_vse_radio(context, data, R.layout.delegat_vse_radio_list, from, to)
-        listView.adapter = adapter_vse_radio
+        val adapter_vse_radio = Adapter_my_list(data)
+        recikl_list.adapter = adapter_vse_radio
 
 
         //Слушаем кнопки
         (v.findViewById<View>(R.id.button_delete) as Button).setOnClickListener { v ->
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v.startAnimation(anim)
+            v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
 
                 val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
@@ -83,9 +74,8 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                 val b_d_D = content.findViewById<View>(R.id.button_dialog_delete) as Button
                 b_d_D.setTextColor(Main.COLOR_TEXT)
                 b_d_D.typeface = Main.face
-                b_d_D.setOnClickListener { v ->
-                    val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-                    v.startAnimation(anim)
+                b_d_D.onClick {
+                    b_d_D.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
                     alertDialog.dismiss()
                     Main.number_page = 2
                     file_function.Delet_my_plalist()
@@ -96,9 +86,8 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                 val b_d_N = content.findViewById<View>(R.id.button_dialog_no) as Button
                 b_d_N.setTextColor(Main.COLOR_TEXT)
                 b_d_N.typeface = Main.face
-                b_d_N.setOnClickListener { v ->
-                    val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-                    v.startAnimation(anim)
+                b_d_N.onClick {
+                    b_d_N.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
                     alertDialog.dismiss()
                 }
             } else {
@@ -107,8 +96,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
         }
 
         (v.findViewById<View>(R.id.button_add_url) as Button).setOnClickListener { v ->
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v.startAnimation(anim)
+            v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
             val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
             val content = LayoutInflater.from(context).inflate(R.layout.add_url_user, null)
@@ -131,16 +119,16 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
             val paste = content.findViewById<View>(R.id.button_paste_url_add) as Button
             paste.typeface = Main.face
             paste.textColor = Main.COLOR_TEXT
-            paste.setOnClickListener { view1 ->
-                view1.startAnimation(anim)
+            paste.onClick {
+                paste.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
                 edit.setText(getText(context))
             }
 
             val add = content.findViewById<View>(R.id.button_add_url) as Button
             add.typeface = Main.face
             add.textColor = Main.COLOR_TEXT
-            add.setOnClickListener { vie ->
-                vie.startAnimation(anim)
+            add.onClick {
+                add.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
                 //проверим на пустоту
                 if (edit.text.toString().length > 7) {
@@ -195,12 +183,9 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
         }
 
         //будем предлогать сохранить этот плейлист в отдельный файл
-        (v.findViewById<View>(R.id.save_v_file) as Button).setOnClickListener { v ->
-
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v.startAnimation(anim)
-
-
+        val svf = v.findViewById<Button>(R.id.save_v_file)
+        svf.onClick {
+            svf.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             //прочитаем плейлист весь с закорючками
             val data: String = file_function.read(Main.MY_PLALIST)
 
@@ -226,8 +211,8 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                 val save_buttten = content.findViewById<View>(R.id.button_save) as Button
                 save_buttten.typeface = Main.face
                 save_buttten.textColor = Main.COLOR_TEXT
-                save_buttten.setOnClickListener { vie ->
-                    vie.startAnimation(anim)
+                save_buttten.onClick {
+                    save_buttten.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
                     //----
                     if (name.text.toString().length < 1) {
@@ -283,9 +268,9 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
             }
         }
 
-        (v.findViewById<View>(R.id.load_file) as Button).setOnClickListener { v ->
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v.startAnimation(anim)
+        val lf = v.findViewById<Button>(R.id.load_file)
+        lf.onClick {
+            lf.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
             //если в плейлисте есть чето предложим чегонибуть
             if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
@@ -304,9 +289,8 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                 val del = content.findViewById<View>(R.id.button_dell_old_plalist) as Button
                 del.typeface = Main.face
                 del.setTextColor(Main.COLOR_TEXT)
-                del.onClick { v_del ->
-                    val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-                    v_del!!.startAnimation(anim)
+                del.onClick {
+                    del.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
                     //отправим с пустым старым текстом , старое затрётся
                     open_load_file(context, "")
@@ -315,13 +299,12 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                 }
 
 
-                //добавляем к старому
+                //добавляем к старому если есть дубликаты пропустим их
                 val add = content.findViewById<View>(R.id.button_add_old_plalist) as Button
                 add.typeface = Main.face
                 add.setTextColor(Main.COLOR_TEXT)
-                add.onClick { v_add ->
-                    val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-                    v_add!!.startAnimation(anim)
+                add.onClick {
+                    add.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
                     //прочтём текущий со всеми закорючками и отправим для добавления
                     val old_text: String = file_function.read(Main.MY_PLALIST)
@@ -338,9 +321,9 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                 open_load_file(context, "")
             }
         }
-        (v.findViewById<View>(R.id.open_aimp) as Button).setOnClickListener { v ->
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            v.startAnimation(anim)
+        val op = v.findViewById<View>(R.id.open_aimp)
+        op.setOnClickListener {
+            op.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
 
 
@@ -370,10 +353,9 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
             }
         }
 
-        val bt_send =v.findViewById<Button>(R.id.button_otpravit)
+        val bt_send = v.findViewById<Button>(R.id.button_otpravit)
         bt_send.onClick {
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            bt_send.startAnimation(anim)
+            bt_send.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
             if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
                 var send = ""
@@ -382,15 +364,14 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                     send += s + "\n"
                 }
 
-                share("Поделиться через:",send)
+                share("Поделиться через:", send)
             } else {
                 context.toast("Нечего отпралять, плейлист пуст")
             }
         }
         //при долгом нажатиии будем предлогать отправить мне письмом этот плейлист
         bt_send.onLongClick {
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            bt_send.startAnimation(anim)
+            bt_send.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
             if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
                 var send = ""
@@ -398,13 +379,11 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                 for (s in file_function.My_plalist(Main.MY_PLALIST)) {
                     send += s + "\n"
                 }
-                email("deomindmitriy@gmail.com","aimp_radio_plalist",send)
+                email("deomindmitriy@gmail.com", "aimp_radio_plalist", send)
             } else {
                 context.toast("Нечего отпралять, плейлист пуст")
             }
         }
-
-        listView.onItemLongClickListener = this
 
         return v
     }
@@ -425,8 +404,7 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
         add_fs.typeface = Main.face
         add_fs.textColor = Main.COLOR_TEXT
         add_fs.setOnClickListener { vie ->
-            val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-            vie.startAnimation(anim)
+            vie.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
             //посмотрим есть старый пусть
             val old_dir = Main.save_read("startdir")
@@ -494,6 +472,14 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
                                 if (str_old.length > 7) {
                                     //заменим тег #EXTM3U если есть в начале файла на перенос строки
                                     str = str.replace("#EXTM3U", "\n")
+
+                                    //если в новых данных есть старые удалим их
+                                    val cikl_data = str_old.replace("#EXTM3U", "").split("#EXTINF:-1,")
+                                    for (i in cikl_data.iterator()) {
+                                        //читаем старые данные и если они есть в новых удаляем
+                                        str = str.replace("#EXTINF:-1,$i", "")
+                                    }
+
                                     //поехали , сохраняем  и ждём сигналы
                                     file_function.SaveFile(Main.MY_PLALIST, str_old + str)
                                 } else {
@@ -513,101 +499,11 @@ class Moy_plalist : Fragment(), AdapterView.OnItemLongClickListener {
         }
     }
 
-    override fun onItemLongClick(parent: AdapterView<*>, view: View, position: Int, id: Long): Boolean {
-
-        //получаем выбранную строку
-        val selectedItem = parent.getItemAtPosition(position).toString()
-
-
-        val mas = file_function.My_plalist(Main.MY_PLALIST)
-        //если плейлист не пуст
-        if (mas[0] != Main.PUSTO) {
-
-            //покажем окошко с вопросом подтверждения удаления
-            val builder = AlertDialog.Builder(ContextThemeWrapper(view.context, android.R.style.Theme_Holo))
-            val content = LayoutInflater.from(view.context).inflate(R.layout.custom_dialog_delete_stancii, null)
-            builder.setView(content)
-
-            val alertDialog = builder.create()
-            alertDialog.show()
-
-
-            (content.findViewById<View>(R.id.text_voprosa_del_stncii) as TextView).typeface = Main.face
-            (content.findViewById<View>(R.id.text_voprosa_del_stncii) as TextView).text = "Точно удалить: \n" + selectedItem.substring(9, selectedItem.length - 1) + " ?"
-
-            (content.findViewById<View>(R.id.button_dialog_delete) as Button).setTextColor(Main.COLOR_TEXT)
-            (content.findViewById<View>(R.id.button_dialog_delete) as Button).typeface = Main.face
-            (content.findViewById<View>(R.id.button_dialog_delete) as Button).setOnClickListener { v ->
-                val anim = AnimationUtils.loadAnimation(view.context, R.anim.myalpha)
-                v.startAnimation(anim)
-                alertDialog.dismiss()
-
-                //
-                Main.number_page = 2
-
-                //когда прийдёт сигнал что удалилось все хорошо обновим плейлист
-
-                //приёмник  сигналов
-                // фильтр для приёмника
-                val intentFilter = IntentFilter()
-                intentFilter.addAction("File_created")
-
-                //
-                val broadcastReceiver = object : BroadcastReceiver() {
-                    override fun onReceive(c: Context, intent: Intent) {
-                        if (intent.action == "File_created") {
-                            //получим данные
-                            val s = intent.getStringExtra("update")
-                            if (s == "zaebis") {
-                                //обновим старницу
-                                Main.myadapter.notifyDataSetChanged()
-                                Main.viewPager.adapter = Main.myadapter
-                                Main.viewPager.currentItem = Main.number_page
-                            } else {
-                                view.context.toast(view.context.getString(R.string.error))
-                            }
-                            //попробуем уничтожить слушителя
-                            view.context.unregisterReceiver(this)
-                        }
-                    }
-                }
-
-                //регистрируем приёмник
-                view.context.registerReceiver(broadcastReceiver, intentFilter)
-
-                //поехали ,удаляем и ждём сигналы
-                file_function.Delet_one_potok(selectedItem)
-
-            }
-
-            //кнопка отмены удаления
-            (content.findViewById<View>(R.id.button_dialog_no) as Button).setTextColor(Main.COLOR_TEXT)
-            (content.findViewById<View>(R.id.button_dialog_no) as Button).typeface = Main.face
-            (content.findViewById<View>(R.id.button_dialog_no) as Button).setOnClickListener { v ->
-                val anim = AnimationUtils.loadAnimation(view.context, R.anim.myalpha)
-                v.startAnimation(anim)
-                alertDialog.dismiss()
-            }
-
-        } else {
-            toast("Плейлист пуст")
-        }
-
-        return true
-    }
-
     //чтение из буфера
-    fun getText(c: Context): String {
-        var text: String? = null
-        val sdk = android.os.Build.VERSION.SDK_INT
-        text = if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
-            val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
-            clipboard.text.toString()
-        } else {
-            val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
-            clipboard.text.toString()
-        }
-        return text
+    private fun getText(c: Context): String {
+        val clipboardManager: ClipboardManager = c.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val data = clipboardManager.primaryClip
+        val item = data.getItemAt(0)
+        return item.text.toString()
     }
-
 }

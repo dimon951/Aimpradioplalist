@@ -13,58 +13,30 @@ import android.widget.TextView
 
 class But_Kod : Button {
     constructor(context: Context) : super(context)
-
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
-
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
-
     override fun onDraw(canvas: Canvas) {
-        super.onDraw(canvas)
         this.typeface = Main.face
         this.setTextColor(Main.COLOR_TEXT)
+        super.onDraw(canvas)
     }
 }
 
 class Fon_item : CardView {
-
-    constructor(context: Context) : super(context) {
-        this.setCardBackgroundColor(Main.COLOR_ITEM)
-    }
-
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        this.setCardBackgroundColor(Main.COLOR_ITEM)
-    }
-
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        this.setCardBackgroundColor(Main.COLOR_ITEM)
-    }
-
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
     override fun onDraw(canvas: Canvas) {
-        super.onDraw(canvas)
         this.setCardBackgroundColor(Main.COLOR_ITEM)
-
+        super.onDraw(canvas)
     }
 }
 
 class Text : TextView {
-
-    constructor(context: Context) : super(context) {
-        this.typeface = Main.face
-        this.setTextColor(Main.COLOR_TEXT)
-    }
-
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        this.typeface = Main.face
-        this.setTextColor(Main.COLOR_TEXT)
-    }
-
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        this.typeface = Main.face
-        this.setTextColor(Main.COLOR_TEXT)
-    }
-
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
     override fun onDraw(canvas: Canvas) {
-        super.onDraw(canvas)
         this.typeface = Main.face
         this.setTextColor(Main.COLOR_TEXT)
         //форматирование текста если есть перенос
@@ -80,7 +52,6 @@ class Text : TextView {
             Main.text.setSpan(RelativeSizeSpan(0.8f), this.text.toString().indexOf("\n"), this.text.toString().length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
             this.text = Main.text
         }
-
-
+        super.onDraw(canvas)
     }
 }

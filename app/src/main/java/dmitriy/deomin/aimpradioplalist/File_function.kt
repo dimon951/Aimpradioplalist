@@ -54,7 +54,10 @@ class File_function {
             text = text.replace("\n".toRegex(), "")
 
             //добавим переносы в нужных местах
+            //бывает http:// или https:// меняем все блять
+            text = text.replace("https://".toRegex(), "\nhttps://")
             text = text.replace("http://".toRegex(), "\nhttp://")
+
 
             //скинем все сюда , а потом обратно
             val mas = ArrayList<String>()
@@ -98,11 +101,11 @@ class File_function {
         }
 
         //в параметрах получаем строку вида
-        //{stancia=Авторадио\nhttp://ic7.101.ru:8000/v3_1}
+        //Авторадио\nhttp://ic7.101.ru:8000/v3_1
 
         //составим исходный вид строки потока(как в файле записано)
         //#EXTINF:-1,Авторадио\nhttp://ic7.101.ru:8000/v3_1
-        val del_potok = "#EXTINF:-1," + potok.substring(9, potok.length - 1)
+        val del_potok = "#EXTINF:-1,$potok"
 
         //теперь удаляем эту вещь из считаного файла и перезаписываем его
         old_text = old_text.replace(del_potok, "")

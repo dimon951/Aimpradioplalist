@@ -45,17 +45,18 @@ class Vse_radio : Fragment() {
         val v = inflater.inflate(R.layout.vse_radio, null)
         context = container!!.context
 
-        find = v.findViewById<View>(R.id.editText_find) as EditText
+        find = v.findViewById(R.id.editText_find)
         find.typeface = Main.face
 
-        listView = v.findViewById<View>(R.id.listviw_vse_radio) as ListView
+        listView = v.findViewById(R.id.listviw_vse_radio)
         listView.isFastScrollAlwaysVisible = true
 
+        //получаем список радио >1000 штук
         val mas_radio = resources.getStringArray(R.array.vse_radio)
 
-        val data = ArrayList<Map<String, Any>>(mas_radio.size)
+        val data = ArrayList<Map<String, String>>(mas_radio.size)
 
-        var m: MutableMap<String, Any>
+        var m: MutableMap<String, String>
 
         for (i in mas_radio.indices) {
             m = HashMap()
@@ -270,9 +271,8 @@ class Vse_radio : Fragment() {
 
 
 
-            open_sistem.setOnClickListener { v ->
-                val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-                v.startAnimation(anim)
+            open_sistem.onClick {
+                open_sistem.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
                 //когда прийдёт сигнал что сохранилось передадим этот файл в аим для открытия
                 //-----------------------------------------------------------------------
@@ -321,22 +321,19 @@ class Vse_radio : Fragment() {
             }
 
 
-            instal_aimp.setOnClickListener { v ->
-                val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-                v.startAnimation(anim)
+            instal_aimp.onClick {
+                instal_aimp.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
                 browse("market://details?id=com.aimp.player")
             }
 
-            instal_aimp2.setOnClickListener { v ->
-                val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-                v.startAnimation(anim)
+            instal_aimp2.onClick {
+                instal_aimp2.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
                 browse(Main.LINK_DOWLOAD_AIMP)
             }
 
 
-            add_pls.setOnClickListener { v ->
-                val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-                v.startAnimation(anim)
+            add_pls.onClick {
+                add_pls.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
                 Main.number_page = 0
 
@@ -378,9 +375,8 @@ class Vse_radio : Fragment() {
                 alertDialog.cancel()
             }
 
-            open_aimp.setOnClickListener { v ->
-                val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-                v.startAnimation(anim)
+            open_aimp.onClick {
+                open_aimp.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
                 //когда прийдёт сигнал что сохранилось передадим этот файл в аим для открытия
                 //-----------------------------------------------------------------------
@@ -402,14 +398,14 @@ class Vse_radio : Fragment() {
                                         "com.aimp.player",
                                         "com.aimp.player.views.MainActivity.MainActivity")
 
-                                val intent = Intent()
-                                intent.component = cm
+                                val i = Intent()
+                                i.component = cm
 
-                                intent.action = Intent.ACTION_VIEW
-                                intent.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u"), "audio/mpegurl")
-                                intent.flags = 0x3000000
+                                i.action = Intent.ACTION_VIEW
+                                i.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u"), "audio/mpegurl")
+                                i.flags = 0x3000000
 
-                                context.startActivity(intent)
+                                context.startActivity(i)
 
                             } else {
                                 context.toast(context.getString(R.string.error))

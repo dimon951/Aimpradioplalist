@@ -23,6 +23,7 @@ class Vip_radio : Fragment() {
         val AVAPOP = "avapop"
         val LINK = "link"
 
+
         val mas_radio = resources.getStringArray(R.array.pop_radio)
 
         val data = ArrayList<HashMap<String, String>>(mas_radio.size)
