@@ -32,7 +32,8 @@
             android:layout_weight="1"
             android:text="TextView"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/url_radio"

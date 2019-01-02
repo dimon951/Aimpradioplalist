@@ -20,8 +20,8 @@ class Fonts_vibor : Activity() {
 
         fonts_vibor.setBackgroundColor(Main.COLOR_FON)
 
-         button_font_tweed.typeface = Typeface.createFromAsset(assets, "fonts/Tweed.ttf")
-         button_font_kramola.typeface = Typeface.createFromAsset(assets, "fonts/Kramola.ttf")
+        button_font_tweed.typeface = Typeface.createFromAsset(assets, "fonts/Tweed.ttf")
+        button_font_kramola.typeface = Typeface.createFromAsset(assets, "fonts/Kramola.ttf")
         button_font_badaboom.typeface = Typeface.createFromAsset(assets, "fonts/Badaboom.ttf")
         button_font_bemount.typeface = Typeface.createFromAsset(assets, "fonts/Bemount.ttf")
         button_font_Smeshariki.typeface = Typeface.createFromAsset(assets, "fonts/Smeshariki.ttf")

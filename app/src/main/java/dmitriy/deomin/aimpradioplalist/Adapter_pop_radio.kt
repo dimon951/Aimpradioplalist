@@ -20,15 +20,10 @@ import android.widget.TextView
 import com.makeramen.roundedimageview.RoundedTransformationBuilder
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
 import org.jetbrains.anko.email
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.share
-import org.jetbrains.anko.support.v4.email
-import org.jetbrains.anko.support.v4.share
 import org.jetbrains.anko.toast
 import java.util.ArrayList
 
@@ -301,7 +296,7 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
         viewHolder.share.onClick {
             val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
             viewHolder.share.startAnimation(anim)
-            context.share("Поделиться через:", viewHolder.link)
+            context.share(viewHolder.link)
         }
         viewHolder.share.onLongClick {
             val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
@@ -310,7 +305,7 @@ class Adapter_pop_radio(context: Context?, data: ArrayList<HashMap<String, Strin
         }
 
         //будем слушать кнопки и менять ссылку
-        viewHolder.kbps1.onClick{
+        viewHolder.kbps1.onClick {
             viewHolder.kbps1.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
             Main.text = SpannableString(viewHolder.kbps1.text.toString())

@@ -21,6 +21,7 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
+import kotlin.math.log
 
 class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter_my_list.ViewHolder>() {
 
@@ -77,7 +78,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                 val selectedItem = radio.name + "\n" + radio.url
 
                 val file_function = File_function()
-                val mas = file_function.My_plalist(Main.MY_PLALIST)
+               // val mas = file_function.My_plalist(Main.MY_PLALIST)
 
 
                 //покажем окошко с вопросом подтверждения удаления
@@ -146,7 +147,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                 renem.startAnimation(AnimationUtils.loadAnimation(Main.context, R.anim.myalpha))
                 //закроем окошко
                 alertDialog.cancel()
-                //переименовываем
+                //показываем окошко ввода нового имени
                 val b = AlertDialog.Builder(ContextThemeWrapper(Main.context, android.R.style.Theme_Holo))
                 val c = LayoutInflater.from(Main.context).inflate(R.layout.name_save_file, null)
                 b.setView(c)
@@ -154,8 +155,70 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                 alertDialog_reneme.show()
 
                 val edit = c.findViewById<EditText>(R.id.edit_new_name)
+                edit.typeface = Main.face
+                edit.textColor = Main.COLOR_TEXT
                 edit.hint = radio.name
                 edit.setText(radio.name)
+
+                val logo = c.findViewById<TextView>(R.id.textView_vvedite_name)
+                logo.typeface = Main.face
+                logo.textColor = Main.COLOR_TEXT
+
+                val b_ok = c.findViewById<Button>(R.id.button_save)
+                b_ok.typeface = Main.face
+                b_ok.textColor = Main.COLOR_TEXT
+                b_ok.onClick {
+                    b_ok.startAnimation(AnimationUtils.loadAnimation(Main.context, R.anim.myalpha))
+                    //закрываем окошко
+                    alertDialog_reneme.cancel()
+                    //переименовываем
+
+                    //проверим на пустоту
+                    if (edit.text.toString().isNotEmpty()) {
+
+                        //фильтр для нашего сигнала
+                        val intentFilter = IntentFilter()
+                        intentFilter.addAction("File_created")
+
+                        //приёмник  сигналов
+                        val broadcastReceiver = object : BroadcastReceiver() {
+                            override fun onReceive(c: Context, intent: Intent) {
+                                if (intent.action == "File_created") {
+                                    //получим данные
+                                    val s = intent.getStringExtra("update")
+                                    if (s == "zaebis") {
+                                        alertDialog.cancel()
+                                        //обновим старницу
+                                        data.removeAt(p1)
+                                        data.add(p1, Radio(edit.text.toString(), radio.url))
+                                        notifyItemChanged(p1)
+                                        //notifyItemRemoved(p1)
+                                    } else {
+                                        Main.context.toast(Main.context.getString(R.string.error))
+                                    }
+                                    //попробуем уничтожить слушителя
+                                    Main.context.unregisterReceiver(this)
+                                }
+                            }
+                        }
+
+                        //регистрируем приёмник
+                        Main.context.registerReceiver(broadcastReceiver, intentFilter)
+
+
+                        //делаем
+                        val file_function = File_function()
+                        file_function.Rename_potok(radio.name + "\n" + radio.url, edit.text.toString() + "\n" + radio.url)
+
+                        alertDialog.cancel()
+                    } else {
+                        Main.context.toast("Оставим как было")
+                        alertDialog.cancel()
+                    }
+
+
+                }
+
 
             }
 

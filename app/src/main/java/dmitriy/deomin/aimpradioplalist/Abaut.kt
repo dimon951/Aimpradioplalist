@@ -27,9 +27,9 @@ class Abaut : Activity() {
         (findViewById<View>(R.id.fon_abaut) as RelativeLayout).setBackgroundColor(Main.COLOR_FON)
 
         val textView = findViewById<View>(R.id.textView_abaut) as TextView
-        val t:String =  getString(R.string.abaut_text)
+        val t: String = getString(R.string.abaut_text)
 
-        textView.text=(t.replace("+++++", "Aimp radio plalist " + getString(R.string.versionName)))
+        textView.text = (t.replace("+++++", "Aimp radio plalist " + getString(R.string.versionName)))
 
         val vk = findViewById<Button>(R.id.vk)
         vk.onClick {
@@ -52,11 +52,11 @@ class Abaut : Activity() {
             don.startAnimation(anim)
 
             //если даже просто нажмут отключим показ рекламы
-            if(Main.save_read("reklama_pokaz") =="of"){
-               //если не первый  раз нажимают поблагодарим за возможный донат
+            if (Main.save_read("reklama_pokaz") == "of") {
+                //если не первый  раз нажимают поблагодарим за возможный донат
                 toast("Спасибо")
-            }else{
-                Main.save_value("reklama_pokaz","of")
+            } else {
+                Main.save_value("reklama_pokaz", "of")
                 Main.mAdView.visibility = View.GONE
                 toast("Реклама отключена")
             }

@@ -40,9 +40,9 @@ class File_function {
 
         //удалим мусор
         val kontent = text
-                .replace("\n","")
-                .replace(" ","")
-                .replace("#EXTM3U","")
+                .replace("\n", "")
+                .replace(" ", "")
+                .replace("#EXTM3U", "")
 
         //если есть чё разобьём на массив и вернём после удаления пустых строк
         if (kontent.length > 11) {
@@ -109,6 +109,26 @@ class File_function {
 
         //теперь удаляем эту вещь из считаного файла и перезаписываем его
         old_text = old_text.replace(del_potok, "")
+
+        //очищаем и записываем заново, там уже будут слаться сигналы получилось или нет
+        SaveFile_vizov("my_plalist.m3u", old_text)
+    }
+
+    //переименование
+    fun Rename_potok(potok_old: String, potok_new: String) {
+        //прочитаем старыйе данные
+        var old_text = ""
+        try {
+            old_text = read(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u")
+        } catch (e: FileNotFoundException) {
+            e.printStackTrace()
+        }
+
+        //в параметрах получаем строку вида
+        //Авторадио\nhttp://ic7.101.ru:8000/v3_1
+
+        //теперь заменяем старый поток из считаного файла на новый и перезаписываем его
+        old_text = old_text.replace(potok_old, potok_new)
 
         //очищаем и записываем заново, там уже будут слаться сигналы получилось или нет
         SaveFile_vizov("my_plalist.m3u", old_text)
@@ -204,8 +224,8 @@ class File_function {
                 val reader = BufferedReader(FileReader(file.absoluteFile))
                 reader.use { reader ->
                     //В цикле построчно считываем файл
-                    var s: String? =null
-                    while ({ s = reader.readLine(); s }() != null){
+                    var s: String? = null
+                    while ({ s = reader.readLine(); s }() != null) {
                         sb.append(s)
                         sb.append("\n")
                     }
@@ -250,8 +270,6 @@ class File_function {
             i.putExtra("update", "zaebis")
             Main.context.sendBroadcast(i)
         } catch (e: IOException) {
-            //e.printStackTrace();
-            Log.i("TTT", "Path " + filePath + ", " + e.toString())
 
             //послать сигнал
             val i = Intent("File_created")
@@ -260,9 +278,6 @@ class File_function {
         }
 
     }
-
-
-
 
 
 }

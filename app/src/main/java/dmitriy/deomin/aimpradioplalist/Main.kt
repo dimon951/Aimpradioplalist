@@ -64,7 +64,6 @@ class Main : FragmentActivity() {
         val MY_PLALIST = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u"
 
 
-
         //шрифт
         lateinit var face: Typeface
         //для текста
@@ -282,9 +281,9 @@ class Main : FragmentActivity() {
         mAdView.loadAd(adRequest)
         //--------------------------------------------------------------------------
         //если нажмут кнопку доната в о проге то отключим показ рекламы
-        if(save_read("reklama_pokaz")=="of"){
+        if (save_read("reklama_pokaz") == "of") {
             mAdView.visibility = View.GONE
-        }else{
+        } else {
             mAdView.visibility = View.VISIBLE
         }
 
@@ -297,7 +296,7 @@ class Main : FragmentActivity() {
         val anim = AnimationUtils.loadAnimation(context, R.anim.myscale)
         vse_r = findViewById(R.id.vse_radio)
         vse_r.typeface = face
-        vse_r.textColor=COLOR_TEXT
+        vse_r.textColor = COLOR_TEXT
         vse_r.text = vse_r.text.toString() + "(" + resources.getStringArray(R.array.vse_radio).size.toString() + ")"
         vse_r.onClick {
             vse_r.startAnimation(anim)
@@ -305,14 +304,14 @@ class Main : FragmentActivity() {
         }
         popul = findViewById(R.id.popularnoe)
         popul.typeface = face
-        popul.textColor=COLOR_TEXT
-        popul.onClick{
+        popul.textColor = COLOR_TEXT
+        popul.onClick {
             popul.startAnimation(anim)
             viewPager.currentItem = 1
         }
         moy_pl = findViewById(R.id.moy_plalist)
         moy_pl.typeface = face
-        moy_pl.textColor=COLOR_TEXT
+        moy_pl.textColor = COLOR_TEXT
         moy_pl.onClick {
             moy_pl.startAnimation(anim)
             viewPager.currentItem = 2
@@ -332,10 +331,12 @@ class Main : FragmentActivity() {
         viewPager.offscreenPageLimit = 3
         myadapter = Myadapter(supportFragmentManager)
         viewPager.adapter = myadapter
-        viewPager.addOnPageChangeListener (object: ViewPager.OnPageChangeListener {
+        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {}
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
-            override fun onPageSelected(position: Int) { fon_button(position) }
+            override fun onPageSelected(position: Int) {
+                fon_button(position)
+            }
         })
 
         //
@@ -377,7 +378,7 @@ class Main : FragmentActivity() {
             alertDialog.cancel()
         }
 
-        val b_f= content.findViewById<Button>(R.id.button_edit_fonts)
+        val b_f = content.findViewById<Button>(R.id.button_edit_fonts)
         b_f.setTextColor(COLOR_TEXT)
         b_f.typeface = face
         b_f.onClick {

@@ -16,7 +16,6 @@ import java.util.ArrayList
 import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.widget.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
@@ -49,10 +48,9 @@ class Moy_plalist : Fragment() {
         //адаптеру будем слать список классов Radio
         val data = ArrayList<Radio>()
 
-
-
         for (i in mas_radio.indices) {
-            data.add(Radio(mas_radio[i].split("\n")[0], mas_radio[i].split("\n")[1]))
+            val m = mas_radio[i].split("\n")
+            data.add(Radio(m[0], m[1]))
         }
 
         val adapter_vse_radio = Adapter_my_list(data)
@@ -133,8 +131,8 @@ class Moy_plalist : Fragment() {
                 //проверим на пустоту
                 if (edit.text.toString().length > 7) {
 
-                    //проверим есть ли в начале ссылки http:// - ато от неё много чего зависит
-                    if (edit.text.toString().substring(0, 7).equals("http://")) {
+                    //проверим есть ли в начале ссылки http:// или "https://" - ато от неё много чего зависит
+                    if (edit.text.toString().substring(0, 7) == "http://" || edit.text.toString().substring(0, 8) == "https://") {
                         Main.number_page = 2
 
                         //фильтр для нашего сигнала
@@ -364,7 +362,7 @@ class Moy_plalist : Fragment() {
                     send += s + "\n"
                 }
 
-                share("Поделиться через:", send)
+                share(send)
             } else {
                 context.toast("Нечего отпралять, плейлист пуст")
             }

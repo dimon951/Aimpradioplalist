@@ -15,6 +15,7 @@ class But_Kod : Button {
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+
     override fun onDraw(canvas: Canvas) {
         this.typeface = Main.face
         this.setTextColor(Main.COLOR_TEXT)
@@ -26,6 +27,7 @@ class Fon_item : CardView {
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+
     override fun onDraw(canvas: Canvas) {
         this.setCardBackgroundColor(Main.COLOR_ITEM)
         super.onDraw(canvas)
@@ -36,6 +38,7 @@ class Text : TextView {
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+
     override fun onDraw(canvas: Canvas) {
         this.typeface = Main.face
         this.setTextColor(Main.COLOR_TEXT)
