@@ -119,7 +119,7 @@ class Main : FragmentActivity() {
         fun setup_aimp(potok: String, file: String) {
 
             val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
-            val content = LayoutInflater.from(context).inflate(R.layout.custom_dialog_no_aimp, null)
+            val content = LayoutInflater.from(context).inflate(R.layout.dialog_no_aimp, null)
             builder.setView(content)
             val alertDialog = builder.create()
             alertDialog.show()
@@ -395,7 +395,7 @@ class Main : FragmentActivity() {
         override fun getItem(position: Int): Fragment? {
             when (position) {
                 0 -> return Vse_radio()
-                1 -> return Vip_radio()
+                1 -> return Pop_radio()
                 2 -> return Moy_plalist()
             }
             return null

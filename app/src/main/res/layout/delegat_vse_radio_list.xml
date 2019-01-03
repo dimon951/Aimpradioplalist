@@ -1,37 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    android:id="@+id/fon_vse_radio_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/fon_vse_radio_item"
-    android:background="@null">
+    android:background="@null"
+    android:orientation="vertical">
 
     <dmitriy.deomin.aimpradioplalist.Fon_item
         android:id="@+id/fon_card_vse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:layout_marginTop="2dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="2dp"
         android:alpha="0.8"
+        android:background="@null"
         android:elevation="0dp"
         app:cardCornerRadius="3dp"
         app:cardElevation="3dp"
-        app:cardPreventCornerOverlap="false"
-        android:background="@null">
+        app:cardPreventCornerOverlap="false">
 
         <dmitriy.deomin.aimpradioplalist.Text
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
+            android:background="@null"
             android:text="TextView"
             android:textColor="@android:color/black"
-            android:textSize="17sp"
-            android:background="@null"/>
+            android:textSize="17sp" />
 
 
     </dmitriy.deomin.aimpradioplalist.Fon_item>

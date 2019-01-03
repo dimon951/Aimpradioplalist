@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dmitriy.deomin.aimpradioplalist.Fon_item
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fon_pop_card"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="2dp"
+    android:alpha="0.8"
+    android:background="@null"
+    android:elevation="0dp"
+    app:cardBackgroundColor="@color/green"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="3dp"
+    app:cardPreventCornerOverlap="false">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@null"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ava_pop"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_margin="4dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher"
+            android:contentDescription="TODO" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:orientation="vertical">
+
+            <dmitriy.deomin.aimpradioplalist.Text
+                android:id="@+id/Text_name_pop"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="center"
+                android:text="Name"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="normal|bold"
+                tools:layout_editor_absoluteX="131dp"
+                tools:layout_editor_absoluteY="0dp"
+                android:layout_marginStart="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@null"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/pop_vibr_kbts_1"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="@null"
+                    android:foregroundGravity="center"
+                    android:gravity="center"
+                    android:textSize="8sp" />
+
+                <Button
+                    android:id="@+id/pop_vibr_kbts_2"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="@null"
+                    android:foregroundGravity="center"
+                    android:gravity="center"
+                    android:textSize="8sp" />
+
+                <Button
+                    android:id="@+id/pop_vibr_kbts_3"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="@null"
+                    android:foregroundGravity="center"
+                    android:gravity="center"
+                    android:textSize="8sp" />
+
+                <Button
+                    android:id="@+id/pop_vibr_kbts_4"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="@null"
+                    android:foregroundGravity="center"
+                    android:gravity="center"
+                    android:textSize="8sp" />
+
+                <Button
+                    android:id="@+id/pop_vibr_kbts_5"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="@null"
+                    android:foregroundGravity="center"
+                    android:gravity="center"
+                    android:textSize="8sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="bottom|center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_add"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@android:drawable/ic_menu_add"
+                    android:gravity="end"
+                    tools:layout_editor_absoluteX="128dp"
+                    tools:layout_editor_absoluteY="40dp"
+                    android:layout_marginEnd="15dp" />
+
+                <Button
+                    android:id="@+id/button_open"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@android:drawable/ic_media_play"
+                    android:gravity="end"
+                    android:layout_marginEnd="15dp" />
+
+                <Button
+                    android:id="@+id/button_cshre"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@android:drawable/ic_menu_share"
+                    android:gravity="end"
+                    tools:layout_editor_absoluteY="40dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</dmitriy.deomin.aimpradioplalist.Fon_item>

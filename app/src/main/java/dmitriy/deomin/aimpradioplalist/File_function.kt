@@ -185,9 +185,8 @@ class File_function {
                 if (s == link) {
                     //послать сигнал
                     val i = Intent("File_created")
-                    i.putExtra("update", "zaebis")
+                    i.putExtra("update", "est")
                     Main.context.sendBroadcast(i)
-                    Toast.makeText(Main.context, "Такая станция уже есть в плейлисте", Toast.LENGTH_LONG).show()
                     return
                 }
             }

@@ -29,7 +29,7 @@ import java.io.File
 class Moy_plalist : Fragment() {
 
 
-    lateinit var file_function: File_function
+    private val file_function = File_function()
 
     @SuppressLint("WrongConstant")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -38,8 +38,6 @@ class Moy_plalist : Fragment() {
 
         val recikl_list = v.findViewById<RecyclerView>(R.id.recicl_my_list)
         recikl_list.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
-
-        file_function = File_function()
 
         //прочитали файл Main.MY_PLALIST и получили список строк , каждая строка содержит имя и адрес станции
         //или получили Main.PUSTO если ам нет нечего
@@ -53,17 +51,61 @@ class Moy_plalist : Fragment() {
             data.add(Radio(m[0], m[1]))
         }
 
-        val adapter_vse_radio = Adapter_my_list(data)
-        recikl_list.adapter = adapter_vse_radio
+        val adapter_my_list = Adapter_my_list(data)
+        recikl_list.adapter = adapter_my_list
+
+        //будем слушать эфир
+
+        //фильтр для нашего сигнала
+        val intentFilter = IntentFilter()
+        intentFilter.addAction("Data_add")
+
+        //приёмник  сигналов
+        val broadcastReceiver = object : BroadcastReceiver() {
+            override fun onReceive(c: Context, intent: Intent) {
+                if (intent.action == "Data_add") {
+                    //получим данные
+                    val s = intent.getStringExtra("update")
+                    if (s == "zaebis") {
+
+                        //заново все сделаем
+                        //------------------------------------------------------
+                        val mr = file_function.My_plalist(Main.MY_PLALIST)
+                        val d = ArrayList<Radio>()
+                        for (i in mr.indices) {
+                            val m = mr[i].split("\n")
+                            d.add(Radio(m[0], m[1]))
+                        }
+                        val ad = Adapter_my_list(d)
+                        recikl_list.adapter = ad
+                        //---------------------------------------------------------
+
+                        context.toast("ok")
+                    }
+                    //попробуем уничтожить слушителя
+                  //  context.unregisterReceiver(this)
+                }
+            }
+        }
+
+        //регистрируем приёмник
+        context.registerReceiver(broadcastReceiver, intentFilter)
+
+
+
 
 
         //Слушаем кнопки
-        (v.findViewById<View>(R.id.button_delete) as Button).setOnClickListener { v ->
-            v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+
+        //------------удалить(очистить весь плейлист)---------------------------------------------
+        val delete_plalist_all = v.findViewById<Button>(R.id.button_delete)
+        delete_plalist_all.onClick {
+            delete_plalist_all.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+
             if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
 
                 val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
-                val content = LayoutInflater.from(context).inflate(R.layout.custon_dialog_delete_plalist, null)
+                val content = LayoutInflater.from(context).inflate(R.layout.dialog_delete_plalist, null)
                 builder.setView(content)
 
                 val alertDialog = builder.create()
@@ -92,9 +134,12 @@ class Moy_plalist : Fragment() {
                 context.toast("Плейлист пуст")
             }
         }
+        //-----------------------------------------------------------------------------------------
 
-        (v.findViewById<View>(R.id.button_add_url) as Button).setOnClickListener { v ->
-            v.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+        //-------------ддобавить свой поток(имя и адрес)-----------------------------------------
+        val add_new_potor_radio = v.findViewById<Button>(R.id.button_add_url)
+        add_new_potor_radio.onClick {
+            add_new_potor_radio.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
             val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
             val content = LayoutInflater.from(context).inflate(R.layout.add_url_user, null)
@@ -163,9 +208,7 @@ class Moy_plalist : Fragment() {
                         //регистрируем приёмник
                         context.registerReceiver(broadcastReceiver, intentFilter)
 
-
                         //делаем
-                        val file_function = File_function()
                         file_function.Add_may_plalist_stansiy(edit.text.toString(), edit_name.text.toString())
 
                         alertDialog.cancel()
@@ -179,15 +222,16 @@ class Moy_plalist : Fragment() {
                 }
             }
         }
+        //-----------------------------------------------------------------------------------------
 
-        //будем предлогать сохранить этот плейлист в отдельный файл
+        //-------------сохранить этот плейлист в отдельный файл------------------------------------
         val svf = v.findViewById<Button>(R.id.save_v_file)
         svf.onClick {
             svf.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             //прочитаем плейлист весь с закорючками
             val data: String = file_function.read(Main.MY_PLALIST)
 
-            if (data.length < 7) {
+            if (data == Main.PUSTO) {
                 context.toast("Нечего сохранять добавьте хотябы одну станцию")
             } else {
 
@@ -213,7 +257,7 @@ class Moy_plalist : Fragment() {
                     save_buttten.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
                     //----
-                    if (name.text.toString().length < 1) {
+                    if (name.text.toString().isEmpty()) {
                         //пока покажем это потом будум генерерить свои если не захотят вводить
                         context.toast("Введите имя")
                     } else {
@@ -254,7 +298,6 @@ class Moy_plalist : Fragment() {
                         context.registerReceiver(broadcastReceiver, intentFilter)
 
                         //сохраним  временый файл ссылку и ждём сигналы
-                        val file_function = File_function()
                         file_function.Save_temp_file(name.text.toString() + ".m3u", data)
 
                         //закроем окошко
@@ -265,7 +308,9 @@ class Moy_plalist : Fragment() {
                 //----
             }
         }
+        //--------------------------------------------------------------------------------------
 
+        //-------------открыть из памяти устройства плейлист--------------------------------------
         val lf = v.findViewById<Button>(R.id.load_file)
         lf.onClick {
             lf.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
@@ -311,16 +356,17 @@ class Moy_plalist : Fragment() {
                     open_load_file(context, old_text)
                     //закрываем окошко
                     alertDialog.cancel()
-
                 }
-
 
             } else {
                 open_load_file(context, "")
             }
         }
+        //------------------------------------------------------------------------------------
+
+        //------------открыть в плеере------------------------------------------------------
         val op = v.findViewById<View>(R.id.open_aimp)
-        op.setOnClickListener {
+        op.onClick {
             op.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
 
@@ -350,7 +396,9 @@ class Moy_plalist : Fragment() {
                 context.toast("Плэйлист пуст, добавьте хотябы одну станцию")
             }
         }
+        //--------------------------------------------------------------------------
 
+        //------------поделится---------------------------------------------------------
         val bt_send = v.findViewById<Button>(R.id.button_otpravit)
         bt_send.onClick {
             bt_send.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
@@ -367,7 +415,9 @@ class Moy_plalist : Fragment() {
                 context.toast("Нечего отпралять, плейлист пуст")
             }
         }
-        //при долгом нажатиии будем предлогать отправить мне письмом этот плейлист
+        //----------------------------------------------------------------------------------
+
+        //-----при долгом нажатиии будем предлогать отправить мне письмом этот плейлист----
         bt_send.onLongClick {
             bt_send.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
@@ -382,6 +432,8 @@ class Moy_plalist : Fragment() {
                 context.toast("Нечего отпралять, плейлист пуст")
             }
         }
+        //--------------------------------------------------------------------------
+
 
         return v
     }

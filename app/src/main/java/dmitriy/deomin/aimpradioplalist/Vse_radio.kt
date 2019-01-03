@@ -8,6 +8,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -21,6 +22,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
 import kotlinx.android.synthetic.main.vse_radio.view.*
+import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.browse
@@ -78,6 +80,7 @@ class Vse_radio : Fragment() {
         if (Main.save_read("nomer_stroki") != "") {
             if (Integer.valueOf(Main.save_read("nomer_stroki")) > 0) {
                 listView.setSelection(Integer.valueOf(Main.save_read("nomer_stroki")))
+
             }
         }
 
@@ -93,7 +96,7 @@ class Vse_radio : Fragment() {
 
 
         //при первой загрузке будем ставить текст на кнопке , потом при смене будем менять тамже
-        val t = if (Main.save_read("button_text_filter1").length >= 1) {
+        val t = if (Main.save_read("button_text_filter1").isNotEmpty()) {
             Main.save_read("button_text_filter1")
         } else {
             "Дискография"
@@ -352,17 +355,19 @@ class Vse_radio : Fragment() {
                         if (intent.action == "File_created") {
                             //получим данные
                             val s = intent.getStringExtra("update")
-                            if (s == "zaebis") {
-                                //обновим старницу
-                                Main.myadapter.notifyDataSetChanged()
-                                Main.viewPager.adapter = Main.myadapter
-                                Main.viewPager.currentItem = Main.number_page
-                            } else {
-                                toast(context.getString(R.string.error))
-                                //Изменим текущию вкладку при обновлении что тутж остаться
-                                Main.number_page = 0
-                                //запросим разрешения
-                                Main.EbuchieRazreshenia()
+                            when (s) {
+                                "est" -> context.toast("Такая станция уже есть в плейлисте")
+                                "zaebis" -> {
+                                    //пошлём сигнал пусть мой плейлист обновится
+                                    val i = Intent("Data_add")
+                                    i.putExtra("update", "zaebis")
+                                    context.sendBroadcast(i)
+                                }
+                                "pizdec" -> {
+                                    context.toast(context.getString(R.string.error))
+                                    //запросим разрешения
+                                    Main.EbuchieRazreshenia()
+                                }
                             }
                             //попробуем уничтожить слушителя
                             context.unregisterReceiver(this)

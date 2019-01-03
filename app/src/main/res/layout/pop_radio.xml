@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     android:background="@null" >
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recicl_pop_radio"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listview_pop"
-        android:divider="@null" />
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 </LinearLayout>
