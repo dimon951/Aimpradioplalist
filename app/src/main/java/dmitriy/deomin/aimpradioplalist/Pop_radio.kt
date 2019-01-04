@@ -22,6 +22,7 @@ class Pop_radio : Fragment() {
 
         val recycl_pop_radio = v.findViewById<RecyclerView>(R.id.recicl_pop_radio)
         recycl_pop_radio.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+        recycl_pop_radio.setHasFixedSize(true)
 
         //получаем список мудрёный
         val mas_radio = resources.getStringArray(R.array.pop_radio)

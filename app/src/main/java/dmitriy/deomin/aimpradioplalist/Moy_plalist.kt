@@ -147,10 +147,6 @@ class Moy_plalist : Fragment() {
             val alertDialog = builder.create()
             alertDialog.show()
 
-            val logo = content.findViewById<View>(R.id.textView_logo_add) as TextView
-            logo.typeface = Main.face
-            logo.textColor = Main.COLOR_TEXT
-
             val edit = content.findViewById<View>(R.id.editText_add_url) as EditText
             edit.typeface = Main.face
             edit.textColor = Main.COLOR_TEXT

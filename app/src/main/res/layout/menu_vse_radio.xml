@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<dmitriy.deomin.aimpradioplalist.Fon_item xmlns:android="http://schemas.android.com/apk/res/android"
+<dmitriy.deomin.aimpradioplalist.Fon_item
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -16,15 +17,9 @@
     app:cardPreventCornerOverlap="false">
 
     <LinearLayout
-        android:id="@+id/menu_progi_alert_vse"
-        android:layout_width="200dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center"
-        android:background="@null"
-        android:foregroundGravity="center"
-        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-
 
         <dmitriy.deomin.aimpradioplalist.Text
             android:id="@+id/textView_vse_radio"
@@ -38,56 +33,57 @@
             android:textSize="20sp"
             android:textStyle="normal|bold" />
 
-        <Button
-            android:id="@+id/button_add_plalist"
+        <LinearLayout
+            android:id="@+id/menu_progi_alert_vse"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:background="@null"
-            android:text="Добавить в мой плейлист"
-            android:textColor="@color/green"
-            android:textSize="16sp" />
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
 
 
-        <Button
-            android:id="@+id/button_open_aimp"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@null"
-            android:text="Открыть в Aimp"
-            android:textColor="@color/green"
-            android:textSize="16sp" />
+            <Button
+                android:id="@+id/button_add_plalist"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="10dp"
+                android:background="@android:drawable/ic_menu_add"
+                android:textColor="@color/green"
+                android:textSize="16sp" />
 
 
-        <Button
-            android:id="@+id/button_instal_aimp"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@null"
-            android:text="Установить Aimp через Play Market"
-            android:textColor="@color/green"
-            android:textSize="16sp" />
+            <Button
+                android:id="@+id/button_open_aimp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:drawable/ic_media_play"
+                android:textColor="@color/green"
+                android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/button_download_yandex_aimp"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@null"
-            android:text="Скачать Aimp "
-            android:textColor="@color/green"
-            android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/button_open_sistem"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@null"
-            android:text="Открыть в системе"
-            android:textColor="@color/green"
-            android:textSize="16sp" />
+            <Button
+                android:id="@+id/button_instal_aimp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/pm"
+                android:textColor="@color/green"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/button_download_yandex_aimp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/dwn"
+                android:textColor="@color/green"
+                android:textSize="16sp" />
+
+        </LinearLayout>
     </LinearLayout>
+
 </dmitriy.deomin.aimpradioplalist.Fon_item>
