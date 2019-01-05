@@ -66,8 +66,6 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : RecyclerView.Adapter<Ad
         val radiopop = data[p1]
 
         //название
-        p0.text.typeface = Main.face
-        p0.text.textColor = Main.COLOR_TEXT
         p0.text.text = radiopop.name
 
         //ставим картинку
@@ -75,13 +73,6 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : RecyclerView.Adapter<Ad
                 .load("file:///android_asset/ava_pop/" + radiopop.ava_url)
                 .transform(transformation)
                 .into(p0.ava)
-
-        //ставим цвет текста
-        p0.kbps1.textColor = Main.COLOR_TEXT
-        p0.kbps2.textColor = Main.COLOR_TEXT
-        p0.kbps3.textColor = Main.COLOR_TEXT
-        p0.kbps4.textColor = Main.COLOR_TEXT
-        p0.kbps5.textColor = Main.COLOR_TEXT
 
         //кнопки качеста скрываем пустые
         p0.kbps1.visibility = if (!radiopop.link1.kbps.isEmpty()) {
@@ -141,6 +132,12 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : RecyclerView.Adapter<Ad
         bold_underline(p0, 1)
         var popurl = radiopop.link1.url
 
+        p0.kbps1.textColor =  Main.COLOR_TEXT
+        p0.kbps2.textColor =  Main.COLOR_TEXT
+        p0.kbps3.textColor =  Main.COLOR_TEXT
+        p0.kbps4.textColor =  Main.COLOR_TEXT
+        p0.kbps5.textColor =  Main.COLOR_TEXT
+
         //при кликах на кнопках качества будем обновлять вид и ссылку
         p0.kbps1.onClick { bold_underline(p0, 1); popurl = radiopop.link1.url }
         p0.kbps2.onClick { bold_underline(p0, 2); popurl = radiopop.link2.url }
@@ -196,8 +193,6 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : RecyclerView.Adapter<Ad
                             }
                         } else {
                             context.toast(context.getString(R.string.error))
-                            //Изменим текущию вкладку при обновлении что тутж остаться
-                            Main.number_page = 1
                             //запросим разрешения
                             Main.EbuchieRazreshenia()
                         }

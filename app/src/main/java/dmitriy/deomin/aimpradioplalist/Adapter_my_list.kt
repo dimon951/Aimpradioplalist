@@ -26,8 +26,10 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name_radio = itemView.findViewById<TextView>(R.id.name_radio)
+        val nomer_radio = itemView.findViewById<TextView>(R.id.nomer_radio)
         val url_radio = itemView.findViewById<TextView>(R.id.url_radio)
         val fon = itemView.findViewById<CardView>(R.id.fon_item_radio)
+
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
@@ -41,19 +43,12 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
     }
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-        //настроим вид тутже
-        //-----------------------------------------------
-        p0.name_radio.typeface = Main.face
-        p0.name_radio.textColor = Main.COLOR_TEXT
-
-        p0.url_radio.typeface = Main.face
-        p0.url_radio.textColor = Main.COLOR_TEXT
-        //-------------------------------------------------------
 
         //заполним данными
         val radio: Radio = data[p1]
         p0.name_radio.text = radio.name
         p0.url_radio.text = radio.url
+        p0.nomer_radio.visibility = View.GONE
 
 
         //обработка нажатий
@@ -72,13 +67,9 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
             del.textColor = Main.COLOR_TEXT
             del.onClick {
                 del.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-                //закроем окошко
-                alertDialog.cancel()
+
                 //получаем выбранную строку
                 val selectedItem = radio.name + "\n" + radio.url
-
-
-                // val mas = file_function.My_plalist(Main.MY_PLALIST)
 
 
                 //покажем окошко с вопросом подтверждения удаления
@@ -89,9 +80,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                 val alertDialog_vopros_delete = b.create()
                 alertDialog_vopros_delete.show()
 
-
-                (c.findViewById<View>(R.id.text_voprosa_del_stncii) as TextView).typeface = Main.face
-                (c.findViewById<View>(R.id.text_voprosa_del_stncii) as TextView).text = "Точно удалить: \n$selectedItem ?"
+                (c.findViewById<View>(R.id.text_voprosa_del_stncii) as TextView).text = "Точно удалить? \n$selectedItem"
 
                 val del_ok = c.findViewById<Button>(R.id.button_dialog_delete)
                 del_ok.textColor = Main.COLOR_TEXT
@@ -108,13 +97,19 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                             if (intent.action == "File_created") {
                                 //получим данные
                                 val s = intent.getStringExtra("update")
-                                if (s == "zaebis") {
-                                    //удаляем в рецикле
-                                    //если быстро удвлять по одной то все падает надо гдето чето блокировать
-                                    data.removeAt(p1)
-                                    notifyItemRemoved(p1)
-                                } else {
-                                    context.toast(Main.context.getString(R.string.error))
+                                when (s) {
+                                    "est" -> context.toast("Такая станция уже есть в плейлисте")
+                                    "zaebis" -> {
+                                        //пошлём сигнал пусть мой плейлист обновится
+                                        val i = Intent("Data_add")
+                                        i.putExtra("update", "zaebis")
+                                        context.sendBroadcast(i)
+                                    }
+                                    "pizdec" -> {
+                                        context.toast(context.getString(R.string.error))
+                                        //запросим разрешения
+                                        Main.EbuchieRazreshenia()
+                                    }
                                 }
                                 //попробуем уничтожить слушителя
                                 context.unregisterReceiver(this)
@@ -139,6 +134,9 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                     //закроем окошко
                     alertDialog_vopros_delete.cancel()
                 }
+
+                //закроем окошко
+                alertDialog.cancel()
             }
 
             //кнопка переименовать
@@ -147,8 +145,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
             renem.textColor = Main.COLOR_TEXT
             renem.onClick {
                 renem.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-                //закроем окошко
-                alertDialog.cancel()
+
                 //показываем окошко ввода нового имени
                 val b = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
                 val c = LayoutInflater.from(context).inflate(R.layout.name_save_file, null)
@@ -189,16 +186,17 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                                     //получим данные
                                     val s = intent.getStringExtra("update")
                                     if (s == "zaebis") {
-                                        alertDialog.cancel()
                                         //обновим старницу
                                         data.removeAt(p1)
                                         data.add(p1, Radio(edit.text.toString(), radio.url))
                                         notifyItemChanged(p1)
                                     } else {
-                                        context.toast(Main.context.getString(R.string.error))
+                                        context.toast(context.getString(R.string.error))
                                     }
                                     //попробуем уничтожить слушителя
                                     context.unregisterReceiver(this)
+
+                                    alertDialog.cancel()
                                 }
                             }
                         }
@@ -216,9 +214,9 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                         context.toast("Оставим как было")
                         alertDialog.cancel()
                     }
-
                 }
-
+                //закроем окошко
+                alertDialog.cancel()
             }
 
         }

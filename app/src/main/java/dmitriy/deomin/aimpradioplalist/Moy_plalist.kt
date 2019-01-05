@@ -16,6 +16,7 @@ import java.util.ArrayList
 import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.widget.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
@@ -54,8 +55,8 @@ class Moy_plalist : Fragment() {
         val adapter_my_list = Adapter_my_list(data)
         recikl_list.adapter = adapter_my_list
 
-        //будем слушать эфир
-
+        //будем слушать эфир постоянно если че обновим список
+        //-------------------------------------------------------------------------------------
         //фильтр для нашего сигнала
         val intentFilter = IntentFilter()
         intentFilter.addAction("Data_add")
@@ -83,16 +84,14 @@ class Moy_plalist : Fragment() {
                         context.toast("ok")
                     }
                     //попробуем уничтожить слушителя
-                  //  context.unregisterReceiver(this)
+                    //  context.unregisterReceiver(this)
                 }
             }
         }
 
         //регистрируем приёмник
         context.registerReceiver(broadcastReceiver, intentFilter)
-
-
-
+        //-------------------------------------------------------------------------------
 
 
         //Слушаем кнопки
@@ -116,12 +115,42 @@ class Moy_plalist : Fragment() {
                 b_d_D.typeface = Main.face
                 b_d_D.onClick {
                     b_d_D.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-                    alertDialog.dismiss()
-                    Main.number_page = 2
+                    //фильтр для нашего сигнала
+                    val intentFilter = IntentFilter()
+                    intentFilter.addAction("File_created")
+
+                    //приёмник  сигналов
+                    val broadcastReceiver = object : BroadcastReceiver() {
+                        override fun onReceive(c: Context, intent: Intent) {
+                            if (intent.action == "File_created") {
+                                //получим данные
+                                val s = intent.getStringExtra("update")
+                                when (s) {
+                                    "est" -> context.toast("Такая станция уже есть в плейлисте")
+                                    "zaebis" -> {
+                                        //пошлём сигнал пусть мой плейлист обновится
+                                        val i = Intent("Data_add")
+                                        i.putExtra("update", "zaebis")
+                                        context.sendBroadcast(i)
+                                    }
+                                    "pizdec" -> {
+                                        context.toast(context.getString(R.string.error))
+                                        //запросим разрешения
+                                        Main.EbuchieRazreshenia()
+                                    }
+                                }
+                                //попробуем уничтожить слушителя
+                                context.unregisterReceiver(this)
+                            }
+                        }
+                    }
+
+                    //регистрируем приёмник
+                    context.registerReceiver(broadcastReceiver, intentFilter)
+
+                    //удаляем и ждём ответа
                     file_function.Delet_my_plalist()
-                    Main.myadapter.notifyDataSetChanged()
-                    Main.viewPager.adapter = Main.myadapter
-                    Main.viewPager.currentItem = Main.number_page
+                    alertDialog.dismiss()
                 }
                 val b_d_N = content.findViewById<View>(R.id.button_dialog_no) as Button
                 b_d_N.setTextColor(Main.COLOR_TEXT)
@@ -174,7 +203,6 @@ class Moy_plalist : Fragment() {
 
                     //проверим есть ли в начале ссылки http:// или "https://" - ато от неё много чего зависит
                     if (edit.text.toString().substring(0, 7) == "http://" || edit.text.toString().substring(0, 8) == "https://") {
-                        Main.number_page = 2
 
                         //фильтр для нашего сигнала
                         val intentFilter = IntentFilter()
@@ -186,14 +214,19 @@ class Moy_plalist : Fragment() {
                                 if (intent.action == "File_created") {
                                     //получим данные
                                     val s = intent.getStringExtra("update")
-                                    if (s == "zaebis") {
-                                        alertDialog.cancel()
-                                        //обновим старницу
-                                        Main.myadapter.notifyDataSetChanged()
-                                        Main.viewPager.adapter = Main.myadapter
-                                        Main.viewPager.currentItem = Main.number_page
-                                    } else {
-                                        context.toast(context.getString(R.string.error))
+                                    when (s) {
+                                        "est" -> context.toast("Такая станция уже есть в плейлисте")
+                                        "zaebis" -> {
+                                            //пошлём сигнал пусть мой плейлист обновится
+                                            val i = Intent("Data_add")
+                                            i.putExtra("update", "zaebis")
+                                            context.sendBroadcast(i)
+                                        }
+                                        "pizdec" -> {
+                                            context.toast(context.getString(R.string.error))
+                                            //запросим разрешения
+                                            Main.EbuchieRazreshenia()
+                                        }
                                     }
                                     //попробуем уничтожить слушителя
                                     context.unregisterReceiver(this)
@@ -226,8 +259,7 @@ class Moy_plalist : Fragment() {
             svf.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             //прочитаем плейлист весь с закорючками
             val data: String = file_function.read(Main.MY_PLALIST)
-
-            if (data == Main.PUSTO) {
+            if (data.length<9) {
                 context.toast("Нечего сохранять добавьте хотябы одну станцию")
             } else {
 
@@ -237,10 +269,6 @@ class Moy_plalist : Fragment() {
                 builder.setView(content)
                 val alertDialog = builder.create()
                 alertDialog.show()
-
-                val vvedite_name = content.findViewById<View>(R.id.textView_vvedite_name) as TextView
-                vvedite_name.typeface = Main.face
-                vvedite_name.textColor = Main.COLOR_TEXT
 
                 val name = content.findViewById<View>(R.id.edit_new_name) as EditText
                 name.typeface = Main.face
@@ -257,9 +285,6 @@ class Moy_plalist : Fragment() {
                         //пока покажем это потом будум генерерить свои если не захотят вводить
                         context.toast("Введите имя")
                     } else {
-                        //нужно чтоб после обновления открылась таже вкладка
-                        Main.number_page = 2
-
                         //когда прийдёт сигнал что сохранилось все хорошо обновим плейлист
 
                         //приёмник  сигналов
@@ -273,17 +298,19 @@ class Moy_plalist : Fragment() {
                                 if (intent.action == "File_created") {
                                     //получим данные
                                     val s = intent.getStringExtra("update")
-                                    if (s == "zaebis") {
-
-                                        //и обновим старницу
-                                        Main.myadapter.notifyDataSetChanged()
-                                        Main.viewPager.adapter = Main.myadapter
-                                        Main.viewPager.currentItem = Main.number_page
-
-                                        //тут злоябучий выскакивает глюк
-                                        context.toast(Main.rnd_ok())
-                                    } else {
-                                        context.toast(context.getString(R.string.error))
+                                    when (s) {
+                                        "est" -> context.toast("Такая станция уже есть в плейлисте")
+                                        "zaebis" -> {
+                                            //пошлём сигнал пусть мой плейлист обновится
+                                            val i = Intent("Data_add")
+                                            i.putExtra("update", "zaebis")
+                                            context.sendBroadcast(i)
+                                        }
+                                        "pizdec" -> {
+                                            context.toast(context.getString(R.string.error))
+                                            //запросим разрешения
+                                            Main.EbuchieRazreshenia()
+                                        }
                                     }
                                     //попробуем уничтожить слушителя
                                     context.unregisterReceiver(this)
@@ -319,10 +346,6 @@ class Moy_plalist : Fragment() {
                 builder.setView(content)
                 val alertDialog = builder.create()
                 alertDialog.show()
-
-                (content.findViewById<View>(R.id.textView_vopros_pro_old_file) as TextView).typeface = Main.face
-                (content.findViewById<View>(R.id.textView_vopros_pro_old_file) as TextView).setTextColor(Main.COLOR_TEXT)
-
 
                 //затираем старое
                 val del = content.findViewById<View>(R.id.button_dell_old_plalist) as Button
@@ -477,9 +500,6 @@ class Moy_plalist : Fragment() {
                             var str = file_function.read(file_m3u_custom)
                             //если файл есть и он не пустой зальём его в список по умолчанию
                             if (str.length > 1) {
-                                //нужно чтоб после обновления открылась таже вкладка
-                                Main.number_page = 2
-
                                 //когда прийдёт сигнал что все хорошо обновим плейлист
 
                                 //приёмник  сигналов
@@ -493,17 +513,19 @@ class Moy_plalist : Fragment() {
                                         if (intent.action == "File_created") {
                                             //получим данные
                                             val s = intent.getStringExtra("update")
-                                            if (s == "zaebis") {
-                                                //обновим старницу
-                                                Main.myadapter.notifyDataSetChanged()
-                                                Main.viewPager.adapter = Main.myadapter
-                                                Main.viewPager.currentItem = Main.number_page
-                                            } else {
-                                                context.toast(context.getString(R.string.error))
-                                                //Изменим текущию вкладку при обновлении что тутж остаться
-                                                Main.number_page = 2
-                                                //запросим разрешения
-                                                Main.EbuchieRazreshenia()
+                                            when (s) {
+                                                "est" -> context.toast("Такая станция уже есть в плейлисте")
+                                                "zaebis" -> {
+                                                    //пошлём сигнал пусть мой плейлист обновится
+                                                    val i = Intent("Data_add")
+                                                    i.putExtra("update", "zaebis")
+                                                    context.sendBroadcast(i)
+                                                }
+                                                "pizdec" -> {
+                                                    context.toast(context.getString(R.string.error))
+                                                    //запросим разрешения
+                                                    Main.EbuchieRazreshenia()
+                                                }
                                             }
                                             //попробуем уничтожить слушителя
                                             context.unregisterReceiver(this)

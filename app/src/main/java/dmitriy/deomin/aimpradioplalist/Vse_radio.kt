@@ -14,7 +14,9 @@ import android.os.Bundle
 import android.os.Environment
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.LinearSnapHelper
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.SnapHelper
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.ContextThemeWrapper
@@ -31,6 +33,7 @@ import org.jetbrains.anko.support.v4.browse
 import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
+import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
 
 import java.util.ArrayList
 import java.util.HashMap
@@ -40,7 +43,6 @@ class Vse_radio : Fragment() {
 
     internal lateinit var context: Context
     lateinit var find: EditText
-    private val STANCIA = "stancia"
     val PREFIX = "-"
 
 
@@ -54,13 +56,21 @@ class Vse_radio : Fragment() {
 
 
         val recikl_vse_list = v.findViewById<RecyclerView>(R.id.recicl_vse_radio)
-        recikl_vse_list.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false) as RecyclerView.LayoutManager?
+        recikl_vse_list.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
         recikl_vse_list.setHasFixedSize(true)
+
+        val fastScroller: VerticalRecyclerViewFastScroller = v.findViewById(R.id.fast_scroller)
+
+        fastScroller.setRecyclerView(recikl_vse_list)
+
+        // Connect the scroller to the recycler (to let the recycler scroll the scroller's handle)
+        recikl_vse_list.setOnScrollListener(fastScroller.getOnScrollListener())
+
+
 
 
         //получаем список радио >1000 штук
         val mas_radio = resources.getStringArray(R.array.vse_radio)
-
 
 
         //адаптеру будем слать список классов Radio
@@ -85,14 +95,12 @@ class Vse_radio : Fragment() {
         }
 
 
-
-
         // текст только что изменили в строке поиска
         find.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(text: CharSequence, start: Int, before: Int, count: Int) {
-              adapter_vse_list.filter.filter(text)
+                adapter_vse_list.filter.filter(text)
             }
         })
 
@@ -107,8 +115,7 @@ class Vse_radio : Fragment() {
 
         //при клике будем вставлять в строку поиска для отфильтровки
         v.kod_diskografii.onClick {
-            val anim = AnimationUtils.loadAnimation(v.context, R.anim.myalpha)
-            v.kod_diskografii.startAnimation(anim)
+            v.kod_diskografii.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
 
             if (find.text.toString() == v.kod_diskografii.text) {
                 find.setText("")
@@ -118,8 +125,7 @@ class Vse_radio : Fragment() {
         }
         //при долгом нажатиии будем предлогать изменить текст
         v.kod_diskografii.onLongClick {
-            val anim = AnimationUtils.loadAnimation(v.context, R.anim.myalpha)
-            v.kod_diskografii.startAnimation(anim)
+            v.kod_diskografii.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
 
             val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
             val content = LayoutInflater.from(context).inflate(R.layout.vvod_new_text_vse_radio_filtr, null)
@@ -127,10 +133,6 @@ class Vse_radio : Fragment() {
 
             val alertDialog = builder.create()
             alertDialog.show()
-
-
-            (content.findViewById<TextView>(R.id.new_text_filter_logo)).typeface = Main.face
-            (content.findViewById<TextView>(R.id.new_text_filter_logo)).textColor = Main.COLOR_TEXT
 
             val e_t = content.findViewById<EditText>(R.id.new_text_filter_editText)
             e_t.typeface = Main.face
@@ -142,8 +144,6 @@ class Vse_radio : Fragment() {
             })
 
             val bt_ok = content.findViewById<Button>(R.id.new_text_filter_button)
-            bt_ok.typeface = Main.face
-            bt_ok.setTextColor(Main.COLOR_TEXT)
             bt_ok.onClick {
                 bt_ok.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
@@ -162,8 +162,7 @@ class Vse_radio : Fragment() {
         }
 
         v.kod_32bit.onClick {
-            val anim = AnimationUtils.loadAnimation(v.context, R.anim.myalpha)
-            v.kod_32bit.startAnimation(anim)
+            v.kod_32bit.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
             if (find.text.toString() == (PREFIX + v.kod_32bit.text + PREFIX)) {
                 find.setText("")
             } else {
@@ -171,8 +170,7 @@ class Vse_radio : Fragment() {
             }
         }
         v.kod_64bit.onClick {
-            val anim = AnimationUtils.loadAnimation(v.context, R.anim.myalpha)
-            v.kod_64bit.startAnimation(anim)
+            v.kod_64bit.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
             if (find.text.toString() == (PREFIX + v.kod_64bit.text + PREFIX)) {
                 find.setText("")
             } else {
@@ -180,8 +178,7 @@ class Vse_radio : Fragment() {
             }
         }
         v.kod_96bit.onClick {
-            val anim = AnimationUtils.loadAnimation(v.context, R.anim.myalpha)
-            v.kod_96bit.startAnimation(anim)
+            v.kod_96bit.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
             if (find.text.toString() == (PREFIX + v.kod_96bit.text + PREFIX)) {
                 find.setText("")
             } else {
@@ -189,8 +186,7 @@ class Vse_radio : Fragment() {
             }
         }
         v.kod_128bit.onClick {
-            val anim = AnimationUtils.loadAnimation(v.context, R.anim.myalpha)
-            v.kod_128bit.startAnimation(anim)
+            v.kod_128bit.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
             if (find.text.toString() == (PREFIX + v.kod_128bit.text + PREFIX)) {
                 find.setText("")
             } else {
@@ -198,8 +194,7 @@ class Vse_radio : Fragment() {
             }
         }
         v.kod_256bit.onClick {
-            val anim = AnimationUtils.loadAnimation(v.context, R.anim.myalpha)
-            v.kod_256bit.startAnimation(anim)
+            v.kod_256bit.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
             if (find.text.toString() == (PREFIX + v.kod_256bit.text + PREFIX)) {
                 find.setText("")
             } else {
@@ -208,18 +203,5 @@ class Vse_radio : Fragment() {
         }
 
         return v
-    }
-
-    //запись
-    fun putText(text: String, context: Context) {
-        val sdk = android.os.Build.VERSION.SDK_INT
-        if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
-            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
-            clipboard.text = text
-        } else {
-            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
-            val clip = ClipData.newPlainText(text, text)
-            clipboard.primaryClip = clip
-        }
     }
 }

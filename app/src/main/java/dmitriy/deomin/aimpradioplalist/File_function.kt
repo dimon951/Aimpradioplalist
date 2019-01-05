@@ -19,9 +19,7 @@ class File_function {
     private val isExternalStorageWritable: Boolean
         get() {
             val state = Environment.getExternalStorageState()
-            Log.e("ggggggoooopaaa", (Environment.MEDIA_MOUNTED == state).toString())
             return Environment.MEDIA_MOUNTED == state
-
         }
 
     //прочитает файл из памяти устройства и вернёт массив радиопотоков распарсеный вида
@@ -91,6 +89,8 @@ class File_function {
     }
 
     //удаление одной станции из файла
+    //в параметрах получаем строку вида
+    //Авторадио\nhttp://ic7.101.ru:8000/v3_1
     fun Delet_one_potok(potok: String) {
         //прочитаем старыйе данные
         var old_text = ""
@@ -100,12 +100,28 @@ class File_function {
             e.printStackTrace()
         }
 
-        //в параметрах получаем строку вида
-        //Авторадио\nhttp://ic7.101.ru:8000/v3_1
+        //удалим все переносы из прочитаных данных и подставим Где надо вместо http://  поставим \nhttp://
+        //"#EXTM3U#"  - в начале файла
+        //#EXTINF:-1 - в начале каждого потока
+        old_text = old_text.replace("\n","")
+        old_text = old_text.replace("#EXTM3U","#EXTM3U\n")
+        old_text = old_text.replace("#EXTINF:-1","\n#EXTINF:-1")
+        old_text = old_text.replace("https://","\nhttps://")
+        old_text = old_text.replace("http://","\nhttp://")
+
 
         //составим исходный вид строки потока(как в файле записано)
         //#EXTINF:-1,Авторадио\nhttp://ic7.101.ru:8000/v3_1
-        val del_potok = "#EXTINF:-1,$potok"
+
+        //посмотрим что это за строка если есть \nhttp:// или \nhttps://
+        val del_potok = if(potok.contains("\nhttp://")||potok.contains("\nhttps://")){
+            "#EXTINF:-1,$potok"
+        }else{
+            //иначе это хз че есть ,удалим так
+            potok
+        }
+
+
 
         //теперь удаляем эту вещь из считаного файла и перезаписываем его
         old_text = old_text.replace(del_potok, "")

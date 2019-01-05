@@ -23,36 +23,21 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.kotlinpermissions.KotlinPermissions
+import kotlinx.android.synthetic.main.main.*
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
+import java.util.ArrayList
 
 class Main : FragmentActivity() {
-
-
-    lateinit var imageSwitcher: ImageSwitcher
-    private lateinit var mImageIds: IntArray
-
-    private lateinit var vse_r: Button
-    private lateinit var popul: Button
-    private lateinit var moy_pl: Button
 
     //тут куча всего что может использоваться в любом классе проекта
     companion object {
 
         @SuppressLint("StaticFieldLeak")
         lateinit var context: Context
-
-        @SuppressLint("StaticFieldLeak")
-        lateinit var liner_boss: LinearLayout
-
-        @SuppressLint("StaticFieldLeak")
-        lateinit var viewPager: ViewPager
-
-        lateinit var myadapter: Myadapter
-        var number_page: Int = 0
 
         //кодировка файла плейлиста
         val File_Text_Code: String = "UTF8"
@@ -66,8 +51,6 @@ class Main : FragmentActivity() {
 
         //шрифт
         lateinit var face: Typeface
-        //для текста
-        lateinit var text: Spannable
         //сохранялка
         lateinit var mSettings: SharedPreferences // сохранялка
         //реклама
@@ -218,10 +201,10 @@ class Main : FragmentActivity() {
                                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                                 Manifest.permission.INTERNET)
                         .onAccepted {
-                            //обновим
-                            Main.myadapter.notifyDataSetChanged()
-                            Main.viewPager.adapter = Main.myadapter
-                            Main.viewPager.currentItem = Main.number_page
+                            //пошлём сигнал пусть обновится
+                            val i = Intent("Main_update")
+                            i.putExtra("signal", "update")
+                            context.sendBroadcast(i)
                         }
                         .ask()
                 //------------------------
@@ -243,7 +226,6 @@ class Main : FragmentActivity() {
         //-----------------------------------------------------------------------------------------
         context = this
 
-
         //во весь экран
         this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         //сохранялка
@@ -251,7 +233,6 @@ class Main : FragmentActivity() {
 
 
         face = Typeface.createFromAsset(assets, if (save_read("fonts") == "") "fonts/Tweed.ttf" else save_read("fonts"))
-
         //ставим цвет фона(тема)
         //--------------------------------------------------------------------
         COLOR_FON = if (save_read_int("color_fon") == 0) {
@@ -273,6 +254,35 @@ class Main : FragmentActivity() {
         }
         //------------------------------------------------------------------------------
 
+
+        fon_main.setBackgroundColor(COLOR_FON)
+
+
+        val mImageIds: IntArray = intArrayOf(R.drawable.titl_text1, R.drawable.titl_text2, R.drawable.titl_text3)
+        val imageSwitcher: ImageSwitcher = findViewById(R.id.imageSwitcher)
+        imageSwitcher.setFactory {
+            val myView = ImageView(applicationContext)
+            myView.scaleType = ImageView.ScaleType.FIT_CENTER
+            myView
+        }
+        imageSwitcher.setImageResource(mImageIds[1])
+
+        val viewPager: ViewPager = findViewById(R.id.pager)
+        viewPager.offscreenPageLimit = 3
+        val myadapter = Myadapter(supportFragmentManager)
+        viewPager.adapter = myadapter
+        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {}
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+            override fun onPageSelected(position: Int) {
+                //пошлём сигнал пусть мой плейлист обновится
+                val i = Intent("Main_update")
+                i.putExtra("signal", position.toString())
+                context.sendBroadcast(i)
+            }
+        })
+
+
         //реклама
         //-------------------------------------------------------------------------
         MobileAds.initialize(this, "ca-app-pub-7908895047124036~7402987509")
@@ -287,62 +297,91 @@ class Main : FragmentActivity() {
             mAdView.visibility = View.VISIBLE
         }
 
-
-        liner_boss = findViewById(R.id.main)
-        liner_boss.setBackgroundColor(COLOR_FON)
-
-
         //анимация на кнопках*****************************************.
-        val anim = AnimationUtils.loadAnimation(context, R.anim.myscale)
-        vse_r = findViewById(R.id.vse_radio)
-        vse_r.typeface = face
-        vse_r.textColor = COLOR_TEXT
-        vse_r.text = vse_r.text.toString() + "(" + resources.getStringArray(R.array.vse_radio).size.toString() + ")"
-        vse_r.onClick {
-            vse_r.startAnimation(anim)
+
+        vse_radio.text = vse_radio.text.toString() + "(" + resources.getStringArray(R.array.vse_radio).size.toString() + ")"
+        vse_radio.onClick {
+            vse_radio.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
             viewPager.currentItem = 0
         }
-        popul = findViewById(R.id.popularnoe)
-        popul.typeface = face
-        popul.textColor = COLOR_TEXT
-        popul.onClick {
-            popul.startAnimation(anim)
+
+        popularnoe.onClick {
+            popularnoe.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
             viewPager.currentItem = 1
         }
-        moy_pl = findViewById(R.id.moy_plalist)
-        moy_pl.typeface = face
-        moy_pl.textColor = COLOR_TEXT
-        moy_pl.onClick {
-            moy_pl.startAnimation(anim)
+
+        moy_plalist.onClick {
+            moy_plalist.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
             viewPager.currentItem = 2
         }
         //****************************************************************
 
-        mImageIds = intArrayOf(R.drawable.titl_text1, R.drawable.titl_text2, R.drawable.titl_text3)
-        imageSwitcher = findViewById(R.id.imageSwitcher)
-        imageSwitcher.setFactory {
-            val myView = ImageView(applicationContext)
-            myView.scaleType = ImageView.ScaleType.FIT_CENTER
-            myView
-        }
-        imageSwitcher.setImageResource(mImageIds[1])
 
-        viewPager = findViewById(R.id.pager)
-        viewPager.offscreenPageLimit = 3
-        myadapter = Myadapter(supportFragmentManager)
-        viewPager.adapter = myadapter
-        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrollStateChanged(state: Int) {}
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
-            override fun onPageSelected(position: Int) {
-                fon_button(position)
-            }
-        })
-
-        //
-        number_page = 1
         //пролистаем на вип радио
         viewPager.currentItem = 1
+
+
+        //будем слушать эфир постоянно если че обновим
+        //-------------------------------------------------------------------------------------
+        //фильтр для нашего сигнала
+        val intentFilter = IntentFilter()
+        intentFilter.addAction("Main_update")
+
+        //приёмник  сигналов
+        val broadcastReceiver = object : BroadcastReceiver() {
+            override fun onReceive(c: Context, intent: Intent) {
+                if (intent.action == "Main_update") {
+                    //получим данные
+                    val s = intent.getStringExtra("signal")
+
+                    when (s) {
+                        //меняем кота
+                        "0", "1", "2" -> {
+                            when (s.toInt()) {
+                                0 -> {
+                                    vse_radio.setBackgroundColor(COLOR_ITEM)
+                                    vse_radio.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
+                                    imageSwitcher.setImageResource(mImageIds[0])
+
+                                    popularnoe.setBackgroundColor(COLOR_FON)
+                                    moy_plalist.setBackgroundColor(COLOR_FON)
+                                }
+                                1 -> {
+                                    popularnoe.setBackgroundColor(COLOR_ITEM)
+                                    popularnoe.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
+                                    imageSwitcher.setImageResource(mImageIds[1])
+
+                                    vse_radio.setBackgroundColor(COLOR_FON)
+                                    moy_plalist.setBackgroundColor(COLOR_FON)
+                                }
+                                2 -> {
+                                    moy_plalist.setBackgroundColor(COLOR_ITEM)
+                                    moy_plalist.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
+                                    imageSwitcher.setImageResource(mImageIds[2])
+
+                                    vse_radio.setBackgroundColor(COLOR_FON)
+                                    popularnoe.setBackgroundColor(COLOR_FON)
+                                }
+                            }
+                        }
+                        //обновляем пайджер
+                        "update" -> {
+                            //обновим
+                            myadapter.notifyDataSetChanged()
+                            viewPager.adapter = myadapter
+                            viewPager.currentItem = 1
+                        }
+                        "update_color"->{
+                            fon_main.setBackgroundColor(COLOR_FON)
+                        }
+                    }
+                }
+            }
+        }
+        //регистрируем приёмник
+        context.registerReceiver(broadcastReceiver, intentFilter)
+        //-------------------------------------------------------------------------------
+
 
         //получим ебучие разрешения , если не дали их еще
         EbuchieRazreshenia()
@@ -403,37 +442,6 @@ class Main : FragmentActivity() {
 
         override fun getCount(): Int {
             return 3
-        }
-    }
-
-    fun fon_button(button: Int) {
-        val anim = AnimationUtils.loadAnimation(context, R.anim.myscale)
-
-        when (button) {
-            0 -> {
-                vse_r.setBackgroundColor(COLOR_ITEM)
-                vse_r.startAnimation(anim)
-                imageSwitcher.setImageResource(mImageIds[0])
-
-                popul.setBackgroundColor(COLOR_FON)
-                moy_pl.setBackgroundColor(COLOR_FON)
-            }
-            1 -> {
-                popul.setBackgroundColor(COLOR_ITEM)
-                popul.startAnimation(anim)
-                imageSwitcher.setImageResource(mImageIds[1])
-
-                vse_r.setBackgroundColor(COLOR_FON)
-                moy_pl.setBackgroundColor(COLOR_FON)
-            }
-            2 -> {
-                moy_pl.setBackgroundColor(COLOR_ITEM)
-                moy_pl.startAnimation(anim)
-                imageSwitcher.setImageResource(mImageIds[2])
-
-                vse_r.setBackgroundColor(COLOR_FON)
-                popul.setBackgroundColor(COLOR_FON)
-            }
         }
     }
 }

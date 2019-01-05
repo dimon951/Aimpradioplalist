@@ -1,6 +1,7 @@
 package dmitriy.deomin.aimpradioplalist
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.*
@@ -12,7 +13,6 @@ import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_FON
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_ITEM
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_TEXT
 import dmitriy.deomin.aimpradioplalist.Main.Companion.face
-import dmitriy.deomin.aimpradioplalist.Main.Companion.liner_boss
 import dmitriy.deomin.aimpradioplalist.Main.Companion.save_value_int
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -81,7 +81,10 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
     }
 
     fun pererisovka_color() {
-        liner_boss.backgroundColor = COLOR_FON
+        //пошлём сигнал пусть обновится
+        val i = Intent("Main_update")
+        i.putExtra("signal", "update_color")
+        Main.context.sendBroadcast(i)
 
 
 

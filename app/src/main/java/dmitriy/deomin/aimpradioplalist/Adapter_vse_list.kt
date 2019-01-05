@@ -58,8 +58,10 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name_radio = itemView.findViewById<TextView>(R.id.name_radio)
+        val nomer_radio = itemView.findViewById<TextView>(R.id.nomer_radio)
         val url_radio = itemView.findViewById<TextView>(R.id.url_radio)
         val fon = itemView.findViewById<CardView>(R.id.fon_item_radio)
+       // val fon2 = itemView.findViewById<LinearLayout>(R.id.fon2)
     }
 
 
@@ -75,11 +77,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
 
-
-        //заполним данными
-        val radio: Radio = raduoSearchList!![p1]
-        p0.name_radio.text = radio.name
-        p0.url_radio.text = radio.url
+      //  p0.fon2.setBackgroundColor(Main.COLOR_ITEM)
 
         //настроим вид тутже
         //-----------------------------------------------
@@ -88,19 +86,31 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
 
         p0.url_radio.typeface = Main.face
         p0.url_radio.textColor = Main.COLOR_TEXT
+
+        p0.nomer_radio.typeface = Main.face
+        p0.nomer_radio.textColor = Main.COLOR_TEXT
         //-------------------------------------------------------
+
+
+        //заполним данными
+        val radio: Radio = raduoSearchList!![p1]
+        p0.name_radio.text = radio.name
+        p0.url_radio.text = radio.url
+        p0.nomer_radio.text = (p1 + 1).toString() + ". "
 
 
         //обработка нажатий
         p0.itemView.onClick {
             p0.fon.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
 
+           // p0.fon2.setBackgroundColor(Color.DKGRAY)
+
             p0.name_radio.textColor = Color.DKGRAY
             p0.url_radio.textColor = Color.DKGRAY
+            p0.nomer_radio.textColor = Color.DKGRAY
 
             //сохраняем позицию
             Main.save_value("nomer_stroki", p1.toString())
-
 
             val name = radio.name
             val url_link = radio.url
@@ -176,8 +186,6 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
 
                             } else {
                                 context.toast(context.getString(R.string.error))
-                                //Изменим текущию вкладку при обновлении что тутж остаться
-                                Main.number_page = 0
                                 //запросим разрешения
                                 Main.EbuchieRazreshenia()
                             }
@@ -208,8 +216,6 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
 
             add_pls.onClick {
                 add_pls.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-
-                Main.number_page = 0
 
                 //фильтр для нашего сигнала
                 val intentFilter = IntentFilter()
@@ -251,6 +257,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
                 alertDialog.cancel()
             }
 
+
             open_aimp.onClick {
                 open_aimp.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
@@ -286,8 +293,6 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
 
                             } else {
                                 context.toast(context.getString(R.string.error))
-                                //Изменим текущию вкладку при обновлении что тутж остаться
-                                Main.number_page = 0
                                 //запросим разрешения
                                 Main.EbuchieRazreshenia()
                             }
