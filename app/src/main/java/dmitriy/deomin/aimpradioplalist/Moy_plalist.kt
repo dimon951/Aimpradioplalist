@@ -388,34 +388,22 @@ class Moy_plalist : Fragment() {
         op.onClick {
             op.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
-
-
-                //проверим есть ли аимп
-                if (Main.install_app("com.aimp.player")) {
-                    //откроем файл с сылкой в плеере
-                    val cm = ComponentName(
-                            "com.aimp.player",
-                            "com.aimp.player.views.MainActivity.MainActivity")
-
-                    val intent = Intent()
-                    intent.component = cm
-
-                    intent.action = Intent.ACTION_VIEW
-                    intent.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u"), "audio/mpegurl")
-                    intent.flags = 0x3000000
-
-                    startActivity(intent)
-
-                } else {
-                    Main.setup_aimp("",
-                            "file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u")
-                }
-
+                Main.play_aimp(Main.MY_PLALIST,"")
             } else {
                 context.toast("Плэйлист пуст, добавьте хотябы одну станцию")
             }
         }
         //--------------------------------------------------------------------------
+
+        //---------------открыть в системе----------------------------------------
+        op.onLongClick {
+            if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
+                Main.play_system(Main.MY_PLALIST,"")
+            } else {
+                context.toast("Плэйлист пуст, добавьте хотябы одну станцию")
+            }
+        }
+        //----------------------------------------------------------------------------------
 
         //------------поделится---------------------------------------------------------
         val bt_send = v.findViewById<Button>(R.id.button_otpravit)
@@ -469,11 +457,9 @@ class Moy_plalist : Fragment() {
         var file_m3u_custom: String
 
         //при выборе из памяти устройства
-        val add_fs = content.findViewById<View>(R.id.load_fs) as Button
-        add_fs.typeface = Main.face
-        add_fs.textColor = Main.COLOR_TEXT
-        add_fs.setOnClickListener { vie ->
-            vie.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+        val add_fs = content.findViewById<Button>(R.id.load_fs)
+        add_fs.onClick{
+            add_fs.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
             //посмотрим есть старый пусть
             val old_dir = Main.save_read("startdir")
@@ -564,6 +550,7 @@ class Moy_plalist : Fragment() {
 
             fileDialog.show()
             //----
+            alertDialog.cancel()
         }
     }
 

@@ -44,11 +44,24 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
 
+
+        //настроим вид тутже
+        //-----------------------------------------------
+        p0.name_radio.typeface = Main.face
+        p0.name_radio.textColor = Main.COLOR_TEXT
+
+        p0.url_radio.typeface = Main.face
+        p0.url_radio.textColor = Main.COLOR_TEXT
+
+        p0.nomer_radio.typeface = Main.face
+        p0.nomer_radio.textColor = Main.COLOR_TEXT
+        //-------------------------------------------------------
+
         //заполним данными
         val radio: Radio = data[p1]
         p0.name_radio.text = radio.name
         p0.url_radio.text = radio.url
-        p0.nomer_radio.visibility = View.GONE
+        p0.nomer_radio.text =""
 
 
         //обработка нажатий
@@ -63,8 +76,6 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
             //кнопка удалить
             val del = content.findViewById<Button>(R.id.del)
-            del.typeface = Main.face
-            del.textColor = Main.COLOR_TEXT
             del.onClick {
                 del.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
@@ -83,8 +94,6 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                 (c.findViewById<View>(R.id.text_voprosa_del_stncii) as TextView).text = "Точно удалить? \n$selectedItem"
 
                 val del_ok = c.findViewById<Button>(R.id.button_dialog_delete)
-                del_ok.textColor = Main.COLOR_TEXT
-                del_ok.typeface = Main.face
                 del_ok.onClick {
                     del_ok.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
@@ -127,8 +136,6 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
                 //кнопка отмены удаления
                 val dno = c.findViewById<Button>(R.id.button_dialog_no)
-                dno.textColor = Main.COLOR_TEXT
-                dno.typeface = Main.face
                 dno.onClick {
                     dno.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
                     //закроем окошко
@@ -141,8 +148,6 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
             //кнопка переименовать
             val renem = content.findViewById<Button>(R.id.reneme)
-            renem.typeface = Main.face
-            renem.textColor = Main.COLOR_TEXT
             renem.onClick {
                 renem.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
@@ -159,13 +164,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                 edit.hint = radio.name
                 edit.setText(radio.name)
 
-                val logo = c.findViewById<TextView>(R.id.textView_vvedite_name)
-                logo.typeface = Main.face
-                logo.textColor = Main.COLOR_TEXT
-
                 val b_ok = c.findViewById<Button>(R.id.button_save)
-                b_ok.typeface = Main.face
-                b_ok.textColor = Main.COLOR_TEXT
                 b_ok.onClick {
                     b_ok.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
                     //закрываем окошко

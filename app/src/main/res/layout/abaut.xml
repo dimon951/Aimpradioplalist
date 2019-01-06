@@ -17,7 +17,7 @@
         android:focusable="auto"
         android:gravity="center"
         android:textIsSelectable="true"
-        android:textSize="20sp"
+        android:textSize="13sp"
         android:background="@null"/>
 
     <Button

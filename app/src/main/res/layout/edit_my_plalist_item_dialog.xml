@@ -17,14 +17,14 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Button
+            <dmitriy.deomin.aimpradioplalist.Btn
                 android:id="@+id/reneme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:text="Переименовать" />
 
-            <Button
+            <dmitriy.deomin.aimpradioplalist.Btn
                 android:id="@+id/del"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

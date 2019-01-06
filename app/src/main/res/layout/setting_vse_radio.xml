@@ -4,38 +4,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="3dp"
-    app:cardElevation="3dp"
-    app:cardPreventCornerOverlap="false"
-    android:elevation="0dp"
-    android:background="@null"
     android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
     android:layout_marginRight="5dp"
     android:layout_marginBottom="5dp"
-    android:layout_marginTop="5dp"
-    app:cardBackgroundColor="@color/cardview_shadow_start_color">
+    android:background="@null"
+    android:elevation="0dp"
+    app:cardBackgroundColor="@color/cardview_shadow_start_color"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardPreventCornerOverlap="false">
 
     <LinearLayout
-        android:id="@+id/menu_progi_alert"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@null"
         android:gravity="center"
         android:orientation="vertical">
 
-        <dmitriy.deomin.aimpradioplalist.Btn
-            android:id="@+id/load_fs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:text="Выбрать файл" />
 
         <dmitriy.deomin.aimpradioplalist.Btn
-            android:id="@+id/load_url"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/button_seting_number"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
             android:background="@null"
-            android:text="Ссылка на файл"
-            android:visibility="gone" />
+            android:text="Нумерация списка" />
+
+        <dmitriy.deomin.aimpradioplalist.Btn
+            android:id="@+id/button_poisk"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:text="Поиск по имени" />
+
+
     </LinearLayout>
 </dmitriy.deomin.aimpradioplalist.Fon_item>

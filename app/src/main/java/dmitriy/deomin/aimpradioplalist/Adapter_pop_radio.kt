@@ -1,11 +1,8 @@
 package dmitriy.deomin.aimpradioplalist
 
-import android.annotation.SuppressLint
 import android.content.*
 import android.graphics.Paint
 import android.graphics.Typeface
-import android.net.Uri
-import android.os.Environment
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +19,6 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.share
 import org.jetbrains.anko.textColor
-import org.jetbrains.anko.toast
 import java.util.ArrayList
 
 
@@ -132,11 +128,11 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : RecyclerView.Adapter<Ad
         bold_underline(p0, 1)
         var popurl = radiopop.link1.url
 
-        p0.kbps1.textColor =  Main.COLOR_TEXT
-        p0.kbps2.textColor =  Main.COLOR_TEXT
-        p0.kbps3.textColor =  Main.COLOR_TEXT
-        p0.kbps4.textColor =  Main.COLOR_TEXT
-        p0.kbps5.textColor =  Main.COLOR_TEXT
+        p0.kbps1.textColor = Main.COLOR_TEXT
+        p0.kbps2.textColor = Main.COLOR_TEXT
+        p0.kbps3.textColor = Main.COLOR_TEXT
+        p0.kbps4.textColor = Main.COLOR_TEXT
+        p0.kbps5.textColor = Main.COLOR_TEXT
 
         //при кликах на кнопках качества будем обновлять вид и ссылку
         p0.kbps1.onClick { bold_underline(p0, 1); popurl = radiopop.link1.url }
@@ -148,7 +144,7 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : RecyclerView.Adapter<Ad
 
         p0.share.onClick {
             p0.share.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-            context.share(popurl)
+            context.share(radiopop.name+"\n"+popurl)
         }
         p0.share.onLongClick {
             context.email("deomindmitriy@gmail.com", "aimp_radio_plalist", popurl)
@@ -156,107 +152,15 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : RecyclerView.Adapter<Ad
 
         p0.play.onClick {
             p0.play.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-
-
-            //фильтр для нашего сигнала
-            val intentFilter = IntentFilter()
-            intentFilter.addAction("File_created")
-
-            //приёмник  сигналов
-            val broadcastReceiver = object : BroadcastReceiver() {
-                @SuppressLint("WrongConstant")
-                override fun onReceive(c: Context, intent: Intent) {
-                    if (intent.action == "File_created") {
-                        //получим данные
-                        val s = intent.getStringExtra("update")
-                        if (s == "zaebis") {
-                            //проверим есть ли аимп
-                            if (Main.install_app("com.aimp.player")) {
-                                //откроем файл с сылкой в плеере
-                                val cm = ComponentName(
-                                        "com.aimp.player",
-                                        "com.aimp.player.views.MainActivity.MainActivity")
-
-                                val i = Intent()
-                                i.component = cm
-
-                                i.action = Intent.ACTION_VIEW
-                                i.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + radiopop.name + ".m3u"), "audio/mpegurl")
-                                i.flags = 0x3000000
-
-                                context.startActivity(i)
-
-                            } else {
-                                //иначе предложим системе открыть или установить аимп
-                                Main.setup_aimp(popurl,
-                                        "file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + radiopop.name + ".m3u")
-                            }
-                        } else {
-                            context.toast(context.getString(R.string.error))
-                            //запросим разрешения
-                            Main.EbuchieRazreshenia()
-                        }
-                        //попробуем уничтожить слушителя
-                        context.unregisterReceiver(this)
-                    }
-                }
-            }
-
-            //регистрируем приёмник
-            context.registerReceiver(broadcastReceiver, intentFilter)
-
-
-            //сохраним  временый файл ссылку и будем ждать сигнала чтобы открыть в аимп или системе
-            val file_function = File_function()
-            file_function.Save_temp_file(radiopop.name + ".m3u",
-                    "#EXTM3U"
-                            + "\n"
-                            + "#EXTINF:-1," + radiopop.name
-                            + "\n"
-                            + popurl)
+            Main.play_aimp(radiopop.name, popurl)
+        }
+        p0.play.onLongClick {
+            Main.play_system(radiopop.name,popurl)
         }
 
         p0.add.onClick {
             p0.add.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-
-            //фильтр для нашего сигнала
-            val intentFilter = IntentFilter()
-            intentFilter.addAction("File_created")
-
-            //приёмник  сигналов
-            val broadcastReceiver = object : BroadcastReceiver() {
-                override fun onReceive(c: Context, intent: Intent) {
-                    if (intent.action == "File_created") {
-                        //получим данные
-                        val s = intent.getStringExtra("update")
-                        when (s) {
-                            "est" -> context.toast("Такая станция уже есть в плейлисте")
-                            "zaebis" -> {
-                                //пошлём сигнал пусть мой плейлист обновится
-                                val i = Intent("Data_add")
-                                i.putExtra("update", "zaebis")
-                                context.sendBroadcast(i)
-                            }
-                            "pizdec" -> {
-                                context.toast(context.getString(R.string.error))
-                                //запросим разрешения
-                                Main.EbuchieRazreshenia()
-                            }
-                        }
-                        //попробуем уничтожить слушителя
-                        context.unregisterReceiver(this)
-                    }
-                }
-            }
-
-            //регистрируем приёмник
-            context.registerReceiver(broadcastReceiver, intentFilter)
-
-            val file_function = File_function()
-
-            //запишем в файл выбранную станцию
-            file_function.Add_may_plalist_stansiy(popurl, radiopop.name)
-
+            Main.add_myplalist(radiopop.name, popurl)
         }
 
 

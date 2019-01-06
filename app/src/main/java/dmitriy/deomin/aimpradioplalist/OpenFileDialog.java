@@ -3,18 +3,22 @@ package dmitriy.deomin.aimpradioplalist;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Color;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Environment;
+import android.text.method.ScrollingMovementMethod;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.*;
 import android.widget.*;
+import android.widget.GridLayout.LayoutParams;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.util.*;
 
@@ -319,6 +323,85 @@ public class OpenFileDialog extends AlertDialog.Builder {
                         selectedIndex = -1;
                     adapter.notifyDataSetChanged();
                 }
+            }
+        });
+
+        //долгим нажатием будем предлогать удалить
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int index, long id) {
+                final ArrayAdapter<File> adapter = (FileAdapter) adapterView.getAdapter();
+                final File file = adapter.getItem(index);
+                if (file.isDirectory()) {
+                    currentPath = file.getPath();
+                    RebuildFiles(adapter);
+                } else {
+                    //покажем диалог подтверждения удаления файла
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(Main.context, android.R.style.Theme_Holo));
+                    final View content = LayoutInflater.from(Main.context).inflate(R.layout.dialog_delete_stancii,null);
+                    builder.setView(content);
+
+                    final AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+
+                    TextView textView = content.findViewById(R.id.text_voprosa_del_stncii);
+                    Button del = content.findViewById(R.id.button_dialog_delete);
+                    Button del_no = content.findViewById(R.id.button_dialog_no);
+                    textView.setMovementMethod(new ScrollingMovementMethod());
+
+
+
+                    File_function f = new File_function();
+                    String file_telo ="";
+                    //покажем имя файла и краткое содержание если это m3u файл
+                    try {
+                       file_telo = f.read(file.getAbsolutePath());
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    file_telo = file_telo.replace("#EXTM3U","");
+                    file_telo = file_telo.replace("#EXTINF:-1,","");
+
+                    final String name = file.getName();
+                    String info  = "Удалить:"+name+"\nСодержимое:"+file_telo;
+                    textView.setText(info);
+
+
+                    del.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            if(file.delete()){
+                                Toast.makeText(Main.context,"Удаленно",Toast.LENGTH_SHORT).show();
+
+                                if(name.equals("my_plalist.m3u")){
+                                    //пошлём сигнал пусть мой плейлист обновится
+                                    Intent i = new Intent("Data_add");
+                                    i.putExtra("update", "zaebis");
+                                    Main.context.sendBroadcast(i);
+                                }
+
+                            }else {
+                                Toast.makeText(Main.context,"Ошибка",Toast.LENGTH_SHORT).show();
+                            }
+
+                            RebuildFiles(adapter);
+
+                            alertDialog.cancel();
+                        }
+                    });
+
+                    del_no.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            alertDialog.cancel();
+                        }
+                    });
+
+
+                    Log.e("gopa","rabotaet"+file.getAbsolutePath());
+                }
+                return false;
             }
         });
         return listView;

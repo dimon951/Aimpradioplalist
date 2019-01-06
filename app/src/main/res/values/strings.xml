@@ -128,7 +128,6 @@
             96kbps~kbps~http://listen.vdfm.ru:8000/dacha~kbps~
         </item>
         <item>Радио Ваня\nradiovanya.png\n
-            128kbps~kbps~http://88.86.81.61:8021/siv~kbps~
             96kbps~kbps~http://91.219.74.220:8000/Vanya-high.mp3~kbps~
             96kbps~kbps~http://net37.ru:8000/radio_vanya_net37ru.mp3~kbps~
             56kbps~kbps~http://str2.pcradio.ru/radio_vanya-hi~kbps~
@@ -140,7 +139,6 @@
         </item>
         <item>SHTORM.fm – Русский\nshtorm.png\n
             128kbps~kbps~http://radio.rushtorm.ru:8000/mp3~kbps~
-            46kbps~kbps~http://radio.rushtorm.ru:8000/aac64~kbps~
         </item>
         <item>РУССКИЙ ХИТ\nrus_hit.png\n
             48kbps~kbps~http://stream2.n340.com/19_ruhit_24_reg_1?type=.aac&amp;UID=1A242952D26B3D13026F839A34AB0F36~kbps~
@@ -216,6 +214,9 @@
 
     <string-array name="vse_radio">
 
+        <item>Радио Rock FM Heavy -Музыка- 128kbps\nhttp://jfm1.hostingradio.ru:14536/metal.mp3</item>
+        <item>Радио Luxe FM -Музыка- 128kbps\nhttp://streaming.radionomy.com/JamendoLounge</item>
+        <item>Радио Дискотека СССР -Музыка- 64kbps\nhttp://91.207.59.26/a144</item>
         <item>Радио Соня -Детское- 192kbps\nhttp://rusradio.gcdn.co/st30.mp3</item>
         <item>Радио Record Аншлаг FM -Юмор- 320kbps\nhttp://air.radiorecord.ru:805/ansh_320</item>
         <item>Радио Юмор FM Казахстан -Юмор- 192kbps\nhttp://ne.fm/mp3/radio102</item>

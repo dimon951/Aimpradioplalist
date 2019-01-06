@@ -1,85 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<dmitriy.deomin.aimpradioplalist.Fon_item
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+<dmitriy.deomin.aimpradioplalist.Fon_item xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="@null"
+    android:elevation="0dp"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardPreventCornerOverlap="false">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/dialog_fon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="3dp"
-        app:cardElevation="3dp"
-        app:cardPreventCornerOverlap="false"
-        android:elevation="0dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
-    android:background="@null">
+        android:background="@null"
+        android:orientation="vertical"
+        android:showDividers="none">
 
+        <dmitriy.deomin.aimpradioplalist.Text
+            android:id="@+id/text_voprosa_del_stncii"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@null"
+            android:gravity="center"
+            android:text="AIMP не найден\nЧто делать?" />
 
-        <RelativeLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="vertical"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/dialog_fon"
-            android:showDividers="none"
-            android:background="@null">
+            android:layout_below="@+id/text_voprosa_del_stncii"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:showDividers="none">
 
-            <dmitriy.deomin.aimpradioplalist.Text
-                android:id="@+id/text_voprosa_del_stncii"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@null"
-                android:gravity="center"
-                android:text="AIMP не найден\nЧто делать?" />
-            <LinearLayout
-                android:orientation="vertical"
+            <dmitriy.deomin.aimpradioplalist.Btn
+                android:id="@+id/button_dialog_dowload_aimp_market"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:showDividers="none"
-                android:layout_gravity="center_horizontal"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/linearLayout2"
-                android:layout_below="@+id/text_voprosa_del_stncii"
-                android:gravity="center">
+                android:layout_gravity="left"
+                android:background="@null"
+                android:text="Установить Aimp через Play Market"
+                android:textSize="14sp" />
 
-                <Button
-                    android:id="@+id/button_dialog_dowload_aimp_market"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:background="@null"
-                    android:text="Установить Aimp через Play Market"
-                    android:textColor="@color/green"
-                    android:textSize="14sp" />
+            <dmitriy.deomin.aimpradioplalist.Btn
+                android:id="@+id/button_dialog_dowload_aimp_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:background="@null"
+                android:text="Скачать Aimp "
+                android:textSize="14sp" />
 
-                <Button
-                    android:id="@+id/button_dialog_dowload_aimp_link"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:background="@null"
-                    android:text="Скачать Aimp "
-                    android:textColor="@color/green"
-                    android:textSize="14sp" />
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/button_dialog_open_sistem"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="5dp"
-                    android:text="Попробовать открыть в системе"
-                    android:textSize="14sp"
-                    android:background="@null"
-                    android:textColor="@color/green" />
-            </LinearLayout>
-        </RelativeLayout>
+            <dmitriy.deomin.aimpradioplalist.Btn
+                android:id="@+id/button_dialog_open_sistem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="5dp"
+                android:background="@null"
+                android:text="Попробовать открыть в системе"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
 </dmitriy.deomin.aimpradioplalist.Fon_item>

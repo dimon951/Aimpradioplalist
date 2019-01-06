@@ -9,6 +9,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -46,6 +48,12 @@ class Vse_radio : Fragment() {
     val PREFIX = "-"
 
 
+    companion object {
+        var Numeracia: Int = 1
+        var Poisk_ima_url: Int = 1
+    }
+
+
     @SuppressLint("WrongConstant")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.vse_radio, null)
@@ -53,6 +61,17 @@ class Vse_radio : Fragment() {
 
         find = v.findViewById(R.id.editText_find)
         find.typeface = Main.face
+
+        Numeracia = if (Main.save_read_int("setting_numer") == 1) {
+            1
+        } else {
+            0
+        }
+        Poisk_ima_url = if (Main.save_read_int("setting_poisk") == 1) {
+            1
+        } else {
+            0
+        }
 
 
         val recikl_vse_list = v.findViewById<RecyclerView>(R.id.recicl_vse_radio)
@@ -64,9 +83,7 @@ class Vse_radio : Fragment() {
         fastScroller.setRecyclerView(recikl_vse_list)
 
         // Connect the scroller to the recycler (to let the recycler scroll the scroller's handle)
-        recikl_vse_list.setOnScrollListener(fastScroller.getOnScrollListener())
-
-
+        recikl_vse_list.setOnScrollListener(fastScroller.onScrollListener)
 
 
         //получаем список радио >1000 штук
@@ -200,6 +217,75 @@ class Vse_radio : Fragment() {
             } else {
                 find.setText(PREFIX + v.kod_256bit.text + PREFIX)
             }
+        }
+
+        val setting = v.findViewById<Button>(R.id.button_settig_vse_radio)
+        setting.onClick {
+            setting.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
+            val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
+            val content = LayoutInflater.from(context).inflate(R.layout.setting_vse_radio, null)
+            builder.setView(content)
+
+            val alertDialog = builder.create()
+            alertDialog.show()
+
+            val num = content.findViewById<Button>(R.id.button_seting_number)
+            val pouisk = content.findViewById<Button>(R.id.button_poisk)
+
+
+            if (Numeracia == 1) {
+                num.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+                num.setTypeface(Main.face, Typeface.BOLD)
+            } else {
+                num.paintFlags = 0
+                num.typeface = Main.face
+            }
+
+            if (Poisk_ima_url == 1) {
+                pouisk.text = "Поиск по имени и адресу"
+            } else {
+                pouisk.text = "Поиск по имени"
+            }
+
+            num.onClick {
+                num.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
+
+                if (Main.save_read_int("setting_numer") == 0) {
+                    Main.save_value_int("setting_numer", 1)
+                    Numeracia = 1
+                    num.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+                    num.setTypeface(Main.face, Typeface.BOLD)
+                    adapter_vse_list.notifyDataSetChanged()
+                } else {
+                    Main.save_value_int("setting_numer", 0)
+                    Numeracia = 0
+                    num.paintFlags = 0
+                    num.typeface = Main.face
+                    adapter_vse_list.notifyDataSetChanged()
+
+                }
+
+
+            }
+
+            pouisk.onClick {
+                pouisk.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
+
+                if (Main.save_read_int("setting_poisk") == 1) {
+                    Poisk_ima_url = 0
+                    Main.save_value_int("setting_poisk", 0)
+                    pouisk.text = "Поиск по имени"
+                    adapter_vse_list.notifyDataSetChanged()
+                } else {
+                    Poisk_ima_url = 1
+                    Main.save_value_int("setting_poisk", 1)
+                    pouisk.text = "Поиск по имени и адресу"
+                    adapter_vse_list.notifyDataSetChanged()
+                }
+
+            }
+
+
         }
 
         return v
