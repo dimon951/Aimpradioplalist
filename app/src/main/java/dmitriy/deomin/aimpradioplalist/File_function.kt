@@ -2,8 +2,9 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.content.Intent
 import android.os.Environment
-import android.util.Log
 import android.widget.Toast
+import dmitriy.deomin.aimpradioplalist.custom.send
+import dmitriy.deomin.aimpradioplalist.custom.signal
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileNotFoundException
@@ -281,15 +282,19 @@ class File_function {
             fOut.close()
 
             //послать сигнал
-            val i = Intent("File_created")
-            i.putExtra("update", "zaebis")
-            Main.context.sendBroadcast(i)
+            signal("File_created")
+                    .putExtra("run", false)
+                    .putExtra("update", "zaebis")
+                    .send(Main.context)
+
         } catch (e: IOException) {
 
             //послать сигнал
-            val i = Intent("File_created")
-            i.putExtra("update", "pizdec")
-            Main.context.sendBroadcast(i)
+            signal("File_created")
+                    .putExtra("run", false)
+                    .putExtra("update", "pizdec")
+                    .send(Main.context)
+
         }
 
     }

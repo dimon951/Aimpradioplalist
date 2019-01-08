@@ -7,7 +7,7 @@
     android:id="@+id/fon_abaut"
     android:background="@null">
 
-    <dmitriy.deomin.aimpradioplalist.Text
+    <dmitriy.deomin.aimpradioplalist.custom.Text
         android:id="@+id/textView_abaut"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

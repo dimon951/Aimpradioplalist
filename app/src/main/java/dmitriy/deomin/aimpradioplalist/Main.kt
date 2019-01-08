@@ -16,9 +16,7 @@ import android.support.v4.app.*
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewPager
 import android.text.Editable
-import android.text.Spannable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.*
@@ -26,6 +24,10 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.kotlinpermissions.KotlinPermissions
+import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
+import dmitriy.deomin.aimpradioplalist.custom.Slot
+import dmitriy.deomin.aimpradioplalist.custom.send
+import dmitriy.deomin.aimpradioplalist.custom.signal
 import kotlinx.android.synthetic.main.main.*
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -33,7 +35,6 @@ import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
 import java.io.File
-import java.util.ArrayList
 
 class Main : FragmentActivity() {
 
@@ -183,54 +184,38 @@ class Main : FragmentActivity() {
         //если просто имя то значит это уже сохранёный файл ,откроем сразу по имени-адресу с припиской "file://"
         @SuppressLint("WrongConstant")
         fun play_aimp(name: String, url: String) {
-
             if (url != "") {
-                //фильтр для нашего сигнала
-                val intentFilter = IntentFilter()
-                intentFilter.addAction("File_created")
+                Slot(context,"File_created").onRun {
+                        //получим данные
+                        val s = it.getStringExtra("update")
+                        if (s == "zaebis") {
+                            //проверим есть ли аимп
+                            if (Main.install_app("com.aimp.player")) {
+                                //откроем файл с сылкой в плеере
+                                val cm = ComponentName(
+                                        "com.aimp.player",
+                                        "com.aimp.player.views.MainActivity.MainActivity")
 
-                //приёмник  сигналов
-                val broadcastReceiver = object : BroadcastReceiver() {
-                    @SuppressLint("WrongConstant")
-                    override fun onReceive(c: Context, intent: Intent) {
-                        if (intent.action == "File_created") {
-                            //получим данные
-                            val s = intent.getStringExtra("update")
-                            if (s == "zaebis") {
-                                //проверим есть ли аимп
-                                if (Main.install_app("com.aimp.player")) {
-                                    //откроем файл с сылкой в плеере
-                                    val cm = ComponentName(
-                                            "com.aimp.player",
-                                            "com.aimp.player.views.MainActivity.MainActivity")
+                                val i = Intent()
+                                i.component = cm
 
-                                    val i = Intent()
-                                    i.component = cm
+                                i.action = Intent.ACTION_VIEW
+                                i.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u"), "audio/mpegurl")
+                                i.flags = 0x3000000
+                                context.startActivity(i)
 
-                                    i.action = Intent.ACTION_VIEW
-                                    i.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u"), "audio/mpegurl")
-                                    i.flags = 0x3000000
-                                    context.startActivity(i)
-
-                                } else {
-                                    //иначе предложим системе открыть или установить аимп
-                                    Main.setup_aimp(url,
-                                            "file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u")
-                                }
                             } else {
-                                context.toast(context.getString(R.string.error))
-                                //запросим разрешения
-                                Main.EbuchieRazreshenia()
+                                //иначе предложим системе открыть или установить аимп
+                                Main.setup_aimp(url,
+                                        "file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u")
                             }
-                            //попробуем уничтожить слушителя
-                            context.unregisterReceiver(this)
+                        } else {
+                            context.toast(context.getString(R.string.error))
+                            //запросим разрешения
+                            Main.EbuchieRazreshenia()
                         }
-                    }
+
                 }
-
-                //регистрируем приёмник
-                context.registerReceiver(broadcastReceiver, intentFilter)
-
                 //сохраним  временый файл ссылку и будем ждать сигнала чтобы открыть в аимп или системе
                 val file_function = File_function()
                 file_function.Save_temp_file(name + ".m3u",
@@ -335,40 +320,28 @@ class Main : FragmentActivity() {
 
             if (url != "") {
                 //приёмник  сигналов
-                // фильтр для приёмника
-                val intentFilter = IntentFilter()
-                intentFilter.addAction("File_created")
+                Slot(context,"File_created").onRun {
+                    //получим данные
+                    val s = it.getStringExtra("update")
+                    if (s == "zaebis") {
 
-                //
-                val broadcastReceiver = object : BroadcastReceiver() {
-                    override fun onReceive(c: Context, intent: Intent) {
-                        if (intent.action == "File_created") {
-                            //получим данные
-                            val s = intent.getStringExtra("update")
-                            if (s == "zaebis") {
-
-                                val i = Intent(android.content.Intent.ACTION_VIEW)
-                                i.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u"), "audio/mpegurl")
-                                //проверим есть чем открыть или нет
-                                if (i.resolveActivity(Main.context.packageManager) != null) {
-                                    context.startActivity(i)
-                                } else {
-                                    context.toast("Системе не удалось ( ")
-                                }
-
-                            } else {
-                                context.toast(context.getString(R.string.error))
-                                //запросим разрешения
-                                Main.EbuchieRazreshenia()
-                            }
-                            //попробуем уничтожить слушителя
-                            context.unregisterReceiver(this)
+                        val i = Intent(android.content.Intent.ACTION_VIEW)
+                        i.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u"), "audio/mpegurl")
+                        //проверим есть чем открыть или нет
+                        if (i.resolveActivity(Main.context.packageManager) != null) {
+                            context.startActivity(i)
+                        } else {
+                            context.toast("Системе не удалось ( ")
                         }
+
+                    } else {
+                        context.toast(context.getString(R.string.error))
+                        //запросим разрешения
+                        Main.EbuchieRazreshenia()
                     }
                 }
-                //регистрируем приёмник
-                context.registerReceiver(broadcastReceiver, intentFilter)
-                //------------------------------------------------------------------------------------------------
+
+
 
                 //сохраним  временый файл сслку
                 val file_function = File_function()
@@ -454,38 +427,26 @@ class Main : FragmentActivity() {
 
         //добавить в мой плейлист
         fun add_myplalist(name: String, url: String) {
-            //фильтр для нашего сигнала
-            val intentFilter = IntentFilter()
-            intentFilter.addAction("File_created")
 
-            //приёмник  сигналов
-            val broadcastReceiver = object : BroadcastReceiver() {
-                override fun onReceive(c: Context, intent: Intent) {
-                    if (intent.action == "File_created") {
-                        //получим данные
-                        val s = intent.getStringExtra("update")
-                        when (s) {
-                            "est" -> context.toast("Такая станция уже есть в плейлисте")
-                            "zaebis" -> {
-                                //пошлём сигнал пусть мой плейлист обновится
-                                val i = Intent("Data_add")
-                                i.putExtra("update", "zaebis")
-                                context.sendBroadcast(i)
-                            }
-                            "pizdec" -> {
-                                context.toast(context.getString(R.string.error))
-                                //запросим разрешения
-                                Main.EbuchieRazreshenia()
-                            }
-                        }
-                        //попробуем уничтожить слушителя
-                        context.unregisterReceiver(this)
+            Slot(context,"File_created").onRun {
+                //получим данные
+                val s = it.getStringExtra("update")
+                when (s) {
+                    "est" -> context.toast("Такая станция уже есть в плейлисте")
+                    "zaebis" -> {
+                        //пошлём сигнал пусть мой плейлист обновится
+                        signal("Data_add")
+                                .putExtra("run",true)
+                                .putExtra("update", "zaebis")
+                                .send(context)
+                    }
+                    "pizdec" -> {
+                        context.toast(context.getString(R.string.error))
+                        //запросим разрешения
+                        Main.EbuchieRazreshenia()
                     }
                 }
             }
-
-            //регистрируем приёмник
-            context.registerReceiver(broadcastReceiver, intentFilter)
 
             val file_function = File_function()
 
@@ -507,6 +468,10 @@ class Main : FragmentActivity() {
             val permissionFileW = ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)
 
             if (permissionCheck == 0 && permissionFileR == 0 && permissionFileW == 0) {
+                //пошлём сигнал пусть мой плейлист обновится
+                signal("Main_update")
+                        .putExtra("signal", "1")
+                        .send(context)
             } else {
                 //----------------------
                 KotlinPermissions.with(context as FragmentActivity)
@@ -515,9 +480,9 @@ class Main : FragmentActivity() {
                                 Manifest.permission.INTERNET)
                         .onAccepted {
                             //пошлём сигнал пусть обновится
-                            val i = Intent("Main_update")
-                            i.putExtra("signal", "update")
-                            context.sendBroadcast(i)
+                            signal("Main_update")
+                                    .putExtra("signal", "update")
+                                    .send(context)
                         }
                         .ask()
                 //------------------------
@@ -589,9 +554,7 @@ class Main : FragmentActivity() {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
             override fun onPageSelected(position: Int) {
                 //пошлём сигнал пусть мой плейлист обновится
-                val i = Intent("Main_update")
-                i.putExtra("signal", position.toString())
-                context.sendBroadcast(i)
+                signal("Main_update").putExtra("signal", position.toString()).send(context)
             }
         })
 
@@ -642,110 +605,83 @@ class Main : FragmentActivity() {
         //пролистаем на вип радио
         viewPager.currentItem = 1
 
-
         //будем слушать эфир постоянно если че обновим
         //-------------------------------------------------------------------------------------
-        //фильтр для нашего сигнала
-        val intentFilter = IntentFilter()
-        intentFilter.addAction("Main_update")
+        Slot(context, "Main_update").onRun {
+            //получим данные
+            val s = it.getStringExtra("signal")
+            when (s) {
+                //меняем кота
+                "0", "1", "2" -> {
+                    when (s.toInt()) {
+                        0 -> {
+                            vse_radio.setBackgroundColor(COLOR_ITEM)
+                            vse_radio.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
+                            imageSwitcher.setImageResource(mImageIds[0])
 
-        //приёмник  сигналов
-        val broadcastReceiver = object : BroadcastReceiver() {
-            override fun onReceive(c: Context, intent: Intent) {
-                if (intent.action == "Main_update") {
-                    //получим данные
-                    val s = intent.getStringExtra("signal")
-
-                    when (s) {
-                        //меняем кота
-                        "0", "1", "2" -> {
-                            when (s.toInt()) {
-                                0 -> {
-                                    vse_radio.setBackgroundColor(COLOR_ITEM)
-                                    vse_radio.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
-                                    imageSwitcher.setImageResource(mImageIds[0])
-
-                                    popularnoe.setBackgroundColor(COLOR_FON)
-                                    moy_plalist.setBackgroundColor(COLOR_FON)
-                                }
-                                1 -> {
-                                    popularnoe.setBackgroundColor(COLOR_ITEM)
-                                    popularnoe.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
-                                    imageSwitcher.setImageResource(mImageIds[1])
-
-                                    vse_radio.setBackgroundColor(COLOR_FON)
-                                    moy_plalist.setBackgroundColor(COLOR_FON)
-                                }
-                                2 -> {
-                                    moy_plalist.setBackgroundColor(COLOR_ITEM)
-                                    moy_plalist.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
-                                    imageSwitcher.setImageResource(mImageIds[2])
-
-                                    vse_radio.setBackgroundColor(COLOR_FON)
-                                    popularnoe.setBackgroundColor(COLOR_FON)
-                                }
-                            }
+                            popularnoe.setBackgroundColor(COLOR_FON)
+                            moy_plalist.setBackgroundColor(COLOR_FON)
                         }
-                        //обновляем пайджер
-                        "update" -> {
-                            //обновим
-                            myadapter.notifyDataSetChanged()
-                            viewPager.adapter = myadapter
-                            viewPager.currentItem = 1
+                        1 -> {
+                            popularnoe.setBackgroundColor(COLOR_ITEM)
+                            popularnoe.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
+                            imageSwitcher.setImageResource(mImageIds[1])
+
+                            vse_radio.setBackgroundColor(COLOR_FON)
+                            moy_plalist.setBackgroundColor(COLOR_FON)
                         }
-                        "update_color" -> {
-                            fon_main.setBackgroundColor(COLOR_FON)
+                        2 -> {
+                            moy_plalist.setBackgroundColor(COLOR_ITEM)
+                            moy_plalist.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
+                            imageSwitcher.setImageResource(mImageIds[2])
+
+                            vse_radio.setBackgroundColor(COLOR_FON)
+                            popularnoe.setBackgroundColor(COLOR_FON)
                         }
                     }
                 }
+                //обновляем пайджер
+                "update" -> {
+                    //обновим
+                    myadapter.notifyDataSetChanged()
+                    viewPager.adapter = myadapter
+                    viewPager.currentItem = 1
+                }
+                "update_color" -> {
+                    fon_main.setBackgroundColor(COLOR_FON)
+                }
             }
         }
-        //регистрируем приёмник
-        context.registerReceiver(broadcastReceiver, intentFilter)
-        //-------------------------------------------------------------------------------
 
 
         //получим ебучие разрешения , если не дали их еще
         EbuchieRazreshenia()
-
     }
 
     fun Menu_progi(view: View) {
-        val anim = AnimationUtils.loadAnimation(context, R.anim.myalpha)
-        view.startAnimation(anim)
+        view.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
-        val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
-        val content = LayoutInflater.from(context).inflate(R.layout.menu_progi, null)
-        builder.setView(content)
+        val menu = DialogWindow(context,R.layout.menu_progi)
 
-        val alertDialog = builder.create()
-        alertDialog.show()
-
-        val b_a = content.findViewById<Button>(R.id.button_abaut)
-        b_a.setTextColor(COLOR_TEXT)
-        b_a.typeface = face
+        val b_a = menu.view().findViewById<Button>(R.id.button_abaut)
         b_a.onClick {
             b_a.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             startActivity<Abaut>()
-            alertDialog.cancel()
+            menu.close()
         }
 
-        val b_s = content.findViewById<Button>(R.id.button_setting)
-        b_s.setTextColor(COLOR_TEXT)
-        b_s.typeface = face
+        val b_s = menu.view().findViewById<Button>(R.id.button_setting)
         b_s.onClick {
             b_s.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             startActivity<Setting>()
-            alertDialog.cancel()
+            menu.close()
         }
 
-        val b_f = content.findViewById<Button>(R.id.button_edit_fonts)
-        b_f.setTextColor(COLOR_TEXT)
-        b_f.typeface = face
+        val b_f = menu.view().findViewById<Button>(R.id.button_edit_fonts)
         b_f.onClick {
             b_f.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             startActivity<Fonts_vibor>()
-            alertDialog.cancel()
+            menu.close()
         }
 
     }

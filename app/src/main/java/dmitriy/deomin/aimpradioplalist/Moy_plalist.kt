@@ -3,7 +3,6 @@ package dmitriy.deomin.aimpradioplalist
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.*
-import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.support.v4.app.Fragment
@@ -16,8 +15,8 @@ import java.util.ArrayList
 import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.widget.*
+import dmitriy.deomin.aimpradioplalist.custom.Radio
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.email

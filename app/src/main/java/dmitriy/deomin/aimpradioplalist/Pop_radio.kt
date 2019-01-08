@@ -5,11 +5,12 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import dmitriy.deomin.aimpradioplalist.custom.Link
+import dmitriy.deomin.aimpradioplalist.custom.RadioPop
 import java.util.ArrayList
 
 
@@ -34,11 +35,31 @@ class Pop_radio : Fragment() {
             val links:List<String> = m[2].split("~kbps~")
 
             data.add(RadioPop(m[0], m[1],
-                    (if(links.elementAtOrNull(1)!=null){Link(links[0],links[1])}else{Link("","")}),
-                    (if(links.elementAtOrNull(3)!=null){Link(links[2],links[3])}else{Link("","")}),
-                    (if(links.elementAtOrNull(5)!=null){Link(links[4],links[5])}else{Link("","")}),
-                    (if(links.elementAtOrNull(7)!=null){Link(links[6],links[7])}else{Link("","")}),
-                    (if(links.elementAtOrNull(9)!=null){Link(links[8],links[9])}else{Link("","")})))
+                    (if (links.elementAtOrNull(1) != null) {
+                        Link(links[0], links[1])
+                    } else {
+                        Link("", "")
+                    }),
+                    (if (links.elementAtOrNull(3) != null) {
+                        Link(links[2], links[3])
+                    } else {
+                        Link("", "")
+                    }),
+                    (if (links.elementAtOrNull(5) != null) {
+                        Link(links[4], links[5])
+                    } else {
+                        Link("", "")
+                    }),
+                    (if (links.elementAtOrNull(7) != null) {
+                        Link(links[6], links[7])
+                    } else {
+                        Link("", "")
+                    }),
+                    (if (links.elementAtOrNull(9) != null) {
+                        Link(links[8], links[9])
+                    } else {
+                        Link("", "")
+                    })))
         }
 
         // создаем адаптер

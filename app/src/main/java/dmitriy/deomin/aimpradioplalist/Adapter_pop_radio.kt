@@ -14,6 +14,7 @@ import android.widget.TextView
 import com.makeramen.roundedimageview.RoundedTransformationBuilder
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
+import dmitriy.deomin.aimpradioplalist.custom.RadioPop
 import org.jetbrains.anko.email
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick

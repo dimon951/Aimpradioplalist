@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<dmitriy.deomin.aimpradioplalist.Fon_item
+<dmitriy.deomin.aimpradioplalist.custom.Fon_item
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -43,7 +43,7 @@
             android:background="@null"
             android:orientation="vertical">
 
-            <dmitriy.deomin.aimpradioplalist.Text
+            <dmitriy.deomin.aimpradioplalist.custom.Text
                 android:id="@+id/Text_name_pop"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
@@ -135,7 +135,7 @@
                 android:gravity="bottom|center"
                 android:orientation="horizontal">
 
-                <dmitriy.deomin.aimpradioplalist.Btn
+                <dmitriy.deomin.aimpradioplalist.custom.Btn
                     android:id="@+id/button_add"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="40dp"
@@ -147,7 +147,7 @@
                     tools:layout_editor_absoluteY="40dp"
                     android:layout_marginEnd="15dp" />
 
-                <dmitriy.deomin.aimpradioplalist.Btn
+                <dmitriy.deomin.aimpradioplalist.custom.Btn
                     android:id="@+id/button_open"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="40dp"
@@ -157,7 +157,7 @@
                     android:gravity="end"
                     android:layout_marginEnd="15dp" />
 
-                <dmitriy.deomin.aimpradioplalist.Btn
+                <dmitriy.deomin.aimpradioplalist.custom.Btn
                     android:id="@+id/button_cshre"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="40dp"
@@ -168,4 +168,4 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</dmitriy.deomin.aimpradioplalist.Fon_item>
+</dmitriy.deomin.aimpradioplalist.custom.Fon_item>
