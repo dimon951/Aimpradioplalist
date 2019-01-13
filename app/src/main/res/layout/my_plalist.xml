@@ -6,11 +6,10 @@
     android:layout_height="match_parent"
     android:background="@null">
 
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recicl_my_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"/>
 
     <LinearLayout
@@ -22,37 +21,37 @@
         android:showDividers="beginning|middle|end"
         android:background="@null">
 
-        <Button
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_add_url"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@android:drawable/ic_menu_add" />
 
-        <Button
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/open_aimp"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@android:drawable/ic_media_play" />
 
-        <Button
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/load_file"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@android:drawable/ic_menu_more" />
 
-        <Button
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_delete"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@android:drawable/ic_menu_delete" />
 
-        <Button
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_otpravit"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@android:drawable/ic_menu_share" />
 
-        <Button
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/save_v_file"
             android:layout_width="50dp"
             android:layout_height="50dp"

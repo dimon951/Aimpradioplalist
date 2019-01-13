@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <Button
+    <dmitriy.deomin.aimpradioplalist.custom.Btn
         android:id="@+id/button_edit_fon_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +15,7 @@
         android:onClick="Edit_color_fon"
         android:text="Цвет фона" />
 
-    <Button
+    <dmitriy.deomin.aimpradioplalist.custom.Btn
         android:id="@+id/button_edit_color_posty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
         android:onClick="Edit_color_fon"
         android:text="Цвет станций" />
 
-    <Button
+    <dmitriy.deomin.aimpradioplalist.custom.Btn
         android:id="@+id/button_edit_color_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

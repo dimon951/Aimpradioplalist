@@ -44,7 +44,7 @@
             android:orientation="horizontal">
 
 
-            <Button
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_add_plalist"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -55,7 +55,7 @@
                 android:textSize="16sp" />
 
 
-            <Button
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_open_aimp"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -74,7 +74,7 @@
                 android:gravity="end" />
 
 
-            <Button
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_instal_aimp"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -83,7 +83,7 @@
                 android:textColor="@color/green"
                 android:textSize="16sp" />
 
-            <Button
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_download_yandex_aimp"
                 android:layout_width="50dp"
                 android:layout_height="50dp"

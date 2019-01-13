@@ -18,21 +18,21 @@
             android:orientation="vertical"
             android:background="@null">
 
-            <Button
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Tweed)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/button_font_tweed"
                 android:onClick="save_Tweed"
                 android:background="@null" />
-            <Button
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Badaboom)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/button_font_badaboom"
                 android:onClick="save_Badaboom"
                 android:background="@null"/>
-            <Button
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Kramola)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -40,65 +40,63 @@
                 android:onClick="save_Kramola"
                 android:background="@null" />
 
-            <Button
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Bemount)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/button_font_bemount"
                 android:onClick="save_Bemount"
                 android:background="@null" />
-            <Button
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Smeshariki)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/button_font_Smeshariki"
                 android:onClick="save_Smeshariki"
                 android:background="@null" />
-            <Button
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Snowstorm)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/button_font_Snowstorm"
                 android:onClick="save_Snowstorm"
                 android:background="@null"/>
-            <Button
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Izhitsa)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/button_font_Izhitsa"
                 android:onClick="save_Izhitsa"
                 android:background="@null" />
-
-
-            <Button
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Rotonda)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/button_font_Rotonda"
                 android:onClick="save_Rotonda"
                 android:background="@null" />
-            <Button
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Frezer)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/button_font_Frezer"
                 android:onClick="save_Frezer"
                 android:background="@null" />
-            <Button
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Futured)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/button_font_Futured"
                 android:onClick="save_Futured"
                 android:background="@null" />
-            <Button
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Yarin)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/button_font_Yarin"
                 android:onClick="save_Yarin"
                 android:background="@null" />
-            <Button
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Sensei)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

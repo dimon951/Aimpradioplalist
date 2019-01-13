@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -60,7 +61,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
         //обработка нажатий
         p0.itemView.onClick {
-
+            p0.fon.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
             //общее окошко с кнопками удалить,переименовать
             val empid = DialogWindow(context, R.layout.edit_my_plalist_item_dialog)
 

@@ -17,6 +17,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
+import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 import kotlinx.android.synthetic.main.vse_radio.view.*
 import kotlinx.coroutines.GlobalScope
@@ -63,7 +64,6 @@ class Vse_radio : Fragment() {
         }
 
 
-
         val recikl_vse_list = v.findViewById<RecyclerView>(R.id.recicl_vse_radio)
         recikl_vse_list.layoutManager =  LinearLayoutManager(context)
         recikl_vse_list.setHasFixedSize(true)
@@ -91,10 +91,6 @@ class Vse_radio : Fragment() {
 
         val adapter_vse_list = Adapter_vse_list(data)
         recikl_vse_list.adapter = adapter_vse_list
-
-
-
-
 
 
         //пролистываем до нужного элемента
@@ -126,7 +122,6 @@ class Vse_radio : Fragment() {
 
         //при клике будем вставлять в строку поиска для отфильтровки
         v.kod_diskografii.onClick {
-            v.kod_diskografii.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
 
             if (find.text.toString() == v.kod_diskografii.text) {
                 find.setText("")
@@ -136,16 +131,10 @@ class Vse_radio : Fragment() {
         }
         //при долгом нажатиии будем предлогать изменить текст
         v.kod_diskografii.onLongClick {
-            v.kod_diskografii.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
 
-            val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
-            val content = LayoutInflater.from(context).inflate(R.layout.vvod_new_text_vse_radio_filtr, null)
-            builder.setView(content)
+            val vntvrf = DialogWindow(context,R.layout.vvod_new_text_vse_radio_filtr)
 
-            val alertDialog = builder.create()
-            alertDialog.show()
-
-            val e_t = content.findViewById<EditText>(R.id.new_text_filter_editText)
+            val e_t = vntvrf.view().findViewById<EditText>(R.id.new_text_filter_editText)
             e_t.typeface = Main.face
             e_t.setTextColor(Main.COLOR_TEXT)
             e_t.setText(if (Main.save_read("button_text_filter1").isNotEmpty()) {
@@ -154,10 +143,7 @@ class Vse_radio : Fragment() {
                 "Дискография"
             })
 
-            val bt_ok = content.findViewById<Button>(R.id.new_text_filter_button)
-            bt_ok.onClick {
-                bt_ok.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-
+            (vntvrf.view().findViewById<Button>(R.id.new_text_filter_button)).onClick {
 
                 if (e_t.text.toString().isNotEmpty()) {
                     Main.save_value("button_text_filter1", e_t.text.toString())
@@ -167,13 +153,12 @@ class Vse_radio : Fragment() {
                     Main.save_value("button_text_filter1", "Дискография")
                     v.kod_diskografii.text = Main.save_read("button_text_filter1")
                 }
-                alertDialog.cancel()
+                vntvrf.close()
             }
-
         }
 
         v.kod_32bit.onClick {
-            v.kod_32bit.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
+
             if (find.text.toString() == (PREFIX + v.kod_32bit.text + PREFIX)) {
                 find.setText("")
             } else {
@@ -181,7 +166,7 @@ class Vse_radio : Fragment() {
             }
         }
         v.kod_64bit.onClick {
-            v.kod_64bit.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
+
             if (find.text.toString() == (PREFIX + v.kod_64bit.text + PREFIX)) {
                 find.setText("")
             } else {
@@ -189,7 +174,7 @@ class Vse_radio : Fragment() {
             }
         }
         v.kod_96bit.onClick {
-            v.kod_96bit.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
+
             if (find.text.toString() == (PREFIX + v.kod_96bit.text + PREFIX)) {
                 find.setText("")
             } else {
@@ -197,7 +182,7 @@ class Vse_radio : Fragment() {
             }
         }
         v.kod_128bit.onClick {
-            v.kod_128bit.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
+
             if (find.text.toString() == (PREFIX + v.kod_128bit.text + PREFIX)) {
                 find.setText("")
             } else {
@@ -205,7 +190,7 @@ class Vse_radio : Fragment() {
             }
         }
         v.kod_256bit.onClick {
-            v.kod_256bit.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
+
             if (find.text.toString() == (PREFIX + v.kod_256bit.text + PREFIX)) {
                 find.setText("")
             } else {
@@ -215,17 +200,11 @@ class Vse_radio : Fragment() {
 
         val setting = v.findViewById<Button>(R.id.button_settig_vse_radio)
         setting.onClick {
-            setting.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
-            val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
-            val content = LayoutInflater.from(context).inflate(R.layout.setting_vse_radio, null)
-            builder.setView(content)
 
-            val alertDialog = builder.create()
-            alertDialog.show()
+            val svr =DialogWindow(context,R.layout.setting_vse_radio)
 
-            val num = content.findViewById<Button>(R.id.button_seting_number)
-            val pouisk = content.findViewById<Button>(R.id.button_poisk)
-
+            val num = svr.view().findViewById<Button>(R.id.button_seting_number)
+            val pouisk = svr.view().findViewById<Button>(R.id.button_poisk)
 
             if (Numeracia == 1) {
                 num.paintFlags = Paint.UNDERLINE_TEXT_FLAG
@@ -242,7 +221,6 @@ class Vse_radio : Fragment() {
             }
 
             num.onClick {
-                num.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
 
                 if (Main.save_read_int("setting_numer") == 0) {
                     Main.save_value_int("setting_numer", 1)
@@ -256,14 +234,10 @@ class Vse_radio : Fragment() {
                     num.paintFlags = 0
                     num.typeface = Main.face
                     adapter_vse_list.notifyDataSetChanged()
-
                 }
-
-
             }
 
             pouisk.onClick {
-                pouisk.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.myalpha))
 
                 if (Main.save_read_int("setting_poisk") == 1) {
                     Poisk_ima_url = 0
@@ -276,12 +250,8 @@ class Vse_radio : Fragment() {
                     pouisk.text = "Поиск по имени и адресу"
                     adapter_vse_list.notifyDataSetChanged()
                 }
-
             }
-
-
         }
-
         return v
     }
 }

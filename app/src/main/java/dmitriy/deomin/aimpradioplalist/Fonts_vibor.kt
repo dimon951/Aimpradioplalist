@@ -32,102 +32,65 @@ class Fonts_vibor : Activity() {
         button_font_Frezer.typeface = Typeface.createFromAsset(assets, "fonts/Frezer.ttf")
         button_font_Futured.typeface = Typeface.createFromAsset(assets, "fonts/Futured.ttf")
         button_font_Rotonda.typeface = Typeface.createFromAsset(assets, "fonts/Rotonda.ttf")
-
-        button_font_tweed.setTextColor(Main.COLOR_TEXT)
-        button_font_kramola.setTextColor(Main.COLOR_TEXT)
-        button_font_badaboom.setTextColor(Main.COLOR_TEXT)
-        button_font_bemount.setTextColor(Main.COLOR_TEXT)
-        button_font_Smeshariki.setTextColor(Main.COLOR_TEXT)
-        button_font_Snowstorm.setTextColor(Main.COLOR_TEXT)
-        button_font_Izhitsa.setTextColor(Main.COLOR_TEXT)
-        button_font_Sensei.setTextColor(Main.COLOR_TEXT)
-        button_font_Yarin.setTextColor(Main.COLOR_TEXT)
-        button_font_Frezer.setTextColor(Main.COLOR_TEXT)
-        button_font_Futured.setTextColor(Main.COLOR_TEXT)
-        button_font_Rotonda.setTextColor(Main.COLOR_TEXT)
     }
 
 
     fun save_Tweed(v: View) {
-        val anim = AnimationUtils.loadAnimation(this, R.anim.myalpha)
-        v.startAnimation(anim)
         Main.save_value("fonts", "fonts/Tweed.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Kramola(v: View) {
-        val anim = AnimationUtils.loadAnimation(this, R.anim.myalpha)
-        v.startAnimation(anim)
         Main.save_value("fonts", "fonts/Kramola.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Badaboom(v: View) {
-        val anim = AnimationUtils.loadAnimation(this, R.anim.myalpha)
-        v.startAnimation(anim)
         Main.save_value("fonts", "fonts/Badaboom.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Bemount(v: View) {
-        val anim = AnimationUtils.loadAnimation(this, R.anim.myalpha)
-        v.startAnimation(anim)
         Main.save_value("fonts", "fonts/Bemount.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Smeshariki(v: View) {
-        val anim = AnimationUtils.loadAnimation(this, R.anim.myalpha)
-        v.startAnimation(anim)
         Main.save_value("fonts", "fonts/Smeshariki.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Snowstorm(v: View) {
-        val anim = AnimationUtils.loadAnimation(this, R.anim.myalpha)
-        v.startAnimation(anim)
         Main.save_value("fonts", "fonts/Snowstorm.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Izhitsa(v: View) {
-        val anim = AnimationUtils.loadAnimation(this, R.anim.myalpha)
-        v.startAnimation(anim)
         Main.save_value("fonts", "fonts/Izhitsa.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Rotonda(v: View) {
-        val anim = AnimationUtils.loadAnimation(this, R.anim.myalpha)
-        v.startAnimation(anim)
         Main.save_value("fonts", "fonts/Rotonda.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Frezer(v: View) {
-        val anim = AnimationUtils.loadAnimation(this, R.anim.myalpha)
-        v.startAnimation(anim)
         Main.save_value("fonts", "fonts/Frezer.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Futured(v: View) {
-        val anim = AnimationUtils.loadAnimation(this, R.anim.myalpha)
-        v.startAnimation(anim)
         Main.save_value("fonts", "fonts/Futured.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Yarin(v: View) {
-        val anim = AnimationUtils.loadAnimation(this, R.anim.myalpha)
-        v.startAnimation(anim)
         Main.save_value("fonts", "fonts/Yarin.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Sensei(v: View) {
-        val anim = AnimationUtils.loadAnimation(this, R.anim.myalpha)
-        v.startAnimation(anim)
         Main.save_value("fonts", "fonts/Sensei.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
