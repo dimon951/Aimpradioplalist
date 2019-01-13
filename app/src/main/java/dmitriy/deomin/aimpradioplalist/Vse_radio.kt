@@ -19,6 +19,9 @@ import android.view.animation.AnimationUtils
 import android.widget.*
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 import kotlinx.android.synthetic.main.vse_radio.view.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.toast
@@ -60,33 +63,38 @@ class Vse_radio : Fragment() {
         }
 
 
+
         val recikl_vse_list = v.findViewById<RecyclerView>(R.id.recicl_vse_radio)
-        recikl_vse_list.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+        recikl_vse_list.layoutManager =  LinearLayoutManager(context)
         recikl_vse_list.setHasFixedSize(true)
 
+        //полоса быстрой прокрутки
         val fastScroller: VerticalRecyclerViewFastScroller = v.findViewById(R.id.fast_scroller)
-
         fastScroller.setRecyclerView(recikl_vse_list)
-
-        // Connect the scroller to the recycler (to let the recycler scroll the scroller's handle)
         recikl_vse_list.setOnScrollListener(fastScroller.onScrollListener)
 
 
-        //получаем список радио >1000 штук
-        val mas_radio = resources.getStringArray(R.array.vse_radio)
-
-
+        //попробуем в корутинах
         //адаптеру будем слать список классов Radio
         val data = ArrayList<Radio>()
 
-        for (i in mas_radio.indices) {
-            val m = mas_radio[i].split("\n")
-            data.add(Radio(m[0], m[1]))
-        }
+        GlobalScope.launch {
+            //получаем список радио >1000 штук
+            val mas_radio = resources.getStringArray(R.array.vse_radio)
 
+            for (i in mas_radio.indices) {
+                val m = mas_radio[i].split("\n")
+                data.add(Radio(m[0], m[1]))
+            }
+
+        }
 
         val adapter_vse_list = Adapter_vse_list(data)
         recikl_vse_list.adapter = adapter_vse_list
+
+
+
+
 
 
         //пролистываем до нужного элемента

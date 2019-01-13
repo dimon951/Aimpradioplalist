@@ -144,7 +144,6 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : RecyclerView.Adapter<Ad
 
 
         p0.share.onClick {
-            p0.share.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             context.share(radiopop.name+"\n"+popurl)
         }
         p0.share.onLongClick {
@@ -152,7 +151,6 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : RecyclerView.Adapter<Ad
         }
 
         p0.play.onClick {
-            p0.play.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             Main.play_aimp(radiopop.name, popurl)
         }
         p0.play.onLongClick {
@@ -160,7 +158,6 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : RecyclerView.Adapter<Ad
         }
 
         p0.add.onClick {
-            p0.add.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             Main.add_myplalist(radiopop.name, popurl)
         }
 

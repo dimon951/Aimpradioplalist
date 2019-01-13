@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fon_abaut"
@@ -20,7 +19,7 @@
         android:textSize="13sp"
         android:background="@null"/>
 
-    <Button
+    <dmitriy.deomin.aimpradioplalist.custom.Btn
         android:id="@+id/telegram"
         android:layout_width="30dp"
         android:layout_height="30dp"
@@ -35,7 +34,7 @@
         android:scaleType="fitCenter"
         android:src="@drawable/telega" />
 
-    <Button
+    <dmitriy.deomin.aimpradioplalist.custom.Btn
         android:id="@+id/vk"
         android:layout_width="30dp"
         android:layout_height="30dp"
@@ -50,7 +49,7 @@
         android:scaleType="fitCenter"
         android:src="@drawable/vk" />
 
-    <Button
+    <dmitriy.deomin.aimpradioplalist.custom.Btn
         android:id="@+id/donat"
         android:layout_width="30dp"
         android:layout_height="30dp"

@@ -5,7 +5,7 @@
         +++++
          \n
         \n
-         2018 , Deomin Dmitriy
+         2019 , Deomin Dmitriy
          \n
          E-mail:58627@bk.ru
         \n
@@ -37,6 +37,9 @@
         github.com/Scogun/Android-OpenFileDialog
         \n
          \n
+        xyz.danoz:recyclerviewfastscroller:0.1.3
+        \n
+         \n
     </string>
 
     <string name="banner_ad_unit_id">ca-app-pub-7908895047124036/8879720700</string>
@@ -52,6 +55,9 @@
         </item>
         <item>Русская Волна\nruskay_volna.png\n
             48kbps~kbps~http://rp.volna.top/RuWave48~kbps~
+        </item>
+        <item>Радио Родных Дорог\nrrd.png\n
+            125kbps~kbps~http://stream1.radiord.ru:8000/live96.aac~kbps~
         </item>
         <item>ENERGY\nenergy.png\n
             256kbps~kbps~http://ic2.101.ru:8000/v1_1~kbps~
@@ -214,6 +220,28 @@
 
     <string-array name="vse_radio">
 
+
+        <item>Радио Бессмертный Полк 96kbps\nhttps://rr-bessmertnyipolk.hostingradio.ru/bessmertnyipolk96.aacp</item>
+        <item>Радио Русский Рок 96kbps\nhttps://rr-russkijrok.hostingradio.ru/russkijrok96.aacp</item>
+        <item>Радио Золотой Граммофон 96kbps\nhttps://rr-zolotoigrammofon.hostingradio.ru/zolotoigrammofon96.aacp</item>
+        <item>Радио Руское Кино 96kbps\nhttps://rr-russkoekino.hostingradio.ru/russkoekino96.aacp</item>
+        <item>Радио Соня 96kbps\nhttps://rr-sonya.hostingradio.ru/sonya96.aacp</item>
+        <item>Детский канал -Детское- 96kbps\nhttps://rr-detskijkanal.hostingradio.ru/detskijkanal96.aacp</item>
+        <item>Радио Высоцкий 96kbps\nhttps://rr-vysockij.hostingradio.ru/vysockij96.aacp</item>
+        <item>Радио Мелодии Века 128kbps\nhttp://93.84.112.253:8010/MV128</item>
+        <item>Радио Пирамида 80kbps\nhttp://81.88.192.51:8000/Piramida</item>
+        <item>Радио Gakku FM 128kbps\nhttps://stream.gakku.tv/radio/live</item>
+        <item>Радио Вголос FM 112kbps\nhttp://ua.uar.net:8000/vgolos</item>
+        <item>Радио Незалежність 40kbps\nhttp://82.207.109.117:8000/</item>
+        <item>Radio Veten 64kbps\nhttp://s2.free-shoutcast.com:18742/;stream.mp3</item>
+        <item>Ванильное радио Rus 128kbps\nhttp://stream.vanilnoeradio.ru:8060/radio</item>
+        <item>Ванильное радио Relax 128kbps\nhttp://stream.vanilnoeradio.ru:8040/radio</item>
+        <item>Ванильное радио Dance 128kbps\nhttp://stream.vanilnoeradio.ru:8070/radio</item>
+        <item>Радио Мегахит FM 96kbps\nhttp://listen.megahit.online/mega0plus96</item>
+        <item>Радио Russian East Coast FM 128kbps\nhttp://162.244.80.52:6632/;</item>
+        <item>Яскраве радіо 128kbps\nhttp://vobu.com.ua:8000/yaskrave-128</item>
+        <item>Голос Свободи 128kbps\nhttp://stream.holos.fm:8000/holos</item>
+
         <item>Радио Rock FM Heavy -Музыка- 128kbps\nhttp://jfm1.hostingradio.ru:14536/metal.mp3</item>
         <item>Радио Luxe FM -Музыка- 128kbps\nhttp://streaming.radionomy.com/JamendoLounge</item>
         <item>Радио Дискотека СССР -Музыка- 64kbps\nhttp://91.207.59.26/a144</item>
@@ -242,7 +270,6 @@
         <item>Радио Record Chill-Out -Музыка- 320kbps\nhttp://air2.radiorecord.ru:805/chil_320</item>
         <item>Радио Болид -Музыка- 128kbps\nhttp://ca3.radioboss.fm:8104/stream</item>
         <item>Радио Седьмое небо -Музыка- 160kbps\nhttp://91.201.117.219:8000/stream</item>
-        <item>Радио Родных Дорог -Музыка- 128kbps\nhttp://stream1.radiord.ru:8000/live96.aac</item>
         <item>Хорошее радио -Музыка- 64kbps\nhttp://radio.horoshee.fm:8000/mp3</item>
         <item>Радио Искатель -Музыка- 128kbps\nhttp://iskatel.hostingradio.ru:8015/iskatel-128.mp3</item>
         <item>Радио Море -Музыка- 256kbps\nhttp://sea.1tvcrimea.ru:9003/stream_sea.mp3</item>

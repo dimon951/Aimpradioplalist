@@ -38,6 +38,8 @@ import java.io.File
 
 class Main : FragmentActivity() {
 
+    //    //Displayed
+
     //тут куча всего что может использоваться в любом классе проекта
     companion object {
 
@@ -110,15 +112,11 @@ class Main : FragmentActivity() {
 
         fun setup_aimp(potok: String, file: String) {
 
-            val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
-            val content = LayoutInflater.from(context).inflate(R.layout.dialog_no_aimp, null)
-            builder.setView(content)
-            val alertDialog = builder.create()
-            alertDialog.show()
+            val sa = DialogWindow(context, R.layout.dialog_no_aimp)
 
-            val dw_aimp_market = content.findViewById<Button>(R.id.button_dialog_dowload_aimp_market)
-            val dw_aimp_link = content.findViewById<Button>(R.id.button_dialog_dowload_aimp_link)
-            val open_sys = content.findViewById<Button>(R.id.button_dialog_open_sistem)
+            val dw_aimp_market = sa.view().findViewById<Button>(R.id.button_dialog_dowload_aimp_market)
+            val dw_aimp_link = sa.view().findViewById<Button>(R.id.button_dialog_dowload_aimp_link)
+            val open_sys = sa.view().findViewById<Button>(R.id.button_dialog_open_sistem)
 
             //если есть магазин покажем и установку через него
             if (install_app("com.google.android.gms")) {
@@ -128,17 +126,14 @@ class Main : FragmentActivity() {
             }
 
             dw_aimp_market.onClick {
-                dw_aimp_market.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
                 context.browse("market://details?id=com.aimp.player")
             }
 
             dw_aimp_link.onClick {
-                dw_aimp_link.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
                 context.browse(Main.LINK_DOWLOAD_AIMP)
             }
 
             open_sys.onClick {
-                open_sys.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
                 //передаётся один поток то создадим файл и откроем его иначе передаётся уже созданый файл
                 if (potok.isNotEmpty()) {
@@ -185,35 +180,35 @@ class Main : FragmentActivity() {
         @SuppressLint("WrongConstant")
         fun play_aimp(name: String, url: String) {
             if (url != "") {
-                Slot(context,"File_created").onRun {
-                        //получим данные
-                        val s = it.getStringExtra("update")
-                        if (s == "zaebis") {
-                            //проверим есть ли аимп
-                            if (Main.install_app("com.aimp.player")) {
-                                //откроем файл с сылкой в плеере
-                                val cm = ComponentName(
-                                        "com.aimp.player",
-                                        "com.aimp.player.views.MainActivity.MainActivity")
+                Slot(context, "File_created").onRun {
+                    //получим данные
+                    val s = it.getStringExtra("update")
+                    if (s == "zaebis") {
+                        //проверим есть ли аимп
+                        if (Main.install_app("com.aimp.player")) {
+                            //откроем файл с сылкой в плеере
+                            val cm = ComponentName(
+                                    "com.aimp.player",
+                                    "com.aimp.player.views.MainActivity.MainActivity")
 
-                                val i = Intent()
-                                i.component = cm
+                            val i = Intent()
+                            i.component = cm
 
-                                i.action = Intent.ACTION_VIEW
-                                i.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u"), "audio/mpegurl")
-                                i.flags = 0x3000000
-                                context.startActivity(i)
+                            i.action = Intent.ACTION_VIEW
+                            i.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u"), "audio/mpegurl")
+                            i.flags = 0x3000000
+                            context.startActivity(i)
 
-                            } else {
-                                //иначе предложим системе открыть или установить аимп
-                                Main.setup_aimp(url,
-                                        "file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u")
-                            }
                         } else {
-                            context.toast(context.getString(R.string.error))
-                            //запросим разрешения
-                            Main.EbuchieRazreshenia()
+                            //иначе предложим системе открыть или установить аимп
+                            Main.setup_aimp(url,
+                                    "file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u")
                         }
+                    } else {
+                        context.toast(context.getString(R.string.error))
+                        //запросим разрешения
+                        Main.EbuchieRazreshenia()
+                    }
 
                 }
                 //сохраним  временый файл ссылку и будем ждать сигнала чтобы открыть в аимп или системе
@@ -229,17 +224,12 @@ class Main : FragmentActivity() {
                 //проверим что файл есть
                 val f_old = File(name)
                 if (f_old.exists()) {
-
                     //если файл есть предложим переименовать тк хз может он там был изменён и потом потребуется
 
                     //покажем оконо в котором нужно будет ввести имя
-                    val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
-                    val content = LayoutInflater.from(context).inflate(R.layout.name_save_file, null)
-                    builder.setView(content)
-                    val alertDialog = builder.create()
-                    alertDialog.show()
+                    val nsf = DialogWindow(context, R.layout.name_save_file)
 
-                    val vname = content.findViewById<EditText>(R.id.edit_new_name)
+                    val vname = nsf.view().findViewById<EditText>(R.id.edit_new_name)
                     vname.typeface = Main.face
                     vname.textColor = Main.COLOR_TEXT
                     vname.setText(f_old.name.replace(".m3u", ""))
@@ -257,9 +247,8 @@ class Main : FragmentActivity() {
                         }
                     })
 
-                    val save_buttten = content.findViewById<Button>(R.id.button_save)
+                    val save_buttten = nsf.view().findViewById<Button>(R.id.button_save)
                     save_buttten.onClick {
-                        save_buttten.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
                         //----
                         if (vname.text.toString().isEmpty()) {
                             context.toast("Введите имя")
@@ -299,10 +288,8 @@ class Main : FragmentActivity() {
                             } else {
                                 context.toast("Не получилось переименовать")
                             }
-
-
                             //закроем окошко
-                            alertDialog.cancel()
+                            nsf.close()
                         }
                     }
 
@@ -320,7 +307,7 @@ class Main : FragmentActivity() {
 
             if (url != "") {
                 //приёмник  сигналов
-                Slot(context,"File_created").onRun {
+                Slot(context, "File_created").onRun {
                     //получим данные
                     val s = it.getStringExtra("update")
                     if (s == "zaebis") {
@@ -342,7 +329,6 @@ class Main : FragmentActivity() {
                 }
 
 
-
                 //сохраним  временый файл сслку
                 val file_function = File_function()
                 file_function.Save_temp_file("$name.m3u", url)
@@ -352,17 +338,11 @@ class Main : FragmentActivity() {
                 //проверим что файл есть
                 val f_old = File(name)
                 if (f_old.exists()) {
-
                     //если файл есть предложим переименовать тк хз может он там был изменён и потом потребуется
+                    val msf = DialogWindow(context, R.layout.name_save_file)
 
                     //покажем оконо в котором нужно будет ввести имя
-                    val builder = AlertDialog.Builder(ContextThemeWrapper(context, android.R.style.Theme_Holo))
-                    val content = LayoutInflater.from(context).inflate(R.layout.name_save_file, null)
-                    builder.setView(content)
-                    val alertDialog = builder.create()
-                    alertDialog.show()
-
-                    val vname = content.findViewById<EditText>(R.id.edit_new_name)
+                    val vname = msf.view().findViewById<EditText>(R.id.edit_new_name)
                     vname.typeface = Main.face
                     vname.textColor = Main.COLOR_TEXT
                     vname.setText(f_old.name.replace(".m3u", ""))
@@ -380,9 +360,8 @@ class Main : FragmentActivity() {
                         }
                     })
 
-                    val save_buttten = content.findViewById<Button>(R.id.button_save)
+                    val save_buttten = msf.view().findViewById<Button>(R.id.button_save)
                     save_buttten.onClick {
-                        save_buttten.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
                         //----
                         if (vname.text.toString().isEmpty()) {
                             context.toast("Введите имя")
@@ -413,7 +392,7 @@ class Main : FragmentActivity() {
 
 
                             //закроем окошко
-                            alertDialog.cancel()
+                            msf.close()
                         }
                     }
 
@@ -428,7 +407,7 @@ class Main : FragmentActivity() {
         //добавить в мой плейлист
         fun add_myplalist(name: String, url: String) {
 
-            Slot(context,"File_created").onRun {
+            Slot(context, "File_created").onRun {
                 //получим данные
                 val s = it.getStringExtra("update")
                 when (s) {
@@ -436,7 +415,7 @@ class Main : FragmentActivity() {
                     "zaebis" -> {
                         //пошлём сигнал пусть мой плейлист обновится
                         signal("Data_add")
-                                .putExtra("run",true)
+                                .putExtra("run", true)
                                 .putExtra("update", "zaebis")
                                 .send(context)
                     }
@@ -586,17 +565,14 @@ class Main : FragmentActivity() {
 
         vse_radio.text = vse_radio.text.toString() + "(" + resources.getStringArray(R.array.vse_radio).size.toString() + ")"
         vse_radio.onClick {
-            vse_radio.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
             viewPager.currentItem = 0
         }
 
         popularnoe.onClick {
-            popularnoe.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
             viewPager.currentItem = 1
         }
 
         moy_plalist.onClick {
-            moy_plalist.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
             viewPager.currentItem = 2
         }
         //****************************************************************
@@ -661,25 +637,22 @@ class Main : FragmentActivity() {
     fun Menu_progi(view: View) {
         view.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
 
-        val menu = DialogWindow(context,R.layout.menu_progi)
+        val menu = DialogWindow(context, R.layout.menu_progi)
 
         val b_a = menu.view().findViewById<Button>(R.id.button_abaut)
         b_a.onClick {
-            b_a.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             startActivity<Abaut>()
             menu.close()
         }
 
         val b_s = menu.view().findViewById<Button>(R.id.button_setting)
         b_s.onClick {
-            b_s.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             startActivity<Setting>()
             menu.close()
         }
 
         val b_f = menu.view().findViewById<Button>(R.id.button_edit_fonts)
         b_f.onClick {
-            b_f.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
             startActivity<Fonts_vibor>()
             menu.close()
         }

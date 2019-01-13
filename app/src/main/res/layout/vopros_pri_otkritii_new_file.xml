@@ -42,14 +42,14 @@
         android:showDividers="beginning|middle|end"
         android:background="@null">
 
-        <Button
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_dell_old_plalist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
             android:text="Затереть" />
 
-        <Button
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_add_old_plalist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

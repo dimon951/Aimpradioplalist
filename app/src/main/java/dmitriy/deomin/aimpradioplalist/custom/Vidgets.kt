@@ -5,13 +5,12 @@ import android.app.AlertDialog
 import android.content.Context
 import android.support.v7.widget.CardView
 import android.util.AttributeSet
-import android.view.ContextThemeWrapper
-import android.view.LayoutInflater
-import android.view.View
+import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 import dmitriy.deomin.aimpradioplalist.Main
+
 
 class Btn : Button {
     constructor(context: Context) : super(context) {
@@ -28,6 +27,23 @@ class Btn : Button {
         this.typeface = Main.face
         this.setTextColor(Main.COLOR_TEXT)
     }
+
+    override fun setOnClickListener(l: OnClickListener?) {
+        val wrapper = OnClickListener {
+            startAnimation(AnimationUtils.loadAnimation(this.context, dmitriy.deomin.aimpradioplalist.R.anim.myalpha))
+            l?.onClick(it)
+        }
+        super.setOnClickListener(wrapper)
+    }
+
+//    override fun setOnLongClickListener(l: OnLongClickListener?) {
+//        val wrapper = OnLongClickListener {
+//            startAnimation(AnimationUtils.loadAnimation(this.context, dmitriy.deomin.aimpradioplalist.R.anim.myalpha))
+//            l?.onLongClick(it)!!
+//        }
+//
+//        super.setOnLongClickListener(wrapper)
+//    }
 }
 
 class Fon_item : CardView {
@@ -59,7 +75,6 @@ class Text : TextView {
         this.typeface = Main.face
         this.setTextColor(Main.COLOR_TEXT)
     }
-
 }
 
 class DialogWindow(context: Context, loaut: Int) {
@@ -76,7 +91,7 @@ class DialogWindow(context: Context, loaut: Int) {
         alertDialog.show()
     }
 
-    fun view():View{
+    fun view(): View {
         return content
     }
 
