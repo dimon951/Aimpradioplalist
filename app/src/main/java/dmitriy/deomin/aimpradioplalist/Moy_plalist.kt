@@ -1,18 +1,14 @@
 package dmitriy.deomin.aimpradioplalist
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.*
 import android.os.Bundle
 import android.os.Environment
 import android.support.v4.app.Fragment
-import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import java.util.ArrayList
-import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.*
@@ -24,6 +20,7 @@ import org.jetbrains.anko.support.v4.share
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
 import java.io.File
+
 
 
 class Moy_plalist : Fragment() {
@@ -81,19 +78,15 @@ class Moy_plalist : Fragment() {
         //Слушаем кнопки
 
         //------------удалить(очистить весь плейлист)---------------------------------------------
-        val delete_plalist_all = v.findViewById<Button>(R.id.button_delete)
-        delete_plalist_all.onClick {
-            delete_plalist_all.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+        (v.findViewById<Button>(R.id.button_delete)).onClick {
 
             if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
 
-                val ddp = DialogWindow(context,R.layout.dialog_delete_plalist)
+                val ddp = DialogWindow(context, R.layout.dialog_delete_plalist)
 
-                val b_d_D = ddp.view().findViewById<Button>(R.id.button_dialog_delete)
-                b_d_D.onClick {
-                    b_d_D.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+                (ddp.view().findViewById<Button>(R.id.button_dialog_delete)).onClick {
 
-                    Slot(context,"File_created",false).onRun {it->
+                    Slot(context, "File_created", false).onRun { it ->
                         //получим данные
                         val s = it.getStringExtra("update")
                         when (s) {
@@ -113,9 +106,7 @@ class Moy_plalist : Fragment() {
                     file_function.Delet_my_plalist()
                     ddp.close()
                 }
-                val b_d_N = ddp.view().findViewById<Button>(R.id.button_dialog_no)
-                b_d_N.onClick {
-                    b_d_N.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+                (ddp.view().findViewById<Button>(R.id.button_dialog_no)).onClick {
                     ddp.close()
                 }
             } else {
@@ -125,33 +116,21 @@ class Moy_plalist : Fragment() {
         //-----------------------------------------------------------------------------------------
 
         //-------------ддобавить свой поток(имя и адрес)-----------------------------------------
-        val add_new_potor_radio = v.findViewById<Button>(R.id.button_add_url)
-        add_new_potor_radio.onClick {
-           add_new_potor_radio.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+        (v.findViewById<Button>(R.id.button_add_url)).onClick {
 
             val auu = DialogWindow(context, R.layout.add_url_user)
 
-            val edit = auu.view().findViewById<View>(R.id.editText_add_url) as EditText
+            val edit = auu.view().findViewById<EditText>(R.id.editText_add_url)
             edit.typeface = Main.face
             edit.textColor = Main.COLOR_TEXT
 
-            val edit_name = auu.view().findViewById<View>(R.id.editText_add_url_name) as EditText
+            val edit_name = auu.view().findViewById<EditText>(R.id.editText_add_url_name)
             edit_name.typeface = Main.face
             edit_name.textColor = Main.COLOR_TEXT
 
-            val paste = auu.view().findViewById<View>(R.id.button_paste_url_add) as Button
-            paste.typeface = Main.face
-            paste.textColor = Main.COLOR_TEXT
-            paste.onClick {
-                paste.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-                edit.setText(getText(context))
-            }
+            (auu.view().findViewById<Button>(R.id.button_paste_url_add)).onClick { edit.setText(getText(context)) }
 
-            val add = auu.view().findViewById<View>(R.id.button_add_url) as Button
-            add.typeface = Main.face
-            add.textColor = Main.COLOR_TEXT
-            add.onClick {
-                add.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+            (auu.view().findViewById<Button>(R.id.button_add_url)).onClick {
 
                 //проверим на пустоту
                 if (edit.text.toString().length > 7) {
@@ -193,9 +172,8 @@ class Moy_plalist : Fragment() {
         //-----------------------------------------------------------------------------------------
 
         //-------------сохранить этот плейлист в отдельный файл------------------------------------
-        val svf = v.findViewById<Button>(R.id.save_v_file)
-        svf.onClick {
-            svf.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+        (v.findViewById<Button>(R.id.save_v_file)).onClick {
+
             //прочитаем плейлист весь с закорючками
             val data: String = file_function.read(Main.MY_PLALIST)
             if (data.length < 9) {
@@ -205,13 +183,11 @@ class Moy_plalist : Fragment() {
                 //покажем оконо в котором нужно будет ввести имя
                 val nsf = DialogWindow(context, R.layout.name_save_file)
 
-                val name = nsf.view().findViewById<View>(R.id.edit_new_name) as EditText
+                val name = nsf.view().findViewById<EditText>(R.id.edit_new_name)
                 name.typeface = Main.face
                 name.textColor = Main.COLOR_TEXT
 
-                val save_buttten = nsf.view().findViewById<View>(R.id.button_save) as Button
-                save_buttten.onClick {
-                    save_buttten.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+                (nsf.view().findViewById<Button>(R.id.button_save)).onClick {
 
                     if (name.text.toString().isEmpty()) {
                         //пока покажем это потом будум генерерить свои если не захотят вводить
@@ -245,9 +221,7 @@ class Moy_plalist : Fragment() {
         //--------------------------------------------------------------------------------------
 
         //-------------открыть из памяти устройства плейлист--------------------------------------
-        val lf = v.findViewById<Button>(R.id.load_file)
-        lf.onClick {
-            lf.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+        (v.findViewById<Button>(R.id.load_file)).onClick {
 
             //если в плейлисте есть чето предложим чегонибуть
             if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
@@ -255,9 +229,7 @@ class Moy_plalist : Fragment() {
                 val vponf = DialogWindow(context, R.layout.vopros_pri_otkritii_new_file)
 
                 //затираем старое
-                val del = vponf.view().findViewById<Button>(R.id.button_dell_old_plalist)
-                del.onClick {
-                    del.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+                (vponf.view().findViewById<Button>(R.id.button_dell_old_plalist)).onClick {
 
                     //отправим с пустым старым текстом , старое затрётся
                     open_load_file(context, "")
@@ -267,9 +239,7 @@ class Moy_plalist : Fragment() {
 
 
                 //добавляем к старому если есть дубликаты пропустим их
-                val add = vponf.view().findViewById<View>(R.id.button_add_old_plalist) as Button
-                add.onClick {
-                    add.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+                (vponf.view().findViewById<Button>(R.id.button_add_old_plalist)).onClick {
 
                     //прочтём текущий со всеми закорючками и отправим для добавления
                     val old_text: String = file_function.read(Main.MY_PLALIST)
@@ -287,9 +257,8 @@ class Moy_plalist : Fragment() {
         //------------------------------------------------------------------------------------
 
         //------------открыть в плеере------------------------------------------------------
-        val op = v.findViewById<View>(R.id.open_aimp)
-        op.onClick {
-            op.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+        (v.findViewById<View>(R.id.open_aimp)).onClick {
+
             if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
                 Main.play_aimp(Main.MY_PLALIST, "")
             } else {
@@ -299,7 +268,7 @@ class Moy_plalist : Fragment() {
         //--------------------------------------------------------------------------
 
         //---------------открыть в системе----------------------------------------
-        op.onLongClick {
+        (v.findViewById<View>(R.id.open_aimp)).onLongClick {
             if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
                 Main.play_system(Main.MY_PLALIST, "")
             } else {
@@ -309,9 +278,7 @@ class Moy_plalist : Fragment() {
         //----------------------------------------------------------------------------------
 
         //------------поделится---------------------------------------------------------
-        val bt_send = v.findViewById<Button>(R.id.button_otpravit)
-        bt_send.onClick {
-            bt_send.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+        (v.findViewById<Button>(R.id.button_otpravit)).onClick {
 
             if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
                 var send = ""
@@ -328,8 +295,7 @@ class Moy_plalist : Fragment() {
         //----------------------------------------------------------------------------------
 
         //-----при долгом нажатиии будем предлогать отправить мне письмом этот плейлист----
-        bt_send.onLongClick {
-            bt_send.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+        (v.findViewById<Button>(R.id.button_otpravit)).onLongClick {
 
             if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
                 var send = ""
@@ -355,9 +321,7 @@ class Moy_plalist : Fragment() {
         var file_m3u_custom: String
 
         //при выборе из памяти устройства
-        val add_fs = lf.view().findViewById<Button>(R.id.load_fs)
-        add_fs.onClick {
-            add_fs.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+        (lf.view().findViewById<Button>(R.id.load_fs)).onClick {
 
             //посмотрим есть старый пусть
             val old_dir = Main.save_read("startdir")
@@ -435,10 +399,16 @@ class Moy_plalist : Fragment() {
     }
 
     //чтение из буфера
-    private fun getText(c: Context): String {
-        val clipboardManager: ClipboardManager = c.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val data = clipboardManager.primaryClip
-        val item = data.getItemAt(0)
-        return item.text.toString()
+    fun getText(c:Context): String {
+        var text: String? = null
+        val sdk = android.os.Build.VERSION.SDK_INT
+        text = if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
+            val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager?
+            clipboard!!.text.toString()
+        } else {
+            val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager?
+            clipboard!!.text.toString()
+        }
+        return text
     }
 }

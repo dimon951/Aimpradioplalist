@@ -35,15 +35,6 @@ class Btn : Button {
         }
         super.setOnClickListener(wrapper)
     }
-
-//    override fun setOnLongClickListener(l: OnLongClickListener?) {
-//        val wrapper = OnLongClickListener {
-//            startAnimation(AnimationUtils.loadAnimation(this.context, dmitriy.deomin.aimpradioplalist.R.anim.myalpha))
-//            l?.onLongClick(it)!!
-//        }
-//
-//        super.setOnLongClickListener(wrapper)
-//    }
 }
 
 class Fon_item : CardView {

@@ -2,7 +2,6 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.*
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
@@ -29,6 +28,9 @@ import dmitriy.deomin.aimpradioplalist.custom.Slot
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
 import kotlinx.android.synthetic.main.main.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
@@ -577,7 +579,6 @@ class Main : FragmentActivity() {
         }
         //****************************************************************
 
-
         //пролистаем на вип радио
         viewPager.currentItem = 1
 
@@ -628,6 +629,8 @@ class Main : FragmentActivity() {
                 }
             }
         }
+
+
 
 
         //получим ебучие разрешения , если не дали их еще
