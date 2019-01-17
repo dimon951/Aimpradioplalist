@@ -34,15 +34,15 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
                     val filteredList = ArrayList<Radio>()
 
                     //поиск по имени или еще и по урл
-                    if(Vse_radio.Poisk_ima_url==0){
+                    if (Vse_radio.Poisk_ima_url == 0) {
                         for (row in data) {
                             if (row.name.toLowerCase().contains(charString.toLowerCase())) {
                                 filteredList.add(row)
                             }
                         }
-                    }else{
+                    } else {
                         for (row in data) {
-                            if (row.name.toLowerCase().contains(charString.toLowerCase())||row.url.toLowerCase().contains(charString.toLowerCase())) {
+                            if (row.name.toLowerCase().contains(charString.toLowerCase()) || row.url.toLowerCase().contains(charString.toLowerCase())) {
                                 filteredList.add(row)
                             }
                         }
@@ -70,6 +70,8 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
         val url_radio = itemView.findViewById<TextView>(R.id.url_radio)
         val fon = itemView.findViewById<CardView>(R.id.fon_item_radio)
         // val fon2 = itemView.findViewById<LinearLayout>(R.id.fon2)
+        val kbps = itemView.findViewById<TextView>(R.id.kbps_radio)
+        val liner_kbps = itemView.findViewById<LinearLayout>(R.id.liner_kbps)
     }
 
 
@@ -89,27 +91,35 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
 
         //настроим вид тутже
         //-----------------------------------------------
-        p0.name_radio.typeface = Main.face
-        p0.name_radio.textColor = Main.COLOR_TEXT
-
-        p0.url_radio.typeface = Main.face
-        p0.url_radio.textColor = Main.COLOR_TEXT
-
-        p0.nomer_radio.typeface = Main.face
-        p0.nomer_radio.textColor = Main.COLOR_TEXT
+//        p0.name_radio.typeface = Main.face
+//        p0.name_radio.textColor = Main.COLOR_TEXT
+//
+//        p0.url_radio.typeface = Main.face
+//        p0.url_radio.textColor = Main.COLOR_TEXT
+//
+//        p0.nomer_radio.typeface = Main.face
+//        p0.nomer_radio.textColor = Main.COLOR_TEXT
         //-------------------------------------------------------
 
 
         //заполним данными
         val radio: Radio = raduoSearchList!![p1]
+
         p0.name_radio.text = radio.name
         p0.url_radio.text = radio.url
-        if(Vse_radio.Numeracia==1){
+        //нумерация списка
+        if (Vse_radio.Numeracia == 1) {
             p0.nomer_radio.text = (p1 + 1).toString() + ". "
-        }else{
+        } else {
             p0.nomer_radio.text = ""
         }
-
+        //kbps
+        if (radio.kbps.isNotEmpty()) {
+            p0.liner_kbps.visibility = View.VISIBLE
+            p0.kbps.text = radio.kbps
+        } else {
+            p0.liner_kbps.visibility = View.GONE
+        }
 
 
         //обработка нажатий
@@ -173,7 +183,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
 
             open_aimp.onLongClick {
                 open_aimp.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-                Main.play_system(name,url_link)
+                Main.play_system(name, url_link)
             }
 
             instal_aimp.onClick {
@@ -195,7 +205,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
             share.onClick {
                 share.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
                 //сосавим строчку как в m3u вайле
-                context.share(name+"\n"+url_link)
+                context.share(name + "\n" + url_link)
             }
 
             open_aimp.onClick {

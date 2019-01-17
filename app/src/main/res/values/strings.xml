@@ -220,7 +220,20 @@
 
     <string-array name="vse_radio">
 
-
+        <item>DFM Deep 96kbps\nhttps://dfm-dfmdeep.hostingradio.ru/dfmdeep96.aacp</item>
+        <item>RADIO DEEP HOUSE 128kbps\nhttp://77.244.213.155:8000/5a92b5354c40a400068d2a02</item>
+        <item>Живое радио: Музыка релакс 64kbps\nhttp://air.jivoe.in:8000/relax64.mp3</item>
+        <item>Живое радио: Музыка релакс 128kbps\nhttp://air.jivoe.in:8000/relax.mp3</item>
+        <item>Живое радио: Музыка релакс 256kbps\nhttp://air.jivoe.in:8000/relax-hi.mp3</item>
+        <item>Живое радио: Музыка релакс 24kbps\nhttp://air.jivoe.in:8000/relax24</item>
+        <item>Живое радио: Мантра джем 64kbps\nhttp://air.jivoe.in:8000/mantrajam64.mp3</item>
+        <item>Живое радио: Мантра джем 128kbps\nhttp://air.jivoe.in:8000/mantrajam.mp3</item>
+        <item>Живое радио: Мантра джем 256kbps\nhttp://air.jivoe.in:8000/mantrajam-hi.mp3</item>
+        <item>Живое радио: Мантра джем 24kbps\nhttp://air.jivoe.in:8000/mantrajam24</item>
+        <item>Живое радио: Просто песни 24kbps\nhttp://air.jivoe.in:8000/songs24</item>
+        <item>Живое радио: Просто песни 64kbps\nhttp://air.jivoe.in:8000/songs64.mp3</item>
+        <item>Живое радио: Просто песни 128kbps\nhttp://air.jivoe.in:8000/songs.mp3</item>
+        <item>Живое радио: Просто песни 256kbps\nhttp://air.jivoe.in:8000/songs-hi.mp3</item>
         <item>Радио Бессмертный Полк 96kbps\nhttps://rr-bessmertnyipolk.hostingradio.ru/bessmertnyipolk96.aacp</item>
         <item>Радио Русский Рок 96kbps\nhttps://rr-russkijrok.hostingradio.ru/russkijrok96.aacp</item>
         <item>Радио Золотой Граммофон 96kbps\nhttps://rr-zolotoigrammofon.hostingradio.ru/zolotoigrammofon96.aacp</item>
@@ -241,7 +254,6 @@
         <item>Радио Russian East Coast FM 128kbps\nhttp://162.244.80.52:6632/;</item>
         <item>Яскраве радіо 128kbps\nhttp://vobu.com.ua:8000/yaskrave-128</item>
         <item>Голос Свободи 128kbps\nhttp://stream.holos.fm:8000/holos</item>
-
         <item>Радио Rock FM Heavy -Музыка- 128kbps\nhttp://jfm1.hostingradio.ru:14536/metal.mp3</item>
         <item>Радио Luxe FM -Музыка- 128kbps\nhttp://streaming.radionomy.com/JamendoLounge</item>
         <item>Радио Дискотека СССР -Музыка- 64kbps\nhttp://91.207.59.26/a144</item>

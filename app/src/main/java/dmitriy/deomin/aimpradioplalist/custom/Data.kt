@@ -1,6 +1,6 @@
 package dmitriy.deomin.aimpradioplalist.custom
 
-data class Radio(val name: String, val url: String)
+data class Radio(val name: String, val url: String,val kbps:String="",val kategory:String="")
 
 data class Link(val kbps: String, val url: String)
 

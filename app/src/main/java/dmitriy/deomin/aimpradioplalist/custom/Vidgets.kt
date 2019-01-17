@@ -68,6 +68,23 @@ class Text : TextView {
     }
 }
 
+class Textcoontext : TextView {
+    constructor(context: Context) : super(context) {
+        this.typeface = Main.face
+        this.setTextColor(Main.COLOR_TEXTcontext)
+    }
+
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+        this.typeface = Main.face
+        this.setTextColor(Main.COLOR_TEXTcontext)
+    }
+
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        this.typeface = Main.face
+        this.setTextColor(Main.COLOR_TEXTcontext)
+    }
+}
+
 class DialogWindow(context: Context, loaut: Int) {
 
     private val alertDialog: AlertDialog

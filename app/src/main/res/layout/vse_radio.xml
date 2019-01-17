@@ -102,20 +102,32 @@
                 android:textSize="10sp" />
         </LinearLayout>
     </LinearLayout>
+
     <RelativeLayout
+        android:id="@+id/rloaut_vse_radio"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recicl_vse_radio"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical" />
+
         <xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
             android:id="@+id/fast_scroller"
             android:layout_width="10dp"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" />
     </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar_vse_radio"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 </LinearLayout>

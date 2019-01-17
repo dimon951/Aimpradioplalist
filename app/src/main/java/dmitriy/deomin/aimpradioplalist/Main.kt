@@ -71,6 +71,8 @@ class Main : FragmentActivity() {
         var COLOR_FON: Int = 0
         var COLOR_ITEM: Int = 0
         var COLOR_TEXT: Int = 0
+        var COLOR_TEXTcontext: Int = 0
+
 
         //сохранялки
         //----------------------------
@@ -511,6 +513,12 @@ class Main : FragmentActivity() {
         } else {
             save_read_int("color_text")
         }
+        //ставим цвеи текста для контекста
+        COLOR_TEXTcontext = if (save_read_int("color_textcontext") == 0) {
+            resources.getColor(R.color.textcontext)
+        } else {
+            save_read_int("color_textcontext")
+        }
         //------------------------------------------------------------------------------
 
 
@@ -626,11 +634,12 @@ class Main : FragmentActivity() {
                 }
                 "update_color" -> {
                     fon_main.setBackgroundColor(COLOR_FON)
+                    myadapter.notifyDataSetChanged()
+                    viewPager.adapter = myadapter
+                    viewPager.currentItem = 1
                 }
             }
         }
-
-
 
 
         //получим ебучие разрешения , если не дали их еще

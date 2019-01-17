@@ -19,10 +19,13 @@ import android.view.animation.AnimationUtils
 import android.widget.*
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Radio
+import kotlinx.android.synthetic.main.vse_radio.*
 import kotlinx.android.synthetic.main.vse_radio.view.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.jetbrains.anko.hintTextColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.toast
@@ -51,6 +54,7 @@ class Vse_radio : Fragment() {
 
         find = v.findViewById(R.id.editText_find)
         find.typeface = Main.face
+        find.hintTextColor = Main.COLOR_TEXTcontext
 
         Numeracia = if (Main.save_read_int("setting_numer") == 1) {
             1
@@ -65,7 +69,7 @@ class Vse_radio : Fragment() {
 
 
         val recikl_vse_list = v.findViewById<RecyclerView>(R.id.recicl_vse_radio)
-        recikl_vse_list.layoutManager =  LinearLayoutManager(context)
+        recikl_vse_list.layoutManager = LinearLayoutManager(context)
         recikl_vse_list.setHasFixedSize(true)
 
         //полоса быстрой прокрутки
@@ -82,10 +86,29 @@ class Vse_radio : Fragment() {
             //получаем список радио >1000 штук
             val mas_radio = resources.getStringArray(R.array.vse_radio)
 
+            //операция долгая поэтому покажем крутилку и скроем список
+            rloaut_vse_radio.visibility = View.GONE
+            progressBar_vse_radio.visibility = View.VISIBLE
+
+
+
+
             for (i in mas_radio.indices) {
                 val m = mas_radio[i].split("\n")
-                data.add(Radio(m[0], m[1]))
+                var name = m[0]
+                var kbps = ""
+                if(name.contains("kbps")){
+                 kbps = name.substring((name.length-7),name.length)
+                    name = name.substring(0,(name.length-7))
+                }
+
+                data.add(Radio(name, m[1],kbps))
             }
+
+
+            //когда все закончится покажем список и скроем крутилку
+            rloaut_vse_radio.visibility = View.VISIBLE
+            progressBar_vse_radio.visibility =View.GONE
 
         }
 
@@ -132,7 +155,7 @@ class Vse_radio : Fragment() {
         //при долгом нажатиии будем предлогать изменить текст
         v.kod_diskografii.onLongClick {
 
-            val vntvrf = DialogWindow(context,R.layout.vvod_new_text_vse_radio_filtr)
+            val vntvrf = DialogWindow(context, R.layout.vvod_new_text_vse_radio_filtr)
 
             val e_t = vntvrf.view().findViewById<EditText>(R.id.new_text_filter_editText)
             e_t.typeface = Main.face
@@ -201,7 +224,7 @@ class Vse_radio : Fragment() {
         val setting = v.findViewById<Button>(R.id.button_settig_vse_radio)
         setting.onClick {
 
-            val svr =DialogWindow(context,R.layout.setting_vse_radio)
+            val svr = DialogWindow(context, R.layout.setting_vse_radio)
 
             val num = svr.view().findViewById<Button>(R.id.button_seting_number)
             val pouisk = svr.view().findViewById<Button>(R.id.button_poisk)
