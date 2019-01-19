@@ -16,6 +16,7 @@ import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewPager
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.*
@@ -28,9 +29,6 @@ import dmitriy.deomin.aimpradioplalist.custom.Slot
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
 import kotlinx.android.synthetic.main.main.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
@@ -73,6 +71,7 @@ class Main : FragmentActivity() {
         var COLOR_TEXT: Int = 0
         var COLOR_TEXTcontext: Int = 0
 
+        var cho_nagimali_poslednee: Int = 0
 
         //сохранялки
         //----------------------------
@@ -521,7 +520,7 @@ class Main : FragmentActivity() {
         }
         //------------------------------------------------------------------------------
 
-
+        cho_nagimali_poslednee = save_read_int("nomer_stroki_int")
         fon_main.setBackgroundColor(COLOR_FON)
 
 
@@ -587,6 +586,12 @@ class Main : FragmentActivity() {
         }
         //****************************************************************
 
+        //скроем кнопки , покажем анимацию загрузки
+        //************************************************
+        progress_vse_radio.visibility = View.VISIBLE
+        vse_radio.visibility = View.GONE
+        //**************************************************
+
         //пролистаем на вип радио
         viewPager.currentItem = 1
 
@@ -638,6 +643,12 @@ class Main : FragmentActivity() {
                     viewPager.adapter = myadapter
                     viewPager.currentItem = 1
                 }
+                "load_good_vse_radio" -> {
+                    progress_vse_radio.visibility = View.GONE
+                    vse_radio.visibility = View.VISIBLE
+                    signal("update_vse_radio").send(context)
+                }
+
             }
         }
 

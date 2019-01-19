@@ -1,7 +1,6 @@
 package dmitriy.deomin.aimpradioplalist
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Paint
 import android.graphics.Typeface
@@ -11,19 +10,14 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.ContextThemeWrapper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import android.widget.*
-import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
-import dmitriy.deomin.aimpradioplalist.custom.Radio
-import kotlinx.android.synthetic.main.vse_radio.*
+import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.vse_radio.view.*
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.hintTextColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -38,8 +32,6 @@ class Vse_radio : Fragment() {
 
     internal lateinit var context: Context
     lateinit var find: EditText
-    val PREFIX = "-"
-
 
     companion object {
         var Numeracia: Int = 1
@@ -50,11 +42,12 @@ class Vse_radio : Fragment() {
     @SuppressLint("WrongConstant")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.vse_radio, null)
-        context = container!!.context
+        context = Main.context
 
         find = v.findViewById(R.id.editText_find)
         find.typeface = Main.face
         find.hintTextColor = Main.COLOR_TEXTcontext
+
 
         Numeracia = if (Main.save_read_int("setting_numer") == 1) {
             1
@@ -68,9 +61,11 @@ class Vse_radio : Fragment() {
         }
 
 
+        val ganrlist = listOf("-Музыка-", "-Юмор-", "-Разговорное-", "-Детское-", " -Аудиокниги-", "-Саундтреки-")
+
         val recikl_vse_list = v.findViewById<RecyclerView>(R.id.recicl_vse_radio)
         recikl_vse_list.layoutManager = LinearLayoutManager(context)
-        recikl_vse_list.setHasFixedSize(true)
+        //  recikl_vse_list.setHasFixedSize(true)
 
         //полоса быстрой прокрутки
         val fastScroller: VerticalRecyclerViewFastScroller = v.findViewById(R.id.fast_scroller)
@@ -82,48 +77,63 @@ class Vse_radio : Fragment() {
         //адаптеру будем слать список классов Radio
         val data = ArrayList<Radio>()
 
+
         GlobalScope.launch {
             //получаем список радио >1000 штук
             val mas_radio = resources.getStringArray(R.array.vse_radio)
 
-            //операция долгая поэтому покажем крутилку и скроем список
-            rloaut_vse_radio.visibility = View.GONE
-            progressBar_vse_radio.visibility = View.VISIBLE
-
-
-
+          //  delay(4000)
 
             for (i in mas_radio.indices) {
                 val m = mas_radio[i].split("\n")
                 var name = m[0]
-                var kbps = ""
-                if(name.contains("kbps")){
-                 kbps = name.substring((name.length-7),name.length)
-                    name = name.substring(0,(name.length-7))
-                }
 
-                data.add(Radio(name, m[1],kbps))
+                //---kbps----------------------------------
+                var kbps = ""
+                if (name.contains("kbps")) {
+                    kbps = name.substring((name.length - 7), name.length)
+                    name = name.substring(0, (name.length - 7))
+                }
+                //-------------------------------------------------------
+
+                //---mono----------------------------------------
+                if (name.contains("mono")) {
+                    kbps = "mono " + kbps
+                    name = name.replace("mono", "")
+                }
+                //------------------------------------------
+
+                //--ganr--------------------------------------------------
+                var ganr = ""
+                for (g in ganrlist) {
+                    if (name.contains(g)) {
+                        name = name.replace(g, "")
+                        ganr = g.replace("-", "")
+                    }
+                }
+                //-----------------------------------------------------
+
+                data.add(Radio(name, m[1], kbps, ganr))
             }
 
-
-            //когда все закончится покажем список и скроем крутилку
-            rloaut_vse_radio.visibility = View.VISIBLE
-            progressBar_vse_radio.visibility =View.GONE
+            //пошлём сигнал в маин чтобы отключил показ прогресс бара
+            signal("Main_update").putExtra("signal", "load_good_vse_radio").send(context)
 
         }
-
         val adapter_vse_list = Adapter_vse_list(data)
         recikl_vse_list.adapter = adapter_vse_list
 
 
-        //пролистываем до нужного элемента
-        if (Main.save_read("nomer_stroki") != "") {
-            if (Integer.valueOf(Main.save_read("nomer_stroki")) > 0) {
-                (recikl_vse_list.layoutManager as LinearLayoutManager).scrollToPosition(Integer.valueOf(Main.save_read("nomer_stroki")))
-
-            }
+        //когда все распарсится обновим и сдесь
+        Slot(context, "update_vse_radio", false).onRun {
+                //и обновим сдешний адаптер
+               adapter_vse_list.notifyDataSetChanged()
         }
 
+        //пролистываем до нужного элемента
+        if (Main.cho_nagimali_poslednee >= 0) {
+            (recikl_vse_list.layoutManager as LinearLayoutManager).scrollToPosition(Main.cho_nagimali_poslednee)
+        }
 
         // текст только что изменили в строке поиска
         find.addTextChangedListener(object : TextWatcher {
@@ -149,6 +159,10 @@ class Vse_radio : Fragment() {
             if (find.text.toString() == v.kod_diskografii.text) {
                 find.setText("")
             } else {
+                //включаем поиск по всему
+                Poisk_ima_url = 1
+                Main.save_value_int("setting_poisk", 1)
+                //ищем
                 find.setText(v.kod_diskografii.text)
             }
         }
@@ -182,42 +196,62 @@ class Vse_radio : Fragment() {
 
         v.kod_32bit.onClick {
 
-            if (find.text.toString() == (PREFIX + v.kod_32bit.text + PREFIX)) {
+            if (find.text.toString() == (v.kod_32bit.text)) {
                 find.setText("")
             } else {
-                find.setText(PREFIX + v.kod_32bit.text + PREFIX)
+                //включаем поиск по всему
+                Poisk_ima_url = 1
+                Main.save_value_int("setting_poisk", 1)
+                //ищем
+                find.setText(v.kod_32bit.text)
             }
         }
         v.kod_64bit.onClick {
 
-            if (find.text.toString() == (PREFIX + v.kod_64bit.text + PREFIX)) {
+            if (find.text.toString() == (v.kod_64bit.text)) {
                 find.setText("")
             } else {
-                find.setText(PREFIX + v.kod_64bit.text + PREFIX)
+                //включаем поиск по всему
+                Poisk_ima_url = 1
+                Main.save_value_int("setting_poisk", 1)
+                //ищем
+                find.setText(v.kod_64bit.text)
             }
         }
         v.kod_96bit.onClick {
 
-            if (find.text.toString() == (PREFIX + v.kod_96bit.text + PREFIX)) {
+            if (find.text.toString() == (v.kod_96bit.text)) {
                 find.setText("")
             } else {
-                find.setText(PREFIX + v.kod_96bit.text + PREFIX)
+                //включаем поиск по всему
+                Poisk_ima_url = 1
+                Main.save_value_int("setting_poisk", 1)
+                //ищем
+                find.setText(v.kod_96bit.text)
             }
         }
         v.kod_128bit.onClick {
 
-            if (find.text.toString() == (PREFIX + v.kod_128bit.text + PREFIX)) {
+            if (find.text.toString() == (v.kod_128bit.text)) {
                 find.setText("")
             } else {
-                find.setText(PREFIX + v.kod_128bit.text + PREFIX)
+                //включаем поиск по всему
+                Poisk_ima_url = 1
+                Main.save_value_int("setting_poisk", 1)
+                //ищем
+                find.setText(v.kod_128bit.text)
             }
         }
         v.kod_256bit.onClick {
 
-            if (find.text.toString() == (PREFIX + v.kod_256bit.text + PREFIX)) {
+            if (find.text.toString() == (v.kod_256bit.text)) {
                 find.setText("")
             } else {
-                find.setText(PREFIX + v.kod_256bit.text + PREFIX)
+                //включаем поиск по всему
+                Poisk_ima_url = 1
+                Main.save_value_int("setting_poisk", 1)
+                //ищем
+                find.setText(v.kod_256bit.text)
             }
         }
 
@@ -238,7 +272,7 @@ class Vse_radio : Fragment() {
             }
 
             if (Poisk_ima_url == 1) {
-                pouisk.text = "Поиск по имени и адресу"
+                pouisk.text = "Поиск по всему"
             } else {
                 pouisk.text = "Поиск по имени"
             }
@@ -270,7 +304,7 @@ class Vse_radio : Fragment() {
                 } else {
                     Poisk_ima_url = 1
                     Main.save_value_int("setting_poisk", 1)
-                    pouisk.text = "Поиск по имени и адресу"
+                    pouisk.text = "Поиск по всему"
                     adapter_vse_list.notifyDataSetChanged()
                 }
             }

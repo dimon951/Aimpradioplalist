@@ -19,7 +19,7 @@ class Pop_radio : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.pop_radio, null)
 
-        val context: Context = container!!.context
+        val context: Context = Main.context
 
         val recycl_pop_radio = v.findViewById<RecyclerView>(R.id.recicl_pop_radio)
         recycl_pop_radio.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)

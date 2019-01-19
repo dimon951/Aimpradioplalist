@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
 import dmitriy.deomin.aimpradioplalist.custom.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -25,6 +26,11 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
         val nomer_radio = itemView.findViewById<TextView>(R.id.nomer_radio)
         val url_radio = itemView.findViewById<TextView>(R.id.url_radio)
         val fon = itemView.findViewById<CardView>(R.id.fon_item_radio)
+        val kbps = itemView.findViewById<TextView>(R.id.kbps_radio)
+        val ganr = itemView.findViewById<TextView>(R.id.ganr_radio)
+        val liner_kbps = itemView.findViewById<LinearLayout>(R.id.liner_kbps)
+        val liner_ganr = itemView.findViewById<LinearLayout>(R.id.liner_ganr)
+        val liner_url = itemView.findViewById<LinearLayout>(R.id.liner_url)
 
     }
 
@@ -40,23 +46,37 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
 
-        //настроим вид тутже
-        //-----------------------------------------------
-        p0.name_radio.typeface = Main.face
-        p0.name_radio.textColor = Main.COLOR_TEXT
-
-        p0.url_radio.typeface = Main.face
-        p0.url_radio.textColor = Main.COLOR_TEXT
-
-        p0.nomer_radio.typeface = Main.face
-        p0.nomer_radio.textColor = Main.COLOR_TEXT
-        //-------------------------------------------------------
-
         //заполним данными
         val radio: Radio = data[p1]
         p0.name_radio.text = radio.name
-        p0.url_radio.text = radio.url
-        p0.nomer_radio.text = ""
+
+        if(radio.url.isNotEmpty()){
+            p0.liner_url.visibility= View.VISIBLE
+            p0.url_radio.text = radio.url
+        }else{
+            p0.liner_url.visibility =View.GONE
+        }
+
+        //нумерация списка
+        if (Vse_radio.Numeracia == 1) {
+            p0.nomer_radio.text = (p1 + 1).toString() + ". "
+        } else {
+            p0.nomer_radio.text = ""
+        }
+        //kbps
+        if (radio.kbps.isNotEmpty()) {
+            p0.liner_kbps.visibility = View.VISIBLE
+            p0.kbps.text = radio.kbps
+        } else {
+            p0.liner_kbps.visibility = View.GONE
+        }
+        //ganr
+        if (radio.kategory.isNotEmpty()) {
+            p0.liner_ganr.visibility = View.VISIBLE
+            p0.ganr.text = radio.kategory
+        } else {
+            p0.liner_ganr.visibility = View.GONE
+        }
 
 
         //обработка нажатий

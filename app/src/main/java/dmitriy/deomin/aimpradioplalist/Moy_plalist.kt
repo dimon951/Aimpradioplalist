@@ -31,7 +31,7 @@ class Moy_plalist : Fragment() {
     @SuppressLint("WrongConstant")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.my_plalist, null)
-        val context: Context = container!!.context
+        val context: Context = Main.context
 
         val recikl_list = v.findViewById<RecyclerView>(R.id.recicl_my_list)
         recikl_list.layoutManager = LinearLayoutManager(context)

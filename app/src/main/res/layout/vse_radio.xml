@@ -124,10 +124,4 @@
             android:layout_alignParentRight="true" />
     </RelativeLayout>
 
-    <ProgressBar
-        android:id="@+id/progressBar_vse_radio"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
 </LinearLayout>
