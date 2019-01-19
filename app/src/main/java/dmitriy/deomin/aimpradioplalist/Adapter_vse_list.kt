@@ -31,6 +31,10 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(charSequence: CharSequence): Filter.FilterResults {
+
+                //если поиск включили удалим метки с ранее нажатых строк
+                cho_nagimal.clear()
+
                 val charString = charSequence.toString()
                 raduoSearchList = if (charString.isEmpty()) {
                     data
