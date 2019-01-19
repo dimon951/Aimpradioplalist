@@ -571,10 +571,6 @@
         <item>Vocal Trance Radio -Транс- 256kbps\nhttp://vocaltrance.ru:8000/vocaltrance</item>
         <item>Vocal Trance Radio -Транс- 256kbps\nhttp://176.9.36.203:8000/vocaltrance_256</item>
         <item>Vocal Trance Radio -Транс- 320kbps\nhttp://176.9.36.203:8000/vocaltrance_320</item>
-        <item>Поляна сказок -Аудиокниги- 81kbps\nhttp://misato.ru-hoster.com:8082/stream</item>
-        <item>Старое радио -Аудиокниги- 128kbps\nhttp://server.audiopedia.su:8000/ices128</item>
-        <item>Старое радио -Аудиокниги- 64kbps\nhttp://server.audiopedia.su:8000/ices64</item>
-        <item>Старое радио -Аудиокниги- 32kbps\nhttp://server.audiopedia.su:8000/ices32</item>
         <item>ЗвукоКнига -Аудиокниги- 128kbps\nhttp://94.181.45.104:8005/;</item>
         <item>Old Time Radio -Аудиокниги- mono 64kbps\nhttp://199.189.86.43:8170/;</item>
         <item>Cornucopia Broadcasting -Аудиокниги- 96kbps\nhttp://8.38.78.173:8002/;audio.mp3</item>
@@ -607,7 +603,7 @@
         <item>RADIO MADONNA 128kbps\nhttp://mp3stream4.abradio.cz/madonna128.mp3</item>
         <item>RADIO MADONNA 64kbps\nhttp://mp3stream4.abradio.cz/madonna64.mp3</item>
         <item>SomaFM: Secret Agent -Саундтреки- 128kbps\nhttp://ice3.somafm.com/secretagent-128-mp3</item>
-        <item>Русское Радио: Русское Кино -Саундтреки- 192kbps\nhttp://icecast.russkoeradio.cdnvideo.ru/st19.mp3</item>
+
         <item>Bolly FM -Саундтреки- 192kbps\nhttp://stream.radiobollyfm.in:8201/hd</item>
         <item>Музыка кино -Саундтреки- 192kbps\nhttp://channels.fonotron.ru:8000/Chan_67_128.mp3</item>
         <item>Музыка кино -Саундтреки- 256kbps\nhttp://channels.fonotron.ru:8000/Chan_67_256.mp3</item>
@@ -1254,7 +1250,6 @@
         <item>Monte Carlo\nhttp://radio.2kom.ru:8000/monte_carlo</item>
         <item>Rock FM\nhttp://radio.2kom.ru:8000/RockFM</item>
         <item>Говорит Москва 64kbps\nhttp://radio.2kom.ru:8000/govoritmoskva</item>
-        <item>Детское радио\nhttp://radio.2kom.ru:8000/detskoe</item>
         <item>Дорожное радио\nhttp://radio.2kom.ru:8000/Dorognoe</item>
         <item>Европа плюс\nhttp://radio.2kom.ru:8000/europaplus</item>
         <item>Карнавал ФМ\nhttp://radio.2kom.ru:8000/Karnaval.FM</item>
@@ -1477,7 +1472,6 @@
         <item>Детские песни -Детское- 128kbps\nhttp://music.myradio.com.ua:8000/kids-songs128.mp3</item>
         <item>KIDS HITS -Детское- 128kbps\nhttp://92.255.229.74:8888/;</item>
         <item>Детское радио -Детское- 112kbps\nhttp://ic7.101.ru:8000/a199</item>
-        <item>Детское\nhttp://www.staroeradio.ru/detskoe32.m3u</item>
         <item>Детское -Детское- 128kbps\nhttps://a5.radioheart.ru:9012/RH1916</item>
         <item>Детское -Детское- 128kbps\nhttp://a5.radioheart.ru:8012/RH1916</item>
         <item>РОДничок -Детское- 112kbps\nhttp://195.218.153.250:8000/live</item>
@@ -1566,7 +1560,6 @@
         <item>СУПЕРДИСКОТЭКА 90-Х\nhttp://online.radiorecord.ru:8102/sd90_128</item>
         <item>Свежее радио -Музыка- 96kbps\nhttp://ps.ne.fm/9_aac_96</item>
         <item>Старое радио\nhttp://www.staroeradio.ru/ices32.m3u</item>
-        <item>Старое радио: Детское\nhttp://www.staroeradio.ru/detskoe32.m3u</item>
         <item>Старое радио: Музыка\nhttp://www.staroeradio.ru/music32.m3u</item>
         <item>Супердискотека 90-х\nhttp://air.radiorecord.ru:8102/sd90_320</item>
         <item>Твое Радио\nhttp://s6.radioheart.ru:8016/live</item>
