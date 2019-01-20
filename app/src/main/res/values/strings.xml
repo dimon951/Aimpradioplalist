@@ -869,7 +869,9 @@
         <item>93.2 Спорт FM 128kbps\nhttp://sportfm128.streamr.ru</item>
         <item>94.8 Говорит Москва 128kbps\nhttp://media.govoritmoskva.ru:8000/rufm_m.mp3</item>
         <item>95.2 Rock FM 128kbps\nhttp://rock128.streamr.ru</item>
-        <item>96.8 Детское радио 128kbps\nhttp://ic3.101.ru:8000/v14_1</item>
+        <item>Детское радио 128kbps\nhttp://ic3.101.ru:8000/v14_1</item>
+
+        <item>Детское радио -Детское- 128kbps\nhttp://radio.2kom.ru:8000/detskoe</item>
         <item>97.2 КП-FM 256kbps\nhttp://kraskp.ru:8000/mskregion</item>
         <item>98.8 Romantika 256kbps\nhttp://ic3.101.ru:8000/s30</item>
         <item>100.5 Best FM 128kbps\nhttp://best128.streamr.ru</item>
@@ -1472,6 +1474,7 @@
         <item>Детские песни -Детское- 128kbps\nhttp://music.myradio.com.ua:8000/kids-songs128.mp3</item>
         <item>KIDS HITS -Детское- 128kbps\nhttp://92.255.229.74:8888/;</item>
         <item>Детское радио -Детское- 112kbps\nhttp://ic7.101.ru:8000/a199</item>
+        <item>Детское -Детское- mono 32kbps\nhttp://www.staroeradio.ru/detskoe32.m3u</item>
         <item>Детское -Детское- 128kbps\nhttps://a5.radioheart.ru:9012/RH1916</item>
         <item>Детское -Детское- 128kbps\nhttp://a5.radioheart.ru:8012/RH1916</item>
         <item>РОДничок -Детское- 112kbps\nhttp://195.218.153.250:8000/live</item>
