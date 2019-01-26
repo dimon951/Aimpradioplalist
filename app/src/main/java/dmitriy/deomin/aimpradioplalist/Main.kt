@@ -517,6 +517,7 @@ class Main : FragmentActivity() {
         }
         //------------------------------------------------------------------------------
 
+
         cho_nagimali_poslednee = save_read_int("nomer_stroki_int")
         fon_main.setBackgroundColor(COLOR_FON)
 
