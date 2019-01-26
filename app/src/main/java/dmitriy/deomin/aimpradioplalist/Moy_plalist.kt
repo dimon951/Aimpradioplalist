@@ -45,7 +45,7 @@ class Moy_plalist : Fragment() {
 
         for (i in mas_radio.indices) {
             val m = mas_radio[i].split("\n")
-            data.add(Radio(m[0], m[1]))
+            data.add(Radio(m[0], "", Link("",m[1])))
         }
 
         val adapter_my_list = Adapter_my_list(data)
@@ -64,7 +64,7 @@ class Moy_plalist : Fragment() {
                 val d = ArrayList<Radio>()
                 for (i in mr.indices) {
                     val m = mr[i].split("\n")
-                    d.add(Radio(m[0], m[1]))
+                    d.add(Radio(m[0],"",Link("",m[1])))
                 }
                 val ad = Adapter_my_list(d)
                 recikl_list.adapter = ad

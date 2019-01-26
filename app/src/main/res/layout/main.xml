@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@null"
-            android:text="Все радио"
+            android:text="@string/vseRadio"
             android:textSize="14sp"
             android:textStyle="normal|bold"
             android:visibility="gone" />
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@null"
-            android:text="Популярное"
+            android:text="@string/popularnoe"
             android:textSize="14sp" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@null"
-            android:text="Мой плейлист"
+            android:text="@string/myPlalist"
             android:textSize="14sp" />
 
     </LinearLayout>

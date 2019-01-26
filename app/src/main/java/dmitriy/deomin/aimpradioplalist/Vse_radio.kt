@@ -16,6 +16,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import dmitriy.deomin.aimpradioplalist.custom.*
+import kotlinx.android.synthetic.main.item_list_radio.*
 import kotlinx.android.synthetic.main.vse_radio.view.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -38,10 +39,11 @@ class Vse_radio : Fragment() {
         var Poisk_ima_url: Int = 1
     }
 
-
     @SuppressLint("WrongConstant")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.vse_radio, null)
+
+
         context = Main.context
 
         find = v.findViewById(R.id.editText_find)
@@ -61,28 +63,23 @@ class Vse_radio : Fragment() {
         }
 
 
-        val ganrlist = listOf("-Музыка-", "-Юмор-", "-Разговорное-", "-Детское-", " -Аудиокниги-", "-Саундтреки-")
+        val ganrlist = listOf("-Музыка-", "-Юмор-", "-Разговорное-", "-Детское-", " -Аудиокниги-", "-Саундтреки-", "-Дискография-")
 
         val recikl_vse_list = v.findViewById<RecyclerView>(R.id.recicl_vse_radio)
         recikl_vse_list.layoutManager = LinearLayoutManager(context)
-        //  recikl_vse_list.setHasFixedSize(true)
 
         //полоса быстрой прокрутки
         val fastScroller: VerticalRecyclerViewFastScroller = v.findViewById(R.id.fast_scroller)
         fastScroller.setRecyclerView(recikl_vse_list)
         recikl_vse_list.setOnScrollListener(fastScroller.onScrollListener)
 
-
-        //попробуем в корутинах
         //адаптеру будем слать список классов Radio
         val data = ArrayList<Radio>()
 
-
         GlobalScope.launch {
+
             //получаем список радио >1000 штук
             val mas_radio = resources.getStringArray(R.array.vse_radio)
-
-          //  delay(4000)
 
             for (i in mas_radio.indices) {
                 val m = mas_radio[i].split("\n")
@@ -113,36 +110,42 @@ class Vse_radio : Fragment() {
                 }
                 //-----------------------------------------------------
 
-                data.add(Radio(name, m[1], kbps, ganr))
+
+                data.add(Radio(name, ganr, Link(kbps, m[1])))
             }
 
             //пошлём сигнал в маин чтобы отключил показ прогресс бара
-            signal("Main_update").putExtra("signal", "load_good_vse_radio").send(context)
+            //он нам пошлёт в обратку сигнал "update_vse_radio"
+            signal("Main_update")
+                    .putExtra("signal", "load_good_vse_radio")
+                    .send(context)
 
         }
-        val adapter_vse_list = Adapter_vse_list(data)
-        recikl_vse_list.adapter = adapter_vse_list
 
 
-        //когда все распарсится обновим и сдесь
+        //когда все распарсится и в маине отключится показ прогрессбара прилетит  сигнал
+        // и запустит этот слот
+        //------------------------------------------------------------------------------
         Slot(context, "update_vse_radio", false).onRun {
-                //и обновим сдешний адаптер
-               adapter_vse_list.notifyDataSetChanged()
-        }
 
-        //пролистываем до нужного элемента
-        if (Main.cho_nagimali_poslednee >= 0) {
-            (recikl_vse_list.layoutManager as LinearLayoutManager).scrollToPosition(Main.cho_nagimali_poslednee)
-        }
+            val adapter_vse_list = Adapter_vse_list(data)
+            recikl_vse_list.adapter = adapter_vse_list
 
-        // текст только что изменили в строке поиска
-        find.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable) {}
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(text: CharSequence, start: Int, before: Int, count: Int) {
-                adapter_vse_list.filter.filter(text)
+            //пролистываем до нужного элемента
+            if (Main.cho_nagimali_poslednee > 0 && adapter_vse_list.data.size > Main.cho_nagimali_poslednee) {
+                (recikl_vse_list.layoutManager as LinearLayoutManager).scrollToPosition(Main.cho_nagimali_poslednee)
             }
-        })
+
+            // текст только что изменили в строке поиска
+            find.addTextChangedListener(object : TextWatcher {
+                override fun afterTextChanged(s: Editable) {}
+                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(text: CharSequence, start: Int, before: Int, count: Int) {
+                    adapter_vse_list.filter.filter(text)
+                }
+            })
+        }
+        //---------------------------------------------------------------
 
 
         //при первой загрузке будем ставить текст на кнопке , потом при смене будем менять тамже
@@ -284,13 +287,13 @@ class Vse_radio : Fragment() {
                     Numeracia = 1
                     num.paintFlags = Paint.UNDERLINE_TEXT_FLAG
                     num.setTypeface(Main.face, Typeface.BOLD)
-                    adapter_vse_list.notifyDataSetChanged()
+                    recikl_vse_list.adapter!!.notifyDataSetChanged()
                 } else {
                     Main.save_value_int("setting_numer", 0)
                     Numeracia = 0
                     num.paintFlags = 0
                     num.typeface = Main.face
-                    adapter_vse_list.notifyDataSetChanged()
+                    recikl_vse_list.adapter!!.notifyDataSetChanged()
                 }
             }
 
@@ -300,15 +303,16 @@ class Vse_radio : Fragment() {
                     Poisk_ima_url = 0
                     Main.save_value_int("setting_poisk", 0)
                     pouisk.text = "Поиск по имени"
-                    adapter_vse_list.notifyDataSetChanged()
+                    recikl_vse_list.adapter!!.notifyDataSetChanged()
                 } else {
                     Poisk_ima_url = 1
                     Main.save_value_int("setting_poisk", 1)
                     pouisk.text = "Поиск по всему"
-                    adapter_vse_list.notifyDataSetChanged()
+                    recikl_vse_list.adapter!!.notifyDataSetChanged()
                 }
             }
         }
         return v
     }
+
 }

@@ -38,7 +38,7 @@ import java.io.File
 
 class Main : FragmentActivity() {
 
-    //    //Displayed
+    //    //Displayed 2c
 
     //тут куча всего что может использоваться в любом классе проекта
     companion object {
@@ -50,7 +50,7 @@ class Main : FragmentActivity() {
         val File_Text_Code: String = "UTF8"
 
         //ссылка на аимп
-        val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.85.718.apk"
+        val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.85.720.apk"
 
         //текст в пустом плейлисте(много где требуется)
         val PUSTO: String = "Плейлист пуст.\n"
@@ -63,9 +63,6 @@ class Main : FragmentActivity() {
         var face: Typeface = Typeface.DEFAULT
         //сохранялка
         lateinit var mSettings: SharedPreferences // сохранялка
-        //реклама
-        lateinit var mAdView: AdView
-
         var COLOR_FON: Int = 0
         var COLOR_ITEM: Int = 0
         var COLOR_TEXT: Int = 0
@@ -550,7 +547,7 @@ class Main : FragmentActivity() {
         //реклама
         //-------------------------------------------------------------------------
         MobileAds.initialize(this, "ca-app-pub-7908895047124036~7402987509")
-        mAdView = findViewById(R.id.adView)
+        val mAdView: AdView = findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
         //--------------------------------------------------------------------------
@@ -565,11 +562,11 @@ class Main : FragmentActivity() {
 //тут почемуто глючит текст на кнопках
         //перерисуем
         vse_radio.setTextColor(COLOR_TEXT)
-        vse_radio.setTypeface(face)
+        vse_radio.typeface = face
         popularnoe.setTextColor(COLOR_TEXT)
-        popularnoe.setTypeface(face)
+        popularnoe.typeface = face
         moy_plalist.setTextColor(COLOR_TEXT)
-        moy_plalist.setTypeface(face)
+        moy_plalist.typeface = face
 
 
         vse_radio.text = vse_radio.text.toString() + "(" + resources.getStringArray(R.array.vse_radio).size.toString() + ")"

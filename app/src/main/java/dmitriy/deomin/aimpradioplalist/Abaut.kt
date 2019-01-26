@@ -45,8 +45,7 @@ class Abaut : Activity() {
                 toast("Спасибо")
             } else {
                 Main.save_value("reklama_pokaz", "of")
-                Main.mAdView.visibility = View.GONE
-                toast("Реклама отключена")
+                toast("Если решили кинуть копеечку спасибо! , реклама будет скрыта после перезагрузки")
             }
 
             //подаждём секунду и откроем браужзер
