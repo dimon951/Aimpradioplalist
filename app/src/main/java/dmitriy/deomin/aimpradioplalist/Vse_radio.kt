@@ -10,13 +10,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import dmitriy.deomin.aimpradioplalist.custom.*
-import kotlinx.android.synthetic.main.item_list_radio.*
 import kotlinx.android.synthetic.main.vse_radio.view.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -111,7 +109,7 @@ class Vse_radio : Fragment() {
                 //-----------------------------------------------------
 
 
-                data.add(Radio(name, ganr, Link(kbps, m[1])))
+                data.add(Radio(name, ganr, kbps, m[1]))
             }
 
             //пошлём сигнал в маин чтобы отключил показ прогресс бара
@@ -132,8 +130,8 @@ class Vse_radio : Fragment() {
             recikl_vse_list.adapter = adapter_vse_list
 
             //пролистываем до нужного элемента
-            if (Main.cho_nagimali_poslednee > 0 && adapter_vse_list.data.size > Main.cho_nagimali_poslednee) {
-                (recikl_vse_list.layoutManager as LinearLayoutManager).scrollToPosition(Main.cho_nagimali_poslednee)
+            if (Main.cho_nagimali_poslednee > 0 && data.size > Main.cho_nagimali_poslednee) {
+                recikl_vse_list.scrollToPosition(Main.cho_nagimali_poslednee)
             }
 
             // текст только что изменили в строке поиска

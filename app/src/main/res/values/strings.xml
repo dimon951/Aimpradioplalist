@@ -220,6 +220,36 @@
 
     <string-array name="vse_radio">
 
+        <item>1.FM - Movie Soundtracks Hits Швейцария -Саундтреки- 128kbps\nhttp://prmstrm.1.fm:8000/moviesoundtracks</item>
+        <item>Авторадио Тамбов -Музыка- 256kbps\nhttp://den.101.ru:4000/ar_68_02</item>
+        <item>101 RU Детские Песни -Детское- 128kbps\nhttp://ic3.101.ru:8000/c3_3</item>
+        <item>101 RU Колыбельная -Детское- 256kbps\nhttp://ic3.101.ru:8000/c8_1</item>
+        <item>101 RU Детские Сказки -Детское- 128kbps\nhttp://ic3.101.ru:8000/c17_27</item>
+        <item>Kids Hits -Детское- 64kbps\nhttp://92.255.229.74:8000/kidshits_aac</item>
+        <item>HotMix Radio Baby Франция -Детское- 64kbps\nhttp://streaming.hotmixradio.fr/hotmixradio-baby-64.aac</item>
+        <item>ЯпаРадио -Музыка- 128kbps\nhttps://a2.radioheart.ru:9066/live</item>
+        <item>ЯпаРадио -Музыка- 128kbps\nhttps://a2.radioheart.ru:8066/nonstop</item>
+        <item>Отличное радио -Музыка- 128kbps\nhttps://listen1.myradio24.com/8234_128.mp3</item>
+        <item>Отличное радио -Музыка- 192kbps\nhttps://listen1.myradio24.com/8234</item>
+        <item>Отличное радио -Музыка- 192kbps\nhttp://radio.oneex.ru:9000/8234</item>
+        <item>Отличное радио -Музыка- 192kbps\nhttps://myradio24.org/8234</item>
+        <item>Отличное радио -Музыка- 320kbps\nhttps://listen1.myradio24.com/8234_320.mp3</item>
+        <item>Радио Тироз Таджикистан -Музыка- 64kbps\nhttp://142.4.223.16:8440/live</item>
+        <item>Полезное радио Феодосия -Музыка- 64kbps\nhttp://195.161.114.53:8000/feocast</item>
+        <item>Radio FM+ Болгария -Музыка- 128kbps\nhttp://193.108.24.21:8000/fmplus</item>
+        <item>РадиоРадио Старый Оскол -Музыка- 128kbps\nhttp://play.radioradio.ru/sto</item>
+        <item>РадиоРадио Сургут -Музыка- 64kbps\nhttp://play.radioradio.ru:80/sur</item>
+        <item>РадиоРадио Нижний Тагил -Музыка- 128kbps\nhttp://play.radioradio.ru:80/tag</item>
+        <item>РадиоРадио Белокуриха -Музыка- 64kbps\nhttp://play.radioradio.ru:80/alt</item>
+        <item>РадиоРадио Острогожск -Музыка- 64kbps\nhttp://play.radioradio.ru:80/ostr</item>
+        <item>РадиоРадио Братск -Музыка- 46kbps\nhttp://play.radioradio.ru/brt</item>
+        <item>РадиоРадио Иркутск -Музыка- 64kbps\nhttp://play.radioradio.ru:80/irk</item>
+        <item>РадиоРадио Белгород -Музыка- 64kbps\nhttp://play.radioradio.ru:80/bgd</item>
+        <item>РадиоРадио -Музыка- 64kbps\nhttp://play.radioradio.ru:80/64</item>
+        <item>РадиоРадио -Музыка- 128kbps\nhttp://play.radioradio.ru:80</item>
+        <item>РадиоРадио -Музыка- 128kbps\nhttp://play.radioradio.ru/mp3</item>
+        <item>Новороссия Рокс -Музыка- 128kbps\nhttp://93.157.14.109:8000/nfm</item>
+        <item>СОЮЗ: Книга Вслух -Аудиокниги- 128kbps\nhttp://soyuztop.ru:4000/radio</item>
         <item>Relax fm: Nature -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c19_1</item>
         <item>Relax fm: Jazz -Музыка- 128kbps\nhttp://ic5.101.ru:8000/c19_2</item>
         <item>Relax fm: Latino -Музыка- 128kbps\nhttp://ic5.101.ru:8000/c19_3</item>
@@ -1523,7 +1553,7 @@
         <item>Радио 21\nhttp://radio-21.org.ru/playlist.m3u</item>
         <item>Радио Alouette\nhttp://broadcast.infomaniak.net/alouette-high.mp3</item>
         <item>Радио BunkerTV\nhttp://www.bunkertv.de:8002/bb.mp3</item>
-        <item>Радио Disney\nhttp://disney2.streamr.ru:8060/disney</item>
+        <item>Радио Disney -Детское- 128kbps\nhttp://disney2.streamr.ru:8060/disney</item>
         <item>Радио Fanat1k\nhttp://fanat1k.ru/playlist.m3u</item>
         <item>Радио Heart FM\nhttp://83.246.143.25:8000/HFMHigh.m3u</item>
         <item>Радио MakkiRUS Light\nhttp://stream.makradio.ru:80/light128.mp3</item>
@@ -1578,7 +1608,7 @@
         <item>Західний полюс (Zakhidny Polus, Ivano-Frankivsk, UA)\nhttp://online.1043.com.ua:8000/1043fm</item>
         <item>Auto-DJ\nhttp://radio.angelsradio.ru:9000/8162</item>
         <item>ERadio\nhttp://62.149.13.129:8500/eradio_hi</item>
-        <item>Makradio_Detskiy_Hit_128\nhttp://stream.makradio.ru/makdeti128.mp3/title</item>
+        <item>Makradio_Detskiy_Hit  128kbps\nhttp://stream.makradio.ru/makdeti128.mp3/title</item>
         <item>Galychyna FM\nhttp://ua.uar.net:8000/galychyna</item>
         <item>Staroe Radio\nhttp://195.91.237.50:8000/music128</item>
         <item>Радио Мегаполис, Самара, 103.6 FM (64 kbps aacplus)\nhttp://online.radio-megapolis.ru:8000/megapolis</item>

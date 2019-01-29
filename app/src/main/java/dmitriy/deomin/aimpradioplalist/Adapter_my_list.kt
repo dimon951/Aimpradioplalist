@@ -26,7 +26,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
         val nomer_radio = itemView.findViewById<TextView>(R.id.nomer_radio)
         val url_radio = itemView.findViewById<TextView>(R.id.url_radio)
         val fon = itemView.findViewById<CardView>(R.id.fon_item_radio)
-        val kbps = itemView.findViewById<TextView>(R.id.kbps_radio1)
+        val kbps = itemView.findViewById<TextView>(R.id.kbps_radio)
         val ganr = itemView.findViewById<TextView>(R.id.ganr_radio)
         val liner_kbps = itemView.findViewById<LinearLayout>(R.id.liner_kbps)
         val liner_ganr = itemView.findViewById<LinearLayout>(R.id.liner_ganr)
@@ -50,9 +50,9 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
         val radio: Radio = data[p1]
         p0.name_radio.text = radio.name
 
-        if(radio.link1.url.isNotEmpty()){
+        if(radio.url.isNotEmpty()){
             p0.liner_url.visibility= View.VISIBLE
-            p0.url_radio.text = radio.link1.url
+            p0.url_radio.text = radio.url
         }else{
             p0.liner_url.visibility =View.GONE
         }
@@ -64,9 +64,9 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
             p0.nomer_radio.text = ""
         }
         //kbps
-        if (radio.link1.kbps.isNotEmpty()) {
+        if (radio.kbps.isNotEmpty()) {
             p0.liner_kbps.visibility = View.VISIBLE
-            p0.kbps.text = radio.link1.kbps
+            p0.kbps.text = radio.kbps
         } else {
             p0.liner_kbps.visibility = View.GONE
         }
@@ -93,7 +93,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                 empid.close()
 
                 //получаем выбранную строку
-                val selectedItem = radio.name + "\n" + radio.link1.url
+                val selectedItem = radio.name + "\n" + radio.url
 
                 //покажем окошко с вопросом подтверждения удаления
                 val dds = DialogWindow(context, R.layout.dialog_delete_stancii)
@@ -161,7 +161,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                             if (s == "zaebis") {
                                 //обновим старницу
                                 data.removeAt(p1)
-                                data.add(p1,Radio(edit.text.toString(),"", Link("",radio.link1.url)))
+                                data.add(p1,Radio(edit.text.toString(),"","",radio.url))
                                 notifyItemChanged(p1)
                             } else {
                                 context.toast(context.getString(R.string.error))
@@ -170,7 +170,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
                         //делаем
                         val file_function = File_function()
-                        file_function.Rename_potok(radio.name + "\n" + radio.link1.url, edit.text.toString() + "\n" + radio.link1.url)
+                        file_function.Rename_potok(radio.name + "\n" + radio.url, edit.text.toString() + "\n" + radio.url)
                     } else {
                         //закрываем окошко
                         nsf.close()

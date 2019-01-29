@@ -24,7 +24,6 @@
         android:baselineAligned="false">
 
         <LinearLayout
-            android:id="@+id/fon2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="10"
@@ -99,57 +98,7 @@
                     android:textSize="8sp" />
 
                 <dmitriy.deomin.aimpradioplalist.custom.Text
-                    android:id="@+id/kbps_radio1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
-                    android:background="@null"
-                    android:text="TextView"
-                    android:textColor="@android:color/black"
-                    android:textSize="10sp" />
-
-                <dmitriy.deomin.aimpradioplalist.custom.Text
-                    android:id="@+id/kbps_radio2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
-                    android:background="@null"
-                    android:text="TextView"
-                    android:textColor="@android:color/black"
-                    android:textSize="10sp" />
-
-                <dmitriy.deomin.aimpradioplalist.custom.Text
-                    android:id="@+id/kbps_radio3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
-                    android:background="@null"
-                    android:text="TextView"
-                    android:textColor="@android:color/black"
-                    android:textSize="10sp" />
-
-                <dmitriy.deomin.aimpradioplalist.custom.Text
-                    android:id="@+id/kbps_radio4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
-                    android:background="@null"
-                    android:text="TextView"
-                    android:textColor="@android:color/black"
-                    android:textSize="10sp" />
-
-                <dmitriy.deomin.aimpradioplalist.custom.Text
-                    android:id="@+id/kbps_radio5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
-                    android:background="@null"
-                    android:text="TextView"
-                    android:textColor="@android:color/black"
-                    android:textSize="10sp" />
-
-                <dmitriy.deomin.aimpradioplalist.custom.Text
-                    android:id="@+id/kbps_radio6"
+                    android:id="@+id/kbps_radio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
