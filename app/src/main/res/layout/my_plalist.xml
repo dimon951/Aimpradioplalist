@@ -6,20 +6,64 @@
     android:layout_height="match_parent"
     android:background="@null">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recicl_my_list"
+
+    <LinearLayout
+        android:id="@+id/lener_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <dmitriy.deomin.aimpradioplalist.custom.Text
+            android:id="@+id/textViewerror_loadd_file"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_weight="10"
+            android:gravity="center"
+            android:text="ошибки при загрузке" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/buttonclose_err"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@android:drawable/btn_dialog" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rloaut_vse_radio"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recicl_my_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />
+
+        <xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
+            android:id="@+id/fast_scroller"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" >
+
+        </xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller>
+
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="@null"
         android:divider="@drawable/separator"
         android:gravity="center"
         android:orientation="horizontal"
-        android:showDividers="beginning|middle|end"
-        android:background="@null">
+        android:showDividers="middle|beginning|end">
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_add_url"
@@ -58,4 +102,5 @@
             android:background="@android:drawable/ic_menu_save" />
 
     </LinearLayout>
+
 </LinearLayout>

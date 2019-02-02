@@ -27,7 +27,7 @@ class File_function {
     //Hip-Hop Barada\nhttp://listen1.myradio24.com:9000/4455
     //....
     //или текст пояснялку если нет нечего
-    fun My_plalist(url: String): Array<String> {
+    fun My_plalist(url: String): ArrayList<String> {
 
         //прочитаем старыйе данные
         var text = ""
@@ -38,46 +38,40 @@ class File_function {
         }
 
         //удалим мусор
-        val kontent = text
+        var kontent = text
                 .replace("\n", "")
-                .replace(" ", "")
+                .replace("'", "")
+                .replace("&", "")
+              //  .replace(" ", "")
                 .replace("#EXTM3U", "")
 
         //если есть чё разобьём на массив и вернём после удаления пустых строк
         if (kontent.length > 11) {
 
-            //удалим вначале файла тег
-            text = text.replace("#EXTM3U", "")
-
-            //удалим все переносы чтоб мозги не парить дальше
-            text = text.replace("\n".toRegex(), "")
-
             //добавим переносы в нужных местах
             //бывает http:// или https:// меняем все блять
-            text = text.replace("https://".toRegex(), "\nhttps://")
-            text = text.replace("http://".toRegex(), "\nhttp://")
+            kontent = kontent
+                    .replace("https://".toRegex(), "\nhttps://")
+                    .replace("http://".toRegex(), "\nhttp://")
 
 
             //скинем все сюда , а потом обратно
             val mas = ArrayList<String>()
 
             //разделим стороку на масссив через #EXTINF:-1,
-            for (s in text.split("#EXTINF:-1,".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()) {
+            for (s in kontent.split("#EXTINF:-1,".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()) {
                 //если строка не пустая и не содержит перенос
-                if ((s != "") and (s != "\n")) {
+                if ((s != "") && (s != "\n")) {
                     mas.add(s)
                 }
             }
 
-            // конвертируем ArrayList в список
-            val myArray: Array<String>
-            myArray = mas.toTypedArray()
-
-
-            return myArray
+            return mas
         } else {
             //врнём свой моссив с подсказкой
-            return arrayOf(Main.PUSTO)
+            val pusto = ArrayList<String>()
+            pusto.add(Main.PUSTO)
+            return pusto
         }
 
 
@@ -104,24 +98,23 @@ class File_function {
         //удалим все переносы из прочитаных данных и подставим Где надо вместо http://  поставим \nhttp://
         //"#EXTM3U#"  - в начале файла
         //#EXTINF:-1 - в начале каждого потока
-        old_text = old_text.replace("\n","")
-        old_text = old_text.replace("#EXTM3U","#EXTM3U\n")
-        old_text = old_text.replace("#EXTINF:-1","\n#EXTINF:-1")
-        old_text = old_text.replace("https://","\nhttps://")
-        old_text = old_text.replace("http://","\nhttp://")
+        old_text = old_text.replace("\n", "")
+        old_text = old_text.replace("#EXTM3U", "#EXTM3U\n")
+        old_text = old_text.replace("#EXTINF:-1", "\n#EXTINF:-1")
+        old_text = old_text.replace("https://", "\nhttps://")
+        old_text = old_text.replace("http://", "\nhttp://")
 
 
         //составим исходный вид строки потока(как в файле записано)
         //#EXTINF:-1,Авторадио\nhttp://ic7.101.ru:8000/v3_1
 
         //посмотрим что это за строка если есть \nhttp:// или \nhttps://
-        val del_potok = if(potok.contains("\nhttp://")||potok.contains("\nhttps://")){
+        val del_potok = if (potok.contains("\nhttp://") || potok.contains("\nhttps://")) {
             "#EXTINF:-1,$potok"
-        }else{
+        } else {
             //иначе это хз че есть ,удалим так
             potok
         }
-
 
 
         //теперь удаляем эту вещь из считаного файла и перезаписываем его

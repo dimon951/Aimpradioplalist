@@ -81,35 +81,37 @@ class Vse_radio : Fragment() {
 
             for (i in mas_radio.indices) {
                 val m = mas_radio[i].split("\n")
-                var name = m[0]
+                if(m.size>1) {
+                    var name = m[0]
 
-                //---kbps----------------------------------
-                var kbps = ""
-                if (name.contains("kbps")) {
-                    kbps = name.substring((name.length - 7), name.length)
-                    name = name.substring(0, (name.length - 7))
-                }
-                //-------------------------------------------------------
-
-                //---mono----------------------------------------
-                if (name.contains("mono")) {
-                    kbps = "mono " + kbps
-                    name = name.replace("mono", "")
-                }
-                //------------------------------------------
-
-                //--ganr--------------------------------------------------
-                var ganr = ""
-                for (g in ganrlist) {
-                    if (name.contains(g)) {
-                        name = name.replace(g, "")
-                        ganr = g.replace("-", "")
+                    //---kbps----------------------------------
+                    var kbps = ""
+                    if (name.contains("kbps")) {
+                        kbps = name.substring((name.length - 7), name.length)
+                        name = name.substring(0, (name.length - 7))
                     }
+                    //-------------------------------------------------------
+
+                    //---mono----------------------------------------
+                    if (name.contains("mono")) {
+                        kbps = "mono " + kbps
+                        name = name.replace("mono", "")
+                    }
+                    //------------------------------------------
+
+                    //--ganr--------------------------------------------------
+                    var ganr = ""
+                    for (g in ganrlist) {
+                        if (name.contains(g)) {
+                            name = name.replace(g, "")
+                            ganr = g.replace("-", "")
+                        }
+                    }
+                    //-----------------------------------------------------
+
+
+                    data.add(Radio(name, ganr, kbps, m[1]))
                 }
-                //-----------------------------------------------------
-
-
-                data.add(Radio(name, ganr, kbps, m[1]))
             }
 
             //пошлём сигнал в маин чтобы отключил показ прогресс бара

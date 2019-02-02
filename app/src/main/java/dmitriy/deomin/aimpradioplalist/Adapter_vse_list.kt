@@ -153,6 +153,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
             p0.fon.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
 
             GlobalScope.launch {
+                Main.cho_nagimali_poslednee = p1
                 //сохраним в список нажатых временый
                 cho_nagimal.add(p1)
                 //сохраняем позицию будет последняя и при запуске сработает

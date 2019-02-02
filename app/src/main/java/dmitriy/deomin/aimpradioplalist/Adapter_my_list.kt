@@ -21,6 +21,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
     private lateinit var context: Context
 
 
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name_radio = itemView.findViewById<TextView>(R.id.name_radio)
         val nomer_radio = itemView.findViewById<TextView>(R.id.nomer_radio)
@@ -82,6 +83,10 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
         //обработка нажатий
         p0.itemView.onClick {
             p0.fon.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
+
+            //сохраняем позицию текушею списка
+            Moy_plalist.position_list = p1
+
             //общее окошко с кнопками удалить,переименовать
             val empid = DialogWindow(context, R.layout.edit_my_plalist_item_dialog)
 
@@ -158,13 +163,23 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                         Slot(context, "File_created", false).onRun { it ->
                             //получим данные
                             val s = it.getStringExtra("update")
-                            if (s == "zaebis") {
+                            //if (s == "zaebis") {
                                 //обновим старницу
-                                data.removeAt(p1)
-                                data.add(p1,Radio(edit.text.toString(),"","",radio.url))
-                                notifyItemChanged(p1)
-                            } else {
-                                context.toast(context.getString(R.string.error))
+                              //  data.removeAt(p1)
+                              //  data.add(p1,Radio(edit.text.toString(),"","",radio.url))
+                             //   notifyItemChanged(p1)
+//
+//                            } else {
+//                                context.toast(context.getString(R.string.error))
+//                            }
+                            when (s) {
+                                //пошлём сигнал пусть мой плейлист обновится
+                                "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
+                                "pizdec" -> {
+                                    context.toast(context.getString(R.string.error))
+                                    //запросим разрешения
+                                    Main.EbuchieRazreshenia()
+                                }
                             }
                         }
 

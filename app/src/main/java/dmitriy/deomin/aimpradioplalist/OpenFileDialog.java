@@ -128,7 +128,7 @@ public class OpenFileDialog extends AlertDialog.Builder {
             public boolean accept(File file, String fileName) {
                 File tempFile = new File(String.format("%s/%s", file.getPath(), fileName));
                 if (tempFile.isFile())
-                    return tempFile.getName().matches(filter);
+                    return tempFile.getName().matches(filter) || tempFile.getName().matches(".*\\.m3u8");
                 return true;
             }
         };

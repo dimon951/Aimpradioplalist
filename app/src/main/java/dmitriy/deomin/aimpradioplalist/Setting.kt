@@ -90,14 +90,16 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
 
 
         ///устанавливаем цвет и шрифт и сохраняется заодно
-        pererisovka_color()
+        pererisovka_color(false)
 
     }
 
-    fun pererisovka_color() {
-        //пошлём сигнал пусть обновится
-        signal("Main_update").putExtra("signal", "update_color").send(Main.context)
+    fun pererisovka_color(update_main:Boolean=true) {
 
+        if(update_main){
+            //пошлём сигнал пусть обновится все остальное
+            signal("Main_update").putExtra("signal", "update_color").send(Main.context)
+        }
         linerfon.backgroundColor = COLOR_FON
         edit_fon.textColor = COLOR_TEXT
         edit_fon.backgroundColor = COLOR_FON
