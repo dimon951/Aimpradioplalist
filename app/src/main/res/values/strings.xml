@@ -107,6 +107,9 @@
             24kbps mono~kbps~http://ic2.101.ru:8000/n5_1~kbps~
         </item>
         <item>Европа плюс\nevropa_plus.png\n
+            128kbps~kbps~http://hls-02-europaplus.emgsound.ru/11/128/playlist.m3u8~kbps~
+            64kbps~kbps~http://hls-02-europaplus.emgsound.ru/11/64/playlist.m3u8~kbps~
+            32kbps~kbps~http://hls-02-europaplus.emgsound.ru/11/32/playlist.m3u8~kbps~
             128kbps~kbps~http://radio.2kom.ru:8000/europaplus~kbps~
             128kbps~kbps~http://ep128.hostingradio.ru:8030/ep128~kbps~
             96kbps~kbps~http://emgspb.hostingradio.ru/europaplus96.aac~kbps~
@@ -218,6 +221,33 @@
 
     <string-array name="vse_radio">
 
+
+        <item>Europa Plus: Свежее -Музыка- 32kbps\nhttp://hls-01-fresh.emgsound.ru/9/32/playlist.m3u8</item>
+        <item>Europa Plus: Свежее -Музыка- 64kbps\nhttp://hls-01-fresh.emgsound.ru/9/64/playlist.m3u8</item>
+        <item>Europa Plus: Свежее -Музыка- 128kbps\nhttp://hls-01-fresh.emgsound.ru/9/128/playlist.m3u8</item>
+
+        <item>Europa Plus: Residance -Музыка- 32kbps\nhttp://hls-01-europaplus-residance.emgsound.ru/26/32/playlist.m3u8</item>
+        <item>Europa Plus: Residance -Музыка- 64kbps\nhttp://hls-01-europaplus-residance.emgsound.ru/26/64/playlist.m3u8</item>
+        <item>Europa Plus: Residance -Музыка- 128kbps\nhttp://hls-01-europaplus-residance.emgsound.ru/26/128/playlist.m3u8</item>
+        <item>Europa Plus: Акустика -Музыка- 32kbps\nhttp://hls-01-europaplus-acoustic.emgsound.ru/25/32/playlist.m3u8</item>
+        <item>Europa Plus: Акустика -Музыка- 64kbps\nhttp://hls-01-europaplus-acoustic.emgsound.ru/25/64/playlist.m3u8</item>
+        <item>Europa Plus: Акустика -Музыка- 128kbps\nhttp://hls-01-europaplus-acoustic.emgsound.ru/25/128/playlist.m3u8</item>
+        <item>Europa Plus: Urban -Музыка- 32kbps\nhttp://hls-01-europaplus-urban.emgsound.ru/28/32/playlist.m3u8</item>
+        <item>Europa Plus: Urban -Музыка- 64kbps\nhttp://hls-01-europaplus-urban.emgsound.ru/28/64/playlist.m3u8</item>
+        <item>Europa Plus: Urban -Музыка- 128kbps\nhttp://hls-01-europaplus-urban.emgsound.ru/28/128/playlist.m3u8</item>
+        <item>Europa Plus: NEW -Музыка- 32kbps\nhttp://hls-01-europaplus-new.emgsound.ru/27/32/playlist.m3u8</item>
+        <item>Europa Plus: NEW -Музыка- 64kbps\nhttp://hls-01-europaplus-new.emgsound.ru/27/64/playlist.m3u8</item>
+        <item>Europa Plus: NEW -Музыка- 128kbps\nhttp://hls-01-europaplus-new.emgsound.ru/27/128/playlist.m3u8</item>
+        <item>Europa Plus: PARTY -Музыка- 32kbps\nhttp://hls-01-europaplus-party.emgsound.ru/22/32/playlist.m3u8</item>
+        <item>Europa Plus: PARTY -Музыка- 64kbps\nhttp://hls-01-europaplus-party.emgsound.ru/22/64/playlist.m3u8</item>
+        <item>Europa Plus: PARTY -Музыка- 128kbps\nhttp://hls-01-europaplus-party.emgsound.ru/22/128/playlist.m3u8</item>
+        <item>Europa Plus: TOP 40 -Музыка- 32kbps\nhttp://hls-01-europaplus-top40.emgsound.ru/21/32/playlist.m3u8</item>
+        <item>Europa Plus: TOP 40 -Музыка- 64kbps\nhttp://hls-01-europaplus-top40.emgsound.ru/21/64/playlist.m3u8</item>
+        <item>Europa Plus: TOP 40 -Музыка- 128kbps\nhttp://hls-01-europaplus-top40.emgsound.ru/21/128/playlist.m3u8</item>
+
+        <item>Super Radio -Музыка- 128kbps\nhttp://listen6.myradio24.com:9000/finist7747</item>
+        <item>Super Radio -Музыка- 64kbps\nhttp://ic6.101.ru:8000/p902901</item>
+        <item>Super Radio -Музыка- 64kbps\nhttp://ic5.101.ru:8000/p902901</item>
         <item>Evropa 2 Прага -Музыка- 128kbps\nhttp://icecast3.play.cz/evropa2-128.mp3</item>
         <item>1.FM - Movie Soundtracks Hits Швейцария -Саундтреки- 128kbps\nhttp://prmstrm.1.fm:8000/moviesoundtracks</item>
         <item>Авторадио Тамбов -Музыка- 256kbps\nhttp://den.101.ru:4000/ar_68_02</item>
@@ -580,7 +610,7 @@
         <item>Детское радио Екатеринбург -Детское- 128kbps\nhttp://den.101.ru:4000/det_66_01</item>
         <item>Детское радио (Старое радио) -Детское- 128kbps\nhttp://195.91.237.50:8000/detskoe128</item>
         <item>Comedy Radio Екатеринбург -Юмор- 128kbps\nhttp://den.101.ru:4000/com_66_01</item>
-        <item>Радио Март Хиты 80-90-х Иркутск -Музыка- 128kbps\nhttp://radio.radiomart38.com:8040/stream</item>
+        <item>Радио Март Хиты 80х90х Иркутск -Музыка- 128kbps\nhttp://radio.radiomart38.com:8040/stream</item>
         <item>Комсомольская правда Иркутск -Разговорное- 128kbps\nhttp://irkutsk.radiokp128.mp3.streamr.ru</item>
         <item>Комсомольская правда Иркутск -Разговорное- 64kbps\nhttp://irkutsk.radiokp64.mp3.streamr.ru</item>
         <item>Комсомольская правда Иркутск -Разговорное- 32kbps\nhttp://irkutsk.radiokp32.mp3.streamr.ru</item>
@@ -646,7 +676,7 @@
         <item>Музыка мюзиклов -Саундтреки- 256kbps\nhttp://channels.fonotron.ru:8000/Chan_66_256.mp3</item>
         <item>Музыка мюзиклов -Саундтреки- 64kbps\nhttp://channels.fonotron.ru:8000/Chan_66_64.mp3</item>
         <item>Атмосфера 128kbps\nhttp://185.53.169.120:8000/128</item>
-        <item>Relax FM 90.8 Москва -Музыка- 256kbps\nhttp://ic2.101.ru:8000/v13_1?setst=094548200140236612420140625&amp;tok=75urgZKbvvpyTQMDZ1H4Hfqy5FKeKsXaPod7argnUF%2BwRqI%2Fy3MhBg%3D%3D</item>
+        <item>Relax FM 90.8 Москва -Музыка- 256kbps\nhttp://ic2.101.ru:8000/v13_1</item>
         <item>Relax FM 90.8 Москва -Музыка- 98kbps\nhttp://91.207.59.26/a200</item>
         <item>Radio Schizoid 128kbps\nhttp://schizoid.in:8000/chill</item>
         <item>1jazz.ru - Mellow Jazz 128kbps\nhttp://radio.1jazz.ru:8190/radio</item>
@@ -1325,7 +1355,7 @@
         <item>SomaFM - BeatBlender\nhttp://radio.2kom.ru:8000/SomaFM-BeatBlender</item>
         <item>Best FM\nhttp://radio.bestfm.fm:8080/bestfm64</item>
         <item>Big Beat radio\nhttp://us.bigbeatradio.com:8100/hi-fi.mp3</item>
-        <item>Big FM\nhttp://srv04.bigstreams.de/bigfm-mp3-64</item>
+        <item>Big FM\nhttp://srv04.bigstreams.de/bigfm–mp3-64</item>
         <item>Biker FM\nhttp://radio.2kom.ru:8000/MusicManiacs</item>
         <item>Biker FM\nhttp://stream1.radiostyle.ru:8001/biker-fm</item>
         <item>Black\nhttp://energyblack.ice.infomaniak.ch/energyblack-high.mp3</item>
@@ -1709,13 +1739,13 @@
 \nhttp://ic6.101.ru:8000/p436774
 </item><item>На волне моей памяти
 \nhttp://ic6.101.ru:8000/p102961
-</item><item>ПОКА Я ЛЮБЛЮ... ПЕСНИ ОЛЬГИ РЕЗНИЧЕНКО
+</item><item>ПОКА Я ЛЮБЛЮ ПЕСНИ ОЛЬГИ РЕЗНИЧЕНКО
 \nhttp://ic6.101.ru:8000/p705972
 </item><item>РАДИО НОТА
 \nhttp://ic6.101.ru:8000/p384594
 </item><item>РЕТРО АССОРТИ - 50/50
 \nhttp://ic6.101.ru:8000/p128996
-</item><item>Рок-н-ролл мертв, а мы...
+</item><item>Рок-н-ролл мертв, а мы
 \nhttp://ic6.101.ru:8000/p51987
 </item><item>САХАЛИН
 \nhttp://ic6.101.ru:8000/p573033
@@ -2015,7 +2045,7 @@
 \nhttp://ic6.101.ru:8000/p833420
 </item><item>18XXX
 \nhttp://ic6.101.ru:8000/p870652
-</item><item>19...
+</item><item>19
 \nhttp://ic6.101.ru:8000/p496116
 </item><item>20 ВЕК
 \nhttp://ic6.101.ru:8000/p192241
@@ -2035,7 +2065,7 @@
 \nhttp://ic6.101.ru:8000/p824547
 </item><item>25 region
 \nhttp://ic6.101.ru:8000/p422483
-</item><item>25 лет ранее...
+</item><item>25 лет ранее
 \nhttp://ic6.101.ru:8000/p702951
 </item><item>25-8 Hip-Hop.Chamber
 \nhttp://ic6.101.ru:8000/p828243
@@ -2103,7 +2133,7 @@
 \nhttp://ic6.101.ru:8000/p331734
 </item><item>80-90
 \nhttp://ic6.101.ru:8000/p734274
-</item><item>80-90 Навсегда...
+</item><item>80-90 Навсегда
 \nhttp://ic6.101.ru:8000/p722395
 </item><item>80-90-е навсегда
 \nhttp://ic6.101.ru:8000/p621911
@@ -2119,9 +2149,9 @@
 \nhttp://ic6.101.ru:8000/p418255
 </item><item>80xxx
 \nhttp://ic6.101.ru:8000/p575292
-</item><item>80е люблю...
+</item><item>80е люблю
 \nhttp://ic6.101.ru:8000/p496846
-</item><item>80-е,90-е,00-е, ... .
+</item><item>80-е,90-е,00-е
 \nhttp://ic6.101.ru:8000/p648976
 </item><item>80-разно
 \nhttp://ic6.101.ru:8000/p628419
@@ -2421,7 +2451,7 @@
 \nhttp://ic6.101.ru:8000/p737720
 </item><item>AgniA
 \nhttp://ic6.101.ru:8000/p162946
-</item><item>Agressive Breakbeat
+</item><item>Aggressive Breakbeat
 \nhttp://ic6.101.ru:8000/p259101
 </item><item>A-Ha  Alphaville
 \nhttp://ic6.101.ru:8000/p544499
@@ -2581,7 +2611,7 @@
 \nhttp://ic6.101.ru:8000/p530152
 </item><item>All the famous DJ\s
 \nhttp://ic6.101.ru:8000/p859745
-</item><item>All this Rock\n\Roll...
+</item><item>All this Rock\n\Roll
 \nhttp://ic6.101.ru:8000/p749431
 </item><item>all time
 \nhttp://ic6.101.ru:8000/p632114
@@ -2627,7 +2657,7 @@
 \nhttp://ic6.101.ru:8000/p827250
 </item><item>ALTERNATIVA
 \nhttp://ic6.101.ru:8000/p862293
-</item><item>Alternativa-отборная...
+</item><item>Alternativa-отборная
 \nhttp://ic6.101.ru:8000/p767510
 </item><item>Alternative
 \nhttp://ic6.101.ru:8000/p740494
@@ -3119,7 +3149,7 @@
 \nhttp://ic6.101.ru:8000/p775904
 </item><item>Back in 80\\\\\\\
 \nhttp://ic6.101.ru:8000/p179997
-</item><item>Back to 90-s...
+</item><item>Back to 90-s
 \nhttp://ic6.101.ru:8000/p774977
 </item><item>Back To the 90s
 \nhttp://ic6.101.ru:8000/p524074
@@ -3397,7 +3427,7 @@
 \nhttp://ic6.101.ru:8000/p742064
 </item><item>Best Relax
 \nhttp://ic6.101.ru:8000/p732183
-</item><item>Best remix  90-s...
+</item><item>Best remix  90-s
 \nhttp://ic6.101.ru:8000/p153720
 </item><item>Best Rock - Esil
 \nhttp://ic6.101.ru:8000/p800925
@@ -3889,7 +3919,7 @@
 \nhttp://ic6.101.ru:8000/p848157
 </item><item>ChildClassic
 \nhttp://ic6.101.ru:8000/p276898
-</item><item>Childhood of mine...
+</item><item>Childhood of mine
 \nhttp://ic6.101.ru:8000/p484403
 </item><item>Children
 \nhttp://ic6.101.ru:8000/p748681
@@ -4303,9 +4333,9 @@
 \nhttp://ic6.101.ru:8000/p794673
 </item><item>Dance Хит 90-хх
 \nhttp://ic6.101.ru:8000/p640440
-</item><item>Dance...
+</item><item>Dance
 \nhttp://ic6.101.ru:8000/p841327
-</item><item>Dance, Dance, Dance...
+</item><item>Dance, Dance, Dance
 \nhttp://ic6.101.ru:8000/p566390
 </item><item>Dance.Pop.Trance
 \nhttp://ic6.101.ru:8000/p868561
@@ -4679,7 +4709,7 @@
 \nhttp://ic6.101.ru:8000/p807871
 </item><item>DISCO 80
 \nhttp://ic6.101.ru:8000/p447480
-</item><item>disco 80--90
+</item><item>disco 80-90
 \nhttp://ic6.101.ru:8000/p778733
 </item><item>disco 80-90-x
 \nhttp://ic6.101.ru:8000/p593550
@@ -5045,7 +5075,7 @@
 \nhttp://ic6.101.ru:8000/p510055
 </item><item>DreamON
 \nhttp://ic6.101.ru:8000/p768932
-</item><item>dreams of...
+</item><item>dreams of
 \nhttp://ic6.101.ru:8000/p389472
 </item><item>dreamsmusic
 \nhttp://ic6.101.ru:8000/p763010
@@ -5575,7 +5605,7 @@
 \nhttp://ic6.101.ru:8000/p421652
 </item><item>EuroDance Fm - Хорошая и веселая музыка
 \nhttp://ic6.101.ru:8000/p757981
-</item><item>EUROdance millenium-В РИТМЕ ТВОЕГО НАСТРОЕНИЯ!!!
+</item><item>EUROdance millennium-В РИТМЕ ТВОЕГО НАСТРОЕНИЯ!!!
 \nhttp://ic6.101.ru:8000/p465901
 </item><item>EURODANCE MIX 90\s
 \nhttp://ic6.101.ru:8000/p733905
@@ -5880,7 +5910,7 @@
 \nhttp://ic6.101.ru:8000/p858373
 </item><item>FMStars
 \nhttp://ic6.101.ru:8000/p759844
-</item><item>Fobia...Yes
+</item><item>Fobia Yes
 \nhttp://ic6.101.ru:8000/p756276
 </item><item>foblack.fm
 \nhttp://ic6.101.ru:8000/p732934
@@ -5910,7 +5940,7 @@
 \nhttp://ic6.101.ru:8000/p780507
 </item><item>For game
 \nhttp://ic6.101.ru:8000/p833840
-</item><item>For my little girl...
+</item><item>For my little girl
 \nhttp://ic6.101.ru:8000/p221898
 </item><item>For people who love rock
 \nhttp://ic6.101.ru:8000/p806745
@@ -7170,7 +7200,7 @@
 \nhttp://ic6.101.ru:8000/p856058
 </item><item>JAZZART
 \nhttp://ic6.101.ru:8000/p228393
-</item><item>JAZZ--BLUES  RADIO-FL
+</item><item>JAZZ-BLUES  RADIO-FL
 \nhttp://ic6.101.ru:8000/p620021
 </item><item>Jazz-Comfort
 \nhttp://ic6.101.ru:8000/p801860
@@ -7304,7 +7334,7 @@
 \nhttp://ic6.101.ru:8000/p781753
 </item><item>Kadreiz bijam jauni
 \nhttp://ic6.101.ru:8000/p760150
-</item><item>Kai sielai reikia poilsio...
+</item><item>Kai sielai reikia poilsio
 \nhttp://ic6.101.ru:8000/p828649
 </item><item>kaktusshome
 \nhttp://ic6.101.ru:8000/p395754
@@ -7396,7 +7426,7 @@
 \nhttp://ic6.101.ru:8000/p842375
 </item><item>Kidok
 \nhttp://ic6.101.ru:8000/p823477
-</item><item>Kids too still depressed...
+</item><item>Kids too still depressed
 \nhttp://ic6.101.ru:8000/p821200
 </item><item>kiev
 \nhttp://ic6.101.ru:8000/p760882
@@ -7824,7 +7854,7 @@
 \nhttp://ic6.101.ru:8000/p858817
 </item><item>Lindsey Stirling
 \nhttp://ic6.101.ru:8000/p802011
-</item><item>Linkin Park и не только...
+</item><item>Linkin Park и не только
 \nhttp://ic6.101.ru:8000/p333912
 </item><item>Linkin Rock
 \nhttp://ic6.101.ru:8000/p802361
@@ -8762,9 +8792,9 @@
 \nhttp://ic6.101.ru:8000/p717211
 </item><item>Music Club - лучшая клубная музыка!
 \nhttp://ic6.101.ru:8000/p723318
-</item><item>Music Coctail
+</item><item>Music Cocktail
 \nhttp://ic6.101.ru:8000/p516980
-</item><item>Music collection
+</item><item>Music Collection
 \nhttp://ic6.101.ru:8000/p514568
 </item><item>Music Connection
 \nhttp://ic6.101.ru:8000/p198295
@@ -9324,7 +9354,7 @@
 \nhttp://ic6.101.ru:8000/p628922
 </item><item>Nostalgia 80x
 \nhttp://ic6.101.ru:8000/p765365
-</item><item>Nostalgie 70-x 80-x...
+</item><item>Nostalgie 70-x 80-x
 \nhttp://ic6.101.ru:8000/p526262
 </item><item>Nostalgi-прощание с молодостью
 \nhttp://ic6.101.ru:8000/p203370
@@ -10608,7 +10638,7 @@
 \nhttp://ic6.101.ru:8000/p780868
 </item><item>RADIO ONLI.FM
 \nhttp://ic6.101.ru:8000/p866125
-</item><item>RADIO ORIGA \\Я подарю тебе музыку...\\
+</item><item>RADIO ORIGA Я подарю тебе музыку
 \nhttp://ic6.101.ru:8000/p708973
 </item><item>Radio OzG.by
 \nhttp://ic6.101.ru:8000/p785567
@@ -11114,7 +11144,7 @@
 \nhttp://ic6.101.ru:8000/p669415
 </item><item>Real-x
 \nhttp://ic6.101.ru:8000/p215688
-</item><item>Realy ROCK
+</item><item>Really ROCK
 \nhttp://ic6.101.ru:8000/p759369
 </item><item>reason movement
 \nhttp://ic6.101.ru:8000/p565596
@@ -11208,7 +11238,7 @@
 \nhttp://ic6.101.ru:8000/p573197
 </item><item>Relax your mind
 \nhttp://ic6.101.ru:8000/p724858
-</item><item>Relax от и до...
+</item><item>Relax от и до
 \nhttp://ic6.101.ru:8000/p323689
 </item><item>Relax- спокойствие
 \nhttp://ic6.101.ru:8000/p531410
@@ -11252,7 +11282,7 @@
 \nhttp://ic6.101.ru:8000/p621628
 </item><item>Rem Shelby Best
 \nhttp://ic6.101.ru:8000/p830850
-</item><item>Remember me...
+</item><item>Remember me
 \nhttp://ic6.101.ru:8000/p483058
 </item><item>RemFm
 \nhttp://ic6.101.ru:8000/p789140
@@ -11264,7 +11294,7 @@
 \nhttp://ic6.101.ru:8000/p239422
 </item><item>Remixland
 \nhttp://ic6.101.ru:8000/p677368
-</item><item>Re-mixы 80-x и прочее... лучшее
+</item><item>Re-mixы 80-x и прочее лучшее
 \nhttp://ic6.101.ru:8000/p856012
 </item><item>Renaissance
 \nhttp://ic6.101.ru:8000/p841526
@@ -11394,7 +11424,7 @@
 \nhttp://ic6.101.ru:8000/p752498
 </item><item>ROCK  ROLL  CLASSIC
 \nhttp://ic6.101.ru:8000/p736156
-</item><item>Rock ... Arhad радио
+</item><item>Rock  Arhad радио
 \nhttp://ic6.101.ru:8000/p385524
 </item><item>Rock 23
 \nhttp://ic6.101.ru:8000/p724486
@@ -11540,7 +11570,7 @@
 \nhttp://ic6.101.ru:8000/p464854
 </item><item>Rock Поколение 50-х
 \nhttp://ic6.101.ru:8000/p175305
-</item><item>ROCK с нами ...
+</item><item>ROCK с нами
 \nhttp://ic6.101.ru:8000/p330010
 </item><item>Rock станция
 \nhttp://ic6.101.ru:8000/p831247
@@ -11692,7 +11722,7 @@
 \nhttp://ic6.101.ru:8000/p873539
 </item><item>ROMANIANI STYLE
 \nhttp://ic6.101.ru:8000/p440710
-</item><item>Romantic Coctail
+</item><item>Romantic Cocktail
 \nhttp://ic6.101.ru:8000/p424459
 </item><item>Romantic Collection
 \nhttp://ic6.101.ru:8000/p469606
@@ -11702,7 +11732,7 @@
 \nhttp://ic6.101.ru:8000/p744043
 </item><item>Romantic Love Song
 \nhttp://ic6.101.ru:8000/p769791
-</item><item>Romantic Mix Ok
+</item><item>Romantic Mix OK
 \nhttp://ic6.101.ru:8000/p183000
 </item><item>Romantic Night
 \nhttp://ic6.101.ru:8000/p494555
@@ -11900,7 +11930,7 @@
 \nhttp://ic6.101.ru:8000/p863906
 </item><item>ryfliq
 \nhttp://ic6.101.ru:8000/p787865
-</item><item>Rythm Raw
+</item><item>Rhythm Raw
 \nhttp://ic6.101.ru:8000/p581396
 </item><item>RаzноE Радiо
 \nhttp://ic6.101.ru:8000/p850399
@@ -12138,7 +12168,7 @@
 \nhttp://ic6.101.ru:8000/p775470
 </item><item>Shadows
 \nhttp://ic6.101.ru:8000/p443419
-</item><item>Shadr...Жги!!!
+</item><item>Shadr Жги!!!
 \nhttp://ic6.101.ru:8000/p276033
 </item><item>Shamanic Trance
 \nhttp://ic6.101.ru:8000/p319540
@@ -12370,7 +12400,7 @@
 \nhttp://ic6.101.ru:8000/p777364
 </item><item>SNiPS
 \nhttp://ic6.101.ru:8000/p274629
-</item><item>Snoop Dogs...
+</item><item>Snoop Dogs
 \nhttp://ic6.101.ru:8000/p798278
 </item><item>snslabs
 \nhttp://ic6.101.ru:8000/p37687
@@ -12442,7 +12472,7 @@
 \nhttp://ic6.101.ru:8000/p774486
 </item><item>Soul Tunes
 \nhttp://ic6.101.ru:8000/p763640
-</item><item>Soul\s Music...
+</item><item>Soul\s Music
 \nhttp://ic6.101.ru:8000/p314986
 </item><item>Soul_fusion_blues
 \nhttp://ic6.101.ru:8000/p681094
@@ -12534,7 +12564,7 @@
 \nhttp://ic6.101.ru:8000/p850785
 </item><item>Spectre FM
 \nhttp://ic6.101.ru:8000/p856682
-</item><item>SpectroMax - Once you pop you cant stop
+</item><item>SpectroMax - Once you pop you cannot stop
 \nhttp://ic6.101.ru:8000/p779120
 </item><item>Spectrum Sound
 \nhttp://ic6.101.ru:8000/p856767
@@ -12838,7 +12868,7 @@
 \nhttp://ic6.101.ru:8000/p792126
 </item><item>Sweet Pink Ninja
 \nhttp://ic6.101.ru:8000/p792513
-</item><item>sweet sweet melodies
+</item><item>Sweet melodies
 \nhttp://ic6.101.ru:8000/p327127
 </item><item>sweta
 \nhttp://ic6.101.ru:8000/p694120
@@ -12854,7 +12884,7 @@
 \nhttp://ic6.101.ru:8000/p872123
 </item><item>SymphonicMetal
 \nhttp://ic6.101.ru:8000/p860413
-</item><item>SКANNING...
+</item><item>SКANNING
 \nhttp://ic6.101.ru:8000/p260163
 </item><item>T2Krd
 \nhttp://ic6.101.ru:8000/p623304
@@ -13054,7 +13084,7 @@
 \nhttp://ic6.101.ru:8000/p612889
 </item><item>The Best Of The Thrash Zone
 \nhttp://ic6.101.ru:8000/p191426
-</item><item>The Best Of...
+</item><item>The Best Of
 \nhttp://ic6.101.ru:8000/p291094
 </item><item>The Best pop music
 \nhttp://ic6.101.ru:8000/p791573
@@ -13986,7 +14016,7 @@
 \nhttp://ic6.101.ru:8000/p786591
 </item><item>vse FM one
 \nhttp://ic6.101.ru:8000/p860002
-</item><item>Vse ok
+</item><item>Vse OK
 \nhttp://ic6.101.ru:8000/p761324
 </item><item>VSEEM.FM
 \nhttp://ic6.101.ru:8000/p522185
@@ -14304,7 +14334,7 @@
 \nhttp://ic6.101.ru:8000/p325159
 </item><item>Your mood
 \nhttp://ic6.101.ru:8000/p868367
-</item><item>Your style... Your music ...
+</item><item>Your style Your music
 \nhttp://ic6.101.ru:8000/p797046
 </item><item>YOURADIOESTONIA
 \nhttp://ic6.101.ru:8000/p849025
@@ -14318,7 +14348,7 @@
 \nhttp://ic6.101.ru:8000/p783842
 </item><item>YPetrovski-radio
 \nhttp://ic6.101.ru:8000/p671779
-</item><item>YRADIO - God Radio Vam...
+</item><item>YRADIO - God Radio Vam
 \nhttp://ic6.101.ru:8000/p487927
 </item><item>YSE
 \nhttp://ic6.101.ru:8000/p704760
@@ -14422,7 +14452,7 @@
 \nhttp://ic6.101.ru:8000/p819108
 </item><item>А вот нравится!!!!
 \nhttp://ic6.101.ru:8000/p524145
-</item><item>А годы уходят...
+</item><item>А годы уходят
 \nhttp://ic6.101.ru:8000/p596700
 </item><item>А ЛЯ МИНОР
 \nhttp://ic6.101.ru:8000/p341724
@@ -14471,20 +14501,14 @@
 </item><item>Агата Кристи
 \nhttp://ic6.101.ru:8000/p849470
 </item>
-<item>Агата Кристи  Просто Вадик и Глеб\nhttp://ic6.101.ru:8000/p807396
-</item><item>Агитель
-\nhttp://ic6.101.ru:8000/p89787
-</item><item>Агутин  Варум
-\nhttp://ic6.101.ru:8000/p319684
-</item><item>АДВ
-\nhttp://ic6.101.ru:8000/p769440
-</item><item>АДЕЛЬ
-\nhttp://ic6.101.ru:8000/p774744
-</item><item>Адреналинчик
-\nhttp://ic6.101.ru:8000/p649222
-</item><item>адрес нашего сайт www.kreative-art.in.ua
-\nhttp://ic6.101.ru:8000/p709401
-</item><item>Адский коктейль
+<item>Агата Кристи  Просто Вадик и Глеб\nhttp://ic6.101.ru:8000/p807396</item>
+<item>Агитель\nhttp://ic6.101.ru:8000/p89787</item>
+<item>Агутин  Варум\nhttp://ic6.101.ru:8000/p319684</item>
+<item>АДВ\nhttp://ic6.101.ru:8000/p769440</item>
+<item>АДЕЛЬ\nhttp://ic6.101.ru:8000/p774744</item>
+<item>Адреналинчик\nhttp://ic6.101.ru:8000/p649222</item>
+<item>адрес нашего сайт www.kreative-art.in.ua\nhttp://ic6.101.ru:8000/p709401</item>
+<item>Адский коктейль
 \nhttp://ic6.101.ru:8000/p81387
 </item><item>Адское Радио
 \nhttp://ic6.101.ru:8000/p860286
@@ -14770,7 +14794,7 @@
 \nhttp://ic6.101.ru:8000/p347657
 </item><item>Басс  Кач музыка
 \nhttp://ic6.101.ru:8000/p801681
-</item><item>-Баста-
+</item><item>Баста
 \nhttp://ic6.101.ru:8000/p868705
 </item><item>БастА ака НоГГанО и NINTENDO
 \nhttp://ic6.101.ru:8000/p407827
@@ -15320,7 +15344,7 @@
 \nhttp://ic6.101.ru:8000/p436793
 </item><item>Все для души
 \nhttp://ic6.101.ru:8000/p784636
-</item><item>Всё есть...
+</item><item>Всё есть
 \nhttp://ic6.101.ru:8000/p466326
 </item><item>Все звезды шансона
 \nhttp://ic6.101.ru:8000/p778414
@@ -15358,7 +15382,7 @@
 \nhttp://ic6.101.ru:8000/p641479
 </item><item>всегда в стиле
 \nhttp://ic6.101.ru:8000/p530762
-</item><item>Всего по немножку...
+</item><item>Всего по немножку
 \nhttp://ic6.101.ru:8000/p490837
 </item><item>всего понемногу
 \nhttp://ic6.101.ru:8000/p401423
@@ -15374,7 +15398,7 @@
 \nhttp://ic6.101.ru:8000/p784571
 </item><item>Всех по 3. Только хиты.
 \nhttp://ic6.101.ru:8000/p860118
-</item><item>Вспоминая...
+</item><item>Вспоминая
 \nhttp://ic6.101.ru:8000/p619806
 </item><item>ВСПОМНИ fm
 \nhttp://ic6.101.ru:8000/p642421
@@ -15384,11 +15408,11 @@
 \nhttp://ic6.101.ru:8000/p556105
 </item><item>Вспомним
 \nhttp://ic6.101.ru:8000/p746071
-</item><item>Вспомним как это было...Хит Девяностых
+</item><item>Вспомним как это было Хит Девяностых
 \nhttp://ic6.101.ru:8000/p719200
 </item><item>Вспомнить все
 \nhttp://ic6.101.ru:8000/p874466
-</item><item>Вспомнить всё...
+</item><item>Вспомнить всё
 \nhttp://ic6.101.ru:8000/p414587
 </item><item>вся музыка
 \nhttp://ic6.101.ru:8000/p548511
@@ -15856,9 +15880,9 @@
 \nhttp://ic6.101.ru:8000/p226919
 </item><item>Для души.
 \nhttp://ic6.101.ru:8000/p741877
-</item><item>Для души...
+</item><item>Для души
 \nhttp://ic6.101.ru:8000/p121801
-</item><item>Для Души...
+</item><item>Для Души
 \nhttp://ic6.101.ru:8000/p96678
 </item><item>для каких же как и я
 \nhttp://ic6.101.ru:8000/p796119
@@ -15884,7 +15908,7 @@
 \nhttp://ic6.101.ru:8000/p797117
 </item><item>Для работы и отдыха
 \nhttp://ic6.101.ru:8000/p729704
-</item><item>Для рок-души...
+</item><item>Для рок-души
 \nhttp://ic6.101.ru:8000/p540028
 </item><item>Для самых любимых!
 \nhttp://ic6.101.ru:8000/p238473
@@ -15898,11 +15922,11 @@
 \nhttp://ic6.101.ru:8000/p478176
 </item><item>Для тех кому дорога Отчизна
 \nhttp://ic6.101.ru:8000/p602689
-</item><item>Для тех кто...
+</item><item>Для тех кто
 \nhttp://ic6.101.ru:8000/p798821
 </item><item>Для тех, кто в танке!
 \nhttp://ic6.101.ru:8000/p464423
-</item><item>Для...кому за 30
+</item><item>Для кому за 30
 \nhttp://ic6.101.ru:8000/p413427
 </item><item>ДМБ-90
 \nhttp://ic6.101.ru:8000/p703420
@@ -15930,7 +15954,7 @@
 \nhttp://ic6.101.ru:8000/p725612
 </item><item>Доброе радио Счастья
 \nhttp://ic6.101.ru:8000/p741358
-</item><item>Доброе Радио...
+</item><item>Доброе Радио
 \nhttp://ic6.101.ru:8000/p589444
 </item><item>Добротный ROCK
 \nhttp://ic6.101.ru:8000/p740008
@@ -16026,11 +16050,11 @@
 \nhttp://ic6.101.ru:8000/p739214
 </item><item>Душевное радио -музыка для души.
 \nhttp://ic6.101.ru:8000/p758004
-</item><item>Душевное радио...
+</item><item>Душевное радио
 \nhttp://ic6.101.ru:8000/p852538
 </item><item>Душевное ФМ
 \nhttp://ic6.101.ru:8000/p754563
-</item><item>Душевное...
+</item><item>Душевное
 \nhttp://ic6.101.ru:8000/p584830
 </item><item>ДУШЕВНЫЕ МЕЛОДИИ
 \nhttp://ic6.101.ru:8000/p718098
@@ -16066,7 +16090,7 @@
 \nhttp://ic6.101.ru:8000/p863707
 </item><item>Дядя Саша
 \nhttp://ic6.101.ru:8000/p766897
-</item><item>Ё !!!...  Радио 580  (Русская музыка)
+</item><item>Радио 580 Русская музыка
 \nhttp://ic6.101.ru:8000/p579702
 </item><item>евгений FM
 \nhttp://ic6.101.ru:8000/p858839
@@ -16122,7 +16146,7 @@
 \nhttp://ic6.101.ru:8000/p661055
 </item><item>Жажда Скорости
 \nhttp://ic6.101.ru:8000/p752770
-</item><item>Жанна Фриске. Светлая память...
+</item><item>Жанна Фриске. Светлая память
 \nhttp://ic6.101.ru:8000/p800912
 </item><item>ЖАРА 101
 \nhttp://ic6.101.ru:8000/p767341
@@ -16232,7 +16256,7 @@
 \nhttp://ic6.101.ru:8000/p795469
 </item><item>Заряд музона
 \nhttp://ic6.101.ru:8000/p870455
-</item><item>Застрявший в 90х...
+</item><item>Застрявший в 90х
 \nhttp://ic6.101.ru:8000/p237664
 </item><item>Застряла в нулевых
 \nhttp://ic6.101.ru:8000/p744871
@@ -16528,7 +16552,7 @@
 \nhttp://ic6.101.ru:8000/p449486
 </item><item>Как Бы Радио
 \nhttp://ic6.101.ru:8000/p529568
-</item><item>как мозг проснётся...
+</item><item>как мозг проснётся
 \nhttp://ic6.101.ru:8000/p77063
 </item><item>как прекрасен этот мир
 \nhttp://ic6.101.ru:8000/p582467
@@ -16566,7 +16590,7 @@
 \nhttp://ic6.101.ru:8000/p574119
 </item><item>КАНСОТЭК
 \nhttp://ic6.101.ru:8000/p703562
-</item><item>капельки...
+</item><item>капельки
 \nhttp://ic6.101.ru:8000/p419435
 </item><item>КапиталЪ fm
 \nhttp://ic6.101.ru:8000/p842244
@@ -16926,7 +16950,7 @@
 \nhttp://ic6.101.ru:8000/p851672
 </item><item>КРОНА
 \nhttp://ic6.101.ru:8000/p425432
-</item><item>К-рор больше чем жизнь...
+</item><item>К-рор больше чем жизнь
 \nhttp://ic6.101.ru:8000/p672506
 </item><item>крошечная станция
 \nhttp://ic6.101.ru:8000/p866531
@@ -17052,7 +17076,7 @@
 \nhttp://ic6.101.ru:8000/p793453
 </item><item>Лесоповал
 \nhttp://ic6.101.ru:8000/p530248
-</item><item>Летающим людям...
+</item><item>Летающим людям
 \nhttp://ic6.101.ru:8000/p47694
 </item><item>Летнее настроение
 \nhttp://ic6.101.ru:8000/p731027
@@ -17252,7 +17276,7 @@
 \nhttp://ic6.101.ru:8000/p645315
 </item><item>Лучшие хиты
 \nhttp://ic6.101.ru:8000/p701140
-</item><item>Лучшие Хиты 80-Х--The Best Hits Of 80s
+</item><item>Лучшие Хиты 80Х The Best Hits Of 80s
 \nhttp://ic6.101.ru:8000/p635522
 </item><item>Лучшие хиты нашего времени
 \nhttp://ic6.101.ru:8000/p855614
@@ -17370,7 +17394,7 @@
 \nhttp://ic6.101.ru:8000/p418873
 </item><item>Ляпис Трубецкой
 \nhttp://ic6.101.ru:8000/p250876
-</item><item>М.З.Шуфутинский и другие...
+</item><item>М.З.Шуфутинский и другие
 \nhttp://ic6.101.ru:8000/p709165
 </item><item>Магелланово Облако
 \nhttp://ic6.101.ru:8000/p787670
@@ -17484,7 +17508,7 @@
 \nhttp://ic6.101.ru:8000/p798767
 </item><item>Мелодии и ритмы советской эстрады
 \nhttp://ic6.101.ru:8000/p548273
-</item><item>Мелодии моей души...
+</item><item>Мелодии моей души
 \nhttp://ic6.101.ru:8000/p764634
 </item><item>Мелодии Петра
 \nhttp://ic6.101.ru:8000/p732824
@@ -17676,7 +17700,7 @@
 \nhttp://ic6.101.ru:8000/p70936
 </item><item>мое настроение
 \nhttp://ic6.101.ru:8000/p530618
-</item><item>Мое настроение зависит от количества...
+</item><item>Мое настроение зависит от количества
 \nhttp://ic6.101.ru:8000/p410757
 </item><item>Мое Настроение Плюс
 \nhttp://ic6.101.ru:8000/p508395
@@ -17796,7 +17820,7 @@
 \nhttp://ic6.101.ru:8000/p566669
 </item><item>МОЯ ЛЮБИМАЯ
 \nhttp://ic6.101.ru:8000/p460073
-</item><item>Моя ЛЮБИМАЯ музыка...
+</item><item>Моя ЛЮБИМАЯ музыка
 \nhttp://ic6.101.ru:8000/p522456
 </item><item>Моя машина времени
 \nhttp://ic6.101.ru:8000/p233697
@@ -17832,7 +17856,7 @@
 \nhttp://ic6.101.ru:8000/p173418
 </item><item>Моя хит- музыка
 \nhttp://ic6.101.ru:8000/p463492
-</item><item>моя ЮНОСТЬ...
+</item><item>моя ЮНОСТЬ
 \nhttp://ic6.101.ru:8000/p477953
 </item><item>Мрачное радио
 \nhttp://ic6.101.ru:8000/p869746
@@ -17886,7 +17910,7 @@
 \nhttp://ic6.101.ru:8000/p874198
 </item><item>музыка  для души и хорошего настроения.
 \nhttp://ic6.101.ru:8000/p473305
-</item><item>Музыка - мой антидепрессант...
+</item><item>Музыка - мой антидепрессант
 \nhttp://ic6.101.ru:8000/p555044
 </item><item>МУЗЫКА  НА  ВСЕ   ВРЕМЕНА
 \nhttp://ic6.101.ru:8000/p725449
@@ -17914,7 +17938,7 @@
 \nhttp://ic6.101.ru:8000/p538949
 </item><item>Музыка в машину
 \nhttp://ic6.101.ru:8000/p801442
-</item><item>Музыка в стиле --Фристайл--
+</item><item>Музыка в стиле Фристайл
 \nhttp://ic6.101.ru:8000/p378233
 </item><item>Музыка Века
 \nhttp://ic6.101.ru:8000/p422845
@@ -17936,7 +17960,7 @@
 \nhttp://ic6.101.ru:8000/p723514
 </item><item>музыка для всех
 \nhttp://ic6.101.ru:8000/p725871
-</item><item>Музыка для всех...
+</item><item>Музыка для всех
 \nhttp://ic6.101.ru:8000/p847054
 </item><item>МУЗЫКА ДЛЯ ДОРОГ
 \nhttp://ic6.101.ru:8000/p857530
@@ -18094,7 +18118,7 @@
 \nhttp://ic6.101.ru:8000/p454103
 </item><item>Музыка, которая мне нравится
 \nhttp://ic6.101.ru:8000/p627017
-</item><item>Музыка, созвучная твоей душе...
+</item><item>Музыка, созвучная твоей душе
 \nhttp://ic6.101.ru:8000/p598974
 </item><item>Музыка, создающая настроение
 \nhttp://ic6.101.ru:8000/p421146
@@ -18166,7 +18190,7 @@
 \nhttp://ic6.101.ru:8000/p862936
 </item><item>Музыкальный фон
 \nhttp://ic6.101.ru:8000/p657850
-</item><item>Музыкальный фон для ... работы
+</item><item>Музыкальный фон для работы
 \nhttp://ic6.101.ru:8000/p540973
 </item><item>музыка-спасение души человеческой
 \nhttp://ic6.101.ru:8000/p873066
@@ -18184,7 +18208,7 @@
 \nhttp://ic6.101.ru:8000/p802036
 </item><item>мумий троль
 \nhttp://ic6.101.ru:8000/p750791
-</item><item>Мусорный бак - (от 80-х...)
+</item><item>Мусорный бак - (от 80-х)
 \nhttp://ic6.101.ru:8000/p409413
 </item><item>Мы из 90-х
 \nhttp://ic6.101.ru:8000/p264477
@@ -18212,7 +18236,7 @@
 \nhttp://ic6.101.ru:8000/p654283
 </item><item>На  любителя!
 \nhttp://ic6.101.ru:8000/p719949
-</item><item>На белом покрывале января...
+</item><item>На белом покрывале января
 \nhttp://ic6.101.ru:8000/p549730
 </item><item>на волнах рока
 \nhttp://ic6.101.ru:8000/p794802
@@ -18294,7 +18318,7 @@
 \nhttp://ic6.101.ru:8000/p251627
 </item><item>НАМ за70,а ДУША ликует и поёт!
 \nhttp://ic6.101.ru:8000/p603566
-</item><item>Нам песня строить и жить помогает !...
+</item><item>Нам песня строить и жить помогает !
 \nhttp://ic6.101.ru:8000/p519861
 </item><item>Нано FM
 \nhttp://ic6.101.ru:8000/p587274
@@ -18350,7 +18374,7 @@
 \nhttp://ic6.101.ru:8000/p572054
 </item><item>Настроение РОК
 \nhttp://ic6.101.ru:8000/p805336
-</item><item>Настроение...
+</item><item>Настроение
 \nhttp://ic6.101.ru:8000/p55544
 </item><item>НастроениеFM
 \nhttp://ic6.101.ru:8000/p805172
@@ -18710,7 +18734,7 @@
 \nhttp://ic6.101.ru:8000/p124127
 </item><item>ночь на пролет
 \nhttp://ic6.101.ru:8000/p557582
-</item><item>Нравится... мне.
+</item><item>Нравится мне.
 \nhttp://ic6.101.ru:8000/p551954
 </item><item>НуЛеВаЯ ДиСкОтЕкА
 \nhttp://ic6.101.ru:8000/p754282
@@ -18724,7 +18748,7 @@
 \nhttp://ic6.101.ru:8000/p648377
 </item><item>О жизни, о судьбе, о любви (шансон)
 \nhttp://ic6.101.ru:8000/p667821
-</item><item>О ЛЮБВИ ...
+</item><item>О ЛЮБВИ
 \nhttp://ic6.101.ru:8000/p705984
 </item><item>О чем поют бобры
 \nhttp://ic6.101.ru:8000/p441101
@@ -18758,7 +18782,7 @@
 \nhttp://ic6.101.ru:8000/p520538
 </item><item>Одинокий Пастух
 \nhttp://ic6.101.ru:8000/p844503
-</item><item>Одиночество-с(к)ука ...
+</item><item>Одиночество-с(к)ука
 \nhttp://ic6.101.ru:8000/p223417
 </item><item>Одна-7Я
 \nhttp://ic6.101.ru:8000/p791284
@@ -18902,7 +18926,7 @@
 \nhttp://ic6.101.ru:8000/p738641
 </item><item>От чистого сердца
 \nhttp://ic6.101.ru:8000/p859875
-</item><item>ОТ...ДЕЛ
+</item><item>ОТ..ДЕЛ
 \nhttp://ic6.101.ru:8000/p768786
 </item><item>Отвар Полыни
 \nhttp://ic6.101.ru:8000/p856700
@@ -18914,7 +18938,7 @@
 \nhttp://ic6.101.ru:8000/p838289
 </item><item>отдых
 \nhttp://ic6.101.ru:8000/p805563
-</item><item>Отдыхаем...
+</item><item>Отдыхаем
 \nhttp://ic6.101.ru:8000/p616772
 </item><item>Отдыхай
 \nhttp://ic6.101.ru:8000/p856120
@@ -19370,7 +19394,7 @@
 \nhttp://ic6.101.ru:8000/p661063
 </item><item>После дождя
 \nhttp://ic6.101.ru:8000/p453704
-</item><item>После...60ти
+</item><item>После 60ти
 \nhttp://ic6.101.ru:8000/p48006
 </item><item>Послушайте!
 \nhttp://ic6.101.ru:8000/p642136
@@ -19468,7 +19492,7 @@
 \nhttp://ic6.101.ru:8000/p787764
 </item><item>Пробуждение
 \nhttp://ic6.101.ru:8000/p829928
-</item><item>Проверенно временем...
+</item><item>Проверенно временем
 \nhttp://ic6.101.ru:8000/p582056
 </item><item>Программирование
 \nhttp://ic6.101.ru:8000/p338969
@@ -19542,7 +19566,7 @@
 \nhttp://ic6.101.ru:8000/p519247
 </item><item>Просто хорошая музыка
 \nhttp://ic6.101.ru:8000/p641675
-</item><item>Просто хорошая музыка...
+</item><item>Просто хорошая музыка
 \nhttp://ic6.101.ru:8000/p193366
 </item><item>Просто хорошая станция
 \nhttp://ic6.101.ru:8000/p793759
@@ -19806,7 +19830,7 @@
 \nhttp://ic6.101.ru:8000/p838338
 </item><item>Радио Life
 \nhttp://ic6.101.ru:8000/p870033
-</item><item>радио Lira - на фоне тишины...
+</item><item>Радио Lira - на фоне тишины
 \nhttp://ic6.101.ru:8000/p588400
 </item><item>радио master
 \nhttp://ic6.101.ru:8000/p391206
@@ -20880,7 +20904,7 @@
 \nhttp://ic6.101.ru:8000/p661482
 </item><item>Рок и Метал
 \nhttp://ic6.101.ru:8000/p782756
-</item><item>Рок и не только...
+</item><item>Рок и не только
 \nhttp://ic6.101.ru:8000/p791365
 </item><item>Рок и немного больше
 \nhttp://ic6.101.ru:8000/p458617
@@ -21216,7 +21240,7 @@
 \nhttp://ic6.101.ru:8000/p584992
 </item><item>Русский рок жив
 \nhttp://ic6.101.ru:8000/p797886
-</item><item>Русский рок и не только...
+</item><item>Русский рок и не только
 \nhttp://ic6.101.ru:8000/p753757
 </item><item>Русский рок избранное new1ogin
 \nhttp://ic6.101.ru:8000/p731048
@@ -21236,7 +21260,7 @@
 \nhttp://ic6.101.ru:8000/p707449
 </item><item>РУССКИЙ РОК. Вечное и новое.
 \nhttp://ic6.101.ru:8000/p846744
-</item><item>Русский рок... и не только
+</item><item>Русский рок и не только
 \nhttp://ic6.101.ru:8000/p729637
 </item><item>русский рок-н-ролл
 \nhttp://ic6.101.ru:8000/p804463
@@ -21324,11 +21348,11 @@
 \nhttp://ic6.101.ru:8000/p770226
 </item><item>Рэтро Топ
 \nhttp://ic6.101.ru:8000/p809967
-</item><item>С любовью 80-е  90-е ...
+</item><item>С любовью 80-е  90-е
 \nhttp://ic6.101.ru:8000/p415599
 </item><item>С мира по нотке
 \nhttp://ic6.101.ru:8000/p550768
-</item><item>с мира по треку...
+</item><item>С мира по треку
 \nhttp://ic6.101.ru:8000/p447263
 </item><item>С Новым Годом
 \nhttp://ic6.101.ru:8000/p759820
@@ -21588,9 +21612,9 @@
 \nhttp://ic6.101.ru:8000/p658686
 </item><item>Слеза- Сибири
 \nhttp://ic6.101.ru:8000/p514657
-</item><item>СЛОТ
-\nhttp://ic6.101.ru:8000/p543137
-</item><item>СЛОУ
+</item>
+<item>СЛОТ -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p543137</item>
+<item>СЛОУ
 \nhttp://ic6.101.ru:8000/p524494
 </item><item>слоупоК!!! К
 \nhttp://ic6.101.ru:8000/p444008
@@ -21724,7 +21748,7 @@
 \nhttp://ic6.101.ru:8000/p719080
 </item><item>Спокойная музыка
 \nhttp://ic6.101.ru:8000/p686779
-</item><item>Спокойная музыка из 80-х...
+</item><item>Спокойная музыка из 80-х
 \nhttp://ic6.101.ru:8000/p451708
 </item><item>Спокойная электроника=)
 \nhttp://ic6.101.ru:8000/p555600
@@ -21794,7 +21818,7 @@
 \nhttp://ic6.101.ru:8000/p822837
 </item><item>СТАРОЕ ДОБРОЕ ТЕХНО 90-х
 \nhttp://ic6.101.ru:8000/p488743
-</item><item>Старое и новое...
+</item><item>Старое и новое
 \nhttp://ic6.101.ru:8000/p67876
 </item><item>СТАРОЕ КАФЕ.
 \nhttp://ic6.101.ru:8000/p201315
@@ -21836,7 +21860,7 @@
 \nhttp://ic6.101.ru:8000/p748063
 </item><item>Стиляги-радио
 \nhttp://ic6.101.ru:8000/p699663
-</item><item>Стихи и песни настоящих настоящих мужчин
+</item><item>Стихи и песни настоящих мужчин
 \nhttp://ic6.101.ru:8000/p306907
 </item><item>стоMETROвый ХИТ
 \nhttp://ic6.101.ru:8000/p504544
@@ -21858,7 +21882,7 @@
 \nhttp://ic6.101.ru:8000/p790802
 </item><item>Студенческое радио
 \nhttp://ic6.101.ru:8000/p859950
-</item><item>Студия СОЮЗ представляет...
+</item><item>Студия СОЮЗ представляет
 \nhttp://ic6.101.ru:8000/p592719
 </item><item>студия dj
 \nhttp://ic6.101.ru:8000/p869700
@@ -21970,7 +21994,7 @@
 \nhttp://ic6.101.ru:8000/p768067
 </item><item>Там за облаками
 \nhttp://ic6.101.ru:8000/p831656
-</item><item>Танго любви...
+</item><item>Танго любви
 \nhttp://ic6.101.ru:8000/p618067
 </item><item>Танковый релакс
 \nhttp://ic6.101.ru:8000/p192957
@@ -22076,7 +22100,7 @@
 \nhttp://ic6.101.ru:8000/p819284
 </item><item>Творческое радио
 \nhttp://ic6.101.ru:8000/p605845
-</item><item>ТЕБЕ СЮДА - Если тебе ЗА ...
+</item><item>ТЕБЕ СЮДА - Если тебе ЗА
 \nhttp://ic6.101.ru:8000/p870389
 </item><item>Тем кому за сорок
 \nhttp://ic6.101.ru:8000/p681370
@@ -22170,7 +22194,7 @@
 \nhttp://ic6.101.ru:8000/p312449
 </item><item>Только для себя)))
 \nhttp://ic6.101.ru:8000/p187816
-</item><item>Только для Тебя... 101.ru
+</item><item>Только для Тебя 101.ru
 \nhttp://ic6.101.ru:8000/p551305
 </item><item>Только лирика
 \nhttp://ic6.101.ru:8000/p247378
@@ -22388,7 +22412,7 @@
 \nhttp://ic6.101.ru:8000/p249358
 </item><item>Услада для ушей FM
 \nhttp://ic6.101.ru:8000/p773109
-</item><item>Утреннее настроение...
+</item><item>Утреннее настроение
 \nhttp://ic6.101.ru:8000/p650720
 </item><item>Утренний микс
 \nhttp://ic6.101.ru:8000/p775104
@@ -22842,7 +22866,7 @@
 \nhttp://ic6.101.ru:8000/p442766
 </item><item>Шнурок
 \nhttp://ic6.101.ru:8000/p766043
-</item><item>шок FM
+</item><item>Шок FM
 \nhttp://ic6.101.ru:8000/p875134
 </item><item>ШОСТОЧКА - Стильное РаДио
 \nhttp://ic6.101.ru:8000/p467679
@@ -22856,7 +22880,7 @@
 \nhttp://ic6.101.ru:8000/p245549
 </item><item>ШТОРМ FM
 \nhttp://ic6.101.ru:8000/p581540
-</item><item>штырит
+</item><item>Штырит
 \nhttp://ic6.101.ru:8000/p560717
 </item><item>Шумофф Кострома
 \nhttp://ic6.101.ru:8000/p750713
@@ -22896,7 +22920,7 @@
 \nhttp://ic6.101.ru:8000/p766675
 </item><item>Электро-денс
 \nhttp://ic6.101.ru:8000/p777687
-</item><item>электроника
+</item><item>Электроника
 \nhttp://ic6.101.ru:8000/p704097
 </item><item>Электронная музыка
 \nhttp://ic6.101.ru:8000/p94654
@@ -22904,9 +22928,9 @@
 \nhttp://ic6.101.ru:8000/p824434
 </item><item>Электронный бум
 \nhttp://ic6.101.ru:8000/p332278
-</item><item>электрореальность
+</item><item>Электрореальность
 \nhttp://ic6.101.ru:8000/p507366
-</item><item>электросфера FM
+</item><item>Электросфера FM
 \nhttp://ic6.101.ru:8000/p772205
 </item><item>Элларейтс
 \nhttp://ic6.101.ru:8000/p835060
@@ -22934,11 +22958,11 @@
 \nhttp://ic6.101.ru:8000/p823515
 </item><item>Это было не так давно
 \nhttp://ic6.101.ru:8000/p603099
-</item><item>Это мои восьмидесятые...
+</item><item>Это мои восьмидесятые
 \nhttp://ic6.101.ru:8000/p521388
 </item><item>ЭТО ПРОСТО МИРАЖ
 \nhttp://ic6.101.ru:8000/p643180
-</item><item>Это я называю музыкой...
+</item><item>Это я называю музыкой
 \nhttp://ic6.101.ru:8000/p237492
 </item><item>Это я!
 \nhttp://ic6.101.ru:8000/p417178
@@ -22962,9 +22986,9 @@
 \nhttp://ic6.101.ru:8000/p847773
 </item><item>Ю FM - первое танцевальное движение
 \nhttp://ic6.101.ru:8000/p786578
-</item><item>ЮFM
+</item><item>Ю FM
 \nhttp://ic6.101.ru:8000/p779448
-</item><item>южная столица
+</item><item>Южная столица
 \nhttp://ic6.101.ru:8000/p840401
 </item><item>Южная Фабрика Рэпа
 \nhttp://ic6.101.ru:8000/p770463
@@ -22976,7 +23000,7 @@
 \nhttp://ic6.101.ru:8000/p731628
 </item><item>Юлия
 \nhttp://ic6.101.ru:8000/p806168
-</item><item>ЮМОР ...ЕПТЬ...
+</item><item>ЮМОР ЕПТЬ
 \nhttp://ic6.101.ru:8000/p834594
 </item><item>Юмор 37 Регион
 \nhttp://ic6.101.ru:8000/p653767
@@ -22986,7 +23010,7 @@
 \nhttp://ic6.101.ru:8000/p807829
 </item><item>ЮМОР ИЗБРАННОЕ
 \nhttp://ic6.101.ru:8000/p787303
-</item><item>ЮМОРрулит
+</item><item>ЮМОР рулит
 \nhttp://ic6.101.ru:8000/p771769
 </item><item>ЮНАЯ ВЕСНА DANCE FM
 \nhttp://ic6.101.ru:8000/p447830
@@ -23019,30 +23043,27 @@
 </item><item>Я из девяностых\nhttp://ic6.101.ru:8000/p99317</item>
 <item>Я меломан\nhttp://ic6.101.ru:8000/p721822</item>
 <item>Я Тебя Люблю\nhttp://ic6.101.ru:8000/p422533</item>
-<item>ЯockHits
+<item>RockHits
 \nhttp://ic6.101.ru:8000/p90081
 </item><item>Яблоко
 \nhttp://ic6.101.ru:8000/p873433
-</item><item>яболеюзаЗЕНИТ
+</item><item>Яболею за ЗЕНИТ
 \nhttp://ic6.101.ru:8000/p567686
 </item><item>Яичница
 \nhttp://ic6.101.ru:8000/p414577
 </item><item>Ян и Инь
 \nhttp://ic6.101.ru:8000/p647492
-</item><item>яна на небесах
+</item><item>Яна на небесах
 \nhttp://ic6.101.ru:8000/p857397
 </item><item>Японская подземка
 \nhttp://ic6.101.ru:8000/p841905
 </item><item>Я-радио
 \nhttp://ic6.101.ru:8000/p803914
-</item><item>Ярик fm
-\nhttp://ic6.101.ru:8000/p783917
-</item><item>Яркое FM
-\nhttp://ic6.101.ru:8000/p846748
-</item><item>ЯрмаК  Стольный Град
-\nhttp://ic6.101.ru:8000/p447260
-</item><item>Ярославль
-\nhttp://ic6.101.ru:8000/p762307</item>
+</item>
+<item>Ярик fm\nhttp://ic6.101.ru:8000/p783917</item>
+<item>Яркое FM\nhttp://ic6.101.ru:8000/p846748</item>
+<item>ЯрмаК  Стольный Град\nhttp://ic6.101.ru:8000/p447260</item>
+<item>Ярославль\nhttp://ic6.101.ru:8000/p762307</item>
 <item>Ярцево-55555\nhttp://ic6.101.ru:8000/p849831</item>
 <item>Яшто Таки Ану\nhttp://ic6.101.ru:8000/p851273</item>
 <item>Art and Progressive Rock\nhttp://ic6.101.ru:8000/p928943</item>

@@ -11,6 +11,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.browse
+import org.jetbrains.anko.longToast
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.toast
 
@@ -45,7 +46,7 @@ class Abaut : Activity() {
                 toast("Спасибо")
             } else {
                 Main.save_value("reklama_pokaz", "of")
-                toast("Если решили кинуть копеечку спасибо! , реклама будет скрыта после перезагрузки")
+                longToast("Если решили кинуть копеечку спасибо! , реклама будет скрыта после перезагрузки")
             }
 
             //подаждём секунду и откроем браужзер

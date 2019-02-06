@@ -2,8 +2,6 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.content.*
 import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.Typeface
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -24,7 +22,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
 
 
     private lateinit var context: Context
-    private var raduoSearchList: List<Radio>? = data
+    private var raduoSearchList: ArrayList<Radio> = data
     //у списка нажатых строк при первом запуске будем отмечать последнию нажатую строку
     //потом будем добавлять но сохранится только последняя
     private var cho_nagimal: MutableSet<Int> = mutableSetOf(Main.cho_nagimali_poslednee)
@@ -37,8 +35,8 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
             override fun performFiltering(charSequence: CharSequence): Filter.FilterResults {
 
                 val charString = charSequence.toString()
-                raduoSearchList = if (charString.isEmpty()) {
-                    data
+                if (charString.isEmpty()) {
+                    this@Adapter_vse_list.raduoSearchList = data
                 } else {
                     val filteredList = ArrayList<Radio>()
 
@@ -59,17 +57,15 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
                             }
                         }
                     }
-
-
-                    filteredList
+                    this@Adapter_vse_list.raduoSearchList = filteredList
                 }
                 val filterResults = Filter.FilterResults()
-                filterResults.values = raduoSearchList
+                filterResults.values = this@Adapter_vse_list.raduoSearchList
                 return filterResults
             }
 
             override fun publishResults(charSequence: CharSequence, filterResults: Filter.FilterResults) {
-                raduoSearchList = filterResults.values as List<Radio>?
+                this@Adapter_vse_list.raduoSearchList = filterResults.values as ArrayList<Radio>
                 notifyDataSetChanged()
             }
         }
@@ -95,13 +91,13 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
     }
 
     override fun getItemCount(): Int {
-        return raduoSearchList!!.size
+        return this.raduoSearchList.size
     }
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
 
         //заполним данными
-        val radio: Radio = this.raduoSearchList!![p1]
+        val radio: Radio = this.raduoSearchList[p1]
 
         val name = radio.name
 
