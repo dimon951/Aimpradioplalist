@@ -22,6 +22,7 @@ import org.jetbrains.anko.hintTextColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.toast
+import org.jetbrains.anko.textColor
 import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
 
 import java.util.ArrayList
@@ -46,6 +47,7 @@ class Vse_radio : Fragment() {
 
         find = v.findViewById(R.id.editText_find)
         find.typeface = Main.face
+        find.textColor = Main.COLOR_TEXT
         find.hintTextColor = Main.COLOR_TEXTcontext
 
 

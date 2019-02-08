@@ -107,7 +107,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
                 (dds.view().findViewById<Button>(R.id.button_dialog_delete)).onClick {
 
-                    Slot(context, "File_created", false).onRun { it ->
+                    Slot(context, "File_created", false).onRun {
                         //получим данные
                         val s = it.getStringExtra("update")
                         when (s) {
@@ -160,7 +160,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                         //если все хорошо закрываем окошко ввода имени
                         nsf.close()
 
-                        Slot(context, "File_created", false).onRun { it ->
+                        Slot(context, "File_created", false).onRun {
                             //получим данные
                             val s = it.getStringExtra("update")
                             //if (s == "zaebis") {

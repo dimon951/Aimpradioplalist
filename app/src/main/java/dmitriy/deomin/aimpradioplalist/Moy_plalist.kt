@@ -137,7 +137,7 @@ class Moy_plalist : Fragment() {
 
                 (ddp.view().findViewById<Button>(R.id.button_dialog_delete)).onClick {
 
-                    Slot(context, "File_created", false).onRun { it ->
+                    Slot(context, "File_created", false).onRun {
                         //получим данные
                         val s = it.getStringExtra("update")
                         when (s) {
@@ -190,7 +190,7 @@ class Moy_plalist : Fragment() {
                     if (edit.text.toString().substring(0, 7) == "http://" || edit.text.toString().substring(0, 8) == "https://") {
 
 
-                        Slot(context, "File_created", false).onRun { it ->
+                        Slot(context, "File_created", false).onRun {
                             //получим данные
                             val s = it.getStringExtra("update")
                             when (s) {
@@ -464,7 +464,7 @@ class Moy_plalist : Fragment() {
 
     //чтение из буфера
     private fun getText(c: Context): String {
-        var text: String? = null
+        var text:String="Буфер обмена пуст"
         val sdk = android.os.Build.VERSION.SDK_INT
         text = if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
             val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager?
