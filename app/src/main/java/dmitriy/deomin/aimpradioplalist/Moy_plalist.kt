@@ -11,16 +11,15 @@ import android.view.ViewGroup
 import java.util.ArrayList
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.widget.*
 import dmitriy.deomin.aimpradioplalist.custom.*
-import kotlinx.android.synthetic.main.my_plalist.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.email
 import org.jetbrains.anko.support.v4.share
+import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
 import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
@@ -74,12 +73,12 @@ class Moy_plalist : Fragment() {
 
                 for (i in mr.indices) {
                     val m = mr[i].split("\n")
-                    if (m.size>1) {
+                    if (m.size > 1) {
                         d.add(Radio(m[0], "", "", m[1]))
-                    }else{
-                        if(m.isEmpty()){
-                            if(m[0]!="#EXTM3U"){
-                                d_error.add(mr[i]+" Позиция:"+i.toString())
+                    } else {
+                        if (m.isEmpty()) {
+                            if (m[0] != "#EXTM3U") {
+                                d_error.add(mr[i] + " Позиция:" + i.toString())
                             }
                         }
                     }
@@ -91,22 +90,22 @@ class Moy_plalist : Fragment() {
                 //---------------------------------------------------------
 
                 //перемотаем
-                if(position_list<d.size&& position_list>=0 ) {
+                if (position_list < d.size && position_list >= 0) {
                     recikl_list.scrollToPosition(position_list)
                 }
 
 
-                if(d_error.size>0){
+                if (d_error.size > 0) {
                     //покажем кнопочку для показа списка всех ошибок, чтобы могли вручную их добавить
                     leiner_error.visibility = View.VISIBLE
-                    text_erro.text = "Не получилось импортировать "+d_error.size.toString()+" шт"
+                    text_erro.text = "Не получилось импортировать " + d_error.size.toString() + " шт"
                     text_erro.onClick {
                         //покажем диалоговое окно с списком брака
-                        val ei = DialogWindow(context,R.layout.error_import)
+                        val ei = DialogWindow(context, R.layout.error_import)
                         val podrobno = ei.view().findViewById<TextView>(R.id.textView_error_import_podrobno)
                         var tx = "Ошибки: "
-                        for (t in d_error.iterator()){
-                           tx+=t
+                        for (t in d_error.iterator()) {
+                            tx += t
                         }
                         podrobno.text = tx
 
@@ -115,10 +114,9 @@ class Moy_plalist : Fragment() {
                         leiner_error.visibility = View.GONE
                     }
                     context.toast("Готово, но обыли ошибки")
-                }else{
+                } else {
                     context.toast("ok")
                 }
-
 
 
             }
@@ -183,42 +181,42 @@ class Moy_plalist : Fragment() {
 
             (auu.view().findViewById<Button>(R.id.button_add_url)).onClick {
 
-                //проверим на пустоту
-                if (edit.text.toString().length > 7) {
-
-                    //проверим есть ли в начале ссылки http:// или "https://" - ато от неё много чего зависит
-                    if (edit.text.toString().substring(0, 7) == "http://" || edit.text.toString().substring(0, 8) == "https://") {
-
-
-                        Slot(context, "File_created", false).onRun {
-                            //получим данные
-                            val s = it.getStringExtra("update")
-                            when (s) {
-                                "est" -> context.toast("Такая станция уже есть в плейлисте")
-                                "zaebis" -> {
-                                    //пошлём сигнал пусть мой плейлист обновится
-                                    signal("Data_add").putExtra("update", "zaebis").send(context)
-                                }
-                                "pizdec" -> {
-                                    context.toast(context.getString(R.string.error))
-                                    //запросим разрешения
-                                    Main.EbuchieRazreshenia()
-                                }
-                            }
-                        }
-                        //делаем
-                        val file_function = File_function()
-                        file_function.Add_may_plalist_stansiy(edit.text.toString(), edit_name.text.toString())
-
-                        auu.close()
-                    } else {
-                        edit.setText("http://" + edit.text.toString())
-                        context.toast("В начале ссылки потока должна быть http://, добавил , повторите :)")
-                    }
-
-                } else {
-                    context.toast("Нечего добавлять")
-                }
+//                //проверим на пустоту
+//                if (edit.text.toString().length > 7) {
+//
+//                    //проверим есть ли в начале ссылки http:// или "https://" - ато от неё много чего зависит
+//                    if (edit.text.toString().substring(0, 7) == "http://" || edit.text.toString().substring(0, 8) == "https://") {
+//
+//
+//                        Slot(context, "File_created", false).onRun {
+//                            //получим данные
+//                            val s = it.getStringExtra("update")
+//                            when (s) {
+//                                "est" -> context.toast("Такая станция уже есть в плейлисте")
+//                                "zaebis" -> {
+//                                    //пошлём сигнал пусть мой плейлист обновится
+//                                    signal("Data_add").putExtra("update", "zaebis").send(context)
+//                                }
+//                                "pizdec" -> {
+//                                    context.toast(context.getString(R.string.error))
+//                                    //запросим разрешения
+//                                    Main.EbuchieRazreshenia()
+//                                }
+//                            }
+//                        }
+//                        //делаем
+//                        val file_function = File_function()
+//                        file_function.Add_may_plalist_stansiy(edit.text.toString(), edit_name.text.toString())
+//
+//                        auu.close()
+//                    } else {
+//                        edit.setText("http://" + edit.text.toString())
+//                        context.toast("В начале ссылки потока должна быть http://, добавил , повторите :)")
+//                    }
+//
+//                } else {
+//                    context.toast("Нечего добавлять")
+//                }
             }
         }
         //-----------------------------------------------------------------------------------------
@@ -464,14 +462,19 @@ class Moy_plalist : Fragment() {
 
     //чтение из буфера
     private fun getText(c: Context): String {
-        var text:String="Буфер обмена пуст"
+        val text: String
         val sdk = android.os.Build.VERSION.SDK_INT
         text = if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
             val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager?
             clipboard!!.text.toString()
         } else {
             val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager?
-            clipboard!!.text.toString()
+            if(clipboard!!.text==null){
+                toast("Буфер обмена пуст")
+                ""
+            }else{
+                clipboard.text.toString()
+            }
         }
         return text
     }

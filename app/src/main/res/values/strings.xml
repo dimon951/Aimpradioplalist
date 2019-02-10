@@ -221,11 +221,68 @@
 
     <string-array name="vse_radio">
 
+        <item>ABBA -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a104?</item>
+        <item>Bon Jovi -Дискография- 64kbps\nhttp://ic5.101.ru:8000/p307544</item>
+        <item>Boney M -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a114?</item>
+        <item>Café del Mar Radio -Дискография- 64kbps\nhttp://cdn.instream.audio:9155/stream</item>
+        <item>DDT -Дискография- 64kbps\nhhttp://ic2.101.ru:8000/a112?</item>
+        <item>Deep Purple -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a125?</item>
+        <item>Depeche Mode -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a105?</item>
+        <item>Elton John -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a142?</item>
+        <item>Elvis Presley -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a111?</item>
+        <item>Katy Perry? -Дискография- 64kbps\nhttp://icy.unitedradio.it/101SpecialArtist.aac</item>
+        <item>Enigma†ic station ІІ -Музыка- 64kbps\nhttp://ic5.101.ru:8000/p208711</item>
+        <item>Linkin Park -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a149?</item>
+        <item>Madonna -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a128?</item>
+        <item>Metallica -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a123?</item>
+        <item>Michael Jackson -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a52?</item>
+        <item>Modern Talking -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a115?</item>
+        <item>Mylene Farmer -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a166?</item>
+        <item>Natalia OREIRO -Дискография- 64kbps\nhttp://ic5.101.ru:8000/p325338</item>
+        <item>Наутилус Помпилиус -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a126?</item>
+        <item>Наутилус Помпилиус -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a126</item>
+        <item>Pet Shop Boys -Дискография- 64kbps\nhttp://ic5.101.ru:8000/p853646</item>
+        <item>Pink Floyd -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a53?</item>
+        <item>Robbie Williams -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a138?</item>
+        <item>Sandra -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a179?</item>
+        <item>Scropions -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a113?</item>
+        <item>Queen -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a54?</item>
+        <item>Queen -Дискография- 48kbps\nhttp://stream.open.fm/185</item>
+        <item>AC/DC -Дискография- 192kbps\nhttp://streams.radiobob.de/bob-acdc/mp3-192/radiosure/</item>
+        <item>Andrea -Дискография- 128kbps\nhttp://streams.schlagerplanetradio.com/andrea/mp3-128/radiosure/</item>
+        <item>Roland Kaiser -Дискография- 128kbps\nhttp://streams.schlagerplanetradio.com/kaiser/mp3-128</item>
+        <item>The Beatles -Дискография- 128kbps\nhttp://ic2.101.ru:8000/c10_3?</item>
+        <item>The Rolling Stones -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a117</item>
+        <item>U2 -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a109?</item>
+        <item>Агата Кристи -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a139?</item>
+        <item>Александр Розенбаум -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a153?</item>
+        <item>Алиса -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a137?</item>
+        <item>Ария -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a118?</item>
+        <item>БГ и Аквариум -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a57?</item>
+        <item>Вадим Захаров -Дискография- 192kbps\nhttp://radio.iccw.ru:8000/zaharovsongs</item>
+        <item>Владимир Высоцкий -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a58?</item>
+        <item>Владимир Высоцкий -Дискография- 96kbps\nhttp://radio.iccw.ru:8000/vysotskiy</item>
+        <item>Каста -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a121?</item>
+        <item>Кино -Дискография- 64kbps\nhttp://radio.iccw.ru:8000/kino</item>
+        <item>Цой и группа«КИНО» -Дискография- 128kbps\nhttp://ic2.101.ru:8000/a103?</item>
+        <item>Король и Шут -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a191?</item>
+        <item>Любэ -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a158?</item>
+        <item>Машина Времени -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a59?</item>
+        <item>Михаил Круг -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a110?</item>
+        <item>Муслим Магомаев -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a156?</item>
+        <item>Океан Эльзы -Дискография- 128kbps\nhttp://music.myradio.ua/okeanelzy128.mp3</item>
+        <item>Пикник -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a157?</item>
+        <item>Руки вверх! -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a163?</item>
+        <item>Стас Михайлов -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a154?</item>
+        <item>ТНМК -Дискография- 128kbps\nhttp://music.myradio.ua/tnmk128.mp3</item>
+        <item>Филипп Киркоров -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a116?</item>
+        <item>Чиж и Co -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a221?</item>
+        <item>Чиж и Co -Дискография- 192kbps\nhttp://radio.iccw.ru:8000/chizh</item>
 
+        <item>Детские сказки -Детское- 128kbps\nhttp://ic2.101.ru:8000/c17_27?</item>
         <item>Europa Plus: Свежее -Музыка- 32kbps\nhttp://hls-01-fresh.emgsound.ru/9/32/playlist.m3u8</item>
         <item>Europa Plus: Свежее -Музыка- 64kbps\nhttp://hls-01-fresh.emgsound.ru/9/64/playlist.m3u8</item>
         <item>Europa Plus: Свежее -Музыка- 128kbps\nhttp://hls-01-fresh.emgsound.ru/9/128/playlist.m3u8</item>
-
         <item>Europa Plus: Residance -Музыка- 32kbps\nhttp://hls-01-europaplus-residance.emgsound.ru/26/32/playlist.m3u8</item>
         <item>Europa Plus: Residance -Музыка- 64kbps\nhttp://hls-01-europaplus-residance.emgsound.ru/26/64/playlist.m3u8</item>
         <item>Europa Plus: Residance -Музыка- 128kbps\nhttp://hls-01-europaplus-residance.emgsound.ru/26/128/playlist.m3u8</item>
@@ -244,7 +301,6 @@
         <item>Europa Plus: TOP 40 -Музыка- 32kbps\nhttp://hls-01-europaplus-top40.emgsound.ru/21/32/playlist.m3u8</item>
         <item>Europa Plus: TOP 40 -Музыка- 64kbps\nhttp://hls-01-europaplus-top40.emgsound.ru/21/64/playlist.m3u8</item>
         <item>Europa Plus: TOP 40 -Музыка- 128kbps\nhttp://hls-01-europaplus-top40.emgsound.ru/21/128/playlist.m3u8</item>
-
         <item>Super Radio -Музыка- 128kbps\nhttp://listen6.myradio24.com:9000/finist7747</item>
         <item>Super Radio -Музыка- 64kbps\nhttp://ic6.101.ru:8000/p902901</item>
         <item>Super Radio -Музыка- 64kbps\nhttp://ic5.101.ru:8000/p902901</item>
@@ -450,7 +506,7 @@
         <item>Радио Руское Кино 96kbps\nhttps://rr-russkoekino.hostingradio.ru/russkoekino96.aacp</item>
         <item>Радио Соня 96kbps\nhttps://rr-sonya.hostingradio.ru/sonya96.aacp</item>
         <item>Детский канал -Детское- 96kbps\nhttps://rr-detskijkanal.hostingradio.ru/detskijkanal96.aacp</item>
-        <item>Радио Высоцкий 96kbps\nhttps://rr-vysockij.hostingradio.ru/vysockij96.aacp</item>
+        <item>Высоцкий -Дискография- 96kbps\nhttps://rr-vysockij.hostingradio.ru/vysockij96.aacp</item>
         <item>Радио Мелодии Века 128kbps\nhttp://93.84.112.253:8010/MV128</item>
         <item>Радио Пирамида 80kbps\nhttp://81.88.192.51:8000/Piramida</item>
         <item>Радио Gakku FM 128kbps\nhttps://stream.gakku.tv/radio/live</item>
@@ -865,14 +921,14 @@
         <item>Баллады 128kbps\nhttp://relay.radio.obozrevatel.com/Ballads128.mp3</item>
         <item>Блюз 128kbps\nhttp://relay.radio.obozrevatel.com/blues128.mp3</item>
         <item>Breakbeat 128kbps\nhttp://relay.radio.obozrevatel.com/breakbeat128.mp3</item>
-        <item>Виктор Цой и Кино 128kbps\nhttp://relay.radio.obozrevatel.com/viktor-tsoy-i-gruppa-kino128.mp3</item>
-        <item>Владимир Высоцкий 128kbps\nhttp://relay.radio.obozrevatel.com/pesni-vysockogo128.mp3</item>
+        <item>Виктор Цой и Кино -Дискография- 128kbps\nhttp://relay.radio.obozrevatel.com/viktor-tsoy-i-gruppa-kino128.mp3</item>
+        <item>Владимир Высоцкий -Дискография- 128kbps\nhttp://relay.radio.obozrevatel.com/pesni-vysockogo128.mp3</item>
         <item>Gangsta Rap 128kbps\nhttp://relay.radio.obozrevatel.com/gangstarap128.mp3</item>
         <item>Gotic 128kbps\nhttp://relay.radio.obozrevatel.com/Gothic128.mp3</item>
-        <item>Depeche Mode 128kbps\nhttp://relay.radio.obozrevatel.com/depechemode128.mp3</item>
+        <item>Depeche Mode -Дискография- 128kbps\nhttp://relay.radio.obozrevatel.com/depechemode128.mp3</item>
         <item>Dubstep 128kbps\nhttp://relay.radio.obozrevatel.com/dubstep128.mp3</item>
-        <item>Детские песни 128kbps\nhttp://relay.radio.obozrevatel.com/kids-songs128.mp3</item>
-        <item>Детские сказки 128kbps\nhttp://relay.radio.obozrevatel.com/fairytales128.mp3</item>
+        <item>Детские песни -Детское- 128kbps\nhttp://relay.radio.obozrevatel.com/kids-songs128.mp3</item>
+        <item>Детские сказки -Детское- 128kbps\nhttp://relay.radio.obozrevatel.com/fairytales128.mp3</item>
         <item>Джаз 128kbps\nhttp://relay.radio.obozrevatel.com/Jazz128.mp3</item>
         <item>Джаз-Рок 128kbps\nhttp://relay.radio.obozrevatel.com/JazzRockFusion128.mp3</item>
         <item>Дискотека 80-х 128kbps\nhttp://relay.radio.obozrevatel.com/Disco128.mp3</item>
@@ -884,14 +940,14 @@
         <item>Классика рока (ex Hard Rock) 128kbps\nhttp://relay.radio.obozrevatel.com/HardRock128.mp3</item>
         <item>Классическая музыка 128kbps\nhttp://relay.radio.obozrevatel.com/Classica128.mp3</item>
         <item>Cool-school 128kbps\nhttp://relay.radio.obozrevatel.com/coolschool128.mp3</item>
-        <item>Михаил Круг 128kbps\nhttp://relay.radio.obozrevatel.com/mihail-krug128.mp3</item>
+        <item>Михаил Круг -Дискография- 128kbps\nhttp://relay.radio.obozrevatel.com/mihail-krug128.mp3</item>
         <item>Мировые хиты 128kbps\nhttp://relay.radio.obozrevatel.com/world-hit128.mp3</item>
-        <item>Океан Ельзи 128kbps\nhttp://relay.radio.obozrevatel.com/okeanelzy128.mp3</item>
+        <item>Океан Ельзи -Дискография- 128kbps\nhttp://relay.radio.obozrevatel.com/okeanelzy128.mp3</item>
         <item>Прикольные песни 128kbps\nhttp://relay.radio.obozrevatel.com/Kapec128.mp3</item>
-        <item>Queen 128kbps\nhttp://relay.radio.obozrevatel.com/queen128.mp3</item>
+        <item>Queen -Дискография- 128kbps\nhttp://relay.radio.obozrevatel.com/queen128.mp3</item>
         <item>Музыка для сна 128kbps\nhttp://relay.radio.obozrevatel.com/sleepmusic128.mp3</item>
         <item>Музыка Казантипа 128kbps\nhttp://relay.radio.obozrevatel.com/Kazantip128.mp3</item>
-        <item>Музыка из фильмов 128kbps\nhttp://relay.radio.obozrevatel.com/kino128.mp3</item>
+        <item>Музыка из фильмов -Саундтреки- 128kbps\nhttp://relay.radio.obozrevatel.com/kino128.mp3</item>
         <item>ZaycevFM Шансон 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_shanson_256.mp3</item>
         <item>ZaycevFM Шансон 128kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_shanson_128.mp3</item>
         <item>ZaycevFM Русские 256kbps\nhttps://zaycevfm.cdnvideo.ru/ZaycevFM_rus_256.mp3</item>
@@ -916,7 +972,7 @@
         <item>Сома ФМ Секретный Агент 128kbps\nhttp://ice.somafm.com/secretagent</item>
         <item>Радио Медиа няня 128kbps\nhttp://stream5.radiostyle.ru:8005/mediananny</item>
         <item>Радио Подвиг 32kbps\nhttp://stream0.radiostyle.ru:8000/feat</item>
-        <item>Радио Музыка кино 128kbps\nhttp://music.myradio.com.ua:8000/kino128.mp3</item>
+        <item>Музыка кино -Саундтреки- 128kbps\nhttp://music.myradio.com.ua:8000/kino128.mp3</item>
         <item>Радио ExciteBit 128kbps\nhttp://46.105.180.202:8100/stream</item>
         <item>Хит FM Украина 128kbps\nhttp://online-hitfm.tavrmedia.ua/HitFM</item>
         <item>87.5 Business FM -Разговорное- 131kbps\nhttp://bfm.hostingradio.ru:8004/fm</item>
@@ -933,7 +989,7 @@
         <item>93.2 Спорт FM 128kbps\nhttp://sportfm128.streamr.ru</item>
         <item>94.8 Говорит Москва 128kbps\nhttp://media.govoritmoskva.ru:8000/rufm_m.mp3</item>
         <item>95.2 Rock FM 128kbps\nhttp://rock128.streamr.ru</item>
-        <item>Детское радио 128kbps\nhttp://ic3.101.ru:8000/v14_1</item>
+        <item>Детское радио -Детское-  128kbps\nhttp://ic3.101.ru:8000/v14_1</item>
 
         <item>Детское радио -Детское- 128kbps\nhttp://radio.2kom.ru:8000/detskoe</item>
         <item>КП Федеральное -Разговорное- 256kbps\nhttp://kraskp.ru:8000/mskregion</item>
@@ -1792,13 +1848,13 @@
         <item>Юность
 \nhttp://ic6.101.ru:8000/p615374
 </item>
-        <item>##ПЕСНИ ДЛЯ ДУШИ##
+        <item>ПЕСНИ ДЛЯ ДУШИ
 \nhttp://ic6.101.ru:8000/p53241
 </item>
-        <item>#Colors of love
+        <item>Colors of love
 \nhttp://ic6.101.ru:8000/p56922
 </item>
-        <item>$$$~Club Music~$$$
+        <item>Club Music
 \nhttp://ic6.101.ru:8000/p414983
 </item>
         <item>-- Украина  2014 - -
@@ -1828,7 +1884,7 @@
         <item>(((THE BEST)))
 \nhttp://ic6.101.ru:8000/p449168
 </item>
-        <item>(((Танцуют все)))
+        <item>Танцуют все
 \nhttp://ic6.101.ru:8000/p247654
 </item>
         <item>(TranceNRJ)Rock
@@ -1837,7 +1893,7 @@
         <item>))))Свежий Ветер((((
 \nhttp://ic6.101.ru:8000/p224262
 </item>
-        <item># Top FM #
+        <item>Top FM
 \nhttp://ic6.101.ru:8000/p422553
 </item>
         <item> SLON 500
@@ -1924,21 +1980,11 @@
         <item>Liurik\nhttp://ic6.101.ru:8000/p867628</item>
         <item>Бесконечность чувств\nhttp://ic6.101.ru:8000/p449161</item>
         <item>М И Л О\nhttp://ic6.101.ru:8000/p807426</item>
-        <item>..::DENCE DJ RADIO::..
-\nhttp://ic6.101.ru:8000/p66509
-</item>
-        <item>..:СоЗАЭ:..
-\nhttp://ic6.101.ru:8000/p748719
-</item>
-        <item>.:: NFS Music FM ::.
-\nhttp://ic6.101.ru:8000/p373564
-</item>
-        <item>.:: РАДИО PESOK ::.
-\nhttp://ic6.101.ru:8000/p841775
-</item>
-        <item>.::РУССКАЯ МУЗЫКА 2015::.
-\nhttp://ic6.101.ru:8000/p784138
-</item>
+        <item>DENCE DJ RADIO\nhttp://ic6.101.ru:8000/p66509</item>
+        <item>СоЗАЭ\nhttp://ic6.101.ru:8000/p748719</item>
+        <item>NFS Music FM\nhttp://ic6.101.ru:8000/p373564</item>
+        <item>РАДИО PESOK\nhttp://ic6.101.ru:8000/p841775</item>
+        <item>РУССКАЯ МУЗЫКА 2015\nhttp://ic6.101.ru:8000/p784138</item>
         <item>.:Only For You:.FM
 \nhttp://ic6.101.ru:8000/p834267
 </item>
@@ -1978,22 +2024,13 @@
         <item> ВДВ  АФГАН  СПЕЦНАЗ  ЧЕЧНЯ
 \nhttp://ic6.101.ru:8000/p694046
 </item>
-        <item>Ночной Экспресс\nhttp://ic6.101.ru:8000/p723974
-</item>
-        <item>O O\nhttp://ic6.101.ru:8000/p562873
-</item>
-        <item>EURODANCE 90\nhttp://ic6.101.ru:8000/p619768
-</item>
-        <item>drenaline radio\nhttp://ic6.101.ru:8000/p563467
-</item>
-        <item>Пятница MUSIK!!!\nhttp://ic6.101.ru:8000/p719620
-</item>
-        <item>[ES] Exact Snipers
-\nhttp://ic6.101.ru:8000/p582431
-</item>
-        <item>[Minimal Techno]
-\nhttp://ic6.101.ru:8000/p705324
-</item>
+        <item>Ночной Экспресс\nhttp://ic6.101.ru:8000/p723974</item>
+        <item>O O\nhttp://ic6.101.ru:8000/p562873</item>
+        <item>EURODANCE 90\nhttp://ic6.101.ru:8000/p619768</item>
+        <item>drenaline radio\nhttp://ic6.101.ru:8000/p563467</item>
+        <item>Пятница MUSIK!!!\nhttp://ic6.101.ru:8000/p719620</item>
+        <item>[ES] Exact Snipers\nhttp://ic6.101.ru:8000/p582431</item>
+        <item>[Minimal Techno]\nhttp://ic6.101.ru:8000/p705324</item>
         <item>[--MusicS Combine--]
 \nhttp://ic6.101.ru:8000/p698326
 </item>
@@ -2051,10 +2088,10 @@
         <item>«Всё по плану» - русское регги
 \nhttp://ic6.101.ru:8000/p618285
 </item>
-        <item>«Позитив»90х
+        <item>Позитив 90х
 \nhttp://ic6.101.ru:8000/p383561
 </item>
-        <item>†Музыка лечит†Tim™
+        <item>Музыка лечитTim
 \nhttp://ic6.101.ru:8000/p616821
 </item>
         <item>•••The SтаiL
@@ -2628,12 +2665,8 @@
         <item>1001 Songs Before You Die
 \nhttp://ic6.101.ru:8000/p844290
 </item>
-        <item>Антидепрессант
-\nhttp://ic6.101.ru:8000/p413740
-</item>
-        <item>01010FM
-\nhttp://ic6.101.ru:8000/p600591
-</item>
+        <item>Антидепрессант -Музыка- 64kbps\nhttp://ic6.101.ru:8000/p413740</item>
+        <item>01010FM -Музыка- 64kbps\nhttp://ic6.101.ru:8000/p600591</item>
         <item>1958
 \nhttp://ic6.101.ru:8000/p16065
 </item>
@@ -21686,9 +21719,6 @@
         <item>В Шансоне
 \nhttp://ic6.101.ru:8000/p763037
 </item>
-        <item>В.С.Высоцкий
-\nhttp://ic6.101.ru:8000/p799887
-</item>
         <item>В34
 \nhttp://ic6.101.ru:8000/p818844
 </item>
@@ -21971,15 +22001,9 @@
         <item>Владимир Асмолов
 \nhttp://ic6.101.ru:8000/p709584
 </item>
-        <item>Владимир Высоцкий
-\nhttp://ic6.101.ru:8000/p591718
-</item>
-        <item>Владимир Кузьмин
-\nhttp://ic6.101.ru:8000/p506179
-</item>
-        <item>Владимир Кузьмин лучшее
-\nhttp://ic6.101.ru:8000/p793826
-</item>
+        <item>Владимир Высоцкий -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p591718</item>
+        <item>Владимир Кузьмин -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p506179</item>
+        <item>Владимир Кузьмин лучшее -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p793826</item>
         <item>Владимир Семёнович
 \nhttp://ic6.101.ru:8000/p612955
 </item>
@@ -22313,12 +22337,7 @@
         <item>Выселяйтесь соседи
 \nhttp://ic6.101.ru:8000/p506881
 </item>
-        <item>Высоцкий - избранное
-\nhttp://ic6.101.ru:8000/p187794
-</item>
-        <item>Высоцкий и Сергей Наговицын (душу рвут)
-\nhttp://ic6.101.ru:8000/p670096
-</item>
+        <item>Высоцкий и Сергей Наговицын -Музыка- 64kbps\nhttp://ic6.101.ru:8000/p670096</item>
         <item>Вышка
 \nhttp://ic6.101.ru:8000/p316025
 </item>
@@ -22469,9 +22488,7 @@
         <item>Городская Волна  -  Голос нашего города.
 \nhttp://ic6.101.ru:8000/p833301
 </item>
-        <item>Горшок (ШУТ) Король и Шут
-\nhttp://ic6.101.ru:8000/p688110
-</item>
+        <item>Горшок Король и Шут -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p688110</item>
         <item>Горячая точка
 \nhttp://ic6.101.ru:8000/p247579
 </item>
@@ -33312,7 +33329,7 @@
         <item>чуствуешь так же
 \nhttp://ic6.101.ru:8000/p442177
 </item>
-        <item>Ш_А_Н_С_О_Н
+        <item>ШАНСОН
 \nhttp://ic6.101.ru:8000/p579890
 </item>
         <item>Ш3
@@ -33708,7 +33725,7 @@
         <item>Яблоко
 \nhttp://ic6.101.ru:8000/p873433
 </item>
-        <item>Яболею за ЗЕНИТ
+        <item>Я болею за ЗЕНИТ
 \nhttp://ic6.101.ru:8000/p567686
 </item>
         <item>Яичница
@@ -33731,6 +33748,7 @@
         <item>Ярцево-55555 -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p849831</item>
         <item>Яшто Таки Ану -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p851273</item>
         <item>Art and Progressive Rock -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p928943</item>
+
     </string-array>
 
 </resources>
