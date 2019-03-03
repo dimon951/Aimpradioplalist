@@ -5,9 +5,18 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.*
+import android.support.v7.widget.CardView
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.view.WindowManager
+import android.view.animation.AnimationUtils
 import android.widget.Button
+import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.TextView
 import com.github.danielnilsson9.colorpickerview.dialog.ColorPickerDialogFragment
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_FON
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_ITEM
@@ -15,11 +24,12 @@ import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_TEXT
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_TEXTcontext
 import dmitriy.deomin.aimpradioplalist.Main.Companion.face
 import dmitriy.deomin.aimpradioplalist.Main.Companion.save_value_int
-import dmitriy.deomin.aimpradioplalist.custom.send
-import dmitriy.deomin.aimpradioplalist.custom.signal
+import dmitriy.deomin.aimpradioplalist.custom.*
+import kotlinx.android.synthetic.main.setting.*
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.textColor
+import org.jetbrains.anko.toast
 
 
 class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogListener {
@@ -89,9 +99,65 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
         }
 
 
+        //----список тем-------------------------
+        open_list_them.onClick {
+            if(list_them.visibility== View.GONE){
+                list_them.visibility=View.VISIBLE
+            }else{
+                list_them.visibility = View.GONE
+            }
+        }
+
+        list_them.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+        list_them.setHasFixedSize(true)
+
+
+
+
+        //----------------------------------------
+
+
+
         ///устанавливаем цвет и шрифт и сохраняется заодно
         pererisovka_color(false)
 
+    }
+
+
+    class Adapter_list_theme(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter_list_theme.ViewHolder>() {
+
+        private lateinit var context: Context
+
+
+
+        class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+           // val name_radio = itemView.findViewById<TextView>(R.id.name_radio)
+        }
+
+        override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
+            val v = LayoutInflater.from(p0.context).inflate(R.layout.item_list_theme, p0, false)
+            context = p0.context
+            return ViewHolder(v)
+        }
+
+        override fun getItemCount(): Int {
+            return data.size
+        }
+
+        override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
+
+
+            //заполним данными(тут в логах бывает падает - обращение к несуществующему элементу)
+            //поэтому будем проверять чтобы общее количество было больше текушего номера
+            val radio: Radio = if(this.data.size>p1){
+                this.data[p1]
+            }else{
+                //иначе вернём пустой элемент(дальше будут проверки и он не отобразится)
+                Radio("","","","")
+            }
+
+           // p0.name_radio.text = radio.name
+        }
     }
 
     fun pererisovka_color(update_main:Boolean=true) {
@@ -137,4 +203,5 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
     }
 
     override fun onDialogDismissed(dialogId: Int) {}
+
 }

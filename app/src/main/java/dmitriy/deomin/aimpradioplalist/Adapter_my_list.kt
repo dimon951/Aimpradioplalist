@@ -47,8 +47,16 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
 
-        //заполним данными
-        val radio: Radio = data[p1]
+
+        //заполним данными(тут в логах бывает падает - обращение к несуществующему элементу)
+        //поэтому будем проверять чтобы общее количество было больше текушего номера
+        val radio: Radio = if(this.data.size>p1){
+            this.data[p1]
+        }else{
+            //иначе вернём пустой элемент(дальше будут проверки и он не отобразится)
+            Radio("","","","")
+        }
+
         p0.name_radio.text = radio.name
 
         if(radio.url.isNotEmpty()){

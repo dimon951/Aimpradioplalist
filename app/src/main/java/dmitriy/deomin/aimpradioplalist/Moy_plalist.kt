@@ -164,7 +164,7 @@ class Moy_plalist : Fragment() {
         }
         //-----------------------------------------------------------------------------------------
 
-        //-------------ддобавить свой поток(имя и адрес)-----------------------------------------
+        //-------------добавить свой поток(имя и адрес)-----------------------------------------
         (v.findViewById<Button>(R.id.button_add_url)).onClick {
 
             val auu = DialogWindow(context, R.layout.add_url_user)
@@ -181,42 +181,42 @@ class Moy_plalist : Fragment() {
 
             (auu.view().findViewById<Button>(R.id.button_add_url)).onClick {
 
-//                //проверим на пустоту
-//                if (edit.text.toString().length > 7) {
-//
-//                    //проверим есть ли в начале ссылки http:// или "https://" - ато от неё много чего зависит
-//                    if (edit.text.toString().substring(0, 7) == "http://" || edit.text.toString().substring(0, 8) == "https://") {
-//
-//
-//                        Slot(context, "File_created", false).onRun {
-//                            //получим данные
-//                            val s = it.getStringExtra("update")
-//                            when (s) {
-//                                "est" -> context.toast("Такая станция уже есть в плейлисте")
-//                                "zaebis" -> {
-//                                    //пошлём сигнал пусть мой плейлист обновится
-//                                    signal("Data_add").putExtra("update", "zaebis").send(context)
-//                                }
-//                                "pizdec" -> {
-//                                    context.toast(context.getString(R.string.error))
-//                                    //запросим разрешения
-//                                    Main.EbuchieRazreshenia()
-//                                }
-//                            }
-//                        }
-//                        //делаем
-//                        val file_function = File_function()
-//                        file_function.Add_may_plalist_stansiy(edit.text.toString(), edit_name.text.toString())
-//
-//                        auu.close()
-//                    } else {
-//                        edit.setText("http://" + edit.text.toString())
-//                        context.toast("В начале ссылки потока должна быть http://, добавил , повторите :)")
-//                    }
-//
-//                } else {
-//                    context.toast("Нечего добавлять")
-//                }
+                //проверим на пустоту
+                if (edit.text.toString().length > 7) {
+
+                    //проверим есть ли в начале ссылки http:// или "https://" - ато от неё много чего зависит
+                    if (edit.text.toString().substring(0, 7) == "http://" || edit.text.toString().substring(0, 8) == "https://") {
+
+
+                        Slot(context, "File_created", false).onRun {
+                            //получим данные
+                            val s = it.getStringExtra("update")
+                            when (s) {
+                                "est" -> context.toast("Такая станция уже есть в плейлисте")
+                                "zaebis" -> {
+                                    //пошлём сигнал пусть мой плейлист обновится
+                                    signal("Data_add").putExtra("update", "zaebis").send(context)
+                                }
+                                "pizdec" -> {
+                                    context.toast(context.getString(R.string.error))
+                                    //запросим разрешения
+                                    Main.EbuchieRazreshenia()
+                                }
+                            }
+                        }
+                        //делаем
+                        val file_function = File_function()
+                        file_function.Add_may_plalist_stansiy(edit.text.toString(), edit_name.text.toString())
+
+                        auu.close()
+                    } else {
+                        edit.setText("http://" + edit.text.toString())
+                        context.toast("В начале ссылки потока должна быть http://, добавил , повторите :)")
+                    }
+
+                } else {
+                    context.toast("Нечего добавлять")
+                }
             }
         }
         //-----------------------------------------------------------------------------------------

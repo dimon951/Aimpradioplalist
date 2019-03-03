@@ -218,6 +218,10 @@
     <string name="vseRadio">Все радио</string>
     <string name="popularnoe">Популярное</string>
     <string name="myPlalist">Мой плейлист</string>
+    <string name="cvet_fon">Цвет фона</string>
+    <string name="cvet_stanciy">Цвет станций</string>
+    <string name="cvet_textta">Цвет текста</string>
+    <string name="cvet_texta_contexta">Цвет текста контекста</string>
 
     <string-array name="vse_radio">
 
@@ -264,7 +268,7 @@
         <item>Владимир Высоцкий -Дискография- 96kbps\nhttp://radio.iccw.ru:8000/vysotskiy</item>
         <item>Каста -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a121?</item>
         <item>Кино -Дискография- 64kbps\nhttp://radio.iccw.ru:8000/kino</item>
-        <item>Цой и группа«КИНО» -Дискография- 128kbps\nhttp://ic2.101.ru:8000/a103?</item>
+        <item>Цой и группа «КИНО» -Дискография- 128kbps\nhttp://ic2.101.ru:8000/a103?</item>
         <item>Король и Шут -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a191?</item>
         <item>Любэ -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a158?</item>
         <item>Машина Времени -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a59?</item>
@@ -20926,9 +20930,7 @@
         <item>Агата
 \nhttp://ic6.101.ru:8000/p468656
 </item>
-        <item>Агата Кристи
-\nhttp://ic6.101.ru:8000/p849470
-</item>
+        <item>Агата Кристи -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p849470</item>
         <item>Агата Кристи  Просто Вадик и Глеб\nhttp://ic6.101.ru:8000/p807396</item>
         <item>Агитель\nhttp://ic6.101.ru:8000/p89787</item>
         <item>Агутин  Варум\nhttp://ic6.101.ru:8000/p319684</item>
@@ -21365,18 +21367,14 @@
         <item>Басс  Кач музыка
 \nhttp://ic6.101.ru:8000/p801681
 </item>
-        <item>Баста
-\nhttp://ic6.101.ru:8000/p868705
-</item>
+        <item>Баста -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p868705</item>
         <item>БастА ака НоГГанО и NINTENDO
 \nhttp://ic6.101.ru:8000/p407827
 </item>
         <item>батл bit
 \nhttp://ic6.101.ru:8000/p700277
 </item>
-        <item>БГ  Аквариум - Избранное
-\nhttp://ic6.101.ru:8000/p680870
-</item>
+        <item>БГ  Аквариум Избранное -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p680870</item>
         <item>Без авторских прав
 \nhttp://ic6.101.ru:8000/p862504
 </item>
@@ -22516,9 +22514,7 @@
         <item>градус
 \nhttp://ic6.101.ru:8000/p751905
 </item>
-        <item>Гражданская Оборона
-\nhttp://ic6.101.ru:8000/p615022
-</item>
+        <item>Гражданская Оборона -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p615022</item>
         <item>Грай
 \nhttp://ic6.101.ru:8000/p826732
 </item>
@@ -22546,18 +22542,12 @@
         <item>Группа Louna
 \nhttp://ic6.101.ru:8000/p695231
 </item>
-        <item>ГРУППА ЗВЕРИ
-\nhttp://ic6.101.ru:8000/p832583
-</item>
-        <item>Группа КНЯZZ и КиШ
-\nhttp://ic6.101.ru:8000/p805257
-</item>
-        <item>группа кристина,комисар, много поп хитов
+        <item>ГРУППА ЗВЕРИ -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p832583</item>
+        <item>Группа КНЯZZ и КиШ -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p805257</item>
+        <item>Группа кристина,комисар, много поп хитов
 \nhttp://ic6.101.ru:8000/p588704
 </item>
-        <item>Группа Машина времени
-\nhttp://ic6.101.ru:8000/p820384
-</item>
+        <item>Группа Машина времени -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p820384</item>
         <item>группа Рок-Граница
 \nhttp://ic6.101.ru:8000/p601470
 </item>
@@ -23074,9 +23064,7 @@
         <item>ДОБРАЯ , ПРАВОСЛАВНАЯ МУЗЫКА
 \nhttp://ic6.101.ru:8000/p439457
 </item>
-        <item>Добрая сказка
-\nhttp://ic6.101.ru:8000/p817739
-</item>
+        <item>Добрая сказка -Детское- 64kbps\nhttp://ic6.101.ru:8000/p817739</item>
         <item>Добро
 \nhttp://ic6.101.ru:8000/p592948
 </item>
@@ -23488,9 +23476,6 @@
         <item>Заводной апельсин
 \nhttp://ic6.101.ru:8000/p786347
 </item>
-        <item>Задорнов.тв
-\nhttp://ic6.101.ru:8000/p760009
-</item>
         <item>Зажигаем
 \nhttp://ic6.101.ru:8000/p797402
 </item>
@@ -23620,9 +23605,7 @@
         <item>Землянское радио
 \nhttp://ic6.101.ru:8000/p381296
 </item>
-        <item>Земфира
-\nhttp://ic6.101.ru:8000/p419730
-</item>
+        <item>Земфира -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p419730</item>
         <item>ЗигZаг
 \nhttp://ic6.101.ru:8000/p754343
 </item>

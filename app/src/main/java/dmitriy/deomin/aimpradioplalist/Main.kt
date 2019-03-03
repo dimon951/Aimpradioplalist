@@ -560,7 +560,7 @@ class Main : FragmentActivity() {
         }
 
         //анимация на кнопках*****************************************.
-//тут почемуто глючит текст на кнопках
+        //тут почемуто глючит текст на кнопках
         //перерисуем
         vse_radio.setTextColor(COLOR_TEXT)
         vse_radio.typeface = face
@@ -570,7 +570,20 @@ class Main : FragmentActivity() {
         moy_plalist.typeface = face
 
 
-        vse_radio.text = vse_radio.text.toString() + "(" + resources.getStringArray(R.array.vse_radio).size.toString() + ")"
+        val size_vse_list = resources.getStringArray(R.array.vse_radio).size.toString()
+        //Сначала будем ставить общее количество всего радио
+        vse_radio.text = "Все радио $size_vse_list"
+
+        //будем слушать изменение списка всего радио и рисовать на кнопке общее/текущее количество
+        Slot(context, "vse_radio_list_size").onRun {
+            val size = it.getStringExtra("size")
+            if (size_vse_list != size) {
+                vse_radio.text = "Все радио $size\\$size_vse_list"
+            }else{
+                vse_radio.text = "Все радио $size_vse_list"
+            }
+        }
+
         vse_radio.onClick {
             viewPager.currentItem = 0
         }

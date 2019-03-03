@@ -1,43 +1,87 @@
+
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fon_setting"
     android:layout_width="match_parent"
-    android:background="@null"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    android:baselineAligned="false">
 
-    <dmitriy.deomin.aimpradioplalist.custom.Btn
-        android:id="@+id/button_edit_fon_color"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <LinearLayout
+
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:background="@null"
-        android:onClick="Edit_color_fon"
-        android:text="Цвет фона" />
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <dmitriy.deomin.aimpradioplalist.custom.Btn
-        android:id="@+id/button_edit_color_posty"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:onClick="Edit_color_fon"
-        android:text="Цвет станций" />
 
-    <dmitriy.deomin.aimpradioplalist.custom.Btn
-        android:id="@+id/button_edit_color_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:onClick="Edit_color_fon"
-        android:text="Цвет текста" />
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_edit_fon_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:onClick="Edit_color_fon"
+            android:text="@string/cvet_fon" />
 
-    <dmitriy.deomin.aimpradioplalist.custom.Btn
-        android:id="@+id/button_edit_color_textcontext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:onClick="Edit_color_fon"
-        android:text="Цвет текста контекста" />
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_edit_color_posty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:onClick="Edit_color_fon"
+            android:text="@string/cvet_stanciy" />
 
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_edit_color_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:onClick="Edit_color_fon"
+            android:text="@string/cvet_textta" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_edit_color_textcontext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:onClick="Edit_color_fon"
+            android:text="@string/cvet_texta_contexta" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/liner_list_them"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/list_them"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/green"
+                android:visibility="gone">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/open_list_them"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/list_theme" />
+
+    </LinearLayout>
 
 </LinearLayout>

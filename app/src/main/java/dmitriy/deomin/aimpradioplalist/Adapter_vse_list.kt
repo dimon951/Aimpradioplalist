@@ -4,6 +4,7 @@ import android.content.*
 import android.graphics.Color
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,8 @@ import android.view.animation.AnimationUtils
 import android.widget.*
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Radio
+import dmitriy.deomin.aimpradioplalist.custom.send
+import dmitriy.deomin.aimpradioplalist.custom.signal
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
@@ -91,13 +94,22 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
     }
 
     override fun getItemCount(): Int {
+        //будем слать сигнал с текущим количеством
+        signal("vse_radio_list_size").putExtra("size",raduoSearchList.size.toString()).send(Main.context)
         return this.raduoSearchList.size
     }
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
 
-        //заполним данными
-        val radio: Radio = this.raduoSearchList[p1]
+        //заполним данными(тут в логах бывает падает - обращение к несуществующему элементу)
+        //поэтому будем проверять чтобы общее количество было больше текушего номера
+        val radio: Radio = if(this.raduoSearchList.size>p1){
+            this.raduoSearchList[p1]
+        }else{
+            //иначе вернём пустой элемент(дальше будут проверки и он не отобразится)
+            Radio("","","","")
+        }
+
 
         val name = radio.name
 
