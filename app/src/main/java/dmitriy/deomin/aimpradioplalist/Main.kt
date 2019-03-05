@@ -650,6 +650,10 @@ class Main : FragmentActivity() {
                 }
                 "update_color" -> {
                     fon_main.setBackgroundColor(COLOR_FON)
+                    vse_radio.setTextColor(COLOR_TEXT)
+                    popularnoe.setTextColor(COLOR_TEXT)
+                    moy_plalist.setTextColor(COLOR_TEXT)
+
                     myadapter.notifyDataSetChanged()
                     viewPager.adapter = myadapter
                     viewPager.currentItem = 1

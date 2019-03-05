@@ -12,3 +12,5 @@ data class RadioPop(val name: String,
                     val link4: Link,
                     val link5: Link)
 
+data class Theme(val name:String,val fon:Int,val item:Int,val text:Int,val text_context:Int)
+

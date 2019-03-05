@@ -48,6 +48,7 @@
 
         <item>Русское радио\nruskoe_radio.png\n
             128kbps~kbps~https://rusradio.hostingradio.ru/rusradio128.mp3~kbps~
+            128kbps~kbps~http://icecast.russkoeradio.cdnvideo.ru:8000/rr_m.mp3~kbps~
             64kbps~kbps~https://rusradio.hostingradio.ru/rusradio64.mp3~kbps~
             96kbps~kbps~https://rusradio.hostingradio.ru/rusradio96.aacp~kbps~
         </item>
@@ -222,6 +223,19 @@
     <string name="cvet_stanciy">Цвет станций</string>
     <string name="cvet_textta">Цвет текста</string>
     <string name="cvet_texta_contexta">Цвет текста контекста</string>
+
+
+<!--имя$фон$айтем$текст$текстконтекст-->
+    <string-array name="list_theme">
+        <item>Березовая$-15017779$-14565176$-16777216$-12426889</item>
+        <item>Березово зеленая$-15156300$-14235498$-16777216$-12426889</item>
+        <item>Бледно зеленая$-11490948$-12940717$-16777216$-12426889</item>
+        <item>Бледно сереневая$-2500392$-3750202$-16777216$-12426889</item>
+        <item>Жёлтый ужас$-1966329$-2693324$-16565271$-4355244</item>
+        <item>Зелёно салатывый$-5122290$-7812066$-16777216$-4355244</item>
+        <item>Светло зелёный$-13644907$-14294094$-16777216$-12426889</item>
+        <item>Серая$-8817805$-8290952$-16777216$-4355244</item>
+    </string-array>
 
     <string-array name="vse_radio">
 
@@ -571,7 +585,6 @@
         <item>SOUNDPARK DEEP -Музыка- 128kbps\nhttp://185.220.35.56:8000/128</item>
         <item>SOUNDPARK DEEP -Музыка- 320kbps\nhttp://185.220.35.56:8000/320</item>
         <item>Новое радио? -Музыка- 128kbps\nhttp://icecast.newradio.cdnvideo.ru/newradio3</item>
-        <item>Русское радио(+1 к популярной) -Музыка- 128kbps\nhttp://icecast.russkoeradio.cdnvideo.ru:8000/rr_m.mp3</item>
         <item>Континеталь Челябинск -Музыка- 128kbps\nhttp://stream01.radiocon.ru:8000/live</item>
         <item>Континенталь Челябинск 100.4 -Музыка- 64kbps\nhttp://stream01.radiocon.ru:8000/aac64</item>
         <item>Континенталь Челябинск 100.4 -Музыка- 32kbps\nhttp://stream01.radiocon.ru:8000/aac32</item>

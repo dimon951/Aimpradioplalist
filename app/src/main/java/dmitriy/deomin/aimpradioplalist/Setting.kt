@@ -1,22 +1,17 @@
 package dmitriy.deomin.aimpradioplalist
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.*
-import android.support.v7.widget.CardView
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.view.animation.AnimationUtils
 import android.widget.Button
-import android.widget.EditText
 import android.widget.LinearLayout
-import android.widget.TextView
 import com.github.danielnilsson9.colorpickerview.dialog.ColorPickerDialogFragment
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_FON
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_ITEM
@@ -29,7 +24,6 @@ import kotlinx.android.synthetic.main.setting.*
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.textColor
-import org.jetbrains.anko.toast
 
 
 class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogListener {
@@ -100,38 +94,62 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
 
 
         //----список тем-------------------------
+        if(Main.save_read_int("visible")==1){
+            list_them.visibility=View.VISIBLE
+        }else{
+            list_them.visibility=View.GONE
+        }
+
         open_list_them.onClick {
             if(list_them.visibility== View.GONE){
                 list_them.visibility=View.VISIBLE
+                Main.save_value_int("visible",1)
             }else{
                 list_them.visibility = View.GONE
+                Main.save_value_int("visible",0)
             }
         }
 
         list_them.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
         list_them.setHasFixedSize(true)
 
+        //одна строка - тема
+        val data_res = resources.getStringArray(R.array.list_theme)
+
+        val data=ArrayList<Theme>()
+
+        for(i in data_res.indices){
+            val tl = data_res[i].split("$")
+            if(tl.size>4){
+                data.add(Theme(tl[0],tl[1].toInt(),tl[2].toInt(),tl[3].toInt(),tl[4].toInt()))
+            }
+        }
 
 
 
+        val adapter_list_theme = Adapter_list_theme(data)
+        list_them.adapter = adapter_list_theme
         //----------------------------------------
 
 
 
+       //Будем слушать когда тему тыкнут
+        Slot(context,"pererisovka").onRun {
+            pererisovka_color()
+        }
         ///устанавливаем цвет и шрифт и сохраняется заодно
         pererisovka_color(false)
-
     }
 
 
-    class Adapter_list_theme(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter_list_theme.ViewHolder>() {
+    class Adapter_list_theme(val data: ArrayList<Theme>) : RecyclerView.Adapter<Adapter_list_theme.ViewHolder>() {
 
         private lateinit var context: Context
 
 
 
         class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-           // val name_radio = itemView.findViewById<TextView>(R.id.name_radio)
+            val name_theme = itemView.findViewById<Button>(R.id.name_thme)
         }
 
         override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
@@ -149,14 +167,33 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
 
             //заполним данными(тут в логах бывает падает - обращение к несуществующему элементу)
             //поэтому будем проверять чтобы общее количество было больше текушего номера
-            val radio: Radio = if(this.data.size>p1){
+            val theme: Theme = if(this.data.size>p1){
                 this.data[p1]
             }else{
                 //иначе вернём пустой элемент(дальше будут проверки и он не отобразится)
-                Radio("","","","")
+                Theme("",Main.COLOR_FON,Main.COLOR_ITEM,Main.COLOR_TEXT,Main.COLOR_TEXTcontext)
             }
 
-           // p0.name_radio.text = radio.name
+            p0.name_theme.text = theme.name
+            p0.name_theme.textColor = theme.text
+            p0.name_theme.backgroundColor = theme.fon
+
+            p0.name_theme.onClick {
+                //обновляем константы
+                COLOR_FON=theme.fon
+                COLOR_TEXT = theme.text
+                COLOR_ITEM = theme.item
+                COLOR_TEXTcontext = theme.text_context
+                // сохраняем в память
+                save_value_int("color_fon", COLOR_FON)
+                save_value_int("color_post1", COLOR_ITEM)
+                save_value_int("color_text", COLOR_TEXT)
+                save_value_int("color_textcontext", COLOR_TEXTcontext)
+                // перерисовываем
+                signal("pererisovka").send(context)
+            }
+
+
         }
     }
 
