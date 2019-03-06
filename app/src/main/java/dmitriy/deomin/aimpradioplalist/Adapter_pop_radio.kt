@@ -146,7 +146,7 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : RecyclerView.Adapter<Ad
             context.share(radiopop.name+"\n"+popurl)
         }
         p0.share.onLongClick {
-            context.email("deomindmitriy@gmail.com", "aimp_radio_plalist", popurl)
+            context.email("deomindmitriy@gmail.com", "aimp_radio_plalist", radiopop.name+"\n"+popurl)
         }
 
         p0.play.onClick {

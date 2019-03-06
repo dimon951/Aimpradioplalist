@@ -235,6 +235,9 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
                 //сосавим строчку как в m3u вайле
                 context.share(name + "\n" + radio.url)
             }
+            share.onLongClick {
+                context.email("deomindmitriy@gmail.com", "aimp_radio_plalist",name + "\n" + radio.url)
+            }
 
             open_aimp.onClick {
                 Main.play_aimp(name, radio.url)

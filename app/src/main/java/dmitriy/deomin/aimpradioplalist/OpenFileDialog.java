@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
@@ -97,6 +98,7 @@ public class OpenFileDialog extends AlertDialog.Builder {
         linearLayout.addView(createBackItem(context));
         listView = createListView(context);
         linearLayout.addView(listView);
+        //linearLayout.setBackgroundColor(Main.Companion.getCOLOR_FON());
         setCustomTitle(title)
                 .setView(linearLayout)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {

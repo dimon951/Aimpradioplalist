@@ -137,7 +137,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
         Slot(context,"pererisovka").onRun {
             pererisovka_color()
         }
-        ///устанавливаем цвет и шрифт и сохраняется заодно
+        ///устанавливаем цвет и шрифт
         pererisovka_color(false)
     }
 
