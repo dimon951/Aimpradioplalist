@@ -10,7 +10,7 @@
 
     <LinearLayout
 
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="@null"
@@ -50,6 +50,13 @@
             android:background="@null"
             android:onClick="Edit_color_fon"
             android:text="@string/cvet_texta_contexta" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_save_them_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Сохранить" />
 
 
     </LinearLayout>

@@ -5,6 +5,8 @@ import android.os.Environment
 import android.widget.Toast
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileNotFoundException
@@ -261,6 +263,8 @@ class File_function {
         }
     }
 
+
+
     //Функция, которая сохраняет файл, принимая полный путь до файла filePath и сохраняемый текст FileContent:
     fun SaveFile(filePath: String, FileContent: String) {
         //Создание объекта файла.
@@ -290,6 +294,36 @@ class File_function {
 
         }
 
+    }
+
+
+    //сохранение и чение списка из памяти
+    fun saveArrayList(f_name:String,data:ArrayList<String>){
+        GlobalScope.launch {
+            //перегоним data в строку с переносами
+            var save_text= ""
+            for(t in data.indices){
+                save_text = save_text+t+"\n"
+            }
+            //сохраняем
+            SaveFile_vizov(f_name,save_text)
+        }
+    }
+    fun readArrayList(f_name: String):ArrayList<String>{
+        //смотрим не пустой ли файл , читаем и отправляем
+        val fsave = read(f_name)
+        if(fsave==""){
+            val nechego=ArrayList<String>()
+            nechego.add("")
+            return nechego
+        }
+        //если там чтото есть разбиваем по пробелу и отправляем
+        val list = fsave.split("\n")
+        val chtoto=ArrayList<String>()
+        for (s in list.listIterator()){
+            chtoto.add(s)
+        }
+        return chtoto
     }
 
 

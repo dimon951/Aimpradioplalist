@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v4.app.*
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -92,8 +93,21 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
             f.show(fragmentManager, "d")
         }
 
+        //сохраниьт в список тему
+        button_save_them_list.onClick {
+            //сначала получим сохранёные данные а потом к ним допишем
+            val f = File_function()
+            val savedata = f.readArrayList(Main.F_THEM_list)
+            savedata.add("name"+"$"+COLOR_FON+"$"+COLOR_ITEM+"$"+COLOR_TEXT+"$"+COLOR_TEXTcontext)
+            f.saveArrayList(Main.F_THEM_list,savedata)
+
+            Log.e("fff",savedata.toString())
+            //пошлём сигнал обновится списку
+            signal("update_list_thme").send(context)
+        }
 
         //----список тем-------------------------
+        //---------------------------------------------------------------------------------
         if(Main.save_read_int("visible")==1){
             list_them.visibility=View.VISIBLE
         }else{
@@ -115,6 +129,15 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
 
         //одна строка - тема
         val data_res = resources.getStringArray(R.array.list_theme)
+        //и посмотрим есть ли в памяти чо если есть добавим
+        val f = File_function()
+        val data_mamory = f.readArrayList(Main.F_THEM_list)
+        if(data_mamory.size>1){
+            for (s in data_mamory.iterator()){
+                data_res[data_res.size] = s
+                Log.e("t","fff")
+            }
+        }
 
         val data=ArrayList<Theme>()
 
@@ -129,6 +152,9 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
 
         val adapter_list_theme = Adapter_list_theme(data)
         list_them.adapter = adapter_list_theme
+        Slot(context,"update_list_thme").onRun {
+            (list_them.adapter as Adapter_list_theme).notifyDataSetChanged()
+        }
         //----------------------------------------
 
 
@@ -189,6 +215,8 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                 save_value_int("color_post1", COLOR_ITEM)
                 save_value_int("color_text", COLOR_TEXT)
                 save_value_int("color_textcontext", COLOR_TEXTcontext)
+                //сохраним в память выбраную тему имя
+                Main.save_value(Main.F_THEM_list,theme.name)
                 // перерисовываем
                 signal("pererisovka").send(context)
             }

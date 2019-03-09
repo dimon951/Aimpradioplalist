@@ -16,7 +16,6 @@ import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewPager
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.*
@@ -57,6 +56,9 @@ class Main : FragmentActivity() {
 
         //название файла моего плейлиста
         val MY_PLALIST = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u"
+
+        //название файла темы и путь его
+        val F_THEM_list = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/theme.txt"
 
 
         //шрифт
@@ -173,7 +175,6 @@ class Main : FragmentActivity() {
             return (Math.random() * ++Max).toInt() + min
         }
         //
-
 
         //открыть в аимпе ,если передаётся одна станция то создадим файл с ней и откроем его в аимпе
         //если просто имя то значит это уже сохранёный файл ,откроем сразу по имени-адресу с припиской "file://"
