@@ -11,7 +11,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.view.animation.AnimationUtils
 import android.widget.Button
+import android.widget.EditText
 import android.widget.LinearLayout
 import com.github.danielnilsson9.colorpickerview.dialog.ColorPickerDialogFragment
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_FON
@@ -24,7 +26,10 @@ import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.setting.*
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.textColor
+import org.jetbrains.anko.toast
+import java.util.*
 
 
 class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogListener {
@@ -95,15 +100,52 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
 
         //сохраниьт в список тему
         button_save_them_list.onClick {
-            //сначала получим сохранёные данные а потом к ним допишем
-            val f = File_function()
-            val savedata = f.readArrayList(Main.F_THEM_list)
-            savedata.add("name"+"$"+COLOR_FON+"$"+COLOR_ITEM+"$"+COLOR_TEXT+"$"+COLOR_TEXTcontext)
-            f.saveArrayList(Main.F_THEM_list,savedata)
 
-            Log.e("fff",savedata.toString())
-            //пошлём сигнал обновится списку
-            signal("update_list_thme").send(context)
+            var name_them = ""
+            //покажем оконо в котором нужно будет ввести имя
+            val nsf = DialogWindow(context, R.layout.name_save_file)
+
+            val name = nsf.view().findViewById<EditText>(R.id.edit_new_name)
+            name.hint = "Моя тема"
+            name.typeface = Main.face
+            name.textColor = Main.COLOR_TEXT
+
+            (nsf.view().findViewById<Button>(R.id.button_save)).onClick {
+
+                if (name.text.toString().isEmpty()) {
+                    //пока покажем это потом будум генерерить свои если не захотят вводить
+                    context.toast("Введите имя")
+                } else {
+                    name_them = name.text.toString()
+
+                    //сначала получим сохранёные данные а потом к ним допишем
+                    val f = File_function()
+                    val savedata = f.readArrayList(Main.F_THEM_list)
+                    savedata.add(name_them+"$"+COLOR_FON+"$"+COLOR_ITEM+"$"+COLOR_TEXT+"$"+COLOR_TEXTcontext)
+                    f.saveArrayList(Main.F_THEM_list,savedata)
+
+                    //закроем окошко
+                    nsf.close()
+                }
+            }
+
+
+            //когда все запишется пошлём сигнал чтобы добавилась тема в список
+            Slot(context, "File_created", false).onRun {
+                //получим данные
+                val s = it.getStringExtra("update")
+                when (s) {
+                    //пошлём сигнал пусть мой плейлист обновится
+                    "zaebis" -> signal("list_them__load").send(context)
+                    "pizdec" -> {
+                        context.toast(context.getString(R.string.error))
+                        //запросим разрешения
+                        Main.EbuchieRazreshenia()
+                    }
+                }
+            }
+
+
         }
 
         //----список тем-------------------------
@@ -127,35 +169,41 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
         list_them.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
         list_them.setHasFixedSize(true)
 
-        //одна строка - тема
-        val data_res = resources.getStringArray(R.array.list_theme)
-        //и посмотрим есть ли в памяти чо если есть добавим
-        val f = File_function()
-        val data_mamory = f.readArrayList(Main.F_THEM_list)
-        if(data_mamory.size>1){
-            for (s in data_mamory.iterator()){
-                data_res[data_res.size] = s
-                Log.e("t","fff")
+        Slot(context,"list_them__load").onRun {
+            //одна строка - тема
+            //добыаем сначала стандартные темы а потом сохранёные в памяти
+            val data_res = ArrayList<String>()
+            data_res.addAll(resources.getStringArray(R.array.list_theme))
+            //и посмотрим есть ли в памяти чо если есть добавим
+            val f = File_function()
+            val data_mamory = f.readArrayList(Main.F_THEM_list)
+            if(data_mamory.size>0){
+                for (s in data_mamory.iterator()){
+                    if(s.length>7){
+                        data_res.add(s)
+                    }
+
+                }
             }
-        }
 
-        val data=ArrayList<Theme>()
 
-        for(i in data_res.indices){
-            val tl = data_res[i].split("$")
-            if(tl.size>4){
-                data.add(Theme(tl[0],tl[1].toInt(),tl[2].toInt(),tl[3].toInt(),tl[4].toInt()))
+            //состовляем список обьектов тем из добытых ранее данных
+            val data=ArrayList<Theme>()
+
+            for(i in data_res.indices){
+                val tl = data_res[i].split("$")
+                if(tl.size>4){
+                    data.add(Theme(tl[0],tl[1].toInt(),tl[2].toInt(),tl[3].toInt(),tl[4].toInt()))
+                }
             }
+
+
+
+            val adapter_list_theme = Adapter_list_theme(data)
+            list_them.adapter = adapter_list_theme
+
+            list_them.smoothScrollToPosition( list_them.adapter!!.itemCount)
         }
-
-
-
-        val adapter_list_theme = Adapter_list_theme(data)
-        list_them.adapter = adapter_list_theme
-        Slot(context,"update_list_thme").onRun {
-            (list_them.adapter as Adapter_list_theme).notifyDataSetChanged()
-        }
-        //----------------------------------------
 
 
 
@@ -163,6 +211,10 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
         Slot(context,"pererisovka").onRun {
             pererisovka_color()
         }
+
+        //загрузим спсок тем
+        signal("list_them__load").send(context)
+
         ///устанавливаем цвет и шрифт
         pererisovka_color(false)
     }
@@ -171,8 +223,6 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
     class Adapter_list_theme(val data: ArrayList<Theme>) : RecyclerView.Adapter<Adapter_list_theme.ViewHolder>() {
 
         private lateinit var context: Context
-
-
 
         class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val name_theme = itemView.findViewById<Button>(R.id.name_thme)
@@ -204,6 +254,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
             p0.name_theme.textColor = theme.text
             p0.name_theme.backgroundColor = theme.fon
 
+            //при клике будем устанавливать тему
             p0.name_theme.onClick {
                 //обновляем константы
                 COLOR_FON=theme.fon
@@ -220,7 +271,90 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                 // перерисовываем
                 signal("pererisovka").send(context)
             }
+            //при долгом нажатии предлагать её переименовать , удалить, или отправить
+            p0.name_theme.onLongClick {
+                p0.name_theme.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
+                //на сандартных темах окно не будем показывать
+                if(p1 >Main.SIZE_LIST_THEM_DEFALT){
+                    //общее окошко с кнопками удалить,переименовать
+                    val empid = DialogWindow(context, R.layout.edit_my_plalist_item_dialog)
 
+                    //кнопка удалить
+                    //------------------------------------------------------------------------------
+                    (empid.view().findViewById<Button>(R.id.del)).onClick {
+                        empid.close()
+                        //получим весь список , удалим нужный и перезапишем
+                        val f = File_function()
+                        val list = f.readArrayList(Main.F_THEM_list)
+                        list.remove(theme.name+"$"+theme.fon+"$"+theme.item+"$"+theme.text+"$"+theme.text_context)
+                        f.saveArrayList(Main.F_THEM_list,list)
+                        //когда все запишется пошлём сигнал чтобы список обновился
+                        Slot(context, "File_created", false).onRun {
+                            //получим данные
+                            val s = it.getStringExtra("update")
+                            when (s) {
+                                //пошлём сигнал пусть мой плейлист обновится
+                                "zaebis" -> signal("list_them__load").send(context)
+                                "pizdec" -> {
+                                    context.toast(context.getString(R.string.error))
+                                    //запросим разрешения
+                                    Main.EbuchieRazreshenia()
+                                }
+                            }
+                        }
+                    }
+
+                    //кнопка переименовать
+                    (empid.view().findViewById<Button>(R.id.reneme)).onClick {
+                        //закрываем основное окошко
+                        empid.close()
+
+                        //откроем меню ввода имени
+                        var name_them = theme.name
+                        //покажем оконо в котором нужно будет ввести имя
+                        val nsf = DialogWindow(context, R.layout.name_save_file)
+
+                        val name = nsf.view().findViewById<EditText>(R.id.edit_new_name)
+                        name.setText(name_them)
+                        name.textColor = Main.COLOR_TEXT
+
+                        (nsf.view().findViewById<Button>(R.id.button_save)).onClick {
+
+                            if (name.text.toString().isEmpty()) {
+                                //пока покажем это потом будум генерерить свои если не захотят вводить
+                                context.toast("Введите имя")
+                            } else {
+                                name_them = name.text.toString()
+
+                                //получим весь список , переименуем нужный и перезапишем
+                                val f = File_function()
+                                val list = f.readArrayList(Main.F_THEM_list)
+                                list[p1-Main.SIZE_LIST_THEM_DEFALT-1] = name_them+"$"+theme.fon+"$"+theme.item+"$"+theme.text+"$"+theme.text_context
+                                f.saveArrayList(Main.F_THEM_list,list)
+                                //когда все запишется пошлём сигнал чтобы список обновился
+                                Slot(context, "File_created", false).onRun {
+                                    //получим данные
+                                    val s = it.getStringExtra("update")
+                                    when (s) {
+                                        //пошлём сигнал пусть мой плейлист обновится
+                                        "zaebis" -> signal("list_them__load").send(context)
+                                        "pizdec" -> {
+                                            context.toast(context.getString(R.string.error))
+                                            //запросим разрешения
+                                            Main.EbuchieRazreshenia()
+                                        }
+                                    }
+                                }
+                                //закроем окошко
+                                nsf.close()
+                            }
+                        }
+                    }
+                }else{
+                    context.toast("Нельзя редактировать")
+                }
+
+            }
 
         }
     }

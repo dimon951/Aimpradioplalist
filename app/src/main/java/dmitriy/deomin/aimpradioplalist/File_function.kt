@@ -2,6 +2,7 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.content.Intent
 import android.os.Environment
+import android.util.Log
 import android.widget.Toast
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
@@ -302,8 +303,8 @@ class File_function {
         GlobalScope.launch {
             //перегоним data в строку с переносами
             var save_text= ""
-            for(t in data.indices){
-                save_text = save_text+t+"\n"
+            for(t in data.iterator()){
+                save_text = save_text+"\n"+t
             }
             //сохраняем
             SaveFile_vizov(f_name,save_text)
@@ -311,7 +312,7 @@ class File_function {
     }
     fun readArrayList(f_name: String):ArrayList<String>{
         //смотрим не пустой ли файл , читаем и отправляем
-        val fsave = read(f_name)
+        val fsave = read(Main.ROOT+f_name)
         if(fsave==""){
             val nechego=ArrayList<String>()
             nechego.add("")
@@ -321,7 +322,10 @@ class File_function {
         val list = fsave.split("\n")
         val chtoto=ArrayList<String>()
         for (s in list.listIterator()){
-            chtoto.add(s)
+            if(s.length>7){
+                chtoto.add(s)
+            }
+
         }
         return chtoto
     }

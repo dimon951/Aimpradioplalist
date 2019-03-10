@@ -54,11 +54,16 @@ class Main : FragmentActivity() {
         //текст в пустом плейлисте(много где требуется)
         val PUSTO: String = "Плейлист пуст.\n"
 
+        val ROOT = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/"
+
         //название файла моего плейлиста
-        val MY_PLALIST = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u"
+        val MY_PLALIST = ROOT+"my_plalist.m3u"
 
         //название файла темы и путь его
-        val F_THEM_list = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/theme.txt"
+        val F_THEM_list = "theme.txt"
+
+        //количество стандартных тем
+        val SIZE_LIST_THEM_DEFALT = 7
 
 
         //шрифт
