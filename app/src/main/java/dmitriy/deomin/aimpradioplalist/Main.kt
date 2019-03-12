@@ -30,6 +30,7 @@ import dmitriy.deomin.aimpradioplalist.custom.signal
 import kotlinx.android.synthetic.main.main.*
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
@@ -57,7 +58,7 @@ class Main : FragmentActivity() {
         val ROOT = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/"
 
         //название файла моего плейлиста
-        val MY_PLALIST = ROOT+"my_plalist.m3u"
+        val MY_PLALIST = ROOT + "my_plalist.m3u"
 
         //название файла темы и путь его
         val F_THEM_list = "theme.txt"
@@ -585,7 +586,7 @@ class Main : FragmentActivity() {
             val size = it.getStringExtra("size")
             if (size_vse_list != size) {
                 vse_radio.text = "Все радио $size\\$size_vse_list"
-            }else{
+            } else {
                 vse_radio.text = "Все радио $size_vse_list"
             }
         }
@@ -596,6 +597,21 @@ class Main : FragmentActivity() {
 
         popularnoe.onClick {
             viewPager.currentItem = 1
+        }
+        //при долгом нажатии будем весь список популярного радио сохранять
+        popularnoe.onLongClick {
+            signal("save_all_popularnoe").send(context)
+
+            //когда все запишется пошлём сигнал чтобы список обновился
+            Slot(Main.context, "File_created", false).onRun {
+                //получим данные
+                val s = it.getStringExtra("update")
+                when (s) {
+                    //пошлём сигнал пусть мой плейлист обновится
+                    "zaebis" -> Main.context.toast("Весь список сохранен")
+                    "pizdec" -> Main.context.toast(Main.context.getString(R.string.error))
+                }
+            }
         }
 
         moy_plalist.onClick {

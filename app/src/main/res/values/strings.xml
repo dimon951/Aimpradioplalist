@@ -48,7 +48,6 @@
 
         <item>Русское радио\nruskoe_radio.png\n
             128kbps~kbps~https://rusradio.hostingradio.ru/rusradio128.mp3~kbps~
-            128kbps~kbps~http://icecast.russkoeradio.cdnvideo.ru:8000/rr_m.mp3~kbps~
             64kbps~kbps~https://rusradio.hostingradio.ru/rusradio64.mp3~kbps~
             96kbps~kbps~https://rusradio.hostingradio.ru/rusradio96.aacp~kbps~
         </item>
@@ -195,7 +194,7 @@
             128kbps~kbps~http://music.myradio.com.ua:8000/kids-songs128.mp3~kbps~
         </item>
         <item>Классика \nclasik_radio.png\n
-            128kbps~kbps~http://music.myradio.com.ua:8000/Classica128.mp3~kbps~
+            128kbps~kbps~http://relay.radio.obozrevatel.com/Classica128.mp3~kbps~
         </item>
         <item>Литературное радио\nliteraturnoe_radio.png\n
             64kbps~kbps~http://79.137.234.183:8000/;~kbps~
@@ -227,9 +226,9 @@
 
 <!--имя$фон$айтем$текст$текстконтекст-->
     <string-array name="list_theme">
+        <item>Первая$-12303292$-4093877$-16777216$-12426889</item>
         <item>Березовая$-15017779$-14565176$-16777216$-12426889</item>
         <item>Березово зеленая$-15156300$-14235498$-16777216$-12426889</item>
-        <item>Бледно зеленая$-11490948$-12940717$-16777216$-12426889</item>
         <item>Бледно сереневая$-2500392$-3750202$-16777216$-12426889</item>
         <item>Жёлтый ужас$-1966329$-2693324$-16565271$-4355244</item>
         <item>Зелёно салатывый$-5122290$-7812066$-16777216$-4355244</item>
@@ -238,6 +237,15 @@
     </string-array>
 
     <string-array name="vse_radio">
+
+        <item>Final Fantasy Radio(Anime) -Саундтреки- 192kbps\nhttp://finalfantasystation.com:8000/stream.mp3</item>
+        <item>Vocaloid Stream(Anime) -Саундтреки- 128kbps\nhttp://142.4.217.133:9848/stream</item>
+        <item>R/a/dio(Anime) -Саундтреки- 192kbps\nhttp://stream.r-a-d.io/main.mp3</item>
+        <item>Any-anime.ru(Anime) -Саундтреки- 320kbps\nhttp://radio.flex.ru:8000/radionami</item>
+        <item>ANISON.FM(Anime) -Саундтреки- 128kbps\nhttp://pool.anison.fm:9000/AniSonFM(128)</item>
+        <item>Armitage s Dimension Jpop/Jrock/Anime -Саундтреки- 64kbps\nhttp://aac.fr.armitunes.com:8010/</item>
+        <item>Vocaloid Radio(Anime) -Саундтреки- 320kbps\nhttp://curiosity.shoutca.st:8019/stream</item>
+        <item>AnimeNfo Radio(Anime) -Саундтреки- 128kbps\nhttp://itori.animenfo.com:443/</item>
 
         <item>ABBA -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a104?</item>
         <item>Bon Jovi -Дискография- 64kbps\nhttp://ic5.101.ru:8000/p307544</item>
@@ -512,8 +520,8 @@
         <item>Радио Record: Hard Bass -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/hbass_320</item>
         <item>Радио Record: Hard Bass -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/hbass_128</item>
         <item>Радио Record: Hard Bass -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/hbass_64</item>
-        <item>Лёгкое Радио 96kbps\nhttp://185.236.130.96:8000/;</item>
-        <item>Love Radio Казахстан 128kbps\nhttp://s2.free-shoutcast.com:18360/stream.mp3</item>
+        <item>Лёгкое Радио -Музыка- 96kbps\nhttp://185.236.130.96:8000/;</item>
+        <item>Love Radio Казахстан -Музыка- 128kbps\nhttp://s2.free-shoutcast.com:18360/stream.mp3</item>
         <item>Тенгри FM 128kbps\nhttp://195.210.47.197:8000/live</item>
         <item>Dala FM 128kbps\nhttp://95.56.234.40:8080/DALA_128</item>
         <item>DFM Deep 96kbps\nhttps://dfm-dfmdeep.hostingradio.ru/dfmdeep96.aacp</item>
@@ -704,10 +712,10 @@
         <item>Vocal Chillout 320kbps\nhttp://vocaltrance.fm:8000/vocalchillout_320</item>
         <item>Vocal Chillout 256kbps\nhttp://vocaltrance.fm:8000/vocalchillout_256</item>
         <item>Vocal Chillout 128kbps\nhttp://vocaltrance.fm:8000/vocalchillout_128</item>
-        <item>Vocal Trance Radio -Транс- 128kbps\nhttp://176.9.36.203:8000/vocaltrance_128</item>
-        <item>Vocal Trance Radio -Транс- 256kbps\nhttp://vocaltrance.ru:8000/vocaltrance</item>
-        <item>Vocal Trance Radio -Транс- 256kbps\nhttp://176.9.36.203:8000/vocaltrance_256</item>
-        <item>Vocal Trance Radio -Транс- 320kbps\nhttp://176.9.36.203:8000/vocaltrance_320</item>
+        <item>Vocal Trance Radio 128kbps\nhttp://176.9.36.203:8000/vocaltrance_128</item>
+        <item>Vocal Trance Radio 256kbps\nhttp://vocaltrance.ru:8000/vocaltrance</item>
+        <item>Vocal Trance Radio 256kbps\nhttp://176.9.36.203:8000/vocaltrance_256</item>
+        <item>Vocal Trance Radio 320kbps\nhttp://176.9.36.203:8000/vocaltrance_320</item>
         <item>ЗвукоКнига -Аудиокниги- 128kbps\nhttp://94.181.45.104:8005/;</item>
         <item>Old Time Radio -Аудиокниги- mono 64kbps\nhttp://199.189.86.43:8170/;</item>
         <item>Cornucopia Broadcasting -Аудиокниги- 96kbps\nhttp://8.38.78.173:8002/;audio.mp3</item>
@@ -912,7 +920,7 @@
         <item>Танцевальные хиты 128kbps\nhttp://relay.radio.obozrevatel.com/dance128.mp3</item>
         <item>Соул 128kbps\nhttp://relay.radio.obozrevatel.com/soul128.mp3</item>
         <item>Скрябин 128kbps\nhttp://relay.radio.obozrevatel.com/skryabin128.mp3</item>
-        <item>Саундтреки 128kbps\nhttp://relay.radio.obozrevatel.com/soundtrack128.mp3</item>
+        <item>Саундтреки -Саундтреки- 128kbps\nhttp://relay.radio.obozrevatel.com/soundtrack128.mp3</item>
         <item>Русский рэп 128kbps\nhttp://relay.radio.obozrevatel.com/rep128.mp3</item>
         <item>Русский рок 128kbps\nhttp://relay.radio.obozrevatel.com/RusRock128.mp3</item>
         <item>Русская поп-музыка 128kbps\nhttp://relay.radio.obozrevatel.com/Rus-pop128.mp3</item>
@@ -955,7 +963,6 @@
         <item>Итальянская музыка 128kbps\nhttp://relay.radio.obozrevatel.com/italjanskaja-muzyka128.mp3</item>
         <item>Кантри 128kbps\nhttp://relay.radio.obozrevatel.com/country128.mp3</item>
         <item>Классика рока (ex Hard Rock) 128kbps\nhttp://relay.radio.obozrevatel.com/HardRock128.mp3</item>
-        <item>Классическая музыка 128kbps\nhttp://relay.radio.obozrevatel.com/Classica128.mp3</item>
         <item>Cool-school 128kbps\nhttp://relay.radio.obozrevatel.com/coolschool128.mp3</item>
         <item>Михаил Круг -Дискография- 128kbps\nhttp://relay.radio.obozrevatel.com/mihail-krug128.mp3</item>
         <item>Мировые хиты 128kbps\nhttp://relay.radio.obozrevatel.com/world-hit128.mp3</item>
@@ -995,18 +1002,18 @@
         <item>87.5 Business FM -Разговорное- 131kbps\nhttp://bfm.hostingradio.ru:8004/fm</item>
         <item>Like FM -Музыка- 256kbps\nhttp://ic2.101.ru:8000/v12_1</item>
         <item>Like FM -Музыка- 96kbps\nhttp://91.207.59.26/a12_1</item>
-        <item>88.3 Ретро FM 256kbps\nhttp://retro256.streamr.ru</item>
-        <item>88.7 Юмор FM 256kbps\nhttp://ic3.101.ru:8000/s11</item>
-        <item>89.1 Радио Jazz 128kbps\nhttp://jazz128.streamr.ru</item>
-        <item>89.9 Страна FM 320kbps\nhttp://icecast.stranafm.cdnvideo.ru/stranafm</item>
-        <item>90.3 Авторадио 256kbps\nhttp://ic3.101.ru:8000/s1</item>
-        <item>90.8 Relax FM 256kbps\nhttp://ic3.101.ru:8000/s40</item>
-        <item>91.6 Культура 320kbps\nhttp://icecast.vgtrk.cdnvideo.ru/kulturafm</item>
-        <item>92.0 Москва FM 128kbps\nhttp://icecast.vgtrk.cdnvideo.ru:8000/moscowfm128</item>
-        <item>93.2 Спорт FM 128kbps\nhttp://sportfm128.streamr.ru</item>
-        <item>94.8 Говорит Москва 128kbps\nhttp://media.govoritmoskva.ru:8000/rufm_m.mp3</item>
-        <item>95.2 Rock FM 128kbps\nhttp://rock128.streamr.ru</item>
-        <item>Детское радио -Детское-  128kbps\nhttp://ic3.101.ru:8000/v14_1</item>
+        <item>Ретро FM 256kbps\nhttp://retro256.streamr.ru</item>
+        <item>Юмор FM 256kbps\nhttp://ic3.101.ru:8000/s11</item>
+        <item>Радио Jazz 128kbps\nhttp://jazz128.streamr.ru</item>
+        <item>Страна FM 320kbps\nhttp://icecast.stranafm.cdnvideo.ru/stranafm</item>
+        <item>Авторадио 256kbps\nhttp://ic3.101.ru:8000/s1</item>
+        <item>Relax FM 256kbps\nhttp://ic3.101.ru:8000/s40</item>
+        <item>Культура 320kbps\nhttp://icecast.vgtrk.cdnvideo.ru/kulturafm</item>
+        <item>Москва FM 128kbps\nhttp://icecast.vgtrk.cdnvideo.ru:8000/moscowfm128</item>
+        <item>Спорт FM 128kbps\nhttp://sportfm128.streamr.ru</item>
+        <item>Говорит Москва 128kbps\nhttp://media.govoritmoskva.ru:8000/rufm_m.mp3</item>
+        <item>Rock FM 128kbps\nhttp://rock128.streamr.ru</item>
+        <item>Детское радио -Детское- 128kbps\nhttp://ic3.101.ru:8000/v14_1</item>
 
         <item>Детское радио -Детское- 128kbps\nhttp://radio.2kom.ru:8000/detskoe</item>
         <item>КП Федеральное -Разговорное- 256kbps\nhttp://kraskp.ru:8000/mskregion</item>
@@ -1441,7 +1448,7 @@
         <item>Feel\nhttp://62.80.190.246:8000/Feel</item>
         <item>Fly Fm\nhttp://flyfm.net:8000/flyfm.m3u</item>
         <item>German\nhttp://energygerman.ice.infomaniak.ch/energygerman-high.mp3</item>
-        <item>Ghost Anime Radio\nhttp://animeradio.su:8000/;</item>
+        <item>Ghost Anime Radio(Anime) -Саундтреки- 128kbps\nhttp://animeradio.su:8000/;</item>
         <item>Girl\nhttp://energygirl.ice.infomaniak.ch/energygirl-high.mp3</item>
         <item>GlobalBeats FM\nhttp://radio.2kom.ru:8000/GlobalBeats.FM</item>
         <item>Goldradio\nhttp://184.154.145.114:8085</item>
@@ -22798,8 +22805,7 @@
         <item>Диско-7
 \nhttp://ic6.101.ru:8000/p455488
 </item>
-        <item>Дискография группы Мумий Тролль
-\nhttp://ic6.101.ru:8000/p832793
+        <item>Мумий Тролль -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p832793
 </item>
         <item>Дискография музыки
 \nhttp://ic6.101.ru:8000/p744392
@@ -25059,9 +25065,7 @@
         <item>Лучшие русские миксы
 \nhttp://ic6.101.ru:8000/p791278
 </item>
-        <item>Лучшие саундтреки
-\nhttp://ic6.101.ru:8000/p828005
-</item>
+        <item>Лучшие саундтреки -Саундтреки- 68kbps\nhttp://ic6.101.ru:8000/p828005</item>
         <item>Лучшие треки
 \nhttp://ic6.101.ru:8000/p645315
 </item>
@@ -29232,9 +29236,7 @@
         <item>Радио Демоненок
 \nhttp://ic6.101.ru:8000/p562808
 </item>
-        <item>Радио детское. На ночь.
-\nhttp://ic6.101.ru:8000/p724104
-</item>
+        <item>Радио детское. На ночь. -Детское- 68kbps\nhttp://ic6.101.ru:8000/p724104</item>
         <item>Радио ди-джея Вовы
 \nhttp://ic6.101.ru:8000/p404217
 </item>
@@ -29778,9 +29780,7 @@
         <item>Радио Саня
 \nhttp://ic6.101.ru:8000/p737610
 </item>
-        <item>Радио Саундтреки
-\nhttp://ic6.101.ru:8000/p772507
-</item>
+        <item>Радио Саундтреки -Саундтреки- 68kbps\nhttp://ic6.101.ru:8000/p772507</item>
         <item>Радио Свободных Пустошей
 \nhttp://ic6.101.ru:8000/p757399
 </item>

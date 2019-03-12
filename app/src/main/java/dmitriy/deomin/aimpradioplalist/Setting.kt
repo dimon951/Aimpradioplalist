@@ -136,7 +136,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                 val s = it.getStringExtra("update")
                 when (s) {
                     //пошлём сигнал пусть мой плейлист обновится
-                    "zaebis" -> signal("list_them__load").send(context)
+                    "zaebis" -> {toast("Готово");signal("list_them__load").send(context)}
                     "pizdec" -> {
                         context.toast(context.getString(R.string.error))
                         //запросим разрешения

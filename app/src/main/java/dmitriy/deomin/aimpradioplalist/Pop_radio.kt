@@ -9,8 +9,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import dmitriy.deomin.aimpradioplalist.custom.Link
-import dmitriy.deomin.aimpradioplalist.custom.RadioPop
+import dmitriy.deomin.aimpradioplalist.custom.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import org.jetbrains.anko.support.v4.toast
+import org.jetbrains.anko.toast
 import java.util.ArrayList
 
 
@@ -66,7 +69,23 @@ class Pop_radio : Fragment() {
         val adapter_pop_radio = Adapter_pop_radio(data)
         recycl_pop_radio.adapter = adapter_pop_radio
 
+        Slot(Main.context,"save_all_popularnoe").onRun {
+            GlobalScope.launch {
+                val f = File_function()
+                //составим норм список
+                val s_data = ArrayList<String>()
+                s_data.add("#EXTM3U")
+                for (s in data.iterator()){
+                    s_data.add("\n#EXTINF:-1,"+s.name+" "+s.link1.kbps+"\n"+s.link1.url+
+                            "\n#EXTINF:-1,"+s.name+" "+s.link2.kbps+"\n"+s.link2.url+
+                            "\n#EXTINF:-1,"+s.name+" "+s.link3.kbps+"\n"+s.link3.url+
+                            "\n#EXTINF:-1,"+s.name+" "+s.link4.kbps+"\n"+s.link4.url+
+                            "\n#EXTINF:-1,"+s.name+" "+s.link5.kbps+"\n"+s.link5.url)
+                }
+                f.saveArrayList("vse_pop_radio.m3u",s_data)
+            }
+        }
+
         return v
     }
-
 }
