@@ -149,12 +149,8 @@ class File_function {
 
     //сохраняется одна станция в файле
     fun Save_temp_file(name: String, link: String) {
-
         //создадим папки если нет
-        val sddir = File(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/")
-        if (!sddir.exists()) {
-            sddir.mkdirs()
-        }
+        create_esli_net()
         //создадим файл, если есть перезапишется
         SaveFile_vizov(name, link)
     }
@@ -163,10 +159,7 @@ class File_function {
     fun Add_may_plalist_stansiy(link: String, name: String) {
 
         //создадим папки если нет
-        val sddir = File(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/")
-        if (!sddir.exists()) {
-            sddir.mkdirs()
-        }
+        create_esli_net()
 
         //прочитаем старыйе данные
         var old_text = ""
@@ -212,15 +205,19 @@ class File_function {
 
     }
 
+    fun create_esli_net(){
+        val sddir = File(Main.ROOT)
+        if (!sddir.exists()) {
+            sddir.mkdirs()
+        }
+    }
+
     //чтение файла
     @Throws(FileNotFoundException::class)
     fun read(fileName: String): String {
 
         //создадим папки если нет
-        val sddir = File(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/")
-        if (!sddir.exists()) {
-            sddir.mkdirs()
-        }
+        create_esli_net()
 
         //Этот спец. объект для построения строки
         val sb = StringBuilder()

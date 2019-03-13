@@ -77,15 +77,24 @@ class Pop_radio : Fragment() {
                 s_data.add("#EXTM3U")
                 for (s in data.iterator()){
                     s_data.add("\n#EXTINF:-1,"+s.name+" "+s.link1.kbps+"\n"+s.link1.url+
-                            "\n#EXTINF:-1,"+s.name+" "+s.link2.kbps+"\n"+s.link2.url+
-                            "\n#EXTINF:-1,"+s.name+" "+s.link3.kbps+"\n"+s.link3.url+
-                            "\n#EXTINF:-1,"+s.name+" "+s.link4.kbps+"\n"+s.link4.url+
-                            "\n#EXTINF:-1,"+s.name+" "+s.link5.kbps+"\n"+s.link5.url)
+                            potok_ne_pustoy(s.name+" "+s.link2.kbps,s.link2.url)+
+                            potok_ne_pustoy(s.name+" "+s.link3.kbps,s.link3.url)+
+                            potok_ne_pustoy(s.name+" "+s.link4.kbps,s.link4.url)+
+                            potok_ne_pustoy(s.name+" "+s.link5.kbps,s.link5.url))
+
                 }
                 f.saveArrayList("vse_pop_radio.m3u",s_data)
             }
         }
 
         return v
+    }
+
+    fun potok_ne_pustoy(name:String,url:String):String{
+        return if(url.length>2){
+            "\n#EXTINF:-1,$name\n$url"
+        }else{
+            ""
+        }
     }
 }

@@ -369,8 +369,13 @@ class Moy_plalist : Fragment() {
 
     private fun open_load_file(context: Context, str_old: String) {
         val file_function = File_function()
+
+        //создадим папки если нет
+        file_function.create_esli_net()
+
         //если плейлист пуст откроем окно выбора загрузки файла(память или ссылка)
         val lf = DialogWindow(context, R.layout.load_file)
+
 
         var file_m3u_custom: String
 
@@ -383,7 +388,7 @@ class Moy_plalist : Fragment() {
             startdir = if (old_dir.length > 2) {
                 old_dir
             } else {
-                Environment.getExternalStorageDirectory().path
+                Main.ROOT
             }
 
             //----
