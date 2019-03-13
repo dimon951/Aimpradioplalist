@@ -608,7 +608,8 @@ class Main : FragmentActivity() {
                 val s = it.getStringExtra("update")
                 when (s) {
                     //пошлём сигнал пусть мой плейлист обновится
-                    "zaebis" -> Main.context.toast("Весь список сохранен")
+                    "zaebis" -> Main.context.toast("Весь список сохранен в "+ ROOT)
+
                     "pizdec" -> Main.context.toast(Main.context.getString(R.string.error))
                 }
             }

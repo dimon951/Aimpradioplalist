@@ -550,7 +550,7 @@
         <item>Радио Владивосток FM -Музыка- 128kbps\nhttp://vladfm.com:8000/vfm</item>
         <item>Радио NS -Музыка- 256kbps\nhttp://89.219.35.26:8000/radions</item>
         <item>Радио Брест -Музыка- 96kbps\nhttp://93.84.112.253:8039/live</item>
-        <item>Радио Комсомольская Правда -Разговорное- 64kbps\nhttps://kpradio.hostingradio.ru:8003/64</item>
+        <item>КП -Разговорное- 64kbps\nhttps://kpradio.hostingradio.ru:8003/64</item>
         <item>Русское Радио Азия -Музыка- 128kbps\nhttp://31.148.22.35:9000/stream</item>
         <item>Радио Хорошего Настроения -Музыка- 128kbps\nhttp://188.93.129.110:8000/fm1018</item>
         <item>Русское Радио Беларусь -Музыка- 160kbps\nhttp://86.57.240.92:2530/;stream.mp3</item>
@@ -591,19 +591,19 @@
         <item>Континеталь Челябинск -Музыка- 128kbps\nhttp://stream01.radiocon.ru:8000/live</item>
         <item>Континенталь Челябинск 100.4 -Музыка- 64kbps\nhttp://stream01.radiocon.ru:8000/aac64</item>
         <item>Континенталь Челябинск 100.4 -Музыка- 32kbps\nhttp://stream01.radiocon.ru:8000/aac32</item>
-        <item>Комсомольская Правда Челябинск -Разговорное- 128kbps\nhttp://chelyabinsk.radiokp128.mp3.streamr.ru</item>
-        <item>Комсомольская Правда Челябинск -Разговорное- mono 64kbps\nhttp://chelyabinsk.radiokp64.mp3.streamr.ru</item>
-        <item>Комсомольская Правда Челябинск -Разговорное- mono 32kbps\nhttp://chelyabinsk.radiokp32.mp3.streamr.ru</item>
-        <item>Комсомольская правда Ставрополь, Армавир -Разговорное- 128kbps\nhttp://stavropol.radiokp128.mp3.streamr.ru</item>
-        <item>Комсомольская правда Ставрополь, Армавир -Разговорное- mono 64kbps\nhttp://stavropol.radiokp64.mp3.streamr.ru</item>
-        <item>Комсомольская правда Ставрополь, Армавир -Разговорное- mono 32kbps\nhttp://stavropol.radiokp32.mp3.streamr.ru</item>
+        <item>КП Челябинск -Разговорное- 128kbps\nhttp://chelyabinsk.radiokp128.mp3.streamr.ru</item>
+        <item>КП Челябинск -Разговорное- mono 64kbps\nhttp://chelyabinsk.radiokp64.mp3.streamr.ru</item>
+        <item>КП Челябинск -Разговорное- mono 32kbps\nhttp://chelyabinsk.radiokp32.mp3.streamr.ru</item>
+        <item>КП Ставрополь, Армавир -Разговорное- 128kbps\nhttp://stavropol.radiokp128.mp3.streamr.ru</item>
+        <item>КП Ставрополь, Армавир -Разговорное- mono 64kbps\nhttp://stavropol.radiokp64.mp3.streamr.ru</item>
+        <item>КП Ставрополь, Армавир -Разговорное- mono 32kbps\nhttp://stavropol.radiokp32.mp3.streamr.ru</item>
         <item>5Rock`s Ставрополь -Музыка- 256kbps\nhttp://str.simpex.ru/;stream.nsv</item>
         <item>Радио Роксана 103.0FM Уфа -Музыка- 128kbps\nhttps://listen1.myradio24.com/2761</item>
         <item>Радиола 103 FM Саратов -Музыка- 69kbps\nhttp://online1.gkvr.ru:8000/radiola_srt_64.aac</item>
         <item>RADIO RECORD САРАТОВ -Музыка- 63kbps\nhttp://online2.gkvr.ru:8000/record_srt_64.aac</item>
-        <item>Комсомольская правда Саратов, Энгельс -Разговорное- 128kbps\nhttp://saratov.radiokp128.mp3.streamr.ru</item>
-        <item>Комсомольская правда Саратов, Энгельс -Разговорное- mono 64kbps\nhttp://saratov.radiokp64.mp3.streamr.ru</item>
-        <item>Комсомольская правда Саратов, Энгельс -Разговорное- mono 32kbps\nhttp://saratov.radiokp32.mp3.streamr.ru</item>
+        <item>КП Саратов, Энгельс -Разговорное- 128kbps\nhttp://saratov.radiokp128.mp3.streamr.ru</item>
+        <item>КП Саратов, Энгельс -Разговорное- mono 64kbps\nhttp://saratov.radiokp64.mp3.streamr.ru</item>
+        <item>КП Саратов, Энгельс -Разговорное- mono 32kbps\nhttp://saratov.radiokp32.mp3.streamr.ru</item>
         <item>Эльдорадио 101,4 Санкт-Петербург -Музыка- 128kbps\nhttp://emgspb.hostingradio.ru/eldoradio128.mp3</item>
         <item>Эльдорадио 101,4 Санкт-Петербург -Музыка- mono 64kbps\nhttp://emgspb.hostingradio.ru/eldoradio64.mp3</item>
         <item>Радио Эрмитаж 90,1 FM Санкт-Петербург -Музыка- 128kbps\nhttp://91.190.127.185:8000/live_test</item>
@@ -617,32 +617,32 @@
         <item>MOTORADIO.ONLINE  Санкт-Петербург -Музыка- 256kbps\nhttp://stream.motoradio.online:8000/high-aac</item>
         <item>MOTORADIO.ONLINE  Санкт-Петербург -Музыка- 96kbps\nhttp://stream.motoradio.online:8000/std-aac</item>
         <item>Самара-Максимум -Музыка- 128kbps\nhttp://85.236.172.22:8000/maximum</item>
-        <item>Комсомольская правда - Самара -Разговорное- 128kbps\nhttp://kpradio.hostingradio.ru:8000/samara.radiokp128.mp3</item>
-        <item>Комсомольская правда - Самара -Разговорное- mono 64kbps\nhttp://kpradio.hostingradio.ru:8000/samara.radiokp64.mp3</item>
-        <item>Комсомольская правда - Самара -Разговорное- mono 32kbps\nhttp://kpradio.hostingradio.ru:8000/samara.radiokp32.mp3</item>
-        <item>Комсомольская правда - Санкт-Петербург -Разговорное- 128kbps\nhttp://kpradio.hostingradio.ru:8000/spb.radiokp128.mp3</item>
-        <item>Комсомольская правда - Санкт-Петербург -Разговорное- mono 64kbps\nhttp://kpradio.hostingradio.ru:8000/spb.radiokp64.mp3</item>
-        <item>Комсомольская правда - Санкт-Петербург -Разговорное- mono 32kbps\nhttp://kpradio.hostingradio.ru:8000/spb.radiokp32.mp3</item>
-        <item>Комсомольская правда Ростов-на-Дону -Разговорное- 128kbps\nhttp://rostov.radiokp128.mp3.streamr.ru</item>
-        <item>Комсомольская правда Ростов-на-Дону -Разговорное- mono 64kbps\nhttp://rostov.radiokp64.mp3.streamr.ru</item>
-        <item>Комсомольская правда Ростов-на-Дону -Разговорное- mono 32kbps\nhttp://rostov.radiokp32.mp3.streamr.ru</item>
+        <item>КП - Самара -Разговорное- 128kbps\nhttp://kpradio.hostingradio.ru:8000/samara.radiokp128.mp3</item>
+        <item>КП - Самара -Разговорное- mono 64kbps\nhttp://kpradio.hostingradio.ru:8000/samara.radiokp64.mp3</item>
+        <item>КП - Самара -Разговорное- mono 32kbps\nhttp://kpradio.hostingradio.ru:8000/samara.radiokp32.mp3</item>
+        <item>КП - Санкт-Петербург -Разговорное- 128kbps\nhttp://kpradio.hostingradio.ru:8000/spb.radiokp128.mp3</item>
+        <item>КП - Санкт-Петербург -Разговорное- mono 64kbps\nhttp://kpradio.hostingradio.ru:8000/spb.radiokp64.mp3</item>
+        <item>КП - Санкт-Петербург -Разговорное- mono 32kbps\nhttp://kpradio.hostingradio.ru:8000/spb.radiokp32.mp3</item>
+        <item>КП Ростов-на-Дону -Разговорное- 128kbps\nhttp://rostov.radiokp128.mp3.streamr.ru</item>
+        <item>КП Ростов-на-Дону -Разговорное- mono 64kbps\nhttp://rostov.radiokp64.mp3.streamr.ru</item>
+        <item>КП Ростов-на-Дону -Разговорное- mono 32kbps\nhttp://rostov.radiokp32.mp3.streamr.ru</item>
         <item>Радио Ростова -Музыка- 128kbps\nhttp://live.radiorostov.ru:8000/rostovradio</item>
         <item>Первое Интернет Радио Ростов-На-Дону -Музыка- 64kbps\nhttp://onair.1rad.io:7000/live64.aac</item>
         <item>Первое Интернет Радио Ростов-На-Дону -Музыка- 256kbps\nhttp://onair.1rad.io:7000/live256.mp3</item>
         <item>Пионер 91,8FM Пермь -Музыка- 128kbps\nhttp://radio.dline-media.com/ppr128.mp3</item>
         <item>Радио Мотор Пермь -Музыка- 128kbps\nhttp://radio-tochka.com:6550/;stream.nsv</item>
-        <item>Комсомольская правда Пермь -Разговорное- 128kbps\nhttp://perm.radiokp128.mp3.streamr.ru/</item>
-        <item>Комсомольская правда Пермь -Разговорное- mono 64kbps\nhttp://perm.radiokp64.mp3.streamr.ru/</item>
-        <item>Комсомольская правда Пермь -Разговорное- mono 32kbps\nhttp://perm.radiokp32.mp3.streamr.ru/</item>
+        <item>КП Пермь -Разговорное- 128kbps\nhttp://perm.radiokp128.mp3.streamr.ru/</item>
+        <item>КП Пермь -Разговорное- mono 64kbps\nhttp://perm.radiokp64.mp3.streamr.ru/</item>
+        <item>КП Пермь -Разговорное- mono 32kbps\nhttp://perm.radiokp32.mp3.streamr.ru/</item>
         <item>Радио-3 Омск -Музыка- 128kbps\nhttp://81.23.194.18:8010/radio3.mp3</item>
         <item>Radio Muzkom Новосибирск -Музыка- 64kbps\nhttp://stream10.radiostyle.ru:8010/radiomuzkom</item>
         <item>Radio Muzkom Новосибирск -Музыка- 128kbps\nhttp://stream5.radiostyle.ru:8005/theatre</item>
         <item>Юнитон Новосибирск -Музыка- 192kbps\nhttp://online.uniton.ru:8300/RadioUniton192</item>
         <item>Юнитон Новосибирск -Музыка- 128kbps\nhttp://online.uniton.ru:8300/RadioUniton128</item>
         <item>Юнитон Новосибирск -Музыка- 56kbps\nhttp://online.uniton.ru:8300/RadioUniton56</item>
-        <item>Комсомольская правда Новосибирск -Разговорное- 128kbps\nhttp://kpradio.hostingradio.ru:8000/novosibirsk.radiokp128.mp3</item>
-        <item>Комсомольская правда Новосибирск -Разговорное- mono 64kbps\nhttp://kpradio.hostingradio.ru:8000/novosibirsk.radiokp64.mp3</item>
-        <item>Комсомольская правда Новосибирск -Разговорное- mono 32kbps\nhttp://kpradio.hostingradio.ru:8000/novosibirsk.radiokp32.mp3</item>
+        <item>КП Новосибирск -Разговорное- 128kbps\nhttp://kpradio.hostingradio.ru:8000/novosibirsk.radiokp128.mp3</item>
+        <item>КП Новосибирск -Разговорное- mono 64kbps\nhttp://kpradio.hostingradio.ru:8000/novosibirsk.radiokp64.mp3</item>
+        <item>КП Новосибирск -Разговорное- mono 32kbps\nhttp://kpradio.hostingradio.ru:8000/novosibirsk.radiokp32.mp3</item>
         <item>BEST FM 100,5 FM Москва -Музыка- 128kbps\nhttp://nashe1.hostingradio.ru/best-128.mp3</item>
         <item>Comedy Radio Москва -Юмор- 256kbps\nhttp://ic2.101.ru:8000/v11_1</item>
         <item>Comedy Radio -Музыка- 68kbps\nhttp://91.207.59.26/a202</item>
@@ -660,19 +660,19 @@
         <item>МосРадио Москва -Музыка- 128kbps\nhttp://217.70.28.155:8004/mosradio128</item>
         <item>МосРадио Москва -Музыка- 192kbps\nhttp://217.70.28.155:8004/mosradio192</item>
         <item>МосРадио Москва -Музыка- 320kbps\nhttp://217.70.28.155:8004/mosradio320</item>
-        <item>Комсомольская правда Москва -Разговорное- 128kbps\nhttp://kpradio128.streamr.ru/</item>
-        <item>Комсомольская правда Москва -Разговорное- 64kbps\nhttp://kpradio64.streamr.ru/</item>
-        <item>Комсомольская правда Москва -Разговорное- 32kbps\nhttp://kpradio32.streamr.ru</item>
+        <item>КП Москва -Разговорное- 128kbps\nhttp://kpradio128.streamr.ru/</item>
+        <item>КП Москва -Разговорное- 64kbps\nhttp://kpradio64.streamr.ru/</item>
+        <item>КП Москва -Разговорное- 32kbps\nhttp://kpradio32.streamr.ru</item>
         <item>Радио Рандеву Нижний Новгород -Музыка- 128kbps\nhttp://212.92.183.74:8370/;</item>
         <item>Радио «Образ» Нижний Новгород -Музыка- 128kbps\nhttp://213.177.106.78:8006/;?6358</item>
         <item>Ralph radio Нижний Новгород -Музыка- 48kbps\nhttp://eu3.radioboss.fm:8110/ralph48</item>
         <item>Ralph radio Нижний Новгород -Музыка- 256kbps\nhttp://eu3.radioboss.fm:8110/ralph128</item>
-        <item>Комсомольская правда Нижний Новгород -Разговорное- 128kbps\nhttp://nnovgorod.radiokp128.mp3.streamr.ru</item>
-        <item>Комсомольская правда Нижний Новгород -Разговорное- mono 64kbps\nhttp://nnovgorod.radiokp64.mp3.streamr.ru</item>
-        <item>Комсомольская правда Нижний Новгород -Разговорное- mono 32kbps\nhttp://nnovgorod.radiokp32.mp3.streamr.ru</item>
-        <item>Комсомольская правда Барнаул -Разговорное- 128kbps\nhttp://barnaul.radiokp128.mp3.streamr.ru</item>
-        <item>Комсомольская правда Барнаул -Разговорное- 64kbps\nhttp://barnaul.radiokp64.mp3.streamr.ru</item>
-        <item>Комсомольская правда Барнаул -Разговорное- 32kbps\nhttp://barnaul.radiokp32.mp3.streamr.ru</item>
+        <item>КП Нижний Новгород -Разговорное- 128kbps\nhttp://nnovgorod.radiokp128.mp3.streamr.ru</item>
+        <item>КП Нижний Новгород -Разговорное- mono 64kbps\nhttp://nnovgorod.radiokp64.mp3.streamr.ru</item>
+        <item>КП Нижний Новгород -Разговорное- mono 32kbps\nhttp://nnovgorod.radiokp32.mp3.streamr.ru</item>
+        <item>КП Барнаул -Разговорное- 128kbps\nhttp://barnaul.radiokp128.mp3.streamr.ru</item>
+        <item>КП Барнаул -Разговорное- 64kbps\nhttp://barnaul.radiokp64.mp3.streamr.ru</item>
+        <item>КП Барнаул -Разговорное- 32kbps\nhttp://barnaul.radiokp32.mp3.streamr.ru</item>
         <item>Heart FM Барнаул -Музыка- 256kbps\nhttp://83.246.143.25:8000/HFMHigh?1414385444183.mp3</item>
         <item>Радио Благовестие Воронеж -Музыка- 128kbps\nhttp://live.borneo.ru:8888/bv128</item>
         <item>Радио Благовестие Воронеж -Музыка- 64kbps\nhttp://live.borneo.ru:8888/bv64</item>
@@ -680,16 +680,16 @@
         <item>Радио NRJ (ENERGY) Екатеринбург -Музыка- 128kbps\nhttp://den.101.ru:4000/nrj_66_04</item>
         <item>Город FM 107.6 Екатеринбург -Музыка- 128kbps\nhttp://www.gorodfm.ru:8000/gorodfm</item>
         <item>Юмор FM Екатеринбург -Музыка- 128kbps\nhttp://den.101.ru:4000/hu_66_01</item>
-        <item>Комсомольская правда Екатеринбург -Разговорное- 128kbps\nhttp://ekaterinburg.radiokp128.mp3.streamr.ru</item>
-        <item>Комсомольская правда Екатеринбург -Разговорное- 64kbps\nhttp://ekaterinburg.radiokp64.mp3.streamr.ru</item>
-        <item>Комсомольская правда Екатеринбург -Разговорное- 32kbps\nhttp://ekaterinburg.radiokp32.mp3.streamr.ru</item>
+        <item>КП Екатеринбург -Разговорное- 128kbps\nhttp://ekaterinburg.radiokp128.mp3.streamr.ru</item>
+        <item>КП Екатеринбург -Разговорное- 64kbps\nhttp://ekaterinburg.radiokp64.mp3.streamr.ru</item>
+        <item>КП Екатеринбург -Разговорное- 32kbps\nhttp://ekaterinburg.radiokp32.mp3.streamr.ru</item>
         <item>Детское радио Екатеринбург -Детское- 128kbps\nhttp://den.101.ru:4000/det_66_01</item>
         <item>Детское радио (Старое радио) -Детское- 128kbps\nhttp://195.91.237.50:8000/detskoe128</item>
         <item>Comedy Radio Екатеринбург -Юмор- 128kbps\nhttp://den.101.ru:4000/com_66_01</item>
         <item>Радио Март Хиты 80х90х Иркутск -Музыка- 128kbps\nhttp://radio.radiomart38.com:8040/stream</item>
-        <item>Комсомольская правда Иркутск -Разговорное- 128kbps\nhttp://irkutsk.radiokp128.mp3.streamr.ru</item>
-        <item>Комсомольская правда Иркутск -Разговорное- 64kbps\nhttp://irkutsk.radiokp64.mp3.streamr.ru</item>
-        <item>Комсомольская правда Иркутск -Разговорное- 32kbps\nhttp://irkutsk.radiokp32.mp3.streamr.ru</item>
+        <item>КП Иркутск -Разговорное- 128kbps\nhttp://irkutsk.radiokp128.mp3.streamr.ru</item>
+        <item>КП Иркутск -Разговорное- 64kbps\nhttp://irkutsk.radiokp64.mp3.streamr.ru</item>
+        <item>КП Иркутск -Разговорное- 32kbps\nhttp://irkutsk.radiokp32.mp3.streamr.ru</item>
         <item>Татар Радиосы  Казань -Музыка- 119kbps\nhttp://stream.tatarradio.ru:2068/;stream/1</item>
         <item>БИМ радио  Казань -Музыка- 128kbps\nhttp://av.bimradio.ru:8066/bim_mp3_128k</item>
         <item>БИМ радио  Казань -Музыка- 256kbps\nhttp://av.bimradio.ru:8066/bim_mp3</item>
@@ -700,9 +700,9 @@
         <item>Казак FM Краснодар -Музыка- 192kbps\nhttp://193.242.149.55:8000/kfm</item>
         <item>DFM Краснодар 106.0 FM  -Музыка- 192kbps\nhttp://195.128.153.151:8000/dfm_krasnodar</item>
         <item>DFM Краснодар 106.0 FM  -Музыка- 96kbps\nhttp://195.128.153.151:8000/dfm_krasnodar_96</item>
-        <item>Комсомольская правда в Красноярске 107,1 FM -Разговорное- 128kbps\nhttp://krasnoyrsk.radiokp128.mp3.streamr.ru</item>
-        <item>Комсомольская правда в Красноярске 107,1 FM -Разговорное- 64kbps\nhttp://krasnoyrsk.radiokp64.mp3.streamr.ru</item>
-        <item>Комсомольская правда в Красноярске 107,1 FM -Разговорное- 32kbps\nhttp://krasnoyrsk.radiokp32.mp3.streamr.ru</item>
+        <item>КП в Красноярске 107,1 FM -Разговорное- 128kbps\nhttp://krasnoyrsk.radiokp128.mp3.streamr.ru</item>
+        <item>КП в Красноярске 107,1 FM -Разговорное- 64kbps\nhttp://krasnoyrsk.radiokp64.mp3.streamr.ru</item>
+        <item>КП в Красноярске 107,1 FM -Разговорное- 32kbps\nhttp://krasnoyrsk.radiokp32.mp3.streamr.ru</item>
         <item>KMC Красноярск -Музыка- 128kbps\nhttp://stream.radiokmc.ru:8000/live</item>
         <item>Vocal Chillout 320kbps\nhttp://vocaltrance.fm:8000/vocalchillout_320</item>
         <item>Vocal Chillout 256kbps\nhttp://vocaltrance.fm:8000/vocalchillout_256</item>
@@ -732,9 +732,9 @@
         <item>Маруся ФМ 190kbps\nhttp://radio-holding.ru:9000/marusya_default</item>
         <item>Маруся ФМ 64kbps\nhttp://radio-holding.ru:9000/marusya_aac_64</item>
         <item>Маруся ФМ 64kbps\nhttp://radio-holding.ru:9000/marusya_aac_32</item>
-        <item>Комсомольская правда Россия 128kbps\nhttp://kpradio.hostingradio.ru:8000/russia.radiokp128.mp3</item>
-        <item>Комсомольская правда Россия 64kbps\nhttp://kpradio.hostingradio.ru:8000/russia.radiokp64.mp3</item>
-        <item>Комсомольская правда Россия 32kbps\nhttp://kpradio.hostingradio.ru:8000/russia.radiokp32.mp3</item>
+        <item>КП Россия 128kbps\nhttp://kpradio.hostingradio.ru:8000/russia.radiokp128.mp3</item>
+        <item>КП Россия 64kbps\nhttp://kpradio.hostingradio.ru:8000/russia.radiokp64.mp3</item>
+        <item>КП Россия 32kbps\nhttp://kpradio.hostingradio.ru:8000/russia.radiokp32.mp3</item>
         <item>L-Radio Эль радио Челябинск 104,9 FM -Музыка- 96kbps\nhttps://96mp3.lradio.ru/lradio.stereo.96.mp3</item>
         <item>L-Radio Эль радио Челябинск 104,9 FM -Музыка- 64kbps\nhttp://server.lradio.ru:8000/lradio64.aac</item>
         <item>L-Radio Эль радио Челябинск 104,9 FM -Музыка- 32kbps\nhttp://server.lradio.ru:8000/lradio32.aac</item>
@@ -743,7 +743,6 @@
         <item>RADIO MADONNA 128kbps\nhttp://mp3stream4.abradio.cz/madonna128.mp3</item>
         <item>RADIO MADONNA 64kbps\nhttp://mp3stream4.abradio.cz/madonna64.mp3</item>
         <item>SomaFM: Secret Agent -Саундтреки- 128kbps\nhttp://ice3.somafm.com/secretagent-128-mp3</item>
-
         <item>Bolly FM -Саундтреки- 192kbps\nhttp://stream.radiobollyfm.in:8201/hd</item>
         <item>Музыка кино -Саундтреки- 192kbps\nhttp://channels.fonotron.ru:8000/Chan_67_128.mp3</item>
         <item>Музыка кино -Саундтреки- 256kbps\nhttp://channels.fonotron.ru:8000/Chan_67_256.mp3</item>
@@ -1009,7 +1008,6 @@
         <item>Говорит Москва 128kbps\nhttp://media.govoritmoskva.ru:8000/rufm_m.mp3</item>
         <item>Rock FM 128kbps\nhttp://rock128.streamr.ru</item>
         <item>Детское радио -Детское- 128kbps\nhttp://ic3.101.ru:8000/v14_1</item>
-
         <item>Детское радио -Детское- 128kbps\nhttp://radio.2kom.ru:8000/detskoe</item>
         <item>КП Федеральное -Разговорное- 256kbps\nhttp://kraskp.ru:8000/mskregion</item>
         <item>Romantika -Музыка- 256kbps\nhttp://ic3.101.ru:8000/s30</item>
@@ -1197,7 +1195,7 @@
         <item>Русская служба новостей\nhttp://stream02.media.rambler.ru/rsn96.mp3</item>
         <item>Радонежское радио\nhttp://icecast.radonezh.cdnvideo.ru:8000/rad</item>
         <item>Радио Jazz\nhttp://jazz.streamr.ru/jazz-128.mp3</item>
-        <item>Радио Комсомольская правда\nhttp://kraskp.ru:8000/64</item>
+        <item>КП\nhttp://kraskp.ru:8000/64</item>
         <item>Russian Hit\nhttp://apps.imgradio.ru/Dorojnoe-001</item>
         <item>Chocolate Radio 98FM Москва -Музыка- 160kbps\nhttp://choco.hostingradio.ru:10010/fm128</item>
         <item>Power Fm\nhttp://sh.mncdn.com:8108/;stream.mp3"</item>

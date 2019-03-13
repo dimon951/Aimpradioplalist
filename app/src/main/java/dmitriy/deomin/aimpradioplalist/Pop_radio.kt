@@ -28,46 +28,49 @@ class Pop_radio : Fragment() {
         recycl_pop_radio.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
         recycl_pop_radio.setHasFixedSize(true)
 
+        val data = ArrayList<RadioPop>()
+
+        GlobalScope.launch {
         //получаем список мудрёный
         val mas_radio = resources.getStringArray(R.array.pop_radio)
 
-        val data = ArrayList<RadioPop>()
+            for (i in mas_radio.indices) {
+                val m = mas_radio[i].split("\n")
+                val links:List<String> = m[2].split("~kbps~")
 
-        for (i in mas_radio.indices) {
-            val m = mas_radio[i].split("\n")
-            val links:List<String> = m[2].split("~kbps~")
+                data.add(RadioPop(m[0], m[1],
+                        (if (links.elementAtOrNull(1) != null) {
+                            Link(links[0], links[1])
+                        } else {
+                            Link("", "")
+                        }),
+                        (if (links.elementAtOrNull(3) != null) {
+                            Link(links[2], links[3])
+                        } else {
+                            Link("", "")
+                        }),
+                        (if (links.elementAtOrNull(5) != null) {
+                            Link(links[4], links[5])
+                        } else {
+                            Link("", "")
+                        }),
+                        (if (links.elementAtOrNull(7) != null) {
+                            Link(links[6], links[7])
+                        } else {
+                            Link("", "")
+                        }),
+                        (if (links.elementAtOrNull(9) != null) {
+                            Link(links[8], links[9])
+                        } else {
+                            Link("", "")
+                        })))
+            }
 
-            data.add(RadioPop(m[0], m[1],
-                    (if (links.elementAtOrNull(1) != null) {
-                        Link(links[0], links[1])
-                    } else {
-                        Link("", "")
-                    }),
-                    (if (links.elementAtOrNull(3) != null) {
-                        Link(links[2], links[3])
-                    } else {
-                        Link("", "")
-                    }),
-                    (if (links.elementAtOrNull(5) != null) {
-                        Link(links[4], links[5])
-                    } else {
-                        Link("", "")
-                    }),
-                    (if (links.elementAtOrNull(7) != null) {
-                        Link(links[6], links[7])
-                    } else {
-                        Link("", "")
-                    }),
-                    (if (links.elementAtOrNull(9) != null) {
-                        Link(links[8], links[9])
-                    } else {
-                        Link("", "")
-                    })))
+            // создаем адаптер
+            val adapter_pop_radio = Adapter_pop_radio(data)
+            recycl_pop_radio.adapter = adapter_pop_radio
         }
 
-        // создаем адаптер
-        val adapter_pop_radio = Adapter_pop_radio(data)
-        recycl_pop_radio.adapter = adapter_pop_radio
 
         Slot(Main.context,"save_all_popularnoe").onRun {
             GlobalScope.launch {
