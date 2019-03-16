@@ -10,10 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
-import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
-import dmitriy.deomin.aimpradioplalist.custom.Radio
-import dmitriy.deomin.aimpradioplalist.custom.send
-import dmitriy.deomin.aimpradioplalist.custom.signal
+import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
@@ -25,7 +22,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
 
 
     private lateinit var context: Context
-    private var raduoSearchList: ArrayList<Radio> = data
+    var raduoSearchList: ArrayList<Radio> = data
     //у списка нажатых строк при первом запуске будем отмечать последнию нажатую строку
     //потом будем добавлять но сохранится только последняя
     private var cho_nagimal: MutableSet<Int> = mutableSetOf(Main.cho_nagimali_poslednee)
@@ -109,7 +106,6 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
             //иначе вернём пустой элемент(дальше будут проверки и он не отобразится)
             Radio("","","","")
         }
-
 
         val name = radio.name
 

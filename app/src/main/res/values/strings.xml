@@ -231,8 +231,21 @@
 
     <string-array name="vse_radio">
 
+        <item>JPopsuki Radio!(Anime) -Саундтреки- 192kbps\nhttp://213.239.204.252:8000/stream</item>
+        <item>Japan-A-Radio - Japan s best music mix!(Anime) -Саундтреки- 45kbps\nhttp://audio.misproductions.com/japan48k</item>
+        <item>131(Anime) -Саундтреки- 128kbps\nhttp://stream.anime.com.pl:8000/radioHQ.ogg</item>
+        <item>NSW(Anime) -Саундтреки- 128kbps\nhttp://nsw-radio.de:8000/nswmp3</item>
+
         <item>Радио ULTRA -Музыка- 128kbps\nhttps://nashe1.hostingradio.ru:18000/ultra-128.mp3</item>
         <item>Радио Лучшие Песни -Музыка- 48kbps\nhttp://85.114.140.64:8000/666</item>
+        <item>Phate Radio(Anime) -Саундтреки- 192kbps\nhttp://stream.phate.io/phatecc</item>
+        <item>Gensokyo Radio - Music. Games. Touhou.(Anime) -Саундтреки- 128kbps\nhttp://stream.gensokyoradio.net:8000/</item>
+        <item>Bot-sama direct(Anime) -Саундтреки- 128kbps\nhttp://edenofthewest.com:8080/eden.mp3</item>
+        <item>RadioAnimati(Anime) -Саундтреки- 128kbps\nhttp://server.radioanimati.it:80/</item>
+        <item>Yggdrasil Radio(Anime) -Саундтреки- 128kbps\nhttp://95.211.241.92:9200/</item>
+        <item>Radio Anime Nexus(Anime) -Саундтреки- 96kbps\nhttp://radio.animenexus.mx:8000/animenexus</item>
+        <item>Extreme Anime Radio(Anime) -Саундтреки- 128kbps\nhttp://174.37.159.206:8052/stream</item>
+        <item>Shinsen-Radio(Anime) -Саундтреки- 128kbps\nhttp://shinsen-radio.org:8000/shinsen-radio.128.mp3</item>
         <item>Final Fantasy Radio(Anime) -Саундтреки- 192kbps\nhttp://finalfantasystation.com:8000/stream.mp3</item>
         <item>Vocaloid Stream(Anime) -Саундтреки- 128kbps\nhttp://142.4.217.133:9848/stream</item>
         <item>R/a/dio(Anime) -Саундтреки- 192kbps\nhttp://stream.r-a-d.io/main.mp3</item>
@@ -241,7 +254,6 @@
         <item>Armitage s Dimension Jpop/Jrock/Anime -Саундтреки- 64kbps\nhttp://aac.fr.armitunes.com:8010/</item>
         <item>Vocaloid Radio(Anime) -Саундтреки- 320kbps\nhttp://curiosity.shoutca.st:8019/stream</item>
         <item>AnimeNfo Radio(Anime) -Саундтреки- 128kbps\nhttp://itori.animenfo.com:443/</item>
-
         <item>ABBA -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a104?</item>
         <item>Bon Jovi -Дискография- 64kbps\nhttp://ic5.101.ru:8000/p307544</item>
         <item>Boney M -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a114?</item>
@@ -252,7 +264,6 @@
         <item>Elton John -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a142?</item>
         <item>Elvis Presley -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a111?</item>
         <item>Katy Perry? -Дискография- 64kbps\nhttp://icy.unitedradio.it/101SpecialArtist.aac</item>
-        <item>Enigma†ic station ІІ -Музыка- 64kbps\nhttp://ic5.101.ru:8000/p208711</item>
         <item>Linkin Park -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a149?</item>
         <item>Madonna -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a128?</item>
         <item>Metallica -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a123?</item>
@@ -324,13 +335,12 @@
         <item>Europa Plus: TOP 40 -Музыка- 128kbps\nhttp://hls-01-europaplus-top40.emgsound.ru/21/128/playlist.m3u8</item>
         <item>Super Radio -Музыка- 128kbps\nhttp://listen6.myradio24.com:9000/finist7747</item>
         <item>Super Radio -Музыка- 64kbps\nhttp://ic6.101.ru:8000/p902901</item>
-        <item>Super Radio -Музыка- 64kbps\nhttp://ic5.101.ru:8000/p902901</item>
         <item>Evropa 2 Прага -Музыка- 128kbps\nhttp://icecast3.play.cz/evropa2-128.mp3</item>
         <item>1.FM - Movie Soundtracks Hits Швейцария -Саундтреки- 128kbps\nhttp://prmstrm.1.fm:8000/moviesoundtracks</item>
         <item>Авторадио Тамбов -Музыка- 256kbps\nhttp://den.101.ru:4000/ar_68_02</item>
-        <item>101 RU Детские Песни -Детское- 128kbps\nhttp://ic3.101.ru:8000/c3_3</item>
-        <item>101 RU Колыбельная -Детское- 256kbps\nhttp://ic3.101.ru:8000/c8_1</item>
-        <item>101 RU Детские Сказки -Детское- 128kbps\nhttp://ic3.101.ru:8000/c17_27</item>
+        <item>Детские Песни -Детское- 128kbps\nhttp://ic3.101.ru:8000/c3_3</item>
+        <item>Колыбельная -Детское- 256kbps\nhttp://ic3.101.ru:8000/c8_1</item>
+        <item>Детские Сказки -Детское- 128kbps\nhttp://ic3.101.ru:8000/c17_27</item>
         <item>Kids Hits -Детское- 64kbps\nhttp://92.255.229.74:8000/kidshits_aac</item>
         <item>HotMix Radio Baby Франция -Детское- 64kbps\nhttp://streaming.hotmixradio.fr/hotmixradio-baby-64.aac</item>
         <item>ЯпаРадио -Музыка- 128kbps\nhttps://a2.radioheart.ru:9066/live</item>
@@ -345,7 +355,6 @@
         <item>Radio FM+ Болгария -Музыка- 128kbps\nhttp://193.108.24.21:8000/fmplus</item>
         <item>РадиоРадио Старый Оскол -Музыка- 128kbps\nhttp://play.radioradio.ru/sto</item>
         <item>РадиоРадио Сургут -Музыка- 64kbps\nhttp://play.radioradio.ru:80/sur</item>
-        <item>РадиоРадио Нижний Тагил -Музыка- 128kbps\nhttp://play.radioradio.ru:80/tag</item>
         <item>РадиоРадио Белокуриха -Музыка- 64kbps\nhttp://play.radioradio.ru:80/alt</item>
         <item>РадиоРадио Острогожск -Музыка- 64kbps\nhttp://play.radioradio.ru:80/ostr</item>
         <item>РадиоРадио Братск -Музыка- 46kbps\nhttp://play.radioradio.ru/brt</item>
@@ -375,146 +384,146 @@
         <item>Живое радио: Просто песни -Музыка- 64kbps\nhttp://air.jivoe.in:8000/songs64.mp3</item>
         <item>Живое радио: Просто песни -Музыка- 128kbps\nhttp://air.jivoe.in:8000/songs.mp3</item>
         <item>Живое радио: Просто песни -Музыка- 256kbps\nhttp://air.jivoe.in:8000/songs-hi.mp3</item>
-        <item>Радио Record: Нафталин FM -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/naft_320</item>
-        <item>Радио Record: Нафталин FM -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/naft_128</item>
-        <item>Радио Record: Нафталин FM -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/naft_64</item>
-        <item>Радио Record: Аншлаг FM -Юмор- 320kbps\nhttp://air.radiorecord.ru:805/ansh_320</item>
-        <item>Радио Record: Аншлаг FM -Юмор- 128kbps\nhttp://air.radiorecord.ru:805/ansh_128</item>
-        <item>Радио Record: Гастарбайтер FM -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/gast_320</item>
-        <item>Радио Record: Гастарбайтер FM -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/gast_128</item>
-        <item>Радио Record: Гастарбайтер FM -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/gast_64</item>
-        <item>Радио Record: Симфония FM -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/symph_320</item>
-        <item>Радио Record: Симфония FM -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/symph_128</item>
-        <item>Радио Record: Симфония FM -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/symph_64</item>
-        <item>Радио Record: Remix -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/rmx_320</item>
-        <item>Радио Record: Remix -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/rmx_128</item>
-        <item>Радио Record: Remix -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/rmx_64</item>
-        <item>Радио Record: Future Bass -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/fbass_320</item>
-        <item>Радио Record: Future Bass -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/fbass_128</item>
-        <item>Радио Record: Future Bass -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/fbass_64</item>
-        <item>Радио Record: Moombahton -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/mmbt_320</item>
-        <item>Радио Record: Moombahton -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/mmbt_128</item>
-        <item>Радио Record: Moombahton -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/mmbt_64</item>
-        <item>Радио Record: Jackin/Garage -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/jackin_320</item>
-        <item>Радио Record: Jackin/Garage -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/jackin_128</item>
-        <item>Радио Record: Jackin/Garage -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/jackin_64</item>
-        <item>Радио Record: Trancehouse -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/trancehouse_320</item>
-        <item>Радио Record: Trancehouse -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/trancehouse_128</item>
-        <item>Радио Record: Trancehouse -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/trancehouse_64</item>
-        <item>Радио Record: Hypnotic -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/hypno_320</item>
-        <item>Радио Record: Hypnotic -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/hypno_128</item>
-        <item>Радио Record: Hypnotic -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/hypno_64</item>
-        <item>Радио Record: GOA/PSY -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/goa_320</item>
-        <item>Радио Record: GOA/PSY -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/goa_128</item>
-        <item>Радио Record: GOA/PSY -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/goa_64</item>
-        <item>Радио Record: Tropical -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/trop_320</item>
-        <item>Радио Record: Tropical -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/trop_128</item>
-        <item>Радио Record: Tropical -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/trop_64</item>
-        <item>Радио Record: Jungle -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/jungle_320</item>
-        <item>Радио Record: Jungle -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/jungle_128</item>
-        <item>Радио Record: Jungle -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/jungle_64</item>
-        <item>Радио Record: Liquid Funk -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/liquidfunk_320</item>
-        <item>Радио Record: Liquid Funk -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/liquidfunk_128</item>
-        <item>Радио Record: Liquid Funk -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/liquidfunk_64</item>
-        <item>Радио Record: Drum n Bass Hits -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/drumhits_320</item>
-        <item>Радио Record: Drum n Bass Hits -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/drumhits_128</item>
-        <item>Радио Record: Drum n Bass Hits -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/drumhits_64</item>
-        <item>Радио Record: Russian Gold -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/russiangold_320</item>
-        <item>Радио Record: Russian Gold -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/russiangold_128</item>
-        <item>Радио Record: Russian Gold -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/russiangold_64</item>
-        <item>Радио Record: Eurodance -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/eurodance_320</item>
-        <item>Радио Record: Eurodance -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/eurodance_128</item>
-        <item>Радио Record: Eurodance -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/eurodance_64</item>
-        <item>Радио Record: Technopop -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/technopop_320</item>
-        <item>Радио Record: Technopop -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/technopop_128</item>
-        <item>Радио Record: Technopop -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/technopop_64</item>
-        <item>Радио Record: Disco/Funk -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/discofunk_320</item>
-        <item>Радио Record: Disco/Funk -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/discofunk_128</item>
-        <item>Радио Record: Disco/Funk -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/discofunk_64</item>
-        <item>Радио Record: Rap Hits -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/rap_320</item>
-        <item>Радио Record: Rap Hits -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/rap_128</item>
-        <item>Радио Record: Rap Hits -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/rap_64</item>
-        <item>Радио Record: Rap Classics -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/rapclassics_320</item>
-        <item>Радио Record: Rap Classics -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/rapclassics_128</item>
-        <item>Радио Record: Rap Classics -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/rapclassics_64</item>
-        <item>Радио Record: Cadillac FM -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/cadillac_320</item>
-        <item>Радио Record: Cadillac FM -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/cadillac_128</item>
-        <item>Радио Record: Cadillac FM -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/cadillac_64</item>
-        <item>Радио Record: 1980-е -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/1980_320</item>
-        <item>Радио Record: 1980-е -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/1980_128</item>
-        <item>Радио Record: 1980-е -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/1980_64</item>
-        <item>Радио Record: Chill House -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/chillhouse_320</item>
-        <item>Радио Record: Chill House -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/chillhouse_128</item>
-        <item>Радио Record: Chill House -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/chillhouse_64</item>
-        <item>Радио Record: 1970-е -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/1970_320</item>
-        <item>Радио Record: 1970-е -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/1970_128</item>
-        <item>Радио Record: 1970-е -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/1970_64</item>
-        <item>Радио Record: Complextro -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/complextro_320</item>
-        <item>Радио Record: Complextro -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/complextro_128</item>
-        <item>Радио Record: Complextro -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/complextro_64</item>
-        <item>Радио Record: Groove/Tribal -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/groovetribal_320</item>
-        <item>Радио Record: Groove/Tribal -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/groovetribal_128</item>
-        <item>Радио Record: Groove/Tribal -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/groovetribal_64</item>
-        <item>Радио Record: Russian Hits -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/russianhits_320</item>
-        <item>Радио Record: Russian Hits -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/russianhits_128</item>
-        <item>Радио Record: Russian Hits -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/russianhits_64</item>
-        <item>Радио Record: Gold -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/gold_320</item>
-        <item>Радио Record: Gold -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/gold_128</item>
-        <item>Радио Record: Gold -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/gold_64</item>
-        <item>Радио Record: Innocence -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/ibiza_320</item>
-        <item>Радио Record: Innocence -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/ibiza_128</item>
-        <item>Радио Record: Innocence -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/ibiza_64</item>
-        <item>Радио Record: Маятник Фуко -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/mf_320</item>
-        <item>Радио Record: Маятник Фуко -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/mf_128</item>
-        <item>Радио Record: Маятник Фуко -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/mf_64</item>
-        <item>Радио Record: Electro -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/elect_320</item>
-        <item>Радио Record: Electro -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/elect_128</item>
-        <item>Радио Record: Electro -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/elect_64</item>
-        <item>Радио Record: Midtempo -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/mt_320</item>
-        <item>Радио Record: Midtempo -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/mt_128</item>
-        <item>Радио Record: Midtempo -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/mt_64</item>
-        <item>Радио Record: Progressive -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/progr_320</item>
-        <item>Радио Record: Progressive -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/progr_128</item>
-        <item>Радио Record: Progressive -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/progr_64</item>
-        <item>Радио Record: Synthwave -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/synth_320</item>
-        <item>Радио Record: Synthwave -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/synth_128</item>
-        <item>Радио Record: Synthwave -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/synth_64</item>
-        <item>Радио Record: House Hits -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/househits_320</item>
-        <item>Радио Record: House Hits -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/househits_128</item>
-        <item>Радио Record: House Hits -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/househits_64</item>
-        <item>Радио Record: Big Hits -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/bighits_320</item>
-        <item>Радио Record: Big Hits -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/bighits_128</item>
-        <item>Радио Record: Big Hits -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/bighits_64</item>
-        <item>Радио Record: Dream Dance -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/dream_320</item>
-        <item>Радио Record: Dream Dance -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/dream_128</item>
-        <item>Радио Record: Dream Dance -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/dream_64</item>
-        <item>Радио Record: Darkside -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/darkside_320</item>
-        <item>Радио Record: Darkside -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/darkside_128</item>
-        <item>Радио Record: Darkside -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/darkside_64</item>
-        <item>Радио Record: Uplifting -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/uplift_320</item>
-        <item>Радио Record: Uplifting -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/uplift_128</item>
-        <item>Радио Record: Uplifting -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/uplift_64</item>
-        <item>Радио Record: House Classics -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/houseclss_320</item>
-        <item>Радио Record: House Classics -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/houseclss_128</item>
-        <item>Радио Record: House Classics -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/houseclss_64</item>
-        <item>Радио Record: EDM Hits -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/edmhits_320</item>
-        <item>Радио Record: EDM Hits -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/edmhits_128</item>
-        <item>Радио Record: EDM Hits -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/edmhits_64</item>
-        <item>Радио Record: Neurofunk -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/neurofunk_320</item>
-        <item>Радио Record: Neurofunk -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/neurofunk_128</item>
-        <item>Радио Record: Neurofunk -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/neurofunk_64</item>
-        <item>Радио Record: Tecktonik -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/tecktonik_320</item>
-        <item>Радио Record: Tecktonik -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/tecktonik_128</item>
-        <item>Радио Record: Tecktonik -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/tecktonik_64</item>
-        <item>Радио Record: 2-step -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/2step_320</item>
-        <item>Радио Record: 2-step -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/2step_128</item>
-        <item>Радио Record: 2-step -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/2step_64</item>
-        <item>Радио Record: Trance Hits -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/trancehits_320</item>
-        <item>Радио Record: Trance Hits -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/trancehits_128</item>
-        <item>Радио Record: Trance Hits -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/trancehits_64</item>
-        <item>Радио Record: Hard Bass -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/hbass_320</item>
-        <item>Радио Record: Hard Bass -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/hbass_128</item>
-        <item>Радио Record: Hard Bass -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/hbass_64</item>
+        <item>Record: Нафталин FM -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/naft_320</item>
+        <item>Record: Нафталин FM -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/naft_128</item>
+        <item>Record: Нафталин FM -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/naft_64</item>
+        <item>Record: Аншлаг FM -Юмор- 320kbps\nhttp://air.radiorecord.ru:805/ansh_320</item>
+        <item>Record: Аншлаг FM -Юмор- 128kbps\nhttp://air.radiorecord.ru:805/ansh_128</item>
+        <item>Record: Гастарбайтер FM -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/gast_320</item>
+        <item>Record: Гастарбайтер FM -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/gast_128</item>
+        <item>Record: Гастарбайтер FM -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/gast_64</item>
+        <item>Record: Симфония FM -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/symph_320</item>
+        <item>Record: Симфония FM -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/symph_128</item>
+        <item>Record: Симфония FM -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/symph_64</item>
+        <item>Record: Remix -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/rmx_320</item>
+        <item>Record: Remix -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/rmx_128</item>
+        <item>Record: Remix -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/rmx_64</item>
+        <item>Record: Future Bass -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/fbass_320</item>
+        <item>Record: Future Bass -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/fbass_128</item>
+        <item>Record: Future Bass -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/fbass_64</item>
+        <item>Record: Moombahton -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/mmbt_320</item>
+        <item>Record: Moombahton -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/mmbt_128</item>
+        <item>Record: Moombahton -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/mmbt_64</item>
+        <item>Record: Jackin/Garage -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/jackin_320</item>
+        <item>Record: Jackin/Garage -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/jackin_128</item>
+        <item>Record: Jackin/Garage -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/jackin_64</item>
+        <item>Record: Trancehouse -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/trancehouse_320</item>
+        <item>Record: Trancehouse -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/trancehouse_128</item>
+        <item>Record: Trancehouse -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/trancehouse_64</item>
+        <item>Record: Hypnotic -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/hypno_320</item>
+        <item>Record: Hypnotic -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/hypno_128</item>
+        <item>Record: Hypnotic -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/hypno_64</item>
+        <item>Record: GOA/PSY -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/goa_320</item>
+        <item>Record: GOA/PSY -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/goa_128</item>
+        <item>Record: GOA/PSY -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/goa_64</item>
+        <item>Record: Tropical -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/trop_320</item>
+        <item>Record: Tropical -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/trop_128</item>
+        <item>Record: Tropical -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/trop_64</item>
+        <item>Record: Jungle -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/jungle_320</item>
+        <item>Record: Jungle -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/jungle_128</item>
+        <item>Record: Jungle -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/jungle_64</item>
+        <item>Record: Liquid Funk -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/liquidfunk_320</item>
+        <item>Record: Liquid Funk -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/liquidfunk_128</item>
+        <item>Record: Liquid Funk -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/liquidfunk_64</item>
+        <item>Record: Drum n Bass Hits -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/drumhits_320</item>
+        <item>Record: Drum n Bass Hits -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/drumhits_128</item>
+        <item>Record: Drum n Bass Hits -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/drumhits_64</item>
+        <item>Record: Russian Gold -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/russiangold_320</item>
+        <item>Record: Russian Gold -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/russiangold_128</item>
+        <item>Record: Russian Gold -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/russiangold_64</item>
+        <item>Record: Eurodance -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/eurodance_320</item>
+        <item>Record: Eurodance -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/eurodance_128</item>
+        <item>Record: Eurodance -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/eurodance_64</item>
+        <item>Record: Technopop -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/technopop_320</item>
+        <item>Record: Technopop -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/technopop_128</item>
+        <item>Record: Technopop -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/technopop_64</item>
+        <item>Record: Disco/Funk -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/discofunk_320</item>
+        <item>Record: Disco/Funk -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/discofunk_128</item>
+        <item>Record: Disco/Funk -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/discofunk_64</item>
+        <item>Record: Rap Hits -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/rap_320</item>
+        <item>Record: Rap Hits -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/rap_128</item>
+        <item>Record: Rap Hits -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/rap_64</item>
+        <item>Record: Rap Classics -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/rapclassics_320</item>
+        <item>Record: Rap Classics -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/rapclassics_128</item>
+        <item>Record: Rap Classics -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/rapclassics_64</item>
+        <item>Record: Cadillac FM -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/cadillac_320</item>
+        <item>Record: Cadillac FM -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/cadillac_128</item>
+        <item>Record: Cadillac FM -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/cadillac_64</item>
+        <item>Record: 1980-е -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/1980_320</item>
+        <item>Record: 1980-е -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/1980_128</item>
+        <item>Record: 1980-е -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/1980_64</item>
+        <item>Record: Chill House -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/chillhouse_320</item>
+        <item>Record: Chill House -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/chillhouse_128</item>
+        <item>Record: Chill House -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/chillhouse_64</item>
+        <item>Record: 1970-е -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/1970_320</item>
+        <item>Record: 1970-е -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/1970_128</item>
+        <item>Record: 1970-е -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/1970_64</item>
+        <item>Record: Complextro -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/complextro_320</item>
+        <item>Record: Complextro -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/complextro_128</item>
+        <item>Record: Complextro -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/complextro_64</item>
+        <item>Record: Groove/Tribal -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/groovetribal_320</item>
+        <item>Record: Groove/Tribal -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/groovetribal_128</item>
+        <item>Record: Groove/Tribal -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/groovetribal_64</item>
+        <item>Record: Russian Hits -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/russianhits_320</item>
+        <item>Record: Russian Hits -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/russianhits_128</item>
+        <item>Record: Russian Hits -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/russianhits_64</item>
+        <item>Record: Gold -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/gold_320</item>
+        <item>Record: Gold -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/gold_128</item>
+        <item>Record: Gold -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/gold_64</item>
+        <item>Record: Innocence -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/ibiza_320</item>
+        <item>Record: Innocence -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/ibiza_128</item>
+        <item>Record: Innocence -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/ibiza_64</item>
+        <item>Record: Маятник Фуко -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/mf_320</item>
+        <item>Record: Маятник Фуко -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/mf_128</item>
+        <item>Record: Маятник Фуко -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/mf_64</item>
+        <item>Record: Electro -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/elect_320</item>
+        <item>Record: Electro -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/elect_128</item>
+        <item>Record: Electro -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/elect_64</item>
+        <item>Record: Midtempo -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/mt_320</item>
+        <item>Record: Midtempo -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/mt_128</item>
+        <item>Record: Midtempo -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/mt_64</item>
+        <item>Record: Progressive -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/progr_320</item>
+        <item>Record: Progressive -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/progr_128</item>
+        <item>Record: Progressive -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/progr_64</item>
+        <item>Record: Synthwave -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/synth_320</item>
+        <item>Record: Synthwave -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/synth_128</item>
+        <item>Record: Synthwave -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/synth_64</item>
+        <item>Record: House Hits -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/househits_320</item>
+        <item>Record: House Hits -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/househits_128</item>
+        <item>Record: House Hits -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/househits_64</item>
+        <item>Record: Big Hits -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/bighits_320</item>
+        <item>Record: Big Hits -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/bighits_128</item>
+        <item>Record: Big Hits -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/bighits_64</item>
+        <item>Record: Dream Dance -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/dream_320</item>
+        <item>Record: Dream Dance -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/dream_128</item>
+        <item>Record: Dream Dance -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/dream_64</item>
+        <item>Record: Darkside -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/darkside_320</item>
+        <item>Record: Darkside -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/darkside_128</item>
+        <item>Record: Darkside -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/darkside_64</item>
+        <item>Record: Uplifting -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/uplift_320</item>
+        <item>Record: Uplifting -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/uplift_128</item>
+        <item>Record: Uplifting -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/uplift_64</item>
+        <item>Record: House Classics -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/houseclss_320</item>
+        <item>Record: House Classics -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/houseclss_128</item>
+        <item>Record: House Classics -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/houseclss_64</item>
+        <item>Record: EDM Hits -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/edmhits_320</item>
+        <item>Record: EDM Hits -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/edmhits_128</item>
+        <item>Record: EDM Hits -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/edmhits_64</item>
+        <item>Record: Neurofunk -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/neurofunk_320</item>
+        <item>Record: Neurofunk -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/neurofunk_128</item>
+        <item>Record: Neurofunk -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/neurofunk_64</item>
+        <item>Record: Tecktonik -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/tecktonik_320</item>
+        <item>Record: Tecktonik -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/tecktonik_128</item>
+        <item>Record: Tecktonik -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/tecktonik_64</item>
+        <item>Record: 2-step -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/2step_320</item>
+        <item>Record: 2-step -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/2step_128</item>
+        <item>Record: 2-step -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/2step_64</item>
+        <item>Record: Trance Hits -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/trancehits_320</item>
+        <item>Record: Trance Hits -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/trancehits_128</item>
+        <item>Record: Trance Hits -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/trancehits_64</item>
+        <item>Record: Hard Bass -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/hbass_320</item>
+        <item>Record: Hard Bass -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/hbass_128</item>
+        <item>Record: Hard Bass -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/hbass_64</item>
         <item>Лёгкое Радио -Музыка- 96kbps\nhttp://185.236.130.96:8000/;</item>
         <item>Love Radio Казахстан -Музыка- 128kbps\nhttp://s2.free-shoutcast.com:18360/stream.mp3</item>
         <item>Тенгри FM 128kbps\nhttp://195.210.47.197:8000/live</item>
@@ -524,8 +533,8 @@
         <item>Радио Бессмертный Полк 96kbps\nhttps://rr-bessmertnyipolk.hostingradio.ru/bessmertnyipolk96.aacp</item>
         <item>Радио Русский Рок 96kbps\nhttps://rr-russkijrok.hostingradio.ru/russkijrok96.aacp</item>
         <item>Радио Золотой Граммофон 96kbps\nhttps://rr-zolotoigrammofon.hostingradio.ru/zolotoigrammofon96.aacp</item>
-        <item>Радио Руское Кино 96kbps\nhttps://rr-russkoekino.hostingradio.ru/russkoekino96.aacp</item>
-        <item>Радио Соня 96kbps\nhttps://rr-sonya.hostingradio.ru/sonya96.aacp</item>
+        <item>Радио Руское Кино -Саундтреки- 96kbps\nhttps://rr-russkoekino.hostingradio.ru/russkoekino96.aacp</item>
+        <item>Радио Соня -Детское- 96kbps\nhttps://rr-sonya.hostingradio.ru/sonya96.aacp</item>
         <item>Детский канал -Детское- 96kbps\nhttps://rr-detskijkanal.hostingradio.ru/detskijkanal96.aacp</item>
         <item>Высоцкий -Дискография- 96kbps\nhttps://rr-vysockij.hostingradio.ru/vysockij96.aacp</item>
         <item>Радио Мелодии Века 128kbps\nhttp://93.84.112.253:8010/MV128</item>
@@ -558,7 +567,6 @@
         <item>Радио Кыргызстан Обондору -Музыка- 192kbps\nhttp://31.192.250.52:8000/obondoru128</item>
         <item>Radio RCM DEEP -Музыка- 128kbps\nhttp://95.213.237.115:8000/rcm</item>
         <item>Радио Мария FM -Музыка- 192kbps\nhttp://mariafm.ru:8000/maria-fm.mp3</item>
-        <item>Авторадио Казахстан -Музыка- 128kbps\nhttp://89.106.235.181/AVTORADIO?mp3</item>
         <item>Радио Power FM Украина -Музыка- 192kbps\nhttp://media2.brg.ua:8000/power_h</item>
         <item>Душевное радио -Музыка- 48kbps\nhttp://stream.hoster.by:8081/pilotfm/audio/icecast.audio</item>
         <item>Таван радио -Музыка- 128kbps\nhttp://icecast.ntrk21.ru:8000/tavan</item>
@@ -583,7 +591,6 @@
         <item>Народное Радио Беларусь -Разговорное- 128kbps\nhttp://live.novoeradio.by:8000/narodnoe-radio-128k</item>
         <item>Романтика -Музыка- 131kbps\nhttp://91.207.59.26/a101</item>
         <item>Пи FM -Музыка- 128kbps\nhttp://stream.pifm.ru/mp3</item>
-        <item>Monte Carlo -Музыка- 128kbps\nhttps://montecarlo.gcdn.co/mc_m.aac</item>
         <item>Record Russian Mix -Музыка- 320kbps\nhttp://air2.radiorecord.ru:805/rus_320</item>
         <item>SOUNDPARK DEEP -Музыка- 128kbps\nhttp://185.220.35.56:8000/128</item>
         <item>SOUNDPARK DEEP -Музыка- 320kbps\nhttp://185.220.35.56:8000/320</item>
@@ -617,12 +624,12 @@
         <item>MOTORADIO.ONLINE  Санкт-Петербург -Музыка- 256kbps\nhttp://stream.motoradio.online:8000/high-aac</item>
         <item>MOTORADIO.ONLINE  Санкт-Петербург -Музыка- 96kbps\nhttp://stream.motoradio.online:8000/std-aac</item>
         <item>Самара-Максимум -Музыка- 128kbps\nhttp://85.236.172.22:8000/maximum</item>
-        <item>КП - Самара -Разговорное- 128kbps\nhttp://kpradio.hostingradio.ru:8000/samara.radiokp128.mp3</item>
-        <item>КП - Самара -Разговорное- mono 64kbps\nhttp://kpradio.hostingradio.ru:8000/samara.radiokp64.mp3</item>
-        <item>КП - Самара -Разговорное- mono 32kbps\nhttp://kpradio.hostingradio.ru:8000/samara.radiokp32.mp3</item>
-        <item>КП - Санкт-Петербург -Разговорное- 128kbps\nhttp://kpradio.hostingradio.ru:8000/spb.radiokp128.mp3</item>
-        <item>КП - Санкт-Петербург -Разговорное- mono 64kbps\nhttp://kpradio.hostingradio.ru:8000/spb.radiokp64.mp3</item>
-        <item>КП - Санкт-Петербург -Разговорное- mono 32kbps\nhttp://kpradio.hostingradio.ru:8000/spb.radiokp32.mp3</item>
+        <item>КП Самара -Разговорное- 128kbps\nhttp://kpradio.hostingradio.ru:8000/samara.radiokp128.mp3</item>
+        <item>КП Самара -Разговорное- mono 64kbps\nhttp://kpradio.hostingradio.ru:8000/samara.radiokp64.mp3</item>
+        <item>КП Самара -Разговорное- mono 32kbps\nhttp://kpradio.hostingradio.ru:8000/samara.radiokp32.mp3</item>
+        <item>КП Санкт-Петербург -Разговорное- 128kbps\nhttp://kpradio.hostingradio.ru:8000/spb.radiokp128.mp3</item>
+        <item>КП Санкт-Петербург -Разговорное- mono 64kbps\nhttp://kpradio.hostingradio.ru:8000/spb.radiokp64.mp3</item>
+        <item>КП Санкт-Петербург -Разговорное- mono 32kbps\nhttp://kpradio.hostingradio.ru:8000/spb.radiokp32.mp3</item>
         <item>КП Ростов-на-Дону -Разговорное- 128kbps\nhttp://rostov.radiokp128.mp3.streamr.ru</item>
         <item>КП Ростов-на-Дону -Разговорное- mono 64kbps\nhttp://rostov.radiokp64.mp3.streamr.ru</item>
         <item>КП Ростов-на-Дону -Разговорное- mono 32kbps\nhttp://rostov.radiokp32.mp3.streamr.ru</item>
@@ -677,9 +684,7 @@
         <item>Радио Благовестие Воронеж -Музыка- 128kbps\nhttp://live.borneo.ru:8888/bv128</item>
         <item>Радио Благовестие Воронеж -Музыка- 64kbps\nhttp://live.borneo.ru:8888/bv64</item>
         <item>Радиола Екатеринбург -Музыка- 64kbps\nhttp://online1.gkvr.ru:8000/radiola_eka_64.aac</item>
-        <item>Радио NRJ (ENERGY) Екатеринбург -Музыка- 128kbps\nhttp://den.101.ru:4000/nrj_66_04</item>
         <item>Город FM 107.6 Екатеринбург -Музыка- 128kbps\nhttp://www.gorodfm.ru:8000/gorodfm</item>
-        <item>Юмор FM Екатеринбург -Музыка- 128kbps\nhttp://den.101.ru:4000/hu_66_01</item>
         <item>КП Екатеринбург -Разговорное- 128kbps\nhttp://ekaterinburg.radiokp128.mp3.streamr.ru</item>
         <item>КП Екатеринбург -Разговорное- 64kbps\nhttp://ekaterinburg.radiokp64.mp3.streamr.ru</item>
         <item>КП Екатеринбург -Разговорное- 32kbps\nhttp://ekaterinburg.radiokp32.mp3.streamr.ru</item>
@@ -712,7 +717,7 @@
         <item>Vocal Trance Radio 256kbps\nhttp://176.9.36.203:8000/vocaltrance_256</item>
         <item>Vocal Trance Radio 320kbps\nhttp://176.9.36.203:8000/vocaltrance_320</item>
         <item>ЗвукоКнига -Аудиокниги- 128kbps\nhttp://94.181.45.104:8005/;</item>
-        <item>Old Time Radio -Аудиокниги- mono 64kbps\nhttp://199.189.86.43:8170/;</item>
+        <item>Old Time Radio -Аудиокниги- mono 64kbps\nhttp://199.189.86.43:8170/</item>
         <item>Cornucopia Broadcasting -Аудиокниги- 96kbps\nhttp://8.38.78.173:8002/;audio.mp3</item>
         <item>BBC Radio 4 Extra -Аудиокниги- 128kbps\nhttp://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4extra_mf_p</item>
         <item>ХАЙП FM -Поп- 46kbps\nhttp://air.volna.top/HypeFM</item>
@@ -737,7 +742,6 @@
         <item>КП Россия 32kbps\nhttp://kpradio.hostingradio.ru:8000/russia.radiokp32.mp3</item>
         <item>L-Radio Эль радио Челябинск 104,9 FM -Музыка- 96kbps\nhttps://96mp3.lradio.ru/lradio.stereo.96.mp3</item>
         <item>L-Radio Эль радио Челябинск 104,9 FM -Музыка- 64kbps\nhttp://server.lradio.ru:8000/lradio64.aac</item>
-        <item>L-Radio Эль радио Челябинск 104,9 FM -Музыка- 32kbps\nhttp://server.lradio.ru:8000/lradio32.aac</item>
         <item>L-Radio Эль радио Челябинск 104,9 FM -Музыка- 320kbps\nhttp://server.lradio.ru:8000/lradio320.ogg</item>
         <item>L-Radio Эль радио Челябинск 104,9 FM -Музыка- 96kbps\nhttp://96mp3.lradio.ru:8000/lradio.stereo.96.mp3</item>
         <item>RADIO MADONNA 128kbps\nhttp://mp3stream4.abradio.cz/madonna128.mp3</item>
@@ -1197,7 +1201,7 @@
         <item>Радио Jazz\nhttp://jazz.streamr.ru/jazz-128.mp3</item>
         <item>КП\nhttp://kraskp.ru:8000/64</item>
         <item>Russian Hit\nhttp://apps.imgradio.ru/Dorojnoe-001</item>
-        <item>Chocolate Radio 98FM Москва -Музыка- 160kbps\nhttp://choco.hostingradio.ru:10010/fm128</item>
+        <item>Chocolate Radio 98FM Москва -Музыка- 160kbps\nhttp://choco.hostingradio.ru:10010/fm</item>
         <item>Power Fm\nhttp://sh.mncdn.com:8108/;stream.mp3"</item>
         <item>BFM\nhttp://bfm.hostingradio.ru:8004/fm</item>
         <item>GlobalFM 1074\nhttp://s07.radio-tochka.com:6455/</item>
@@ -1238,7 +1242,6 @@
         <item>Мост-Радио Пенза 102.8 128kbps\nhttp://94.181.181.72:8000/</item>
         <item>Моя Удмуртия Ижевск 100.1 96kbps\nhttp://radio.myudm.ru:10010/mp3</item>
         <item>Н-Радио Новоуральск 107.9 128kbps\nhttp://5.199.192.107:8000/n-radio</item>
-        <item>Народная Волна Екатеринбург 91.9 -Музыка- 128kbps\nhttp://www.intervolna.com:8000/rnv</item>
         <item>Наши Песни-Екатеринбург 128kbps\nhttp://online.nashipesni.ru:8000/nashipesni</item>
         <item>Наши Песни-Екатеринбург 64kbps\nhttp://online.nashipesni.ru:8000/nashipesni_aacplus</item>
         <item>Наши Песни-Красноярск 64kbps\nhttp://online.nashipesni.ru:8000/np-kras</item>
@@ -1340,7 +1343,6 @@
         <item>Русские песни -Музыка- 68kbps\nhttp://listen.rusongs.ru/ru-aac-64</item>
         <item>Новое Радио Минск Беларусь -Музыка- 128kbps\nhttp://212.98.181.84:8000/novoeradio_128</item>
         <item>Новое Радио Минск Беларусь -Музыка- 128kbps\nhttp://live.novoeradio.by:8000/novoeradio-aac</item>
-        <item>Unistar Беларусь -Музыка- 128kbps\nhttp://unistar.by:8000/unistar-128kb</item>
         <item>Unistar -Музыка- 128kbps\nhttps://stream.hoster.by/unistar/unistar-128kb/icecast.audio</item>
         <item>Радио Минск Беларусь\nhttp://93.84.113.142:8000/radio</item>
         <item>Plus Radio Беларусь\nhttp://live.bn.by:8000/aplus_top_128</item>
@@ -1406,11 +1408,8 @@
         <item>Energy 90s\nhttp://energy90s.ice.infomaniak.ch/energy90s-high.mp3</item>
         <item>Plus Radio\nhttp://live.bn.by:8000/aplus_top_128</item>
         <item>SOMA.FM Tags Trance Trip\nhttp://ice.somafm.com/thetrip-64.aac</item>
-        <item>AddictedToRadio: Skatin Jamz 80s/RB/Old School -Музыка- 128kbps\nhttp://208.77.21.13:15130</item>
         <item>AddictedToRadio: At Work - Your Office Station 80s/90/s -Музыка- 128kbps\nhttp://208.77.21.15:11510</item>
         <item>AddictedToRadio: At Work - Your Office Station 80s/90/s -Музыка- 128kbps\nhttp://208.77.21.15:11530</item>
-        <item>AddictedToRadio: Jammin Oldies 0s/80s/Dance/Disco -Музыка- 128kbps\nhttp://208.77.21.13:9010</item>
-        <item>AddictedToRadio: Jammin Oldies 0s/80s/Dance/Disco -Музыка- 128kbps\nhttp://208.77.21.13:9030</item>
         <item>AH.FM - Worlds #1 Trance Radio -Музыка- 192kbps\nhttp://www.ah.fm/192k.m3u</item>
         <item>Amsterdam Trance Radio -Музыка- 128kbps\nhttp://sc-atr.1.fm:7700/;</item>
         <item>Anison FM -Музыка- 320kbps\nhttp://s1.radio.ru-hoster.com:8000/AniSonFM(320)</item>
@@ -1725,7 +1724,6 @@
         <item>Brks -Музыка- 128kbps\nhttp://online.radiorecord.ru:8102/brks_128</item>
         <item>BOLID FM Пермь -Музыка- 128kbps\nhttp://178.161.132.182:8128/;stream.nsv</item>
         <item>Закарпатия ФМ -Музыка- 128kbps\nhttp://195.234.148.51:8000/;stream.mp3</item>
-        <item>ChebFM ЧебФМ -Музыка- 128kbps\nhttp://play.cheb.fm:8000/chebfm.ogg</item>
         <item>TIZIANO FERRO -Дискография- 128kbps\nhttp://icy.unitedradio.it/Ferro.mp3?</item>
         <item>VASCO -Дискография- 128kbps\nhttp://icy.unitedradio.it/Vasco.mp3?</item>
         <item>Zucchero -Дискография- 128kbps\nhttp://icy.unitedradio.it/Zucchero.mp3?</item>
@@ -1737,33 +1735,15 @@
         <item>British Style -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p513268</item>
         <item>MpaK FM -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p424188</item>
         <item>Music mood -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p847716</item>
-        <item>- SRP FM -
-\nhttp://ic6.101.ru:8000/p767826
-</item>
-        <item>- THE BEST MUSIC -
-\nhttp://ic6.101.ru:8000/p765246
-</item>
-        <item>- РАДИО - ДЛЯ - ВЗРОСЛЫХ -
-\nhttp://ic6.101.ru:8000/p705542
-</item>
-        <item>-- СТАРЫЕ КАССЕТЫ --
-\nhttp://ic6.101.ru:8000/p431462
-</item>
-        <item>!!!!Dark Metal radio!!!!
-\nhttp://ic6.101.ru:8000/p472521
-</item>
-        <item>!!!Лучшие хиты 90-х!!!!
-\nhttp://ic6.101.ru:8000/p350151
-</item>
-        <item>!FesT!
-\nhttp://ic6.101.ru:8000/p732464
-</item>
-        <item>__C_I_N_I_C_I__
-\nhttp://ic6.101.ru:8000/p596813
-</item>
-        <item>B.E.M. radio !..=)
-\nhttp://ic6.101.ru:8000/p486290
-</item>
+        <item>- SRP FM - -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p767826</item>
+        <item>- THE BEST MUSIC - -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p765246</item>
+        <item>- РАДИО - ДЛЯ - ВЗРОСЛЫХ - -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p705542</item>
+        <item>-- СТАРЫЕ КАССЕТЫ -- -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p431462</item>
+        <item>!!!!Dark Metal radio!!!! -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p472521</item>
+        <item>!!!Лучшие хиты 90-х!!!! -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p350151</item>
+        <item>!FesT! -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p732464</item>
+        <item>__C_I_N_I_C_I__ -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p596813</item>
+        <item>B.E.M. radio !..=) -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p486290</item>
         <item>GaraЖ Radio
 \nhttp://ic6.101.ru:8000/p729923
 </item>
@@ -5955,9 +5935,6 @@
         <item>Deep People
 \nhttp://ic6.101.ru:8000/p834360
 </item>
-        <item>DEEP POINT
-\nhttp://ic6.101.ru:8000/p874700
-</item>
         <item>deep relax music for mood
 \nhttp://ic6.101.ru:8000/p530308
 </item>
@@ -6705,27 +6682,17 @@
         <item>DonVik SHANSON ANEKDOT
 \nhttp://ic6.101.ru:8000/p432970
 </item>
-        <item>Doom
-\nhttp://ic6.101.ru:8000/p550275
-</item>
-        <item>DOOM rock
-\nhttp://ic6.101.ru:8000/p823104
-</item>
+        <item>Doom 68kbps\nhttp://ic6.101.ru:8000/p550275</item>
+        <item>DOOM rock 68kbps\nhttp://ic6.101.ru:8000/p823104</item>
         <item>doomka
 \nhttp://ic6.101.ru:8000/p823037
 </item>
         <item>dosage
 \nhttp://ic6.101.ru:8000/p732452
 </item>
-        <item>Dota 2
-\nhttp://ic6.101.ru:8000/p775059
-</item>
-        <item>Dota 2 Radio
-\nhttp://ic6.101.ru:8000/p750895
-</item>
-        <item>DOTA2 Buff ON 25 MMR
-\nhttp://ic6.101.ru:8000/p846710
-</item>
+        <item>Dota 2 68kbps\nhttp://ic6.101.ru:8000/p775059</item>
+        <item>Dota 2 Radio 68kbps\nhttp://ic6.101.ru:8000/p750895</item>
+        <item>DOTA2 Buff ON 25 MMR 68kbps\nhttp://ic6.101.ru:8000/p846710</item>
         <item>DOTO GO PRO
 \nhttp://ic6.101.ru:8000/p792837
 </item>
@@ -6927,9 +6894,7 @@
         <item>DUB STEP KMV- Первая радио станция в КМВ
 \nhttp://ic6.101.ru:8000/p708367
 </item>
-        <item>Dub Step.Fm-лучший даб степ
-\nhttp://ic6.101.ru:8000/p723096
-</item>
+        <item>Dub Step.Fm-лучший даб степ -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p723096</item>
         <item>dubadu
 \nhttp://ic6.101.ru:8000/p744410
 </item>
@@ -27694,9 +27659,6 @@
         <item>Пегас FM
 \nhttp://ic6.101.ru:8000/p769708
 </item>
-        <item>Пелагея
-\nhttp://ic6.101.ru:8000/p638368
-</item>
         <item>пенза
 \nhttp://ic6.101.ru:8000/p173344
 </item>
@@ -27877,9 +27839,7 @@
         <item>песни победы
 \nhttp://ic6.101.ru:8000/p849086
 </item>
-        <item>Песни Сергея Трофимова
-\nhttp://ic6.101.ru:8000/p732148
-</item>
+        <item>Сергей Трофимов -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p732148</item>
         <item>Песни словами которыми говорю
 \nhttp://ic6.101.ru:8000/p798360
 </item>
@@ -27967,9 +27927,7 @@
         <item>Пламя
 \nhttp://ic6.101.ru:8000/p776582
 </item>
-        <item>План Ломоносова
-\nhttp://ic6.101.ru:8000/p847402
-</item>
+        <item>План Ломоносова -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p847402</item>
         <item>Планета 90-х. EURODANCE
 \nhttp://ic6.101.ru:8000/p765816
 </item>
@@ -28390,9 +28348,7 @@
         <item>Проверенно временем
 \nhttp://ic6.101.ru:8000/p582056
 </item>
-        <item>Программирование
-\nhttp://ic6.101.ru:8000/p338969
-</item>
+        <item>Программирование -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p338969</item>
         <item>Продюсерский центр Жени Глюкк
 \nhttp://ic6.101.ru:8000/p744120
 </item>
@@ -28627,9 +28583,7 @@
         <item>радио   Двигай Телом
 \nhttp://ic6.101.ru:8000/p843714
 </item>
-        <item>Радио - Охота и Рыбалка
-\nhttp://ic6.101.ru:8000/p614435
-</item>
+        <item>Радио - Охота и Рыбалка -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p614435</item>
         <item>Радио  9 Мая
 \nhttp://ic6.101.ru:8000/p715415
 </item>
@@ -28693,9 +28647,7 @@
         <item>Радио Медикс
 \nhttp://ic6.101.ru:8000/p603776
 </item>
-        <item>Радио Музыка Мультфильмов
-\nhttp://ic6.101.ru:8000/p732503
-</item>
+        <item>Радио Музыка Мультфильмов -Саундтреки- 68kbps\nhttp://ic6.101.ru:8000/p732503</item>
         <item>Радио Настроение
 \nhttp://ic6.101.ru:8000/p538860
 </item>
@@ -28987,9 +28939,7 @@
         <item>Радио SLUSAR.SU
 \nhttp://ic6.101.ru:8000/p861697
 </item>
-        <item>Радио Soundtrack
-\nhttp://ic6.101.ru:8000/p771862
-</item>
+        <item>Радио Soundtrack -Саундтреки- 68kbps\nhttp://ic6.101.ru:8000/p771862</item>
         <item>Радио SRK
 \nhttp://ic6.101.ru:8000/p493513
 </item>
@@ -29128,9 +29078,7 @@
         <item>Радио Валентина
 \nhttp://ic6.101.ru:8000/p542995
 </item>
-        <item>Радио ваня
-\nhttp://ic6.101.ru:8000/p339318
-</item>
+        <item>Радио ваня -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p339318</item>
         <item>Радио Ваня Иваново 104.9 FM
 \nhttp://ic6.101.ru:8000/p784158
 </item>
@@ -29212,9 +29160,7 @@
         <item>Радио Глобус
 \nhttp://ic6.101.ru:8000/p502785
 </item>
-        <item>Радио Гондураса
-\nhttp://ic6.101.ru:8000/p728934
-</item>
+        <item>Радио Гондураса -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p728934</item>
         <item>Радио Гонолулу
 \nhttp://ic6.101.ru:8000/p34326
 </item>
@@ -29261,9 +29207,7 @@
         <item>Радио Дракоши
 \nhttp://ic6.101.ru:8000/p518911
 </item>
-        <item>Радио Дрова
-\nhttp://ic6.101.ru:8000/p859955
-</item>
+        <item>Радио Дрова -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p859955</item>
         <item>радио ДРУЖБА
 \nhttp://ic6.101.ru:8000/p829666
 </item>
@@ -29411,9 +29355,7 @@
         <item>Радио кухня
 \nhttp://ic6.101.ru:8000/p822789
 </item>
-        <item>Радио Лаваш
-\nhttp://ic6.101.ru:8000/p804318
-</item>
+        <item>Радио Лаваш -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p804318</item>
         <item>Радио Лайт
 \nhttp://ic6.101.ru:8000/p834059
 </item>
@@ -29590,9 +29532,6 @@
 </item>
         <item>Радио Ночь
 \nhttp://ic6.101.ru:8000/p373518
-</item>
-        <item>Радио Няня
-\nhttp://ic6.101.ru:8000/p748026
 </item>
         <item>Радио Одесса
 \nhttp://ic6.101.ru:8000/p681892
@@ -29817,9 +29756,7 @@
         <item>Радио Солянка
 \nhttp://ic6.101.ru:8000/p542270
 </item>
-        <item>Радио Сплин
-\nhttp://ic6.101.ru:8000/p793729
-</item>
+        <item>Радио Сплин -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p793729</item>
         <item>РАДИО СПОКОЙСТВИЕ
 \nhttp://ic6.101.ru:8000/p824381
 </item>
@@ -31386,27 +31323,13 @@
         <item>СЕВЕРНЫЙ ВЕТЕР
 \nhttp://ic6.101.ru:8000/p470778
 </item>
-        <item>Сектор Газа
-\nhttp://ic6.101.ru:8000/p434792
-</item>
-        <item>Сектор Газа
-\nhttp://ic6.101.ru:8000/p679238
-</item>
-        <item>сектор газа
-\nhttp://ic6.101.ru:8000/p748381
-</item>
-        <item>СЕКТОР ГАЗА ЗОЛОТАЯ КОЛЛЕКЦИЯ
-\nhttp://ic6.101.ru:8000/p790061
-</item>
-        <item>Сектор газа и
-\nhttp://ic6.101.ru:8000/p206248
-</item>
-        <item>СЕКТОР ГАЗА И ЮФЕРОВ ВИТАЛЯ ХОЙ ВСЕМ
-\nhttp://ic6.101.ru:8000/p826144
-</item>
-        <item>Сектор Газа панк рок
-\nhttp://ic6.101.ru:8000/p835638
-</item>
+        <item>Сектор Газа -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p434792</item>
+        <item>Сектор Газа -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p679238</item>
+        <item>сектор газа -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p748381</item>
+        <item>СЕКТОР ГАЗА ЗОЛОТАЯ КОЛЛЕКЦИЯ -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p790061</item>
+        <item>Сектор газа и -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p206248</item>
+        <item>СЕКТОР ГАЗА И ЮФЕРОВ ВИТАЛЯ ХОЙ ВСЕМ -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p826144</item>
+
         <item>Сельская дискотека 2000
 \nhttp://ic6.101.ru:8000/p765104
 </item>
@@ -33676,18 +33599,9 @@
         <item>ЮРИЙ FM
 \nhttp://ic6.101.ru:8000/p873619
 </item>
-        <item>Юрий Антонов
-\nhttp://ic6.101.ru:8000/p326982
-</item>
-        <item>ЮРИЙ АНТОНОВ
-\nhttp://ic6.101.ru:8000/p632730
-</item>
-        <item>Юрий Антонов.
-\nhttp://ic6.101.ru:8000/p590691
-</item>
-        <item>Юрий Фил музыка
-\nhttp://ic6.101.ru:8000/p57358
-</item>
+        <item>ЮРИЙ АНТОНОВ -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p632730</item>
+        <item>Юрий Антонов -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p590691</item>
+        <item>Юрий Фил музыка -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p57358</item>
         <item>Юрий Шатунов -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p832819</item>
         <item>Юрьево -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p591284</item>
         <item>ЮЮ -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p724400</item>

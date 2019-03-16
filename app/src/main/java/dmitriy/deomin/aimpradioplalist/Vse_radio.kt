@@ -119,7 +119,7 @@ class Vse_radio : Fragment() {
             //пошлём сигнал в маин чтобы отключил показ прогресс бара
             //он нам пошлёт в обратку сигнал "update_vse_radio"
             signal("Main_update")
-                    .putExtra("signal", "load_good_vse_radio")
+                    .putExtra("signal", "load_stop_vse_radio")
                     .send(context)
 
         }
@@ -146,10 +146,39 @@ class Vse_radio : Fragment() {
                     adapter_vse_list.filter.filter(text)
                 }
             })
+
+
+
+            //этот слот будет висеть и если что будет сохранять текущий список в память
+            Slot(context,"save_all_vse_lest").onRun {
+                //получаем имя для плейлиста
+                var n = it.getStringExtra("name_list")
+
+                adapter_vse_list.notifyDataSetChanged()
+                val data = adapter_vse_list.raduoSearchList
+                if(data.isNotEmpty()){
+                    GlobalScope.launch {
+                        val f = File_function()
+                        //составим норм список
+                        val s_data = java.util.ArrayList<String>()
+                        s_data.add("#EXTM3U")
+                        for (s in data.iterator()){
+                            s_data.add("\n#EXTINF:-1,"+s.name+" "+s.kbps+"\n" + s.url)
+                        }
+                        if(s_data.size>0){
+                            if(n.isNotEmpty()){
+                                f.saveArrayList(n+".m3u",s_data)
+                            }else{
+                                n=data.size.toString()
+                                f.saveArrayList("vse_list_radio"+n+".m3u",s_data)
+                            }
+                        }
+                    }
+                }
+            }
+
         }
         //---------------------------------------------------------------
-
-
         //при первой загрузке будем ставить текст на кнопке , потом при смене будем менять тамже
         val t = if (Main.save_read("button_text_filter1").isNotEmpty()) {
             Main.save_read("button_text_filter1")
@@ -314,6 +343,7 @@ class Vse_radio : Fragment() {
                 }
             }
         }
+
         return v
     }
 

@@ -8,13 +8,7 @@ import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.io.BufferedReader
-import java.io.File
-import java.io.FileNotFoundException
-import java.io.FileOutputStream
-import java.io.FileReader
-import java.io.IOException
-import java.io.OutputStreamWriter
+import java.io.*
 import java.util.ArrayList
 
 class File_function {
@@ -252,7 +246,7 @@ class File_function {
 
     //Вызов функции SaveFile, который выполняет задачу сохранения файла в External-носителе:
     private fun SaveFile_vizov(filename: String, link_text: String) {
-        val fullpath: String = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + filename
+        val fullpath=Main.ROOT + filename
         //Сохранение файла на External Storage:
         if (isExternalStorageWritable) {
             SaveFile(fullpath, link_text)
@@ -294,17 +288,54 @@ class File_function {
 
     }
 
+    //запись в файл
+    fun writeToFile(name:String, str: String) {
+        create_esli_net()
+
+        val writer = FileWriter(Main.ROOT+name, true)
+        try {
+            writer.write(str+"\n")
+        } catch (ex: Exception) {
+            println(ex.message)
+            //послать сигнал
+            signal("File_created_save_vse")
+                    .putExtra("run", false)
+                    .putExtra("update", "pizdec")
+                    .putExtra("anim","anim_of")
+                    .send(Main.context)
+        } finally {
+            writer.close()
+            //послать сигнал
+            signal("File_created_save_vse")
+                    .putExtra("run", false)
+                    .putExtra("update", "zaebis")
+                    .putExtra("anim","anim_of")
+                    .send(Main.context)
+        }
+    }
+
+    fun readFile(){
+        try {
+            val read = FileReader("text.txt")
+            println(read.readText())
+        } catch (e:Exception){
+            println(e.message)
+        }
+
+    }
+
+
 
     //сохранение и чение списка из памяти
     fun saveArrayList(f_name:String,data:ArrayList<String>){
         GlobalScope.launch {
             //перегоним data в строку с переносами
             var save_text= ""
-            for(t in data.iterator()){
+            for(t in data.listIterator()){
                 save_text = save_text+"\n"+t
             }
             //сохраняем
-            SaveFile_vizov(f_name,save_text)
+            writeToFile(f_name,save_text)
         }
     }
     fun readArrayList(f_name: String):ArrayList<String>{

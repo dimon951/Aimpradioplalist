@@ -530,7 +530,7 @@ class Main : FragmentActivity() {
 
 
         val mImageIds: IntArray = intArrayOf(R.drawable.titl_text1, R.drawable.titl_text2, R.drawable.titl_text3)
-        val imageSwitcher: ImageSwitcher = findViewById(R.id.imageSwitcher)
+        val imageSwitcher: ImageSwitcher = this.findViewById(R.id.imageSwitcher)
         imageSwitcher.setFactory {
             val myView = ImageView(applicationContext)
             myView.scaleType = ImageView.ScaleType.FIT_CENTER
@@ -593,6 +593,47 @@ class Main : FragmentActivity() {
 
         vse_radio.onClick {
             viewPager.currentItem = 0
+        }
+        vse_radio.onLongClick {
+
+            //спросим имя для файла
+            //покажем оконо в котором нужно будет ввести имя
+            val nsf = DialogWindow(context, R.layout.name_save_file)
+
+            val name = nsf.view().findViewById<EditText>(R.id.edit_new_name)
+            name.typeface = Main.face
+            name.textColor = Main.COLOR_TEXT
+            name.setText("Всё радио")
+            (nsf.view().findViewById<Button>(R.id.button_save)).onClick{
+                if(name.text.toString().isNotEmpty()){
+                    nsf.close()
+                    //запустим анимацию
+                    vse_radio.visibility = View.GONE
+                    progress_vse_radio.visibility = View.VISIBLE
+                    //пошлём сигнал для сохранения
+                    signal("save_all_vse_lest").putExtra("name_list",name.text.toString()).send(context)
+                }else{
+                    Main.context.toast("Введите имя")
+                }
+            }
+
+
+            //когда все запишется отключим анимацию
+            Slot(Main.context, "File_created_save_vse", false).onRun {
+                //получим данные
+                val s = it.getStringExtra("update")
+                when (s) {
+                    "zaebis" -> Main.context.toast(rnd_ok())
+                    "pizdec" -> Main.context.toast(Main.context.getString(R.string.error))
+                }
+                val a = it.getStringExtra("anim")
+                when(a){
+                    "anim_of"-> {
+                        progress_vse_radio.visibility = View.GONE
+                        vse_radio.visibility = View.VISIBLE
+                    }
+                }
+            }
         }
 
         popularnoe.onClick {
@@ -681,12 +722,11 @@ class Main : FragmentActivity() {
                     viewPager.adapter = myadapter
                     viewPager.currentItem = 1
                 }
-                "load_good_vse_radio" -> {
+                "load_stop_vse_radio" -> {
                     progress_vse_radio.visibility = View.GONE
                     vse_radio.visibility = View.VISIBLE
                     signal("update_vse_radio").send(context)
                 }
-
             }
         }
 
