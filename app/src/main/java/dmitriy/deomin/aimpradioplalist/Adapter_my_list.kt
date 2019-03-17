@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import dmitriy.deomin.aimpradioplalist.custom.*
+import org.jetbrains.anko.hintTextColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
@@ -156,6 +157,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                 val edit = nsf.view().findViewById<EditText>(R.id.edit_new_name)
                 edit.typeface = Main.face
                 edit.textColor = Main.COLOR_TEXT
+                edit.hintTextColor = Main.COLOR_TEXTcontext
                 edit.hint = radio.name
                 edit.setText(radio.name)
 

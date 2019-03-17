@@ -34,13 +34,30 @@ class File_function {
             e.printStackTrace()
         }
 
-        //удалим мусор
+        //удалим мусор и приведём все к одному виду
         var kontent = text
                 .replace("\n", "")
                 .replace("'", "")
                 .replace("&", "")
-              //  .replace(" ", "")
+                .replace("\"", "")
                 .replace("#EXTM3U", "")
+                .replace("#EXTINF:-1,", "#EXTINF:-1")
+                .replace("#EXTINF:-1", "#EXTINF:-1,")
+                .replace("group-title=", "")
+
+
+        if(kontent.contains("#PLAYLIST")){
+            //получим мусорную строку Типа #PLAYLIST:101.RU-Профессиональное радио
+            val d = kontent.substringAfter("#PLAYLIST").substringBefore("#EXTINF:")
+            kontent = kontent.replace("#PLAYLIST"+d,"")
+        }
+        if(kontent.contains("#EXTVLCOPT")){
+            //получим мусорную строку Типа #PLAYLIST:101.RU-Профессиональное радио
+            val d = kontent.substringAfter("#EXTVLCOPT").substringBefore("http://")
+            kontent = kontent.replace("#EXTVLCOPT"+d,"")
+        }
+
+
 
         //если есть чё разобьём на массив и вернём после удаления пустых строк
         if (kontent.length > 11) {
@@ -292,7 +309,7 @@ class File_function {
     fun writeToFile(name:String, str: String) {
         create_esli_net()
 
-        val writer = FileWriter(Main.ROOT+name, true)
+        val writer = FileWriter(Main.ROOT+name, false)
         try {
             writer.write(str+"\n")
         } catch (ex: Exception) {

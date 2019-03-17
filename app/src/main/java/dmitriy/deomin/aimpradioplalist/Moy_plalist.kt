@@ -3,27 +3,29 @@ package dmitriy.deomin.aimpradioplalist
 import android.annotation.SuppressLint
 import android.content.*
 import android.os.Bundle
-import android.os.Environment
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import java.util.ArrayList
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.widget.*
+import com.github.kittinunf.fuel.httpGet
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.email
 import org.jetbrains.anko.support.v4.share
 import org.jetbrains.anko.support.v4.toast
-import org.jetbrains.anko.textColor
-import org.jetbrains.anko.toast
 import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class Moy_plalist : Fragment() {
@@ -270,7 +272,7 @@ class Moy_plalist : Fragment() {
         }
         //--------------------------------------------------------------------------------------
 
-        //-------------открыть из памяти устройства плейлист--------------------------------------
+        //-------------открыть из памяти устройства или по ссылке плейлист--------------------------------------
         (v.findViewById<Button>(R.id.load_file)).onClick {
             val file_function = File_function()
             //если в плейлисте есть чето предложим чегонибуть
@@ -278,6 +280,7 @@ class Moy_plalist : Fragment() {
 
                 val vponf = DialogWindow(context, R.layout.vopros_pri_otkritii_new_file)
 
+                //------------------открыть из памяти---------------------------------------------
                 //затираем старое
                 (vponf.view().findViewById<Button>(R.id.button_dell_old_plalist)).onClick {
 
@@ -286,7 +289,6 @@ class Moy_plalist : Fragment() {
                     //закрываем окошко
                     vponf.close()
                 }
-
 
                 //добавляем к старому если есть дубликаты пропустим их
                 (vponf.view().findViewById<Button>(R.id.button_add_old_plalist)).onClick {
@@ -303,6 +305,7 @@ class Moy_plalist : Fragment() {
             } else {
                 open_load_file(context, "")
             }
+            //---------------------------------------------------------------------------------
         }
         //------------------------------------------------------------------------------------
 
@@ -373,13 +376,14 @@ class Moy_plalist : Fragment() {
         //создадим папки если нет
         file_function.create_esli_net()
 
+
         //если плейлист пуст откроем окно выбора загрузки файла(память или ссылка)
         val lf = DialogWindow(context, R.layout.load_file)
 
 
         var file_m3u_custom: String
 
-        //при выборе из памяти устройства
+        //---------------при выборе из памяти устройства----------------------------------------------------
         (lf.view().findViewById<Button>(R.id.load_fs)).onClick {
 
             //посмотрим есть старый пусть
@@ -427,31 +431,11 @@ class Moy_plalist : Fragment() {
                                             }
                                         }
                                     }
-
-                                    //если в параметрах данные были поставим их вначале
-                                    if (str_old.length > 7) {
-
-                                        //заменим тег #EXTM3U в прочитаном файле если есть в начале файла на перенос строки
-                                        //и удалим весь мусор
-                                        str = str.replace("#EXTM3U", "\n")
-                                                .replace("'", "")
-                                                .replace("&", "")
-
-
-                                        //если в новых данных есть старые удалим их
-                                        val cikl_data = str_old.replace("#EXTM3U", "").split("#EXTINF:-1,")
-                                        for (i in cikl_data.iterator()) {
-                                            //читаем старые данные и если они есть в новых удаляем
-                                            str = str.replace("#EXTINF:-1,$i", "")
-                                        }
-
-                                        //поехали , сохраняем  и ждём сигналы
-                                        file_function.SaveFile(Main.MY_PLALIST, str_old + str)
-                                    } else {
-                                        //поехали , сохраняем  и ждём сигналы
-                                        file_function.SaveFile(Main.MY_PLALIST, str)
+                                    //поехали , сохраняем  и ждём сигналы
+                                    if(str.contains("#EXTM3U")||str_old.length>7){
+                                        str = str.replace("#EXTM3U","")
                                     }
-
+                                    file_function.SaveFile(Main.MY_PLALIST, str_old + str)
                                 } else {
                                     context.toast("Файл: $file_m3u_custom пуст")
                                 }
@@ -463,6 +447,125 @@ class Moy_plalist : Fragment() {
             //----
             lf.close()
         }
+        //--------------------------------------------------------------------------------------------------
+        //-------------------открываем ссылку -----------------------------------------------
+        (lf.view().findViewById<Button>(R.id.load_url)).onClick {
+
+            lf.close()
+
+            //покажем окно ввода ссылки и ранею историю ввода ссылок если есть
+            val f = File_function()
+            //загружаем историю
+            val history_url_list = f.readArrayList(Main.HISTORY_LINK)
+
+            //содаём диалоговое окно
+            val dvvul = DialogWindow(context, R.layout.dialog_vvoda_ull_lista)
+
+            //история
+            val r = (dvvul.view().findViewById<RecyclerView>(R.id.list_history_link))
+            r.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+            val d = ArrayList<History>()
+            //заишем парочку своих для примера
+            for (sh in Main.HISTORY_LIST_PRIMER) {
+                d.add(sh)
+            }
+
+            for (s in history_url_list.listIterator()) {
+                if (s.length > 1) {
+                    val s_list = s.split("$")
+                    if (s_list.size > 1) {
+                        d.add(0, History(s_list[0], s_list[1]))
+                    }
+                }
+            }
+            val a = Adapter_history_list(d)
+            r.adapter = a
+
+
+            val e = dvvul.view().findViewById<EditText>(R.id.editText_add_list_url)
+            e.typeface = Main.face
+            e.textColor = Main.COLOR_TEXT
+            e.hintTextColor = Main.COLOR_TEXTcontext
+            e.hint = "Введите Url плейлиста"
+
+            //вставка из буфера
+            (dvvul.view().findViewById<Button>(R.id.button_paste_list_url_add)).onClick { e.setText(getText(context)) }
+
+            //если по истории кто кликнет то установим тот текст в эдит
+            Slot(Main.context, "clik_history_item").onRun {
+                val t = it.getStringExtra("url")
+                if (t.isNotEmpty()) {
+                    e.setText(t)
+                }
+            }
+
+            //при клике ок будем проверять на пустоту и сохранять в историю
+            (dvvul.view().findViewById<Button>(R.id.button_add_list_url)).onClick {
+                if (e.text.toString().isEmpty()) {
+                    //если пустое поле
+                    context.toast("Введите url")
+                } else {
+                    val url_link = e.text.toString()
+                    val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+                    val date_time = sdf.format(Date())
+                    //скроем окно
+                    dvvul.close()
+
+                    //сохраним в историю ссылку
+                    //-----------------------------------------------------------------
+                    history_url_list.add(url_link + "$" + date_time)
+                    f.saveArrayList(Main.HISTORY_LINK, history_url_list)
+                    //----------------------------------------------------------
+
+                    //-----------скачиваем файл (читам его)--------
+                    GlobalScope.launch {
+                        url_link.httpGet().responseString { request, response, result ->
+                            when (result) {
+                                is com.github.kittinunf.result.Result.Failure -> {
+                                    val ex = result.getException()
+                                }
+                                is com.github.kittinunf.result.Result.Success -> {
+                                    var data = result.get()
+
+                                    if (data.isNotEmpty()) {
+                                        //если там чтото есть сохраним в файл
+                                      //  f.writeToFile(Main.DOWLOD_PLALIST, data)
+
+                                        //когда прийдёт сигнал что все хорошо обновим плейлист
+                                        Slot(context, "File_created", false).onRun { it ->
+                                            //получим данные
+                                            val s = it.getStringExtra("update")
+                                            when (s) {
+                                                "zaebis" -> {
+                                                    //пошлём сигнал пусть мой плейлист обновится
+                                                    signal("Data_add").putExtra("update", "zaebis").send(context)
+                                                }
+                                                "pizdec" -> {
+                                                    context.toast(context.getString(R.string.error))
+                                                    //запросим разрешения
+                                                    Main.EbuchieRazreshenia()
+                                                }
+                                            }
+                                        }
+                                        //если есть удалим ебучий тег в начале файла
+                                        if(data.contains("#EXTM3U")||str_old.length>7){
+                                            data = data.replace("#EXTM3U","")
+                                        }
+                                        //поехали , сохраняем  и ждём сигналы
+                                        file_function.SaveFile(Main.MY_PLALIST, str_old + data)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    //--------------------------------------------------------
+                }
+            }
+
+        }
+        //--------------------------------------------------------------------------------------
+
+
     }
 
     //чтение из буфера
@@ -474,13 +577,53 @@ class Moy_plalist : Fragment() {
             clipboard!!.text.toString()
         } else {
             val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager?
-            if(clipboard!!.text==null){
+            if (clipboard!!.text == null) {
                 toast("Буфер обмена пуст")
                 ""
-            }else{
+            } else {
                 clipboard.text.toString()
             }
         }
         return text
     }
+}
+
+
+class Adapter_history_list(val data: ArrayList<History>) : RecyclerView.Adapter<Adapter_history_list.ViewHolder>() {
+
+    private lateinit var context: Context
+
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val name = itemView.findViewById<Button>(R.id.name_potok)
+        val data_time = itemView.findViewById<TextView>(R.id.data_add_potok)
+        val share = itemView.findViewById<Button>(R.id.button_share_url_plalist)
+    }
+
+    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
+        val v = LayoutInflater.from(p0.context).inflate(R.layout.item_vvoda_potoka, p0, false)
+        context = p0.context
+        return ViewHolder(v)
+    }
+
+    override fun getItemCount(): Int {
+        return data.size
+    }
+
+    override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
+
+        val history = data[p1]
+
+        p0.name.text = history.name
+        p0.data_time.text = history.data_time
+
+
+        p0.name.onClick {
+            signal("clik_history_item").putExtra("url", history.name).send(Main.context)
+        }
+
+        p0.share.onClick {
+            context.share(history.name)
+        }
+    }
+
 }

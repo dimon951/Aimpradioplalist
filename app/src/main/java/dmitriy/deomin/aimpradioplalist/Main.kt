@@ -23,10 +23,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.kotlinpermissions.KotlinPermissions
-import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
-import dmitriy.deomin.aimpradioplalist.custom.Slot
-import dmitriy.deomin.aimpradioplalist.custom.send
-import dmitriy.deomin.aimpradioplalist.custom.signal
+import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.main.*
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -62,6 +59,16 @@ class Main : FragmentActivity() {
 
         //название файла темы и путь его
         val F_THEM_list = "theme.txt"
+
+        val DOWLOD_PLALIST = "download_list.m3u"
+
+        //название файла истории ввода сылок на плейлисты
+        val HISTORY_LINK = "history_url.txt"
+
+        val HISTORY_LIST_PRIMER = arrayListOf(
+                History("http://potokovoe.ru/record/101ru_channel.m3u8","17.03.19"),
+                History("http://potokovoe.ru/playlists/list.m3u","17.03.19" ),
+                History("https://potokovoe.page.link/list","17.03.19" ))
 
         //количество стандартных тем
         val SIZE_LIST_THEM_DEFALT = 7
