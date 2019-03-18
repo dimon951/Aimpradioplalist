@@ -14,5 +14,5 @@ data class RadioPop(val name: String,
 
 data class Theme(val name:String,val fon:Int,val item:Int,val text:Int,val text_context:Int)
 
-data class History(val name:String,val data_time:String)
+data class History(val name:String,val url:String,val data_time:String)
 

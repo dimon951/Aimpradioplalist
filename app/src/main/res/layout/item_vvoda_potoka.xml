@@ -2,7 +2,6 @@
 <dmitriy.deomin.aimpradioplalist.custom.Fon_item xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fon_item_vvoda_potoka"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="5dp"
@@ -20,39 +19,49 @@
 
 
     <LinearLayout
+        android:id="@+id/fon_item_vvoda_potoka"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <dmitriy.deomin.aimpradioplalist.custom.Text
+            android:id="@+id/data_add_potok"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="5dp"
+            android:text="s5"
+            android:textSize="8sp" />
+
         <LinearLayout
+            android:id="@+id/liner_online_plalist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="6"
+            android:layout_weight="1"
             android:orientation="vertical">
 
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
+            <dmitriy.deomin.aimpradioplalist.custom.Text
                 android:id="@+id/name_potok"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:text="Button"
-                android:textSize="12sp" />
+                android:text="Пояснение что там есть" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Text
-                android:id="@+id/data_add_potok"
+                android:id="@+id/url_potok"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
-                android:gravity="right"
-                android:text="TextView"
-                android:textSize="8sp" />
+                android:gravity="left"
+                android:text="@string/s1"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_share_url_plalist"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_weight="1"
+            android:layout_weight="0"
             android:background="@android:drawable/ic_menu_share" />
 
     </LinearLayout>

@@ -66,9 +66,9 @@ class Main : FragmentActivity() {
         val HISTORY_LINK = "history_url.txt"
 
         val HISTORY_LIST_PRIMER = arrayListOf(
-                History("http://potokovoe.ru/record/101ru_channel.m3u8","17.03.19"),
-                History("http://potokovoe.ru/playlists/list.m3u","17.03.19" ),
-                History("https://potokovoe.page.link/list","17.03.19" ))
+                History("Cамообновляемый плейлист сто один ру","http://potokovoe.ru/record/101ru_channel.m3u8","17.03.19"),
+                History("Самообновляемый плейлист с сайта potokovoe.ru","http://potokovoe.ru/playlists/list.m3u","17.03.19" ),
+                History("Самообновляемый плейлист с сайта potokovoe.ru","https://potokovoe.page.link/list","17.03.19" ))
 
         //количество стандартных тем
         val SIZE_LIST_THEM_DEFALT = 7

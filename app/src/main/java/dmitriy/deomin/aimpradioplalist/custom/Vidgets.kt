@@ -11,7 +11,6 @@ import android.widget.Button
 import android.widget.TextView
 import dmitriy.deomin.aimpradioplalist.Main
 
-
 class Btn : Button {
     constructor(context: Context) : super(context) {
         this.typeface = Main.face
@@ -91,11 +90,23 @@ class DialogWindow(context: Context, loaut: Int) {
     private val content: View
 
     init {
-        val builder = AlertDialog.Builder(ContextThemeWrapper(context, R.style.Theme_Holo))
+        val builder = AlertDialog.Builder(context)
         content = LayoutInflater.from(context).inflate(loaut, null)
         builder.setView(content)
 
         alertDialog = builder.create()
+
+        //сместим немногов низ окно
+        val params = this.alertDialog.window.attributes
+
+        //https://it-giki.com/post/355.html
+        params.y = 150
+
+
+        //применяем правки
+        this.alertDialog.window.attributes = params
+
+        //показываем окно
         alertDialog.show()
     }
 

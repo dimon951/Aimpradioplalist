@@ -3,6 +3,7 @@ package dmitriy.deomin.aimpradioplalist
 import android.annotation.SuppressLint
 import android.content.*
 import android.os.Bundle
+import android.service.autofill.FieldClassification
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.view.animation.AnimationUtils
 import android.widget.*
 import com.github.kittinunf.fuel.httpGet
 import dmitriy.deomin.aimpradioplalist.custom.*
@@ -58,69 +60,67 @@ class Moy_plalist : Fragment() {
         //будем слушать эфир постоянно если че обновим список
         //----------------------------------------------------------------------------
         Slot(context, "Data_add").onRun { it ->
-
             //получим данные
             val s = it.getStringExtra("update")
-            if (s == "zaebis") {
+            when(s){
+                "zaebis" -> {
+                        //заново все сделаем
+                        //------------------------------------------------------
+                        val file_function = File_function()
+                        //прочитали файл Main.MY_PLALIST и получили список строк , каждая строка содержит имя и адрес станции
+                        //или получили Main.PUSTO если ам нет нечего
+                        val mr = file_function.My_plalist(Main.MY_PLALIST)
+                        //адаптеру будем слать список классов Radio
+                        val d = ArrayList<Radio>()
+                        val d_error = ArrayList<String>()
 
-                //заново все сделаем
-                //------------------------------------------------------
-                val file_function = File_function()
-                //прочитали файл Main.MY_PLALIST и получили список строк , каждая строка содержит имя и адрес станции
-                //или получили Main.PUSTO если ам нет нечего
-                val mr = file_function.My_plalist(Main.MY_PLALIST)
-                //адаптеру будем слать список классов Radio
-                val d = ArrayList<Radio>()
-                val d_error = ArrayList<String>()
-
-                for (i in mr.indices) {
-                    val m = mr[i].split("\n")
-                    if (m.size > 1) {
-                        d.add(Radio(m[0], "", "", m[1]))
-                    } else {
-                        if (m.isEmpty()) {
-                            if (m[0] != "#EXTM3U") {
-                                d_error.add(mr[i] + " Позиция:" + i.toString())
+                        for (i in mr.indices) {
+                            val m = mr[i].split("\n")
+                            if (m.size > 1) {
+                                d.add(Radio(m[0], "", "", m[1]))
+                            } else {
+                                if (m.isEmpty()) {
+                                    if (m[0] != "#EXTM3U") {
+                                        d_error.add(mr[i] + " Позиция:" + i.toString())
+                                    }
+                                }
                             }
+
                         }
-                    }
 
-                }
+                        val ad = Adapter_my_list(d)
+                        recikl_list.adapter = ad
+                        //---------------------------------------------------------
 
-                val ad = Adapter_my_list(d)
-                recikl_list.adapter = ad
-                //---------------------------------------------------------
-
-                //перемотаем
-                if (position_list < d.size && position_list >= 0) {
-                    recikl_list.scrollToPosition(position_list)
-                }
-
-
-                if (d_error.size > 0) {
-                    //покажем кнопочку для показа списка всех ошибок, чтобы могли вручную их добавить
-                    leiner_error.visibility = View.VISIBLE
-                    text_erro.text = "Не получилось импортировать " + d_error.size.toString() + " шт"
-                    text_erro.onClick {
-                        //покажем диалоговое окно с списком брака
-                        val ei = DialogWindow(context, R.layout.error_import)
-                        val podrobno = ei.view().findViewById<TextView>(R.id.textView_error_import_podrobno)
-                        var tx = "Ошибки: "
-                        for (t in d_error.iterator()) {
-                            tx += t
+                        //перемотаем
+                        if (position_list < d.size && position_list >= 0) {
+                            recikl_list.scrollToPosition(position_list)
                         }
-                        podrobno.text = tx
 
-                    }
-                    (v.findViewById<Button>(R.id.buttonclose_err)).onClick {
-                        leiner_error.visibility = View.GONE
-                    }
-                    context.toast("Готово, но обыли ошибки")
-                } else {
-                    context.toast("ok")
+
+                        if (d_error.size > 0) {
+                            //покажем кнопочку для показа списка всех ошибок, чтобы могли вручную их добавить
+                            leiner_error.visibility = View.VISIBLE
+                            text_erro.text = "Не получилось импортировать " + d_error.size.toString() + " шт"
+                            text_erro.onClick {
+                                //покажем диалоговое окно с списком брака
+                                val ei = DialogWindow(context, R.layout.error_import)
+                                val podrobno = ei.view().findViewById<TextView>(R.id.textView_error_import_podrobno)
+                                var tx = "Ошибки: "
+                                for (t in d_error.iterator()) {
+                                    tx += t
+                                }
+                                podrobno.text = tx
+
+                            }
+                            (v.findViewById<Button>(R.id.buttonclose_err)).onClick {
+                                leiner_error.visibility = View.GONE
+                            }
+                            context.toast("Готово, но обыли ошибки")
+                        } else {
+                            context.toast("ok")
+                        }
                 }
-
-
             }
         }
         //-------------------------------------------------------------------------------------
@@ -432,7 +432,7 @@ class Moy_plalist : Fragment() {
                                         }
                                     }
                                     //поехали , сохраняем  и ждём сигналы
-                                    if(str.contains("#EXTM3U")||str_old.length>7){
+                                    if(str_old.length>7){
                                         str = str.replace("#EXTM3U","")
                                     }
                                     file_function.SaveFile(Main.MY_PLALIST, str_old + str)
@@ -461,26 +461,33 @@ class Moy_plalist : Fragment() {
             //содаём диалоговое окно
             val dvvul = DialogWindow(context, R.layout.dialog_vvoda_ull_lista)
 
+            //поменяем цвет фона ато все сливается
+            (dvvul.view().findViewById<LinearLayout>(R.id.fon_dialoga_add_online_plalist)).backgroundColor =Main.COLOR_FON
+
             //история
             val r = (dvvul.view().findViewById<RecyclerView>(R.id.list_history_link))
-            r.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+
+            //сюда будем записывать переботаный стринг в хистори массив
             val d = ArrayList<History>()
-            //заишем парочку своих для примера
-            for (sh in Main.HISTORY_LIST_PRIMER) {
-                d.add(sh)
+
+            //если список пустой запишем парочку своих для примера
+            //----------------------------------------------------------------
+            if(history_url_list.size<3){
+                for (sh in Main.HISTORY_LIST_PRIMER) {
+                   history_url_list.add(sh.name+"$"+sh.url+"$"+sh.data_time)
+                }
             }
 
+            //парсим в нужный вид  и переворачиваем
             for (s in history_url_list.listIterator()) {
                 if (s.length > 1) {
                     val s_list = s.split("$")
-                    if (s_list.size > 1) {
-                        d.add(0, History(s_list[0], s_list[1]))
+                    if (s_list.size > 2) {
+                        d.add(0, History(s_list[0],s_list[1], s_list[2]))
                     }
                 }
             }
-            val a = Adapter_history_list(d)
-            r.adapter = a
-
+            //------------------------------------------------------------------
 
             val e = dvvul.view().findViewById<EditText>(R.id.editText_add_list_url)
             e.typeface = Main.face
@@ -488,15 +495,30 @@ class Moy_plalist : Fragment() {
             e.hintTextColor = Main.COLOR_TEXTcontext
             e.hint = "Введите Url плейлиста"
 
+            val e_n =(dvvul.view().findViewById<EditText>(R.id.editText_add_list_url_name))
+            e_n.typeface = Main.face
+            e_n.textColor = Main.COLOR_TEXT
+            e_n.hintTextColor = Main.COLOR_TEXTcontext
+            e_n.hint = "Имя или поеснение какоенибуть(не важно)"
+
+
+            val a = Adapter_history_list(d)
+            r.adapter = a
+
             //вставка из буфера
             (dvvul.view().findViewById<Button>(R.id.button_paste_list_url_add)).onClick { e.setText(getText(context)) }
 
             //если по истории кто кликнет то установим тот текст в эдит
             Slot(Main.context, "clik_history_item").onRun {
                 val t = it.getStringExtra("url")
+                val n = it.getStringExtra("name")
                 if (t.isNotEmpty()) {
                     e.setText(t)
                 }
+                if(n.isNotEmpty()){
+                    e_n.setText(n)
+                }
+
             }
 
             //при клике ок будем проверять на пустоту и сохранять в историю
@@ -506,15 +528,29 @@ class Moy_plalist : Fragment() {
                     context.toast("Введите url")
                 } else {
                     val url_link = e.text.toString()
-                    val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+                    val sdf = SimpleDateFormat("dd.M.yyyy hh:mm:ss", Locale.getDefault())
                     val date_time = sdf.format(Date())
                     //скроем окно
                     dvvul.close()
 
-                    //сохраним в историю ссылку
+                    //сохраним в историю ссылку а если есть удалим ранее добавленые
                     //-----------------------------------------------------------------
-                    history_url_list.add(url_link + "$" + date_time)
-                    f.saveArrayList(Main.HISTORY_LINK, history_url_list)
+                    val save_mass = ArrayList<String>()
+                    for(s in history_url_list){
+                        //если есть акойже адрес удалим из массива его
+                        if(!s.contains(url_link)){
+                            save_mass.add(s)
+                        }
+                    }
+
+                    //Имя файла, не особо важно не буду заморачиваться
+                    var n =  e_n.text.toString()
+                    if(n.isEmpty()){
+                        n= ""
+                    }
+
+                    save_mass.add(n+"$"+url_link + "$" + date_time)
+                    f.saveArrayList(Main.HISTORY_LINK, save_mass)
                     //----------------------------------------------------------
 
                     //-----------скачиваем файл (читам его)--------
@@ -528,8 +564,8 @@ class Moy_plalist : Fragment() {
                                     var data = result.get()
 
                                     if (data.isNotEmpty()) {
-                                        //если там чтото есть сохраним в файл
-                                      //  f.writeToFile(Main.DOWLOD_PLALIST, data)
+                                        //если там чтото есть сохраним все(вместе с мусором) в Main.MY_PLALIST
+                                        //потом пошлётся сигнал чтобы мой плалист обновился , а там он при чтении уже удалит ненужное
 
                                         //когда прийдёт сигнал что все хорошо обновим плейлист
                                         Slot(context, "File_created", false).onRun { it ->
@@ -548,7 +584,7 @@ class Moy_plalist : Fragment() {
                                             }
                                         }
                                         //если есть удалим ебучий тег в начале файла
-                                        if(data.contains("#EXTM3U")||str_old.length>7){
+                                        if(str_old.length>7){
                                             data = data.replace("#EXTM3U","")
                                         }
                                         //поехали , сохраняем  и ждём сигналы
@@ -561,6 +597,9 @@ class Moy_plalist : Fragment() {
                     //--------------------------------------------------------
                 }
             }
+
+            //
+
 
         }
         //--------------------------------------------------------------------------------------
@@ -594,9 +633,12 @@ class Adapter_history_list(val data: ArrayList<History>) : RecyclerView.Adapter<
     private lateinit var context: Context
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val name = itemView.findViewById<Button>(R.id.name_potok)
+        val url = itemView.findViewById<TextView>(R.id.url_potok)
+        val name =  itemView.findViewById<TextView>(R.id.name_potok)
         val data_time = itemView.findViewById<TextView>(R.id.data_add_potok)
         val share = itemView.findViewById<Button>(R.id.button_share_url_plalist)
+        val liner = itemView.findViewById<LinearLayout>(R.id.liner_online_plalist)
+        val fon = itemView.findViewById<LinearLayout>(R.id.fon_item_vvoda_potoka)
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
@@ -613,16 +655,18 @@ class Adapter_history_list(val data: ArrayList<History>) : RecyclerView.Adapter<
 
         val history = data[p1]
 
+        p0.url.text  = history.url
         p0.name.text = history.name
         p0.data_time.text = history.data_time
 
 
-        p0.name.onClick {
-            signal("clik_history_item").putExtra("url", history.name).send(Main.context)
+        p0.liner.onClick {
+            p0.liner.startAnimation(AnimationUtils.loadAnimation(Main.context, R.anim.myalpha))
+            signal("clik_history_item").putExtra("url", history.url).putExtra("name",history.name).send(Main.context)
         }
 
         p0.share.onClick {
-            context.share(history.name)
+            context.share(history.url)
         }
     }
 

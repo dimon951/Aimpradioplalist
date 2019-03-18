@@ -231,11 +231,15 @@
 
     <string-array name="vse_radio">
 
+        <item>Радиола -Музыка- 128kbps\nonline1.gkvr.ru:8000/radiola_eka_128.mp3</item>
+        <item>Русь -Музыка- 192kbps\nradio-holding.ru:9000/rus</item>
+        <item>Родина -Музыка- 128kbps\ncast.modnoeradio.ru:8000/live</item>
+        <item>Авторадио -Музыка- 86kbps\nic7.101.ru:8000/a100</item>
+        <item>Мелодия -Музыка- 128kbps\nstream128.melodiafm.spb.ru:8000/melodia128</item>
         <item>JPopsuki Radio!(Anime) -Саундтреки- 192kbps\nhttp://213.239.204.252:8000/stream</item>
         <item>Japan-A-Radio - Japan s best music mix!(Anime) -Саундтреки- 45kbps\nhttp://audio.misproductions.com/japan48k</item>
         <item>131(Anime) -Саундтреки- 128kbps\nhttp://stream.anime.com.pl:8000/radioHQ.ogg</item>
         <item>NSW(Anime) -Саундтреки- 128kbps\nhttp://nsw-radio.de:8000/nswmp3</item>
-
         <item>Радио ULTRA -Музыка- 128kbps\nhttps://nashe1.hostingradio.ru:18000/ultra-128.mp3</item>
         <item>Радио Лучшие Песни -Музыка- 48kbps\nhttp://85.114.140.64:8000/666</item>
         <item>Phate Radio(Anime) -Саундтреки- 192kbps\nhttp://stream.phate.io/phatecc</item>
@@ -310,7 +314,6 @@
         <item>Филипп Киркоров -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a116?</item>
         <item>Чиж и Co -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a221?</item>
         <item>Чиж и Co -Дискография- 192kbps\nhttp://radio.iccw.ru:8000/chizh</item>
-
         <item>Детские сказки -Детское- 128kbps\nhttp://ic2.101.ru:8000/c17_27?</item>
         <item>Europa Plus: Свежее -Музыка- 32kbps\nhttp://hls-01-fresh.emgsound.ru/9/32/playlist.m3u8</item>
         <item>Europa Plus: Свежее -Музыка- 64kbps\nhttp://hls-01-fresh.emgsound.ru/9/64/playlist.m3u8</item>

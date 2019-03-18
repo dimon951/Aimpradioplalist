@@ -10,8 +10,8 @@ android {
         applicationId "dmitriy.deomin.aimpradioplalist"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 49
-        versionName "4.9b"
+        versionCode 50
+        versionName "5.0"
     }
     //эта дич нужна чтобы получить версию приложения стрингом
     //--------------------------

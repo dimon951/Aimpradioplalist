@@ -30,6 +30,29 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:text="Удалить" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <dmitriy.deomin.aimpradioplalist.custom.Btn
+                    android:id="@+id/open_aimp_my_list_one"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:background="@android:drawable/ic_media_play" />
+
+                <dmitriy.deomin.aimpradioplalist.custom.Btn
+                    android:id="@+id/shareaimp_my_list_one"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="right"
+                    android:layout_marginLeft="10dp"
+                    android:background="@android:drawable/ic_menu_share" />
+            </LinearLayout>
+
         </LinearLayout>
     </dmitriy.deomin.aimpradioplalist.custom.Fon_item>
 

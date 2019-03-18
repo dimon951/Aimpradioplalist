@@ -14,6 +14,8 @@ import android.widget.TextView
 import dmitriy.deomin.aimpradioplalist.custom.*
 import org.jetbrains.anko.hintTextColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.sdk27.coroutines.onLongClick
+import org.jetbrains.anko.share
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
 
@@ -173,15 +175,6 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                         Slot(context, "File_created", false).onRun {
                             //получим данные
                             val s = it.getStringExtra("update")
-                            //if (s == "zaebis") {
-                                //обновим старницу
-                              //  data.removeAt(p1)
-                              //  data.add(p1,Radio(edit.text.toString(),"","",radio.url))
-                             //   notifyItemChanged(p1)
-//
-//                            } else {
-//                                context.toast(context.getString(R.string.error))
-//                            }
                             when (s) {
                                 //пошлём сигнал пусть мой плейлист обновится
                                 "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
@@ -202,6 +195,26 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                         context.toast("Оставим как было")
                     }
                 }
+            }
+
+            //открыть в аимп
+            (empid.view().findViewById<Button>(R.id.open_aimp_my_list_one)).onClick {
+                //закрываем основное окошко
+                empid.close()
+                Main.play_aimp(radio.name, radio.url)
+            }
+            //открыть в сстеме
+            (empid.view().findViewById<Button>(R.id.open_aimp_my_list_one)).onLongClick {
+                //закрываем основное окошко
+                empid.close()
+                Main.play_system(radio.name, radio.url)
+            }
+
+            //поделится
+            (empid.view().findViewById<Button>(R.id.shareaimp_my_list_one)).onClick {
+                //закрываем основное окошко
+                empid.close()
+                context.share(radio.name, radio.url)
             }
         }
     }
