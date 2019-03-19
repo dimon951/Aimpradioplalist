@@ -131,12 +131,12 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
 
 
             //когда все запишется пошлём сигнал чтобы добавилась тема в список
-            Slot(context, "File_created", false).onRun {
+            Slot(context, "File_created_save_vse", false).onRun {
                 //получим данные
                 val s = it.getStringExtra("update")
                 when (s) {
                     //пошлём сигнал пусть мой плейлист обновится
-                    "zaebis" -> {toast("Готово");signal("list_them__load").send(context)}
+                    "zaebis" -> {signal("list_them__load").send(context);context.toast("Готово");}
                     "pizdec" -> {
                         context.toast(context.getString(R.string.error))
                         //запросим разрешения
@@ -279,6 +279,9 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                     //общее окошко с кнопками удалить,переименовать
                     val empid = DialogWindow(context, R.layout.edit_my_plalist_item_dialog)
 
+                    //скроем кнопки плей и поделится
+                    (empid.view().findViewById<LinearLayout>(R.id.liner_btn_open_share)).visibility = View.GONE
+
                     //кнопка удалить
                     //------------------------------------------------------------------------------
                     (empid.view().findViewById<Button>(R.id.del)).onClick {
@@ -287,9 +290,8 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                         val f = File_function()
                         val list = f.readArrayList(Main.F_THEM_list)
                         list.remove(theme.name+"$"+theme.fon+"$"+theme.item+"$"+theme.text+"$"+theme.text_context)
-                        f.saveArrayList(Main.F_THEM_list,list)
                         //когда все запишется пошлём сигнал чтобы список обновился
-                        Slot(context, "File_created", false).onRun {
+                        Slot(context, "File_created_save_vse", false).onRun {
                             //получим данные
                             val s = it.getStringExtra("update")
                             when (s) {
@@ -302,6 +304,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                                 }
                             }
                         }
+                        f.saveArrayList(Main.F_THEM_list,list)
                     }
 
                     //кнопка переименовать
@@ -330,9 +333,8 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                                 val f = File_function()
                                 val list = f.readArrayList(Main.F_THEM_list)
                                 list[p1-Main.SIZE_LIST_THEM_DEFALT-1] = name_them+"$"+theme.fon+"$"+theme.item+"$"+theme.text+"$"+theme.text_context
-                                f.saveArrayList(Main.F_THEM_list,list)
                                 //когда все запишется пошлём сигнал чтобы список обновился
-                                Slot(context, "File_created", false).onRun {
+                                Slot(context, "File_created_save_vse", false).onRun {
                                     //получим данные
                                     val s = it.getStringExtra("update")
                                     when (s) {
@@ -345,6 +347,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                                         }
                                     }
                                 }
+                                f.saveArrayList(Main.F_THEM_list,list)
                                 //закроем окошко
                                 nsf.close()
                             }

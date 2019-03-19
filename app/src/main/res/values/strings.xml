@@ -215,9 +215,11 @@
     <string name="cvet_stanciy">Цвет станций</string>
     <string name="cvet_textta">Цвет текста</string>
     <string name="cvet_texta_contexta">Цвет текста контекста</string>
+    <string name="delete">Удалить</string>
+    <string name="reneme">Переименовать</string>
 
 
-<!--имя$фон$айтем$текст$текстконтекст-->
+    <!--имя$фон$айтем$текст$текстконтекст-->
     <string-array name="list_theme">
         <item>Первая$-12303292$-4093877$-16777216$-12426889</item>
         <item>Березовая$-15017779$-14565176$-16777216$-12426889</item>
@@ -230,7 +232,6 @@
     </string-array>
 
     <string-array name="vse_radio">
-
         <item>Радиола -Музыка- 128kbps\nonline1.gkvr.ru:8000/radiola_eka_128.mp3</item>
         <item>Русь -Музыка- 192kbps\nradio-holding.ru:9000/rus</item>
         <item>Родина -Музыка- 128kbps\ncast.modnoeradio.ru:8000/live</item>
