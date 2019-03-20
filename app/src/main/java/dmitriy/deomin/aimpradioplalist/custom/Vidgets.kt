@@ -96,15 +96,16 @@ class DialogWindow(context: Context, loaut: Int) {
 
         alertDialog = builder.create()
 
+
         //сместим немногов низ окно
         val params = this.alertDialog.window.attributes
 
         //https://it-giki.com/post/355.html
         params.y = 150
 
-
         //применяем правки
         this.alertDialog.window.attributes = params
+
 
         //показываем окно
         alertDialog.show()

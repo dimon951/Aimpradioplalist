@@ -47,7 +47,7 @@ class Main : FragmentActivity() {
         val File_Text_Code: String = "UTF8"
 
         //ссылка на аимп
-        val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.85.720.apk"
+        val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.85.722.apk"
 
         //текст в пустом плейлисте(много где требуется)
         val PUSTO: String = "Плейлист пуст.\n"

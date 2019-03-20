@@ -35,7 +35,6 @@ class Vse_radio : Fragment() {
 
     companion object {
         var Numeracia: Int = 1
-        var Poisk_ima_url: Int = 1
     }
 
     @SuppressLint("WrongConstant")
@@ -56,12 +55,6 @@ class Vse_radio : Fragment() {
         } else {
             0
         }
-        Poisk_ima_url = if (Main.save_read_int("setting_poisk") == 1) {
-            1
-        } else {
-            0
-        }
-
 
         val ganrlist = listOf("-Музыка-", "-Юмор-", "-Разговорное-", "-Детское-", " -Аудиокниги-", "-Саундтреки-", "-Дискография-")
 
@@ -189,14 +182,9 @@ class Vse_radio : Fragment() {
 
         //при клике будем вставлять в строку поиска для отфильтровки
         v.kod_diskografii.onClick {
-
             if (find.text.toString() == v.kod_diskografii.text) {
                 find.setText("")
             } else {
-                //включаем поиск по всему
-                Poisk_ima_url = 1
-                Main.save_value_int("setting_poisk", 1)
-                //ищем
                 find.setText(v.kod_diskografii.text)
             }
         }
@@ -233,10 +221,6 @@ class Vse_radio : Fragment() {
             if (find.text.toString() == (v.kod_32bit.text)) {
                 find.setText("")
             } else {
-                //включаем поиск по всему
-                Poisk_ima_url = 1
-                Main.save_value_int("setting_poisk", 1)
-                //ищем
                 find.setText(v.kod_32bit.text)
             }
         }
@@ -245,10 +229,6 @@ class Vse_radio : Fragment() {
             if (find.text.toString() == (v.kod_64bit.text)) {
                 find.setText("")
             } else {
-                //включаем поиск по всему
-                Poisk_ima_url = 1
-                Main.save_value_int("setting_poisk", 1)
-                //ищем
                 find.setText(v.kod_64bit.text)
             }
         }
@@ -257,10 +237,6 @@ class Vse_radio : Fragment() {
             if (find.text.toString() == (v.kod_96bit.text)) {
                 find.setText("")
             } else {
-                //включаем поиск по всему
-                Poisk_ima_url = 1
-                Main.save_value_int("setting_poisk", 1)
-                //ищем
                 find.setText(v.kod_96bit.text)
             }
         }
@@ -269,10 +245,6 @@ class Vse_radio : Fragment() {
             if (find.text.toString() == (v.kod_128bit.text)) {
                 find.setText("")
             } else {
-                //включаем поиск по всему
-                Poisk_ima_url = 1
-                Main.save_value_int("setting_poisk", 1)
-                //ищем
                 find.setText(v.kod_128bit.text)
             }
         }
@@ -281,10 +253,6 @@ class Vse_radio : Fragment() {
             if (find.text.toString() == (v.kod_256bit.text)) {
                 find.setText("")
             } else {
-                //включаем поиск по всему
-                Poisk_ima_url = 1
-                Main.save_value_int("setting_poisk", 1)
-                //ищем
                 find.setText(v.kod_256bit.text)
             }
         }
@@ -295,7 +263,6 @@ class Vse_radio : Fragment() {
             val svr = DialogWindow(context, R.layout.setting_vse_radio)
 
             val num = svr.view().findViewById<Button>(R.id.button_seting_number)
-            val pouisk = svr.view().findViewById<Button>(R.id.button_poisk)
 
             if (Numeracia == 1) {
                 num.paintFlags = Paint.UNDERLINE_TEXT_FLAG
@@ -305,14 +272,7 @@ class Vse_radio : Fragment() {
                 num.typeface = Main.face
             }
 
-            if (Poisk_ima_url == 1) {
-                pouisk.text = "Поиск по всему"
-            } else {
-                pouisk.text = "Поиск по имени"
-            }
-
             num.onClick {
-
                 if (Main.save_read_int("setting_numer") == 0) {
                     Main.save_value_int("setting_numer", 1)
                     Numeracia = 1
@@ -324,21 +284,6 @@ class Vse_radio : Fragment() {
                     Numeracia = 0
                     num.paintFlags = 0
                     num.typeface = Main.face
-                    recikl_vse_list.adapter!!.notifyDataSetChanged()
-                }
-            }
-
-            pouisk.onClick {
-
-                if (Main.save_read_int("setting_poisk") == 1) {
-                    Poisk_ima_url = 0
-                    Main.save_value_int("setting_poisk", 0)
-                    pouisk.text = "Поиск по имени"
-                    recikl_vse_list.adapter!!.notifyDataSetChanged()
-                } else {
-                    Poisk_ima_url = 1
-                    Main.save_value_int("setting_poisk", 1)
-                    pouisk.text = "Поиск по всему"
                     recikl_vse_list.adapter!!.notifyDataSetChanged()
                 }
             }

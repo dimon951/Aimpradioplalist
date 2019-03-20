@@ -217,6 +217,7 @@
     <string name="cvet_texta_contexta">Цвет текста контекста</string>
     <string name="delete">Удалить</string>
     <string name="reneme">Переименовать</string>
+    <string name="numeracia_spiska">Нумерация списка</string>
 
 
     <!--имя$фон$айтем$текст$текстконтекст-->
@@ -232,6 +233,15 @@
     </string-array>
 
     <string-array name="vse_radio">
+        <item>ХИТрое Радио -Музыка- 160kbps\nhttp://www.hitroe.com:8000/stream_original</item>
+        <item>ХИТрое Радио -Музыка- 128kbps\nhttp://www.hitroe.com:8000/stream</item>
+        <item>ХИТрое Радио -Музыка- 112kbps\nhttp://www.hitroe.com:8000/relay_low.ogg</item>
+        <item>ХИТрое Радио -Музыка- 96kbps\nhttp://www.hitroe.com:8000/relay_96kb</item>
+        <item>ХИТрое Радио -Музыка- mono 32kbps\nhttp://www.hitroe.com:8000/relay_32kb</item>
+        <item>ХАЙП FM -Музыка- 46kbps\nhttp://hfm.volna.top/HypeFM</item>
+        <item>Интерактивная интернет радиостанция 24.00 -Музыка- 192kbps\nhttp://radio2400.ru:8000/play</item>
+        <item>Радио Меркурий,Латвия -Музыка- 96kbps\nhttp://89.201.5.115:8000/</item>
+        <item>Русское Ретро Латвия, Рига -Музыка- 128kbps\nhttps://live.retrofm.lv/russkoeretro128</item>
         <item>Радиола -Музыка- 128kbps\nonline1.gkvr.ru:8000/radiola_eka_128.mp3</item>
         <item>Русь -Музыка- 192kbps\nradio-holding.ru:9000/rus</item>
         <item>Родина -Музыка- 128kbps\ncast.modnoeradio.ru:8000/live</item>
@@ -732,7 +742,6 @@
         <item>Музыка кино Украина -Саундтреки- 192kbps\nhttp://relay.radio.obozrevatel.com:8000/kino192.mp3</item>
         <item>Музыка кино Украина -Саундтреки- 128kbps\nhttp://relay.radio.obozrevatel.com:8000/kino128.ogg</item>
         <item>Black Star Radio 128kbps\nhttps://blackstarradio.hostingradio.ru:8024/blackstarradio128.mp3?radiostatistica=radiopotok</item>
-        <item>Black Star Radio 128kbps\nhttp://blackstarradio.hostingradio.ru:8024/blackstarradio128.mp3</item>
         <item>Турбо FM 128kbps\nhttp://m2m128.hostingradio.ru:8074/m2m128.mp3</item>
         <item>Радио День -Музыка- 48kbps\nhttp://air.radioday.fm/48</item>
         <item>Радио День -Музыка- 192kbps\nhttp://air.radioday.fm/mp3</item>
@@ -1387,6 +1396,8 @@
         <item>Feel Украина(Одесса)\nhttp://62.80.190.246:8000/Feel</item>
         <item>Мелодiя  Украина\nhttp://melodia.ipfm.net/RadioMelodia_32</item>
         <item>Frequence 3 Франция -Музыка- 128kbps\nhttp://ice.stream.frequence3.net/frequence3-128.mp3</item>
+        <item>Frequence 3 Франция -Музыка- 32kbps\nhttp://ice.stream.frequence3.net/frequence3-32.aac</item>
+        <item>Frequence 3 Франция -Музыка- 16kbps\nhttp://ice.stream.frequence3.net/frequence3-16.aac</item>
         <item>Радио Alouette Франция\nhttp://broadcast.infomaniak.net/alouette-high.mp3</item>
         <item>ElectroN 128kbps\nhttp://radio-electron.ru:8000/128</item>
         <item>Monte Carlo\nhttp://radio.2kom.ru:8000/monte_carlo</item>

@@ -4,7 +4,6 @@ import android.content.*
 import android.graphics.Color
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,15 +38,6 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
                     this@Adapter_vse_list.raduoSearchList = data
                 } else {
                     val filteredList = ArrayList<Radio>()
-
-                    //поиск по имени или по всему что есть
-                    if (Vse_radio.Poisk_ima_url == 0) {
-                        for (row in data) {
-                            if (row.name.toLowerCase().contains(charString.toLowerCase())) {
-                                filteredList.add(row)
-                            }
-                        }
-                    } else {
                         for (row in data) {
                             if (row.name.toLowerCase().contains(charString.toLowerCase())
                                     || row.url.toLowerCase().contains(charString.toLowerCase())
@@ -55,7 +45,6 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
                                     || row.kategory.toLowerCase().contains(charString.toLowerCase())) {
                                 filteredList.add(row)
                             }
-                        }
                     }
                     this@Adapter_vse_list.raduoSearchList = filteredList
                 }
@@ -65,8 +54,10 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
             }
 
             override fun publishResults(charSequence: CharSequence, filterResults: Filter.FilterResults) {
-                this@Adapter_vse_list.raduoSearchList = filterResults.values as ArrayList<Radio>
-                notifyDataSetChanged()
+                if(filterResults.values != null){
+                    this@Adapter_vse_list.raduoSearchList = filterResults.values as ArrayList<Radio>
+                    notifyDataSetChanged()
+                }
             }
         }
     }
