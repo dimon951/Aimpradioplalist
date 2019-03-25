@@ -86,6 +86,8 @@ class Textcoontext : TextView {
 
 class DialogWindow(context: Context, loaut: Int) {
 
+    var full_skren = false
+
     private val alertDialog: AlertDialog
     private val content: View
 
@@ -95,7 +97,6 @@ class DialogWindow(context: Context, loaut: Int) {
         builder.setView(content)
 
         alertDialog = builder.create()
-
 
         //сместим немногов низ окно
         val params = this.alertDialog.window.attributes
@@ -109,6 +110,8 @@ class DialogWindow(context: Context, loaut: Int) {
 
         //показываем окно
         alertDialog.show()
+
+
     }
 
     fun view(): View {
@@ -117,5 +120,17 @@ class DialogWindow(context: Context, loaut: Int) {
 
     fun close() {
         alertDialog.cancel()
+    }
+
+    fun full_screen(){
+        if(full_skren){
+            alertDialog.window.setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
+                    WindowManager.LayoutParams.WRAP_CONTENT)
+            full_skren = false
+        }else{
+            alertDialog.window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                    WindowManager.LayoutParams.MATCH_PARENT)
+            full_skren = true
+        }
     }
 }

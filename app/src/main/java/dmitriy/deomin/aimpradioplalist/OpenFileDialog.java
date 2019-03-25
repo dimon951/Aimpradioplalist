@@ -36,6 +36,9 @@ public class OpenFileDialog extends AlertDialog.Builder {
     //какаха небольшая
     private String currentPathHome = Environment.getExternalStorageDirectory().getPath();
 
+    //показ кнопок
+    private Boolean enebled_button;
+
     private List<File> files = new ArrayList<File>();
     private TextView title;
     private ListView listView;
@@ -92,6 +95,7 @@ public class OpenFileDialog extends AlertDialog.Builder {
     public OpenFileDialog(Context context) {
         super(context);
         isOnlyFoldersFilter = false;
+        enebled_button=true;
         title = createTitle(context);
         changeTitle();
         LinearLayout linearLayout = createMainLayout(context);
@@ -99,20 +103,11 @@ public class OpenFileDialog extends AlertDialog.Builder {
         listView = createListView(context);
         linearLayout.addView(listView);
         //linearLayout.setBackgroundColor(Main.Companion.getCOLOR_FON());
-        setCustomTitle(title)
-                .setView(linearLayout)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (selectedIndex > -1 && listener != null) {
-                            listener.OnSelectedFile(listView.getItemAtPosition(selectedIndex).toString());
-                        }
-                        if (listener != null && isOnlyFoldersFilter) {
-                            listener.OnSelectedFile(currentPath);
-                        }
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, null);
+
+        setCustomTitle(title).setView(linearLayout);
+
+
+
 
     }
 
@@ -120,6 +115,20 @@ public class OpenFileDialog extends AlertDialog.Builder {
     public AlertDialog show() {
         files.addAll(getFiles(currentPath));
         listView.setAdapter(new FileAdapter(getContext(), files));
+        if (enebled_button) {
+            setCustomTitle(title).setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (selectedIndex > -1 && listener != null) {
+                        listener.OnSelectedFile(listView.getItemAtPosition(selectedIndex).toString());
+                    }
+                    if (listener != null && isOnlyFoldersFilter) {
+                        listener.OnSelectedFile(currentPath);
+                    }
+                }
+            })
+                    .setNegativeButton(android.R.string.cancel, null);
+        }
         return super.show();
     }
 
@@ -167,6 +176,12 @@ public class OpenFileDialog extends AlertDialog.Builder {
 
     public OpenFileDialog setAccessDeniedMessage(String message) {
         this.accessDeniedMessage = message;
+        return this;
+    }
+
+    public OpenFileDialog setEnablButton(Boolean v) {
+        Log.e("tttt",v.toString());
+        this.enebled_button = v;
         return this;
     }
 
@@ -340,7 +355,7 @@ public class OpenFileDialog extends AlertDialog.Builder {
                 } else {
                     //покажем диалог подтверждения удаления файла
                     final AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(Main.context, android.R.style.Theme_Holo));
-                    final View content = LayoutInflater.from(Main.context).inflate(R.layout.dialog_delete_stancii,null);
+                    final View content = LayoutInflater.from(Main.context).inflate(R.layout.dialog_delete_stancii, null);
                     builder.setView(content);
 
                     final AlertDialog alertDialog = builder.create();
@@ -352,20 +367,19 @@ public class OpenFileDialog extends AlertDialog.Builder {
                     textView.setMovementMethod(new ScrollingMovementMethod());
 
 
-
                     File_function f = new File_function();
-                    String file_telo ="";
+                    String file_telo = "";
                     //покажем имя файла и краткое содержание если это m3u файл
                     try {
-                       file_telo = f.read(file.getAbsolutePath());
+                        file_telo = f.read(file.getAbsolutePath());
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
-                    file_telo = file_telo.replace("#EXTM3U","");
-                    file_telo = file_telo.replace("#EXTINF:-1,","");
+                    file_telo = file_telo.replace("#EXTM3U", "");
+                    file_telo = file_telo.replace("#EXTINF:-1,", "");
 
                     final String name = file.getName();
-                    String info  = "Удалить:"+name+"\nСодержимое:"+file_telo;
+                    String info = "Удалить:" + name + "\nСодержимое:" + file_telo;
                     textView.setText(info);
 
 
@@ -373,18 +387,18 @@ public class OpenFileDialog extends AlertDialog.Builder {
                         @Override
                         public void onClick(View v) {
 
-                            if(file.delete()){
-                                Toast.makeText(Main.context,"Удаленно",Toast.LENGTH_SHORT).show();
+                            if (file.delete()) {
+                                Toast.makeText(Main.context, "Удаленно", Toast.LENGTH_SHORT).show();
 
-                                if(name.equals("my_plalist.m3u")){
+                                if (name.equals("my_plalist.m3u")) {
                                     //пошлём сигнал пусть мой плейлист обновится
                                     Intent i = new Intent("Data_add");
                                     i.putExtra("update", "zaebis");
                                     Main.context.sendBroadcast(i);
                                 }
 
-                            }else {
-                                Toast.makeText(Main.context,"Ошибка",Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(Main.context, "Ошибка", Toast.LENGTH_SHORT).show();
                             }
 
                             RebuildFiles(adapter);
@@ -401,7 +415,7 @@ public class OpenFileDialog extends AlertDialog.Builder {
                     });
 
 
-                    Log.e("gopa","rabotaet"+file.getAbsolutePath());
+                    Log.e("gopa", "rabotaet" + file.getAbsolutePath());
                 }
                 return false;
             }

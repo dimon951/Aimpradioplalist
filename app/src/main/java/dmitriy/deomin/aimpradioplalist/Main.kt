@@ -66,9 +66,13 @@ class Main : FragmentActivity() {
         val HISTORY_LINK = "history_url.txt"
 
         val HISTORY_LIST_PRIMER = arrayListOf(
-                History("Cамообновляемый плейлист сто один ру","http://potokovoe.ru/record/101ru_channel.m3u8","17.03.19"),
-                History("Самообновляемый плейлист с сайта potokovoe.ru","http://potokovoe.ru/playlists/list.m3u","17.03.19" ),
-                History("Самообновляемый плейлист с сайта potokovoe.ru","https://potokovoe.page.link/list","17.03.19" ))
+                History("Недобавленные станции(новые не провереные)", "https://dl.dropbox.com/s/yonkdg4ccnmmiue/new_station.m3u", "23.03.19"),
+                History("Cамообновляемый плейлист сто один ру", "http://potokovoe.ru/record/101ru_channel.m3u8", "17.03.19"),
+                History("Самообновляемый плейлист с сайта potokovoe.ru", "http://potokovoe.ru/playlists/list.m3u", "17.03.19"),
+                History("Музыка сообщества Многоточие(ВК)", "https://dl.dropbox.com/s/6l0rtukqzl9ercr/musik_Mnogotochie_Vk.m3u", "23.03.19"),
+                History("Музыка сообщества Академия Амбрелла(ВК)", "https://dl.dropbox.com/s/177bvv5n9heiqdu/musik_Ambrella_Vk.m3u", "22.03.19"),
+                History("Песни Eivor через поиск(Vk) ", "https://dl.dropbox.com/s/92m2uftqx77rf7p/misik_Eivor_Vk.m3u", "22.03.19"),
+                History("Моя музыка из ВК(разное)", "https://dl.dropbox.com/s/dasl5ay34gacqaw/My_musik_VK.m3u", "22.03.19"))
 
         //количество стандартных тем
         val SIZE_LIST_THEM_DEFALT = 7
@@ -611,15 +615,15 @@ class Main : FragmentActivity() {
             name.typeface = Main.face
             name.textColor = Main.COLOR_TEXT
             name.setText("Всё радио")
-            (nsf.view().findViewById<Button>(R.id.button_save)).onClick{
-                if(name.text.toString().isNotEmpty()){
+            (nsf.view().findViewById<Button>(R.id.button_save)).onClick {
+                if (name.text.toString().isNotEmpty()) {
                     nsf.close()
                     //запустим анимацию
                     vse_radio.visibility = View.GONE
                     progress_vse_radio.visibility = View.VISIBLE
                     //пошлём сигнал для сохранения
-                    signal("save_all_vse_lest").putExtra("name_list",name.text.toString()).send(context)
-                }else{
+                    signal("save_all_vse_lest").putExtra("name_list", name.text.toString()).send(context)
+                } else {
                     Main.context.toast("Введите имя")
                 }
             }
@@ -634,8 +638,8 @@ class Main : FragmentActivity() {
                     "pizdec" -> Main.context.toast(Main.context.getString(R.string.error))
                 }
                 val a = it.getStringExtra("anim")
-                when(a){
-                    "anim_of"-> {
+                when (a) {
+                    "anim_of" -> {
                         progress_vse_radio.visibility = View.GONE
                         vse_radio.visibility = View.VISIBLE
                     }
@@ -648,19 +652,18 @@ class Main : FragmentActivity() {
         }
         //при долгом нажатии будем весь список популярного радио сохранять
         popularnoe.onLongClick {
-            signal("save_all_popularnoe").send(context)
-
             //когда все запишется пошлём сигнал чтобы список обновился
-            Slot(Main.context, "File_created", false).onRun {
+            Slot(Main.context, "File_created_save_vse", false).onRun {
                 //получим данные
                 val s = it.getStringExtra("update")
                 when (s) {
                     //пошлём сигнал пусть мой плейлист обновится
-                    "zaebis" -> Main.context.toast("Весь список сохранен в "+ ROOT)
+                    "zaebis" -> Main.context.toast("Весь список сохранен в " + ROOT)
 
                     "pizdec" -> Main.context.toast(Main.context.getString(R.string.error))
                 }
             }
+            signal("save_all_popularnoe").send(context)
         }
 
         moy_plalist.onClick {
