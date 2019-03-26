@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -76,14 +77,20 @@ class Vse_radio : Fragment() {
 
             for (i in mas_radio.indices) {
                 val m = mas_radio[i].split("\n")
-                if(m.size>1) {
+                if (m.size > 1) {
                     var name = m[0]
 
                     //---kbps----------------------------------
                     var kbps = ""
                     if (name.contains("kbps")) {
-                        kbps = name.substring((name.length - 7), name.length)
-                        name = name.substring(0, (name.length - 7))
+                        //если имени нет(длинна меньше 7) поставим no name
+                        if (name.length > 7) {
+                            kbps = name.substring((name.length - 7), name.length)
+                            name = name.substring(0, (name.length - 7))
+                        } else {
+                            kbps = name
+                            name = "no name"
+                        }
                     }
                     //-------------------------------------------------------
 
@@ -104,6 +111,7 @@ class Vse_radio : Fragment() {
                     }
                     //-----------------------------------------------------
 
+                    Log.e("ttt", mas_radio[i].toString())
 
                     data.add(Radio(name, ganr, kbps, m[1]))
                 }
@@ -141,29 +149,28 @@ class Vse_radio : Fragment() {
             })
 
 
-
             //этот слот будет висеть и если что будет сохранять текущий список в память
-            Slot(context,"save_all_vse_lest").onRun {
+            Slot(context, "save_all_vse_lest").onRun {
                 //получаем имя для плейлиста
                 var n = it.getStringExtra("name_list")
 
                 adapter_vse_list.notifyDataSetChanged()
                 val data = adapter_vse_list.raduoSearchList
-                if(data.isNotEmpty()){
+                if (data.isNotEmpty()) {
                     GlobalScope.launch {
                         val f = File_function()
                         //составим норм список
                         val s_data = java.util.ArrayList<String>()
                         s_data.add("#EXTM3U")
-                        for (s in data.iterator()){
-                            s_data.add("\n#EXTINF:-1,"+s.name+" "+s.kbps+"\n" + s.url)
+                        for (s in data.iterator()) {
+                            s_data.add("\n#EXTINF:-1," + s.name + " " + s.kbps + "\n" + s.url)
                         }
-                        if(s_data.size>0){
-                            if(n.isNotEmpty()){
-                                f.saveArrayList(n+".m3u",s_data)
-                            }else{
-                                n=data.size.toString()
-                                f.saveArrayList("vse_list_radio"+n+".m3u",s_data)
+                        if (s_data.size > 0) {
+                            if (n.isNotEmpty()) {
+                                f.saveArrayList(n + ".m3u", s_data)
+                            } else {
+                                n = data.size.toString()
+                                f.saveArrayList("vse_list_radio" + n + ".m3u", s_data)
                             }
                         }
                     }

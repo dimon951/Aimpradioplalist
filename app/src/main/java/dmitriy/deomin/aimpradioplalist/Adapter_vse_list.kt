@@ -196,7 +196,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
             text_name_i_url.text = name + "\n" + radio.url
             text_name_i_url.onClick {
                 text_name_i_url.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-                putText(radio.url, context)
+                Main.putText(radio.url, context)
                 context.toast("url скопирован в буфер")
             }
 
@@ -232,18 +232,4 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
             }
         }
     }
-    //запись
-    fun putText(text: String, context: Context) {
-        val sdk = android.os.Build.VERSION.SDK_INT
-        if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
-            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
-            clipboard.text = text
-        } else {
-            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
-            val clip = ClipData.newPlainText(text, text)
-            clipboard.primaryClip = clip
-        }
-    }
-
-
 }

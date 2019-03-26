@@ -20,11 +20,19 @@
         android:orientation="vertical">
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
-            android:id="@+id/reneme"
+        android:id="@+id/reneme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:text="@string/reneme" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/reneme_url"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:text="@string/reneme" />
+            android:text="@string/edit_url"
+            android:visibility="gone" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/del"

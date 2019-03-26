@@ -178,7 +178,11 @@ class Moy_plalist : Fragment() {
             edit_name.typeface = Main.face
             edit_name.textColor = Main.COLOR_TEXT
 
-            (auu.view().findViewById<Button>(R.id.button_paste_url_add)).onClick { edit.setText(getText(context)) }
+            (auu.view().findViewById<Button>(R.id.button_paste_url_add)).onClick { edit.setText(Main.getText(context)) }
+
+            (auu.view().findViewById<Button>(R.id.button_on_of_klava)).onClick {
+
+            }
 
             (auu.view().findViewById<Button>(R.id.button_add_url)).onClick {
 
@@ -522,7 +526,7 @@ class Moy_plalist : Fragment() {
             r.adapter = a
 
             //вставка из буфера
-            (dvvul.view().findViewById<Button>(R.id.button_paste_list_url_add)).onClick { e.setText(getText(context)) }
+            (dvvul.view().findViewById<Button>(R.id.button_paste_list_url_add)).onClick { e.setText(Main.getText(context)) }
 
             //если по истории кто кликнет то установим тот текст в эдит
             Slot(Main.context, "clik_history_item").onRun {
@@ -622,28 +626,7 @@ class Moy_plalist : Fragment() {
 
 
     }
-
-    //чтение из буфера
-    private fun getText(c: Context): String {
-        val text: String
-        val sdk = android.os.Build.VERSION.SDK_INT
-        text = if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
-            val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager?
-            clipboard!!.text.toString()
-        } else {
-            val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager?
-            if (clipboard!!.text == null) {
-                toast("Буфер обмена пуст")
-                ""
-            } else {
-                clipboard.text.toString()
-            }
-        }
-        return text
-    }
 }
-
-
 class Adapter_history_list(val data: ArrayList<History>) : RecyclerView.Adapter<Adapter_history_list.ViewHolder>() {
 
     private lateinit var context: Context

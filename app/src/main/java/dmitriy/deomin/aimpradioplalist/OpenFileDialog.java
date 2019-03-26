@@ -103,12 +103,7 @@ public class OpenFileDialog extends AlertDialog.Builder {
         listView = createListView(context);
         linearLayout.addView(listView);
         //linearLayout.setBackgroundColor(Main.Companion.getCOLOR_FON());
-
         setCustomTitle(title).setView(linearLayout);
-
-
-
-
     }
 
     @Override
@@ -180,7 +175,6 @@ public class OpenFileDialog extends AlertDialog.Builder {
     }
 
     public OpenFileDialog setEnablButton(Boolean v) {
-        Log.e("tttt",v.toString());
         this.enebled_button = v;
         return this;
     }
@@ -329,16 +323,85 @@ public class OpenFileDialog extends AlertDialog.Builder {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
                 final ArrayAdapter<File> adapter = (FileAdapter) adapterView.getAdapter();
-                File file = adapter.getItem(index);
+                final File file = adapter.getItem(index);
                 if (file.isDirectory()) {
                     currentPath = file.getPath();
                     RebuildFiles(adapter);
                 } else {
-                    if (index != selectedIndex)
-                        selectedIndex = index;
-                    else
-                        selectedIndex = -1;
-                    adapter.notifyDataSetChanged();
+                    //если открыли в режиме удаления то при клике на файле будем предлогать удать
+                    if(!enebled_button){
+                        //покажем диалог подтверждения удаления файла
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(Main.context, android.R.style.Theme_Holo));
+                        final View content = LayoutInflater.from(Main.context).inflate(R.layout.dialog_delete_stancii, null);
+                        builder.setView(content);
+
+                        final AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+
+                        TextView textView = content.findViewById(R.id.text_voprosa_del_stncii);
+                        Button del = content.findViewById(R.id.button_dialog_delete);
+                        Button del_no = content.findViewById(R.id.button_dialog_no);
+                        textView.setMovementMethod(new ScrollingMovementMethod());
+
+
+                        File_function f = new File_function();
+                        String file_telo = "";
+                        //покажем имя файла и краткое содержание если это m3u файл
+                        try {
+                            file_telo = f.read(file.getAbsolutePath());
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                        file_telo = file_telo.replace("#EXTM3U", "");
+                        file_telo = file_telo.replace("#EXTINF:-1,", "");
+
+                        final String name = file.getName();
+                        String info = "Удалить:" + name + "\nСодержимое:" + file_telo;
+                        textView.setText(info);
+
+
+                        del.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                if (file.delete()) {
+                                    Toast.makeText(Main.context, "Удаленно", Toast.LENGTH_SHORT).show();
+
+                                    if (name.equals("my_plalist.m3u")) {
+                                        //пошлём сигнал пусть мой плейлист обновится
+                                        Intent i = new Intent("Data_add");
+                                        i.putExtra("update", "zaebis");
+                                        Main.context.sendBroadcast(i);
+                                    }
+
+                                } else {
+                                    Toast.makeText(Main.context, "Ошибка", Toast.LENGTH_SHORT).show();
+                                }
+
+                                RebuildFiles(adapter);
+
+                                alertDialog.cancel();
+                            }
+                        });
+
+                        del_no.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                alertDialog.cancel();
+                            }
+                        });
+
+
+
+                        adapter.notifyDataSetChanged();
+                    }else{
+                        //иначе будем выделять или снимать
+                        if (index != selectedIndex)
+                            selectedIndex = index;
+                        else
+                            selectedIndex = -1;
+                        adapter.notifyDataSetChanged();
+                    }
                 }
             }
         });
@@ -414,12 +477,11 @@ public class OpenFileDialog extends AlertDialog.Builder {
                         }
                     });
 
-
-                    Log.e("gopa", "rabotaet" + file.getAbsolutePath());
-                }
+            }
                 return false;
             }
         });
         return listView;
     }
+
 }

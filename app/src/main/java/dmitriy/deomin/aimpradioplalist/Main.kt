@@ -29,6 +29,7 @@ import org.jetbrains.anko.browse
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
 import java.io.File
@@ -88,6 +89,37 @@ class Main : FragmentActivity() {
         var COLOR_TEXTcontext: Int = 0
 
         var cho_nagimali_poslednee: Int = 0
+
+        //запись в буфер
+        fun putText(text: String, context: Context) {
+            val sdk = android.os.Build.VERSION.SDK_INT
+            if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
+                val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
+                clipboard.text = text
+            } else {
+                val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+                val clip = ClipData.newPlainText(text, text)
+                clipboard.primaryClip = clip
+            }
+        }
+        //чтение из буфера
+        fun getText(c: Context): String {
+            val text: String
+            val sdk = android.os.Build.VERSION.SDK_INT
+            text = if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
+                val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager?
+                clipboard!!.text.toString()
+            } else {
+                val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager?
+                if (clipboard!!.text == null) {
+                    context.toast("Буфер обмена пуст")
+                    ""
+                } else {
+                    clipboard.text.toString()
+                }
+            }
+            return text
+        }
 
         //сохранялки
         //----------------------------

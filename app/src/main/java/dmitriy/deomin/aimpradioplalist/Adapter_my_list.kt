@@ -197,6 +197,20 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                 }
             }
 
+            //покажем кнопку изменить url  и при клике будем предлогать изменить адрес
+            //при долгом нажатии будем копировать в буфер
+            //--------------------------------------------------------------------------------
+            val btn_url = empid.view().findViewById<Button>(R.id.reneme_url)
+            btn_url.visibility = View.VISIBLE
+            btn_url.onClick {
+
+            }
+            btn_url.onLongClick {
+                Main.putText(radio.url, context)
+                context.toast("url скопирован в буфер")
+            }
+            //-------------------------------------------------------------------------
+
             //открыть в аимп
             (empid.view().findViewById<Button>(R.id.open_aimp_my_list_one)).onClick {
                 //закрываем основное окошко

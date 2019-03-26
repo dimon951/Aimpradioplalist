@@ -120,6 +120,7 @@
         </item>
         <item>Love радио\nloveradio.png\n
             24kbps~kbps~http://net37.ru:8000/love_radio_net37ru.aac~kbps~
+            128kbps~kbps~http://potokovoe.ru:8008/LR.mp3~kbps~
         </item>
         <item>Дорожное Радио\ndorognoe.png\n
             64kbps~kbps~http://dorognoe.hostingradio.ru:8000/dorognoe~kbps~
@@ -220,6 +221,8 @@
     <string name="numeracia_spiska">Нумерация списка</string>
     <string name="add_plalist_po_ssilke">Добавить плейлист по ссылке</string>
     <string name="History">История</string>
+    <string name="edit_url">Изменить url</string>
+    <string name="add_potok">Добавить поток</string>
 
 
     <!--имя$фон$айтем$текст$текстконтекст-->
@@ -255,28 +258,6 @@
         <item>Родина -Музыка- 128kbps\ncast.modnoeradio.ru:8000/live</item>
         <item>Авторадио -Музыка- 86kbps\nic7.101.ru:8000/a100</item>
         <item>Мелодия -Музыка- 128kbps\nstream128.melodiafm.spb.ru:8000/melodia128</item>
-        <item>JPopsuki Radio!(Anime) -Саундтреки- 192kbps\nhttp://213.239.204.252:8000/stream</item>
-        <item>Japan-A-Radio - Japan s best music mix!(Anime) -Саундтреки- 45kbps\nhttp://audio.misproductions.com/japan48k</item>
-        <item>131(Anime) -Саундтреки- 128kbps\nhttp://stream.anime.com.pl:8000/radioHQ.ogg</item>
-        <item>NSW(Anime) -Саундтреки- 128kbps\nhttp://nsw-radio.de:8000/nswmp3</item>
-        <item>Радио ULTRA -Музыка- 128kbps\nhttps://nashe1.hostingradio.ru:18000/ultra-128.mp3</item>
-        <item>Радио Лучшие Песни -Музыка- 48kbps\nhttp://85.114.140.64:8000/666</item>
-        <item>Phate Radio(Anime) -Саундтреки- 192kbps\nhttp://stream.phate.io/phatecc</item>
-        <item>Gensokyo Radio - Music. Games. Touhou.(Anime) -Саундтреки- 128kbps\nhttp://stream.gensokyoradio.net:8000/</item>
-        <item>Bot-sama direct(Anime) -Саундтреки- 128kbps\nhttp://edenofthewest.com:8080/eden.mp3</item>
-        <item>RadioAnimati(Anime) -Саундтреки- 128kbps\nhttp://server.radioanimati.it:80/</item>
-        <item>Yggdrasil Radio(Anime) -Саундтреки- 128kbps\nhttp://95.211.241.92:9200/</item>
-        <item>Radio Anime Nexus(Anime) -Саундтреки- 96kbps\nhttp://radio.animenexus.mx:8000/animenexus</item>
-        <item>Extreme Anime Radio(Anime) -Саундтреки- 128kbps\nhttp://174.37.159.206:8052/stream</item>
-        <item>Shinsen-Radio(Anime) -Саундтреки- 128kbps\nhttp://shinsen-radio.org:8000/shinsen-radio.128.mp3</item>
-        <item>Final Fantasy Radio(Anime) -Саундтреки- 192kbps\nhttp://finalfantasystation.com:8000/stream.mp3</item>
-        <item>Vocaloid Stream(Anime) -Саундтреки- 128kbps\nhttp://142.4.217.133:9848/stream</item>
-        <item>R/a/dio(Anime) -Саундтреки- 192kbps\nhttp://stream.r-a-d.io/main.mp3</item>
-        <item>Any-anime.ru(Anime) -Саундтреки- 320kbps\nhttp://radio.flex.ru:8000/radionami</item>
-        <item>ANISON.FM(Anime) -Саундтреки- 128kbps\nhttp://pool.anison.fm:9000/AniSonFM(128)</item>
-        <item>Armitage s Dimension Jpop/Jrock/Anime -Саундтреки- 64kbps\nhttp://aac.fr.armitunes.com:8010/</item>
-        <item>Vocaloid Radio(Anime) -Саундтреки- 320kbps\nhttp://curiosity.shoutca.st:8019/stream</item>
-        <item>AnimeNfo Radio(Anime) -Саундтреки- 128kbps\nhttp://itori.animenfo.com:443/</item>
         <item>ABBA -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a104?</item>
         <item>Bon Jovi -Дискография- 64kbps\nhttp://ic5.101.ru:8000/p307544</item>
         <item>Boney M -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a114?</item>
@@ -5919,7 +5900,7 @@
         <item>HPMansion 68kbps\nhttp://ic6.101.ru:8000/p824625</item>
         <item>HPTE 68kbps\nhttp://ic6.101.ru:8000/p609645</item>
         <item>HR-radio.fm 68kbps\nhttp://ic6.101.ru:8000/p804725</item>
-        <item> 68kbps\nhttp://radio116rus.ucoz.ru 68kbps\nhttp://ic6.101.ru:8000/p388856</item>
+        <item>Maxx -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p388856</item>
         <item>HTW50 68kbps\nhttp://ic6.101.ru:8000/p787754</item>
         <item>HU in KryvyiRig 68kbps\nhttp://ic6.101.ru:8000/p853613</item>
         <item>Hug me 68kbps\nhttp://ic6.101.ru:8000/p862276</item>
@@ -12884,6 +12865,41 @@
         <item>Vocal Trance-Музыка- 48kbps\nhttp://79.120.39.202:8000/vocaltrance</item>
         <item>Western Swing-Музыка- 48kbps\nhttp://79.111.14.76:8000/westernswing</item>
         <item>Witch House-Музыка- 48kbps\nhttp://79.120.77.11:8000/witchhouse</item>
+        <item>GamerSound(Anime) -Саундтреки- 128kbps\nhttp://149.56.147.197:8716/;</item>
+        <item>Greek Otaku Radio(Anime) -Саундтреки- 128kbps\nhttp://192.99.4.210:3684/stream</item>
+        <item>Friends Forever(Anime) -Саундтреки- 60kbps\nhttp://23.29.71.154:8066/</item>
+        <item>Akihabara Radio(Anime) -Саундтреки- 128kbps\nhttp://sc.akihabara.cl:8814/mp3</item>
+        <item>AnimeNfo Radio(Anime) -Саундтреки- 128kbps\nhttp://emaru.animenfo.com:443/</item>
+        <item>Big B Radio #JPOP | www.bigbradio.net(Anime) -Саундтреки- 128kbps\nhttp://184.95.47.178:9112</item>
+        <item>Auto Games DJ(Anime) -Саундтреки- 192kbps\nhttp://aniterasu.com:8000/;?1442956789440.mp3</item>
+        <item>Kibo.FM - DJ Kibo(Anime) -Саундтреки- 192kbps\nhttp://listen.kibo.fm:8000</item>
+        <item>Japan FM(Anime) -Саундтреки- 112kbps\nhttp://radio.japanfm.fr/japan</item>
+        <item>Blast(Anime) -Саундтреки- 96kbps\nhttp://192.99.150.31:8315/principal</item>
+        <item>Initial D World Radio Broadcast(Anime) -Саундтреки- 96kbps\nhttp://69.163.186.124:9001/listen.aac</item>
+        <item>dadamoreRadio(Anime) -Саундтреки- 192kbps\nhttp://dadamore2.ddo.jp:8000/</item>
+        <item>Hotmixradio Japan(Anime) -Саундтреки- 128kbps\nhttp://hotmixradio-japan.ice.infomaniak.ch/hotmixradio-japan-128.mp3</item>
+        <item>JPopsuki Radio!(Anime) -Саундтреки- 192kbps\nhttp://213.239.204.252:8000/stream</item>
+        <item>Japan-A-Radio - Japan s best music mix!(Anime) -Саундтреки- 45kbps\nhttp://audio.misproductions.com/japan48k</item>
+        <item>131(Anime) -Саундтреки- 128kbps\nhttp://stream.anime.com.pl:8000/radioHQ.ogg</item>
+        <item>NSW(Anime) -Саундтреки- 128kbps\nhttp://nsw-radio.de:8000/nswmp3</item>
+        <item>Радио ULTRA -Музыка- 128kbps\nhttps://nashe1.hostingradio.ru:18000/ultra-128.mp3</item>
+        <item>Радио Лучшие Песни -Музыка- 48kbps\nhttp://85.114.140.64:8000/666</item>
+        <item>Phate Radio(Anime) -Саундтреки- 192kbps\nhttp://stream.phate.io/phatecc</item>
+        <item>Gensokyo Radio - Music. Games. Touhou.(Anime) -Саундтреки- 128kbps\nhttp://stream.gensokyoradio.net:8000/</item>
+        <item>Bot-sama direct(Anime) -Саундтреки- 128kbps\nhttp://edenofthewest.com:8080/eden.mp3</item>
+        <item>RadioAnimati(Anime) -Саундтреки- 128kbps\nhttp://server.radioanimati.it:80/</item>
+        <item>Yggdrasil Radio(Anime) -Саундтреки- 128kbps\nhttp://95.211.241.92:9200/</item>
+        <item>Radio Anime Nexus(Anime) -Саундтреки- 96kbps\nhttp://radio.animenexus.mx:8000/animenexus</item>
+        <item>Extreme Anime Radio(Anime) -Саундтреки- 128kbps\nhttp://174.37.159.206:8052/stream</item>
+        <item>Shinsen-Radio(Anime) -Саундтреки- 128kbps\nhttp://shinsen-radio.org:8000/shinsen-radio.128.mp3</item>
+        <item>Final Fantasy Radio(Anime) -Саундтреки- 192kbps\nhttp://finalfantasystation.com:8000/stream.mp3</item>
+        <item>Vocaloid Stream(Anime) -Саундтреки- 128kbps\nhttp://142.4.217.133:9848/stream</item>
+        <item>R/a/dio(Anime) -Саундтреки- 192kbps\nhttp://stream.r-a-d.io/main.mp3</item>
+        <item>Any-anime.ru(Anime) -Саундтреки- 320kbps\nhttp://radio.flex.ru:8000/radionami</item>
+        <item>ANISON.FM(Anime) -Саундтреки- 128kbps\nhttp://pool.anison.fm:9000/AniSonFM(128)</item>
+        <item>Armitage s Dimension Jpop/Jrock/Anime -Саундтреки- 64kbps\nhttp://aac.fr.armitunes.com:8010/</item>
+        <item>Vocaloid Radio(Anime) -Саундтреки- 320kbps\nhttp://curiosity.shoutca.st:8019/stream</item>
+        <item>AnimeNfo Radio(Anime) -Саундтреки- 128kbps\nhttp://itori.animenfo.com:443/</item>
     </string-array>
 
 </resources>

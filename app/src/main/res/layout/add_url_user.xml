@@ -23,16 +23,30 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <dmitriy.deomin.aimpradioplalist.custom.Text
-            android:id="@+id/textView_logo_add"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@null"
-            android:gravity="center"
-            android:text="Добавить поток"
-            android:textSize="20sp" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <dmitriy.deomin.aimpradioplalist.custom.Text
+                android:id="@+id/textView_logo_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="center"
+                android:text="@string/add_potok"
+                android:textSize="20sp" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_on_of_klava"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/klava" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,12 +62,14 @@
                 android:background="@null"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="Название" />
+                android:hint="Название"
+                android:maxHeight="100dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
             android:background="@null"
             android:orientation="horizontal">
 
@@ -63,10 +79,14 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
+                android:autofillHints=""
                 android:background="@null"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="url потока"
+                android:inputType=""
+                android:maxHeight="300dp"
+                android:minHeight="40dp"
                 android:paddingLeft="50dp" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
@@ -78,11 +98,17 @@
 
         </LinearLayout>
 
-        <dmitriy.deomin.aimpradioplalist.custom.Btn
-            android:id="@+id/button_add_url"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:text="@android:string/ok" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_add_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:text="@android:string/ok" />
+        </LinearLayout>
     </LinearLayout>
 </dmitriy.deomin.aimpradioplalist.custom.Fon_item>
