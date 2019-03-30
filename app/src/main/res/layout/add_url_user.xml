@@ -30,7 +30,7 @@
 
             <dmitriy.deomin.aimpradioplalist.custom.Text
                 android:id="@+id/textView_logo_add"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -40,12 +40,6 @@
                 android:text="@string/add_potok"
                 android:textSize="20sp" />
 
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:id="@+id/button_on_of_klava"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="@drawable/klava" />
         </LinearLayout>
 
         <LinearLayout
@@ -63,7 +57,8 @@
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Название"
-                android:maxHeight="100dp" />
+                android:maxHeight="100dp"
+                android:inputType="" />
         </LinearLayout>
 
         <LinearLayout

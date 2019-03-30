@@ -25,13 +25,9 @@ import com.google.android.gms.ads.MobileAds
 import com.kotlinpermissions.KotlinPermissions
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.main.*
-import org.jetbrains.anko.browse
+import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
-import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.support.v4.toast
-import org.jetbrains.anko.textColor
-import org.jetbrains.anko.toast
 import java.io.File
 
 class Main : FragmentActivity() {
@@ -69,10 +65,7 @@ class Main : FragmentActivity() {
         val HISTORY_LIST_PRIMER = arrayListOf(
                 History("Недобавленные станции(новые не провереные)", "https://dl.dropbox.com/s/yonkdg4ccnmmiue/new_station.m3u", "23.03.19"),
                 History("Cамообновляемый плейлист сто один ру", "http://potokovoe.ru/record/101ru_channel.m3u8", "17.03.19"),
-                History("Самообновляемый плейлист с сайта potokovoe.ru", "http://potokovoe.ru/playlists/list.m3u", "17.03.19"),
-                History("Музыка сообщества Многоточие(ВК)", "https://dl.dropbox.com/s/6l0rtukqzl9ercr/musik_Mnogotochie_Vk.m3u", "23.03.19"),
-                History("Музыка сообщества Академия Амбрелла(ВК)", "https://dl.dropbox.com/s/177bvv5n9heiqdu/musik_Ambrella_Vk.m3u", "22.03.19"),
-                History("Песни Eivor через поиск(Vk) ", "https://dl.dropbox.com/s/92m2uftqx77rf7p/misik_Eivor_Vk.m3u", "22.03.19"),
+                History("Радиостанции различных тематик от новостных до музыкальных и от детских до альтернативных", "http://potokovoe.ru/playlists/list.m3u", "17.03.19"),
                 History("Моя музыка из ВК(разное)", "https://dl.dropbox.com/s/dasl5ay34gacqaw/My_musik_VK.m3u", "22.03.19"))
 
         //количество стандартных тем
@@ -102,6 +95,7 @@ class Main : FragmentActivity() {
                 clipboard.primaryClip = clip
             }
         }
+
         //чтение из буфера
         fun getText(c: Context): String {
             val text: String
@@ -518,7 +512,6 @@ class Main : FragmentActivity() {
             }
         }
     }
-
 
     @SuppressLint("ClickableViewAccessibility", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {

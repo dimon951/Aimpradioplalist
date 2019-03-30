@@ -27,47 +27,16 @@ class File_function {
     fun My_plalist(url: String): ArrayList<String> {
 
         //прочитаем старыйе данные
-        var text = ""
+        var kontent = ""
         try {
-            text = read(url)
+            kontent = read(url)
         } catch (e: FileNotFoundException) {
             e.printStackTrace()
         }
 
-        //удалим мусор и приведём все к одному виду
-        var kontent = text
-                .replace("\n", "")
-                .replace("'", "")
-                .replace("&", "")
-                .replace("\"", "")
-                .replace("#EXTM3U", "")
-                .replace("#EXTINF:-1,", "#EXTINF:-1")
-                .replace("#EXTINF:-1", "#EXTINF:-1,")
-                .replace("group-title=", "")
-
-
-        if(kontent.contains("#PLAYLIST")){
-            //получим мусорную строку Типа #PLAYLIST:101.RU-Профессиональное радио
-            val d = kontent.substringAfter("#PLAYLIST").substringBefore("#EXTINF:")
-            kontent = kontent.replace("#PLAYLIST"+d,"")
-        }
-        if(kontent.contains("#EXTVLCOPT")){
-            //получим мусорную строку Типа #PLAYLIST:101.RU-Профессиональное радио
-            val d = kontent.substringAfter("#EXTVLCOPT").substringBefore("http://")
-            kontent = kontent.replace("#EXTVLCOPT"+d,"")
-        }
-
-
 
         //если есть чё разобьём на массив и вернём после удаления пустых строк
         if (kontent.length > 11) {
-
-            //добавим переносы в нужных местах
-            //бывает http:// или https:// меняем все блять
-            kontent = kontent
-                    .replace("https://".toRegex(), "\nhttps://")
-                    .replace("http://".toRegex(), "\nhttp://")
-
 
             //скинем все сюда , а потом обратно
             val mas = ArrayList<String>()
@@ -142,6 +111,8 @@ class File_function {
     fun Rename_potok(potok_old: String, potok_new: String) {
         //прочитаем старыйе данные
         var old_text = ""
+
+        //прочитали файл как есть
         try {
             old_text = read(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u")
         } catch (e: FileNotFoundException) {
@@ -216,7 +187,7 @@ class File_function {
 
     }
 
-    fun create_esli_net(){
+    fun create_esli_net() {
         val sddir = File(Main.ROOT)
         if (!sddir.exists()) {
             sddir.mkdirs()
@@ -263,7 +234,7 @@ class File_function {
 
     //Вызов функции SaveFile, который выполняет задачу сохранения файла в External-носителе:
     private fun SaveFile_vizov(filename: String, link_text: String) {
-        val fullpath=Main.ROOT + filename
+        val fullpath = Main.ROOT + filename
         //Сохранение файла на External Storage:
         if (isExternalStorageWritable) {
             SaveFile(fullpath, link_text)
@@ -273,52 +244,93 @@ class File_function {
     }
 
 
-
     //Функция, которая сохраняет файл, принимая полный путь до файла filePath и сохраняемый текст FileContent:
-    fun SaveFile(filePath: String, FileContent: String) {
-        //Создание объекта файла.
-        val fhandle = File(filePath)
-        try {
-            //Если файл существует, то он будет перезаписан:
-            fhandle.createNewFile()
-            val fOut = FileOutputStream(fhandle)
-            val myOutWriter = OutputStreamWriter(fOut, Main.File_Text_Code)
-            myOutWriter.write(FileContent)
-            myOutWriter.close()
-            fOut.close()
+    fun SaveFile(filePath: String, kontent: String) {
 
-            //послать сигнал
-            signal("File_created")
-                    .putExtra("run", false)
-                    .putExtra("update", "zaebis")
-                    .send(Main.context)
+        //проверим наличие нашей папки
+        create_esli_net()
 
-        } catch (e: IOException) {
+        //посмотрим что это за файл может хрень какая , то ошибу покакжем
+        if (kontent.contains("#EXTINF")||kontent=="") {
 
+            //удалим мусор и приведём все к одному виду
+            var kontent = kontent
+                    .replace("\n", "")
+                    .replace("'", "")
+                    .replace("&", "")
+                    .replace("\"", "")
+                    .replace("#EXTM3U", "")
+                    .replace("#EXTINF:-1,", "#EXTINF:-1")
+                    .replace("#EXTINF:-1", "#EXTINF:-1,")
+                    .replace("group-title=", "")
+
+            if (kontent.contains("#PLAYLIST")) {
+                //получим мусорную строку Типа #PLAYLIST:101.RU-Профессиональное радио
+                val d = kontent.substringAfter("#PLAYLIST").substringBefore("#EXTINF:")
+                kontent = kontent.replace("#PLAYLIST$d", "")
+            }
+            if (kontent.contains("#EXTVLCOPT")) {
+                //получим мусорную строку Типа #EXTVLCOPT:http-user-agent=PotokovoeRu
+                val d = kontent.substringAfter("#EXTVLCOPT").substringBefore("http://")
+                kontent = kontent.replace("#EXTVLCOPT$d", "")
+            }
+
+            //добавим переносы в станции
+            kontent = kontent
+                    .replace("https://".toRegex(), "\nhttps://")
+                    .replace("http://".toRegex(), "\nhttp://")
+
+            //добавим переносы между станций
+            kontent = kontent.replace("#EXTINF:-1,", "\n#EXTINF:-1,")
+
+            //Создание объекта файла.
+            val fhandle = File(filePath)
+            try {
+                //Если файл существует, то он будет перезаписан:
+                fhandle.createNewFile()
+                val fOut = FileOutputStream(fhandle)
+                val myOutWriter = OutputStreamWriter(fOut, Main.File_Text_Code)
+                myOutWriter.write(kontent)
+                myOutWriter.close()
+                fOut.close()
+
+                //послать сигнал
+                signal("File_created")
+                        .putExtra("run", false)
+                        .putExtra("update", "zaebis")
+                        .send(Main.context)
+
+            } catch (e: IOException) {
+
+                //послать сигнал
+                signal("File_created")
+                        .putExtra("run", false)
+                        .putExtra("update", "pizdec")
+                        .send(Main.context)
+            }
+        } else {
             //послать сигнал
             signal("File_created")
                     .putExtra("run", false)
                     .putExtra("update", "pizdec")
                     .send(Main.context)
-
         }
-
     }
 
     //запись в файл
-    fun writeToFile(name:String, str: String) {
+    fun writeToFile(name: String, str: String) {
         create_esli_net()
 
-        val writer = FileWriter(Main.ROOT+name, false)
+        val writer = FileWriter(Main.ROOT + name, false)
         try {
-            writer.write(str+"\n")
+            writer.write(str + "\n")
         } catch (ex: Exception) {
             println(ex.message)
             //послать сигнал
             signal("File_created_save_vse")
                     .putExtra("run", false)
                     .putExtra("update", "pizdec")
-                    .putExtra("anim","anim_of")
+                    .putExtra("anim", "anim_of")
                     .send(Main.context)
         } finally {
             writer.close()
@@ -326,48 +338,48 @@ class File_function {
             signal("File_created_save_vse")
                     .putExtra("run", false)
                     .putExtra("update", "zaebis")
-                    .putExtra("anim","anim_of")
+                    .putExtra("anim", "anim_of")
                     .send(Main.context)
         }
     }
 
-    fun readFile(){
+    fun readFile() {
         try {
             val read = FileReader("text.txt")
             println(read.readText())
-        } catch (e:Exception){
+        } catch (e: Exception) {
             println(e.message)
         }
 
     }
 
 
-
     //сохранение и чение списка из памяти
-    fun saveArrayList(f_name:String,data:ArrayList<String>){
+    fun saveArrayList(f_name: String, data: ArrayList<String>) {
         GlobalScope.launch {
             //перегоним data в строку с переносами
-            var save_text= ""
-            for(t in data.listIterator()){
-                save_text = save_text+"\n"+t
+            var save_text = ""
+            for (t in data.listIterator()) {
+                save_text = save_text + "\n" + t
             }
             //сохраняем
-            writeToFile(f_name,save_text)
+            writeToFile(f_name, save_text)
         }
     }
-    fun readArrayList(f_name: String):ArrayList<String>{
+
+    fun readArrayList(f_name: String): ArrayList<String> {
         //смотрим не пустой ли файл , читаем и отправляем
-        val fsave = read(Main.ROOT+f_name)
-        if(fsave==""){
-            val nechego=ArrayList<String>()
+        val fsave = read(Main.ROOT + f_name)
+        if (fsave == "") {
+            val nechego = ArrayList<String>()
             nechego.add("")
             return nechego
         }
         //если там чтото есть разбиваем по пробелу и отправляем
         val list = fsave.split("\n")
-        val chtoto=ArrayList<String>()
-        for (s in list.listIterator()){
-            if(s.length>7){
+        val chtoto = ArrayList<String>()
+        for (s in list.listIterator()) {
+            if (s.length > 7) {
                 chtoto.add(s)
             }
 

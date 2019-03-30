@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.MotionEvent
 import android.view.animation.AnimationUtils
 import android.widget.*
 import com.github.kittinunf.fuel.httpGet
@@ -18,10 +19,10 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.sdk27.coroutines.onFocusChange
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.email
 import org.jetbrains.anko.support.v4.share
-import org.jetbrains.anko.support.v4.toast
 import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
 import java.io.File
 import java.text.SimpleDateFormat
@@ -34,7 +35,6 @@ class Moy_plalist : Fragment() {
     companion object {
         var position_list = 0
     }
-
 
     @SuppressLint("WrongConstant")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -180,10 +180,6 @@ class Moy_plalist : Fragment() {
 
             (auu.view().findViewById<Button>(R.id.button_paste_url_add)).onClick { edit.setText(Main.getText(context)) }
 
-            (auu.view().findViewById<Button>(R.id.button_on_of_klava)).onClick {
-
-            }
-
             (auu.view().findViewById<Button>(R.id.button_add_url)).onClick {
 
                 //проверим на пустоту
@@ -241,6 +237,7 @@ class Moy_plalist : Fragment() {
                 val name = nsf.view().findViewById<EditText>(R.id.edit_new_name)
                 name.typeface = Main.face
                 name.textColor = Main.COLOR_TEXT
+               // name.setText(help_name_for_save_plalist_v_file)
 
                 (nsf.view().findViewById<Button>(R.id.button_save)).onClick {
 
@@ -584,8 +581,8 @@ class Moy_plalist : Fragment() {
                                     var data = result.get()
 
                                     if (data.isNotEmpty()) {
-                                        //если там чтото есть сохраним все(вместе с мусором) в Main.MY_PLALIST
-                                        //потом пошлётся сигнал чтобы мой плалист обновился , а там он при чтении уже удалит ненужное
+                                        //если там чтото есть сохраним все в Main.MY_PLALIST
+                                        //потом пошлётся сигнал чтобы мой плалист обновился
 
                                         //когда прийдёт сигнал что все хорошо обновим плейлист
                                         Slot(context, "File_created", false).onRun { it ->
@@ -627,6 +624,7 @@ class Moy_plalist : Fragment() {
 
     }
 }
+
 class Adapter_history_list(val data: ArrayList<History>) : RecyclerView.Adapter<Adapter_history_list.ViewHolder>() {
 
     private lateinit var context: Context

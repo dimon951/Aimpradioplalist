@@ -24,7 +24,6 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
     private lateinit var context: Context
 
 
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name_radio = itemView.findViewById<TextView>(R.id.name_radio)
         val nomer_radio = itemView.findViewById<TextView>(R.id.nomer_radio)
@@ -53,20 +52,20 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
         //заполним данными(тут в логах бывает падает - обращение к несуществующему элементу)
         //поэтому будем проверять чтобы общее количество было больше текушего номера
-        val radio: Radio = if(this.data.size>p1){
+        val radio: Radio = if (this.data.size > p1) {
             this.data[p1]
-        }else{
+        } else {
             //иначе вернём пустой элемент(дальше будут проверки и он не отобразится)
-            Radio("","","","")
+            Radio("", "", "", "")
         }
 
         p0.name_radio.text = radio.name
 
-        if(radio.url.isNotEmpty()){
-            p0.liner_url.visibility= View.VISIBLE
+        if (radio.url.isNotEmpty()) {
+            p0.liner_url.visibility = View.VISIBLE
             p0.url_radio.text = radio.url
-        }else{
-            p0.liner_url.visibility =View.GONE
+        } else {
+            p0.liner_url.visibility = View.GONE
         }
 
         //нумерация списка
@@ -203,7 +202,54 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
             val btn_url = empid.view().findViewById<Button>(R.id.reneme_url)
             btn_url.visibility = View.VISIBLE
             btn_url.onClick {
+                //закрываем основное окошко
+                empid.close()
 
+                //показываем окошко ввода нового имени
+                val nsf = DialogWindow(context, R.layout.name_save_file)
+
+                //меняем заголовок окна
+                ((nsf.view().findViewById<TextView>(R.id.textView_vvedite_name))).text = "Изменить URL"
+
+                val edit = nsf.view().findViewById<EditText>(R.id.edit_new_name)
+                edit.typeface = Main.face
+                edit.textColor = Main.COLOR_TEXT
+                edit.hintTextColor = Main.COLOR_TEXTcontext
+                edit.hint = radio.url
+                edit.setText(radio.url)
+
+                //переименовываем
+                (nsf.view().findViewById<Button>(R.id.button_save)).onClick {
+
+                    //проверим на пустоту
+                    if (edit.text.toString().isNotEmpty()) {
+
+                        //если все хорошо закрываем окошко ввода имени
+                        nsf.close()
+
+                        Slot(context, "File_created", false).onRun {
+                            //получим данные
+                            val s = it.getStringExtra("update")
+                            when (s) {
+                                //пошлём сигнал пусть мой плейлист обновится
+                                "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
+                                "pizdec" -> {
+                                    context.toast(context.getString(R.string.error))
+                                    //запросим разрешения
+                                    Main.EbuchieRazreshenia()
+                                }
+                            }
+                        }
+
+                        //делаем
+                        val file_function = File_function()
+                        file_function.Rename_potok(radio.name + "\n" + radio.url, radio.name + "\n" + edit.text.toString())
+                    } else {
+                        //закрываем окошко
+                        nsf.close()
+                        context.toast("Оставим как было")
+                    }
+                }
             }
             btn_url.onLongClick {
                 Main.putText(radio.url, context)
