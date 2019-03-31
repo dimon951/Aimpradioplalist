@@ -2,7 +2,6 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.content.Intent
 import android.os.Environment
-import android.util.Log
 import android.widget.Toast
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
@@ -251,6 +250,7 @@ class File_function {
         create_esli_net()
 
         //посмотрим что это за файл может хрень какая , то ошибу покакжем
+        //если пустота значит надо файл оччистить
         if (kontent.contains("#EXTINF")||kontent=="") {
 
             //удалим мусор и приведём все к одному виду

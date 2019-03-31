@@ -10,7 +10,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -110,8 +109,6 @@ class Vse_radio : Fragment() {
                         }
                     }
                     //-----------------------------------------------------
-
-                    Log.e("ttt", mas_radio[i].toString())
 
                     data.add(Radio(name, ganr, kbps, m[1]))
                 }

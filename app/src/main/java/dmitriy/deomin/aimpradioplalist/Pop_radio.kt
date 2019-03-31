@@ -12,8 +12,6 @@ import android.widget.LinearLayout
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.jetbrains.anko.support.v4.toast
-import org.jetbrains.anko.toast
 import java.util.ArrayList
 
 

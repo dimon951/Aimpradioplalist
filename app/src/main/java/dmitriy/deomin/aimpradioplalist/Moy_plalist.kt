@@ -3,14 +3,12 @@ package dmitriy.deomin.aimpradioplalist
 import android.annotation.SuppressLint
 import android.content.*
 import android.os.Bundle
-import android.service.autofill.FieldClassification
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.MotionEvent
 import android.view.animation.AnimationUtils
 import android.widget.*
 import com.github.kittinunf.fuel.httpGet
@@ -19,7 +17,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.sdk27.coroutines.onFocusChange
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.email
 import org.jetbrains.anko.support.v4.share
