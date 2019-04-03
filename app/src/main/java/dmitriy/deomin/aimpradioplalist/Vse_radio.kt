@@ -62,7 +62,13 @@ class Vse_radio : Fragment() {
         recikl_vse_list.layoutManager = LinearLayoutManager(context)
 
         //полоса быстрой прокрутки
-        val fastScroller: VerticalRecyclerViewFastScroller = v.findViewById(R.id.fast_scroller)
+        val fastScroller = v.findViewById<VerticalRecyclerViewFastScroller>(R.id.fast_scroller)
+        //получим текущие пораметры
+        val paramL = fastScroller.layoutParams
+        //меняем ширину
+        paramL.width = Main.SIZE_WIDCH_SCROLL
+        //устанавливаем
+        fastScroller.layoutParams = paramL
         fastScroller.setRecyclerView(recikl_vse_list)
         recikl_vse_list.setOnScrollListener(fastScroller.onScrollListener)
 

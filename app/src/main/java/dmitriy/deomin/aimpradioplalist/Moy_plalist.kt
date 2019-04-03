@@ -42,7 +42,13 @@ class Moy_plalist : Fragment() {
         recikl_list.layoutManager = LinearLayoutManager(context)
 
         //полоса быстрой прокрутки
-        val fastScroller: VerticalRecyclerViewFastScroller = v.findViewById(R.id.fast_scroller)
+        val fastScroller = v.findViewById<VerticalRecyclerViewFastScroller>(R.id.fast_scroller)
+        //получим текущие пораметры
+        val paramL = fastScroller.layoutParams
+        //меняем ширину
+        paramL.width = Main.SIZE_WIDCH_SCROLL
+        //устанавливаем
+        fastScroller.layoutParams = paramL
         fastScroller.setRecyclerView(recikl_list)
         recikl_list.setOnScrollListener(fastScroller.onScrollListener)
 
@@ -116,6 +122,16 @@ class Moy_plalist : Fragment() {
                     } else {
                         context.toast("ok")
                     }
+
+
+                    //скроем или покажем полосу прокрутки
+                    if(mr.size>15){
+                        fastScroller.visibility = View.VISIBLE
+                    }else{
+                        fastScroller.visibility = View.GONE
+                    }
+
+
                 }
             }
         }
@@ -234,7 +250,7 @@ class Moy_plalist : Fragment() {
                 val name = nsf.view().findViewById<EditText>(R.id.edit_new_name)
                 name.typeface = Main.face
                 name.textColor = Main.COLOR_TEXT
-               // name.setText(help_name_for_save_plalist_v_file)
+                // name.setText(help_name_for_save_plalist_v_file)
 
                 (nsf.view().findViewById<Button>(R.id.button_save)).onClick {
 
@@ -394,7 +410,7 @@ class Moy_plalist : Fragment() {
         //---------------при выборе из памяти устройства----------------------------------------------------
         (lf.view().findViewById<Button>(R.id.load_fs)).onClick {
 
-            //посмотрим есть старый пусть
+            //посмотрим есть старый путь
             val old_dir = Main.save_read("startdir")
             val startdir: String
             startdir = if (old_dir.length > 2) {
@@ -469,13 +485,16 @@ class Moy_plalist : Fragment() {
             val history_url_list = f.readArrayList(Main.HISTORY_LINK)
 
 
-            //запишем свои заготовки из маина если первый запуск
+            //запишем свои заготовки если их там нет
             //----------------------------------------------------------------
-            if (history_url_list.size < Main.HISTORY_LIST_PRIMER.size) {
-                for (sh in Main.HISTORY_LIST_PRIMER) {
+            //переведём список в строку(для поиска в ней подстроки)
+            val str_list = history_url_list.toString()
+            for (sh in Main.HISTORY_LIST_PRIMER) {
+                if(!str_list.contains(sh.url)){
                     history_url_list.add(sh.name + "$" + sh.url + "$" + sh.data_time)
                 }
             }
+
 
             //парсим в нужный вид  и переворачиваем
             for (s in history_url_list.listIterator()) {
@@ -658,6 +677,23 @@ class Adapter_history_list(val data: ArrayList<History>) : RecyclerView.Adapter<
             p0.liner.startAnimation(AnimationUtils.loadAnimation(Main.context, R.anim.myalpha))
             signal("clik_history_item").putExtra("url", history.url).putExtra("name", history.name).send(Main.context)
         }
+        p0.liner.onLongClick {
+            p0.liner.startAnimation(AnimationUtils.loadAnimation(Main.context, R.anim.myalpha))
+            //пересоберём список без текущей строки
+            GlobalScope.launch {
+                val save_data = ArrayList<String>()
+                for(d in data){
+                    if(d.url!=history.url){
+                        save_data.add(d.name+"$"+d.url+"$"+d.data_time)
+                    }
+                }
+                File_function().saveArrayList(Main.HISTORY_LINK, save_data)
+            }
+            //не буду нечего слушать и проверять так пока сделаю
+            data.removeAt(p1)
+            notifyDataSetChanged()
+        }
+
 
         p0.share.onClick {
             context.share(history.url)

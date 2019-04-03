@@ -2,6 +2,7 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.content.Intent
 import android.os.Environment
+import android.util.Log
 import android.widget.Toast
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
@@ -76,31 +77,16 @@ class File_function {
         } catch (e: FileNotFoundException) {
             e.printStackTrace()
         }
+        //удалм переносы,потом при сохранении они подставятся
+        old_text = old_text.replace("\n","")
+        //добавим переносы
+        old_text = old_text.replace("http://","\nhttp://")
+        old_text = old_text.replace("https://","\nhttps://")
 
-        //удалим все переносы из прочитаных данных и подставим Где надо вместо http://  поставим \nhttp://
-        //"#EXTM3U#"  - в начале файла
-        //#EXTINF:-1 - в начале каждого потока
-        old_text = old_text.replace("\n", "")
-        old_text = old_text.replace("#EXTM3U", "#EXTM3U\n")
-        old_text = old_text.replace("#EXTINF:-1", "\n#EXTINF:-1")
-        old_text = old_text.replace("https://", "\nhttps://")
-        old_text = old_text.replace("http://", "\nhttp://")
-
-
-        //составим исходный вид строки потока(как в файле записано)
+        //исходный вид строки потока(как в файле записано)
         //#EXTINF:-1,Авторадио\nhttp://ic7.101.ru:8000/v3_1
-
-        //посмотрим что это за строка если есть \nhttp:// или \nhttps://
-        val del_potok = if (potok.contains("\nhttp://") || potok.contains("\nhttps://")) {
-            "#EXTINF:-1,$potok"
-        } else {
-            //иначе это хз че есть ,удалим так
-            potok
-        }
-
-
         //теперь удаляем эту вещь из считаного файла и перезаписываем его
-        old_text = old_text.replace(del_potok, "")
+        old_text = old_text.replace("#EXTINF:-1,$potok", "")
 
         //очищаем и записываем заново, там уже будут слаться сигналы получилось или нет
         SaveFile_vizov("my_plalist.m3u", old_text)
@@ -120,9 +106,9 @@ class File_function {
 
         //в параметрах получаем строку вида
         //Авторадио\nhttp://ic7.101.ru:8000/v3_1
-
         //теперь заменяем старый поток из считаного файла на новый и перезаписываем его
         old_text = old_text.replace(potok_old, potok_new)
+
 
         //очищаем и записываем заново, там уже будут слаться сигналы получилось или нет
         SaveFile_vizov("my_plalist.m3u", old_text)
@@ -251,7 +237,7 @@ class File_function {
 
         //посмотрим что это за файл может хрень какая , то ошибу покакжем
         //если пустота значит надо файл оччистить
-        if (kontent.contains("#EXTINF")||kontent=="") {
+        if (kontent.contains("#EXTINF") || kontent == "") {
 
             //удалим мусор и приведём все к одному виду
             var kontent = kontent

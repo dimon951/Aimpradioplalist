@@ -112,8 +112,7 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recicl_vse_radio"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical" />
+            android:layout_height="match_parent"/>
 
         <xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
             android:id="@+id/fast_scroller"

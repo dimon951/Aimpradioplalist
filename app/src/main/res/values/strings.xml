@@ -51,6 +51,13 @@
             64kbps~kbps~https://rusradio.hostingradio.ru/rusradio64.mp3~kbps~
             96kbps~kbps~https://rusradio.hostingradio.ru/rusradio96.aacp~kbps~
         </item>
+        <item>Радио Рекорд\nrecord.png\n
+            64kbps~kbps~http://air.radiorecord.ru:805/rr_64~kbps~
+            128kbps~kbps~http://air.radiorecord.ru:8101/rr_128~kbps~
+            128kbps~kbps~http://air.radiorecord.ru:805/rr_128~kbps~
+            192kbps~kbps~http://air.radiorecord.ru:8101/rr_320~kbps~
+            192kbps~kbps~http://air.radiorecord.ru:805/rr_320~kbps~
+        </item>
         <item>Русская Волна\nruskay_volna.png\n
             48kbps~kbps~http://rp.volna.top/RuWave48~kbps~
         </item>
@@ -247,6 +254,28 @@
 
     <string-array name="vse_radio">
 
+        <item>Мурзилки -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a3</item>
+        <item>Радио Актан -Музыка- 128kbps\nhttp://195.191.78.200:8081/mp</item>
+        <item>Виа -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c3_1</item>
+        <item>Радио России -Разговорное- 192kbps\nhttp://icecast.vgtrk.cdnvideo.ru:80/rrzonam_mp3_192kbps</item>
+        <item>Говорит Москва -Разговорное- 96kbps\nhttp://video.govoritmoskva.ru:8880/rufm.mp3</item>
+        <item>Дискотека СССР -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a144</item>
+        <item>Любэ -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a158</item>
+        <item>Подмосковные вечера -Дискография- 128kbps\nhttp://setmedia.ru:8000/high5</item>
+        <item>Михаил Круг -Дискография- 128kbps\nhttp://music.myradio.ua:80/mihail-krug128.mp3</item>
+        <item>Михаил Круг -Дискография- 64kbps\nhttp://ic5.101.ru:8000/a110</item>
+        <item>Рояль ретро -Музыка- 320kbps\nhttp://185.39.195.90:8000/nostalgia</item>
+        <item>Рояль шансон -Музыка- 320kbps\nhttp://193.33.170.218:8000/RoyalShanson</item>
+        <item>Мелодия Украина -Музыка- 64kbps\nhttp://online-melodiafm.tavrmedia.ua/MelodiaFM_Live</item>
+        <item>Шансон -Музыка- 256kbps\nhttp://chanson.hostingradio.ru:8041/chanson2-256.mp3</item>
+        <item>Нафталин -Музыка- 128kbps\nhttp://air.radiorecord.ru:8102/naft_128</item>
+        <item>Ретро FM -Музыка- 256kbps\nhttp://retroserver.streamr.ru:8043/retro256.mp3</item>
+        <item>Record: Веснушка FM  -Музыка- 320kbps\nhttp://air.radiorecord.ru:8102/deti_320</item>
+        <item>Record: Веснушка FM  -Музыка- 128kbps\nhttp://air.radiorecord.ru:8102/deti_128</item>
+        <item>Record: Веснушка FM  -Музыка- 64kbps\nhttp://air.radiorecord.ru:8102/deti_64</item>
+        <item>Record: Bass House -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/jackin_320</item>
+        <item>Record: Bass House -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/jackin_128</item>
+        <item>Record: Bass House -Музыка- 64kbps\nhttp://air.radiorecord.ru:805/jackin_64</item>
         <item>ITALIA -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a65</item>
         <item>FRANCE -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c16_17</item>
         <item>ФРАНЦУЗСКИЙ ШАНСОН -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c17_24</item>
@@ -343,10 +372,10 @@
         <item>Муслим Магомаев -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a156?</item>
         <item>Океан Эльзы -Дискография- 128kbps\nhttp://music.myradio.ua/okeanelzy128.mp3</item>
         <item>Пикник -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a157?</item>
-        <item>Руки вверх! -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a163?</item>
-        <item>Стас Михайлов -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a154?</item>
+        <item>Руки вверх! -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a163</item>
+        <item>Стас Михайлов -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a154</item>
         <item>ТНМК -Дискография- 128kbps\nhttp://music.myradio.ua/tnmk128.mp3</item>
-        <item>Филипп Киркоров -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a116?</item>
+        <item>Филипп Киркоров -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a116</item>
         <item>Чиж и Co -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a221?</item>
         <item>Чиж и Co -Дискография- 192kbps\nhttp://radio.iccw.ru:8000/chizh</item>
         <item>Детские сказки -Детское- 128kbps\nhttp://ic2.101.ru:8000/c17_27?</item>
@@ -792,9 +821,6 @@
         <item>Relax FM 90.8 Москва -Музыка- 256kbps\nhttp://ic2.101.ru:8000/v13_1</item>
         <item>Relax FM 90.8 Москва -Музыка- 98kbps\nhttp://91.207.59.26/a200</item>
         <item>Radio Schizoid 128kbps\nhttp://schizoid.in:8000/chill</item>
-        <item>1jazz.ru - Mellow Jazz 128kbps\nhttp://radio.1jazz.ru:8190/radio</item>
-        <item>1jazz.ru - Smooth Jazz 128kbps\nhttp://radio.1jazz.ru:8240/radio</item>
-        <item>1jazz.ru - Saxophone Jazz 128kbps\nhttp://radio.1jazz.ru:8220/radio</item>
         <item>LOUNGE-RADIO.COM 128kbps\nhttp://nl1.streamhosting.ch:80/;stream.nsv</item>
         <item>LOUNGE-RADIO.COM 128kbps\nhttp://de1.streamhosting.ch:80/;stream.nsv</item>
         <item>LOUNGE-RADIO.COM 128kbps\nhttp://swisslounge.net:8030/lounge-radio</item>
@@ -1084,9 +1110,6 @@
         <item>Raadio Elmar 128kbps\nhttp://217.146.71.24:80/elmar.mp3</item>
         <item>Raadio 7 128kbps\nhttp://icecast.mmm.elion.ee:8080/Raadio7?.mp3</item>
         <item>Raadio 2 128kbps\nhttp://icecast.err.ee:80/raadio2.mp3</item>
-        <item>Record 320kbps\nhttp://air.radiorecord.ru:805/rr_320</item>
-        <item>Record 128kbps\nhttp://air.radiorecord.ru:805/rr_128</item>
-        <item>Record 64kbps\nhttp://air.radiorecord.ru:805/rr_64</item>
         <item>Record Megamix 320kbps\nhttp://air.radiorecord.ru:805/mix_320</item>
         <item>Record Megamix 128kbps\nhttp://air.radiorecord.ru:805/mix_128</item>
         <item>Record Megamix 64kbps\nhttp://air.radiorecord.ru:805/mix_64</item>

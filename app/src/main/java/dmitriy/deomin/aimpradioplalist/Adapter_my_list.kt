@@ -147,7 +147,8 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
             //--------------------------------------------------------------------------------------------------
 
             //кнопка переименовать
-            (empid.view().findViewById<Button>(R.id.reneme)).onClick {
+            val btn_renem = empid.view().findViewById<Button>(R.id.reneme)
+            btn_renem.onClick {
 
                 //закрываем основное окошко
                 empid.close()
@@ -194,6 +195,12 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                         context.toast("Оставим как было")
                     }
                 }
+            }
+
+            //при долгон нажатии будем копироваь имя в буфер
+            btn_renem.onLongClick {
+                Main.putText(radio.name, context)
+                context.toast("Имя скопировано в буфер")
             }
 
             //покажем кнопку изменить url  и при клике будем предлогать изменить адрес
@@ -253,7 +260,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
             }
             btn_url.onLongClick {
                 Main.putText(radio.url, context)
-                context.toast("url скопирован в буфер")
+                context.toast("Url скопирован в буфер")
             }
             //-------------------------------------------------------------------------
 

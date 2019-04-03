@@ -63,13 +63,18 @@ class Main : FragmentActivity() {
         val HISTORY_LINK = "history_url.txt"
 
         val HISTORY_LIST_PRIMER = arrayListOf(
-                History("Недобавленные станции(новые не провереные)", "https://dl.dropbox.com/s/yonkdg4ccnmmiue/new_station.m3u", "23.03.19"),
+                History("Недобавленные станции(новые не провереные)", "https://dl.dropbox.com/s/8gxqt07ukgysny0/new_station.m3u", "23.03.19"),
                 History("Cамообновляемый плейлист сто один ру", "http://potokovoe.ru/record/101ru_channel.m3u8", "17.03.19"),
                 History("Радиостанции различных тематик от новостных до музыкальных и от детских до альтернативных", "http://potokovoe.ru/playlists/list.m3u", "17.03.19"),
-                History("Моя музыка из ВК(разное)", "https://dl.dropbox.com/s/dasl5ay34gacqaw/My_musik_VK.m3u", "22.03.19"))
+                History("Плейлист DI.FM(4pda)", "https://dl.dropbox.com/s/vilu5ar8zm90cgy/di.fm.m3u", "02.04.19"),
+                History("Плейлист RockRadio(4pda)", "https://dl.dropbox.com/s/86qssln2o9oxwvc/rockradio.com.m3u", "02.04.19"),
+                History("Плейлист ClassicalRadio(4pda)", "https://dl.dropbox.com/s/2c9pfrnpvq01iyn/classicalradio.com.m3u", "02.04.19"))
 
         //количество стандартных тем
         val SIZE_LIST_THEM_DEFALT = 7
+
+        //толщина полосы прокрутки
+        val SIZE_WIDCH_SCROLL = 50
 
 
         //шрифт
