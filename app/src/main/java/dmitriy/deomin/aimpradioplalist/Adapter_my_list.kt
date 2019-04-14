@@ -7,10 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import dmitriy.deomin.aimpradioplalist.custom.*
 import org.jetbrains.anko.hintTextColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -19,10 +16,45 @@ import org.jetbrains.anko.share
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
 
-class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter_my_list.ViewHolder>() {
+class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter_my_list.ViewHolder>(), Filterable {
 
     private lateinit var context: Context
+    var raduoSearchList: ArrayList<Radio> = data
 
+    override fun getFilter(): Filter {
+
+
+        return object : Filter() {
+            override fun performFiltering(charSequence: CharSequence): Filter.FilterResults {
+
+                val charString = charSequence.toString()
+                if (charString.isEmpty()) {
+                    this@Adapter_my_list.raduoSearchList = data
+                } else {
+                    val filteredList = ArrayList<Radio>()
+                    for (row in data) {
+                        if (row.name.toLowerCase().contains(charString.toLowerCase())
+                                || row.url.toLowerCase().contains(charString.toLowerCase())
+                                || row.kbps.toLowerCase().contains(charString.toLowerCase())
+                                || row.kategory.toLowerCase().contains(charString.toLowerCase())) {
+                            filteredList.add(row)
+                        }
+                    }
+                    this@Adapter_my_list.raduoSearchList = filteredList
+                }
+                val filterResults = Filter.FilterResults()
+                filterResults.values = this@Adapter_my_list.raduoSearchList
+                return filterResults
+            }
+
+            override fun publishResults(charSequence: CharSequence, filterResults: Filter.FilterResults) {
+                if(filterResults.values != null){
+                    this@Adapter_my_list.raduoSearchList = filterResults.values as ArrayList<Radio>
+                    notifyDataSetChanged()
+                }
+            }
+        }
+    }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name_radio = itemView.findViewById<TextView>(R.id.name_radio)
@@ -44,7 +76,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
     }
 
     override fun getItemCount(): Int {
-        return data.size
+        return this.raduoSearchList.size
     }
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
@@ -52,12 +84,22 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
         //заполним данными(тут в логах бывает падает - обращение к несуществующему элементу)
         //поэтому будем проверять чтобы общее количество было больше текушего номера
-        val radio: Radio = if (this.data.size > p1) {
-            this.data[p1]
-        } else {
+        val radio: Radio = if(this.raduoSearchList.size>p1){
+            this.raduoSearchList[p1]
+        }else{
             //иначе вернём пустой элемент(дальше будут проверки и он не отобразится)
-            Radio("", "", "", "")
+            Radio("","","","")
         }
+
+
+//        //заполним данными(тут в логах бывает падает - обращение к несуществующему элементу)
+//        //поэтому будем проверять чтобы общее количество было больше текушего номера
+//        val radio: Radio = if (this.data.size > p1) {
+//            this.data[p1]
+//        } else {
+//            //иначе вернём пустой элемент(дальше будут проверки и он не отобразится)
+//            Radio("", "", "", "")
+//        }
 
         p0.name_radio.text = radio.name
 

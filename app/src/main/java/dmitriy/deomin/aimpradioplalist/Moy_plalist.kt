@@ -9,10 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.animation.AnimationUtils
 import android.widget.*
 import com.github.kittinunf.fuel.httpGet
 import dmitriy.deomin.aimpradioplalist.custom.*
+import kotlinx.android.synthetic.main.dialog_delete_plalist.view.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
@@ -29,6 +33,8 @@ import kotlin.collections.ArrayList
 
 class Moy_plalist : Fragment() {
 
+    lateinit var ad: Adapter_my_list
+
     companion object {
         var position_list = 0
     }
@@ -37,6 +43,11 @@ class Moy_plalist : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.my_plalist, null)
         val context: Context = Main.context
+
+        val find = v.findViewById<EditText>(R.id.editText_find_my_list)
+        find.typeface = Main.face
+        find.textColor = Main.COLOR_TEXT
+        find.hintTextColor = Main.COLOR_TEXTcontext
 
         val recikl_list = v.findViewById<RecyclerView>(R.id.recicl_my_list)
         recikl_list.layoutManager = LinearLayoutManager(context)
@@ -90,7 +101,7 @@ class Moy_plalist : Fragment() {
 
                     }
 
-                    val ad = Adapter_my_list(d)
+                    ad = Adapter_my_list(d)
                     recikl_list.adapter = ad
                     //---------------------------------------------------------
 
@@ -124,54 +135,168 @@ class Moy_plalist : Fragment() {
                     }
 
 
-                    //скроем или покажем полосу прокрутки
-                    if(mr.size>15){
+                    //скроем или покажем полосу прокрутки и поиск
+                    if (mr.size > Main.SIZE_LIST_LINE) {
                         fastScroller.visibility = View.VISIBLE
-                    }else{
+
+                        find.visibility = View.VISIBLE
+                        // текст только что изменили в строке поиска
+                        find.addTextChangedListener(object : TextWatcher {
+                            override fun afterTextChanged(s: Editable) {}
+                            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+                            override fun onTextChanged(text: CharSequence, start: Int, before: Int, count: Int) {
+                                ad.filter.filter(text)
+                            }
+                        })
+                    } else {
                         fastScroller.visibility = View.GONE
+
+                        find.setText("")
+                        find.visibility = View.GONE
                     }
-
-
                 }
             }
         }
         //-------------------------------------------------------------------------------------
 
+        //и еще будем слушать сигналы на удаление одной строки или всех и прочие операции
+        Slot(context, "Listner_Button").onRun {
+            //определение что надо зделать
+            when (it.getStringExtra("event")) {
+
+                "del_vse" -> {
+                    val file_function = File_function()
+
+                    val ddp = DialogWindow(context, R.layout.dialog_delete_plalist)
+                    val text = ddp.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
+
+                    val data= ArrayList<String>()
+
+                    //будем формировать вопрос удаления, если удаляется не весь список
+                    //и данные
+                    if (ad.raduoSearchList.size < ad.data.size) {
+                        text.text = "Удалить эти: " + ad.raduoSearchList.size.toString() + " станций?\nВсего(" + ad.data.size.toString() + "шт)"
+                        //удалим из общего списка выбранные элементы
+                        val d = ad.data
+                        d.removeAll(ad.raduoSearchList)
+                        //запишем в строчном формате
+                        data.add("#EXTM3U")
+                        for (s in d.iterator()) {
+                            if(s.url.isNotEmpty()){
+                                data.add("\n#EXTINF:-1," + s.name + " " + s.kbps + "\n" + s.url)
+                            }
+
+                        }
+                    } else {
+                        text.text = "Удалить весь список?"
+                        data.add("")
+                    }
+
+                    (ddp.view().findViewById<Button>(R.id.button_dialog_delete)).onClick {
+
+                        Slot(context, "File_created", false).onRun {
+                            //получим данные
+                            when (it.getStringExtra("update")) {
+                                "zaebis" -> {
+                                    //пошлём сигнал пусть мой плейлист обновится
+                                    signal("Data_add").putExtra("update", "zaebis").send(context)
+                                }
+                                "pizdec" -> {
+                                    context.toast(context.getString(R.string.error))
+                                    //запросим разрешения
+                                    Main.EbuchieRazreshenia()
+                                }
+                            }
+                        }
+
+                        //переведём наш список в норм вид
+                        //перезапишем и ждём ответа
+                        file_function.SaveFile(Main.ROOT + "my_plalist.m3u", data.joinToString("\n"))
+                        ddp.close()
+                    }
+                    (ddp.view().findViewById<Button>(R.id.button_dialog_no)).onClick {
+                        ddp.close()
+                    }
+                }
+
+                "save" -> {
+                    val file_function = File_function()
+                    //покажем оконо в котором нужно будет ввести имя
+                    val nsf = DialogWindow(context, R.layout.name_save_file)
+
+                    val text =nsf.view().findViewById<TextView>(R.id.textView_vvedite_name)
+
+                    val data= ArrayList<String>()
+
+                    //будем формировать вопрос удаления, если удаляется не весь список
+                    //и данные
+                    if (ad.raduoSearchList.size < ad.data.size) {
+                        text.text = "Сохранить эти: " + ad.raduoSearchList.size.toString() + " станций\nВсего(" + ad.data.size.toString() + "шт)"
+                    } else {
+                        text.text = "Сохранить весь список"
+                    }
+
+                    //приведем к норм виду
+                    val d = ad.raduoSearchList
+                    //запишем в строчном формате
+                    data.add("#EXTM3U")
+                    for (s in d.iterator()) {
+                        if(s.url.isNotEmpty()){
+                            data.add("\n#EXTINF:-1," + s.name + " " + s.kbps + "\n" + s.url)
+                        }
+
+                    }
+
+
+                    val name = nsf.view().findViewById<EditText>(R.id.edit_new_name)
+                    name.typeface = Main.face
+                    name.textColor = Main.COLOR_TEXT
+                    // name.setText(help_name_for_save_plalist_v_file)
+
+                    (nsf.view().findViewById<Button>(R.id.button_save)).onClick {
+
+                        if (name.text.toString().isEmpty()) {
+                            //пока покажем это потом будум генерерить свои если не захотят вводить
+                            context.toast("Введите имя")
+                        } else {
+                            //когда прийдёт сигнал что сохранилось все хорошо обновим плейлист
+                            Slot(context, "File_created", false).onRun { it ->
+                                //получим данные
+                                val s = it.getStringExtra("update")
+                                when (s) {
+                                    "zaebis" -> {
+                                        //пошлём сигнал пусть мой плейлист обновится
+                                        signal("Data_add").putExtra("update", "zaebis").send(context)
+                                    }
+                                    "pizdec" -> {
+                                        context.toast(context.getString(R.string.error))
+                                        //запросим разрешения
+                                        Main.EbuchieRazreshenia()
+                                    }
+                                }
+                            }
+                            //сохраним  временый файл ссылку и ждём сигналы
+                            file_function.Save_temp_file(name.text.toString() + ".m3u", data.joinToString("\n"))
+
+                            //закроем окошко
+                            nsf.close()
+                        }
+                    }
+                }
+
+
+            }
+
+        }
+
+
         //Слушаем кнопки
 
         //------------удалить(очистить весь плейлист)---------------------------------------------
         (v.findViewById<Button>(R.id.button_delete)).onClick {
-            val file_function = File_function()
-
-            if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
-
-                val ddp = DialogWindow(context, R.layout.dialog_delete_plalist)
-
-                (ddp.view().findViewById<Button>(R.id.button_dialog_delete)).onClick {
-
-                    Slot(context, "File_created", false).onRun {
-                        //получим данные
-                        val s = it.getStringExtra("update")
-                        when (s) {
-                            "zaebis" -> {
-                                //пошлём сигнал пусть мой плейлист обновится
-                                signal("Data_add").putExtra("update", "zaebis").send(context)
-                            }
-                            "pizdec" -> {
-                                context.toast(context.getString(R.string.error))
-                                //запросим разрешения
-                                Main.EbuchieRazreshenia()
-                            }
-                        }
-                    }
-
-                    //удаляем и ждём ответа
-                    file_function.Delet_my_plalist()
-                    ddp.close()
-                }
-                (ddp.view().findViewById<Button>(R.id.button_dialog_no)).onClick {
-                    ddp.close()
-                }
+            //если список не пуст
+            if (ad.raduoSearchList[0].name != (Main.PUSTO.replace("\n", ""))) {
+                signal("Listner_Button").putExtra("event", "del_vse").send(context)
             } else {
                 context.toast("Плейлист пуст")
             }
@@ -237,50 +362,11 @@ class Moy_plalist : Fragment() {
 
         //-------------сохранить этот плейлист в отдельный файл------------------------------------
         (v.findViewById<Button>(R.id.save_v_file)).onClick {
-            val file_function = File_function()
-            //прочитаем плейлист весь с закорючками
-            val data: String = file_function.read(Main.MY_PLALIST)
-            if (data.length < 9) {
-                context.toast("Нечего сохранять добавьте хотябы одну станцию")
+            //если список не пуст
+            if (ad.raduoSearchList[0].name != (Main.PUSTO.replace("\n", ""))) {
+                signal("Listner_Button").putExtra("event", "save").send(context)
             } else {
-
-                //покажем оконо в котором нужно будет ввести имя
-                val nsf = DialogWindow(context, R.layout.name_save_file)
-
-                val name = nsf.view().findViewById<EditText>(R.id.edit_new_name)
-                name.typeface = Main.face
-                name.textColor = Main.COLOR_TEXT
-                // name.setText(help_name_for_save_plalist_v_file)
-
-                (nsf.view().findViewById<Button>(R.id.button_save)).onClick {
-
-                    if (name.text.toString().isEmpty()) {
-                        //пока покажем это потом будум генерерить свои если не захотят вводить
-                        context.toast("Введите имя")
-                    } else {
-                        //когда прийдёт сигнал что сохранилось все хорошо обновим плейлист
-                        Slot(context, "File_created", false).onRun { it ->
-                            //получим данные
-                            val s = it.getStringExtra("update")
-                            when (s) {
-                                "zaebis" -> {
-                                    //пошлём сигнал пусть мой плейлист обновится
-                                    signal("Data_add").putExtra("update", "zaebis").send(context)
-                                }
-                                "pizdec" -> {
-                                    context.toast(context.getString(R.string.error))
-                                    //запросим разрешения
-                                    Main.EbuchieRazreshenia()
-                                }
-                            }
-                        }
-                        //сохраним  временый файл ссылку и ждём сигналы
-                        file_function.Save_temp_file(name.text.toString() + ".m3u", data)
-
-                        //закроем окошко
-                        nsf.close()
-                    }
-                }
+                context.toast("Нечего сохранять добавьте хотябы одну станцию")
             }
         }
         //--------------------------------------------------------------------------------------
@@ -490,7 +576,7 @@ class Moy_plalist : Fragment() {
             //переведём список в строку(для поиска в ней подстроки)
             val str_list = history_url_list.toString()
             for (sh in Main.HISTORY_LIST_PRIMER) {
-                if(!str_list.contains(sh.url)){
+                if (!str_list.contains(sh.url)) {
                     history_url_list.add(sh.name + "$" + sh.url + "$" + sh.data_time)
                 }
             }
@@ -682,9 +768,9 @@ class Adapter_history_list(val data: ArrayList<History>) : RecyclerView.Adapter<
             //пересоберём список без текущей строки
             GlobalScope.launch {
                 val save_data = ArrayList<String>()
-                for(d in data){
-                    if(d.url!=history.url){
-                        save_data.add(d.name+"$"+d.url+"$"+d.data_time)
+                for (d in data) {
+                    if (d.url != history.url) {
+                        save_data.add(d.name + "$" + d.url + "$" + d.data_time)
                     }
                 }
                 File_function().saveArrayList(Main.HISTORY_LINK, save_data)

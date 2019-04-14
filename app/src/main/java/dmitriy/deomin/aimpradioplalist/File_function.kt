@@ -60,12 +60,6 @@ class File_function {
 
     }
 
-
-    //очистим наш плейлист
-    fun Delet_my_plalist() {
-        SaveFile_vizov("my_plalist.m3u", "")
-    }
-
     //удаление одной станции из файла
     //в параметрах получаем строку вида
     //Авторадио\nhttp://ic7.101.ru:8000/v3_1
@@ -173,9 +167,14 @@ class File_function {
     }
 
     fun create_esli_net() {
-        val sddir = File(Main.ROOT)
-        if (!sddir.exists()) {
-            sddir.mkdirs()
+        if (isExternalStorageWritable) {
+            val sddir = File(Main.ROOT)
+            if (!sddir.exists()) {
+                sddir.mkdirs()
+            }
+        } else {
+            Toast.makeText(Main.context, "Нет доступа к памяти", Toast.LENGTH_LONG).show()
+            return
         }
     }
 
@@ -232,7 +231,7 @@ class File_function {
     //Функция, которая сохраняет файл, принимая полный путь до файла filePath и сохраняемый текст FileContent:
     fun SaveFile(filePath: String, kontent: String) {
 
-        //проверим наличие нашей папки
+        //проверим наличие нашей папки  и доспуп к ней
         create_esli_net()
 
         //посмотрим что это за файл может хрень какая , то ошибу покакжем

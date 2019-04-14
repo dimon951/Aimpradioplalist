@@ -44,7 +44,7 @@ class Vse_radio : Fragment() {
 
         context = Main.context
 
-        find = v.findViewById(R.id.editText_find)
+        find = v.findViewById<EditText>(R.id.editText_find)
         find.typeface = Main.face
         find.textColor = Main.COLOR_TEXT
         find.hintTextColor = Main.COLOR_TEXTcontext
@@ -130,7 +130,7 @@ class Vse_radio : Fragment() {
 
 
         //когда все распарсится и в маине отключится показ прогрессбара прилетит  сигнал
-        // и запустит этот слот
+        // и запустит этот слот один раз походу так хз
         //------------------------------------------------------------------------------
         Slot(context, "update_vse_radio", false).onRun {
 
@@ -163,7 +163,7 @@ class Vse_radio : Fragment() {
                     GlobalScope.launch {
                         val f = File_function()
                         //составим норм список
-                        val s_data = java.util.ArrayList<String>()
+                        val s_data = ArrayList<String>()
                         s_data.add("#EXTM3U")
                         for (s in data.iterator()) {
                             s_data.add("\n#EXTINF:-1," + s.name + " " + s.kbps + "\n" + s.url)

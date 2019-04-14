@@ -49,6 +49,9 @@ class Main : FragmentActivity() {
         //текст в пустом плейлисте(много где требуется)
         val PUSTO: String = "Плейлист пуст.\n"
 
+        //количество строк в моём плейлисте при котором будет показана полоа прокрутки
+        val SIZE_LIST_LINE = 12
+
         val ROOT = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/"
 
         //название файла моего плейлиста
