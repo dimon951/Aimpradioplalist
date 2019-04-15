@@ -272,6 +272,7 @@ class Main : FragmentActivity() {
                                 + "\n"
                                 + url)
 
+                //если юрл пуст значит передали список что открыть
             } else {
                 //проверим что файл есть
                 val f_old = File(name)
@@ -305,19 +306,39 @@ class Main : FragmentActivity() {
                         if (vname.text.toString().isEmpty()) {
                             context.toast("Введите имя")
                         } else {
+                            //если нечего не изменилось
+                            if (f_old.name.replace(".m3u", "")==vname.text.toString()){
+                                //проверим есть ли аимп и откроем
+                                if (install_app("com.aimp.player")) {
+                                    //откроем файл с сылкой в плеере
+                                    val cm = ComponentName(
+                                            "com.aimp.player",
+                                            "com.aimp.player.views.MainActivity.MainActivity")
 
-                            val f_new = File(f_old.parent + "/" + vname.text + ".m3u")
-                            val otvet: File
-                            otvet = if (f_new.name == f_old.name) {
-                                f_old
-                            } else {
-                                f_old.copyTo(f_new, true)
-                            }
+                                    val i = Intent()
+                                    i.component = cm
 
-                            if (otvet.isFile) {
-                                //если переименовалось откроем его
-                                //проверим есть ли аимп
-                                if (Main.install_app("com.aimp.player")) {
+                                    i.action = Intent.ACTION_VIEW
+                                    i.setDataAndType(Uri.parse("file://" + f_old.absolutePath), "audio/mpegurl")
+                                    i.flags = 0x3000000
+
+                                    context.startActivity(i)
+                                }else{
+                                    //если аимпа нет попробуем открыть в системе
+                                    val i = Intent(android.content.Intent.ACTION_VIEW)
+                                    i.setDataAndType(Uri.parse("file://" + f_old.absolutePath), "audio/mpegurl")
+                                    //проверим есть чем открыть или нет
+                                    if (i.resolveActivity(Main.context.packageManager) != null) {
+                                        context.startActivity(i)
+                                    } else {
+                                        context.toast("Системе не удалось ( ")
+                                    }
+                                }
+                            }else{
+                                val f_new = File(f_old.parent + "/" + vname.text + ".m3u")
+                                f_old.renameTo(f_new)
+                                //проверим есть ли аимп и откроем
+                                if (install_app("com.aimp.player")) {
                                     //откроем файл с сылкой в плеере
                                     val cm = ComponentName(
                                             "com.aimp.player",
@@ -331,21 +352,22 @@ class Main : FragmentActivity() {
                                     i.flags = 0x3000000
 
                                     context.startActivity(i)
-
-                                } else {
-                                    //иначе предложим системе открыть или установить аимп
-                                    Main.setup_aimp(url, "file://" + f_new.absolutePath)
+                                }else{
+                                    //если аимпа нет попробуем открыть в системе
+                                    val i = Intent(android.content.Intent.ACTION_VIEW)
+                                    i.setDataAndType(Uri.parse("file://" + f_new.absolutePath), "audio/mpegurl")
+                                    //проверим есть чем открыть или нет
+                                    if (i.resolveActivity(Main.context.packageManager) != null) {
+                                        context.startActivity(i)
+                                    } else {
+                                        context.toast("Системе не удалось ( ")
+                                    }
                                 }
-
-                            } else {
-                                context.toast("Не получилось переименовать")
                             }
                             //закроем окошко
                             nsf.close()
                         }
                     }
-
-
                 } else {
                     context.toast("Куда-то пропал файл (")
                 }

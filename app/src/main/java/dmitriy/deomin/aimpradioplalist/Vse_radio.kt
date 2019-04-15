@@ -138,7 +138,7 @@ class Vse_radio : Fragment() {
             recikl_vse_list.adapter = adapter_vse_list
 
             //пролистываем до нужного элемента
-            if (Main.cho_nagimali_poslednee > 0 && data.size > Main.cho_nagimali_poslednee) {
+            if (Main.cho_nagimali_poslednee > 0 && adapter_vse_list.raduoSearchList.size > Main.cho_nagimali_poslednee) {
                 recikl_vse_list.scrollToPosition(Main.cho_nagimali_poslednee)
             }
 

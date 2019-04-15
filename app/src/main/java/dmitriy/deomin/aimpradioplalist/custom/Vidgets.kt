@@ -123,14 +123,14 @@ class DialogWindow(context: Context, loaut: Int) {
     }
 
     fun full_screen(){
-        if(full_skren){
+        full_skren = if(full_skren){
             alertDialog.window.setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
                     WindowManager.LayoutParams.WRAP_CONTENT)
-            full_skren = false
+            false
         }else{
             alertDialog.window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,
                     WindowManager.LayoutParams.MATCH_PARENT)
-            full_skren = true
+            true
         }
     }
 }

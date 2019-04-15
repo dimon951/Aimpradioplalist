@@ -170,19 +170,19 @@ class Moy_plalist : Fragment() {
                     val ddp = DialogWindow(context, R.layout.dialog_delete_plalist)
                     val text = ddp.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
 
-                    val data= ArrayList<String>()
+                    val data = ArrayList<String>()
 
                     //будем формировать вопрос удаления, если удаляется не весь список
                     //и данные
                     if (ad.raduoSearchList.size < ad.data.size) {
-                        text.text = "Удалить эти: " + ad.raduoSearchList.size.toString() + " станций?\nВсего(" + ad.data.size.toString() + "шт)"
+                        text.text = "Удалить выбранные: " + ad.raduoSearchList.size.toString() + " станций?\nВсего(" + ad.data.size.toString() + "шт)"
                         //удалим из общего списка выбранные элементы
                         val d = ad.data
                         d.removeAll(ad.raduoSearchList)
                         //запишем в строчном формате
                         data.add("#EXTM3U")
                         for (s in d.iterator()) {
-                            if(s.url.isNotEmpty()){
+                            if (s.url.isNotEmpty()) {
                                 data.add("\n#EXTINF:-1," + s.name + " " + s.kbps + "\n" + s.url)
                             }
 
@@ -224,14 +224,14 @@ class Moy_plalist : Fragment() {
                     //покажем оконо в котором нужно будет ввести имя
                     val nsf = DialogWindow(context, R.layout.name_save_file)
 
-                    val text =nsf.view().findViewById<TextView>(R.id.textView_vvedite_name)
+                    val text = nsf.view().findViewById<TextView>(R.id.textView_vvedite_name)
 
-                    val data= ArrayList<String>()
+                    val data = ArrayList<String>()
 
                     //будем формировать вопрос удаления, если удаляется не весь список
                     //и данные
                     if (ad.raduoSearchList.size < ad.data.size) {
-                        text.text = "Сохранить эти: " + ad.raduoSearchList.size.toString() + " станций\nВсего(" + ad.data.size.toString() + "шт)"
+                        text.text = "Сохранить выбранные: " + ad.raduoSearchList.size.toString() + " станций\nВсего(" + ad.data.size.toString() + "шт)"
                     } else {
                         text.text = "Сохранить весь список"
                     }
@@ -241,7 +241,7 @@ class Moy_plalist : Fragment() {
                     //запишем в строчном формате
                     data.add("#EXTM3U")
                     for (s in d.iterator()) {
-                        if(s.url.isNotEmpty()){
+                        if (s.url.isNotEmpty()) {
                             data.add("\n#EXTINF:-1," + s.name + " " + s.kbps + "\n" + s.url)
                         }
 
@@ -284,9 +284,101 @@ class Moy_plalist : Fragment() {
                     }
                 }
 
+                "play_aimp" -> {
+                    //передадим данные они там будут всеравно сохранятся(переименовыватся)
+                    //приведем к норм виду
+                    val data = ArrayList<String>()
+                    val d = ad.raduoSearchList
+                    //запишем в строчном формате
+                    data.add("#EXTM3U")
+                    for (s in d.iterator()) {
+                        if (s.url.isNotEmpty()) {
+                            data.add("\n#EXTINF:-1," + s.name + " " + s.kbps + "\n" + s.url)
+                        }
+                    }
 
+                    val name_file = "Плэйлист с " + ad.raduoSearchList.size.toString() + " станциями.m3u"
+
+                    //когда прийдёт сигнал что сохранилось все хорошо обновим плейлист
+                    Slot(context, "File_created", false).onRun { it ->
+                        //получим данные
+                        when (it.getStringExtra("update")) {
+                            "zaebis" -> {
+                                Main.play_aimp(Main.ROOT + name_file, "")
+                            }
+                            "pizdec" -> {
+                                context.toast(context.getString(R.string.error))
+                                //запросим разрешения
+                                Main.EbuchieRazreshenia()
+                            }
+                        }
+                    }
+                    val file_function = File_function()
+                    //сохраним  временый файл ссылку и ждём сигналы
+                    file_function.SaveFile(Main.ROOT + name_file, data.joinToString("\n"))
+                }
+
+                "play_sys" -> {
+
+                    //приведем к норм виду
+                    val data = ArrayList<String>()
+                    val d = ad.raduoSearchList
+                    //запишем в строчном формате
+                    data.add("#EXTM3U")
+                    for (s in d.iterator()) {
+                        if (s.url.isNotEmpty()) {
+                            data.add("\n#EXTINF:-1," + s.name + " " + s.kbps + "\n" + s.url)
+                        }
+                    }
+
+                    val name_file = "Плэйлист с " + ad.raduoSearchList.size.toString() + " станциями.m3u"
+
+                    //когда прийдёт сигнал что сохранилось все хорошо обновим плейлист
+                    Slot(context, "File_created", false).onRun { it ->
+                        //получим данные
+                        when (it.getStringExtra("update")) {
+                            "zaebis" -> {
+                                Main.play_system(Main.ROOT + name_file, "")
+                            }
+                            "pizdec" -> {
+                                context.toast(context.getString(R.string.error))
+                                //запросим разрешения
+                                Main.EbuchieRazreshenia()
+                            }
+                        }
+                    }
+                    val file_function = File_function()
+                    //сохраним  временый файл ссылку и ждём сигналы
+                    file_function.SaveFile(Main.ROOT + name_file, data.joinToString("\n"))
+                }
+
+                "share" -> {
+                    //приведем к норм виду
+                    val data = ArrayList<String>()
+                    val d = ad.raduoSearchList
+                    //запишем в строчном формате
+                    data.add("#EXTM3U")
+                    for (s in d.iterator()) {
+                        if (s.url.isNotEmpty()) {
+                            data.add("\n#EXTINF:-1," + s.name + " " + s.kbps + "\n" + s.url)
+                        }
+                    }
+                    share(data.joinToString("\n"))
+                }
+                "share_my" -> {
+                    //приведем к норм виду
+                    val data = ArrayList<String>()
+                    val d = ad.raduoSearchList
+                    //запишем в строчном формате
+                    data.add("#EXTM3U")
+                    for (s in d.iterator()) {
+                        if (s.url.isNotEmpty()) {
+                            data.add("\n#EXTINF:-1," + s.name + " " + s.kbps + "\n" + s.url)
+                        }
+                    }
+                    email("deomindmitriy@gmail.com", "aimp_radio_plalist",data.joinToString("\n"))
+                }
             }
-
         }
 
 
@@ -421,9 +513,9 @@ class Moy_plalist : Fragment() {
 
         //------------открыть в плеере------------------------------------------------------
         (v.findViewById<View>(R.id.open_aimp)).onClick {
-            val file_function = File_function()
-            if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
-                Main.play_aimp(Main.MY_PLALIST, "")
+            //если список не пуст
+            if (ad.raduoSearchList[0].name != (Main.PUSTO.replace("\n", ""))) {
+                signal("Listner_Button").putExtra("event", "play_aimp").send(context)
             } else {
                 context.toast("Плэйлист пуст, добавьте хотябы одну станцию")
             }
@@ -432,9 +524,9 @@ class Moy_plalist : Fragment() {
 
         //---------------открыть в системе----------------------------------------
         (v.findViewById<View>(R.id.open_aimp)).onLongClick {
-            val file_function = File_function()
-            if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
-                Main.play_system(Main.MY_PLALIST, "")
+            //если список не пуст
+            if (ad.raduoSearchList[0].name != (Main.PUSTO.replace("\n", ""))) {
+                signal("Listner_Button").putExtra("event", "play_sys").send(context)
             } else {
                 context.toast("Плэйлист пуст, добавьте хотябы одну станцию")
             }
@@ -443,33 +535,23 @@ class Moy_plalist : Fragment() {
 
         //------------поделится---------------------------------------------------------
         (v.findViewById<Button>(R.id.button_otpravit)).onClick {
-            val file_function = File_function()
-            if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
-                var send = ""
 
-                for (s in file_function.My_plalist(Main.MY_PLALIST)) {
-                    send += s + "\n"
-                }
-
-                share(send)
+            //если список не пуст
+            if (ad.raduoSearchList[0].name != (Main.PUSTO.replace("\n", ""))) {
+                signal("Listner_Button").putExtra("event", "share").send(context)
             } else {
-                context.toast("Нечего отпралять, плейлист пуст")
+                context.toast("Плэйлист пуст, добавьте хотябы одну станцию")
             }
         }
         //----------------------------------------------------------------------------------
 
         //-----при долгом нажатиии будем предлогать отправить мне письмом этот плейлист----
         (v.findViewById<Button>(R.id.button_otpravit)).onLongClick {
-            val file_function = File_function()
-            if (file_function.My_plalist(Main.MY_PLALIST)[0] != Main.PUSTO) {
-                var send = ""
-
-                for (s in file_function.My_plalist(Main.MY_PLALIST)) {
-                    send += s + "\n"
-                }
-                email("deomindmitriy@gmail.com", "aimp_radio_plalist", send)
+            //если список не пуст
+            if (ad.raduoSearchList[0].name != (Main.PUSTO.replace("\n", ""))) {
+                signal("Listner_Button").putExtra("event", "share_my").send(context)
             } else {
-                context.toast("Нечего отпралять, плейлист пуст")
+                context.toast("Плэйлист пуст, добавьте хотябы одну станцию")
             }
         }
         //--------------------------------------------------------------------------
