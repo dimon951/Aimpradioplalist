@@ -96,7 +96,7 @@ class DialogWindow(context: Context, loaut: Int) {
         content = LayoutInflater.from(context).inflate(loaut, null)
         builder.setView(content)
 
-        alertDialog = builder.create()
+        this.alertDialog = builder.create()
 
         //сместим немногов низ окно
         val params = this.alertDialog.window.attributes
@@ -109,7 +109,7 @@ class DialogWindow(context: Context, loaut: Int) {
 
 
         //показываем окно
-        alertDialog.show()
+        this.alertDialog.show()
 
 
     }

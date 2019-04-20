@@ -5,7 +5,6 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
-import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.fonts_vibor.*
 import org.jetbrains.anko.toast
 

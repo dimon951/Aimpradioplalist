@@ -1,5 +1,6 @@
 package dmitriy.deomin.aimpradioplalist
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -17,6 +18,7 @@ import java.util.ArrayList
 
 class Pop_radio : Fragment() {
 
+    @SuppressLint("InflateParams")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.pop_radio, null)
 

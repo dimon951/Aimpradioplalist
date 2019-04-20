@@ -1,14 +1,19 @@
 package dmitriy.deomin.aimpradioplalist
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
+import com.github.kittinunf.fuel.httpGet
 import dmitriy.deomin.aimpradioplalist.custom.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.jetbrains.anko.hintTextColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
@@ -25,7 +30,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
 
         return object : Filter() {
-            override fun performFiltering(charSequence: CharSequence): Filter.FilterResults {
+            override fun performFiltering(charSequence: CharSequence): FilterResults {
 
                 val charString = charSequence.toString()
                 if (charString.isEmpty()) {
@@ -33,7 +38,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                 } else {
                     val filteredList = ArrayList<Radio>()
                     for (row in data) {
-                        if (row.name.toLowerCase().contains(charString.toLowerCase())
+                        if (row.name.replace("<List>", "").toLowerCase().contains(charString.toLowerCase())
                                 || row.url.toLowerCase().contains(charString.toLowerCase())
                                 || row.kbps.toLowerCase().contains(charString.toLowerCase())
                                 || row.kategory.toLowerCase().contains(charString.toLowerCase())) {
@@ -42,13 +47,13 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                     }
                     this@Adapter_my_list.raduoSearchList = filteredList
                 }
-                val filterResults = Filter.FilterResults()
+                val filterResults = FilterResults()
                 filterResults.values = this@Adapter_my_list.raduoSearchList
                 return filterResults
             }
 
-            override fun publishResults(charSequence: CharSequence, filterResults: Filter.FilterResults) {
-                if(filterResults.values != null){
+            override fun publishResults(charSequence: CharSequence, filterResults: FilterResults) {
+                if (filterResults.values != null) {
                     this@Adapter_my_list.raduoSearchList = filterResults.values as ArrayList<Radio>
                     notifyDataSetChanged()
                 }
@@ -66,7 +71,6 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
         val liner_kbps = itemView.findViewById<LinearLayout>(R.id.liner_kbps)
         val liner_ganr = itemView.findViewById<LinearLayout>(R.id.liner_ganr)
         val liner_url = itemView.findViewById<LinearLayout>(R.id.liner_url)
-
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
@@ -79,29 +83,21 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
         return this.raduoSearchList.size
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
 
 
         //заполним данными(тут в логах бывает падает - обращение к несуществующему элементу)
         //поэтому будем проверять чтобы общее количество было больше текушего номера
-        val radio: Radio = if(this.raduoSearchList.size>p1){
+        val radio: Radio = if (this.raduoSearchList.size > p1) {
             this.raduoSearchList[p1]
-        }else{
+        } else {
             //иначе вернём пустой элемент(дальше будут проверки и он не отобразится)
-            Radio("","","","")
+            Radio("", "", "", "")
         }
 
-
-//        //заполним данными(тут в логах бывает падает - обращение к несуществующему элементу)
-//        //поэтому будем проверять чтобы общее количество было больше текушего номера
-//        val radio: Radio = if (this.data.size > p1) {
-//            this.data[p1]
-//        } else {
-//            //иначе вернём пустой элемент(дальше будут проверки и он не отобразится)
-//            Radio("", "", "", "")
-//        }
-
-        p0.name_radio.text = radio.name
+        //из названия будем удалять тип ссылки
+        p0.name_radio.text = radio.name.replace("<List>", "")
 
         if (radio.url.isNotEmpty()) {
             p0.liner_url.visibility = View.VISIBLE
@@ -139,6 +135,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
             //сохраняем позицию текушею списка
             Moy_plalist.position_list = p1
 
+            //=============================================================================================
             //общее окошко с кнопками удалить,переименовать
             val empid = DialogWindow(context, R.layout.edit_my_plalist_item_dialog)
 
@@ -161,8 +158,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
                     Slot(context, "File_created", false).onRun {
                         //получим данные
-                        val s = it.getStringExtra("update")
-                        when (s) {
+                        when (it.getStringExtra("update")) {
                             //пошлём сигнал пусть мой плейлист обновится
                             "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
                             "pizdec" -> {
@@ -306,14 +302,35 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
             }
             //-------------------------------------------------------------------------
 
+
+            val playAimp = empid.view().findViewById<Button>(R.id.open_aimp_my_list_one)
+            val playSystem = empid.view().findViewById<Button>(R.id.open_aimp_my_list_one)
+            val loadlist = empid.view().findViewById<Button>(R.id.loadlist)
+
+            //если текуший элемент список ссылок
+            if (radio.name.contains("<List>")) {
+                //скроем кнопки открытия в плеере
+                playAimp.visibility = View.GONE
+                playSystem.visibility = View.GONE
+                //покажем кнопку загрузки списка
+                loadlist.visibility = View.VISIBLE
+
+            } else {
+                //иначе покажем
+                playAimp.visibility = View.VISIBLE
+                playSystem.visibility = View.VISIBLE
+                //скроем кнопку загрузки списка
+                loadlist.visibility = View.GONE
+            }
+
             //открыть в аимп
-            (empid.view().findViewById<Button>(R.id.open_aimp_my_list_one)).onClick {
+            playAimp.onClick {
                 //закрываем основное окошко
                 empid.close()
                 Main.play_aimp(radio.name, radio.url)
             }
             //открыть в сстеме
-            (empid.view().findViewById<Button>(R.id.open_aimp_my_list_one)).onLongClick {
+            playSystem.onLongClick {
                 //закрываем основное окошко
                 empid.close()
                 Main.play_system(radio.name, radio.url)
@@ -325,6 +342,67 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
                 empid.close()
                 context.share(radio.name, radio.url)
             }
+
+            //загрузить список
+            loadlist.onClick {
+
+                //закрываем основное окошко
+                empid.close()
+
+                //-----------скачиваем файл (читам его)--------
+                GlobalScope.launch {
+                    //запустим анимацию
+                    signal("Main_update").putExtra("signal","start_anim_my_list").send(context)
+
+                    radio.url.httpGet().responseString { request, response, result ->
+                        when (result) {
+                            is com.github.kittinunf.result.Result.Failure -> {
+                                val ex = result.getException()
+                                //если ошибка остановим анимацию и покажем ошибку
+                                signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
+                                context.toast(ex.toString())
+                            }
+                            is com.github.kittinunf.result.Result.Success -> {
+                                val data = result.get()
+
+                                if (data.isNotEmpty()) {
+
+                                    val listfile = Main.ROOT+radio.name.replace("<List>","")+".m3u"
+
+                                    //когда прийдёт сигнал что все хорошо обновим плейлист
+                                    Slot(context, "File_created", false).onRun {
+                                        //получим данные
+                                        when (it.getStringExtra("update")) {
+                                            "zaebis" -> {
+                                                //пошлём сигнал пусть мой плейлист обновится
+                                                signal("Data_add")
+                                                        .putExtra("update", "zaebis")
+                                                        .putExtra("listfile",listfile)
+                                                        .send(context)
+                                            }
+                                            "pizdec" -> {
+                                                context.toast(context.getString(R.string.error))
+                                                //запросим разрешения
+                                                Main.EbuchieRazreshenia()
+                                            }
+                                        }
+                                    }
+
+                                    val file_function=File_function()
+                                    //поехали , сохраняем  и ждём сигналы
+                                    file_function.SaveFile(listfile,data)
+                                }else{
+                                    //если нечего нет остановим анимацию и скажем что там пусто
+                                    signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
+                                    context.toast("ошибка,пусто")
+                                }
+                            }
+                        }
+                    }
+                }
+                //--------------------------------------------------------
+            }
+            //=============================================================================================
         }
     }
 }

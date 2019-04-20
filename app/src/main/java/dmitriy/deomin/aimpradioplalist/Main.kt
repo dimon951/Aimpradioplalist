@@ -41,16 +41,16 @@ class Main : FragmentActivity() {
         lateinit var context: Context
 
         //кодировка файла плейлиста
-        val File_Text_Code: String = "UTF8"
+        const val File_Text_Code: String = "UTF8"
 
         //ссылка на аимп
-        val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.85.722.apk"
+        const val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.85.722.apk"
 
         //текст в пустом плейлисте(много где требуется)
-        val PUSTO: String = "Плейлист пуст.\n"
+        const val PUSTO: String = "Плейлист пуст.\n"
 
         //количество строк в моём плейлисте при котором будет показана полоа прокрутки
-        val SIZE_LIST_LINE = 12
+        const val SIZE_LIST_LINE = 12
 
         val ROOT = Environment.getExternalStorageDirectory().toString() + "/aimp_radio/"
 
@@ -58,26 +58,30 @@ class Main : FragmentActivity() {
         val MY_PLALIST = ROOT + "my_plalist.m3u"
 
         //название файла темы и путь его
-        val F_THEM_list = "theme.txt"
-
-        val DOWLOD_PLALIST = "download_list.m3u"
+        const  val F_THEM_list = "theme.txt"
 
         //название файла истории ввода сылок на плейлисты
-        val HISTORY_LINK = "history_url.txt"
+        const  val HISTORY_LINK = "history_url.txt"
 
         val HISTORY_LIST_PRIMER = arrayListOf(
-                History("Недобавленные станции(новые не провереные)", "https://dl.dropbox.com/s/8gxqt07ukgysny0/new_station.m3u", "23.03.19"),
-                History("Cамообновляемый плейлист сто один ру", "http://potokovoe.ru/record/101ru_channel.m3u8", "17.03.19"),
+                History("Аудио книги(Rus) Сказки", "https://dl.dropbox.com/s/elrh0zztejadehh/book_skazki.m3u", "20.04.19"),
+                History("Аудио книги(Rus) Фантастика", "https://dl.dropbox.com/s/3njnw0r9s49u899/book_fantastika.m3u", "20.04.19"),
+                History("Аудио книги(Rus) Классика", "https://dl.dropbox.com/s/87rda28n04pvq07/book_clasika.m3u", "20.04.19"),
+                History("Недобавленные станции и плейлисты(ссылки на них)", "https://dl.dropbox.com/s/8gxqt07ukgysny0/new_station.m3u", "20.04.19"),
+                History("Плейлист Laut.FM 5022 шт(форум Aimp)", "https://dl.dropbox.com/s/qnneha6jfl1vl17/Laut.FM.m3u", "17.04.19"),
+                History("PCRadio. 4175 станций(форум Aimp)", "https://dl.dropbox.com/s/iag2rzq6dh20c7y/pcradio_4175.m3u", "20.04.19"),
+                History("Best Radio Station's 2019(форум Aimp(user:Ol2019))", "https://dl.dropbox.com/s/ptgzzy98v477cwd/Best%20Radio%20Station%27s%202019.m3u", "20.04.19"),
+                History("Cамообновляемый плейлист 101ru", "http://potokovoe.ru/record/101ru_channel.m3u8", "17.03.19"),
                 History("Радиостанции различных тематик от новостных до музыкальных и от детских до альтернативных", "http://potokovoe.ru/playlists/list.m3u", "17.03.19"),
                 History("Плейлист DI.FM(4pda)", "https://dl.dropbox.com/s/vilu5ar8zm90cgy/di.fm.m3u", "02.04.19"),
                 History("Плейлист RockRadio(4pda)", "https://dl.dropbox.com/s/86qssln2o9oxwvc/rockradio.com.m3u", "02.04.19"),
                 History("Плейлист ClassicalRadio(4pda)", "https://dl.dropbox.com/s/2c9pfrnpvq01iyn/classicalradio.com.m3u", "02.04.19"))
 
         //количество стандартных тем
-        val SIZE_LIST_THEM_DEFALT = 7
+        const val SIZE_LIST_THEM_DEFALT = 7
 
         //толщина полосы прокрутки
-        val SIZE_WIDCH_SCROLL = 50
+        const val SIZE_WIDCH_SCROLL = 50
 
 
         //шрифт
@@ -98,7 +102,7 @@ class Main : FragmentActivity() {
                 val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
                 clipboard.text = text
             } else {
-                val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+                val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                 val clip = ClipData.newPlainText(text, text)
                 clipboard.primaryClip = clip
             }
@@ -112,7 +116,7 @@ class Main : FragmentActivity() {
                 val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager?
                 clipboard!!.text.toString()
             } else {
-                val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager?
+                val clipboard = c.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
                 if (clipboard!!.text == null) {
                     context.toast("Буфер обмена пуст")
                     ""
@@ -183,7 +187,7 @@ class Main : FragmentActivity() {
             }
 
             dw_aimp_link.onClick {
-                context.browse(Main.LINK_DOWLOAD_AIMP)
+                context.browse(LINK_DOWLOAD_AIMP)
             }
 
             open_sys.onClick {
@@ -197,7 +201,7 @@ class Main : FragmentActivity() {
                     file_function.Save_temp_file(name, potok)
                 }
 
-                val i = Intent(android.content.Intent.ACTION_VIEW)
+                val i = Intent(Intent.ACTION_VIEW)
                 i.setDataAndType(Uri.parse(file), "audio/mpegurl")
                 //проверим есть чем открыть или нет
                 if (i.resolveActivity(Main.context.packageManager) != null) {
@@ -237,7 +241,7 @@ class Main : FragmentActivity() {
                     val s = it.getStringExtra("update")
                     if (s == "zaebis") {
                         //проверим есть ли аимп
-                        if (Main.install_app("com.aimp.player")) {
+                        if (install_app("com.aimp.player")) {
                             //откроем файл с сылкой в плеере
                             val cm = ComponentName(
                                     "com.aimp.player",
@@ -253,13 +257,13 @@ class Main : FragmentActivity() {
 
                         } else {
                             //иначе предложим системе открыть или установить аимп
-                            Main.setup_aimp(url,
+                            setup_aimp(url,
                                     "file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u")
                         }
                     } else {
                         context.toast(context.getString(R.string.error))
                         //запросим разрешения
-                        Main.EbuchieRazreshenia()
+                        EbuchieRazreshenia()
                     }
 
                 }
@@ -283,8 +287,8 @@ class Main : FragmentActivity() {
                     val nsf = DialogWindow(context, R.layout.name_save_file)
 
                     val vname = nsf.view().findViewById<EditText>(R.id.edit_new_name)
-                    vname.typeface = Main.face
-                    vname.textColor = Main.COLOR_TEXT
+                    vname.typeface = face
+                    vname.textColor = COLOR_TEXT
                     vname.setText(f_old.name.replace(".m3u", ""))
                     vname.addTextChangedListener(object : TextWatcher {
                         override fun afterTextChanged(s: Editable) {}
@@ -295,7 +299,7 @@ class Main : FragmentActivity() {
                                 //если такой файл есть будем подкрашивать красным
                                 vname.textColor = Color.RED
                             } else {
-                                vname.textColor = Main.COLOR_TEXT
+                                vname.textColor = COLOR_TEXT
                             }
                         }
                     })
@@ -325,7 +329,7 @@ class Main : FragmentActivity() {
                                     context.startActivity(i)
                                 }else{
                                     //если аимпа нет попробуем открыть в системе
-                                    val i = Intent(android.content.Intent.ACTION_VIEW)
+                                    val i = Intent(Intent.ACTION_VIEW)
                                     i.setDataAndType(Uri.parse("file://" + f_old.absolutePath), "audio/mpegurl")
                                     //проверим есть чем открыть или нет
                                     if (i.resolveActivity(Main.context.packageManager) != null) {
@@ -354,7 +358,7 @@ class Main : FragmentActivity() {
                                     context.startActivity(i)
                                 }else{
                                     //если аимпа нет попробуем открыть в системе
-                                    val i = Intent(android.content.Intent.ACTION_VIEW)
+                                    val i = Intent(Intent.ACTION_VIEW)
                                     i.setDataAndType(Uri.parse("file://" + f_new.absolutePath), "audio/mpegurl")
                                     //проверим есть чем открыть или нет
                                     if (i.resolveActivity(Main.context.packageManager) != null) {
@@ -386,7 +390,7 @@ class Main : FragmentActivity() {
                     val s = it.getStringExtra("update")
                     if (s == "zaebis") {
 
-                        val i = Intent(android.content.Intent.ACTION_VIEW)
+                        val i = Intent(Intent.ACTION_VIEW)
                         i.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u"), "audio/mpegurl")
                         //проверим есть чем открыть или нет
                         if (i.resolveActivity(Main.context.packageManager) != null) {
@@ -398,7 +402,7 @@ class Main : FragmentActivity() {
                     } else {
                         context.toast(context.getString(R.string.error))
                         //запросим разрешения
-                        Main.EbuchieRazreshenia()
+                        EbuchieRazreshenia()
                     }
                 }
 
@@ -417,8 +421,8 @@ class Main : FragmentActivity() {
 
                     //покажем оконо в котором нужно будет ввести имя
                     val vname = msf.view().findViewById<EditText>(R.id.edit_new_name)
-                    vname.typeface = Main.face
-                    vname.textColor = Main.COLOR_TEXT
+                    vname.typeface = face
+                    vname.textColor = COLOR_TEXT
                     vname.setText(f_old.name.replace(".m3u", ""))
                     vname.addTextChangedListener(object : TextWatcher {
                         override fun afterTextChanged(s: Editable) {}
@@ -429,7 +433,7 @@ class Main : FragmentActivity() {
                                 //если такой файл есть будем подкрашивать красным
                                 vname.textColor = Color.RED
                             } else {
-                                vname.textColor = Main.COLOR_TEXT
+                                vname.textColor = COLOR_TEXT
                             }
                         }
                     })
@@ -451,7 +455,7 @@ class Main : FragmentActivity() {
                             }
                             if (otvet.isFile) {
                                 //если переименовалось откроем его
-                                val i = Intent(android.content.Intent.ACTION_VIEW)
+                                val i = Intent(Intent.ACTION_VIEW)
                                 i.setDataAndType(Uri.parse("file://" + f_new.absolutePath), "audio/mpegurl")
                                 //проверим есть чем открыть или нет
                                 if (i.resolveActivity(Main.context.packageManager) != null) {
@@ -483,8 +487,7 @@ class Main : FragmentActivity() {
 
             Slot(context, "File_created").onRun {
                 //получим данные
-                val s = it.getStringExtra("update")
-                when (s) {
+                when (it.getStringExtra("update")) {
                     "est" -> context.toast("Такая станция уже есть в плейлисте")
                     "zaebis" -> {
                         //пошлём сигнал пусть мой плейлист обновится
@@ -496,7 +499,7 @@ class Main : FragmentActivity() {
                     "pizdec" -> {
                         context.toast(context.getString(R.string.error))
                         //запросим разрешения
-                        Main.EbuchieRazreshenia()
+                        EbuchieRazreshenia()
                     }
                 }
             }
@@ -667,8 +670,8 @@ class Main : FragmentActivity() {
             val nsf = DialogWindow(context, R.layout.name_save_file)
 
             val name = nsf.view().findViewById<EditText>(R.id.edit_new_name)
-            name.typeface = Main.face
-            name.textColor = Main.COLOR_TEXT
+            name.typeface = face
+            name.textColor = COLOR_TEXT
             name.setText("Всё радио")
             (nsf.view().findViewById<Button>(R.id.button_save)).onClick {
                 if (name.text.toString().isNotEmpty()) {
@@ -679,21 +682,19 @@ class Main : FragmentActivity() {
                     //пошлём сигнал для сохранения
                     signal("save_all_vse_lest").putExtra("name_list", name.text.toString()).send(context)
                 } else {
-                    Main.context.toast("Введите имя")
+                    context.toast("Введите имя")
                 }
             }
 
 
             //когда все запишется отключим анимацию
-            Slot(Main.context, "File_created_save_vse", false).onRun {
+            Slot(context, "File_created_save_vse", false).onRun {
                 //получим данные
-                val s = it.getStringExtra("update")
-                when (s) {
-                    "zaebis" -> Main.context.toast(rnd_ok())
-                    "pizdec" -> Main.context.toast(Main.context.getString(R.string.error))
+                when (it.getStringExtra("update")) {
+                    "zaebis" -> context.toast(rnd_ok())
+                    "pizdec" -> context.toast(Main.context.getString(R.string.error))
                 }
-                val a = it.getStringExtra("anim")
-                when (a) {
+                when (it.getStringExtra("anim")) {
                     "anim_of" -> {
                         progress_vse_radio.visibility = View.GONE
                         vse_radio.visibility = View.VISIBLE
@@ -708,14 +709,13 @@ class Main : FragmentActivity() {
         //при долгом нажатии будем весь список популярного радио сохранять
         popularnoe.onLongClick {
             //когда все запишется пошлём сигнал чтобы список обновился
-            Slot(Main.context, "File_created_save_vse", false).onRun {
+            Slot(context, "File_created_save_vse", false).onRun {
                 //получим данные
-                val s = it.getStringExtra("update")
-                when (s) {
+                when (it.getStringExtra("update")) {
                     //пошлём сигнал пусть мой плейлист обновится
-                    "zaebis" -> Main.context.toast("Весь список сохранен в " + ROOT)
+                    "zaebis" -> context.toast("Весь список сохранен в " + ROOT)
 
-                    "pizdec" -> Main.context.toast(Main.context.getString(R.string.error))
+                    "pizdec" -> context.toast(Main.context.getString(R.string.error))
                 }
             }
             signal("save_all_popularnoe").send(context)
@@ -739,8 +739,7 @@ class Main : FragmentActivity() {
         //-------------------------------------------------------------------------------------
         Slot(context, "Main_update").onRun {
             //получим данные
-            val s = it.getStringExtra("signal")
-            when (s) {
+            when (val s = it.getStringExtra("signal")) {
                 //меняем кота
                 "0", "1", "2" -> {
                     when (s.toInt()) {
@@ -792,12 +791,31 @@ class Main : FragmentActivity() {
                     vse_radio.visibility = View.VISIBLE
                     signal("update_vse_radio").send(context)
                 }
+                "start_anim_my_list"->{
+                    moy_plalist.visibility = View.GONE
+                    progress_moy_plalist.visibility = View.VISIBLE
+                }
+                "stop_anim_my_list"->{
+                    progress_moy_plalist.visibility = View.GONE
+                    moy_plalist.visibility = View.VISIBLE
+                }
+
             }
         }
 
 
         //получим ебучие разрешения , если не дали их еще
         EbuchieRazreshenia()
+
+        //при первом запуске программы покажем окошко с изменениями один раз
+       // newUpdate()
+    }
+
+    fun newUpdate(){
+        val startWindow = DialogWindow(context,R.layout.error_import)
+        val t = startWindow.view().findViewById<TextView>(R.id.textView_error_import_podrobno)
+        t.text = ""
+
     }
 
     fun Menu_progi(view: View) {

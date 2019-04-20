@@ -240,6 +240,8 @@
     <string name="my_playlist2">my_playlist2</string>
     <string name="error_to_start">ошибки при загрузке</string>
     <string name="poisk">Поиск</string>
+    <string name="Close">Закрыть</string>
+    <string name="load_list">Загрузить список</string>
 
 
     <!--имя$фон$айтем$текст$текстконтекст-->
@@ -259,6 +261,66 @@
         <item>Lofi Radio -Музыка- 96kbps\nhttp://comet.shoutca.st:8723/autodj</item>
         <item>Lofi Radio -Музыка- 32kbps\nhttp://comet.shoutca.st:8723/stream32_autodj</item>
         <item>Lofi Radio -Музыка- 192kbps\nhttp://comet.shoutca.st:8723/stream192_autodj</item>
+        <item>ТНТ MUSIC RADIO -Музыка- 128kbps\nhttp://tntradio.hostingradio.ru:8027/tntradio128.mp3</item>
+        <item>CLUB DANCE -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c4_2</item>
+        <item>ДИСКОТЕКА 80-Х -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a1</item>
+        <item>RADIO FIRST -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c99_1</item>
+        <item>ЛЕТО NON-STOP -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c13_16</item>
+        <item>EURO HITS -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c16_13</item>
+        <item>HOUSE -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c6_5</item>
+        <item>BIG ROOM -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c18_18</item>
+        <item>ELECTRO -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c6_3</item>
+        <item>HOT TRAXX -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c4_4</item>
+        <item>LA COSTA LATINA -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c7_39</item>
+        <item>PROGRESSIVE -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c8_4</item>
+        <item>ДИСКОТЕКА 90-Х -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a74</item>
+        <item>РОССИЯ 90-Х -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a33</item>
+        <item>RUSSIAN DANCE -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c4_6</item>
+        <item>ДИСКОТЕКА СССР -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a144</item>
+        <item>DISCO -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a80</item>
+        <item>ITALO DISCO -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a161</item>
+        <item>TRANCE -Музыка- 128kbps\nhttp://ic3.101.ru:8000/c13_3</item>
+        <item>ELECTRONIC -Музыка- 128kbps\nhttp://ic3.101.ru:8000/c15_20</item>
+        <item>TECH HOUSE -Музыка- 128kbps\nhttp://ic3.101.ru:8000/c18_5</item>
+        <item>NEW AGE -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a120</item>
+        <item>AMBIENT -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a23</item>
+        <item>SOULFUL HOUSE -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c13_29</item>
+        <item>МУЗЫКА ФУТБОЛА -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a280</item>
+        <item>ROCK -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c1_4</item>
+        <item>METAL -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a211</item>
+        <item>ALTERNATIVE -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a176</item>
+        <item>РУССКИЙ РОК -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c1_2</item>
+        <item>MODERN ROCK -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a16</item>
+        <item>INDIE -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a152</item>
+        <item>BRITPOP -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a206</item>
+        <item>ШАНСОН -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a50</item>
+        <item>КАБАРЕ «ШАНСОН» -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a49</item>
+        <item>РУССКИЕ ПЕСНИ -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c1_1</item>
+        <item>АВТОРСКАЯ ПЕСНЯ -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a35</item>
+        <item>JAZZ -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c10_5</item>
+        <item>SMOOTH JAZZ -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c2_3</item>
+        <item>BLUES -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a76</item>
+        <item>FUNK SOUL -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a84</item>
+        <item>GANGSTA  HIP-HOP -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a8</item>
+        <item>АНЕКДОТЫ 128kbps\nhttp://ic7.101.ru:8000/c3_5</item>
+        <item>КЛАССИКА ЖАНРА 128kbps\nhttp://ic7.101.ru:8000/c4_1</item>
+        <item>ДЕТСКИЕ СКАЗКИ -Детское- 128kbps\nhttp://ic7.101.ru:8000/c17_27</item>
+        <item>PRINCE 64kbps\nhttp://ic7.101.ru:8000/a282</item>
+        <item>ELVIS PRESLEY -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a111</item>
+        <item>THE BEATLES -Дискография- 128kbps\nhttp://ic7.101.ru:8000/c10_3</item>
+        <item>THE ROLLING STONES -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a117</item>
+        <item>ЛЮБЭ -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a158</item>
+        <item>СПЛИН -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a129</item>
+        <item>БИ-2 -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a135</item>
+        <item>MICHAEL JACKSON -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a52</item>
+        <item>ADRIANO CELENTANO -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a277</item>
+        <item>MADONNA -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a128</item>
+        <item>MYLENE FARMER -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a166</item>
+        <item>SANDRA -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a179</item>
+        <item>ROBBIE WILLIAMS -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a138</item>
+        <item>ELTON JOHN -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a142</item>
+        <item>ABBA -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a104</item>
+        <item>BONEY M. -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a114</item>
         <item>LIKE FM -Музыка- 128kbps\nhttp://ic7.101.ru:8000/a219</item>
         <item>РАДИО ENERGY -Музыка- 128kbps\nhttp://ic7.101.ru:8000/a99</item>
         <item>RELAX FM -Музыка- 86kbps\nhttp://ic3.101.ru:8000/a200</item>
@@ -12970,6 +13032,7 @@
         <item>Armitage s Dimension Jpop/Jrock/Anime -Саундтреки- 64kbps\nhttp://aac.fr.armitunes.com:8010/</item>
         <item>Vocaloid Radio(Anime) -Саундтреки- 320kbps\nhttp://curiosity.shoutca.st:8019/stream</item>
         <item>AnimeNfo Radio(Anime) -Саундтреки- 128kbps\nhttp://itori.animenfo.com:443/</item>
+
     </string-array>
 
 </resources>

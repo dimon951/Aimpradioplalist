@@ -37,7 +37,7 @@ class Vse_radio : Fragment() {
         var Numeracia: Int = 1
     }
 
-    @SuppressLint("WrongConstant")
+    @SuppressLint("WrongConstant", "InflateParams")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.vse_radio, null)
 

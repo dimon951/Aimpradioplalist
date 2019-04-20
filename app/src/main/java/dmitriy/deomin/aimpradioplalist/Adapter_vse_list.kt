@@ -1,5 +1,6 @@
 package dmitriy.deomin.aimpradioplalist
 
+import android.annotation.SuppressLint
 import android.content.*
 import android.graphics.Color
 import android.support.v7.widget.CardView
@@ -31,7 +32,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
         cho_nagimal.clear()
 
         return object : Filter() {
-            override fun performFiltering(charSequence: CharSequence): Filter.FilterResults {
+            override fun performFiltering(charSequence: CharSequence): FilterResults {
 
                 val charString = charSequence.toString()
                 if (charString.isEmpty()) {
@@ -48,12 +49,12 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
                     }
                     this@Adapter_vse_list.raduoSearchList = filteredList
                 }
-                val filterResults = Filter.FilterResults()
+                val filterResults = FilterResults()
                 filterResults.values = this@Adapter_vse_list.raduoSearchList
                 return filterResults
             }
 
-            override fun publishResults(charSequence: CharSequence, filterResults: Filter.FilterResults) {
+            override fun publishResults(charSequence: CharSequence, filterResults: FilterResults) {
                 if(filterResults.values != null){
                     this@Adapter_vse_list.raduoSearchList = filterResults.values as ArrayList<Radio>
                     notifyDataSetChanged()
@@ -87,6 +88,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
         return this.raduoSearchList.size
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
 
         //заполним данными(тут в логах бывает падает - обращение к несуществующему элементу)

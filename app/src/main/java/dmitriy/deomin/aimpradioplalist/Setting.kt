@@ -106,8 +106,8 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
 
             val name = nsf.view().findViewById<EditText>(R.id.edit_new_name)
             name.hint = "Моя тема"
-            name.typeface = Main.face
-            name.textColor = Main.COLOR_TEXT
+            name.typeface = face
+            name.textColor = COLOR_TEXT
 
             (nsf.view().findViewById<Button>(R.id.button_save)).onClick {
 
@@ -158,10 +158,10 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
         open_list_them.onClick {
             if(list_them.visibility== View.GONE){
                 list_them.visibility=View.VISIBLE
-                Main.save_value_int("visible",1)
+                save_value_int("visible",1)
             }else{
                 list_them.visibility = View.GONE
-                Main.save_value_int("visible",0)
+                save_value_int("visible",0)
             }
         }
 
@@ -246,7 +246,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                 this.data[p1]
             }else{
                 //иначе вернём пустой элемент(дальше будут проверки и он не отобразится)
-                Theme("",Main.COLOR_FON,Main.COLOR_ITEM,Main.COLOR_TEXT,Main.COLOR_TEXTcontext)
+                Theme("",COLOR_FON,COLOR_ITEM,COLOR_TEXT,COLOR_TEXTcontext)
             }
 
             p0.name_theme.text = theme.name
@@ -318,7 +318,8 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
 
                         val name = nsf.view().findViewById<EditText>(R.id.edit_new_name)
                         name.setText(name_them)
-                        name.textColor = Main.COLOR_TEXT
+                        name.typeface = face
+                        name.textColor = COLOR_TEXT
 
                         (nsf.view().findViewById<Button>(R.id.button_save)).onClick {
 
@@ -335,8 +336,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                                 //когда все запишется пошлём сигнал чтобы список обновился
                                 Slot(context, "File_created_save_vse", false).onRun {
                                     //получим данные
-                                    val s = it.getStringExtra("update")
-                                    when (s) {
+                                    when (it.getStringExtra("update")) {
                                         //пошлём сигнал пусть мой плейлист обновится
                                         "zaebis" -> signal("list_them__load").send(context)
                                         "pizdec" -> {

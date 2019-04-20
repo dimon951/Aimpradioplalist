@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 
-class Slot(context: Context, name: String,life:Boolean=true) {
+class Slot(context: Context, name: String, life: Boolean = true) {
 
     private val con = context
     private val broadcastReceiver: BroadcastReceiver
@@ -22,7 +22,7 @@ class Slot(context: Context, name: String,life:Boolean=true) {
                     //выполняем халтуру на стороне
                     Run(intent)
                     //и если сигнал послан для однократного выполнения, удалим слот
-                    if (!intent.getBooleanExtra("run",true) || !life) {
+                    if (!intent.getBooleanExtra("run", true) || !life) {
                         Delete_slot()
                     }
                     //иначе пусть дальше слушает
@@ -31,6 +31,8 @@ class Slot(context: Context, name: String,life:Boolean=true) {
         }
         //регистрируем приёмник
         con.registerReceiver(broadcastReceiver, intentFilter)
+
+
     }
 
     //выполняется на стороне
@@ -44,9 +46,11 @@ class Slot(context: Context, name: String,life:Boolean=true) {
     }
 
     //удалить приёмник
-    private fun Delete_slot() {
+   fun Delete_slot() {
         con.unregisterReceiver(broadcastReceiver)
     }
+
+
 }
 
 

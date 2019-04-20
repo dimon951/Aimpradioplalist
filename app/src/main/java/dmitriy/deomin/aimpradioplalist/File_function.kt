@@ -41,13 +41,26 @@ class File_function {
             //скинем все сюда , а потом обратно
             val mas = ArrayList<String>()
 
-            //разделим стороку на масссив через #EXTINF:-1,
-            for (s in kontent.split("#EXTINF:-1,".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()) {
+            //посмотрим че там есть #EXTINF:-1, или #EXTINF:0,
+            var textSplit = ""
+
+            if (kontent.contains("#EXTINF:-1,")) {
+                textSplit = "#EXTINF:-1,"
+            }
+            if (kontent.contains("#EXTINF:0,")) {
+                textSplit = "#EXTINF:0,"
+            }
+
+
+            //и разделим стороку на масссив через
+            for (s in kontent.split(textSplit.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()) {
                 //если строка не пустая и не содержит перенос
                 if ((s != "") && (s != "\n")) {
                     mas.add(s)
                 }
             }
+
+
 
             return mas
         } else {
@@ -72,10 +85,10 @@ class File_function {
             e.printStackTrace()
         }
         //удалм переносы,потом при сохранении они подставятся
-        old_text = old_text.replace("\n","")
+        old_text = old_text.replace("\n", "")
         //добавим переносы
-        old_text = old_text.replace("http://","\nhttp://")
-        old_text = old_text.replace("https://","\nhttps://")
+        old_text = old_text.replace("http://", "\nhttp://")
+        old_text = old_text.replace("https://", "\nhttps://")
 
         //исходный вид строки потока(как в файле записано)
         //#EXTINF:-1,Авторадио\nhttp://ic7.101.ru:8000/v3_1
@@ -245,6 +258,8 @@ class File_function {
                     .replace("&", "")
                     .replace("\"", "")
                     .replace("#EXTM3U", "")
+                    .replace("#EXTINF:0,", "#EXTINF:0")
+                    .replace("#EXTINF:0", "#EXTINF:0,")
                     .replace("#EXTINF:-1,", "#EXTINF:-1")
                     .replace("#EXTINF:-1", "#EXTINF:-1,")
                     .replace("group-title=", "")
@@ -267,6 +282,7 @@ class File_function {
 
             //добавим переносы между станций
             kontent = kontent.replace("#EXTINF:-1,", "\n#EXTINF:-1,")
+            kontent = kontent.replace("#EXTINF:0,", "\n#EXTINF:0,")
 
             //Создание объекта файла.
             val fhandle = File(filePath)
