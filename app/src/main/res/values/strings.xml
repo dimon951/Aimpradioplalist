@@ -242,6 +242,7 @@
     <string name="poisk">Поиск</string>
     <string name="Close">Закрыть</string>
     <string name="load_list">Загрузить список</string>
+    <string name="online_plalist">Онлайн плейлисты</string>
 
 
     <!--имя$фон$айтем$текст$текстконтекст-->

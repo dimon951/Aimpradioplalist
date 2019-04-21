@@ -53,6 +53,100 @@
 
     </LinearLayout>
 
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:dividerPadding="100dp"
+            android:orientation="horizontal">
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/btn_fantastika"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Фантастика"
+                android:textSize="10sp" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/btn_ujasi_mistika"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingRight="10dp"
+                android:text="Ужасы,мистика"
+                android:textSize="10sp" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/btn_skazki"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingRight="10dp"
+                android:text="Сказки(Детям)"
+                android:textSize="10sp" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/btn_clasika"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingRight="10dp"
+                android:text="Классика"
+                android:textSize="10sp" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/btn_roman_proza"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingRight="10dp"
+                android:text="Роман,проза"
+                android:textSize="10sp" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/btn_nauchno_popularnoe"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingRight="10dp"
+                android:text="Научно-популярное"
+                android:textSize="10sp" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/btn_umor_satira"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingRight="10dp"
+                android:text="Юмор, сатира"
+                android:textSize="10sp" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/btn_obuchenie"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:paddingRight="10dp"
+                android:text="Обучение"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <RelativeLayout
         android:id="@+id/rloaut_vse_radio"
         android:layout_width="match_parent"

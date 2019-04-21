@@ -359,7 +359,7 @@ class Moy_plalist : Fragment() {
                             }
                         }
                         //сохраним  временый файл ссылку и ждём сигналы
-                        file_function.Save_temp_file(name.text.toString() + ".m3u", data.joinToString("\n"))
+                        file_function.SaveFile(Main.ROOT+name.text.toString() + ".m3u", data.joinToString("\n"))
                     }
                 }
             } else {
@@ -540,7 +540,7 @@ class Moy_plalist : Fragment() {
         }
         //--------------------------------------------------------------------------
 
-        //Кнопка обновления
+        //Кнопка обновления(появляется когда открывается список из ссылки)
         update_list.onClick {
             signal("Data_add").putExtra("update", "zaebis").send(context)
         }
@@ -804,6 +804,59 @@ class Moy_plalist : Fragment() {
 
         }
         //--------------------------------------------------------------------------------------
+    }
+
+    private fun load_book_list(context: Context,url_link:String,str_old: String){
+        GlobalScope.launch {
+            //запустим анимацию
+            signal("Main_update").putExtra("signal","start_anim_my_list").send(context)
+
+            url_link.httpGet().responseString { request, response, result ->
+                when (result) {
+                    is com.github.kittinunf.result.Result.Failure -> {
+                        val ex = result.getException()
+                        //если ошибка остановим анимацию и покажем ошибку
+                        signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
+                        context.toast(ex.toString())
+                    }
+                    is com.github.kittinunf.result.Result.Success -> {
+                        var data = result.get()
+
+                        if (data.isNotEmpty()) {
+                            //если там чтото есть сохраним все в Main.MY_PLALIST
+                            //потом пошлётся сигнал чтобы мой плалист обновился
+
+                            //когда прийдёт сигнал что все хорошо обновим плейлист
+                            Slot(context, "File_created", false).onRun {
+                                //получим данные
+                                when (it.getStringExtra("update")) {
+                                    "zaebis" -> {
+                                        //пошлём сигнал пусть мой плейлист обновится
+                                        signal("Data_add").putExtra("update", "zaebis").send(context)
+                                    }
+                                    "pizdec" -> {
+                                        context.toast(context.getString(R.string.error))
+                                        //запросим разрешения
+                                        Main.EbuchieRazreshenia()
+                                    }
+                                }
+                            }
+                            //если есть удалим ебучий тег в начале файла
+                            if (str_old.length > 7) {
+                                data = data.replace("#EXTM3U", "")
+                            }
+                            val file_function = File_function()
+                            //поехали , сохраняем  и ждём сигналы
+                            file_function.SaveFile(Main.MY_PLALIST, str_old + data)
+                        }else{
+                            //если нечего нет остановим анимацию и скажем что там пусто
+                            signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
+                            context.toast("ошибка,пусто")
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }

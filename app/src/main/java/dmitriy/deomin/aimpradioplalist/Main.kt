@@ -16,6 +16,7 @@ import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewPager
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.*
@@ -67,6 +68,7 @@ class Main : FragmentActivity() {
                 History("Аудио книги(Rus) Сказки", "https://dl.dropbox.com/s/elrh0zztejadehh/book_skazki.m3u", "20.04.19"),
                 History("Аудио книги(Rus) Фантастика", "https://dl.dropbox.com/s/3njnw0r9s49u899/book_fantastika.m3u", "20.04.19"),
                 History("Аудио книги(Rus) Классика", "https://dl.dropbox.com/s/87rda28n04pvq07/book_clasika.m3u", "20.04.19"),
+                History("Аудио книги(Rus) Ужасы, мистика", "https://dl.dropbox.com/s/ytbopmh9cscxsjc/book_ujas_mistika.m3u", "21.04.19"),
                 History("Недобавленные станции и плейлисты(ссылки на них)", "https://dl.dropbox.com/s/8gxqt07ukgysny0/new_station.m3u", "20.04.19"),
                 History("Плейлист Laut.FM 5022 шт(форум Aimp)", "https://dl.dropbox.com/s/qnneha6jfl1vl17/Laut.FM.m3u", "17.04.19"),
                 History("PCRadio. 4175 станций(форум Aimp)", "https://dl.dropbox.com/s/iag2rzq6dh20c7y/pcradio_4175.m3u", "20.04.19"),
@@ -198,7 +200,7 @@ class Main : FragmentActivity() {
 
                     //сохраним  временый файл сслку
                     val file_function = File_function()
-                    file_function.Save_temp_file(name, potok)
+                    file_function.SaveFile(ROOT+name, potok)
                 }
 
                 val i = Intent(Intent.ACTION_VIEW)
@@ -269,7 +271,7 @@ class Main : FragmentActivity() {
                 }
                 //сохраним  временый файл ссылку и будем ждать сигнала чтобы открыть в аимп или системе
                 val file_function = File_function()
-                file_function.Save_temp_file(name + ".m3u",
+                file_function.SaveFile(ROOT+name + ".m3u",
                         "#EXTM3U"
                                 + "\n"
                                 + "#EXTINF:-1," + name
@@ -387,29 +389,29 @@ class Main : FragmentActivity() {
                 //приёмник  сигналов
                 Slot(context, "File_created").onRun {
                     //получим данные
-                    val s = it.getStringExtra("update")
-                    if (s == "zaebis") {
-
-                        val i = Intent(Intent.ACTION_VIEW)
-                        i.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u"), "audio/mpegurl")
-                        //проверим есть чем открыть или нет
-                        if (i.resolveActivity(Main.context.packageManager) != null) {
-                            context.startActivity(i)
-                        } else {
-                            context.toast("Системе не удалось ( ")
+                    when(it.getStringExtra("update")) {
+                        "zaebis"-> {
+                            val i = Intent(Intent.ACTION_VIEW)
+                            i.setDataAndType(Uri.parse("file://$ROOT$name.m3u"), "audio/mpegurl")
+                            //проверим есть чем открыть или нет
+                            if (i.resolveActivity(Main.context.packageManager) != null) {
+                                context.startActivity(i)
+                            } else {
+                                context.toast("Системе не удалось ( ")
+                            }
+                        }
+                        "pizdec"->{
+                            context.toast(context.getString(R.string.error))
+                            //запросим разрешения
+                            EbuchieRazreshenia()
                         }
 
-                    } else {
-                        context.toast(context.getString(R.string.error))
-                        //запросим разрешения
-                        EbuchieRazreshenia()
                     }
                 }
 
-
                 //сохраним  временый файл сслку
                 val file_function = File_function()
-                file_function.Save_temp_file("$name.m3u", url)
+                file_function.SaveFile("$ROOT$name.m3u", url)
             } else {
 
 

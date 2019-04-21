@@ -96,7 +96,7 @@ class File_function {
         old_text = old_text.replace("#EXTINF:-1,$potok", "")
 
         //очищаем и записываем заново, там уже будут слаться сигналы получилось или нет
-        SaveFile_vizov("my_plalist.m3u", old_text)
+        SaveFile(Main.ROOT+"my_plalist.m3u", old_text)
     }
 
     //переименование
@@ -118,15 +118,7 @@ class File_function {
 
 
         //очищаем и записываем заново, там уже будут слаться сигналы получилось или нет
-        SaveFile_vizov("my_plalist.m3u", old_text)
-    }
-
-    //сохраняется одна станция в файле
-    fun Save_temp_file(name: String, link: String) {
-        //создадим папки если нет
-        create_esli_net()
-        //создадим файл, если есть перезапишется
-        SaveFile_vizov(name, link)
+        SaveFile(Main.ROOT+"my_plalist.m3u", old_text)
     }
 
     //добавляется в текущему плейлисту ещё станцию
@@ -171,10 +163,10 @@ class File_function {
                 }
             }
             //если цикл прошёл мимо то добавим станцию
-            SaveFile_vizov("my_plalist.m3u", "$old_text\n#EXTINF:-1,$name\n$link")
+            SaveFile(Main.ROOT+"my_plalist.m3u", "$old_text\n#EXTINF:-1,$name\n$link")
         } else {
             //если наш плейлист пуст добавим в начале файла #EXTM3U
-            SaveFile_vizov("my_plalist.m3u", "#EXTM3U\n#EXTINF:-1,$name\n$link")
+            SaveFile(Main.ROOT+"my_plalist.m3u", "#EXTM3U\n#EXTINF:-1,$name\n$link")
         }
 
     }
@@ -229,18 +221,6 @@ class File_function {
     }
 
 
-    //Вызов функции SaveFile, который выполняет задачу сохранения файла в External-носителе:
-    private fun SaveFile_vizov(filename: String, link_text: String) {
-        val fullpath = Main.ROOT + filename
-        //Сохранение файла на External Storage:
-        if (isExternalStorageWritable) {
-            SaveFile(fullpath, link_text)
-        } else {
-            Toast.makeText(Main.context, "Нет доступа к памяти", Toast.LENGTH_LONG).show()
-        }
-    }
-
-
     //Функция, которая сохраняет файл, принимая полный путь до файла filePath и сохраняемый текст FileContent:
     fun SaveFile(filePath: String, kontent: String) {
 
@@ -249,7 +229,7 @@ class File_function {
 
         //посмотрим что это за файл может хрень какая , то ошибу покакжем
         //если пустота значит надо файл оччистить
-        if (kontent.contains("#EXTINF") || kontent == "") {
+        if (kontent.contains("http") || kontent == "") {
 
             //удалим мусор и приведём все к одному виду
             var kontent = kontent
