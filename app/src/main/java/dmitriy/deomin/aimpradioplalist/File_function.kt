@@ -10,6 +10,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.*
 import java.util.ArrayList
+import java.util.regex.Pattern
 
 class File_function {
 
@@ -264,6 +265,18 @@ class File_function {
             kontent = kontent.replace("#EXTINF:-1,", "\n#EXTINF:-1,")
             kontent = kontent.replace("#EXTINF:0,", "\n#EXTINF:0,")
 
+            //захуярим пока костылём проверочку еще одну
+            //заменим все #EXTINF с непонятным хламом на норм вид #EXTINF:-1,
+            //1-найдём весь храм а потом заменим его
+            val list = kontent.split("#")
+            var new_kontent = ""
+            for(l in list.iterator()){
+                //составим новый список приведёный к одному виду
+                if(l.contains(",")){
+                    new_kontent = new_kontent+"#EXTINF:-1,"+l.substring(l.indexOf(",")+1,l.length)
+                }
+            }
+
             //Создание объекта файла.
             val fhandle = File(filePath)
             try {
@@ -271,7 +284,7 @@ class File_function {
                 fhandle.createNewFile()
                 val fOut = FileOutputStream(fhandle)
                 val myOutWriter = OutputStreamWriter(fOut, Main.File_Text_Code)
-                myOutWriter.write(kontent)
+                myOutWriter.write(new_kontent)
                 myOutWriter.close()
                 fOut.close()
 

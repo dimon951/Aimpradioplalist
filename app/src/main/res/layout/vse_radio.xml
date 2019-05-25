@@ -104,6 +104,8 @@
                 android:text="Саундтреки"
                 android:textSize="10sp" />
         </LinearLayout>
+
+
     </LinearLayout>
 
     <RelativeLayout

@@ -45,7 +45,8 @@ class Main : FragmentActivity() {
         const val File_Text_Code: String = "UTF8"
 
         //ссылка на аимп
-        const val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.85.722.apk"
+        const val LINK_DOWLOAD_AIMP = "https://www.aimp.ru/files/android/aimp_2.90.844.apk"
+
 
         //текст в пустом плейлисте(много где требуется)
         const val PUSTO: String = "Плейлист пуст.\n"
@@ -63,21 +64,6 @@ class Main : FragmentActivity() {
 
         //название файла истории ввода сылок на плейлисты
         const  val HISTORY_LINK = "history_url.txt"
-
-        val HISTORY_LIST_PRIMER = arrayListOf(
-                History("Аудио книги(Rus) Сказки", "https://dl.dropbox.com/s/elrh0zztejadehh/book_skazki.m3u", "20.04.19"),
-                History("Аудио книги(Rus) Фантастика", "https://dl.dropbox.com/s/3njnw0r9s49u899/book_fantastika.m3u", "20.04.19"),
-                History("Аудио книги(Rus) Классика", "https://dl.dropbox.com/s/87rda28n04pvq07/book_clasika.m3u", "20.04.19"),
-                History("Аудио книги(Rus) Ужасы, мистика", "https://dl.dropbox.com/s/ytbopmh9cscxsjc/book_ujas_mistika.m3u", "21.04.19"),
-                History("Недобавленные станции и плейлисты(ссылки на них)", "https://dl.dropbox.com/s/8gxqt07ukgysny0/new_station.m3u", "20.04.19"),
-                History("Плейлист Laut.FM 5022 шт(форум Aimp)", "https://dl.dropbox.com/s/qnneha6jfl1vl17/Laut.FM.m3u", "17.04.19"),
-                History("PCRadio. 4175 станций(форум Aimp)", "https://dl.dropbox.com/s/iag2rzq6dh20c7y/pcradio_4175.m3u", "20.04.19"),
-                History("Best Radio Station's 2019(форум Aimp(user:Ol2019))", "https://dl.dropbox.com/s/ptgzzy98v477cwd/Best%20Radio%20Station%27s%202019.m3u", "20.04.19"),
-                History("Cамообновляемый плейлист 101ru", "http://potokovoe.ru/record/101ru_channel.m3u8", "17.03.19"),
-                History("Радиостанции различных тематик от новостных до музыкальных и от детских до альтернативных", "http://potokovoe.ru/playlists/list.m3u", "17.03.19"),
-                History("Плейлист DI.FM(4pda)", "https://dl.dropbox.com/s/vilu5ar8zm90cgy/di.fm.m3u", "02.04.19"),
-                History("Плейлист RockRadio(4pda)", "https://dl.dropbox.com/s/86qssln2o9oxwvc/rockradio.com.m3u", "02.04.19"),
-                History("Плейлист ClassicalRadio(4pda)", "https://dl.dropbox.com/s/2c9pfrnpvq01iyn/classicalradio.com.m3u", "02.04.19"))
 
         //количество стандартных тем
         const val SIZE_LIST_THEM_DEFALT = 7

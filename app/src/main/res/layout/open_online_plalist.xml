@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dmitriy.deomin.aimpradioplalist.custom.Fon_item
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardPreventCornerOverlap="false"
+    android:elevation="0dp"
+    android:background="@null"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
+    app:cardBackgroundColor="@color/cardview_shadow_start_color">
+
+    <LinearLayout
+        android:id="@+id/liner_open_r_p"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@null"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/open_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@null"
+            android:text="@string/radio_plalisty" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/open_book"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="@string/book_plalisty"
+            android:visibility="visible" />
+    </LinearLayout>
+</dmitriy.deomin.aimpradioplalist.custom.Fon_item>

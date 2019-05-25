@@ -85,13 +85,20 @@ class Vse_radio : Fragment() {
                 if (m.size > 1) {
                     var name = m[0]
 
+
+
                     //---kbps----------------------------------
                     var kbps = ""
                     if (name.contains("kbps")) {
                         //если имени нет(длинна меньше 7) поставим no name
                         if (name.length > 7) {
-                            kbps = name.substring((name.length - 7), name.length)
-                            name = name.substring(0, (name.length - 7))
+                            if(name.contains("mono")){
+                                kbps = name.substring((name.length - 11), name.length)
+                                name = name.substring(0, (name.length - 11))
+                            }else{
+                                kbps = name.substring((name.length - 7), name.length)
+                                name = name.substring(0, (name.length - 7))
+                            }
                         } else {
                             kbps = name
                             name = "no name"
