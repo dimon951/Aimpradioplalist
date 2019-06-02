@@ -33,6 +33,8 @@ import java.io.File
 
 class Main : FragmentActivity() {
 
+    val SIZEFILETHEME = 1000
+
     //    //Displayed 2c
 
     //тут куча всего что может использоваться в любом классе проекта
@@ -60,10 +62,10 @@ class Main : FragmentActivity() {
         val MY_PLALIST = ROOT + "my_plalist.m3u"
 
         //название файла темы и путь его
-        const  val F_THEM_list = "theme.txt"
+        const val F_THEM_list = "theme.txt"
 
         //название файла истории ввода сылок на плейлисты
-        const  val HISTORY_LINK = "history_url.txt"
+        const val HISTORY_LINK = "history_url.txt"
 
         //количество стандартных тем
         const val SIZE_LIST_THEM_DEFALT = 7
@@ -186,7 +188,7 @@ class Main : FragmentActivity() {
 
                     //сохраним  временый файл сслку
                     val file_function = File_function()
-                    file_function.SaveFile(ROOT+name, potok)
+                    file_function.SaveFile(ROOT + name, potok)
                 }
 
                 val i = Intent(Intent.ACTION_VIEW)
@@ -257,7 +259,7 @@ class Main : FragmentActivity() {
                 }
                 //сохраним  временый файл ссылку и будем ждать сигнала чтобы открыть в аимп или системе
                 val file_function = File_function()
-                file_function.SaveFile(ROOT+name + ".m3u",
+                file_function.SaveFile(ROOT + name + ".m3u",
                         "#EXTM3U"
                                 + "\n"
                                 + "#EXTINF:-1," + name
@@ -299,7 +301,7 @@ class Main : FragmentActivity() {
                             context.toast("Введите имя")
                         } else {
                             //если нечего не изменилось
-                            if (f_old.name.replace(".m3u", "")==vname.text.toString()){
+                            if (f_old.name.replace(".m3u", "") == vname.text.toString()) {
                                 //проверим есть ли аимп и откроем
                                 if (install_app("com.aimp.player")) {
                                     //откроем файл с сылкой в плеере
@@ -315,7 +317,7 @@ class Main : FragmentActivity() {
                                     i.flags = 0x3000000
 
                                     context.startActivity(i)
-                                }else{
+                                } else {
                                     //если аимпа нет попробуем открыть в системе
                                     val i = Intent(Intent.ACTION_VIEW)
                                     i.setDataAndType(Uri.parse("file://" + f_old.absolutePath), "audio/mpegurl")
@@ -326,7 +328,7 @@ class Main : FragmentActivity() {
                                         context.toast("Системе не удалось ( ")
                                     }
                                 }
-                            }else{
+                            } else {
                                 val f_new = File(f_old.parent + "/" + vname.text + ".m3u")
                                 f_old.renameTo(f_new)
                                 //проверим есть ли аимп и откроем
@@ -344,7 +346,7 @@ class Main : FragmentActivity() {
                                     i.flags = 0x3000000
 
                                     context.startActivity(i)
-                                }else{
+                                } else {
                                     //если аимпа нет попробуем открыть в системе
                                     val i = Intent(Intent.ACTION_VIEW)
                                     i.setDataAndType(Uri.parse("file://" + f_new.absolutePath), "audio/mpegurl")
@@ -375,8 +377,8 @@ class Main : FragmentActivity() {
                 //приёмник  сигналов
                 Slot(context, "File_created").onRun {
                     //получим данные
-                    when(it.getStringExtra("update")) {
-                        "zaebis"-> {
+                    when (it.getStringExtra("update")) {
+                        "zaebis" -> {
                             val i = Intent(Intent.ACTION_VIEW)
                             i.setDataAndType(Uri.parse("file://$ROOT$name.m3u"), "audio/mpegurl")
                             //проверим есть чем открыть или нет
@@ -386,7 +388,7 @@ class Main : FragmentActivity() {
                                 context.toast("Системе не удалось ( ")
                             }
                         }
-                        "pizdec"->{
+                        "pizdec" -> {
                             context.toast(context.getString(R.string.error))
                             //запросим разрешения
                             EbuchieRazreshenia()
@@ -779,11 +781,11 @@ class Main : FragmentActivity() {
                     vse_radio.visibility = View.VISIBLE
                     signal("update_vse_radio").send(context)
                 }
-                "start_anim_my_list"->{
+                "start_anim_my_list" -> {
                     moy_plalist.visibility = View.GONE
                     progress_moy_plalist.visibility = View.VISIBLE
                 }
-                "stop_anim_my_list"->{
+                "stop_anim_my_list" -> {
                     progress_moy_plalist.visibility = View.GONE
                     moy_plalist.visibility = View.VISIBLE
                 }
@@ -796,11 +798,11 @@ class Main : FragmentActivity() {
         EbuchieRazreshenia()
 
         //при первом запуске программы покажем окошко с изменениями один раз
-       // newUpdate()
+        // newUpdate()
     }
 
-    fun newUpdate(){
-        val startWindow = DialogWindow(context,R.layout.error_import)
+    fun newUpdate() {
+        val startWindow = DialogWindow(context, R.layout.error_import)
         val t = startWindow.view().findViewById<TextView>(R.id.textView_error_import_podrobno)
         t.text = ""
 
@@ -829,6 +831,84 @@ class Main : FragmentActivity() {
             menu.close()
         }
 
+        //кнопка очистить кеш
+        //при открытии меню будем показыват размер этого кеша
+        val b_c = menu.view().findViewById<Button>(R.id.button_clear_kesh)
+
+        //получим размер
+        val file = File(ROOT)
+        if (file.exists()) {
+            val s = getDirSize(file)
+            if(s>SIZEFILETHEME){
+                b_c.text = "Очистить кэш(" + ( s/ 1024).toString() + " kb" + ")"
+            }else{
+                b_c.text = "Кэш очищен"
+            }
+        } else
+            b_c.text = "Кэш очищен"
+
+        b_c.onClick {
+
+            if(b_c.text=="Кэш очищен"){
+
+                context.toast("Пусто")
+
+            }else {
+
+                //покажем предупреждающее окошко
+                val v_d = DialogWindow(context, R.layout.dialog_delete_plalist)
+
+                v_d.view().findViewById<TextView>(R.id.text_voprosa_del_stncii).text = "Удалить все?"
+
+                v_d.view().findViewById<Button>(R.id.button_dialog_delete).onClick {
+                    v_d.close()
+                    //удаляем все
+                    if (file.exists()) {
+                        deleteAllFilesFolder(ROOT)
+                    }
+                    if (file.exists()) {
+                        val s = getDirSize(file)
+                        if (s > SIZEFILETHEME) {
+                            b_c.text = "Очистить кэш(" + (s / 1024).toString() + " kb" + ")"
+                        } else {
+                            b_c.text = "Кэш очищен"
+                        }
+
+                    } else
+                        b_c.text = "Кэш очищен"
+
+                }
+                v_d.view().findViewById<Button>(R.id.button_dialog_no).onClick {
+                    v_d.close()
+                }
+
+            }
+
+        }
+
+
+    }
+
+    fun deleteAllFilesFolder(path: String) {
+        for (myFile in File(path).listFiles())
+            if (myFile.isFile&&myFile.name!="theme.txt"&&myFile.name!="history_url.txt") myFile.delete()
+    }
+
+    fun getDirSize(dir: File): Long {
+        var size: Long = 0
+        if (dir.isFile) {
+            size = dir.length()
+        } else {
+            val subFiles = dir.listFiles()
+            for (file in subFiles) {
+                size += if (file.isFile) {
+                    file.length()
+                } else {
+                    getDirSize(file)
+                }
+            }
+        }
+        return size
     }
 
     //заполняем наш скролер

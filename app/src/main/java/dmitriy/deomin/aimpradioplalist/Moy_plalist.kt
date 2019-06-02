@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.animation.AnimationUtils
 import android.widget.*
 import com.github.kittinunf.fuel.httpGet
@@ -35,6 +36,10 @@ class Moy_plalist : Fragment() {
 
     companion object {
         var position_list = 0
+        //список файлов которые загружались онлайн
+        var list_move_history:ArrayList<String> = ArrayList()
+        //файл который загружен сейчас
+        var open_file = ""
     }
 
     @SuppressLint("WrongConstant", "SetTextI18n")
@@ -76,14 +81,13 @@ class Moy_plalist : Fragment() {
             when (it.getStringExtra("update")) {
                 "zaebis" -> {
 
-
-                    var file_list = ""
                     if(!it.getStringExtra("listfile").isNullOrEmpty()){
                         update_list.visibility = View.VISIBLE
-                        file_list =  it.getStringExtra("listfile")
+                        open_file =  it.getStringExtra("listfile")
+                        list_move_history.add(open_file)
                     }else{
                         update_list.visibility = View.GONE
-                        file_list =  Main.MY_PLALIST
+                        open_file =  Main.MY_PLALIST
                     }
 
                     //заново все сделаем
@@ -91,7 +95,7 @@ class Moy_plalist : Fragment() {
                     val file_function = File_function()
                     //прочитали файл Main.MY_PLALIST и получили список строк , каждая строка содержит имя и адрес станции
                     //или получили Main.PUSTO если ам нет нечего
-                    val mr = file_function.My_plalist(file_list)
+                    val mr = file_function.My_plalist(open_file)
                     //адаптеру будем слать список классов Radio
                     val d = ArrayList<Radio>()
                     val d_error = ArrayList<String>()
@@ -143,7 +147,112 @@ class Moy_plalist : Fragment() {
                         }
                         context.toast("Готово, но обыли ошибки")
                     } else {
-                        context.toast("ok")
+                     //   context.toast("ok")
+                    }
+
+
+                    //скроем или покажем полосу прокрутки и поиск
+                    if (mr.size > Main.SIZE_LIST_LINE) {
+                        fastScroller.visibility = View.VISIBLE
+
+                        find.visibility = View.VISIBLE
+                        // текст только что изменили в строке поиска
+                        find.addTextChangedListener(object : TextWatcher {
+                            override fun afterTextChanged(s: Editable) {}
+                            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+                            override fun onTextChanged(text: CharSequence, start: Int, before: Int, count: Int) {
+                                ad.filter.filter(text)
+                            }
+                        })
+                    } else {
+                        fastScroller.visibility = View.GONE
+
+                        find.setText("")
+                        find.visibility = View.GONE
+                    }
+                    //==================================================================
+                }
+
+                "move_back"->{
+
+                    //если в истории чтото есть вообще
+                    if(list_move_history.isNotEmpty()){
+                        //скажем загрузить последний открытый файл
+                        if(list_move_history.size>1){
+                            //и удалим последний элемент
+                            list_move_history.removeAt(list_move_history.size - 1)
+                            open_file = list_move_history[list_move_history.size-1]
+                        }else{
+                            update_list.visibility = View.GONE
+                            list_move_history.clear()
+                            open_file=""
+                            (v.findViewById<Button>(R.id.button_open_online_plalist)).callOnClick()
+                            return@onRun
+                        }
+                    }else{
+                        (v.findViewById<Button>(R.id.button_open_online_plalist)).callOnClick()
+                        update_list.visibility = View.GONE
+                    }
+
+
+                    //заново все сделаем
+                    //====================================================================================
+                    val file_function = File_function()
+                    //прочитали файл Main.MY_PLALIST и получили список строк , каждая строка содержит имя и адрес станции
+                    //или получили Main.PUSTO если ам нет нечего
+                    val mr = file_function.My_plalist(open_file)
+                    //адаптеру будем слать список классов Radio
+                    val d = ArrayList<Radio>()
+                    val d_error = ArrayList<String>()
+
+                    for (i in mr.indices) {
+                        val m = mr[i].split("\n")
+                        if (m.size > 1) {
+                            d.add(Radio(m[0], "", "", m[1]))
+                        } else {
+                            if (m.isEmpty()) {
+                                if (m[0] != "#EXTM3U") {
+                                    d_error.add(mr[i] + " Позиция:" + i.toString())
+                                }
+                            }
+                        }
+
+                    }
+
+                    ad = Adapter_my_list(d)
+                    recikl_list.adapter = ad
+                    //---------------------------------------------------------
+
+                    //перемотаем
+                    if (position_list < d.size && position_list >= 0) {
+                        recikl_list.scrollToPosition(position_list)
+                    }
+
+                    //остановим анимацию
+                    signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
+
+
+                    if (d_error.size > 0) {
+                        //покажем кнопочку для показа списка всех ошибок, чтобы могли вручную их добавить
+                        leiner_error.visibility = View.VISIBLE
+                        text_erro.text = "Не получилось импортировать " + d_error.size.toString() + " шт"
+                        text_erro.onClick {
+                            //покажем диалоговое окно с списком брака
+                            val ei = DialogWindow(context, R.layout.error_import)
+                            val podrobno = ei.view().findViewById<TextView>(R.id.textView_error_import_podrobno)
+                            var tx = "Ошибки: "
+                            for (t in d_error.iterator()) {
+                                tx += t
+                            }
+                            podrobno.text = tx
+
+                        }
+                        (v.findViewById<Button>(R.id.buttonclose_err)).onClick {
+                            leiner_error.visibility = View.GONE
+                        }
+                        context.toast("Готово, но обыли ошибки")
+                    } else {
+                      //  context.toast("ok")
                     }
 
 
@@ -184,12 +293,18 @@ class Moy_plalist : Fragment() {
             (online_pls.view().findViewById<Button>(R.id.open_radio)).onClick {
                 //закрываем окно
                 online_pls.close()
+                //очистим список и запишем первый элемент корневой плейлисто
+                list_move_history.clear()
+                list_move_history.add(Main.MY_PLALIST)
                 //загрузим начальный список
                 load_book_list(context,"https://dl.dropbox.com/s/sl4x8z3yth5v1u0/Radio.m3u","")
             }
             (online_pls.view().findViewById<Button>(R.id.open_book)).onClick {
                 //закрываем окно
                 online_pls.close()
+                //очистим список и запишем первый элемент корневой плейлисто
+                list_move_history.clear()
+                list_move_history.add(Main.MY_PLALIST)
                 //загрузим начальный список
                 load_book_list(context,"https://dl.dropbox.com/s/cd479dcdguk6cg6/Audio_book.m3u","")
             }
@@ -598,7 +713,7 @@ class Moy_plalist : Fragment() {
 
         //Кнопка обновления(появляется когда открывается список из ссылки)
         update_list.onClick {
-            signal("Data_add").putExtra("update", "zaebis").send(context)
+            signal("Data_add").putExtra("update", "move_back").send(context)
         }
         //======================================================================================
 

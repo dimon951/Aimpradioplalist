@@ -77,11 +77,12 @@ class File_function {
     //удаление одной станции из файла
     //в параметрах получаем строку вида
     //Авторадио\nhttp://ic7.101.ru:8000/v3_1
-    fun Delet_one_potok(potok: String) {
+    fun Delet_one_potok(potok: String,file_url:String) {
         //прочитаем старыйе данные
         var old_text = ""
         try {
-            old_text = read(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u")
+            old_text = read(file_url)
+           // old_text = read(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u")
         } catch (e: FileNotFoundException) {
             e.printStackTrace()
         }
@@ -101,13 +102,14 @@ class File_function {
     }
 
     //переименование
-    fun Rename_potok(potok_old: String, potok_new: String) {
+    fun Rename_potok(potok_old: String, potok_new: String,file_url:String) {
         //прочитаем старыйе данные
         var old_text = ""
 
         //прочитали файл как есть
         try {
-            old_text = read(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u")
+          //  old_text = read(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u")
+            old_text = read(file_url)
         } catch (e: FileNotFoundException) {
             e.printStackTrace()
         }

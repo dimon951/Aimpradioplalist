@@ -238,11 +238,15 @@
     <string name="my_playlist2">my_playlist2</string>
     <string name="error_to_start">ошибки при загрузке</string>
     <string name="poisk">Поиск</string>
-    <string name="Close">Закрыть</string>
+    <string name="Close">Назад</string>
     <string name="load_list">Загрузить список</string>
     <string name="online_plalist">Онлайн плейлисты</string>
     <string name="radio_plalisty">Радио</string>
     <string name="book_plalisty">Аудиокниги</string>
+    <string name="clear_kesh">Очистить кэш</string>
+    <string name="abaut">О программе</string>
+    <string name="edit_fonts">Изменить шрифт</string>
+    <string name="edit_them">Изменить тему</string>
 
 
     <!--имя$фон$айтем$текст$текстконтекст-->
@@ -259,6 +263,9 @@
 
     <string-array name="vse_radio">
 
+        <item>КП -Разговорное- 256kbps\nhttp://kpradio.hostingradio.ru:8000/russia.radiokp256f.mp3</item>
+        <item>Просто Радио -Музыка- 128kbps\nhttp://a9.radioheart.ru:8028/RH9354</item>
+        <item>Смелое радио -Музыка- 128kbps\nhttp://a5.radioheart.ru:8059/nonstop</item>
         <item>Lofi Radio -Музыка- 96kbps\nhttp://comet.shoutca.st:8723/autodj</item>
         <item>Lofi Radio -Музыка- 32kbps\nhttp://comet.shoutca.st:8723/stream32_autodj</item>
         <item>Lofi Radio -Музыка- 192kbps\nhttp://comet.shoutca.st:8723/stream192_autodj</item>
@@ -395,9 +402,7 @@
         <item>Родина -Музыка- 128kbps\ncast.modnoeradio.ru:8000/live</item>
         <item>Мелодия -Музыка- 128kbps\nstream128.melodiafm.spb.ru:8000/melodia128</item>
         <item>ABBA -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a104?</item>
-        <item>Bon Jovi -Дискография- 64kbps\nhttp://ic5.101.ru:8000/p307544</item>
         <item>Boney M -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a114?</item>
-        <item>Café del Mar Radio -Дискография- 64kbps\nhttp://cdn.instream.audio:9155/stream</item>
         <item>DDT -Дискография- 64kbps\nhhttp://ic2.101.ru:8000/a112?</item>
         <item>Deep Purple -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a125?</item>
         <item>Depeche Mode -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a105?</item>
@@ -410,10 +415,8 @@
         <item>Michael Jackson -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a52?</item>
         <item>Modern Talking -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a115?</item>
         <item>Mylene Farmer -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a166?</item>
-        <item>Natalia OREIRO -Дискография- 64kbps\nhttp://ic5.101.ru:8000/p325338</item>
         <item>Наутилус Помпилиус -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a126?</item>
         <item>Наутилус Помпилиус -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a126</item>
-        <item>Pet Shop Boys -Дискография- 64kbps\nhttp://ic5.101.ru:8000/p853646</item>
         <item>Pink Floyd -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a53?</item>
         <item>Robbie Williams -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a138?</item>
         <item>Sandra -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a179?</item>
@@ -7229,7 +7232,7 @@
         <item>Night City Music 68kbps\nhttp://ic6.101.ru:8000/p668261</item>
         <item>Night Faden presents - NF FM 68kbps\nhttp://ic6.101.ru:8000/p762943</item>
         <item>Night Radio 68kbps\nhttp://ic6.101.ru:8000/p698855</item>
-        <item>Nightwish Дискография 68kbps\nhttp://ic6.101.ru:8000/p517930</item>
+        <item>Nightwish -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p517930</item>
         <item>Nihil Nonsons 68kbps\nhttp://ic6.101.ru:8000/p765593</item>
         <item>NiK FM 68kbps\nhttp://ic6.101.ru:8000/p748727</item>
         <item>Nik54rus 68kbps\nhttp://ic6.101.ru:8000/p737513</item>
@@ -9979,7 +9982,6 @@
         <item>БАРДАК 68kbps\nhttp://ic6.101.ru:8000/p474914</item>
         <item>Бардачок 68kbps\nhttp://ic6.101.ru:8000/p347657</item>
         <item>Басс  Кач музыка 68kbps\nhttp://ic6.101.ru:8000/p801681</item>
-        <item>Баста -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p868705</item>
         <item>БастА ака НоГГанО и NINTENDO 68kbps\nhttp://ic6.101.ru:8000/p407827</item>
         <item>батл bit 68kbps\nhttp://ic6.101.ru:8000/p700277</item>
         <item>БГ  Аквариум Избранное -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p680870</item>

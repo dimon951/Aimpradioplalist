@@ -171,7 +171,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
                     //поехали ,удаляем и ждём сигналы
                     val file_function = File_function()
-                    file_function.Delet_one_potok(selectedItem)
+                    file_function.Delet_one_potok(selectedItem,Moy_plalist.open_file)
                     //закроем окошко
                     dds.close()
                 }
@@ -226,7 +226,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
                         //делаем
                         val file_function = File_function()
-                        file_function.Rename_potok(radio.name + "\n" + radio.url, edit.text.toString() + "\n" + radio.url)
+                        file_function.Rename_potok(radio.name + "\n" + radio.url, edit.text.toString() + "\n" + radio.url,Moy_plalist.open_file)
                     } else {
                         //закрываем окошко
                         nsf.close()
@@ -288,7 +288,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter
 
                         //делаем
                         val file_function = File_function()
-                        file_function.Rename_potok(radio.name + "\n" + radio.url, radio.name + "\n" + edit.text.toString())
+                        file_function.Rename_potok(radio.name + "\n" + radio.url, radio.name + "\n" + edit.text.toString(),Moy_plalist.open_file)
                     } else {
                         //закрываем окошко
                         nsf.close()
