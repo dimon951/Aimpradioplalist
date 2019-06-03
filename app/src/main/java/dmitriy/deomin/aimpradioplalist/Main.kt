@@ -33,6 +33,7 @@ import java.io.File
 
 class Main : FragmentActivity() {
 
+    //размер в байтах при который не учитывать для отображения размера кеша
     val SIZEFILETHEME = 1000
 
     //    //Displayed 2c
@@ -399,7 +400,12 @@ class Main : FragmentActivity() {
 
                 //сохраним  временый файл сслку
                 val file_function = File_function()
-                file_function.SaveFile("$ROOT$name.m3u", url)
+                file_function.SaveFile(ROOT + name + ".m3u",
+                        "#EXTM3U"
+                                + "\n"
+                                + "#EXTINF:-1," + name
+                                + "\n"
+                                + url)
             } else {
 
 
@@ -858,7 +864,7 @@ class Main : FragmentActivity() {
                 //покажем предупреждающее окошко
                 val v_d = DialogWindow(context, R.layout.dialog_delete_plalist)
 
-                v_d.view().findViewById<TextView>(R.id.text_voprosa_del_stncii).text = "Удалить все?"
+                v_d.view().findViewById<TextView>(R.id.text_voprosa_del_stncii).text = "Удалить кеш?"
 
                 v_d.view().findViewById<Button>(R.id.button_dialog_delete).onClick {
                     v_d.close()

@@ -37,8 +37,17 @@
             android:id="@+id/open_book"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:background="@null"
             android:text="@string/book_plalisty"
+            android:visibility="visible" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/open_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="@string/plalist_tv"
             android:visibility="visible" />
     </LinearLayout>
 </dmitriy.deomin.aimpradioplalist.custom.Fon_item>

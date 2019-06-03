@@ -288,6 +288,7 @@ class Moy_plalist : Fragment() {
         (v.findViewById<Button>(R.id.button_open_online_plalist)).onClick {
             //книги https://dl.dropbox.com/s/cd479dcdguk6cg6/Audio_book.m3u
             //радио https://dl.dropbox.com/s/sl4x8z3yth5v1u0/Radio.m3u
+            //tv https://www.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u?dl=0
             val online_pls = DialogWindow(context,R.layout.open_online_plalist)
 
             (online_pls.view().findViewById<Button>(R.id.open_radio)).onClick {
@@ -307,6 +308,15 @@ class Moy_plalist : Fragment() {
                 list_move_history.add(Main.MY_PLALIST)
                 //загрузим начальный список
                 load_book_list(context,"https://dl.dropbox.com/s/cd479dcdguk6cg6/Audio_book.m3u","")
+            }
+            (online_pls.view().findViewById<Button>(R.id.open_tv)).onClick {
+                //закрываем окно
+                online_pls.close()
+                //очистим список и запишем первый элемент корневой плейлисто
+                list_move_history.clear()
+                list_move_history.add(Main.MY_PLALIST)
+                //загрузим начальный список
+                load_book_list(context,"https://dl.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u","")
             }
         }
         //----------------------------------------------------------------------------------------
