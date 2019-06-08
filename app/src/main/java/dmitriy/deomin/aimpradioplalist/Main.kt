@@ -203,7 +203,7 @@ class Main : FragmentActivity() {
             }
         }
 
-        //даёт рандомну положительную фразу
+        //даёт рандомную положительную фразу
         fun rnd_ok(): String {
             val mas = context.resources.getStringArray(R.array.list_ok)
             val i = rnd_int(0, mas.size - 1)

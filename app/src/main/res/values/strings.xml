@@ -264,6 +264,14 @@
 
     <string-array name="vse_radio">
 
+        <item>Пи FM -Музыка- 320kbps\nhttp://prepros.pifm.ru:80/reserve</item>
+        <item>Пи FM -Музыка- 128kbps\nhttp://stream.pifm.ru/mp3</item>
+        <item>Пи FM -Музыка- 96kbps\nhttp://prepros.pifm.ru:80/96</item>
+        <item>Пи FM Братск -Музыка- 128kbps\nhttp://prepros.pifm.ru:80/bratsk</item>
+        <item>Пи FM Кемерово -Музыка- 128kbps\nhttp://prepros.pifm.ru:80/kemer</item>
+        <item>Пи FM Нижневартовск -Музыка- 128kbps\nhttp://prepros.pifm.ru/nvart</item>
+        <item>Пи FM Новокузнецк -Музыка- 256kbps\nhttp://prepros.pifm.ru/novokuz</item>
+        <item>Радио Сибирь Красноярск -Музыка- 256kbps\nhttp://prepros.pifm.ru/kr</item>
         <item>КП -Разговорное- 256kbps\nhttp://kpradio.hostingradio.ru:8000/russia.radiokp256f.mp3</item>
         <item>Просто Радио -Музыка- 128kbps\nhttp://a9.radioheart.ru:8028/RH9354</item>
         <item>Смелое радио -Музыка- 128kbps\nhttp://a5.radioheart.ru:8059/nonstop</item>
@@ -857,7 +865,6 @@
         <item>Кекс FM -Музыка- 65kbps\nhttp://emg02.hostingradio.ru/keksfm64.aac</item>
         <item>Народное Радио Беларусь -Разговорное- 128kbps\nhttp://live.novoeradio.by:8000/narodnoe-radio-128k</item>
         <item>Романтика -Музыка- 131kbps\nhttp://91.207.59.26/a101</item>
-        <item>Пи FM -Музыка- 128kbps\nhttp://stream.pifm.ru/mp3</item>
         <item>SOUNDPARK DEEP -Музыка- 128kbps\nhttp://185.220.35.56:8000/128</item>
         <item>SOUNDPARK DEEP -Музыка- 320kbps\nhttp://185.220.35.56:8000/320</item>
         <item>Новое радио? -Музыка- 128kbps\nhttp://icecast.newradio.cdnvideo.ru/newradio3</item>
