@@ -3,18 +3,21 @@ package dmitriy.deomin.aimpradioplalist
 import android.annotation.SuppressLint
 import android.content.*
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.animation.AnimationUtils
 import android.widget.*
 import com.github.kittinunf.fuel.httpGet
+import com.google.firebase.FirebaseApp
+import com.google.firebase.FirebaseOptions
+import com.google.firebase.firestore.FirebaseFirestore
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -23,6 +26,7 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.email
 import org.jetbrains.anko.support.v4.share
+import org.jetbrains.anko.support.v4.startActivity
 import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
 import java.io.File
 import java.text.SimpleDateFormat
@@ -37,7 +41,7 @@ class Moy_plalist : Fragment() {
     companion object {
         var position_list = 0
         //список файлов которые загружались онлайн
-        var list_move_history:ArrayList<String> = ArrayList()
+        var list_move_history: ArrayList<String> = ArrayList()
         //файл который загружен сейчас
         var open_file = ""
     }
@@ -52,8 +56,8 @@ class Moy_plalist : Fragment() {
         find.textColor = Main.COLOR_TEXT
         find.hintTextColor = Main.COLOR_TEXTcontext
 
-        val recikl_list = v.findViewById<RecyclerView>(R.id.recicl_my_list)
-        recikl_list.layoutManager = LinearLayoutManager(context)
+        val recikl_list = v.findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recicl_my_list)
+        recikl_list.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
 
         //полоса быстрой прокрутки
         val fastScroller = v.findViewById<VerticalRecyclerViewFastScroller>(R.id.fast_scroller)
@@ -72,7 +76,7 @@ class Moy_plalist : Fragment() {
         val text_erro = v.findViewById<TextView>(R.id.textViewerror_loadd_file)
         leiner_error.visibility = View.GONE
 
-        val update_list =v.findViewById<Button>(R.id.button_close_list)
+        val update_list = v.findViewById<Button>(R.id.button_close_list)
 
         //будем слушать эфир постоянно если че обновим список
         //----------------------------------------------------------------------------
@@ -81,13 +85,13 @@ class Moy_plalist : Fragment() {
             when (it.getStringExtra("update")) {
                 "zaebis" -> {
 
-                    if(!it.getStringExtra("listfile").isNullOrEmpty()){
+                    if (!it.getStringExtra("listfile").isNullOrEmpty()) {
                         update_list.visibility = View.VISIBLE
-                        open_file =  it.getStringExtra("listfile")
+                        open_file = it.getStringExtra("listfile")
                         list_move_history.add(open_file)
-                    }else{
+                    } else {
                         update_list.visibility = View.GONE
-                        open_file =  Main.MY_PLALIST
+                        open_file = Main.MY_PLALIST
                     }
 
                     //заново все сделаем
@@ -124,7 +128,7 @@ class Moy_plalist : Fragment() {
                     }
 
                     //остановим анимацию
-                    signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
+                    signal("Main_update").putExtra("signal", "stop_anim_my_list").send(context)
 
 
                     if (d_error.size > 0) {
@@ -147,7 +151,7 @@ class Moy_plalist : Fragment() {
                         }
                         context.toast("Готово, но обыли ошибки")
                     } else {
-                     //   context.toast("ok")
+                        //   context.toast("ok")
                     }
 
 
@@ -173,23 +177,23 @@ class Moy_plalist : Fragment() {
                     //==================================================================
                 }
 
-                "move_back"->{
+                "move_back" -> {
 
                     //если в истории чтото есть вообще
-                    if(list_move_history.isNotEmpty()){
+                    if (list_move_history.isNotEmpty()) {
                         //скажем загрузить последний открытый файл
-                        if(list_move_history.size>1){
+                        if (list_move_history.size > 1) {
                             //и удалим последний элемент
                             list_move_history.removeAt(list_move_history.size - 1)
-                            open_file = list_move_history[list_move_history.size-1]
-                        }else{
+                            open_file = list_move_history[list_move_history.size - 1]
+                        } else {
                             update_list.visibility = View.GONE
                             list_move_history.clear()
-                            open_file=""
+                            open_file = ""
                             (v.findViewById<Button>(R.id.button_open_online_plalist)).callOnClick()
                             return@onRun
                         }
-                    }else{
+                    } else {
                         (v.findViewById<Button>(R.id.button_open_online_plalist)).callOnClick()
                         update_list.visibility = View.GONE
                     }
@@ -229,7 +233,7 @@ class Moy_plalist : Fragment() {
                     }
 
                     //остановим анимацию
-                    signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
+                    signal("Main_update").putExtra("signal", "stop_anim_my_list").send(context)
 
 
                     if (d_error.size > 0) {
@@ -252,7 +256,7 @@ class Moy_plalist : Fragment() {
                         }
                         context.toast("Готово, но обыли ошибки")
                     } else {
-                      //  context.toast("ok")
+                        //  context.toast("ok")
                     }
 
 
@@ -289,7 +293,7 @@ class Moy_plalist : Fragment() {
             //книги https://dl.dropbox.com/s/cd479dcdguk6cg6/Audio_book.m3u
             //радио https://dl.dropbox.com/s/sl4x8z3yth5v1u0/Radio.m3u
             //tv https://www.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u?dl=0
-            val online_pls = DialogWindow(context,R.layout.open_online_plalist)
+            val online_pls = DialogWindow(context, R.layout.open_online_plalist)
 
             (online_pls.view().findViewById<Button>(R.id.open_radio)).onClick {
                 //закрываем окно
@@ -298,7 +302,7 @@ class Moy_plalist : Fragment() {
                 list_move_history.clear()
                 list_move_history.add(Main.MY_PLALIST)
                 //загрузим начальный список
-                load_book_list(context,"https://dl.dropbox.com/s/sl4x8z3yth5v1u0/Radio.m3u","")
+                load_book_list(context, "https://dl.dropbox.com/s/sl4x8z3yth5v1u0/Radio.m3u", "")
             }
             (online_pls.view().findViewById<Button>(R.id.open_book)).onClick {
                 //закрываем окно
@@ -307,7 +311,7 @@ class Moy_plalist : Fragment() {
                 list_move_history.clear()
                 list_move_history.add(Main.MY_PLALIST)
                 //загрузим начальный список
-                load_book_list(context,"https://dl.dropbox.com/s/cd479dcdguk6cg6/Audio_book.m3u","")
+                load_book_list(context, "https://dl.dropbox.com/s/cd479dcdguk6cg6/Audio_book.m3u", "")
             }
             (online_pls.view().findViewById<Button>(R.id.open_tv)).onClick {
                 //закрываем окно
@@ -316,8 +320,15 @@ class Moy_plalist : Fragment() {
                 list_move_history.clear()
                 list_move_history.add(Main.MY_PLALIST)
                 //загрузим начальный список
-                load_book_list(context,"https://dl.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u","")
+                load_book_list(context, "https://dl.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u", "")
             }
+            (online_pls.view().findViewById<Button>(R.id.user_station)).onClick {
+                startActivity<Obmenik>()
+                //закрываем окно
+                online_pls.close()
+            }
+
+
         }
         //----------------------------------------------------------------------------------------
 
@@ -325,7 +336,7 @@ class Moy_plalist : Fragment() {
         (v.findViewById<Button>(R.id.button_delete)).onClick {
 
             //если список совсем не пуст (есть пояснялка но ссылок нет)
-            if(ad.raduoSearchList.isNotEmpty()){
+            if (ad.raduoSearchList.isNotEmpty()) {
                 //если список не пуст
                 if (ad.raduoSearchList[0].name != (Main.PUSTO.replace("\n", ""))) {
                     val file_function = File_function()
@@ -384,8 +395,7 @@ class Moy_plalist : Fragment() {
                 } else {
                     context.toast("Плейлист пуст")
                 }
-            }
-            else{
+            } else {
 
                 val ddp = DialogWindow(context, R.layout.dialog_delete_plalist)
                 val text = ddp.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
@@ -540,7 +550,7 @@ class Moy_plalist : Fragment() {
                             }
                         }
                         //сохраним  временый файл ссылку и ждём сигналы
-                        file_function.SaveFile(Main.ROOT+name.text.toString() + ".m3u", data.joinToString("\n"))
+                        file_function.SaveFile(Main.ROOT + name.text.toString() + ".m3u", data.joinToString("\n"))
                     }
                 }
             } else {
@@ -774,7 +784,7 @@ class Moy_plalist : Fragment() {
 
                             GlobalScope.launch {
                                 //запустим анимацию
-                                signal("Main_update").putExtra("signal","start_anim_my_list").send(context)
+                                signal("Main_update").putExtra("signal", "start_anim_my_list").send(context)
 
                                 //читаем выбраный файл в str
                                 var str = file_function.read(file_m3u_custom)
@@ -849,7 +859,7 @@ class Moy_plalist : Fragment() {
             }
 
             //история
-            val r = (dvvul.view().findViewById<RecyclerView>(R.id.list_history_link))
+            val r = (dvvul.view().findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.list_history_link))
 
             val e = dvvul.view().findViewById<EditText>(R.id.editText_add_list_url)
             e.typeface = Main.face
@@ -918,14 +928,14 @@ class Moy_plalist : Fragment() {
                     //-----------скачиваем файл (читам его)--------
                     GlobalScope.launch {
                         //запустим анимацию
-                        signal("Main_update").putExtra("signal","start_anim_my_list").send(context)
+                        signal("Main_update").putExtra("signal", "start_anim_my_list").send(context)
 
                         url_link.httpGet().responseString { request, response, result ->
                             when (result) {
                                 is com.github.kittinunf.result.Result.Failure -> {
                                     val ex = result.getException()
                                     //если ошибка остановим анимацию и покажем ошибку
-                                    signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
+                                    signal("Main_update").putExtra("signal", "stop_anim_my_list").send(context)
                                     context.toast(ex.toString())
                                 }
                                 is com.github.kittinunf.result.Result.Success -> {
@@ -956,9 +966,9 @@ class Moy_plalist : Fragment() {
                                         }
                                         //поехали , сохраняем  и ждём сигналы
                                         file_function.SaveFile(Main.MY_PLALIST, str_old + data)
-                                    }else{
+                                    } else {
                                         //если нечего нет остановим анимацию и скажем что там пусто
-                                        signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
+                                        signal("Main_update").putExtra("signal", "stop_anim_my_list").send(context)
                                         context.toast("ошибка,пусто")
                                     }
                                 }
@@ -976,17 +986,17 @@ class Moy_plalist : Fragment() {
         //--------------------------------------------------------------------------------------
     }
 
-    private fun load_book_list(context: Context,url_link:String,str_old: String){
+    private fun load_book_list(context: Context, url_link: String, str_old: String) {
         GlobalScope.launch {
             //запустим анимацию
-            signal("Main_update").putExtra("signal","start_anim_my_list").send(context)
+            signal("Main_update").putExtra("signal", "start_anim_my_list").send(context)
 
             url_link.httpGet().responseString { request, response, result ->
                 when (result) {
                     is com.github.kittinunf.result.Result.Failure -> {
                         val ex = result.getException()
                         //если ошибка остановим анимацию и покажем ошибку
-                        signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
+                        signal("Main_update").putExtra("signal", "stop_anim_my_list").send(context)
                         context.toast(ex.toString())
                     }
                     is com.github.kittinunf.result.Result.Success -> {
@@ -1018,9 +1028,9 @@ class Moy_plalist : Fragment() {
                             val file_function = File_function()
                             //поехали , сохраняем  и ждём сигналы
                             file_function.SaveFile(Main.MY_PLALIST, str_old + data)
-                        }else{
+                        } else {
                             //если нечего нет остановим анимацию и скажем что там пусто
-                            signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
+                            signal("Main_update").putExtra("signal", "stop_anim_my_list").send(context)
                             context.toast("ошибка,пусто")
                         }
                     }
@@ -1032,11 +1042,11 @@ class Moy_plalist : Fragment() {
 }
 
 //===========================Адаптер к спику истории ссылок=============================================================
-class Adapter_history_list(val data: ArrayList<History>) : RecyclerView.Adapter<Adapter_history_list.ViewHolder>() {
+class Adapter_history_list(val data: ArrayList<History>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_history_list.ViewHolder>() {
 
     private lateinit var context: Context
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         val url = itemView.findViewById<TextView>(R.id.url_potok)
         val name = itemView.findViewById<TextView>(R.id.name_potok)
         val data_time = itemView.findViewById<TextView>(R.id.data_add_potok)

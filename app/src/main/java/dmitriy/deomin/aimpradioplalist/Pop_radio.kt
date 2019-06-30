@@ -3,9 +3,9 @@ package dmitriy.deomin.aimpradioplalist
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,8 +24,8 @@ class Pop_radio : Fragment() {
 
         val context: Context = Main.context
 
-        val recycl_pop_radio = v.findViewById<RecyclerView>(R.id.recicl_pop_radio)
-        recycl_pop_radio.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+        val recycl_pop_radio = v.findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recicl_pop_radio)
+        recycl_pop_radio.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context, LinearLayout.VERTICAL, false)
         recycl_pop_radio.setHasFixedSize(true)
 
         val data = ArrayList<RadioPop>()

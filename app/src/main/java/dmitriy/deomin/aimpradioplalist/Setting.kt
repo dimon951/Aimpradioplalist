@@ -3,9 +3,9 @@ package dmitriy.deomin.aimpradioplalist
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v4.app.*
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.core.app.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +14,8 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentActivity
 import com.github.danielnilsson9.colorpickerview.dialog.ColorPickerDialogFragment
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_FON
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_ITEM
@@ -165,7 +167,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
             }
         }
 
-        list_them.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+        list_them.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context, LinearLayout.VERTICAL, false)
         list_them.setHasFixedSize(true)
 
         Slot(context,"list_them__load").onRun {
@@ -219,11 +221,11 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
     }
 
 
-    class Adapter_list_theme(val data: ArrayList<Theme>) : RecyclerView.Adapter<Adapter_list_theme.ViewHolder>() {
+    class Adapter_list_theme(val data: ArrayList<Theme>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_list_theme.ViewHolder>() {
 
         private lateinit var context: Context
 
-        class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
             val name_theme = itemView.findViewById<Button>(R.id.name_thme)
         }
 

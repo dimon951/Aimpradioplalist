@@ -3,7 +3,7 @@ package dmitriy.deomin.aimpradioplalist
 import android.content.*
 import android.graphics.Paint
 import android.graphics.Typeface
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,11 +22,11 @@ import org.jetbrains.anko.textColor
 import java.util.ArrayList
 
 
-class Adapter_pop_radio(val data: ArrayList<RadioPop>) : RecyclerView.Adapter<Adapter_pop_radio.ViewHolder>() {
+class Adapter_pop_radio(val data: ArrayList<RadioPop>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_pop_radio.ViewHolder>() {
 
     private lateinit var context: Context
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         val text = itemView.findViewById<TextView>(R.id.Text_name_pop)
         val ava = itemView.findViewById<ImageView>(R.id.ava_pop)
         val add = itemView.findViewById<Button>(R.id.button_add)

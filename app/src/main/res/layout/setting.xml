@@ -73,14 +73,14 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/list_them"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:visibility="visible">
 
-            </android.support.v7.widget.RecyclerView>
+            </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn

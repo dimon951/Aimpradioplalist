@@ -1,10 +1,6 @@
 package dmitriy.deomin.aimpradioplalist
-
 import android.annotation.SuppressLint
 import android.content.Context
-import androidx.cardview.widget.CardView
-import androidx.recyclerview.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +17,7 @@ import org.jetbrains.anko.share
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
 
-class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_my_list.ViewHolder>(), Filterable {
+class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_obmenik.ViewHolder>(), Filterable {
 
     private lateinit var context: Context
     var raduoSearchList: ArrayList<Radio> = data
@@ -34,7 +30,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
 
                 val charString = charSequence.toString()
                 if (charString.isEmpty()) {
-                    this@Adapter_my_list.raduoSearchList = data
+                    this@Adapter_obmenik.raduoSearchList = data
                 } else {
                     val filteredList = ArrayList<Radio>()
                     for (row in data) {
@@ -45,16 +41,16 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                             filteredList.add(row)
                         }
                     }
-                    this@Adapter_my_list.raduoSearchList = filteredList
+                    this@Adapter_obmenik.raduoSearchList = filteredList
                 }
                 val filterResults = FilterResults()
-                filterResults.values = this@Adapter_my_list.raduoSearchList
+                filterResults.values = this@Adapter_obmenik.raduoSearchList
                 return filterResults
             }
 
             override fun publishResults(charSequence: CharSequence, filterResults: FilterResults) {
                 if (filterResults.values != null) {
-                    this@Adapter_my_list.raduoSearchList = filterResults.values as ArrayList<Radio>
+                    this@Adapter_obmenik.raduoSearchList = filterResults.values as ArrayList<Radio>
                     notifyDataSetChanged()
                 }
             }
@@ -97,13 +93,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
         }
 
         //из названия будем удалять тип ссылки
-        p0.name_radio.text = radio.name
-                .replace("<List>", "")
-             //   .replace(".","\n")//и добавим переносов
-
-
-
-
+        p0.name_radio.text = radio.name.replace("<List>", "")
 
         if (radio.url.isNotEmpty()) {
             p0.liner_url.visibility = View.VISIBLE

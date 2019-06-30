@@ -3,8 +3,8 @@ package dmitriy.deomin.aimpradioplalist
 import android.annotation.SuppressLint
 import android.content.*
 import android.graphics.Color
-import android.support.v7.widget.CardView
-import android.support.v7.widget.RecyclerView
+import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +18,7 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 
 
-class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapter_vse_list.ViewHolder>(), Filterable {
+class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_vse_list.ViewHolder>(), Filterable {
 
 
     private lateinit var context: Context
@@ -64,11 +64,11 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : RecyclerView.Adapter<Adapte
     }
 
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         val name_radio = itemView.findViewById<TextView>(R.id.name_radio)
         val nomer_radio = itemView.findViewById<TextView>(R.id.nomer_radio)
         val url_radio = itemView.findViewById<TextView>(R.id.url_radio)
-        val fon = itemView.findViewById<CardView>(R.id.fon_item_radio)
+        val fon = itemView.findViewById<androidx.cardview.widget.CardView>(R.id.fon_item_radio)
         val ganr = itemView.findViewById<TextView>(R.id.ganr_radio)
         val liner_kbps = itemView.findViewById<LinearLayout>(R.id.liner_kbps)
         val liner_ganr = itemView.findViewById<LinearLayout>(R.id.liner_ganr)

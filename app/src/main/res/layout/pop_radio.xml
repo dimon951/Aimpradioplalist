@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@null" >
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recicl_pop_radio"
         android:layout_width="match_parent"
         android:layout_height="0dp"

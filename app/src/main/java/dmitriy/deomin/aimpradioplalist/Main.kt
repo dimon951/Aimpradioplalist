@@ -11,15 +11,19 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.os.StrictMode
-import android.support.v4.app.*
-import android.support.v4.content.ContextCompat
-import android.support.v4.view.ViewPager
+import androidx.core.app.*
+import androidx.core.content.ContextCompat
+import androidx.viewpager.widget.ViewPager
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.*
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
@@ -48,7 +52,7 @@ class Main : FragmentActivity() {
         const val File_Text_Code: String = "UTF8"
 
         //ссылка на аимп
-        const val LINK_DOWLOAD_AIMP = "https://www.aimp.ru/files/android/aimp_2.90.844.apk"
+        const val LINK_DOWLOAD_AIMP = "https://www.aimp.ru/files/android/aimp_2.90.845.apk"
 
 
         //текст в пустом плейлисте(много где требуется)

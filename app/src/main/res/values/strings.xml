@@ -125,7 +125,6 @@
             128kbps~kbps~http://beelinefm128.streamr.ru~kbps~
         </item>
         <item>Love радио\nloveradio.png\n
-            24kbps~kbps~http://net37.ru:8000/love_radio_net37ru.aac~kbps~
             128kbps~kbps~http://potokovoe.ru:8008/LR.mp3~kbps~
         </item>
         <item>Дорожное Радио\ndorognoe.png\n
@@ -248,6 +247,7 @@
     <string name="edit_fonts">Изменить шрифт</string>
     <string name="edit_them">Изменить тему</string>
     <string name="plalist_tv">Плейлисты тв</string>
+    <string name="obmenik">Обменник</string>
 
 
     <!--имя$фон$айтем$текст$текстконтекст-->
@@ -264,6 +264,11 @@
 
     <string-array name="vse_radio">
 
+        <item>Алексей Брянцев 101 ru -Музыка- 64kbps\nhttp://ic6.101.ru:8000/p927583</item>
+        <item>Радио Монте-Карло -Музыка- 128kbps\nhttp://montecarlo.hostingradio.ru/montecarlo128.mp3</item>
+        <item>Радио Монте-Карло (Находка) -Музыка- 128kbps\nhttp://178.33.138.231:8023/rmc-nhd</item>
+        <item>Радио Монте-Карло (Ростов на Дону) -Музыка- 64kbps\nhttp://online2.gkvr.ru:8000/mc_rnd_64.aac</item>
+        <item>Радио Монте-Карло (С.Петербург) -Музыка- 256kbps\nhttp://78.140.251.2:8104/montezoom</item>
         <item>Пи FM -Музыка- 320kbps\nhttp://prepros.pifm.ru:80/reserve</item>
         <item>Пи FM -Музыка- 128kbps\nhttp://stream.pifm.ru/mp3</item>
         <item>Пи FM -Музыка- 96kbps\nhttp://prepros.pifm.ru:80/96</item>
@@ -377,17 +382,6 @@
         <item>ТАТАРСКАЯ ПОП-МУЗЫКА -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c7_33</item>
         <item>ТАТАРСКАЯ НАРОДНАЯ МУЗЫКА -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a262</item>
         <item>АРХИВ ВАРШАВСКОГО ДОГОВОРА -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c7_25</item>
-        <item>АРМЕНИЯ -Музыка- 128kbps\nhttp://ic6.101.ru:8000/c10_1</item>
-        <item>КАВКАЗ HITS -Музыка- 64kbps\nhttp://ic6.101.ru:8000/a39</item>
-        <item>ЯПОНСКАЯ МУЗЫКА -Музыка- 64kbps\nhttp://ic6.101.ru:8000/a62</item>
-        <item>ЦЫГАНСКАЯ МУЗЫКА -Музыка- 128kbps\nhttp://ic6.101.ru:8000/c7_36</item>
-        <item>ЭТНИКА -Музыка- 64kbps\nhttp://ic6.101.ru:8000/a51</item>
-        <item>РУССКИЕ НАРОДНЫЕ -Музыка- 64kbps\nhttp://ic6.101.ru:8000/a40</item>
-        <item>ДУХОВНАЯ МУЗЫКА -Музыка- 64kbps\nhttp://ic6.101.ru:8000/a38</item>
-        <item>ОПЕРА -Музыка- 64kbps\nhttp://ic6.101.ru:8000/a96</item>
-        <item>POP CLASSICAL MUSIC -Музыка- 64kbps\nhttp://ic6.101.ru:8000/a97</item>
-        <item>КЛАССИЧЕСКАЯ МУЗЫКА -Музыка- 128kbps\nhttp://ic6.101.ru:8000/c7_1</item>
-        <item>NEOCLASSICAL -Музыка- 68kbps\nhttp://ic6.101.ru:8000/a275</item>
         <item>Канал главный -Разговорное- 128kbps\nhttps://rs.radioslovo.net:4395/radio</item>
         <item>Канал Библия Новый Завет -Разговорное- 128kbps\nhttps://rs.radioslovo.net:4055/stream</item>
         <item>Канал Библия Ветхий Завет -Разговорное- 128kbps\nhttps://rs.radioslovo.net:4165/stream</item>
@@ -13088,7 +13082,6 @@
         <item>Европа плюс  128kbps\nhttp://ep128.hostingradio.ru:8030/ep128</item>
         <item>HR Radio  128kbps\nhttp://hrradio.hostingradio.ru:8077/hrradio128.mp3</item>
         <item>Билайн FM  128kbps\nhttp://beelinefm128.streamr.ru</item>
-        <item>Love радио  24kbps\nhttp://net37.ru:8000/love_radio_net37ru.aac</item>
         <item>Love радио  128kbps\nhttp://potokovoe.ru:8008/LR.mp3</item>
         <item>Дорожное Радио  64kbps\nhttp://dorognoe.hostingradio.ru:8000/dorognoe</item>
         <item>Дорожное Радио  98kbps\nhttps://hls-01-dorognoe.emgsound.ru/15/playlist.m3u8</item>
@@ -13134,5 +13127,6 @@
 
 
     </string-array>
+    <string name="title_activity_obmenik">Obmenik</string>
 
 </resources>

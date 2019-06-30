@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="dmitriy.deomin.aimpradioplalist"
     android:installLocation="auto">
@@ -16,26 +15,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
-        <!--эта поебень нужна для рекламмы-->
-        <!--++++++++++++++++++++++++++++++++++++++-->
+        <!-- эта поебень нужна для рекламмы -->
+        <!-- ++++++++++++++++++++++++++++++++++++++ -->
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
-            android:value="true"/>
+            android:value="true" />
         <meta-data
             android:name="com.google.android.gms.ads.ca-app-pub-7908895047124036~7402987509"
-            android:value="ca-app-pub-7908895047124036/8879720700"/>
-        <!--+++++++++++++++++++++++++++++++++++++++++++++++++++-->
-
+            android:value="ca-app-pub-7908895047124036/8879720700" /> <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <activity android:name=".Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".Abaut" />
         <activity android:name=".Setting" />
         <activity android:name=".Fonts_vibor" />
+        <activity android:name=".Obmenik" />
     </application>
 
 </manifest>

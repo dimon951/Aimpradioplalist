@@ -3,7 +3,7 @@ package dmitriy.deomin.aimpradioplalist.custom
 import android.R
 import android.app.AlertDialog
 import android.content.Context
-import android.support.v7.widget.CardView
+import androidx.cardview.widget.CardView
 import android.util.AttributeSet
 import android.view.*
 import android.view.animation.AnimationUtils
@@ -36,7 +36,7 @@ class Btn : Button {
     }
 }
 
-class Fon_item : CardView {
+class Fon_item : androidx.cardview.widget.CardView {
     constructor(context: Context) : super(context) {
         this.setCardBackgroundColor(Main.COLOR_ITEM)
     }

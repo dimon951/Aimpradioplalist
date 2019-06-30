@@ -5,9 +5,9 @@ import android.content.Context
 import android.graphics.Paint
 import android.graphics.Typeface
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -58,8 +58,8 @@ class Vse_radio : Fragment() {
 
         val ganrlist = listOf("-Музыка-", "-Юмор-", "-Разговорное-", "-Детское-", " -Аудиокниги-", "-Саундтреки-", "-Дискография-")
 
-        val recikl_vse_list = v.findViewById<RecyclerView>(R.id.recicl_vse_radio)
-        recikl_vse_list.layoutManager = LinearLayoutManager(context)
+        val recikl_vse_list = v.findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recicl_vse_radio)
+        recikl_vse_list.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
 
         //полоса быстрой прокрутки
         val fastScroller = v.findViewById<VerticalRecyclerViewFastScroller>(R.id.fast_scroller)
