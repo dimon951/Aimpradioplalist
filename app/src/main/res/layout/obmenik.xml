@@ -1,96 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fon_obmenik"
-    android:background="@null">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/textcontext">
 
-    <dmitriy.deomin.aimpradioplalist.custom.Fon_item
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        android:background="@null"
-        android:elevation="0dp"
-        app:cardBackgroundColor="@color/cardview_shadow_start_color"
-        app:cardCornerRadius="3dp"
-        app:cardElevation="3dp"
-        app:cardPreventCornerOverlap="false">
+        android:orientation="vertical">
 
-
-        <LinearLayout
+        <dmitriy.deomin.aimpradioplalist.custom.Fon_item
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@null"
+            android:elevation="0dp"
+            app:cardBackgroundColor="@color/cardview_shadow_start_color"
+            app:cardCornerRadius="3dp"
+            app:cardElevation="3dp"
+            app:cardPreventCornerOverlap="false">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <dmitriy.deomin.aimpradioplalist.custom.Btn
-                    android:id="@+id/button_menu_obmenik"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:text="menu_imfo" />
+                    android:orientation="vertical">
 
-                <ProgressBar
-                    android:id="@+id/progressBar_load_obmenik"
-                    style="?android:attr/progressBarStyle"
+                    <dmitriy.deomin.aimpradioplalist.custom.Btn
+                        android:id="@+id/button_menu_obmenik"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:text="menu_imfo" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar_load_obmenik"
+                        style="?android:attr/progressBarStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="visible" />
-            </LinearLayout>
+                    android:descendantFocusability="beforeDescendants"
+                    android:focusableInTouchMode="true"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/editText_find_obmennik"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="@string/poisk"
+                        android:importantForAutofill="no"
+                        android:inputType=""
+                        android:paddingStart="5dp"
+                        android:paddingLeft="5dp" />
 
-                <EditText
-                    android:id="@+id/editText_find_obmennik"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:hint="@string/poisk"
-                    android:importantForAutofill="no"
-                    android:inputType=""
-                    android:paddingLeft="5dp"
-                    android:paddingStart="5dp" />
+                </LinearLayout>
 
-            </LinearLayout>
-
-            <RelativeLayout
-                android:id="@+id/rloaut_obmenik"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/list_obmenik"
+                <RelativeLayout
+                    android:id="@+id/rloaut_obmenik"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
 
-                <xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
-                    android:id="@+id/fast_scroller_obmenik"
-                    android:layout_width="20dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/list_obmenik"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
 
-                </xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller>
+                    <xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
+                        android:id="@+id/fast_scroller_obmenik"
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true">
+
+                    </xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller>
 
 
-            </RelativeLayout>
+                </RelativeLayout>
 
-        </LinearLayout>
-    </dmitriy.deomin.aimpradioplalist.custom.Fon_item>
-</RelativeLayout>
+            </LinearLayout>
+        </dmitriy.deomin.aimpradioplalist.custom.Fon_item>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -15,16 +15,14 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.google.firebase.firestore.FirebaseFirestore
+import com.kotlinpermissions.ifNotNullOrElse
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.obmenik.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.jetbrains.anko.hintTextColor
+import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
-import org.jetbrains.anko.share
-import org.jetbrains.anko.textColor
-import org.jetbrains.anko.toast
 
 class Obmenik : Activity() {
 
@@ -36,6 +34,8 @@ class Obmenik : Activity() {
         //во весь экран
         this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         val context: Context = this
+
+        fon_obmenik.backgroundColor = Main.COLOR_TEXTcontext
 
         val find = findViewById<EditText>(R.id.editText_find_obmennik)
         find.typeface = Main.face
@@ -75,8 +75,12 @@ class Obmenik : Activity() {
                             .addOnSuccessListener { result ->
 
                                 for (document in result) {
-                                    //  Log.d(TAG, "${document.id} => ${document.data}")
-                                    d.add(Radio(document.data["name"] as String, "", "", document.data["url"] as String))
+                                    d.add(Radio(
+                                            (if(document.data["name"]!=null){document.data["name"]}else{""}) as String,
+                                            (if(document.data["kat"]!=null){document.data["kat"]}else{""}) as String,
+                                            (if(document.data["kbps"]!=null){document.data["kbps"]}else{""}) as String,
+                                            (if(document.data["url"]!=null){document.data["url"]}else{""}) as String)
+                                    )
                                 }
 
                                 ao = Adapter_obmenik(d)
@@ -129,6 +133,8 @@ class Obmenik : Activity() {
             }
             val ed_name = menu_ob.view().findViewById<EditText>(R.id.editText_name_new)
             val ed_url = menu_ob.view().findViewById<EditText>(R.id.editText_url_new)
+            val ed_kat = menu_ob.view().findViewById<EditText>(R.id.editText_kategoria_new)
+            val ed_kbps = menu_ob.view().findViewById<EditText>(R.id.editText_kbps_new)
 
             (menu_ob.view().findViewById<Button>(R.id.button_paste_iz_bufera_obmenik)).onClick {
               ed_url.setText(Main.getText(context))
@@ -140,9 +146,24 @@ class Obmenik : Activity() {
                     context.toast("Введите данные")
                 } else {
 
+                    var kategoria = ""
+                    if(ed_kat.text.isNotEmpty()){
+                        kategoria = ed_kat.text.toString()
+                    }
+                    var kbps = ""
+                    if(ed_kbps.text.isNotEmpty()){
+                        kbps = ed_kbps.text.toString()
+                        if(!kbps.contains("kbps")){
+                            kbps += "kbps"
+                        }
+                    }
+
+
                     //добавление в базу
                     val db = FirebaseFirestore.getInstance()
                     val user = hashMapOf(
+                            "kat" to kategoria,
+                            "kbps" to kbps,
                             "name" to ed_name.text.toString(),
                             "url" to ed_url.text.toString()
                     )
