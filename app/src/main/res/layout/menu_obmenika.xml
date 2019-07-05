@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -84,56 +84,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
-            <EditText
-                android:id="@+id/editText_kategoria_new"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Тема,тип ссылки"
-                android:inputType="textPersonName" />
-
-            <EditText
-                android:id="@+id/editText_kbps_new"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Качество, kbps"
-                android:inputType="textPersonName" />
-
-            <EditText
-                android:id="@+id/editText_name_new"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Имя,название"
-                android:inputType="textPersonName" />
-
-            <EditText
-                android:id="@+id/editText_url_new"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="url,адрес потока"
-                android:inputType="textPersonName" />
-
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:id="@+id/button_paste_iz_bufera_obmenik"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:text="Вставить из буфера" />
-
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:id="@+id/button_add"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:text="Добавить станцию" />
 
         </LinearLayout>
     </dmitriy.deomin.aimpradioplalist.custom.Fon_item>

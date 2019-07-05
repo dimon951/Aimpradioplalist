@@ -63,8 +63,12 @@ class Obmenik : Activity() {
             when (it.getStringExtra("update")) {
 
                 "zaebis" -> {
+
+                    //напишем на кнопке что происходит
+                    button_menu_obmenik.text = "Загрузка.."
                     //включим анимацию
                     load_anim(true)
+
                     //очистим список если был
                     d.clear()
 
@@ -123,6 +127,33 @@ class Obmenik : Activity() {
 
         button_menu_obmenik.onClick {
             val menu_ob = DialogWindow(context, R.layout.menu_obmenika)
+
+            //имя и ид пользователя, нужны будут для удаления своих ссылок и оображении кто добавил
+            val ed_id_user = menu_ob.view().findViewById<EditText>(R.id.editText_id)
+            val ed_name_user = menu_ob.view().findViewById<EditText>(R.id.editText_name)
+
+            ed_id_user.typeface = Main.face
+            ed_id_user.textColor = Main.COLOR_TEXT
+            ed_id_user.hintTextColor = Main.COLOR_TEXTcontext
+
+            ed_name_user.typeface = Main.face
+            ed_name_user.textColor = Main.COLOR_TEXT
+            ed_name_user.hintTextColor = Main.COLOR_TEXTcontext
+
+            ed_id_user.setText(Main.ID_USER)
+            ed_name_user.setText(Main.NAME_USER)
+
+
+            // текст только что изменили
+            ed_id_user.addTextChangedListener(object : TextWatcher {
+                override fun afterTextChanged(s: Editable) {}
+                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(text: CharSequence, start: Int, before: Int, count: Int) {
+
+                }
+            })
+
+
             val user_dannie = (menu_ob.view().findViewById<LinearLayout>(R.id.liner_user_data))
             (menu_ob.view().findViewById<Button>(R.id.visible_user_data)).onClick {
                 if (user_dannie.visibility == View.VISIBLE) {
@@ -131,16 +162,41 @@ class Obmenik : Activity() {
                     user_dannie.visibility = View.VISIBLE
                 }
             }
-            val ed_name = menu_ob.view().findViewById<EditText>(R.id.editText_name_new)
-            val ed_url = menu_ob.view().findViewById<EditText>(R.id.editText_url_new)
-            val ed_kat = menu_ob.view().findViewById<EditText>(R.id.editText_kategoria_new)
-            val ed_kbps = menu_ob.view().findViewById<EditText>(R.id.editText_kbps_new)
+        }
 
-            (menu_ob.view().findViewById<Button>(R.id.button_paste_iz_bufera_obmenik)).onClick {
-              ed_url.setText(Main.getText(context))
+        button_add_new_obmenik.onClick {
+
+            val menu_add_new = DialogWindow(context, R.layout.add_new_url_obmenik)
+
+            val ed_name = menu_add_new.view().findViewById<EditText>(R.id.editText_name_new)
+            val ed_url = menu_add_new.view().findViewById<EditText>(R.id.editText_url_new)
+            val ed_kat = menu_add_new.view().findViewById<EditText>(R.id.editText_kategoria_new)
+            val ed_kbps = menu_add_new.view().findViewById<EditText>(R.id.editText_kbps_new)
+
+            ed_name.typeface = Main.face
+            ed_name.textColor = Main.COLOR_TEXT
+            ed_name.hintTextColor = Main.COLOR_TEXTcontext
+
+            ed_url.typeface = Main.face
+            ed_url.textColor = Main.COLOR_TEXT
+            ed_url.hintTextColor = Main.COLOR_TEXTcontext
+
+            ed_kat.typeface = Main.face
+            ed_kat.textColor = Main.COLOR_TEXT
+            ed_kat.hintTextColor = Main.COLOR_TEXTcontext
+
+            ed_kbps.typeface = Main.face
+            ed_kbps.textColor = Main.COLOR_TEXT
+            ed_kbps.hintTextColor = Main.COLOR_TEXTcontext
+
+
+
+
+            (menu_add_new.view().findViewById<Button>(R.id.button_paste_iz_bufera_obmenik)).onClick {
+                ed_url.setText(Main.getText(context))
             }
 
-            (menu_ob.view().findViewById<Button>(R.id.button_add)).onClick {
+            (menu_add_new.view().findViewById<Button>(R.id.button_add)).onClick {
 
                 if (ed_name.text.toString().length < 2 || ed_url.text.toString().length < 2) {
                     context.toast("Введите данные")
@@ -162,6 +218,8 @@ class Obmenik : Activity() {
                     //добавление в базу
                     val db = FirebaseFirestore.getInstance()
                     val user = hashMapOf(
+                            "user_name" to Main.NAME_USER,
+                            "user_id" to Main.ID_USER,
                             "kat" to kategoria,
                             "kbps" to kbps,
                             "name" to ed_name.text.toString(),
@@ -173,7 +231,7 @@ class Obmenik : Activity() {
                             .add(user)
                             .addOnSuccessListener { documentReference ->
                                 //  Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-                                menu_ob.close()
+                                menu_add_new.close()
                                 //если все пучком пошлём сигнал для обновления(пока всего плейлиста)
                                 signal("Obmennik").putExtra("update", "zaebis").send(context)
                             }
@@ -182,8 +240,6 @@ class Obmenik : Activity() {
                             }
                 }
             }
-
-
         }
 
         //пошлём сигнал для загрузки дааных п спискок
@@ -193,11 +249,9 @@ class Obmenik : Activity() {
 
     fun load_anim(b: Boolean) {
         if (b) {
-            button_menu_obmenik.visibility = View.GONE
             progressBar_load_obmenik.visibility = View.VISIBLE
         } else {
             progressBar_load_obmenik.visibility = View.GONE
-            button_menu_obmenik.visibility = View.VISIBLE
         }
     }
 }

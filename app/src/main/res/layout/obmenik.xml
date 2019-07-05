@@ -36,12 +36,26 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <dmitriy.deomin.aimpradioplalist.custom.Btn
-                        android:id="@+id/button_menu_obmenik"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:text="menu_imfo" />
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <dmitriy.deomin.aimpradioplalist.custom.Btn
+                            android:id="@+id/button_menu_obmenik"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:text="Button" />
+
+                        <dmitriy.deomin.aimpradioplalist.custom.Btn
+                            android:id="@+id/button_add_new_obmenik"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:background="@android:drawable/ic_input_add" />
+                    </LinearLayout>
 
                     <ProgressBar
                         android:id="@+id/progressBar_load_obmenik"

@@ -11,6 +11,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.os.StrictMode
+import android.telephony.TelephonyManager
 import androidx.core.app.*
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
@@ -77,6 +78,12 @@ class Main : FragmentActivity() {
 
         //толщина полосы прокрутки
         const val SIZE_WIDCH_SCROLL = 50
+
+        //Имя пользователя
+        var NAME_USER = ""
+
+        //ид пользователя
+        var ID_USER = ""
 
 
         //шрифт
@@ -565,6 +572,17 @@ class Main : FragmentActivity() {
         mSettings = getSharedPreferences("mysettings", Context.MODE_PRIVATE)
 
 
+        //данные пользователя
+        //имя загрузим из сохранялки, а id часть имайла
+        NAME_USER = save_read("name_user")
+        ID_USER = if (save_read("id_user").isEmpty()) {
+            rnd_int(10000,1000000).toString()
+        } else {
+            save_read("id_user")
+        }
+
+
+
         face = Typeface.createFromAsset(assets, if (save_read("fonts") == "") "fonts/Tweed.ttf" else save_read("fonts"))
         //ставим цвет фона(тема)
         //--------------------------------------------------------------------
@@ -849,9 +867,9 @@ class Main : FragmentActivity() {
         val file = File(ROOT)
         if (file.exists()) {
             val s = getDirSize(file)
-            if(s>SIZEFILETHEME){
-                b_c.text = "Очистить кэш(" + ( s/ 1024).toString() + " kb" + ")"
-            }else{
+            if (s > SIZEFILETHEME) {
+                b_c.text = "Очистить кэш(" + (s / 1024).toString() + " kb" + ")"
+            } else {
                 b_c.text = "Кэш очищен"
             }
         } else
@@ -859,11 +877,11 @@ class Main : FragmentActivity() {
 
         b_c.onClick {
 
-            if(b_c.text=="Кэш очищен"){
+            if (b_c.text == "Кэш очищен") {
 
                 context.toast("Пусто")
 
-            }else {
+            } else {
 
                 //покажем предупреждающее окошко
                 val v_d = DialogWindow(context, R.layout.dialog_delete_plalist)
@@ -901,7 +919,7 @@ class Main : FragmentActivity() {
 
     fun deleteAllFilesFolder(path: String) {
         for (myFile in File(path).listFiles())
-            if (myFile.isFile&&myFile.name!="theme.txt"&&myFile.name!="history_url.txt") myFile.delete()
+            if (myFile.isFile && myFile.name != "theme.txt" && myFile.name != "history_url.txt") myFile.delete()
     }
 
     fun getDirSize(dir: File): Long {
