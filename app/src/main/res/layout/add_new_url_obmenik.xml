@@ -70,14 +70,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:text="Вставить из буфера" />
+                android:text="Вставить из буфера url" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_add"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:text="Загрузить" />
+                android:text="Ок" />
 
         </LinearLayout>
     </dmitriy.deomin.aimpradioplalist.custom.Fon_item>

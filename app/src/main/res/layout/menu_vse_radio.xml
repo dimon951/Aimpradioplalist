@@ -24,11 +24,12 @@
         <dmitriy.deomin.aimpradioplalist.custom.Text
             android:id="@+id/textView_vse_radio"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:background="@null"
             android:gravity="center"
+            android:maxHeight="300dp"
             android:text="TextView"
             android:textSize="20sp"
             android:textStyle="normal|bold" />
@@ -66,6 +67,17 @@
                 android:textSize="16sp" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_load_list"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/dw_list"
+                android:textColor="@color/green"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_cshre"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="50dp"
@@ -95,6 +107,33 @@
                 android:textColor="@color/green"
                 android:textSize="16sp" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/liner_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_delete_admin"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:background="@android:drawable/ic_delete"
+                android:textColor="@color/green"
+                android:textSize="16sp" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_edit_admin"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:background="@android:drawable/ic_menu_edit"
+                android:textColor="@color/green"
+                android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 

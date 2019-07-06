@@ -2,7 +2,8 @@
 <dmitriy.deomin.aimpradioplalist.custom.Fon_item
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/fon_item_radio"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fon_item_radio"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="5dp"
@@ -19,160 +20,224 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:background="@null"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="10"
-            android:background="@null"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="3dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <dmitriy.deomin.aimpradioplalist.custom.Textcoontext
+                android:id="@+id/textcontextname"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:text="Имя:"
+                android:textSize="8sp" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="3dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@null"
                 android:orientation="horizontal">
-
-                <dmitriy.deomin.aimpradioplalist.custom.Textcoontext
-                    android:id="@+id/textcontextname"
-                    android:layout_width="25dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginLeft="3dp"
-                    android:text="Имя:"
-                    android:textSize="8sp" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:orientation="horizontal">
-
-                    <dmitriy.deomin.aimpradioplalist.custom.Text
-                        android:id="@+id/nomer_radio"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginLeft="4dp"
-                        android:background="@null"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <dmitriy.deomin.aimpradioplalist.custom.Text
-                        android:id="@+id/name_radio"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="4dp"
-                        android:layout_marginRight="4dp"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:text="TextView"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/liner_kbps"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <dmitriy.deomin.aimpradioplalist.custom.Textcoontext
-                    android:id="@+id/textcontextkbps"
-                    android:layout_width="25dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginLeft="3dp"
-                    android:text="Ка-во:"
-                    android:textSize="8sp" />
 
                 <dmitriy.deomin.aimpradioplalist.custom.Text
-                    android:id="@+id/kbps_radio"
+                    android:id="@+id/nomer_radio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
                     android:layout_marginLeft="4dp"
                     android:background="@null"
-                    android:text="TextView"
                     android:textColor="@android:color/black"
-                    android:textSize="10sp" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/liner_ganr"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <dmitriy.deomin.aimpradioplalist.custom.Textcoontext
-                    android:id="@+id/textcontextganr"
-                    android:layout_width="25dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginLeft="3dp"
-                    android:text="Тема:"
-                    android:textSize="8sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <dmitriy.deomin.aimpradioplalist.custom.Text
-                    android:id="@+id/ganr_radio"
+                    android:id="@+id/name_radio"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
+                    android:layout_marginEnd="4dp"
                     android:layout_marginRight="4dp"
                     android:layout_weight="1"
                     android:background="@null"
                     android:text="TextView"
                     android:textColor="@android:color/black"
-                    android:textSize="10sp" />
-
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
+        </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/liner_url"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/liner_kbps"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-                <dmitriy.deomin.aimpradioplalist.custom.Textcoontext
-                    android:id="@+id/textcontext_url"
-                    android:layout_width="25dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginLeft="3dp"
-                    android:text="Url:"
-                    android:textSize="8sp" />
+            <dmitriy.deomin.aimpradioplalist.custom.Textcoontext
+                android:id="@+id/textcontextkbps"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:text="Ка-во:"
+                android:textSize="8sp" />
 
-                <dmitriy.deomin.aimpradioplalist.custom.Text
-                    android:id="@+id/url_radio"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginRight="4dp"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:text="TextView"
-                    android:textColor="@android:color/black"
-                    android:textSize="10sp" />
-            </LinearLayout>
+            <dmitriy.deomin.aimpradioplalist.custom.Text
+                android:id="@+id/kbps_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:background="@null"
+                android:text="TextView"
+                android:textColor="@android:color/black"
+                android:textSize="10sp" />
+
 
         </LinearLayout>
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/liner_ganr"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
+            <dmitriy.deomin.aimpradioplalist.custom.Textcoontext
+                android:id="@+id/textcontextganr"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:text="Тема:"
+                android:textSize="8sp" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Text
+                android:id="@+id/ganr_radio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:text="TextView"
+                android:textColor="@android:color/black"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/liner_url"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <dmitriy.deomin.aimpradioplalist.custom.Textcoontext
+                android:id="@+id/textcontext_url"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:text="Url:"
+                android:textSize="8sp" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Text
+                android:id="@+id/user_name_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:text="TextView"
+                android:textColor="@android:color/black"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/liner_user_add_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <dmitriy.deomin.aimpradioplalist.custom.Textcoontext
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:text="Доб-л:"
+                android:textSize="8sp" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Text
+                android:id="@+id/user_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:text="TextView"
+                android:textColor="@android:color/black"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/liner_reiting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_komenty"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:background="@null"
+                android:text="Коментарий"
+                android:textSize="10sp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_dislake"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/dislike"
+                android:textSize="8sp" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_like"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/like"
+                android:textSize="8sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
 </dmitriy.deomin.aimpradioplalist.custom.Fon_item>

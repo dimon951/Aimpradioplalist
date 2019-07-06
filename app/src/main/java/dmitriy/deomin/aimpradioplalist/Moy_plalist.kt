@@ -190,7 +190,6 @@ class Moy_plalist : Fragment() {
                             update_list.visibility = View.GONE
                             list_move_history.clear()
                             open_file = ""
-                            (v.findViewById<Button>(R.id.button_open_online_plalist)).callOnClick()
                             return@onRun
                         }
                     } else {
@@ -302,7 +301,7 @@ class Moy_plalist : Fragment() {
                 list_move_history.clear()
                 list_move_history.add(Main.MY_PLALIST)
                 //загрузим начальный список
-                load_book_list(context, "https://dl.dropbox.com/s/sl4x8z3yth5v1u0/Radio.m3u", "")
+                Main.download_i_open_m3u_file("https://dl.dropbox.com/s/sl4x8z3yth5v1u0/Radio.m3u", "radio_plalisty")
             }
             (online_pls.view().findViewById<Button>(R.id.open_book)).onClick {
                 //закрываем окно
@@ -311,7 +310,7 @@ class Moy_plalist : Fragment() {
                 list_move_history.clear()
                 list_move_history.add(Main.MY_PLALIST)
                 //загрузим начальный список
-                load_book_list(context, "https://dl.dropbox.com/s/cd479dcdguk6cg6/Audio_book.m3u", "")
+                Main.download_i_open_m3u_file("https://dl.dropbox.com/s/cd479dcdguk6cg6/Audio_book.m3u", "audio_book")
             }
             (online_pls.view().findViewById<Button>(R.id.open_tv)).onClick {
                 //закрываем окно
@@ -320,7 +319,7 @@ class Moy_plalist : Fragment() {
                 list_move_history.clear()
                 list_move_history.add(Main.MY_PLALIST)
                 //загрузим начальный список
-                load_book_list(context, "https://dl.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u", "")
+                Main.download_i_open_m3u_file( "https://dl.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u", "tv_plalist")
             }
             (online_pls.view().findViewById<Button>(R.id.user_station)).onClick {
                 startActivity<Obmenik>()
@@ -918,7 +917,7 @@ class Moy_plalist : Fragment() {
                     //Имя файла, не особо важно не буду заморачиваться
                     var n = e_n.text.toString()
                     if (n.isEmpty()) {
-                        n = ""
+                        n = "file"+Main.rnd_int(1,100).toString()
                     }
 
                     save_mass.add("$n$$url_link$$date_time")
@@ -926,119 +925,12 @@ class Moy_plalist : Fragment() {
                     //----------------------------------------------------------
 
                     //-----------скачиваем файл (читам его)--------
-                    GlobalScope.launch {
-                        //запустим анимацию
-                        signal("Main_update").putExtra("signal", "start_anim_my_list").send(context)
-
-                        url_link.httpGet().responseString { request, response, result ->
-                            when (result) {
-                                is com.github.kittinunf.result.Result.Failure -> {
-                                    val ex = result.getException()
-                                    //если ошибка остановим анимацию и покажем ошибку
-                                    signal("Main_update").putExtra("signal", "stop_anim_my_list").send(context)
-                                    context.toast(ex.toString())
-                                }
-                                is com.github.kittinunf.result.Result.Success -> {
-                                    var data = result.get()
-
-                                    if (data.isNotEmpty()) {
-                                        //если там чтото есть сохраним все в Main.MY_PLALIST
-                                        //потом пошлётся сигнал чтобы мой плалист обновился
-
-                                        //когда прийдёт сигнал что все хорошо обновим плейлист
-                                        Slot(context, "File_created", false).onRun {
-                                            //получим данные
-                                            when (it.getStringExtra("update")) {
-                                                "zaebis" -> {
-                                                    //пошлём сигнал пусть мой плейлист обновится
-                                                    signal("Data_add").putExtra("update", "zaebis").send(context)
-                                                }
-                                                "pizdec" -> {
-                                                    context.toast(context.getString(R.string.error))
-                                                    //запросим разрешения
-                                                    Main.EbuchieRazreshenia()
-                                                }
-                                            }
-                                        }
-                                        //если есть удалим ебучий тег в начале файла
-                                        if (str_old.length > 7) {
-                                            data = data.replace("#EXTM3U", "")
-                                        }
-                                        //поехали , сохраняем  и ждём сигналы
-                                        file_function.SaveFile(Main.MY_PLALIST, str_old + data)
-                                    } else {
-                                        //если нечего нет остановим анимацию и скажем что там пусто
-                                        signal("Main_update").putExtra("signal", "stop_anim_my_list").send(context)
-                                        context.toast("ошибка,пусто")
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    //--------------------------------------------------------
+                    Main.download_i_open_m3u_file(url_link,n)
                 }
             }
-
-            //
-
-
         }
         //--------------------------------------------------------------------------------------
     }
-
-    private fun load_book_list(context: Context, url_link: String, str_old: String) {
-        GlobalScope.launch {
-            //запустим анимацию
-            signal("Main_update").putExtra("signal", "start_anim_my_list").send(context)
-
-            url_link.httpGet().responseString { request, response, result ->
-                when (result) {
-                    is com.github.kittinunf.result.Result.Failure -> {
-                        val ex = result.getException()
-                        //если ошибка остановим анимацию и покажем ошибку
-                        signal("Main_update").putExtra("signal", "stop_anim_my_list").send(context)
-                        context.toast(ex.toString())
-                    }
-                    is com.github.kittinunf.result.Result.Success -> {
-                        var data = result.get()
-
-                        if (data.isNotEmpty()) {
-                            //если там чтото есть сохраним все в Main.MY_PLALIST
-                            //потом пошлётся сигнал чтобы мой плалист обновился
-
-                            //когда прийдёт сигнал что все хорошо обновим плейлист
-                            Slot(context, "File_created", false).onRun {
-                                //получим данные
-                                when (it.getStringExtra("update")) {
-                                    "zaebis" -> {
-                                        //пошлём сигнал пусть мой плейлист обновится
-                                        signal("Data_add").putExtra("update", "zaebis").send(context)
-                                    }
-                                    "pizdec" -> {
-                                        context.toast(context.getString(R.string.error))
-                                        //запросим разрешения
-                                        Main.EbuchieRazreshenia()
-                                    }
-                                }
-                            }
-                            //если есть удалим ебучий тег в начале файла
-                            if (str_old.length > 7) {
-                                data = data.replace("#EXTM3U", "")
-                            }
-                            val file_function = File_function()
-                            //поехали , сохраняем  и ждём сигналы
-                            file_function.SaveFile(Main.MY_PLALIST, str_old + data)
-                        } else {
-                            //если нечего нет остановим анимацию и скажем что там пусто
-                            signal("Main_update").putExtra("signal", "stop_anim_my_list").send(context)
-                            context.toast("ошибка,пусто")
-                        }
-                    }
-                }
-            }
-        }
-    }
-
 }
 
 //===========================Адаптер к спику истории ссылок=============================================================

@@ -23,6 +23,9 @@ import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class Obmenik : Activity() {
 
@@ -75,6 +78,7 @@ class Obmenik : Activity() {
                     //-----------------получаем список из базы------------------------------------
                     val db = FirebaseFirestore.getInstance()
                     db.collection("radio_obmenik")
+                            .orderBy("date")
                             .get()
                             .addOnSuccessListener { result ->
 
@@ -83,9 +87,15 @@ class Obmenik : Activity() {
                                             (if(document.data["name"]!=null){document.data["name"]}else{""}) as String,
                                             (if(document.data["kat"]!=null){document.data["kat"]}else{""}) as String,
                                             (if(document.data["kbps"]!=null){document.data["kbps"]}else{""}) as String,
-                                            (if(document.data["url"]!=null){document.data["url"]}else{""}) as String)
+                                            (if(document.data["url"]!=null){document.data["url"]}else{""}) as String,
+                                            (if(document.data["user_name"]!=null){document.data["user_name"]}else{""}) as String,
+                                            (if(document.data["user_id"]!=null){document.data["user_id"]}else{""}) as String,
+                                            (document.id))
                                     )
                                 }
+
+                                //перевернём список
+                                d.reverse()
 
                                 ao = Adapter_obmenik(d)
                                 recikl_list.adapter = ao
@@ -144,16 +154,6 @@ class Obmenik : Activity() {
             ed_name_user.setText(Main.NAME_USER)
 
 
-            // текст только что изменили
-            ed_id_user.addTextChangedListener(object : TextWatcher {
-                override fun afterTextChanged(s: Editable) {}
-                override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-                override fun onTextChanged(text: CharSequence, start: Int, before: Int, count: Int) {
-
-                }
-            })
-
-
             val user_dannie = (menu_ob.view().findViewById<LinearLayout>(R.id.liner_user_data))
             (menu_ob.view().findViewById<Button>(R.id.visible_user_data)).onClick {
                 if (user_dannie.visibility == View.VISIBLE) {
@@ -162,6 +162,30 @@ class Obmenik : Activity() {
                     user_dannie.visibility = View.VISIBLE
                 }
             }
+
+            (menu_ob.view().findViewById<Button>(R.id.button_save_user_dannie)).onClick {
+
+                //id важно будем спрашивать и проверяь
+                if(ed_id_user.text.toString()!=Main.ID_USER){
+                    if(ed_id_user.text.toString().length<4){
+                        context.toast("Id должен быть не меньше 4-х символов")
+                    }else{
+                        alert( "При смене Id Вы потеряете ранее добавленнные ссылки","Внимание") {
+                            yesButton {
+                                Main.ID_USER=ed_id_user.text.toString()
+                                Main.save_value("id_user",Main.ID_USER)
+                                toast("Готово") }
+                            noButton {}
+                        }.show()
+
+                    }
+                }
+                //на имя пофиг пусть ставят любое
+                Main.NAME_USER = ed_name_user.text.toString()
+                Main.save_value("name_user",Main.NAME_USER)
+            }
+
+
         }
 
         button_add_new_obmenik.onClick {
@@ -198,7 +222,7 @@ class Obmenik : Activity() {
 
             (menu_add_new.view().findViewById<Button>(R.id.button_add)).onClick {
 
-                if (ed_name.text.toString().length < 2 || ed_url.text.toString().length < 2) {
+                if (ed_name.text.toString().isEmpty() || ed_url.text.toString().isEmpty()) {
                     context.toast("Введите данные")
                 } else {
 
@@ -214,10 +238,14 @@ class Obmenik : Activity() {
                         }
                     }
 
+                    val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+                    val currentDate = sdf.format(Date())
+
 
                     //добавление в базу
                     val db = FirebaseFirestore.getInstance()
                     val user = hashMapOf(
+                            "date" to currentDate,
                             "user_name" to Main.NAME_USER,
                             "user_id" to Main.ID_USER,
                             "kat" to kategoria,

@@ -1,6 +1,12 @@
 package dmitriy.deomin.aimpradioplalist.custom
 
-data class Radio(val name: String, val kategory:String="", val kbps:String = "",val url:String)
+data class Radio(val name: String,
+                 val kategory: String = "",
+                 val kbps: String = "",
+                 val url: String,
+                 val user_name: String = "",
+                 val id_user: String = "",
+                 val id:String="")
 
 data class Link(val kbps: String, val url: String)
 
@@ -12,7 +18,7 @@ data class RadioPop(val name: String,
                     val link4: Link,
                     val link5: Link)
 
-data class Theme(val name:String,val fon:Int,val item:Int,val text:Int,val text_context:Int)
+data class Theme(val name: String, val fon: Int, val item: Int, val text: Int, val text_context: Int)
 
-data class History(val name:String,val url:String,val data_time:String)
+data class History(val name: String, val url: String, val data_time: String)
 

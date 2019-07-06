@@ -3,8 +3,6 @@ package dmitriy.deomin.aimpradioplalist
 import android.annotation.SuppressLint
 import android.content.*
 import android.graphics.Color
-import androidx.cardview.widget.CardView
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -67,7 +65,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
     class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         val name_radio = itemView.findViewById<TextView>(R.id.name_radio)
         val nomer_radio = itemView.findViewById<TextView>(R.id.nomer_radio)
-        val url_radio = itemView.findViewById<TextView>(R.id.url_radio)
+        val url_radio = itemView.findViewById<TextView>(R.id.user_name_info)
         val fon = itemView.findViewById<androidx.cardview.widget.CardView>(R.id.fon_item_radio)
         val ganr = itemView.findViewById<TextView>(R.id.ganr_radio)
         val liner_kbps = itemView.findViewById<LinearLayout>(R.id.liner_kbps)

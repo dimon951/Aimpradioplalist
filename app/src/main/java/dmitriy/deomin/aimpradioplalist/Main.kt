@@ -25,12 +25,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.github.kittinunf.fuel.httpGet
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.kotlinpermissions.KotlinPermissions
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.main.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
@@ -84,6 +87,9 @@ class Main : FragmentActivity() {
 
         //ид пользователя
         var ID_USER = ""
+
+
+        //
 
 
         //шрифт
@@ -518,6 +524,62 @@ class Main : FragmentActivity() {
         }
 
 
+        fun download_i_open_m3u_file(url:String,name:String){
+            //-----------скачиваем файл (читам его)--------
+            GlobalScope.launch {
+                //запустим анимацию
+                signal("Main_update").putExtra("signal","start_anim_my_list").send(context)
+
+                url.httpGet().responseString { request, response, result ->
+                    when (result) {
+                        is com.github.kittinunf.result.Result.Failure -> {
+                            val ex = result.getException()
+                            //если ошибка остановим анимацию и покажем ошибку
+                            signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
+                            context.toast(ex.toString())
+                        }
+                        is com.github.kittinunf.result.Result.Success -> {
+                            val data = result.get()
+
+                            if (data.isNotEmpty()) {
+
+                                val listfile = Main.ROOT+name.replace("<List>","")+".m3u"
+
+                                //когда прийдёт сигнал что все хорошо обновим плейлист
+                                Slot(context, "File_created", false).onRun {
+                                    //получим данные
+                                    when (it.getStringExtra("update")) {
+                                        "zaebis" -> {
+                                            //пошлём сигнал пусть мой плейлист обновится
+                                            signal("Data_add")
+                                                    .putExtra("update", "zaebis")
+                                                    .putExtra("listfile",listfile)
+                                                    .send(context)
+                                        }
+                                        "pizdec" -> {
+                                            context.toast(context.getString(R.string.error))
+                                            //запросим разрешения
+                                            Main.EbuchieRazreshenia()
+                                        }
+                                    }
+                                }
+
+                                val file_function=File_function()
+                                //поехали , сохраняем  и ждём сигналы
+                                file_function.SaveFile(listfile,data)
+                            }else{
+                                //если нечего нет остановим анимацию и скажем что там пусто
+                                signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
+                                context.toast("ошибка,пусто")
+                            }
+                        }
+                    }
+                }
+            }
+            //--------------------------------------------------------
+        }
+
+
         @JvmStatic
         fun EbuchieRazreshenia() {
 
@@ -573,13 +635,18 @@ class Main : FragmentActivity() {
 
 
         //данные пользователя
+        //---------------------------------------------------------
         //имя загрузим из сохранялки, а id часть имайла
         NAME_USER = save_read("name_user")
-        ID_USER = if (save_read("id_user").isEmpty()) {
-            rnd_int(10000,1000000).toString()
+        if (save_read("id_user").isEmpty()) {
+            //при первом запуске программы усановим рандомный ид
+            ID_USER = rnd_int(1000000, 10000000).toString()
+            //и сохраним его
+            save_value("id_user", ID_USER)
         } else {
-            save_read("id_user")
+            ID_USER = save_read("id_user")
         }
+        //-----------------------------------------------------
 
 
 

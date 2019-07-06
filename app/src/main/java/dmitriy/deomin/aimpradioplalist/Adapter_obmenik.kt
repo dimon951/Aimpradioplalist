@@ -1,4 +1,5 @@
 package dmitriy.deomin.aimpradioplalist
+
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,16 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
-import com.github.kittinunf.fuel.httpGet
+import com.google.firebase.firestore.FirebaseFirestore
 import dmitriy.deomin.aimpradioplalist.custom.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import org.jetbrains.anko.hintTextColor
+import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
-import org.jetbrains.anko.share
-import org.jetbrains.anko.textColor
-import org.jetbrains.anko.toast
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_obmenik.ViewHolder>(), Filterable {
 
@@ -60,13 +59,18 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
     class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         val name_radio = itemView.findViewById<TextView>(R.id.name_radio)
         val nomer_radio = itemView.findViewById<TextView>(R.id.nomer_radio)
-        val url_radio = itemView.findViewById<TextView>(R.id.url_radio)
+        val url_radio = itemView.findViewById<TextView>(R.id.user_name_info)
         val fon = itemView.findViewById<androidx.cardview.widget.CardView>(R.id.fon_item_radio)
         val kbps = itemView.findViewById<TextView>(R.id.kbps_radio)
         val ganr = itemView.findViewById<TextView>(R.id.ganr_radio)
         val liner_kbps = itemView.findViewById<LinearLayout>(R.id.liner_kbps)
         val liner_ganr = itemView.findViewById<LinearLayout>(R.id.liner_ganr)
         val liner_url = itemView.findViewById<LinearLayout>(R.id.liner_url)
+
+        //
+        val liner_user = itemView.findViewById<LinearLayout>(R.id.liner_user_add_info)
+        val user_name = itemView.findViewById<TextView>(R.id.user_name)
+
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
@@ -93,7 +97,9 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
         }
 
         //из названия будем удалять тип ссылки
-        p0.name_radio.text = radio.name.replace("<List>", "")
+        val name = radio.name.replace("<List>", "")
+        p0.name_radio.text = name
+
 
         if (radio.url.isNotEmpty()) {
             p0.liner_url.visibility = View.VISIBLE
@@ -122,283 +128,205 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
         } else {
             p0.liner_ganr.visibility = View.GONE
         }
+        //имя кто добавил ссылку
+        if (radio.user_name.isNotEmpty()) {
+            p0.liner_user.visibility = View.VISIBLE
+            p0.user_name.text = radio.user_name
+        } else {
+            p0.liner_user.visibility = View.GONE
+        }
 
-
+        //обработка нажатий
         //обработка нажатий
         p0.itemView.onClick {
             p0.fon.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
 
-            //сохраняем позицию текушею списка
-            Moy_plalist.position_list = p1
+            val mvr = DialogWindow(context, R.layout.menu_vse_radio)
 
-            //=============================================================================================
-            //общее окошко с кнопками удалить,переименовать
-            val empid = DialogWindow(context, R.layout.edit_my_plalist_item_dialog)
+            val add_pls = mvr.view().findViewById<Button>(R.id.button_add_plalist)
+            val open_aimp = mvr.view().findViewById<Button>(R.id.button_open_aimp)
+            val share = mvr.view().findViewById<Button>(R.id.button_cshre)
+            val instal_aimp = mvr.view().findViewById<Button>(R.id.button_instal_aimp)
+            val instal_aimp2 = mvr.view().findViewById<Button>(R.id.button_download_yandex_aimp)
+            //
+            val liner_admin = mvr.view().findViewById<LinearLayout>(R.id.liner_admin)
+            val btn_del = mvr.view().findViewById<Button>(R.id.button_delete_admin)
+            val btn_edit = mvr.view().findViewById<Button>(R.id.button_edit_admin)
 
-            //кнопка удалить
-            //------------------------------------------------------------------------------
-            (empid.view().findViewById<Button>(R.id.del)).onClick {
-
-                //закрываем основное окошко
-                empid.close()
-
-                //получаем выбранную строку
-                val selectedItem = radio.name + "\n" + radio.url
-
-                //покажем окошко с вопросом подтверждения удаления
-                val dds = DialogWindow(context, R.layout.dialog_delete_stancii)
-
-                (dds.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)).text = "Точно удалить? \n$selectedItem"
-
-                (dds.view().findViewById<Button>(R.id.button_dialog_delete)).onClick {
-
-                    Slot(context, "File_created", false).onRun {
-                        //получим данные
-                        when (it.getStringExtra("update")) {
-                            //пошлём сигнал пусть мой плейлист обновится
-                            "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
-                            "pizdec" -> {
-                                context.toast(context.getString(R.string.error))
-                                //запросим разрешения
-                                Main.EbuchieRazreshenia()
-                            }
-                        }
-                    }
-
-                    //поехали ,удаляем и ждём сигналы
-                    val file_function = File_function()
-                    file_function.Delet_one_potok(selectedItem,Moy_plalist.open_file)
-                    //закроем окошко
-                    dds.close()
-                }
-
-                //кнопка отмены удаления
-                (dds.view().findViewById<Button>(R.id.button_dialog_no)).onClick {
-                    //закроем окошко
-                    dds.close()
-                }
-            }
-            //--------------------------------------------------------------------------------------------------
-
-            //кнопка переименовать
-            val btn_renem = empid.view().findViewById<Button>(R.id.reneme)
-            btn_renem.onClick {
-
-                //закрываем основное окошко
-                empid.close()
-
-                //показываем окошко ввода нового имени
-                val nsf = DialogWindow(context, R.layout.name_save_file)
-
-                val edit = nsf.view().findViewById<EditText>(R.id.edit_new_name)
-                edit.typeface = Main.face
-                edit.textColor = Main.COLOR_TEXT
-                edit.hintTextColor = Main.COLOR_TEXTcontext
-                edit.hint = radio.name
-                edit.setText(radio.name)
-
-                //переименовываем
-                (nsf.view().findViewById<Button>(R.id.button_save)).onClick {
-
-                    //проверим на пустоту
-                    if (edit.text.toString().isNotEmpty()) {
-
-                        //если все хорошо закрываем окошко ввода имени
-                        nsf.close()
-
-                        Slot(context, "File_created", false).onRun {
-                            //получим данные
-                            val s = it.getStringExtra("update")
-                            when (s) {
-                                //пошлём сигнал пусть мой плейлист обновится
-                                "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
-                                "pizdec" -> {
-                                    context.toast(context.getString(R.string.error))
-                                    //запросим разрешения
-                                    Main.EbuchieRazreshenia()
-                                }
-                            }
-                        }
-
-                        //делаем
-                        val file_function = File_function()
-                        file_function.Rename_potok(radio.name + "\n" + radio.url, edit.text.toString() + "\n" + radio.url,Moy_plalist.open_file)
-                    } else {
-                        //закрываем окошко
-                        nsf.close()
-                        context.toast("Оставим как было")
-                    }
-                }
-            }
-
-            //при долгон нажатии будем копироваь имя в буфер
-            btn_renem.onLongClick {
-                Main.putText(radio.name, context)
-                context.toast("Имя скопировано в буфер")
-            }
-
-            //покажем кнопку изменить url  и при клике будем предлогать изменить адрес
-            //при долгом нажатии будем копировать в буфер
-            //--------------------------------------------------------------------------------
-            val btn_url = empid.view().findViewById<Button>(R.id.reneme_url)
-            btn_url.visibility = View.VISIBLE
-            btn_url.onClick {
-                //закрываем основное окошко
-                empid.close()
-
-                //показываем окошко ввода нового имени
-                val nsf = DialogWindow(context, R.layout.name_save_file)
-
-                //меняем заголовок окна
-                ((nsf.view().findViewById<TextView>(R.id.textView_vvedite_name))).text = "Изменить URL"
-
-                val edit = nsf.view().findViewById<EditText>(R.id.edit_new_name)
-                edit.typeface = Main.face
-                edit.textColor = Main.COLOR_TEXT
-                edit.hintTextColor = Main.COLOR_TEXTcontext
-                edit.hint = radio.url
-                edit.setText(radio.url)
-
-                //переименовываем
-                (nsf.view().findViewById<Button>(R.id.button_save)).onClick {
-
-                    //проверим на пустоту
-                    if (edit.text.toString().isNotEmpty()) {
-
-                        //если все хорошо закрываем окошко ввода имени
-                        nsf.close()
-
-                        Slot(context, "File_created", false).onRun {
-                            //получим данные
-                            val s = it.getStringExtra("update")
-                            when (s) {
-                                //пошлём сигнал пусть мой плейлист обновится
-                                "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
-                                "pizdec" -> {
-                                    context.toast(context.getString(R.string.error))
-                                    //запросим разрешения
-                                    Main.EbuchieRazreshenia()
-                                }
-                            }
-                        }
-
-                        //делаем
-                        val file_function = File_function()
-                        file_function.Rename_potok(radio.name + "\n" + radio.url, radio.name + "\n" + edit.text.toString(),Moy_plalist.open_file)
-                    } else {
-                        //закрываем окошко
-                        nsf.close()
-                        context.toast("Оставим как было")
-                    }
-                }
-            }
-            btn_url.onLongClick {
-                Main.putText(radio.url, context)
-                context.toast("Url скопирован в буфер")
-            }
-            //-------------------------------------------------------------------------
-
-
-            val playAimp = empid.view().findViewById<Button>(R.id.open_aimp_my_list_one)
-            val playSystem = empid.view().findViewById<Button>(R.id.open_aimp_my_list_one)
-            val loadlist = empid.view().findViewById<Button>(R.id.loadlist)
-
-            //если текуший элемент список ссылок
-            if (radio.name.contains("<List>")) {
-                //скроем кнопки открытия в плеере
-                playAimp.visibility = View.GONE
-                playSystem.visibility = View.GONE
-                //покажем кнопку загрузки списка
-                loadlist.visibility = View.VISIBLE
-
+            //если эту ссылку добавлял пользователь покажем понель редактирования
+            if (radio.id_user == Main.ID_USER) {
+                liner_admin.visibility = View.VISIBLE
             } else {
-                //иначе покажем
-                playAimp.visibility = View.VISIBLE
-                playSystem.visibility = View.VISIBLE
-                //скроем кнопку загрузки списка
-                loadlist.visibility = View.GONE
+                liner_admin.visibility = View.GONE
             }
 
-            //открыть в аимп
-            playAimp.onClick {
-                //закрываем основное окошко
-                empid.close()
-                Main.play_aimp(radio.name, radio.url)
-            }
-            //открыть в сстеме
-            playSystem.onLongClick {
-                //закрываем основное окошко
-                empid.close()
-                Main.play_system(radio.name, radio.url)
-            }
-
-            //поделится
-            (empid.view().findViewById<Button>(R.id.shareaimp_my_list_one)).onClick {
-                //закрываем основное окошко
-                empid.close()
-                context.share(radio.name, radio.url)
+            btn_del.onClick {
+                context.alert("Удалить ссылку?", "Внимание") {
+                    yesButton {
+                        val db = FirebaseFirestore.getInstance()
+                        db.collection("radio_obmenik").document(radio.id).delete()
+                        //пошлём сигнал для загрузки дааных п спискок
+                        signal("Obmennik").putExtra("update", "zaebis").send(context)
+                        mvr.close()
+                    }
+                    noButton {}
+                }.show()
             }
 
-            //загрузить список
-            loadlist.onClick {
+            //для кнопки редактирования мы откроем форму добавления новой ссылки с подставлеными данными
+            //при сохраниении удалим старую и запишем новую
+            btn_edit.onClick {
 
-                //закрываем основное окошко
-                empid.close()
+                mvr.close()
 
-                //-----------скачиваем файл (читам его)--------
-                GlobalScope.launch {
-                    //запустим анимацию
-                    signal("Main_update").putExtra("signal","start_anim_my_list").send(context)
+                val menu_add_new = DialogWindow(context, R.layout.add_new_url_obmenik)
 
-                    radio.url.httpGet().responseString { request, response, result ->
-                        when (result) {
-                            is com.github.kittinunf.result.Result.Failure -> {
-                                val ex = result.getException()
-                                //если ошибка остановим анимацию и покажем ошибку
-                                signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
-                                context.toast(ex.toString())
-                            }
-                            is com.github.kittinunf.result.Result.Success -> {
-                                val data = result.get()
+                val ed_name = menu_add_new.view().findViewById<EditText>(R.id.editText_name_new)
+                val ed_url = menu_add_new.view().findViewById<EditText>(R.id.editText_url_new)
+                val ed_kat = menu_add_new.view().findViewById<EditText>(R.id.editText_kategoria_new)
+                val ed_kbps = menu_add_new.view().findViewById<EditText>(R.id.editText_kbps_new)
 
-                                if (data.isNotEmpty()) {
+                ed_name.typeface = Main.face
+                ed_name.textColor = Main.COLOR_TEXT
+                ed_name.hintTextColor = Main.COLOR_TEXTcontext
 
-                                    val listfile = Main.ROOT+radio.name.replace("<List>","")+".m3u"
+                ed_url.typeface = Main.face
+                ed_url.textColor = Main.COLOR_TEXT
+                ed_url.hintTextColor = Main.COLOR_TEXTcontext
 
-                                    //когда прийдёт сигнал что все хорошо обновим плейлист
-                                    Slot(context, "File_created", false).onRun {
-                                        //получим данные
-                                        when (it.getStringExtra("update")) {
-                                            "zaebis" -> {
-                                                //пошлём сигнал пусть мой плейлист обновится
-                                                signal("Data_add")
-                                                        .putExtra("update", "zaebis")
-                                                        .putExtra("listfile",listfile)
-                                                        .send(context)
-                                            }
-                                            "pizdec" -> {
-                                                context.toast(context.getString(R.string.error))
-                                                //запросим разрешения
-                                                Main.EbuchieRazreshenia()
-                                            }
-                                        }
-                                    }
+                ed_kat.typeface = Main.face
+                ed_kat.textColor = Main.COLOR_TEXT
+                ed_kat.hintTextColor = Main.COLOR_TEXTcontext
 
-                                    val file_function=File_function()
-                                    //поехали , сохраняем  и ждём сигналы
-                                    file_function.SaveFile(listfile,data)
-                                }else{
-                                    //если нечего нет остановим анимацию и скажем что там пусто
-                                    signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
-                                    context.toast("ошибка,пусто")
-                                }
+                ed_kbps.typeface = Main.face
+                ed_kbps.textColor = Main.COLOR_TEXT
+                ed_kbps.hintTextColor = Main.COLOR_TEXTcontext
+
+
+                ed_name.setText(radio.name)
+                ed_url.setText(radio.url)
+                ed_kbps.setText(radio.kbps)
+                ed_kat.setText(radio.kategory)
+
+
+                (menu_add_new.view().findViewById<Button>(R.id.button_paste_iz_bufera_obmenik)).onClick {
+                    ed_url.setText(Main.getText(context))
+                }
+
+                (menu_add_new.view().findViewById<Button>(R.id.button_add)).onClick {
+
+                    if (ed_name.text.toString().isEmpty() || ed_url.text.toString().isEmpty()) {
+                        context.toast("Введите данные")
+                    } else {
+                        //удаляем старую
+                        val db = FirebaseFirestore.getInstance()
+                        db.collection("radio_obmenik").document(radio.id).delete()
+
+                        //добавляем исправленый вариант
+                        var kategoria = ""
+                        if (ed_kat.text.isNotEmpty()) {
+                            kategoria = ed_kat.text.toString()
+                        }
+                        var kbps = ""
+                        if (ed_kbps.text.isNotEmpty()) {
+                            kbps = ed_kbps.text.toString()
+                            if (!kbps.contains("kbps")) {
+                                kbps += "kbps"
                             }
                         }
+
+                        val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+                        val currentDate = sdf.format(Date())
+
+
+                        //добавление в базу
+                        val user = hashMapOf(
+                                "date" to currentDate,
+                                "user_name" to Main.NAME_USER,
+                                "user_id" to Main.ID_USER,
+                                "kat" to kategoria,
+                                "kbps" to kbps,
+                                "name" to ed_name.text.toString(),
+                                "url" to ed_url.text.toString()
+                        )
+
+                        // Add a new document with a generated ID
+                        db.collection("radio_obmenik")
+                                .add(user)
+                                .addOnSuccessListener { documentReference ->
+                                    //  Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                                    menu_add_new.close()
+                                    //если все пучком пошлём сигнал для обновления(пока всего плейлиста)
+                                    signal("Obmennik").putExtra("update", "zaebis").send(context)
+                                }
+                                .addOnFailureListener { e ->
+                                    context.toast(e.toString())
+                                }
                     }
                 }
-                //--------------------------------------------------------
             }
-            //=============================================================================================
+
+
+            //если aimp установлен скроем кнопку установить аимп
+            if (Main.install_app("com.aimp.player")) {
+                instal_aimp.visibility = View.GONE
+                instal_aimp2.visibility = View.GONE
+                open_aimp.visibility = View.VISIBLE
+            } else {
+                //если есть магазин покажем и установку через него
+                if (Main.install_app("com.google.android.gms")) {
+                    instal_aimp.visibility = View.VISIBLE
+                } else {
+                    instal_aimp.visibility = View.GONE
+                }
+
+                //скачать по ссылке будем показывать всегда
+                instal_aimp2.visibility = View.VISIBLE
+                open_aimp.visibility = View.GONE
+
+            }
+
+            //Имя и урл выбраной станции , при клике будем копировать урл в буфер
+            val text_name_i_url = mvr.view().findViewById<TextView>(R.id.textView_vse_radio)
+            text_name_i_url.text = name + "\n" + radio.url
+            text_name_i_url.onClick {
+                text_name_i_url.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+                Main.putText(radio.url, context)
+                context.toast("url скопирован в буфер")
+            }
+
+
+            open_aimp.onLongClick {
+                Main.play_system(name, radio.url)
+            }
+
+            instal_aimp.onClick {
+                context.browse("market://details?id=com.aimp.player")
+            }
+
+            instal_aimp2.onClick {
+                context.browse(Main.LINK_DOWLOAD_AIMP)
+            }
+
+            add_pls.onClick {
+                Main.add_myplalist(name, radio.url)
+                mvr.close()
+            }
+
+            share.onClick {
+                //сосавим строчку как в m3u вайле
+                context.share(name + "\n" + radio.url)
+            }
+            share.onLongClick {
+                context.email("deomindmitriy@gmail.com", "aimp_radio_plalist", name + "\n" + radio.url)
+            }
+
+            open_aimp.onClick {
+                Main.play_aimp(name, radio.url)
+                mvr.close()
+            }
         }
+
+
     }
 }
