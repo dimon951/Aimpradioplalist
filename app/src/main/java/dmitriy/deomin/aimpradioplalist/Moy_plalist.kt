@@ -182,19 +182,25 @@ class Moy_plalist : Fragment() {
                     //если в истории чтото есть вообще
                     if (list_move_history.isNotEmpty()) {
                         //скажем загрузить последний открытый файл
-                        if (list_move_history.size > 1) {
-                            //и удалим последний элемент
-                            list_move_history.removeAt(list_move_history.size - 1)
-                            open_file = list_move_history[list_move_history.size - 1]
+                        if (list_move_history.size >= 1) {
+                            //и удалим последний элемент если там больше 1
+                            open_file = if(list_move_history.size == 1){
+                                Main.MY_PLALIST
+                            }else{
+                                list_move_history.removeAt(list_move_history.size - 1)
+                                list_move_history[list_move_history.size - 1]
+                            }
+                            if(open_file==Main.MY_PLALIST){
+                                update_list.visibility = View.GONE
+                                list_move_history.clear()
+                            }
+
                         } else {
                             update_list.visibility = View.GONE
                             list_move_history.clear()
                             open_file = ""
                             return@onRun
                         }
-                    } else {
-                        (v.findViewById<Button>(R.id.button_open_online_plalist)).callOnClick()
-                        update_list.visibility = View.GONE
                     }
 
 

@@ -92,12 +92,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
         }
 
         //из названия будем удалять тип ссылки
-        p0.name_radio.text = radio.name
-                .replace("<List>", "")
-             //   .replace(".","\n")//и добавим переносов
-
-
-
+        p0.name_radio.text = radio.name.replace("<List>", "")
 
 
         if (radio.url.isNotEmpty()) {
@@ -136,10 +131,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             //сохраняем позицию текушею списка
             Moy_plalist.position_list = p1
 
-
-            Log.e("ttt",Moy_plalist.open_file)
-
-            if(Moy_plalist.open_file==""){
+            if(Moy_plalist.open_file==""||Moy_plalist.open_file==Main.MY_PLALIST){
                 //=============================================================================================
                 //общее окошко с кнопками удалить,переименовать
                 val empid = DialogWindow(context, R.layout.edit_my_plalist_item_dialog)
@@ -312,6 +304,8 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                 val playSystem = empid.view().findViewById<Button>(R.id.open_aimp_my_list_one)
                 val loadlist = empid.view().findViewById<Button>(R.id.loadlist)
 
+
+
                 //если текуший элемент список ссылок
                 if (radio.name.contains("<List>")) {
                     //скроем кнопки открытия в плеере
@@ -350,10 +344,8 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
 
                 //загрузить список
                 loadlist.onClick {
-
                     //закрываем основное окошко
                     empid.close()
-
                     Main.download_i_open_m3u_file(radio.url,radio.name)
                 }
             }else{
@@ -382,11 +374,9 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                     } else {
                         instal_aimp.visibility = View.GONE
                     }
-
                     //скачать по ссылке будем показывать всегда
                     instal_aimp2.visibility = View.VISIBLE
                     open_aimp.visibility = View.GONE
-
                 }
 
                 //Имя и урл выбраной станции , при клике будем копировать урл в буфер
@@ -417,16 +407,16 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                 }
 
                 add_pls.onClick {
-                    Main.add_myplalist(name, radio.url)
+                    Main.add_myplalist(radio.name, radio.url)
                     mvr.close()
                 }
 
                 share.onClick {
                     //сосавим строчку как в m3u вайле
-                    context.share(name + "\n" + radio.url)
+                    context.share(radio.name + "\n" + radio.url)
                 }
                 share.onLongClick {
-                    context.email("deomindmitriy@gmail.com", "aimp_radio_plalist",name + "\n" + radio.url)
+                    context.email("deomindmitriy@gmail.com", "aimp_radio_plalist",radio.name + "\n" + radio.url)
                 }
 
 
@@ -437,7 +427,6 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                     open_aimp.visibility = View.GONE
                     //покажем кнопку загрузки списка
                     loadlist.visibility = View.VISIBLE
-
                 } else {
                     //иначе покажем
                     open_aimp.visibility = View.VISIBLE
@@ -447,10 +436,8 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
 
                 //загрузить список
                 loadlist.onClick {
-
                     //закрываем основное окошко
                     mvr.close()
-
                     Main.download_i_open_m3u_file(radio.url,name)
                 }
             }
