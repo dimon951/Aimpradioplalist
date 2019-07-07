@@ -321,6 +321,10 @@ class Moy_plalist : Fragment() {
             (online_pls.view().findViewById<Button>(R.id.open_tv)).onClick {
                 //закрываем окно
                 online_pls.close()
+
+                //покажем напоминалку чтобы открывали через видео плеер
+                context.longToast("Открывайте ДОЛГИМ нажатием кнопки play и выбирите свой видео плеер")
+
                 //очистим список и запишем первый элемент корневой плейлисто
                 list_move_history.clear()
                 list_move_history.add(Main.MY_PLALIST)

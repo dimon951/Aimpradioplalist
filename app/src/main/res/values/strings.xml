@@ -186,7 +186,6 @@
         </item>
         <item>Эхо Москвы\necho_moskvy.png\n
             96kbps~kbps~http://den.101.ru:4000/ho_63_05~kbps~
-            56kbps mono~kbps~http://184.154.58.146:29378/ch12_56.mp3~kbps~
             32kbps mono~kbps~http://ice912.echo.msk.ru:9120/stream~kbps~
         </item>
         <item>Маяк\nmayk.png\n
@@ -13118,7 +13117,6 @@
         <item>Шансон  128kbps\nhttp://chanson.hostingradio.ru:8041/chanson128.mp3</item>
         <item>Шансон  256kbps\nhttp://chanson.hostingradio.ru:8041/chanson256.mp3</item>
         <item>Эхо Москвы  96kbps\nhttp://den.101.ru:4000/ho_63_05</item>
-        <item>Эхо Москвы  56kbps mono\nhttp://184.154.58.146:29378/ch12_56.mp3</item>
         <item>Эхо Москвы  32kbps mono\nhttp://ice912.echo.msk.ru:9120/stream</item>
         <item>Маяк  192kbps\nhttp://icecast.vgtrk.cdnvideo.ru/mayakfm_mp3_192kbps</item>
         <item>Маяк  128kbps\nhttp://icecast.vgtrk.cdnvideo.ru/mayakfm_mp3_128kbps</item>

@@ -234,8 +234,21 @@ class File_function {
         //если пустота значит надо файл оччистить
         if (kontent.contains("http") || kontent == "") {
 
+            //разобьём на список через перенос и удалим мусорные строчки
+            //тут нужно делать поиск в каждой строчке так как там разные получаются запросы
+            val lkontent = kontent.split("\n")
+            var newkontent=""
+            for (l in lkontent.listIterator()){
+                newkontent += if (l.contains("#EXTGRP")) {
+                    val d = l.substringAfter("#EXTGRP").substringBefore("http://")
+                    l.replace("#EXTGRP$d", "")
+                }else{
+                    l
+                }
+            }
+
             //удалим мусор и приведём все к одному виду
-            var kontent = kontent
+            var kontent = newkontent
                     .replace("\n", "")
                     .replace("'", "")
                     .replace("&", "")
@@ -257,6 +270,7 @@ class File_function {
                 val d = kontent.substringAfter("#EXTVLCOPT").substringBefore("http://")
                 kontent = kontent.replace("#EXTVLCOPT$d", "")
             }
+
 
             //добавим переносы в станции
             kontent = kontent
