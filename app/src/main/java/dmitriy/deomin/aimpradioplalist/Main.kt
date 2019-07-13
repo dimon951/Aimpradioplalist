@@ -586,28 +586,27 @@ class Main : FragmentActivity() {
 
         //-----------------получаем список из базы------------------------------------
         fun load_koment(id_item: String){
-            val d = ArrayList<Koment>()
+                val d = ArrayList<Koment>()
+                val db = FirebaseFirestore.getInstance()
+                db.collection(id_item)
+                        .orderBy("date")
+                        .get()
+                        .addOnSuccessListener { result ->
+                            for (document in result) {
+                                d.add(Koment(
+                                        (if(document.data["user_name"]!=null){document.data["user_name"]}else{""}) as String,
+                                        (if(document.data["user_id"]!=null){document.data["user_id"]}else{""}) as String,
+                                        (if(document.data["text"]!=null){document.data["text"]}else{""}) as String,
+                                        (if(document.data["date"]!=null){document.data["date"]}else{""}) as String,
+                                        (document.id))
+                                )
+                            }
+                            signal("load_koment")
+                                    .putExtra("data",d)
+                                    .putExtra("id",id_item)
+                                    .send(context)
 
-            val db = FirebaseFirestore.getInstance()
-            db.collection(id_item)
-                    .orderBy("date")
-                    .get()
-                    .addOnSuccessListener { result ->
-                        for (document in result) {
-                            d.add(Koment(
-                                    (if(document.data["user_name"]!=null){document.data["user_name"]}else{""}) as String,
-                                    (if(document.data["user_id"]!=null){document.data["user_id"]}else{""}) as String,
-                                    (if(document.data["text"]!=null){document.data["text"]}else{""}) as String,
-                                    (if(document.data["date"]!=null){document.data["date"]}else{""}) as String,
-                                    (document.id))
-                            )
                         }
-                        signal("load_koment")
-                                .putExtra("data",d)
-                                .putExtra("id",id_item)
-                                .send(context)
-
-                    }
         }
         //-----------------------------------------------------------------------------------
 

@@ -75,7 +75,6 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
         //
         val liner_reiting = itemView.findViewById<LinearLayout>(R.id.liner_reiting)
         val btn_koment = itemView.findViewById<Button>(R.id.button_komenty)
-        val btn_dislike = itemView.findViewById<Button>(R.id.button_dislake)
         val btn_like = itemView.findViewById<Button>(R.id.button_like)
         //
         val liner_text_komentov = itemView.findViewById<LinearLayout>(R.id.liner_text_komentov)
@@ -140,87 +139,92 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             p0.liner_ganr.visibility = View.GONE
         }
 
+
+        p0.btn_like.visibility = View.GONE
+
         //взависимости что сейчас открыто будем показывать или скрывать коменты и прочию инфу
         //если загружен список редактирования
         if(Moy_plalist.open_file==""||Moy_plalist.open_file==Main.MY_PLALIST) {
             //покажем понель пока коментарии откроем
             p0.liner_reiting.visibility = View.GONE
-            p0.btn_dislike.visibility = View.GONE
-            p0.btn_like.visibility = View.GONE
+
         }else{
             //покажем понель пока коментарии откроем
             p0.liner_reiting.visibility = View.VISIBLE
-            p0.btn_dislike.visibility = View.GONE
-            p0.btn_like.visibility = View.GONE
-        }
 
-        //-----------коментарии и лайки-----------------------------------------
-        //так как вся эта хуйня лежит не в базе у неё нет ид , будем брать урл
-        val id = radio.url.replace("\\","").replace("/","")
+            //-----------коментарии и лайки-----------------------------------------
+            //так как вся эта хуйня лежит не в базе у неё нет ид , будем брать урл
+            val id = radio.url.replace("/", "")
 
-        p0.text_komentov.setTextIsSelectable(true)
 
-        Slot(context, "load_koment").onRun {
-            if (it.getStringExtra("id") == id) {
-                val data = it.getParcelableArrayListExtra<Koment>("data")
-                p0.btn_koment.text = "Коментарии: " + (if (data.size > 0) {
-                    data.size
-                } else {
-                    0
-                })
-                //обнулим количество коментов и заново запишем
-                p0.text_komentov.text = ""
-                var t =""
-                for(kom in data.iterator()){
-                    t= t+ "\n"+ (if(kom.user_name.isEmpty()){"no_name"}else{kom.user_name})+ ": "+kom.text
-                }
-                p0.text_komentov.text = t.drop(1)
-
-            }
-        }
-
-        p0.btn_koment.onClick {
-            if(p0.liner_text_komentov.visibility==View.GONE){
-                p0.liner_text_komentov.visibility = View.VISIBLE
-            }else{
-                p0.liner_text_komentov.visibility =View.GONE
-            }
-        }
-        p0.btn_add_koment.onClick {
-            //добавление коментариев
-            //-------------------------------------------------------------------------------
-            val add_kom = DialogWindow(context, R.layout.add_koment)
-            val ed = add_kom.view().findViewById<EditText>(R.id.ed_add_kom)
-            ed.typeface = Main.face
-            ed.textColor = Main.COLOR_TEXT
-            ed.hintTextColor = Main.COLOR_TEXTcontext
-            add_kom.view().findViewById<Button>(R.id.btn_ad_kom).onClick {
-
-                if(ed.text.toString().isEmpty()){
-                    context.toast("введите текст")
-                }else {
-                    Slot(context,"add_koment").onRun {
-                        if(it.getStringExtra("update")=="zaebis"){
-                            add_kom.close()
-                            Main.load_koment(id)
-                        }else{
-                            context.toast("ошибка")
+            GlobalScope.launch {
+                Slot(context, "load_koment").onRun {
+                    if (it.getStringExtra("id") == id) {
+                        val data = it.getParcelableArrayListExtra<Koment>("data")
+                        p0.btn_koment.text = "Коментарии: " + (if (data.size > 0) {
+                            data.size
+                        } else {
+                            0
+                        })
+                        //обнулим количество коментов и заново запишем
+                        p0.text_komentov.text = ""
+                        var t =""
+                        for(kom in data.iterator()){
+                            t= t+ "\n"+ (if(kom.user_name.isEmpty()){"no_name"}else{kom.user_name})+ ": "+kom.text
                         }
+                        p0.text_komentov.text = t
                     }
-                    Main.add_koment(id,ed.text.toString())
                 }
             }
-            //-------------------------------------------------------------------------------------
 
-        }
-        p0.btn_update_koment.onClick {
-            //обновить текуший список коментов
-            Main.load_koment(id)
+
+            p0.btn_koment.onClick {
+                if(p0.liner_text_komentov.visibility==View.GONE){
+                    p0.liner_text_komentov.visibility = View.VISIBLE
+                }else{
+                    p0.liner_text_komentov.visibility =View.GONE
+                }
+            }
+            p0.btn_add_koment.onClick {
+                //добавление коментариев
+                //-------------------------------------------------------------------------------
+                val add_kom = DialogWindow(context, R.layout.add_koment)
+                val ed = add_kom.view().findViewById<EditText>(R.id.ed_add_kom)
+                ed.typeface = Main.face
+                ed.textColor = Main.COLOR_TEXT
+                ed.hintTextColor = Main.COLOR_TEXTcontext
+                add_kom.view().findViewById<Button>(R.id.btn_ad_kom).onClick {
+
+                    if(ed.text.toString().isEmpty()){
+                        context.toast("введите текст")
+                    }else {
+                        Slot(context,"add_koment",false).onRun {
+                            if(it.getStringExtra("update")=="zaebis"){
+                                add_kom.close()
+                                Main.load_koment(id)
+                            }else{
+                                context.toast("ошибка")
+                            }
+                        }
+                        Main.add_koment(id,ed.text.toString())
+                    }
+                }
+                //-------------------------------------------------------------------------------------
+
+            }
+            p0.btn_update_koment.onClick {
+                //обновить текуший список коментов
+                Main.load_koment(id)
+            }
+
+            GlobalScope.launch {
+                //Загрузим в начале просто количество коментов
+                Main.load_koment(id)
+            }
+
+            //------------------------------------------------------------------------
         }
 
-        //Загрузим в начале просто количество коментов
-        Main.load_koment(id)
-        //------------------------------------------------------------------------
 
 
         //обработка нажатий

@@ -85,7 +85,6 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
         //
         val liner_reiting = itemView.findViewById<LinearLayout>(R.id.liner_reiting)
         val btn_koment = itemView.findViewById<Button>(R.id.button_komenty)
-        val btn_dislike = itemView.findViewById<Button>(R.id.button_dislake)
         val btn_like = itemView.findViewById<Button>(R.id.button_like)
         //
         val liner_text_komentov = itemView.findViewById<LinearLayout>(R.id.liner_text_komentov)
@@ -163,29 +162,28 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
         //покажем понель пока коментарии откроем
         val id = radio.id
         p0.liner_reiting.visibility = View.VISIBLE
-        p0.btn_dislike.visibility = View.GONE
         p0.btn_like.visibility = View.GONE
 
-        p0.text_komentov.setTextIsSelectable(true)
-
-        Slot(context, "load_koment").onRun {
-            if (it.getStringExtra("id") == id) {
-                val data = it.getParcelableArrayListExtra<Koment>("data")
-                p0.btn_koment.text = "Коментарии: " + (if (data.size > 0) {
-                    data.size
-                } else {
-                    0
-                })
-                //обнулим количество коментов и заново запишем
-                p0.text_komentov.text = ""
-                var t =""
-                for(kom in data.iterator()){
-                     t= t+ "\n"+ (if(kom.user_name.isEmpty()){"no_name"}else{kom.user_name})+ ": "+kom.text
+        GlobalScope.launch {
+            Slot(context, "load_koment").onRun {
+                if (it.getStringExtra("id") == id) {
+                    val data = it.getParcelableArrayListExtra<Koment>("data")
+                    p0.btn_koment.text = "Коментарии: " + (if (data.size > 0) {
+                        data.size
+                    } else {
+                        0
+                    })
+                    //обнулим количество коментов и заново запишем
+                    p0.text_komentov.text = ""
+                    var t =""
+                    for(kom in data.iterator()){
+                        t= t+ "\n"+ (if(kom.user_name.isEmpty()){"no_name"}else{kom.user_name})+ ": "+kom.text
+                    }
+                    p0.text_komentov.text = t
                 }
-                p0.text_komentov.text = t.drop(1)
-
             }
         }
+
 
         p0.btn_koment.onClick {
             if(p0.liner_text_komentov.visibility==View.GONE){
@@ -207,7 +205,7 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                 if(ed.text.toString().isEmpty()){
                     context.toast("введите текст")
                 }else {
-                    Slot(context,"add_koment").onRun {
+                    Slot(context,"add_koment",false).onRun {
                         if(it.getStringExtra("update")=="zaebis"){
                             add_kom.close()
                             Main.load_koment(id)
@@ -226,8 +224,10 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             Main.load_koment(id)
         }
 
-        //Загрузим в начале просто количество коментов
-        Main.load_koment(id)
+        GlobalScope.launch {
+            //Загрузим в начале просто количество коментов
+            Main.load_koment(id)
+        }
         //------------------------------------------------------------------------
 
         //обработка нажатий
