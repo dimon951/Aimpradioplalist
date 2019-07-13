@@ -200,8 +200,8 @@
             android:id="@+id/liner_reiting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginRight="33dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:gravity="right"
@@ -215,7 +215,7 @@
                 android:layout_height="20dp"
                 android:background="@null"
                 android:text="Коментарий"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -236,8 +236,56 @@
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/like"
                 android:textSize="8sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/liner_text_komentov"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="33dp"
+            android:layout_marginRight="33dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <dmitriy.deomin.aimpradioplalist.custom.Text
+                android:id="@+id/text_komentov"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="all"
+                android:clickable="true"
+                android:cursorVisible="true"
+                android:focusable="true"
+                android:linksClickable="true"
+                android:text="5555"
+                android:textIsSelectable="true" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <dmitriy.deomin.aimpradioplalist.custom.Btn
+                    android:id="@+id/btn_add_new_koment"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@android:drawable/ic_menu_edit"
+                    android:textSize="12sp" />
+
+                <dmitriy.deomin.aimpradioplalist.custom.Btn
+                    android:id="@+id/button_updete_obmenik"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@android:drawable/ic_menu_rotate" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
 
     </LinearLayout>
+
 </dmitriy.deomin.aimpradioplalist.custom.Fon_item>

@@ -29,6 +29,7 @@ import com.github.kittinunf.fuel.httpGet
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
+import com.google.firebase.firestore.FirebaseFirestore
 import com.kotlinpermissions.KotlinPermissions
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.main.*
@@ -38,6 +39,9 @@ import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class Main : FragmentActivity() {
 
@@ -56,7 +60,7 @@ class Main : FragmentActivity() {
         const val File_Text_Code: String = "UTF8"
 
         //ссылка на аимп
-        const val LINK_DOWLOAD_AIMP = "https://www.aimp.ru/files/android/aimp_2.90.845.apk"
+        const val LINK_DOWLOAD_AIMP = "https://www.aimp.ru/files/android/aimp_2.90.848.apk"
 
 
         //текст в пустом плейлисте(много где требуется)
@@ -498,6 +502,7 @@ class Main : FragmentActivity() {
         //добавить в мой плейлист
         fun add_myplalist(name: String, url: String) {
 
+            //слот получит ответ после добавления станции
             Slot(context, "File_created").onRun {
                 //получим данные
                 when (it.getStringExtra("update")) {
@@ -507,6 +512,7 @@ class Main : FragmentActivity() {
                         signal("Data_add")
                                 .putExtra("run", true)
                                 .putExtra("update", "zaebis")
+                                .putExtra("listfile", "old") //оставим что есть в списке
                                 .send(context)
                     }
                     "pizdec" -> {
@@ -522,7 +528,6 @@ class Main : FragmentActivity() {
             //запишем в файл выбранную станцию
             file_function.Add_may_plalist_stansiy(url, name)
         }
-
 
         fun download_i_open_m3u_file(url:String,name:String){
             //-----------скачиваем файл (читам его)--------
@@ -578,6 +583,81 @@ class Main : FragmentActivity() {
             }
             //--------------------------------------------------------
         }
+
+        //-----------------получаем список из базы------------------------------------
+        fun load_koment(id_item: String){
+            val d = ArrayList<Koment>()
+
+            val db = FirebaseFirestore.getInstance()
+            db.collection(id_item)
+                    .orderBy("date")
+                    .get()
+                    .addOnSuccessListener { result ->
+                        for (document in result) {
+                            d.add(Koment(
+                                    (if(document.data["user_name"]!=null){document.data["user_name"]}else{""}) as String,
+                                    (if(document.data["user_id"]!=null){document.data["user_id"]}else{""}) as String,
+                                    (if(document.data["text"]!=null){document.data["text"]}else{""}) as String,
+                                    (if(document.data["date"]!=null){document.data["date"]}else{""}) as String,
+                                    (document.id))
+                            )
+                        }
+                        signal("load_koment")
+                                .putExtra("data",d)
+                                .putExtra("id",id_item)
+                                .send(context)
+
+                    }
+        }
+        //-----------------------------------------------------------------------------------
+
+        fun add_koment(id_item:String,text:String){
+            val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+            val currentDate = sdf.format(Date())
+            //добавление в базу
+            val db = FirebaseFirestore.getInstance()
+            val user = hashMapOf(
+                    "user_name" to NAME_USER,
+                    "user_id" to ID_USER,
+                    "text" to text,
+                    "date" to currentDate
+            )
+
+            // Add a new document with a generated ID
+            db.collection(id_item)
+                   .add(user)
+                    .addOnSuccessListener { documentReference ->
+                        //если все пучком пошлём сигнал для обновления(пока всего плейлиста)
+                       signal("add_koment").putExtra("update", "zaebis").send(context)
+                    }
+                    .addOnFailureListener { e ->
+                        context.toast(e.toString())
+                    }
+        }
+
+        fun edit_koment(id_item:String,text:String,id_komenta:String){
+            val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+            val currentDate = sdf.format(Date())
+            //добавление в базу
+            val db = FirebaseFirestore.getInstance()
+            val user = hashMapOf(
+                    "user_name" to NAME_USER,
+                    "user_id" to ID_USER,
+                    "text" to text,
+                    "date" to currentDate
+            )
+
+            // Add a new document with a generated ID
+            db.collection(id_item).document(id_komenta).set(user)
+                    .addOnSuccessListener { documentReference ->
+                        //если все пучком пошлём сигнал для обновления(пока всего плейлиста)
+                        signal("edit_koment").putExtra("update", "zaebis").send(context)
+                    }
+                    .addOnFailureListener { e ->
+                        context.toast(e.toString())
+                    }
+        }
+        //-----------------------------------------------------------------------
 
 
         @JvmStatic

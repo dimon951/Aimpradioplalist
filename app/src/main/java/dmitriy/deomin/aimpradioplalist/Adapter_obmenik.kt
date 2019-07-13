@@ -2,6 +2,13 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.Typeface
+import android.text.Editable
+import android.text.TextWatcher
+import android.text.style.StyleSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +16,9 @@ import android.view.animation.AnimationUtils
 import android.widget.*
 import com.google.firebase.firestore.FirebaseFirestore
 import dmitriy.deomin.aimpradioplalist.custom.*
+import kotlinx.android.synthetic.main.obmenik.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
@@ -20,6 +30,7 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
 
     private lateinit var context: Context
     var raduoSearchList: ArrayList<Radio> = data
+
 
     override fun getFilter(): Filter {
 
@@ -67,9 +78,21 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
         val liner_ganr = itemView.findViewById<LinearLayout>(R.id.liner_ganr)
         val liner_url = itemView.findViewById<LinearLayout>(R.id.liner_url)
 
-        //
+        //------------------------------------------------------------------------------------
+        // коментарии ,лайки, инфо
         val liner_user = itemView.findViewById<LinearLayout>(R.id.liner_user_add_info)
         val user_name = itemView.findViewById<TextView>(R.id.user_name)
+        //
+        val liner_reiting = itemView.findViewById<LinearLayout>(R.id.liner_reiting)
+        val btn_koment = itemView.findViewById<Button>(R.id.button_komenty)
+        val btn_dislike = itemView.findViewById<Button>(R.id.button_dislake)
+        val btn_like = itemView.findViewById<Button>(R.id.button_like)
+        //
+        val liner_text_komentov = itemView.findViewById<LinearLayout>(R.id.liner_text_komentov)
+        val btn_add_koment = itemView.findViewById<Button>(R.id.btn_add_new_koment)
+        val btn_update_koment = itemView.findViewById<Button>(R.id.button_updete_obmenik)
+        val text_komentov = itemView.findViewById<TextView>(R.id.text_komentov)
+        //-----------------------------------------------------------------------------------
 
     }
 
@@ -136,7 +159,77 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             p0.liner_user.visibility = View.GONE
         }
 
-        //обработка нажатий
+        //-----------коментарии и лайки-----------------------------------------
+        //покажем понель пока коментарии откроем
+        val id = radio.id
+        p0.liner_reiting.visibility = View.VISIBLE
+        p0.btn_dislike.visibility = View.GONE
+        p0.btn_like.visibility = View.GONE
+
+        p0.text_komentov.setTextIsSelectable(true)
+
+        Slot(context, "load_koment").onRun {
+            if (it.getStringExtra("id") == id) {
+                val data = it.getParcelableArrayListExtra<Koment>("data")
+                p0.btn_koment.text = "Коментарии: " + (if (data.size > 0) {
+                    data.size
+                } else {
+                    0
+                })
+                //обнулим количество коментов и заново запишем
+                p0.text_komentov.text = ""
+                var t =""
+                for(kom in data.iterator()){
+                     t= t+ "\n"+ (if(kom.user_name.isEmpty()){"no_name"}else{kom.user_name})+ ": "+kom.text
+                }
+                p0.text_komentov.text = t.drop(1)
+
+            }
+        }
+
+        p0.btn_koment.onClick {
+            if(p0.liner_text_komentov.visibility==View.GONE){
+                p0.liner_text_komentov.visibility = View.VISIBLE
+            }else{
+                p0.liner_text_komentov.visibility =View.GONE
+            }
+        }
+        p0.btn_add_koment.onClick {
+            //добавление коментариев
+            //-------------------------------------------------------------------------------
+            val add_kom = DialogWindow(context, R.layout.add_koment)
+            val ed = add_kom.view().findViewById<EditText>(R.id.ed_add_kom)
+            ed.typeface = Main.face
+            ed.textColor = Main.COLOR_TEXT
+            ed.hintTextColor = Main.COLOR_TEXTcontext
+            add_kom.view().findViewById<Button>(R.id.btn_ad_kom).onClick {
+
+                if(ed.text.toString().isEmpty()){
+                    context.toast("введите текст")
+                }else {
+                    Slot(context,"add_koment").onRun {
+                        if(it.getStringExtra("update")=="zaebis"){
+                            add_kom.close()
+                            Main.load_koment(id)
+                        }else{
+                            context.toast("ошибка")
+                        }
+                    }
+                    Main.add_koment(radio.id,ed.text.toString())
+                }
+            }
+            //-------------------------------------------------------------------------------------
+
+        }
+        p0.btn_update_koment.onClick {
+            //обновить текуший список коментов
+            Main.load_koment(id)
+        }
+
+        //Загрузим в начале просто количество коментов
+        Main.load_koment(id)
+        //------------------------------------------------------------------------
+
         //обработка нажатий
         p0.itemView.onClick {
             p0.fon.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
@@ -250,9 +343,8 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                                 "url" to ed_url.text.toString()
                         )
 
-                        // Add a new document with a generated ID
-                        db.collection("radio_obmenik")
-                                .add(user)
+                        db.collection("radio_obmenik").document(radio.id).set(user)
+                                // Add a new document with a generated ID
                                 .addOnSuccessListener { documentReference ->
                                     //  Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
                                     menu_add_new.close()

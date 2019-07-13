@@ -4,6 +4,12 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
+
+
+//Slot(this, "slot1").onRun {it->
+//    val value = it.getStringExtra("param")
+//}
 
 class Slot(context: Context, name: String, life: Boolean = true) {
 
@@ -30,7 +36,7 @@ class Slot(context: Context, name: String, life: Boolean = true) {
             }
         }
         //регистрируем приёмник
-        con.registerReceiver(broadcastReceiver, intentFilter)
+        LocalBroadcastManager.getInstance(con).registerReceiver(broadcastReceiver, intentFilter)
 
 
     }
@@ -47,16 +53,22 @@ class Slot(context: Context, name: String, life: Boolean = true) {
 
     //удалить приёмник
    fun Delete_slot() {
-        con.unregisterReceiver(broadcastReceiver)
+        LocalBroadcastManager.getInstance(con).unregisterReceiver(broadcastReceiver)
     }
 
 
 }
 
 
+//-----------------------------------------------------------------------------
+//signal("slot1")
+//.putExtra("param", "zaebis")
+//.putExtra("run", false)
+//.run(this)
+
 //добавил интенту метод(как он работат там хз)
 fun Intent.send(context: Context) {
-    context.sendBroadcast(this)
+    LocalBroadcastManager.getInstance(context).sendBroadcast(this)
 }
 
 //созданим signal тотже интент только имя поменяем
@@ -65,3 +77,4 @@ class signal(name: String) : Intent() {
         this.action = name
     }
 }
+//-----------------------------------------------------------

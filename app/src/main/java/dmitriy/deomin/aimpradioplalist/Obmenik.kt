@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.kotlinpermissions.ifNotNullOrElse
 import dmitriy.deomin.aimpradioplalist.custom.*
@@ -46,7 +48,7 @@ class Obmenik : Activity() {
         find.hintTextColor = Main.COLOR_TEXTcontext
 
         val recikl_list = list_obmenik
-        recikl_list.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
+        recikl_list.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this) as RecyclerView.LayoutManager?
 
         //полоса быстрой прокрутки
         val fastScroller = fast_scroller_obmenik
@@ -81,7 +83,6 @@ class Obmenik : Activity() {
                             .orderBy("date")
                             .get()
                             .addOnSuccessListener { result ->
-
                                 for (document in result) {
                                     d.add(Radio(
                                             (if(document.data["name"]!=null){document.data["name"]}else{""}) as String,
@@ -165,6 +166,13 @@ class Obmenik : Activity() {
 
             (menu_ob.view().findViewById<Button>(R.id.button_save_user_dannie)).onClick {
 
+                if(ed_name_user.text.toString() != Main.NAME_USER){
+                    //на имя пофиг пусть ставят любое
+                    Main.NAME_USER = ed_name_user.text.toString()
+                    Main.save_value("name_user",Main.NAME_USER)
+                    toast("Имя изменено на:" +Main.NAME_USER)
+                }
+
                 //id важно будем спрашивать и проверяь
                 if(ed_id_user.text.toString()!=Main.ID_USER){
                     if(ed_id_user.text.toString().length<4){
@@ -174,15 +182,14 @@ class Obmenik : Activity() {
                             yesButton {
                                 Main.ID_USER=ed_id_user.text.toString()
                                 Main.save_value("id_user",Main.ID_USER)
-                                toast("Готово") }
+                                menu_ob.close()
+                                toast("Готово, пароль изменён") }
                             noButton {}
                         }.show()
-
                     }
+                }else{
+                    menu_ob.close()
                 }
-                //на имя пофиг пусть ставят любое
-                Main.NAME_USER = ed_name_user.text.toString()
-                Main.save_value("name_user",Main.NAME_USER)
             }
 
 
@@ -220,7 +227,7 @@ class Obmenik : Activity() {
                 ed_url.setText(Main.getText(context))
             }
 
-            (menu_add_new.view().findViewById<Button>(R.id.button_add)).onClick {
+           (menu_add_new.view().findViewById<Button>(R.id.button_add)).onClick {
 
                 if (ed_name.text.toString().isEmpty() || ed_url.text.toString().isEmpty()) {
                     context.toast("Введите данные")
@@ -268,6 +275,13 @@ class Obmenik : Activity() {
                             }
                 }
             }
+
+
+        }
+
+        button_update_all_obmenik.onClick {
+            //пошлём сигнал для загрузки дааных п спискок
+            signal("Obmennik").putExtra("update", "zaebis").send(context)
         }
 
         //пошлём сигнал для загрузки дааных п спискок

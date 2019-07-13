@@ -84,11 +84,18 @@ class Moy_plalist : Fragment() {
             //получим данные
             when (it.getStringExtra("update")) {
                 "zaebis" -> {
-
                     if (!it.getStringExtra("listfile").isNullOrEmpty()) {
-                        update_list.visibility = View.VISIBLE
-                        open_file = it.getStringExtra("listfile")
-                        list_move_history.add(open_file)
+                        if(it.getStringExtra("listfile")=="old"){
+                            //оставим все как есть если не открыт мой список
+                            if(open_file!=Main.MY_PLALIST){
+                                context.toast("добавлено")
+                            }
+                        }else{
+                            //иначе обновим мой список
+                            update_list.visibility = View.VISIBLE
+                            open_file = it.getStringExtra("listfile")
+                            list_move_history.add(open_file)
+                        }
                     } else {
                         update_list.visibility = View.GONE
                         open_file = Main.MY_PLALIST

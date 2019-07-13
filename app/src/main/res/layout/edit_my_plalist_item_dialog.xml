@@ -20,11 +20,18 @@
         android:orientation="vertical">
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/open_aimp_my_list_one"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@android:drawable/ic_media_play" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/loadlist"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="@string/load_list"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/dw_list"
             android:visibility="gone" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
@@ -56,12 +63,6 @@
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:orientation="horizontal">
-
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:id="@+id/open_aimp_my_list_one"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@android:drawable/ic_media_play" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/shareaimp_my_list_one"
