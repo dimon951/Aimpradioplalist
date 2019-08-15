@@ -75,7 +75,7 @@ class Online_plalist : Fragment() {
                     if (!it.getStringExtra("listfile").isNullOrEmpty()) {
                         open_file_online_palist = it.getStringExtra("listfile")
                         //добавили в массив историии и сохранили
-                        add_page(open_file_online_palist)
+                        //add_page(open_file_online_palist)
                     } else {
                         open_file_online_palist = Main.HOME_ONLINE_PLALIST
                     }
@@ -216,7 +216,7 @@ class Online_plalist : Fragment() {
                             //файлы
                             deleteAllFilesFolder(Main.ROOT)
                             //список этих файлов
-                            dell_history()
+                            //dell_history()
                             hop.close()
                         }
                         if (file.exists()) {
@@ -264,7 +264,6 @@ class Online_plalist : Fragment() {
                 //и если количество больше текущей открытой вкладки
                 if (read_page_list().size > Main.save_read_int(Main.ACTIV_item)) {
                     //перейдём назад и перезапишем текущию вкладку если текущаяя не первая )
-                    Log.e("ttt",Main.save_read_int(Main.ACTIV_item).toString())
                     if ( Main.save_read_int(Main.ACTIV_item)== 0) {
                         //пошлём сигнал для загрузки даных в список
                         signal("Online_plalist")
@@ -284,8 +283,6 @@ class Online_plalist : Fragment() {
             }
         }
         v.button_up_list_online_plalist.onClick {
-            Log.e("ttt",Main.save_read_int(Main.ACTIV_item).toString())
-            Log.e("ttt2",read_page_list().size.toString())
             if(Main.save_read_int(Main.ACTIV_item)<read_page_list().size-2){
                 signal("Online_plalist")
                         .putExtra("update", "zaebis")
@@ -348,24 +345,37 @@ class Online_plalist : Fragment() {
         }
     }
 
-    fun add_page(file: String) {
-        val list: ArrayList<String> = Main.save_read_Arraylist(Main.LIST_HISTORY_OP)
-        list.add(file)
-        Main.save_Arraylist(Main.LIST_HISTORY_OP, list)
-    }
+//    fun add_page(file: String) {
+//        val list: ArrayList<String> = Main.save_read_Arraylist(Main.LIST_HISTORY_OP)
+//        list.add(file)
+//        Main.save_Arraylist(Main.LIST_HISTORY_OP, list)
+//    }
 
     fun read_page_list(): ArrayList<String> {
-        return Main.save_read_Arraylist(Main.LIST_HISTORY_OP)
+
+        val dir = File(Main.ROOT) //path указывает на директорию
+        val arrFiles = dir.listFiles()
+
+        val d = ArrayList<String>()
+
+        for (s in arrFiles.iterator()) {
+            if (s.isFile) {
+                d.add(s.absolutePath)
+            }
+        }
+
+       // return Main.save_read_Arraylist(Main.LIST_HISTORY_OP)
+        return  d
     }
 
-    fun dell_history() {
-        val list: ArrayList<String> = Main.save_read_Arraylist(Main.LIST_HISTORY_OP)
-        //если есть такой удалим и запишем сверху
-        list.clear()
-        Main.save_Arraylist(Main.LIST_HISTORY_OP, list)
-        //cохраним текущию позицию открытой страницы
-        Main.save_value_int(Main.ACTIV_item, 0)
-    }
+//    fun dell_history() {
+//        val list: ArrayList<String> = Main.save_read_Arraylist(Main.LIST_HISTORY_OP)
+//        //если есть такой удалим и запишем сверху
+//        list.clear()
+//        Main.save_Arraylist(Main.LIST_HISTORY_OP, list)
+//        //cохраним текущию позицию открытой страницы
+//        Main.save_value_int(Main.ACTIV_item, 0)
+//    }
 
     fun deleteAllFilesFolder(path: String) {
         for (myFile in File(path).listFiles())
