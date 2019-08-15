@@ -107,22 +107,6 @@
         android:orientation="horizontal">
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
-            android:id="@+id/button_back_list_online_plalist"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@null"
-            android:text="@string/Close" />
-
-        <dmitriy.deomin.aimpradioplalist.custom.Btn
-            android:id="@+id/button_up_list_online_plalist"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@null"
-            android:text="Вперёд" />
-
-        <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_history_online_plalilst"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

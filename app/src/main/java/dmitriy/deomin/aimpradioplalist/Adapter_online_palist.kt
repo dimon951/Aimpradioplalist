@@ -2,6 +2,8 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -56,8 +58,6 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
     }
 
 
-
-
     class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         val name_radio = itemView.findViewById<TextView>(R.id.name_radio)
         val nomer_radio = itemView.findViewById<TextView>(R.id.nomer_radio)
@@ -91,6 +91,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
         context = p0.context
         return ViewHolder(v)
     }
+
     override fun getItemCount(): Int {
         return this.raduoSearchList.size
     }
@@ -149,7 +150,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
         //-----------коментарии и лайки-----------------------------------------
         //так как вся эта хуйня лежит не в базе у неё нет ид , будем брать урл
         var id = radio.url.replace("/", "")
-        if(id.isEmpty()){
+        if (id.isEmpty()) {
             id = "pustoy_plalist"
         }
 
@@ -271,43 +272,54 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
             }
             //при долгом нажатии предложим скачать
             text_name_i_url.onClick {
-                val dw = DialogWindow(context,R.layout.dialog_delete_stancii)
-               val dw_start =  dw.view().findViewById<Button>(R.id.button_dialog_delete)
-               val dw_no = dw.view().findViewById<Button>(R.id.button_dialog_no)
-               val dw_logo = dw.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
-               val dw_progres = dw.view().findViewById<ProgressBar>(R.id.progressBar)
+                val dw = DialogWindow(context, R.layout.dialog_delete_stancii)
+                val dw_start = dw.view().findViewById<Button>(R.id.button_dialog_delete)
+                val dw_no = dw.view().findViewById<Button>(R.id.button_dialog_no)
+                val dw_logo = dw.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
+                val dw_progres = dw.view().findViewById<ProgressBar>(R.id.progressBar)
                 dw_progres.visibility = View.VISIBLE
 
                 dw_logo.text = "Попробовать скачать?"
 
                 dw_start.onClick {
-                    dw_start.visibility = View.GONE
-                    Main.download_file(radio.url, radio.name+"."+radio.url.substringAfterLast('.'), "anim_online_plalist")
-                    dw_logo.text = "Идёт загрузка..."
-                    dw_no.text = "Отмена"
+                    if (dw_logo.text == "Готово,сохранено в папке программы") {
+                        //попробуем его открыть
+                        Main.play_aimp_file(Main.ROOT + radio.name + "." + radio.url.substringAfterLast('.'))
+                    } else {
+                        dw_start.visibility = View.GONE
+                        Main.download_file(radio.url, radio.name + "." + radio.url.substringAfterLast('.'), "anim_online_plalist")
+                        dw_logo.text = "Идёт загрузка..."
+                        dw_no.text = "Отмена"
+                    }
+                }
+                dw_start.onLongClick {
+                    if (dw_logo.text == "Готово,сохранено в папке программы") {
+                        Main.play_system_file(Main.ROOT + radio.name + "." + radio.url.substringAfterLast('.'))
+                    }
                 }
                 dw_no.onClick {
-                    if(dw_no.text=="Отмена"){
+                    if (dw_no.text == "Отмена") {
                         signal("dw_cansel").send(context)
-                    }else{
+                    } else {
                         dw.close()
                     }
                 }
 
-                Slot(context,"dw_progres").onRun {
-                   val totalBytes = it.getStringExtra("totalBytes")
-                   val readBytes = it.getStringExtra("readBytes")
-                    dw_progres.max =totalBytes.toInt()
+                Slot(context, "dw_progres").onRun {
+                    val totalBytes = it.getStringExtra("totalBytes")
+                    val readBytes = it.getStringExtra("readBytes")
+                    dw_progres.max = totalBytes.toInt()
                     dw_progres.progress = readBytes.toInt()
 
-                    if(totalBytes==readBytes){
-                        if(totalBytes=="0"){
+                    if (totalBytes == readBytes) {
+                        if (totalBytes == "0") {
                             dw_logo.text = "Отменено,попробовать еще раз?"
-                            dw_no.text ="Нет"
+                            dw_no.text = "Нет"
                             dw_start.visibility = View.VISIBLE
-                        }else{
+                        } else {
                             dw_logo.text = "Готово,сохранено в папке программы"
                             dw_start.visibility = View.VISIBLE
+                            dw_start.text = "Открыть файл"
                             dw_no.text = "Нет"
                         }
                     }

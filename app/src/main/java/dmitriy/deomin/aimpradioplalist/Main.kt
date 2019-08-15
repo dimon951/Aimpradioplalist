@@ -96,7 +96,6 @@ class Main : FragmentActivity() {
         //название файла моего плейлиста
         val HOME_ONLINE_PLALIST = ROOT + "home_online_plalist.m3u"
         //название файла истроии онлайн плейлиста
-        const val LIST_HISTORY_OP = "list_history_online_plalist"
         const val ACTIV_item = "activ_item_list_history_online_palalist"
 
 
@@ -168,37 +167,6 @@ class Main : FragmentActivity() {
                 mSettings.getInt(key_save, 0)
             } else 0
         }
-
-        fun save_Arraylist(key: String, data: ArrayList<String>) {
-            GlobalScope.launch {
-                val editor = mSettings.edit()
-                val a = JSONArray()
-                for (d in data.iterator()) {
-                    if(d.length>2)
-                    a.put(d)
-                }
-                editor.putString(key, a.toString())
-
-                editor.apply()
-            }
-        }
-
-        fun save_read_Arraylist(key: String): ArrayList<String> {
-
-            val json = save_read(key)
-            val urls = ArrayList<String>()
-
-            if (json != "") {
-                val a = JSONArray(json)
-                for (i in 0..a.length()) {
-                    val url = a.optString(i)
-                    urls.add(url)
-                }
-            }
-
-            return urls
-        }
-
         //-------------------
 
         //проверка есть ли приложение
@@ -290,18 +258,7 @@ class Main : FragmentActivity() {
                         //проверим есть ли аимп
                         if (install_app("com.aimp.player")) {
                             //откроем файл с сылкой в плеере
-                            val cm = ComponentName(
-                                    "com.aimp.player",
-                                    "com.aimp.player.views.MainActivity.MainActivity")
-
-                            val i = Intent()
-                            i.component = cm
-
-                            i.action = Intent.ACTION_VIEW
-                            i.setDataAndType(Uri.parse("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u"), "audio/mpegurl")
-                            i.flags = 0x3000000
-                            context.startActivity(i)
-
+                            play_aimp_file(ROOT + name + ".m3u")
                         } else {
                             //иначе предложим системе открыть или установить аимп
                             setup_aimp(url,
@@ -361,58 +318,18 @@ class Main : FragmentActivity() {
                             if (f_old.name.replace(".m3u", "") == vname.text.toString()) {
                                 //проверим есть ли аимп и откроем
                                 if (install_app("com.aimp.player")) {
-                                    //откроем файл с сылкой в плеере
-                                    val cm = ComponentName(
-                                            "com.aimp.player",
-                                            "com.aimp.player.views.MainActivity.MainActivity")
-
-                                    val i = Intent()
-                                    i.component = cm
-
-                                    i.action = Intent.ACTION_VIEW
-                                    i.setDataAndType(Uri.parse("file://" + f_old.absolutePath), "audio/mpegurl")
-                                    i.flags = 0x3000000
-
-                                    context.startActivity(i)
+                                    play_aimp_file(f_old.absolutePath)
                                 } else {
-                                    //если аимпа нет попробуем открыть в системе
-                                    val i = Intent(Intent.ACTION_VIEW)
-                                    i.setDataAndType(Uri.parse("file://" + f_old.absolutePath), "audio/mpegurl")
-                                    //проверим есть чем открыть или нет
-                                    if (i.resolveActivity(Main.context.packageManager) != null) {
-                                        context.startActivity(i)
-                                    } else {
-                                        context.toast("Системе не удалось ( ")
-                                    }
+                                    play_system_file(f_old.absolutePath)
                                 }
                             } else {
                                 val f_new = File(f_old.parent + "/" + vname.text + ".m3u")
                                 f_old.renameTo(f_new)
                                 //проверим есть ли аимп и откроем
                                 if (install_app("com.aimp.player")) {
-                                    //откроем файл с сылкой в плеере
-                                    val cm = ComponentName(
-                                            "com.aimp.player",
-                                            "com.aimp.player.views.MainActivity.MainActivity")
-
-                                    val i = Intent()
-                                    i.component = cm
-
-                                    i.action = Intent.ACTION_VIEW
-                                    i.setDataAndType(Uri.parse("file://" + f_new.absolutePath), "audio/mpegurl")
-                                    i.flags = 0x3000000
-
-                                    context.startActivity(i)
+                                    play_aimp_file(f_new.absolutePath)
                                 } else {
-                                    //если аимпа нет попробуем открыть в системе
-                                    val i = Intent(Intent.ACTION_VIEW)
-                                    i.setDataAndType(Uri.parse("file://" + f_new.absolutePath), "audio/mpegurl")
-                                    //проверим есть чем открыть или нет
-                                    if (i.resolveActivity(Main.context.packageManager) != null) {
-                                        context.startActivity(i)
-                                    } else {
-                                        context.toast("Системе не удалось ( ")
-                                    }
+                                    play_system_file(f_new.absolutePath)
                                 }
                             }
                             //закроем окошко
@@ -426,6 +343,22 @@ class Main : FragmentActivity() {
 
         }
 
+        @SuppressLint("WrongConstant")
+        fun play_aimp_file(name: String) {
+            val cm = ComponentName(
+                    "com.aimp.player",
+                    "com.aimp.player.views.MainActivity.MainActivity")
+
+            val i = Intent()
+            i.component = cm
+
+            i.action = Intent.ACTION_VIEW
+            i.setDataAndType(Uri.parse("file://" + File(name).absolutePath), "audio/mpegurl")
+            i.flags = 0x3000000
+
+            context.startActivity(i)
+        }
+
         //тоже если урл не пустой сохраним файл с сылкой и попытаемся открыть в системе
         //иначе проверяем файл и пробуем его открыть
         fun play_system(name: String, url: String) {
@@ -436,14 +369,7 @@ class Main : FragmentActivity() {
                     //получим данные
                     when (it.getStringExtra("update")) {
                         "zaebis" -> {
-                            val i = Intent(Intent.ACTION_VIEW)
-                            i.setDataAndType(Uri.parse("file://$ROOT$name.m3u"), "audio/mpegurl")
-                            //проверим есть чем открыть или нет
-                            if (i.resolveActivity(Main.context.packageManager) != null) {
-                                context.startActivity(i)
-                            } else {
-                                context.toast("Системе не удалось ( ")
-                            }
+                            play_system_file(ROOT + name + "m3u")
                         }
                         "pizdec" -> {
                             context.toast(context.getString(R.string.error))
@@ -531,6 +457,17 @@ class Main : FragmentActivity() {
                     context.toast("Куда-то пропал файл (")
                 }
 
+            }
+        }
+
+        fun play_system_file(name: String) {
+            val i = Intent(Intent.ACTION_VIEW)
+            i.setDataAndType(Uri.parse("file://" + name), "audio/mpegurl")
+            //проверим есть чем открыть или нет
+            if (i.resolveActivity(Main.context.packageManager) != null) {
+                context.startActivity(i)
+            } else {
+                context.toast("Системе не удалось ( ")
             }
         }
 
@@ -644,19 +581,19 @@ class Main : FragmentActivity() {
                         .progress { readBytes, totalBytes ->
                             val progress = readBytes.toFloat() / totalBytes.toFloat() * 100
                             signal("dw_progres")
-                                    .putExtra("readBytes",readBytes.toString())
-                                    .putExtra("totalBytes",totalBytes.toString())
+                                    .putExtra("readBytes", readBytes.toString())
+                                    .putExtra("totalBytes", totalBytes.toString())
                                     .send(context)
-                            if(progress.toInt()==100){
+                            if (progress.toInt() == 100) {
                                 signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
                             }
                         }
                         .response { result -> }
 
-                Slot(context,"dw_cansel").onRun {
+                Slot(context, "dw_cansel").onRun {
                     signal("dw_progres")
-                            .putExtra("readBytes","0")
-                            .putExtra("totalBytes","0")
+                            .putExtra("readBytes", "0")
+                            .putExtra("totalBytes", "0")
                             .send(context)
                     signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
                     d.cancel()

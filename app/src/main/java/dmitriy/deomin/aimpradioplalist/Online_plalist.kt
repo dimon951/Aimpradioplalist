@@ -8,25 +8,16 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.fragment.app.Fragment
 import dmitriy.deomin.aimpradioplalist.custom.*
-import kotlinx.android.synthetic.main.online_plalist.*
 import kotlinx.android.synthetic.main.online_plalist.view.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.startActivity
 import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
-import android.R.attr.path
 import android.util.Log
-import kotlinx.android.synthetic.main.item_history_online_plalist.*
 import java.io.File
-import java.nio.file.Files
-import java.nio.file.attribute.BasicFileAttributes
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -72,15 +63,11 @@ class Online_plalist : Fragment() {
             //получим данные
             when (it.getStringExtra("update")) {
                 "zaebis" -> {
-                    if (!it.getStringExtra("listfile").isNullOrEmpty()) {
-                        open_file_online_palist = it.getStringExtra("listfile")
-                        //добавили в массив историии и сохранили
-                        //add_page(open_file_online_palist)
+                    open_file_online_palist = if (!it.getStringExtra("listfile").isNullOrEmpty()) {
+                        it.getStringExtra("listfile")
                     } else {
-                        open_file_online_palist = Main.HOME_ONLINE_PLALIST
+                        Main.HOME_ONLINE_PLALIST
                     }
-
-                    visible_nav_button(v, read_page_list().size, Main.save_read_int(Main.ACTIV_item))
 
                     //заново все сделаем
                     //====================================================================================
@@ -144,11 +131,6 @@ class Online_plalist : Fragment() {
             val fon = hop.view().findViewById<LinearLayout>(R.id.fon)
             fon.setBackgroundColor(Main.COLOR_FON)
 
-            val f = hop.view().findViewById<EditText>(R.id.find)
-            f.typeface = Main.face
-            f.textColor = Main.COLOR_TEXT
-            f.hintTextColor = Main.COLOR_TEXTcontext
-
             val recikl = hop.view().findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recikl)
             recikl.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
 
@@ -164,15 +146,14 @@ class Online_plalist : Fragment() {
             recikl.setOnScrollListener(fS.onScrollListener)
             //-------------------------------------------------------------------------------------------
 
-            val dir = File(Main.ROOT) //path указывает на директорию
-            val arrFiles = dir.listFiles()
-
+            val list_history  = read_page_list()
             val d = ArrayList<History>()
             val sdf = SimpleDateFormat("dd.M.yyyy hh:mm:ss", Locale.getDefault())
 
-            for (s in arrFiles.iterator()) {
-                if (s.isFile) {
-                    d.add(History(s.name, s.absolutePath, sdf.format(s.lastModified())))
+            for (l in list_history.iterator()) {
+                val f = File(l)
+                if (f.isFile) {
+                    d.add(History(f.name, f.absolutePath, sdf.format(f.lastModified())))
                 }
             }
             val a = Adapter_history_online_plalist(d)
@@ -216,7 +197,6 @@ class Online_plalist : Fragment() {
                             //файлы
                             deleteAllFilesFolder(Main.ROOT)
                             //список этих файлов
-                            //dell_history()
                             hop.close()
                         }
                         if (file.exists()) {
@@ -255,43 +235,6 @@ class Online_plalist : Fragment() {
         v.button_open_online_plalist_obmennik.onClick {
             startActivity<Obmenik>()
         }
-
-
-        //-----навигация-------------------------------------------
-        v.button_back_list_online_plalist.onClick {
-            //если в истории чтото есть вообще
-            if (read_page_list().size > 0) {
-                //и если количество больше текущей открытой вкладки
-                if (read_page_list().size > Main.save_read_int(Main.ACTIV_item)) {
-                    //перейдём назад и перезапишем текущию вкладку если текущаяя не первая )
-                    if ( Main.save_read_int(Main.ACTIV_item)== 0) {
-                        //пошлём сигнал для загрузки даных в список
-                        signal("Online_plalist")
-                                .putExtra("update", "zaebis")
-                                .putExtra("listfile", read_page_list()[0])
-                                .send(context)
-                        Main.save_value_int(Main.ACTIV_item, 0)
-                    }
-                    if (Main.save_read_int(Main.ACTIV_item) > 0) {
-                        signal("Online_plalist")
-                                .putExtra("update", "zaebis")
-                                .putExtra("listfile", read_page_list()[Main.save_read_int(Main.ACTIV_item)-1])
-                                .send(context)
-                        Main.save_value_int(Main.ACTIV_item, (Main.save_read_int(Main.ACTIV_item) - 1))
-                    }
-                }
-            }
-        }
-        v.button_up_list_online_plalist.onClick {
-            if(Main.save_read_int(Main.ACTIV_item)<read_page_list().size-2){
-                signal("Online_plalist")
-                        .putExtra("update", "zaebis")
-                        .putExtra("listfile", read_page_list()[(Main.save_read_int(Main.ACTIV_item)+1)])
-                        .send(context)
-                Main.save_value_int(Main.ACTIV_item, (Main.save_read_int(Main.ACTIV_item) + 1))
-
-            }
-        }
         //---------------------------------------------------------
 
 
@@ -308,21 +251,18 @@ class Online_plalist : Fragment() {
                             .putExtra("listfile", read_page_list()[Main.save_read_int(Main.ACTIV_item)])
                             .send(context)
                 } else {
-                    Log.e("fff","3")
                     //иначе пустую страницу покажем
                     signal("Online_plalist")
                             .putExtra("update", "zaebis")
                             .send(context)
                 }
             } else {
-                Log.e("fff","2")
                 //иначе пустую страницу покажем
                 signal("Online_plalist")
                         .putExtra("update", "zaebis")
                         .send(context)
             }
         } else {
-            Log.e("fff","1")
             //иначе пустую страницу покажем
             signal("Online_plalist")
                     .putExtra("update", "zaebis")
@@ -332,50 +272,22 @@ class Online_plalist : Fragment() {
         return v
     }
 
-    fun visible_nav_button(v: View, size: Int, aktiv: Int) {
-        if (size > 0) {
-            if (aktiv > (size - 2)) {
-                //если можно вперед двигаться покажем кнопку
-                v.button_up_list_online_plalist.visibility = View.VISIBLE
-            }
-            v.button_back_list_online_plalist.visibility = View.VISIBLE
-        } else {
-            v.button_up_list_online_plalist.visibility = View.GONE
-            v.button_back_list_online_plalist.visibility = View.GONE
-        }
-    }
 
-//    fun add_page(file: String) {
-//        val list: ArrayList<String> = Main.save_read_Arraylist(Main.LIST_HISTORY_OP)
-//        list.add(file)
-//        Main.save_Arraylist(Main.LIST_HISTORY_OP, list)
-//    }
 
     fun read_page_list(): ArrayList<String> {
-
         val dir = File(Main.ROOT) //path указывает на директорию
         val arrFiles = dir.listFiles()
 
         val d = ArrayList<String>()
 
+        if(arrFiles!= null)
         for (s in arrFiles.iterator()) {
             if (s.isFile) {
                 d.add(s.absolutePath)
             }
         }
-
-       // return Main.save_read_Arraylist(Main.LIST_HISTORY_OP)
         return  d
     }
-
-//    fun dell_history() {
-//        val list: ArrayList<String> = Main.save_read_Arraylist(Main.LIST_HISTORY_OP)
-//        //если есть такой удалим и запишем сверху
-//        list.clear()
-//        Main.save_Arraylist(Main.LIST_HISTORY_OP, list)
-//        //cохраним текущию позицию открытой страницы
-//        Main.save_value_int(Main.ACTIV_item, 0)
-//    }
 
     fun deleteAllFilesFolder(path: String) {
         for (myFile in File(path).listFiles())
