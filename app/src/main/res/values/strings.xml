@@ -170,9 +170,9 @@
             48kbps~kbps~http://listen.radiopassazh.ru/aac-48~kbps~
             48kbps2~kbps~http://s2.radiopassazh.ru/aac-48~kbps~
         </item>
-        <item>Радио ВТемпе\nv_tempe.png\n
-            256kbps~kbps~http://85.114.140.64:8000/stream~kbps~
-        </item>
+<!--        <item>Радио ВТемпе\nv_tempe.png\n-->
+<!--            256kbps~kbps~http://85.114.140.64:8000/stream~kbps~-->
+<!--        </item>-->
         <item>Максимум\nmaximum.png\n
             64kbps~kbps~https://maximum.hostingradio.ru/maximum64.mp3~kbps~
             96kbps~kbps~https://maximum.hostingradio.ru/maximum96.aacp~kbps~
@@ -268,6 +268,11 @@
 
     <string-array name="vse_radio">
 
+        <item>Молодечно FM -Музыка- 128kbps\nhttp://198.100.145.190:8000/MolodechnoFM.ogg</item>
+        <item>Радио Прокопьевск Кемеровская область -Музыка- 256kbps\nhttp://radioserver.27trk.ru:8000/prokopievsk.mp3</item>
+        <item>Радио Мир -Музыка- 256kbps\nhttp://217.77.109.33:8000/mir_256</item>
+        <item>Радио Бизнес FM Красноярск -Музыка- 256kbps\nhttp://84.22.145.37:8888/bfm256</item>
+        <item>Красная Плесень 101 ru -Музыка- 64kbps\nhttp://ic6.101.ru:8000/p971267</item>
         <item>Дмитрий Гревцев 101 ru -Музыка- 64kbps\nhttp://ic6.101.ru:8000/p955291</item>
         <item>Алексей Брянцев 101 ru -Музыка- 64kbps\nhttp://ic6.101.ru:8000/p927583</item>
         <item>Радио Монте-Карло -Музыка- 128kbps\nhttp://montecarlo.hostingradio.ru/montecarlo128.mp3</item>

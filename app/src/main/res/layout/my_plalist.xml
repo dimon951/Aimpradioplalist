@@ -33,16 +33,6 @@
 
     </LinearLayout>
 
-    <dmitriy.deomin.aimpradioplalist.custom.Btn
-        android:id="@+id/button_open_online_plalist"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@null"
-        android:gravity="center|right"
-        android:paddingRight="10dp"
-        android:text="@string/online_plalist"
-        android:textSize="14sp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

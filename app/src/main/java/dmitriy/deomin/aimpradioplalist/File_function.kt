@@ -27,62 +27,64 @@ class File_function {
     //или текст пояснялку если нет нечего
     fun My_plalist(url: String): ArrayList<String> {
 
-        //прочитаем старыйе данные
-        var kontent = ""
-        try {
-            kontent = read(url)
-        } catch (e: FileNotFoundException) {
-            e.printStackTrace()
-        }
-
-
-        //если есть чё разобьём на массив и вернём после удаления пустых строк
-        if (kontent.length > 11) {
-
-            //скинем все сюда , а потом обратно
-            val mas = ArrayList<String>()
-
-            //посмотрим че там есть #EXTINF:-1, или #EXTINF:0,
-            var textSplit = ""
-
-            if (kontent.contains("#EXTINF:-1,")) {
-                textSplit = "#EXTINF:-1,"
-            }
-            if (kontent.contains("#EXTINF:0,")) {
-                textSplit = "#EXTINF:0,"
+        if (File(url).exists()) {
+            //прочитаем старыйе данные
+            var kontent = ""
+            try {
+                kontent = read(url)
+            } catch (e: FileNotFoundException) {
+                e.printStackTrace()
             }
 
 
-            //и разделим стороку на масссив через
-            for (s in kontent.split(textSplit.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()) {
-                //если строка не пустая и не содержит перенос
-                if ((s != "") && (s != "\n")) {
-                    mas.add(s)
+            //если есть чё разобьём на массив и вернём после удаления пустых строк
+            if (kontent.length > 11) {
+
+                //скинем все сюда , а потом обратно
+                val mas = ArrayList<String>()
+
+                //посмотрим че там есть #EXTINF:-1, или #EXTINF:0,
+                var textSplit = ""
+
+                if (kontent.contains("#EXTINF:-1,")) {
+                    textSplit = "#EXTINF:-1,"
                 }
+                if (kontent.contains("#EXTINF:0,")) {
+                    textSplit = "#EXTINF:0,"
+                }
+
+
+                //и разделим стороку на масссив через
+                for (s in kontent.split(textSplit.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()) {
+                    //если строка не пустая и не содержит перенос
+                    if ((s != "") && (s != "\n")) {
+                        mas.add(s)
+                    }
+                }
+                return mas
+            } else {
+                //врнём свой моссив с подсказкой
+                val pusto = ArrayList<String>()
+                pusto.add(Main.PUSTO)
+                return pusto
             }
-
-
-
-            return mas
         } else {
             //врнём свой моссив с подсказкой
             val pusto = ArrayList<String>()
             pusto.add(Main.PUSTO)
             return pusto
         }
-
-
     }
 
     //удаление одной станции из файла
     //в параметрах получаем строку вида
     //Авторадио\nhttp://ic7.101.ru:8000/v3_1
-    fun Delet_one_potok(potok: String,file_url:String) {
+    fun Delet_one_potok(potok: String, file_url: String) {
         //прочитаем старыйе данные
         var old_text = ""
         try {
             old_text = read(file_url)
-           // old_text = read(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u")
+            // old_text = read(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u")
         } catch (e: FileNotFoundException) {
             e.printStackTrace()
         }
@@ -98,17 +100,17 @@ class File_function {
         old_text = old_text.replace("#EXTINF:-1,$potok", "")
 
         //очищаем и записываем заново, там уже будут слаться сигналы получилось или нет
-        SaveFile(Main.ROOT+"my_plalist.m3u", old_text)
+        SaveFile(Main.ROOT + "my_plalist.m3u", old_text)
     }
 
     //переименование
-    fun Rename_potok(potok_old: String, potok_new: String,file_url:String) {
+    fun Rename_potok(potok_old: String, potok_new: String, file_url: String) {
         //прочитаем старыйе данные
         var old_text = ""
 
         //прочитали файл как есть
         try {
-          //  old_text = read(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u")
+            //  old_text = read(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u")
             old_text = read(file_url)
         } catch (e: FileNotFoundException) {
             e.printStackTrace()
@@ -121,7 +123,7 @@ class File_function {
 
 
         //очищаем и записываем заново, там уже будут слаться сигналы получилось или нет
-        SaveFile(Main.ROOT+"my_plalist.m3u", old_text)
+        SaveFile(Main.ROOT + "my_plalist.m3u", old_text)
     }
 
     //добавляется в текущему плейлисту ещё станцию
@@ -166,10 +168,10 @@ class File_function {
                 }
             }
             //если цикл прошёл мимо то добавим станцию
-            SaveFile(Main.ROOT+"my_plalist.m3u", "$old_text\n#EXTINF:-1,$name\n$link")
+            SaveFile(Main.ROOT + "my_plalist.m3u", "$old_text\n#EXTINF:-1,$name\n$link")
         } else {
             //если наш плейлист пуст добавим в начале файла #EXTM3U
-            SaveFile(Main.ROOT+"my_plalist.m3u", "#EXTM3U\n#EXTINF:-1,$name\n$link")
+            SaveFile(Main.ROOT + "my_plalist.m3u", "#EXTM3U\n#EXTINF:-1,$name\n$link")
         }
 
     }
@@ -237,12 +239,12 @@ class File_function {
             //разобьём на список через перенос и удалим мусорные строчки
             //тут нужно делать поиск в каждой строчке так как там разные получаются запросы
             val lkontent = kontent.split("\n")
-            var newkontent=""
-            for (l in lkontent.listIterator()){
+            var newkontent = ""
+            for (l in lkontent.listIterator()) {
                 newkontent += if (l.contains("#EXTGRP")) {
                     val d = l.substringAfter("#EXTGRP").substringBefore("http://")
                     l.replace("#EXTGRP$d", "")
-                }else{
+                } else {
                     l
                 }
             }
@@ -286,10 +288,10 @@ class File_function {
             //1-найдём весь храм а потом заменим его
             val list = kontent.split("#")
             var new_kontent = ""
-            for(l in list.iterator()){
+            for (l in list.iterator()) {
                 //составим новый список приведёный к одному виду
-                if(l.contains(",")){
-                    new_kontent = new_kontent+"#EXTINF:-1,"+l.substring(l.indexOf(",")+1,l.length)
+                if (l.contains(",")) {
+                    new_kontent = new_kontent + "#EXTINF:-1," + l.substring(l.indexOf(",") + 1, l.length)
                 }
             }
 

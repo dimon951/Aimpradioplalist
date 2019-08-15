@@ -299,51 +299,6 @@ class Moy_plalist : Fragment() {
 
         //Слушаем кнопки
         //===========================================================================================
-
-        //----------Открыть окно со списком онлайн плейлистов-------------------------------------
-        (v.findViewById<Button>(R.id.button_open_online_plalist)).onClick {
-            //книги https://dl.dropbox.com/s/cd479dcdguk6cg6/Audio_book.m3u
-            //радио https://dl.dropbox.com/s/sl4x8z3yth5v1u0/Radio.m3u
-            //tv https://www.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u?dl=0
-            val online_pls = DialogWindow(context, R.layout.open_online_plalist)
-
-            (online_pls.view().findViewById<Button>(R.id.open_radio)).onClick {
-                //закрываем окно
-                online_pls.close()
-                //очистим список и запишем первый элемент корневой плейлисто
-                list_move_history.clear()
-                list_move_history.add(Main.MY_PLALIST)
-                //загрузим начальный список
-                Main.download_i_open_m3u_file("https://dl.dropbox.com/s/sl4x8z3yth5v1u0/Radio.m3u", "radio_plalisty")
-            }
-            (online_pls.view().findViewById<Button>(R.id.open_book)).onClick {
-                //закрываем окно
-                online_pls.close()
-                //очистим список и запишем первый элемент корневой плейлисто
-                list_move_history.clear()
-                list_move_history.add(Main.MY_PLALIST)
-                //загрузим начальный список
-                Main.download_i_open_m3u_file("https://dl.dropbox.com/s/cd479dcdguk6cg6/Audio_book.m3u", "audio_book")
-            }
-            (online_pls.view().findViewById<Button>(R.id.open_tv)).onClick {
-                //закрываем окно
-                online_pls.close()
-                //очистим список и запишем первый элемент корневой плейлисто
-                list_move_history.clear()
-                list_move_history.add(Main.MY_PLALIST)
-                //загрузим начальный список
-                Main.download_i_open_m3u_file( "https://dl.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u", "tv_plalist")
-            }
-            (online_pls.view().findViewById<Button>(R.id.user_station)).onClick {
-                startActivity<Obmenik>()
-                //закрываем окно
-                online_pls.close()
-            }
-
-
-        }
-        //----------------------------------------------------------------------------------------
-
         //------------удалить(очистить весь плейлист)---------------------------------------------
         (v.findViewById<Button>(R.id.button_delete)).onClick {
 
@@ -938,72 +893,10 @@ class Moy_plalist : Fragment() {
                     //----------------------------------------------------------
 
                     //-----------скачиваем файл (читам его)--------
-                    Main.download_i_open_m3u_file(url_link,n)
+                    Main.download_i_open_m3u_file(url_link,n,"anim_my_list")
                 }
             }
         }
         //--------------------------------------------------------------------------------------
     }
 }
-
-//===========================Адаптер к спику истории ссылок=============================================================
-class Adapter_history_list(val data: ArrayList<History>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_history_list.ViewHolder>() {
-
-    private lateinit var context: Context
-
-    class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
-        val url = itemView.findViewById<TextView>(R.id.url_potok)
-        val name = itemView.findViewById<TextView>(R.id.name_potok)
-        val data_time = itemView.findViewById<TextView>(R.id.data_add_potok)
-        val share = itemView.findViewById<Button>(R.id.button_share_url_plalist)
-        val liner = itemView.findViewById<LinearLayout>(R.id.liner_online_plalist)
-        val fon = itemView.findViewById<LinearLayout>(R.id.fon_item_vvoda_potoka)
-    }
-
-    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
-        val v = LayoutInflater.from(p0.context).inflate(R.layout.item_vvoda_potoka, p0, false)
-        context = p0.context
-        return ViewHolder(v)
-    }
-
-    override fun getItemCount(): Int {
-        return data.size
-    }
-
-    override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-
-        val history = data[p1]
-
-        p0.url.text = history.url
-        p0.name.text = history.name
-        p0.data_time.text = history.data_time
-
-
-        p0.liner.onClick {
-            p0.liner.startAnimation(AnimationUtils.loadAnimation(Main.context, R.anim.myalpha))
-            signal("clik_history_item").putExtra("url", history.url).putExtra("name", history.name).send(Main.context)
-        }
-        p0.liner.onLongClick {
-            p0.liner.startAnimation(AnimationUtils.loadAnimation(Main.context, R.anim.myalpha))
-            //пересоберём список без текущей строки
-            GlobalScope.launch {
-                val save_data = ArrayList<String>()
-                for (d in data) {
-                    if (d.url != history.url) {
-                        save_data.add(d.name + "$" + d.url + "$" + d.data_time)
-                    }
-                }
-                File_function().saveArrayList(Main.HISTORY_LINK, save_data)
-            }
-            //не буду нечего слушать и проверять так пока сделаю
-            data.removeAt(p1)
-            notifyDataSetChanged()
-        }
-
-
-        p0.share.onClick {
-            context.share(history.url)
-        }
-    }
-}
-//======================================================================================================================

@@ -11,8 +11,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.os.StrictMode
-import android.telephony.TelephonyManager
-import androidx.core.app.*
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import android.text.Editable
@@ -25,6 +23,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.github.kittinunf.fuel.Fuel
+import com.github.kittinunf.fuel.httpDownload
 import com.github.kittinunf.fuel.httpGet
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
@@ -38,6 +38,7 @@ import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
+import org.json.JSONArray
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -45,8 +46,6 @@ import kotlin.collections.ArrayList
 
 class Main : FragmentActivity() {
 
-    //размер в байтах при который не учитывать для отображения размера кеша
-    val SIZEFILETHEME = 1000
 
     //    //Displayed 2c
 
@@ -60,8 +59,7 @@ class Main : FragmentActivity() {
         const val File_Text_Code: String = "UTF8"
 
         //ссылка на аимп
-        const val LINK_DOWLOAD_AIMP = "https://www.aimp.ru/files/android/aimp_2.90.848.apk"
-
+        const val LINK_DOWLOAD_AIMP = "https://www.aimp.ru/files/android/aimp_2.90.850.apk"
 
         //текст в пустом плейлисте(много где требуется)
         const val PUSTO: String = "Плейлист пуст.\n"
@@ -86,14 +84,20 @@ class Main : FragmentActivity() {
         //толщина полосы прокрутки
         const val SIZE_WIDCH_SCROLL = 50
 
+        //размер в байтах при который не учитывать для отображения размера кеша
+        const val SIZEFILETHEME = 1000
+
         //Имя пользователя
         var NAME_USER = ""
 
         //ид пользователя
         var ID_USER = ""
 
-
-        //
+        //название файла моего плейлиста
+        val HOME_ONLINE_PLALIST = ROOT + "home_online_plalist.m3u"
+        //название файла истроии онлайн плейлиста
+        const val LIST_HISTORY_OP = "list_history_online_plalist"
+        const val ACTIV_item = "activ_item_list_history_online_palalist"
 
 
         //шрифт
@@ -164,6 +168,37 @@ class Main : FragmentActivity() {
                 mSettings.getInt(key_save, 0)
             } else 0
         }
+
+        fun save_Arraylist(key: String, data: ArrayList<String>) {
+            GlobalScope.launch {
+                val editor = mSettings.edit()
+                val a = JSONArray()
+                for (d in data.iterator()) {
+                    if(d.length>2)
+                    a.put(d)
+                }
+                editor.putString(key, a.toString())
+
+                editor.apply()
+            }
+        }
+
+        fun save_read_Arraylist(key: String): ArrayList<String> {
+
+            val json = save_read(key)
+            val urls = ArrayList<String>()
+
+            if (json != "") {
+                val a = JSONArray(json)
+                for (i in 0..a.length()) {
+                    val url = a.optString(i)
+                    urls.add(url)
+                }
+            }
+
+            return urls
+        }
+
         //-------------------
 
         //проверка есть ли приложение
@@ -529,52 +564,66 @@ class Main : FragmentActivity() {
             file_function.Add_may_plalist_stansiy(url, name)
         }
 
-        fun download_i_open_m3u_file(url:String,name:String){
+
+        fun download_i_open_m3u_file(url: String, name: String, sourse: String) {
             //-----------скачиваем файл (читам его)--------
             GlobalScope.launch {
                 //запустим анимацию
-                signal("Main_update").putExtra("signal","start_anim_my_list").send(context)
+                signal("Main_update").putExtra("signal", "start_" + sourse).send(context)
 
                 url.httpGet().responseString { request, response, result ->
                     when (result) {
                         is com.github.kittinunf.result.Result.Failure -> {
                             val ex = result.getException()
                             //если ошибка остановим анимацию и покажем ошибку
-                            signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
+                            signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
                             context.toast(ex.toString())
                         }
                         is com.github.kittinunf.result.Result.Success -> {
                             val data = result.get()
-
                             if (data.isNotEmpty()) {
 
-                                val listfile = Main.ROOT+name.replace("<List>","")+".m3u"
+                                val listfile = Main.ROOT + name.replace("<List>", "") + ".m3u"
 
                                 //когда прийдёт сигнал что все хорошо обновим плейлист
                                 Slot(context, "File_created", false).onRun {
                                     //получим данные
                                     when (it.getStringExtra("update")) {
                                         "zaebis" -> {
-                                            //пошлём сигнал пусть мой плейлист обновится
-                                            signal("Data_add")
-                                                    .putExtra("update", "zaebis")
-                                                    .putExtra("listfile",listfile)
-                                                    .send(context)
+                                            //остановим анимацию
+                                            signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
+
+                                            if (sourse == "anim_my_list") {
+                                                //пошлём сигнал пусть мой плейлист обновится
+                                                signal("Data_add")
+                                                        .putExtra("update", "zaebis")
+                                                        .putExtra("listfile", listfile)
+                                                        .send(context)
+                                            }
+                                            if (sourse == "anim_online_plalist") {
+                                                //пошлём сигнал для загрузки дааных п спискок
+                                                signal("Online_plalist")
+                                                        .putExtra("update", "zaebis")
+                                                        .putExtra("listfile", listfile)
+                                                        .send(context)
+                                            }
+
                                         }
                                         "pizdec" -> {
+                                            signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
                                             context.toast(context.getString(R.string.error))
                                             //запросим разрешения
-                                            Main.EbuchieRazreshenia()
+                                            EbuchieRazreshenia()
                                         }
                                     }
                                 }
 
-                                val file_function=File_function()
+                                val file_function = File_function()
                                 //поехали , сохраняем  и ждём сигналы
-                                file_function.SaveFile(listfile,data)
-                            }else{
+                                file_function.SaveFile(listfile, data)
+                            } else {
                                 //если нечего нет остановим анимацию и скажем что там пусто
-                                signal("Main_update").putExtra("signal","stop_anim_my_list").send(context)
+                                signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
                                 context.toast("ошибка,пусто")
                             }
                         }
@@ -584,33 +633,83 @@ class Main : FragmentActivity() {
             //--------------------------------------------------------
         }
 
-        //-----------------получаем список из базы------------------------------------
-        fun load_koment(id_item: String){
-                val d = ArrayList<Koment>()
-                val db = FirebaseFirestore.getInstance()
-                db.collection(id_item)
-                        .orderBy("date")
-                        .get()
-                        .addOnSuccessListener { result ->
-                            for (document in result) {
-                                d.add(Koment(
-                                        (if(document.data["user_name"]!=null){document.data["user_name"]}else{""}) as String,
-                                        (if(document.data["user_id"]!=null){document.data["user_id"]}else{""}) as String,
-                                        (if(document.data["text"]!=null){document.data["text"]}else{""}) as String,
-                                        (if(document.data["date"]!=null){document.data["date"]}else{""}) as String,
-                                        (document.id))
-                                )
-                            }
-                            signal("load_koment")
-                                    .putExtra("data",d)
-                                    .putExtra("id",id_item)
-                                    .send(context)
+        fun download_file(url: String, name: String, sourse: String) {
+            //-----------скачиваем файл (читам его)--------
+            GlobalScope.launch {
+                //запустим анимацию
+                signal("Main_update").putExtra("signal", "start_" + sourse).send(context)
 
+                val d = Fuel.download(url)
+                        .fileDestination { response, url -> File(Main.ROOT + name) }
+                        .progress { readBytes, totalBytes ->
+                            val progress = readBytes.toFloat() / totalBytes.toFloat() * 100
+                            signal("dw_progres")
+                                    .putExtra("readBytes",readBytes.toString())
+                                    .putExtra("totalBytes",totalBytes.toString())
+                                    .send(context)
+                            if(progress.toInt()==100){
+                                signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
+                            }
                         }
+                        .response { result -> }
+
+                Slot(context,"dw_cansel").onRun {
+                    signal("dw_progres")
+                            .putExtra("readBytes","0")
+                            .putExtra("totalBytes","0")
+                            .send(context)
+                    signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
+                    d.cancel()
+                }
+
+            }
+            //--------------------------------------------------------
+        }
+
+        //-----------------получаем список из базы------------------------------------
+        fun load_koment(id_item: String) {
+            val d = ArrayList<Koment>()
+            val db = FirebaseFirestore.getInstance()
+
+            db.collection(id_item)
+                    .orderBy("date")
+                    .get()
+                    .addOnSuccessListener { result ->
+                        for (document in result) {
+                            d.add(Koment(
+                                    (if (document.data["user_name"] != null) {
+                                        document.data["user_name"]
+                                    } else {
+                                        ""
+                                    }) as String,
+                                    (if (document.data["user_id"] != null) {
+                                        document.data["user_id"]
+                                    } else {
+                                        ""
+                                    }) as String,
+                                    (if (document.data["text"] != null) {
+                                        document.data["text"]
+                                    } else {
+                                        ""
+                                    }) as String,
+                                    (if (document.data["date"] != null) {
+                                        document.data["date"]
+                                    } else {
+                                        ""
+                                    }) as String,
+                                    (document.id))
+                            )
+                        }
+                        signal("load_koment")
+                                .putExtra("data", d)
+                                .putExtra("id", id_item)
+                                .send(context)
+
+                    }
         }
         //-----------------------------------------------------------------------------------
 
-        fun add_koment(id_item:String,text:String){
+        fun add_koment(id_item: String, text: String) {
             val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
             val currentDate = sdf.format(Date())
             //добавление в базу
@@ -624,17 +723,17 @@ class Main : FragmentActivity() {
 
             // Add a new document with a generated ID
             db.collection(id_item)
-                   .add(user)
+                    .add(user)
                     .addOnSuccessListener { documentReference ->
                         //если все пучком пошлём сигнал для обновления(пока всего плейлиста)
-                       signal("add_koment").putExtra("update", "zaebis").send(context)
+                        signal("add_koment").putExtra("update", "zaebis").send(context)
                     }
                     .addOnFailureListener { e ->
                         context.toast(e.toString())
                     }
         }
 
-        fun edit_koment(id_item:String,text:String,id_komenta:String){
+        fun edit_koment(id_item: String, text: String, id_komenta: String) {
             val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
             val currentDate = sdf.format(Date())
             //добавление в базу
@@ -657,6 +756,57 @@ class Main : FragmentActivity() {
                     }
         }
         //-----------------------------------------------------------------------
+
+        //------------------лайки---------------------------------------------------
+        fun load_like(id_item: String) {
+            val d = ArrayList<Like>()
+            val db = FirebaseFirestore.getInstance()
+            db.collection(id_item)
+                    .get()
+                    .addOnSuccessListener { result ->
+                        for (document in result) {
+                            d.add(Like(
+                                    (if (document.data["user_id"] != null) {
+                                        document.data["user_id"]
+                                    } else {
+                                        ""
+                                    }) as String,
+                                    (document.id),
+                                    (if (document.data["like"] != null) {
+                                        document.data["like"]
+                                    } else {
+                                        ""
+                                    }) as String))
+                        }
+                        signal("load_like")
+                                .putExtra("data", d)
+                                .putExtra("id", id_item)
+                                .send(context)
+
+                    }
+        }
+
+        fun like(id_item: String, like: String) {
+            //добавление в базу
+            val db = FirebaseFirestore.getInstance()
+            val user = hashMapOf(
+                    "user_id" to ID_USER,
+                    "item_id" to id_item,
+                    "like" to like
+            )
+
+            // Add a new document with a generated ID
+            db.collection(id_item)
+                    .add(user)
+                    .addOnSuccessListener { documentReference ->
+                        //если все пучком пошлём сигнал для обновления(пока всего плейлиста)
+                        signal("add_like").putExtra("update", "zaebis").send(context)
+                    }
+                    .addOnFailureListener { e ->
+                        context.toast(e.toString())
+                    }
+        }
+        //----------------------------------------------------------------------------
 
 
         @JvmStatic
@@ -728,7 +878,6 @@ class Main : FragmentActivity() {
         //-----------------------------------------------------
 
 
-
         face = Typeface.createFromAsset(assets, if (save_read("fonts") == "") "fonts/Tweed.ttf" else save_read("fonts"))
         //ставим цвет фона(тема)
         //--------------------------------------------------------------------
@@ -762,7 +911,7 @@ class Main : FragmentActivity() {
         fon_main.setBackgroundColor(COLOR_FON)
 
 
-        val mImageIds: IntArray = intArrayOf(R.drawable.titl_text1, R.drawable.titl_text2, R.drawable.titl_text3)
+        val mImageIds: IntArray = intArrayOf(R.drawable.titl_text1, R.drawable.titl_text2, R.drawable.titl_text3, R.drawable.titl_text4)
         val imageSwitcher: ImageSwitcher = this.findViewById(R.id.imageSwitcher)
         imageSwitcher.setFactory {
             val myView = ImageView(applicationContext)
@@ -772,7 +921,7 @@ class Main : FragmentActivity() {
         imageSwitcher.setImageResource(mImageIds[1])
 
         val viewPager: ViewPager = findViewById(R.id.pager)
-        viewPager.offscreenPageLimit = 3
+        viewPager.offscreenPageLimit = 4
         val myadapter = Myadapter(supportFragmentManager)
         viewPager.adapter = myadapter
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -808,6 +957,8 @@ class Main : FragmentActivity() {
         popularnoe.typeface = face
         moy_plalist.setTextColor(COLOR_TEXT)
         moy_plalist.typeface = face
+        online_plalist.setTextColor(COLOR_TEXT)
+        online_plalist.typeface = face
 
 
         val size_vse_list = resources.getStringArray(R.array.vse_radio).size.toString()
@@ -888,6 +1039,9 @@ class Main : FragmentActivity() {
         moy_plalist.onClick {
             viewPager.currentItem = 2
         }
+        online_plalist.onClick {
+            viewPager.currentItem = 3
+        }
         //****************************************************************
 
         //скроем кнопки , покажем анимацию загрузки
@@ -905,7 +1059,7 @@ class Main : FragmentActivity() {
             //получим данные
             when (val s = it.getStringExtra("signal")) {
                 //меняем кота
-                "0", "1", "2" -> {
+                "0", "1", "2", "3" -> {
                     when (s.toInt()) {
                         0 -> {
                             vse_radio.setBackgroundColor(COLOR_ITEM)
@@ -914,6 +1068,7 @@ class Main : FragmentActivity() {
 
                             popularnoe.setBackgroundColor(COLOR_FON)
                             moy_plalist.setBackgroundColor(COLOR_FON)
+                            online_plalist.setBackgroundColor(COLOR_FON)
                         }
                         1 -> {
                             popularnoe.setBackgroundColor(COLOR_ITEM)
@@ -922,6 +1077,7 @@ class Main : FragmentActivity() {
 
                             vse_radio.setBackgroundColor(COLOR_FON)
                             moy_plalist.setBackgroundColor(COLOR_FON)
+                            online_plalist.setBackgroundColor(COLOR_FON)
                         }
                         2 -> {
                             moy_plalist.setBackgroundColor(COLOR_ITEM)
@@ -930,6 +1086,16 @@ class Main : FragmentActivity() {
 
                             vse_radio.setBackgroundColor(COLOR_FON)
                             popularnoe.setBackgroundColor(COLOR_FON)
+                            online_plalist.setBackgroundColor(COLOR_FON)
+                        }
+                        3 -> {
+                            online_plalist.setBackgroundColor(COLOR_ITEM)
+                            online_plalist.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
+                            imageSwitcher.setImageResource(mImageIds[3])
+
+                            vse_radio.setBackgroundColor(COLOR_FON)
+                            popularnoe.setBackgroundColor(COLOR_FON)
+                            moy_plalist.setBackgroundColor(COLOR_FON)
                         }
                     }
                 }
@@ -962,6 +1128,14 @@ class Main : FragmentActivity() {
                 "stop_anim_my_list" -> {
                     progress_moy_plalist.visibility = View.GONE
                     moy_plalist.visibility = View.VISIBLE
+                }
+                "start_anim_online_plalist" -> {
+                    online_plalist.visibility = View.GONE
+                    progress_online_plalist.visibility = View.VISIBLE
+                }
+                "stop_anim_online_plalist" -> {
+                    online_plalist.visibility = View.VISIBLE
+                    progress_online_plalist.visibility = View.GONE
                 }
 
             }
@@ -1004,85 +1178,6 @@ class Main : FragmentActivity() {
             startActivity<Fonts_vibor>()
             menu.close()
         }
-
-        //кнопка очистить кеш
-        //при открытии меню будем показыват размер этого кеша
-        val b_c = menu.view().findViewById<Button>(R.id.button_clear_kesh)
-
-        //получим размер
-        val file = File(ROOT)
-        if (file.exists()) {
-            val s = getDirSize(file)
-            if (s > SIZEFILETHEME) {
-                b_c.text = "Очистить кэш(" + (s / 1024).toString() + " kb" + ")"
-            } else {
-                b_c.text = "Кэш очищен"
-            }
-        } else
-            b_c.text = "Кэш очищен"
-
-        b_c.onClick {
-
-            if (b_c.text == "Кэш очищен") {
-
-                context.toast("Пусто")
-
-            } else {
-
-                //покажем предупреждающее окошко
-                val v_d = DialogWindow(context, R.layout.dialog_delete_plalist)
-
-                v_d.view().findViewById<TextView>(R.id.text_voprosa_del_stncii).text = "Удалить кеш?"
-
-                v_d.view().findViewById<Button>(R.id.button_dialog_delete).onClick {
-                    v_d.close()
-                    //удаляем все
-                    if (file.exists()) {
-                        deleteAllFilesFolder(ROOT)
-                    }
-                    if (file.exists()) {
-                        val s = getDirSize(file)
-                        if (s > SIZEFILETHEME) {
-                            b_c.text = "Очистить кэш(" + (s / 1024).toString() + " kb" + ")"
-                        } else {
-                            b_c.text = "Кэш очищен"
-                        }
-
-                    } else
-                        b_c.text = "Кэш очищен"
-
-                }
-                v_d.view().findViewById<Button>(R.id.button_dialog_no).onClick {
-                    v_d.close()
-                }
-
-            }
-
-        }
-
-
-    }
-
-    fun deleteAllFilesFolder(path: String) {
-        for (myFile in File(path).listFiles())
-            if (myFile.isFile && myFile.name != "theme.txt" && myFile.name != "history_url.txt") myFile.delete()
-    }
-
-    fun getDirSize(dir: File): Long {
-        var size: Long = 0
-        if (dir.isFile) {
-            size = dir.length()
-        } else {
-            val subFiles = dir.listFiles()
-            for (file in subFiles) {
-                size += if (file.isFile) {
-                    file.length()
-                } else {
-                    getDirSize(file)
-                }
-            }
-        }
-        return size
     }
 
     //заполняем наш скролер
@@ -1093,12 +1188,13 @@ class Main : FragmentActivity() {
                 0 -> return Vse_radio()
                 1 -> return Pop_radio()
                 2 -> return Moy_plalist()
+                3 -> return Online_plalist()
             }
             return null
         }
 
         override fun getCount(): Int {
-            return 3
+            return 4
         }
     }
 }
