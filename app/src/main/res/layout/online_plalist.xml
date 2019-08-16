@@ -66,6 +66,17 @@
             android:textSize="14sp" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_open_online_plalist_musik"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center"
+            android:paddingRight="10dp"
+            android:text="Музыка"
+            android:textSize="14sp" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_open_online_plalist_obmennik"
             android:layout_width="match_parent"
             android:layout_height="40dp"

@@ -1,16 +1,20 @@
 package dmitriy.deomin.aimpradioplalist
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.History
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
+import java.io.File
 
 //===========================Адаптер к спику истории ссылок=============================================================
 class Adapter_history_online_plalist(val data: ArrayList<History>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_history_online_plalist.ViewHolder>() {
@@ -20,7 +24,9 @@ class Adapter_history_online_plalist(val data: ArrayList<History>) : androidx.re
     class ViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         val name = itemView.findViewById<TextView>(R.id.name)
         val data_time = itemView.findViewById<TextView>(R.id.data)
+        val size_file = itemView.findViewById<TextView>(R.id.size_file)
         val liner = itemView.findViewById<LinearLayout>(R.id.liner)
+        val btn_del = itemView.findViewById<Button>(R.id.btn_del_history)
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
@@ -39,6 +45,8 @@ class Adapter_history_online_plalist(val data: ArrayList<History>) : androidx.re
 
         p0.name.text = history.name
         p0.data_time.text = history.data_time
+        p0.size_file.text = history.size
+
 
 
         p0.liner.onClick {
@@ -47,9 +55,10 @@ class Adapter_history_online_plalist(val data: ArrayList<History>) : androidx.re
             signal("History_online_plalist").send(Main.context)
 
             //если тыкают в плейлист
-            if(history.url.substringAfterLast('.')=="mp3"){
+            if (history.url.substringAfterLast('.') == "mp3") {
                 Main.play_aimp_file(Main.ROOT + history.url)
-            }else{
+            } else {
+                Main.save_value(Main.HISORYLAST, history.url)
                 //пошлём сигнал для загрузки дааных п спискок
                 signal("Online_plalist")
                         .putExtra("update", "zaebis")
@@ -61,26 +70,38 @@ class Adapter_history_online_plalist(val data: ArrayList<History>) : androidx.re
         p0.liner.onLongClick {
             p0.liner.startAnimation(AnimationUtils.loadAnimation(Main.context, R.anim.myalpha))
             //если долго тыкают в плейлист
-            if(history.url.substringAfterLast('.')=="mp3"){
-                Main.play_aimp_file(Main.ROOT + history.url)
-            }else{
+            if (history.url.substringAfterLast('.') == "mp3") {
+                Main.play_aimp_file(history.url)
+            } else {
 
             }
         }
 
-//        //пересоберём список без текущей строки
-//        GlobalScope.launch {
-//            val save_data = ArrayList<String>()
-//            for (d in data) {
-//                if (d.url != history.url) {
-//                    save_data.add(d.name + "$" + d.url + "$" + d.data_time)
-//                }
-//            }
-//            File_function().saveArrayList(Main.HISTORY_LINK, save_data)
-//        }
-//        //не буду нечего слушать и проверять так пока сделаю
-//        data.removeAt(p1)
-//        notifyDataSetChanged()
+        p0.btn_del.onClick {
+            if(history.url.substringAfterLast('.') == "mp3"){
+                val d = DialogWindow(context, R.layout.dialog_delete_stancii)
+                val t = d.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
+                t.text = "Удалить "+history.name +" ("+history.size+") ?"
+                val da = d.view().findViewById<Button>(R.id.button_dialog_delete)
+                da.onClick {
+                    d.close()
+                    if(File(history.url).delete()){
+                        data.removeAt(p1)
+                        notifyDataSetChanged()
+                    }
+                }
+                d.view().findViewById<Button>(R.id.button_dialog_no).onClick {
+                    d.close()
+                }
+
+            }else{
+                if(File(history.url).delete()){
+                    data.removeAt(p1)
+                    notifyDataSetChanged()
+                }
+            }
+        }
+
     }
 }
 //======================================================================================================================

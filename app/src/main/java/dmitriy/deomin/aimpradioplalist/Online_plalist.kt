@@ -1,6 +1,5 @@
 package dmitriy.deomin.aimpradioplalist
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.text.Editable
@@ -23,12 +22,16 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
+
+
+
+
 class Online_plalist : Fragment() {
 
     lateinit var ad_online_palist: Adapter_online_palist
     var open_file_online_palist = ""
 
-    companion object{
+    companion object {
         var position_list_online_palist = 0
     }
 
@@ -146,14 +149,14 @@ class Online_plalist : Fragment() {
             recikl.setOnScrollListener(fS.onScrollListener)
             //-------------------------------------------------------------------------------------------
 
-            val list_history  = read_page_list()
+            val list_history = read_page_list()
             val d = ArrayList<History>()
             val sdf = SimpleDateFormat("dd.M.yyyy hh:mm:ss", Locale.getDefault())
 
             for (l in list_history.iterator()) {
                 val f = File(l)
                 if (f.isFile) {
-                    d.add(History(f.name, f.absolutePath, sdf.format(f.lastModified())))
+                    d.add(History(f.name, f.absolutePath, sdf.format(f.lastModified()), long_size_to_good_vid(f.length().toDouble())))
                 }
             }
             val a = Adapter_history_online_plalist(d)
@@ -170,7 +173,7 @@ class Online_plalist : Fragment() {
             if (file.exists()) {
                 val s = getDirSize(file)
                 if (s > Main.SIZEFILETHEME) {
-                    b_c.text = "Очистить Историю/Кэш(" + (s / 1024).toString() + " kb" + ")"
+                    b_c.text = "Очистить Историю/Кэш (" + long_size_to_good_vid(s.toDouble()) + ")"
                 } else {
                     b_c.text = "История/Кэш очищен"
                 }
@@ -198,11 +201,16 @@ class Online_plalist : Fragment() {
                             deleteAllFilesFolder(Main.ROOT)
                             //список этих файлов
                             hop.close()
+                            //обновим список
+                            //иначе пустую страницу покажем
+                            signal("Online_plalist")
+                                    .putExtra("update", "zaebis")
+                                    .send(context)
                         }
                         if (file.exists()) {
                             val s = getDirSize(file)
                             if (s > Main.SIZEFILETHEME) {
-                                b_c.text = "Очистить Историю/Кэш(" + (s / 1024).toString() + " kb" + ")"
+                                b_c.text = "Очистить Историю/Кэш (" + long_size_to_good_vid(s.toDouble()) + ")"
                             } else {
                                 b_c.text = "История/Кэш очищен"
                             }
@@ -232,37 +240,30 @@ class Online_plalist : Fragment() {
         v.button_open_online_plalist_tv.onClick {
             Main.download_i_open_m3u_file("https://dl.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u", "tv_plalist", "anim_online_plalist")
         }
+        v.button_open_online_plalist_musik.onClick {
+            Main.download_i_open_m3u_file("https://dl.dropbox.com/s/oe9kdcksjru82by/Musik.m3u", "musik", "anim_online_plalist")
+        }
         v.button_open_online_plalist_obmennik.onClick {
             startActivity<Obmenik>()
         }
         //---------------------------------------------------------
 
+        val h = Main.save_read(Main.HISORYLAST)
 
-        //При старте будем открывать последнию страницу
-        //Если было что-то
-        if (Main.save_read_int(Main.ACTIV_item) >= 0) {
-            //И если это есть в списке
-            if (read_page_list().size > Main.save_read_int(Main.ACTIV_item)) {
-                //если есть локально загрузим из памяти
-                if (File(read_page_list()[Main.save_read_int(Main.ACTIV_item)]).isFile) {
-                    //пошлём сигнал для загрузки дааных в спискок
-                    signal("Online_plalist")
-                            .putExtra("update", "zaebis")
-                            .putExtra("listfile", read_page_list()[Main.save_read_int(Main.ACTIV_item)])
-                            .send(context)
-                } else {
-                    //иначе пустую страницу покажем
-                    signal("Online_plalist")
-                            .putExtra("update", "zaebis")
-                            .send(context)
-                }
-            } else {
+        if(h.length>1){
+            if(File(h).isFile){
+                //пошлём сигнал для загрузки дааных в спискок
+                signal("Online_plalist")
+                        .putExtra("update", "zaebis")
+                        .putExtra("listfile", h)
+                        .send(context)
+            }else{
                 //иначе пустую страницу покажем
                 signal("Online_plalist")
                         .putExtra("update", "zaebis")
                         .send(context)
             }
-        } else {
+        }else{
             //иначе пустую страницу покажем
             signal("Online_plalist")
                     .putExtra("update", "zaebis")
@@ -273,25 +274,38 @@ class Online_plalist : Fragment() {
     }
 
 
-
     fun read_page_list(): ArrayList<String> {
         val dir = File(Main.ROOT) //path указывает на директорию
         val arrFiles = dir.listFiles()
 
+
         val d = ArrayList<String>()
 
-        if(arrFiles!= null)
-        for (s in arrFiles.iterator()) {
-            if (s.isFile) {
-                d.add(s.absolutePath)
+        if (arrFiles != null) {
+            for (s in arrFiles.iterator()) {
+                if (s.isFile && s.name != "history_url.txt" && s.name != "theme.txt" && s.name != "my_plalist.m3u") {
+                    d.add(s.absolutePath)
+                }
             }
+            //отсортируем по дате создания файла
+            d.sortWith(Comparator { o1, o2 ->
+                val a = File(o1).lastModified()
+                val b =File(o2).lastModified()
+                a.compareTo(b)
+            })
         }
-        return  d
+
+
+        return d
     }
 
+
+
     fun deleteAllFilesFolder(path: String) {
-        for (myFile in File(path).listFiles())
-            if (myFile.isFile && myFile.name != "theme.txt" && myFile.name != "history_url.txt") myFile.delete()
+        for (myFile in File(path).listFiles()) {
+            Log.e("tttt", myFile.absolutePath)
+            if (myFile.isFile && myFile.name != "theme.txt" && myFile.name != "history_url.txt" && myFile.name != "my_plalist.m3u") myFile.delete()
+        }
     }
 
     fun getDirSize(dir: File): Long {
@@ -310,5 +324,32 @@ class Online_plalist : Fragment() {
         }
         return size
     }
+
+    //-----------------size---------------------------------------------------
+    //
+    fun long_size_to_good_vid(size: Double): String {
+        return if (size > 1024 * 1024) {
+            round(size / (1024 * 1024), 1).toString() + " mb"
+        } else if (size > 1024) {
+            round(size / 1024, 1).toString() + " kb"
+        } else {
+            if (size > 0) {
+                round(size, 1).toString() + " bytes"
+            } else {
+                ""
+            }
+
+        }
+    }
+
+    //уменьшает количество символов после запятой в double
+    fun round(number: Double, scale: Int): Double {
+        var pow = 10
+        for (i in 1 until scale)
+            pow *= 10
+        val tmp = number * pow
+        return (if (tmp - tmp.toInt() >= 0.5) tmp + 1 else tmp).toInt().toDouble() / pow
+    }
+//--------------------------------------------------------------------------------
 
 }

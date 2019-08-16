@@ -85,7 +85,7 @@ class Main : FragmentActivity() {
         const val SIZE_WIDCH_SCROLL = 50
 
         //размер в байтах при который не учитывать для отображения размера кеша
-        const val SIZEFILETHEME = 1000
+        const val SIZEFILETHEME = 3000
 
         //Имя пользователя
         var NAME_USER = ""
@@ -96,7 +96,7 @@ class Main : FragmentActivity() {
         //название файла моего плейлиста
         val HOME_ONLINE_PLALIST = ROOT + "home_online_plalist.m3u"
         //название файла истроии онлайн плейлиста
-        const val ACTIV_item = "activ_item_list_history_online_palalist"
+        const val HISORYLAST = "history_last"
 
 
         //шрифт
@@ -538,6 +538,7 @@ class Main : FragmentActivity() {
                                                         .send(context)
                                             }
                                             if (sourse == "anim_online_plalist") {
+                                                save_value(HISORYLAST, listfile)
                                                 //пошлём сигнал для загрузки дааных п спискок
                                                 signal("Online_plalist")
                                                         .putExtra("update", "zaebis")
