@@ -11,114 +11,99 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <dmitriy.deomin.aimpradioplalist.custom.Fon_item
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@null"
-            android:elevation="0dp"
-            app:cardBackgroundColor="@color/cardview_shadow_start_color"
-            app:cardCornerRadius="3dp"
-            app:cardElevation="3dp"
-            app:cardPreventCornerOverlap="false">
-
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <dmitriy.deomin.aimpradioplalist.custom.Btn
-                            android:id="@+id/button_update_all_obmenik"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@android:drawable/ic_menu_rotate" />
-
-                        <dmitriy.deomin.aimpradioplalist.custom.Btn
-                            android:id="@+id/button_menu_obmenik"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:background="@null"
-                            android:text="Button" />
-
-                        <dmitriy.deomin.aimpradioplalist.custom.Btn
-                            android:id="@+id/button_add_new_obmenik"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_weight="0"
-                            android:background="@android:drawable/ic_input_add" />
-                    </LinearLayout>
-
-                    <ProgressBar
-                        android:id="@+id/progressBar_load_obmenik"
-                        style="?android:attr/progressBarStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:visibility="visible" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:descendantFocusability="beforeDescendants"
-                    android:focusableInTouchMode="true"
+                    android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/editText_find_obmennik"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_margin="5dp"
+                    <dmitriy.deomin.aimpradioplalist.custom.Btn
+                        android:id="@+id/button_update_all_obmenik"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@android:drawable/ic_menu_rotate" />
+
+                    <dmitriy.deomin.aimpradioplalist.custom.Btn
+                        android:id="@+id/button_menu_obmenik"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@null"
-                        android:hint="@string/poisk"
-                        android:importantForAutofill="no"
-                        android:inputType=""
-                        android:paddingStart="5dp"
-                        android:paddingLeft="5dp" />
+                        android:text="Button" />
 
+                    <dmitriy.deomin.aimpradioplalist.custom.Btn
+                        android:id="@+id/button_add_new_obmenik"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="0"
+                        android:background="@android:drawable/ic_input_add" />
                 </LinearLayout>
 
-                <RelativeLayout
-                    android:id="@+id/rloaut_obmenik"
+                <ProgressBar
+                    android:id="@+id/progressBar_load_obmenik"
+                    style="?android:attr/progressBarStyle"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1">
+                    android:layout_height="wrap_content"
+                    android:visibility="visible" />
+            </LinearLayout>
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/list_obmenik"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
 
-                    <xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
-                        android:id="@+id/fast_scroller_obmenik"
-                        android:layout_width="20dp"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true">
-
-                    </xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller>
-
-
-                </RelativeLayout>
+                <EditText
+                    android:id="@+id/editText_find_obmennik"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/poisk"
+                    android:importantForAutofill="no"
+                    android:inputType=""
+                    android:paddingStart="5dp"
+                    android:paddingLeft="5dp" />
 
             </LinearLayout>
-        </dmitriy.deomin.aimpradioplalist.custom.Fon_item>
+
+            <RelativeLayout
+                android:id="@+id/rloaut_obmenik"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/list_obmenik"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
+                    android:id="@+id/fast_scroller_obmenik"
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true">
+
+                </xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
     </RelativeLayout>
 
 </LinearLayout>

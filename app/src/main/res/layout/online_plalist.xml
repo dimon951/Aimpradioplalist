@@ -47,7 +47,7 @@
             android:id="@+id/button_open_online_plalist_audio_book"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_weight="1"
+            android:layout_weight="0.9"
             android:background="@null"
             android:gravity="center"
             android:paddingRight="10dp"
@@ -58,7 +58,7 @@
             android:id="@+id/button_open_online_plalist_tv"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_weight="1"
+            android:layout_weight="1.1"
             android:background="@null"
             android:gravity="center"
             android:paddingRight="10dp"
@@ -113,13 +113,70 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/liner_long_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_selekt_all_op"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="10dp"
+            android:background="@android:drawable/checkbox_on_background"
+            android:textColor="@color/green"
+            android:textSize="16sp" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_add_plalist_op"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="10dp"
+            android:background="@android:drawable/ic_menu_add"
+            android:textColor="@color/green"
+            android:textSize="16sp"
+            tools:visibility="visible" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_open_aimp_op"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="10dp"
+            android:background="@android:drawable/ic_media_play"
+            android:textColor="@color/green"
+            android:textSize="16sp" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_cshre_op"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@android:drawable/ic_menu_share"
+            android:gravity="end" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/help_open_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="Тв плейлисты открывайте видео проигрывателем из системы,долгим нажатием кнопки плей"
+            android:visibility="gone" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_history_online_plalilst"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@null"

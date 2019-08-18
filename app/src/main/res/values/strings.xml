@@ -268,6 +268,7 @@
 
     <string-array name="vse_radio">
 
+        <item>Enigma 101 ru -Музыка- 64kbps\nhttp://ic4.101.ru:8000/a175?</item>
         <item>Молодечно FM -Музыка- 128kbps\nhttp://198.100.145.190:8000/MolodechnoFM.ogg</item>
         <item>Радио Прокопьевск Кемеровская область -Музыка- 256kbps\nhttp://radioserver.27trk.ru:8000/prokopievsk.mp3</item>
         <item>Радио Мир -Музыка- 256kbps\nhttp://217.77.109.33:8000/mir_256</item>

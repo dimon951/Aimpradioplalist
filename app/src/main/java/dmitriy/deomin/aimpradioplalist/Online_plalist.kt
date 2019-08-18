@@ -16,6 +16,8 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.startActivity
 import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
 import android.util.Log
+import org.jetbrains.anko.sdk27.coroutines.onLongClick
+import org.jetbrains.anko.support.v4.share
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -33,6 +35,8 @@ class Online_plalist : Fragment() {
 
     companion object {
         var position_list_online_palist = 0
+        var visible_selekt = false
+        var list_selekt = ArrayList<Int>()
     }
 
 
@@ -123,6 +127,164 @@ class Online_plalist : Fragment() {
             }
         }
         //-------------------------------------------------------------------------------------
+
+        //выделить всЁ
+        v.button_selekt_all_op.onClick {
+            val d =ad_online_palist.raduoSearchList
+            if(d.size== list_selekt.size){
+                list_selekt.clear()
+                ad_online_palist.notifyDataSetChanged()
+            }else{
+                list_selekt.clear()
+                for(l in d.withIndex()){
+                    list_selekt.add(l.index)
+                    ad_online_palist.notifyDataSetChanged()
+                }
+            }
+        }
+
+        //будем слушать сигналы из адаптера
+        Slot(context, "Online_plalist_Adapter").onRun {
+
+            when (it.getStringExtra("signal")){
+                "visible"->{
+                    if( v.liner_long_menu.visibility == View.VISIBLE){
+                        v.liner_long_menu.visibility = View.GONE
+                        visible_selekt = false
+                        list_selekt.clear()
+                        ad_online_palist.notifyDataSetChanged()
+                    }else{
+                        v.liner_long_menu.visibility = View.VISIBLE
+                        visible_selekt = true
+                    }
+                }
+
+
+            }
+
+
+            val d =ad_online_palist.data
+
+        }
+
+        v.button_open_aimp_op.onClick {
+
+            if(list_selekt.size>0){
+
+                val d =  ad_online_palist.raduoSearchList
+                val data = ArrayList<String>()
+                //запишем в строчном формате
+                data.add("#EXTM3U")
+                for (s in d.withIndex()) {
+                    if (d[s.index].url.isNotEmpty()&& list_selekt.contains(s.index)) {
+                        data.add("\n#EXTINF:-1," + d[s.index].name + " " + d[s.index].kbps + "\n" + d[s.index].url)
+                    }
+                }
+
+                val name_file = "Плэйлист:"+d[0].name +" ("+ list_selekt.size.toString() + " частей).m3u"
+
+                //когда прийдёт сигнал что сохранилось все хорошо обновим плейлист
+                Slot(context, "File_created", false).onRun {
+                    //получим данные
+                    when (it.getStringExtra("update")) {
+                        "zaebis" -> {
+                            Main.play_aimp(Main.ROOT + name_file, "")
+                        }
+                        "pizdec" -> {
+                            context.toast(context.getString(R.string.error))
+                            //запросим разрешения
+                            Main.EbuchieRazreshenia()
+                        }
+                    }
+                }
+                val file_function = File_function()
+                //сохраним  временый файл ссылку и ждём сигналы
+                file_function.SaveFile(Main.ROOT + name_file, data.joinToString("\n"))
+            }else{
+                context.toast("Выберите что воспроизводить")
+            }
+
+
+        }
+
+        v.button_open_aimp_op.onLongClick {
+            if(list_selekt.size>0){
+
+                val d =  ad_online_palist.raduoSearchList
+                val data = ArrayList<String>()
+                //запишем в строчном формате
+                data.add("#EXTM3U")
+                for (s in d.withIndex()) {
+                    if (d[s.index].url.isNotEmpty()&& list_selekt.contains(s.index)) {
+                        data.add("\n#EXTINF:-1," + d[s.index].name + " " + d[s.index].kbps + "\n" + d[s.index].url)
+                    }
+                }
+
+                val name_file = "Плэйлист:"+d[0].name +" ("+ list_selekt.size.toString() + " частей).m3u"
+
+                //когда прийдёт сигнал что сохранилось все хорошо обновим плейлист
+                Slot(context, "File_created", false).onRun {
+                    //получим данные
+                    when (it.getStringExtra("update")) {
+                        "zaebis" -> {
+                            Main.play_system(Main.ROOT + name_file, "")
+                        }
+                        "pizdec" -> {
+                            context.toast(context.getString(R.string.error))
+                            //запросим разрешения
+                            Main.EbuchieRazreshenia()
+                        }
+                    }
+                }
+                val file_function = File_function()
+                //сохраним  временый файл ссылку и ждём сигналы
+                file_function.SaveFile(Main.ROOT + name_file, data.joinToString("\n"))
+            }else{
+                context.toast("Выберите что воспроизводить")
+            }
+        }
+
+        v.button_cshre_op.onClick {
+            if(list_selekt.size>0){
+                val d =  ad_online_palist.raduoSearchList
+                val data = ArrayList<String>()
+                //запишем в строчном формате
+                data.add("#EXTM3U")
+                for (s in d.withIndex()) {
+                    if (d[s.index].url.isNotEmpty()&& list_selekt.contains(s.index)) {
+                        data.add("\n#EXTINF:-1," + d[s.index].name + " " + d[s.index].kbps + "\n" + d[s.index].url)
+                    }
+                }
+                share(data.joinToString("\n"))
+            }else{
+                context.toast("Выберите чем поделится")
+            }
+        }
+
+
+        v.button_add_plalist_op.onClick {
+
+            if(list_selekt.size>0){
+                val d =  ad_online_palist.raduoSearchList
+                for (s in d.withIndex()) {
+                    if (d[s.index].url.isNotEmpty()&& list_selekt.contains(s.index)) {
+                        Main.add_myplalist(d[s.index].name + " " + d[s.index].kbps, d[s.index].url)
+                    }
+                }
+            }else{
+                context.toast("Выберите что добавить")
+            }
+        }
+
+
+        v.help_open_tv.onClick {
+            Main.save_value("help_tv","no")
+            if(Main.save_read("help_tv").length>1){
+                v.help_open_tv.visibility = View.GONE
+            }else{
+                v.help_open_tv.visibility = View.VISIBLE
+            }
+        }
 
         v.button_history_online_plalilst.onClick {
             val hop = DialogWindow(context, R.layout.history_online_plalist)
@@ -239,6 +401,11 @@ class Online_plalist : Fragment() {
 
         v.button_open_online_plalist_tv.onClick {
             Main.download_i_open_m3u_file("https://dl.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u", "tv_plalist", "anim_online_plalist")
+            if(Main.save_read("help_tv").length>1){
+                v.help_open_tv.visibility = View.GONE
+            }else{
+                v.help_open_tv.visibility = View.VISIBLE
+            }
         }
         v.button_open_online_plalist_musik.onClick {
             Main.download_i_open_m3u_file("https://dl.dropbox.com/s/oe9kdcksjru82by/Musik.m3u", "musik", "anim_online_plalist")

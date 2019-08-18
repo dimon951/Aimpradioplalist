@@ -19,6 +19,14 @@
             android:background="@null">
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_font_system"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:onClick="save_System"
+                android:text="Системный" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Tweed)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -26,18 +34,18 @@
                 android:onClick="save_Tweed"
                 android:background="@null" />
             <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:text="Выбрать этот шрифт(Badaboom)"
+                android:text="Выбрать этот шрифт(Whitney)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/button_font_badaboom"
-                android:onClick="save_Badaboom"
+                android:id="@+id/button_font_Whitney"
+                android:onClick="save_Whitney"
                 android:background="@null"/>
             <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:text="Выбрать этот шрифт(Kramola)"
+                android:text="Выбрать этот шрифт(SonyEricssonLogo)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/button_font_kramola"
-                android:onClick="save_Kramola"
+                android:id="@+id/button_font_SonyEricssonLogo"
+                android:onClick="save_SonyEricssonLogo"
                 android:background="@null" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
@@ -48,11 +56,11 @@
                 android:onClick="save_Bemount"
                 android:background="@null" />
             <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:text="Выбрать этот шрифт(Smeshariki)"
+                android:text="Выбрать этот шрифт(Stolzl-Book)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/button_font_Smeshariki"
-                android:onClick="save_Smeshariki"
+                android:id="@+id/button_Stolzl_Book"
+                android:onClick="save_Stolzl_Book"
                 android:background="@null" />
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Snowstorm)"

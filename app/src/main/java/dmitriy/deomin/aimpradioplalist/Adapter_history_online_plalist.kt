@@ -56,7 +56,7 @@ class Adapter_history_online_plalist(val data: ArrayList<History>) : androidx.re
 
             //если тыкают в плейлист
             if (history.url.substringAfterLast('.') == "mp3") {
-                Main.play_aimp_file(Main.ROOT + history.url)
+                Main.play_aimp_file(history.url)
             } else {
                 Main.save_value(Main.HISORYLAST, history.url)
                 //пошлём сигнал для загрузки дааных п спискок
@@ -71,7 +71,7 @@ class Adapter_history_online_plalist(val data: ArrayList<History>) : androidx.re
             p0.liner.startAnimation(AnimationUtils.loadAnimation(Main.context, R.anim.myalpha))
             //если долго тыкают в плейлист
             if (history.url.substringAfterLast('.') == "mp3") {
-                Main.play_aimp_file(history.url)
+                Main.play_system_file(history.url)
             } else {
 
             }

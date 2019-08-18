@@ -20,10 +20,10 @@ class Fonts_vibor : Activity() {
         fonts_vibor.setBackgroundColor(Main.COLOR_FON)
 
         button_font_tweed.typeface = Typeface.createFromAsset(assets, "fonts/Tweed.ttf")
-        button_font_kramola.typeface = Typeface.createFromAsset(assets, "fonts/Kramola.ttf")
-        button_font_badaboom.typeface = Typeface.createFromAsset(assets, "fonts/Badaboom.ttf")
+        button_font_SonyEricssonLogo.typeface = Typeface.createFromAsset(assets, "fonts/SonyEricssonLogo.ttf")
+        button_font_Whitney.typeface = Typeface.createFromAsset(assets, "fonts/Whitney.ttf")
         button_font_bemount.typeface = Typeface.createFromAsset(assets, "fonts/Bemount.ttf")
-        button_font_Smeshariki.typeface = Typeface.createFromAsset(assets, "fonts/Smeshariki.ttf")
+        button_Stolzl_Book.typeface = Typeface.createFromAsset(assets, "fonts/Stolzl_Book.ttf")
         button_font_Snowstorm.typeface = Typeface.createFromAsset(assets, "fonts/Snowstorm.ttf")
         button_font_Izhitsa.typeface = Typeface.createFromAsset(assets, "fonts/Izhitsa.ttf")
         button_font_Sensei.typeface = Typeface.createFromAsset(assets, "fonts/Sensei.ttf")
@@ -33,19 +33,21 @@ class Fonts_vibor : Activity() {
         button_font_Rotonda.typeface = Typeface.createFromAsset(assets, "fonts/Rotonda.ttf")
     }
 
-
+    fun save_System(v: View) {
+        Main.save_value("fonts", "system")
+        toast("Хорошо,теперь нужно перезапустить программу")
+    }
     fun save_Tweed(v: View) {
         Main.save_value("fonts", "fonts/Tweed.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
-
-    fun save_Kramola(v: View) {
-        Main.save_value("fonts", "fonts/Kramola.ttf")
+    fun save_SonyEricssonLogo(v: View) {
+        Main.save_value("fonts", "fonts/SonyEricssonLogo.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
-    fun save_Badaboom(v: View) {
-        Main.save_value("fonts", "fonts/Badaboom.ttf")
+    fun save_Whitney(v: View) {
+        Main.save_value("fonts", "fonts/Whitney.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
@@ -54,8 +56,8 @@ class Fonts_vibor : Activity() {
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
-    fun save_Smeshariki(v: View) {
-        Main.save_value("fonts", "fonts/Smeshariki.ttf")
+    fun save_Stolzl_Book(v: View) {
+        Main.save_value("fonts", "fonts/Stolzl_Book.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 

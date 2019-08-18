@@ -473,32 +473,30 @@ class Main : FragmentActivity() {
 
         //добавить в мой плейлист
         fun add_myplalist(name: String, url: String) {
-
-            //слот получит ответ после добавления станции
-            Slot(context, "File_created").onRun {
-                //получим данные
-                when (it.getStringExtra("update")) {
-                    "est" -> context.toast("Такая станция уже есть в плейлисте")
-                    "zaebis" -> {
-                        //пошлём сигнал пусть мой плейлист обновится
-                        signal("Data_add")
-                                .putExtra("run", true)
-                                .putExtra("update", "zaebis")
-                                .putExtra("listfile", "old") //оставим что есть в списке
-                                .send(context)
-                    }
-                    "pizdec" -> {
-                        context.toast(context.getString(R.string.error))
-                        //запросим разрешения
-                        EbuchieRazreshenia()
+                //слот получит ответ после добавления станции
+                Slot(context, "File_created").onRun {
+                    //получим данные
+                    when (it.getStringExtra("update")) {
+                        "est" -> context.toast(name+" "+url+" уже есть в плейлисте")
+                        "zaebis" -> {
+                            //пошлём сигнал пусть мой плейлист обновится
+                            signal("Data_add")
+                                    .putExtra("run", true)
+                                    .putExtra("update", "zaebis")
+                                    .putExtra("listfile", "old") //оставим что есть в списке
+                                    .send(context)
+                        }
+                        "pizdec" -> {
+                            context.toast(context.getString(R.string.error))
+                            //запросим разрешения
+                            EbuchieRazreshenia()
+                        }
                     }
                 }
-            }
 
-            val file_function = File_function()
-
-            //запишем в файл выбранную станцию
-            file_function.Add_may_plalist_stansiy(url, name)
+                val file_function = File_function()
+                //запишем в файл выбранную станцию
+                file_function.Add_may_plalist_stansiy(url, name)
         }
 
 
@@ -815,8 +813,12 @@ class Main : FragmentActivity() {
         }
         //-----------------------------------------------------
 
+        face = if(save_read("fonts") == "system"){
+            Typeface.DEFAULT
+        }else{
+            Typeface.createFromAsset(assets, if (save_read("fonts") == "") "fonts/Tweed.ttf" else save_read("fonts"))
+        }
 
-        face = Typeface.createFromAsset(assets, if (save_read("fonts") == "") "fonts/Tweed.ttf" else save_read("fonts"))
         //ставим цвет фона(тема)
         //--------------------------------------------------------------------
         COLOR_FON = if (save_read_int("color_fon") == 0) {

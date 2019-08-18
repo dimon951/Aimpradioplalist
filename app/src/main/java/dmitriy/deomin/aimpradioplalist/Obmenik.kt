@@ -40,7 +40,7 @@ class Obmenik : Activity() {
         this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         val context: Context = this
 
-        fon_obmenik.backgroundColor = Main.COLOR_TEXTcontext
+        fon_obmenik.backgroundColor = Main.COLOR_FON
 
         val find = findViewById<EditText>(R.id.editText_find_obmennik)
         find.typeface = Main.face

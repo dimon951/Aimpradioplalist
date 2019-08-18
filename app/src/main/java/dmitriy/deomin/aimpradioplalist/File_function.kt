@@ -161,9 +161,7 @@ class File_function {
                 //если такая уже есть выходим и шлём сигнал что закрылось окошко
                 if (s == link) {
                     //послать сигнал
-                    val i = Intent("File_created")
-                    i.putExtra("update", "est")
-                    Main.context.sendBroadcast(i)
+                    signal("File_created").putExtra("update", "est").send(Main.context)
                     return
                 }
             }

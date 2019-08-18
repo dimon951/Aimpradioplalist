@@ -16,6 +16,8 @@ import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
+import android.view.View.OnLongClickListener
+
 
 class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_online_palist.ViewHolder>(), Filterable {
 
@@ -68,6 +70,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
         val liner_kbps = itemView.findViewById<LinearLayout>(R.id.liner_kbps)
         val liner_ganr = itemView.findViewById<LinearLayout>(R.id.liner_ganr)
         val liner_url = itemView.findViewById<LinearLayout>(R.id.liner_url)
+        val liner_fon = itemView.findViewById<LinearLayout>(R.id.liner_fon)
 
 
         //------------------------------------------------------------------------------------
@@ -224,158 +227,211 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
             Main.load_koment(id)
         }
 
-        //------------------------------------------------------------------------
+        //-----------------------------------------------------------------------
 
+
+        if (Online_plalist.list_selekt.contains(p1)) {
+            p0.fon.backgroundColor = Main.COLOR_FON
+        } else {
+            p0.fon.backgroundColor = Main.COLOR_ITEM
+        }
+
+        p0.itemView.setOnLongClickListener {
+            // TODO Auto-generated method stub
+            p0.fon.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
+            signal("Online_plalist_Adapter").putExtra("signal", "visible").send(context)
+            true
+        }
 
         //обработка нажатий
         p0.itemView.onClick {
             p0.fon.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
 
-            //сохраняем позицию текушею списка
-            Online_plalist.position_list_online_palist = p1
 
-            val mvr = DialogWindow(context, R.layout.menu_vse_radio)
 
-            val add_pls = mvr.view().findViewById<Button>(R.id.button_add_plalist)
-            val open_aimp = mvr.view().findViewById<Button>(R.id.button_open_aimp)
-            val loadlist = mvr.view().findViewById<Button>(R.id.button_load_list)
-            val share = mvr.view().findViewById<Button>(R.id.button_cshre)
-            val instal_aimp = mvr.view().findViewById<Button>(R.id.button_instal_aimp)
-            val instal_aimp2 = mvr.view().findViewById<Button>(R.id.button_download_yandex_aimp)
+            if (Online_plalist.visible_selekt) {
 
-            val name = radio.name.replace("<List>", "")
-
-            //если aimp установлен скроем кнопку установить аимп
-            if (Main.install_app("com.aimp.player")) {
-                instal_aimp.visibility = View.GONE
-                instal_aimp2.visibility = View.GONE
-                open_aimp.visibility = View.VISIBLE
-            } else {
-                //если есть магазин покажем и установку через него
-                if (Main.install_app("com.google.android.gms")) {
-                    instal_aimp.visibility = View.VISIBLE
+                if (Online_plalist.list_selekt.contains(p1)) {
+                    Online_plalist.list_selekt.remove(p1)
+                    p0.fon.backgroundColor = Main.COLOR_ITEM
                 } else {
+                    Online_plalist.list_selekt.add(p1)
+                    p0.fon.backgroundColor = Main.COLOR_FON
+                }
+
+            } else {
+                //сохраняем позицию текушею списка
+                Online_plalist.position_list_online_palist = p1
+
+                val mvr = DialogWindow(context, R.layout.menu_vse_radio)
+
+                val add_pls = mvr.view().findViewById<Button>(R.id.button_add_plalist)
+                val open_aimp = mvr.view().findViewById<Button>(R.id.button_open_aimp)
+                val loadlist = mvr.view().findViewById<Button>(R.id.button_load_list)
+                val share = mvr.view().findViewById<Button>(R.id.button_cshre)
+                val instal_aimp = mvr.view().findViewById<Button>(R.id.button_instal_aimp)
+                val instal_aimp2 = mvr.view().findViewById<Button>(R.id.button_download_yandex_aimp)
+
+                val name = radio.name.replace("<List>", "")
+
+                //если aimp установлен скроем кнопку установить аимп
+                if (Main.install_app("com.aimp.player")) {
                     instal_aimp.visibility = View.GONE
-                }
-                //скачать по ссылке будем показывать всегда
-                instal_aimp2.visibility = View.VISIBLE
-                open_aimp.visibility = View.GONE
-            }
-
-            //Имя и урл выбраной станции , при клике будем копировать урл в буфер
-            val text_name_i_url = mvr.view().findViewById<TextView>(R.id.textView_vse_radio)
-            text_name_i_url.text = name + "\n" + radio.url
-            text_name_i_url.onLongClick {
-                text_name_i_url.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-                Main.putText(radio.url, context)
-                context.toast("url скопирован в буфер")
-            }
-            //при долгом нажатии предложим скачать
-            text_name_i_url.onClick {
-                val dw = DialogWindow(context, R.layout.dialog_delete_stancii)
-                val dw_start = dw.view().findViewById<Button>(R.id.button_dialog_delete)
-                val dw_no = dw.view().findViewById<Button>(R.id.button_dialog_no)
-                val dw_logo = dw.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
-                val dw_progres = dw.view().findViewById<ProgressBar>(R.id.progressBar)
-                dw_progres.visibility = View.VISIBLE
-
-                dw_logo.text = "Попробовать скачать?"
-
-                dw_start.onClick {
-                    if (dw_logo.text == "Готово,сохранено в папке программы") {
-                        //попробуем его открыть
-                        Main.play_aimp_file(Main.ROOT + radio.name + "." + radio.url.substringAfterLast('.'))
+                    instal_aimp2.visibility = View.GONE
+                    open_aimp.visibility = View.VISIBLE
+                } else {
+                    //если есть магазин покажем и установку через него
+                    if (Main.install_app("com.google.android.gms")) {
+                        instal_aimp.visibility = View.VISIBLE
                     } else {
-                        dw_start.visibility = View.GONE
-                        Main.download_file(radio.url, radio.name + "." + radio.url.substringAfterLast('.'), "anim_online_plalist")
-                        dw_logo.text = "Идёт загрузка..."
-                        dw_no.text = "Отмена"
+                        instal_aimp.visibility = View.GONE
                     }
-                }
-                dw_start.onLongClick {
-                    if (dw_logo.text == "Готово,сохранено в папке программы") {
-                        Main.play_system_file(Main.ROOT + radio.name + "." + radio.url.substringAfterLast('.'))
-                    }
-                }
-                dw_no.onClick {
-                    if (dw_no.text == "Отмена") {
-                        signal("dw_cansel").send(context)
-                    } else {
-                        dw.close()
-                    }
+                    //скачать по ссылке будем показывать всегда
+                    instal_aimp2.visibility = View.VISIBLE
+                    open_aimp.visibility = View.GONE
                 }
 
-                Slot(context, "dw_progres").onRun {
-                    val totalBytes = it.getStringExtra("totalBytes")
-                    val readBytes = it.getStringExtra("readBytes")
-                    dw_progres.max = totalBytes.toInt()
-                    dw_progres.progress = readBytes.toInt()
+                //Имя и урл выбраной станции , при клике будем копировать урл в буфер
+                val text_name_i_url = mvr.view().findViewById<TextView>(R.id.textView_vse_radio)
+                text_name_i_url.text = name + "\n" + radio.url
+                text_name_i_url.onLongClick {
+                    text_name_i_url.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+                    Main.putText(radio.url, context)
+                    context.toast("url скопирован в буфер")
+                }
+                //при долгом нажатии предложим скачать
+                text_name_i_url.onClick {
+                    val dw = DialogWindow(context, R.layout.dialog_delete_stancii)
+                    val dw_start = dw.view().findViewById<Button>(R.id.button_dialog_delete)
+                    val dw_no = dw.view().findViewById<Button>(R.id.button_dialog_no)
+                    val dw_logo = dw.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
+                    val dw_progres = dw.view().findViewById<ProgressBar>(R.id.progressBar)
+                    dw_progres.visibility = View.VISIBLE
 
-                    if (totalBytes == readBytes) {
-                        if (totalBytes == "0") {
-                            dw_logo.text = "Отменено,попробовать еще раз?"
-                            dw_no.text = "Нет"
-                            dw_start.visibility = View.VISIBLE
+                    dw_logo.text = "Попробовать скачать?"
+
+                    dw_start.onClick {
+                        if (dw_logo.text == "Готово,сохранено в папке программы") {
+                            //попробуем его открыть
+                            Main.play_aimp_file(Main.ROOT + radio.name + "." + radio.url.substringAfterLast('.'))
                         } else {
-                            dw_logo.text = "Готово,сохранено в папке программы"
-                            dw_start.visibility = View.VISIBLE
-                            dw_start.text = "Открыть файл"
-                            dw_no.text = "Нет"
+                            dw_start.visibility = View.GONE
+                            Main.download_file(radio.url, radio.name + "." + radio.url.substringAfterLast('.'), "anim_online_plalist")
+                            dw_logo.text = "Идёт загрузка..."
+                            dw_no.text = "Отмена"
+                        }
+                    }
+                    dw_start.onLongClick {
+                        if (dw_logo.text == "Готово,сохранено в папке программы") {
+                            Main.play_system_file(Main.ROOT + radio.name + "." + radio.url.substringAfterLast('.'))
+                        }
+                    }
+                    dw_no.onClick {
+                        if (dw_no.text == "Отмена") {
+                            signal("dw_cansel").send(context)
+                        } else {
+                            dw.close()
+                        }
+                    }
+
+                    Slot(context, "dw_progres").onRun {
+                        val totalBytes = it.getStringExtra("totalBytes")
+                        val readBytes = it.getStringExtra("readBytes")
+                        dw_progres.max = totalBytes.toInt()
+                        dw_progres.progress = readBytes.toInt()
+
+                        if (totalBytes == readBytes) {
+                            if (totalBytes == "0") {
+                                dw_logo.text = "Отменено,попробовать еще раз?"
+                                dw_no.text = "Нет"
+                                dw_start.visibility = View.VISIBLE
+                            } else {
+                                dw_logo.text = "Готово,сохранено в папке программы"
+                                dw_start.visibility = View.VISIBLE
+                                dw_start.text = "Открыть файл"
+                                dw_no.text = "Нет"
+                            }
                         }
                     }
                 }
-            }
 
 
-            open_aimp.onLongClick {
-                Main.play_system(name, radio.url)
-            }
+                open_aimp.onLongClick {
+                    Main.play_system(name, radio.url)
+                }
 
-            open_aimp.onClick {
-                Main.play_aimp(name, radio.url)
-                mvr.close()
-            }
+                open_aimp.onClick {
+                    Main.play_aimp(name, radio.url)
+                    mvr.close()
+                }
 
-            instal_aimp.onClick {
-                context.browse("market://details?id=com.aimp.player")
-            }
+                instal_aimp.onClick {
+                    context.browse("market://details?id=com.aimp.player")
+                }
 
-            instal_aimp2.onClick {
-                context.browse(Main.LINK_DOWLOAD_AIMP)
-            }
+                instal_aimp2.onClick {
+                    context.browse(Main.LINK_DOWLOAD_AIMP)
+                }
 
-            add_pls.onClick {
-                Main.add_myplalist(radio.name, radio.url)
-                mvr.close()
-            }
+                add_pls.onClick {
 
-            share.onClick {
-                //сосавим строчку как в m3u вайле
-                context.share(radio.name + "\n" + radio.url)
-            }
-            share.onLongClick {
-                context.email("deomindmitriy@gmail.com", "aimp_radio_plalist", radio.name + "\n" + radio.url)
-            }
+                    //если текуший элемент список ссылок
+                    if (radio.name.contains("<List>")) {
+                        mvr.close()
+                        val dw = DialogWindow(context, R.layout.dialog_delete_stancii)
+                        val dw_start = dw.view().findViewById<Button>(R.id.button_dialog_delete)
+                        val dw_no = dw.view().findViewById<Button>(R.id.button_dialog_no)
+                        val dw_logo = dw.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
 
-            //если текуший элемент список ссылок
-            if (radio.name.contains("<List>")) {
-                //скроем кнопки открытия в плеере
-                open_aimp.visibility = View.GONE
-                //покажем кнопку загрузки списка
-                loadlist.visibility = View.VISIBLE
-            } else {
-                //иначе покажем
-                open_aimp.visibility = View.VISIBLE
-                //скроем кнопку загрузки списка
-                loadlist.visibility = View.GONE
-            }
+                        dw_logo.text = "Текущая ссылка содержит список плейлистов(или еще ссылок).\n Все равно добавить ?"
+                        dw_start.text = "Да"
+                        dw_no.text = "Нет"
 
-            //загрузить список
-            loadlist.onClick {
-                //закрываем основное окошко
-                mvr.close()
-                Main.download_i_open_m3u_file(radio.url, name, "anim_online_plalist")
+                        dw_start.onClick {
+                            Main.add_myplalist(radio.name, radio.url)
+                            dw.close()
+                        }
+                        dw_no.onClick {
+                            dw.close()
+                        }
+
+                    } else {
+                        Main.add_myplalist(radio.name, radio.url)
+                        mvr.close()
+                    }
+
+                }
+
+                share.onClick {
+                    //сосавим строчку как в m3u вайле
+                    context.share(radio.name + "\n" + radio.url)
+                }
+                share.onLongClick {
+                    context.email("deomindmitriy@gmail.com", "aimp_radio_plalist", radio.name + "\n" + radio.url)
+                }
+
+                //если текуший элемент список ссылок
+                if (radio.name.contains("<List>")) {
+                    //скроем кнопки открытия в плеере
+                    open_aimp.visibility = View.GONE
+                    //покажем кнопку загрузки списка
+                    loadlist.visibility = View.VISIBLE
+                } else {
+                    //иначе покажем
+                    open_aimp.visibility = View.VISIBLE
+                    //скроем кнопку загрузки списка
+                    loadlist.visibility = View.GONE
+                }
+
+                //загрузить список
+                loadlist.onClick {
+                    //закрываем основное окошко
+                    mvr.close()
+                    Main.download_i_open_m3u_file(radio.url, name, "anim_online_plalist")
+                }
             }
         }
+
+
     }
 }
