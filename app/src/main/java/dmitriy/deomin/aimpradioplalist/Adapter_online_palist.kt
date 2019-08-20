@@ -301,12 +301,13 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                 }
                 //при долгом нажатии предложим скачать
                 text_name_i_url.onClick {
-                    val dw = DialogWindow(context, R.layout.dialog_delete_stancii)
+                    val dw = DialogWindow(context, R.layout.dialog_delete_stancii,true)
                     val dw_start = dw.view().findViewById<Button>(R.id.button_dialog_delete)
                     val dw_no = dw.view().findViewById<Button>(R.id.button_dialog_no)
                     val dw_logo = dw.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
                     val dw_progres = dw.view().findViewById<ProgressBar>(R.id.progressBar)
                     dw_progres.visibility = View.VISIBLE
+
 
                     dw_logo.text = "Попробовать скачать?"
 

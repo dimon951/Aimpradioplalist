@@ -84,7 +84,7 @@ class Textcoontext : TextView {
     }
 }
 
-class DialogWindow(context: Context, loaut: Int) {
+class DialogWindow(context: Context, loaut: Int,onTop: Boolean = false) {
 
     var full_skren = false
 
@@ -97,6 +97,13 @@ class DialogWindow(context: Context, loaut: Int) {
         builder.setView(content)
 
         this.alertDialog = builder.create()
+
+        if(onTop){
+            alertDialog.setCanceledOnTouchOutside(false)
+        }else{
+            alertDialog.setCanceledOnTouchOutside(true)
+        }
+
 
         //сместим немногов низ окно
         val params = this.alertDialog.window.attributes

@@ -136,64 +136,7 @@ class Obmenik : Activity() {
             }
         }
 
-        button_menu_obmenik.onClick {
-            val menu_ob = DialogWindow(context, R.layout.menu_obmenika)
 
-            //имя и ид пользователя, нужны будут для удаления своих ссылок и оображении кто добавил
-            val ed_id_user = menu_ob.view().findViewById<EditText>(R.id.editText_id)
-            val ed_name_user = menu_ob.view().findViewById<EditText>(R.id.editText_name)
-
-            ed_id_user.typeface = Main.face
-            ed_id_user.textColor = Main.COLOR_TEXT
-            ed_id_user.hintTextColor = Main.COLOR_TEXTcontext
-
-            ed_name_user.typeface = Main.face
-            ed_name_user.textColor = Main.COLOR_TEXT
-            ed_name_user.hintTextColor = Main.COLOR_TEXTcontext
-
-            ed_id_user.setText(Main.ID_USER)
-            ed_name_user.setText(Main.NAME_USER)
-
-
-            val user_dannie = (menu_ob.view().findViewById<LinearLayout>(R.id.liner_user_data))
-            (menu_ob.view().findViewById<Button>(R.id.visible_user_data)).onClick {
-                if (user_dannie.visibility == View.VISIBLE) {
-                    user_dannie.visibility = View.GONE
-                } else {
-                    user_dannie.visibility = View.VISIBLE
-                }
-            }
-
-            (menu_ob.view().findViewById<Button>(R.id.button_save_user_dannie)).onClick {
-
-                if(ed_name_user.text.toString() != Main.NAME_USER){
-                    //на имя пофиг пусть ставят любое
-                    Main.NAME_USER = ed_name_user.text.toString()
-                    Main.save_value("name_user",Main.NAME_USER)
-                    toast("Имя изменено на:" +Main.NAME_USER)
-                }
-
-                //id важно будем спрашивать и проверяь
-                if(ed_id_user.text.toString()!=Main.ID_USER){
-                    if(ed_id_user.text.toString().length<4){
-                        context.toast("Id должен быть не меньше 4-х символов")
-                    }else{
-                        alert( "При смене Id Вы потеряете ранее добавленнные ссылки","Внимание") {
-                            yesButton {
-                                Main.ID_USER=ed_id_user.text.toString()
-                                Main.save_value("id_user",Main.ID_USER)
-                                menu_ob.close()
-                                toast("Готово, пароль изменён") }
-                            noButton {}
-                        }.show()
-                    }
-                }else{
-                    menu_ob.close()
-                }
-            }
-
-
-        }
 
         button_add_new_obmenik.onClick {
 

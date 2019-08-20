@@ -15,7 +15,6 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.*
@@ -24,7 +23,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.github.kittinunf.fuel.Fuel
-import com.github.kittinunf.fuel.httpDownload
 import com.github.kittinunf.fuel.httpGet
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
@@ -38,7 +36,6 @@ import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
-import org.json.JSONArray
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -59,7 +56,7 @@ class Main : FragmentActivity() {
         const val File_Text_Code: String = "UTF8"
 
         //ссылка на аимп
-        const val LINK_DOWLOAD_AIMP = "https://www.aimp.ru/files/android/aimp_2.90.850.apk"
+        const val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.90.854.apk"
 
         //текст в пустом плейлисте(много где требуется)
         const val PUSTO: String = "Плейлист пуст.\n"
@@ -85,7 +82,7 @@ class Main : FragmentActivity() {
         const val SIZE_WIDCH_SCROLL = 50
 
         //размер в байтах при который не учитывать для отображения размера кеша
-        const val SIZEFILETHEME = 3000
+        const val SIZEFILETHEME = 2000
 
         //Имя пользователя
         var NAME_USER = ""
@@ -583,12 +580,14 @@ class Main : FragmentActivity() {
                                     .putExtra("readBytes", readBytes.toString())
                                     .putExtra("totalBytes", totalBytes.toString())
                                     .send(context)
+
                             if (progress.toInt() == 100) {
                                 signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
                             }
                         }
                         .response { result -> }
 
+                //если пошлют сигнал отмены отменим и удалим что скачалось
                 Slot(context, "dw_cansel").onRun {
                     signal("dw_progres")
                             .putExtra("readBytes", "0")
@@ -596,6 +595,7 @@ class Main : FragmentActivity() {
                             .send(context)
                     signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
                     d.cancel()
+                    File(ROOT + name).delete()
                 }
 
             }
@@ -779,7 +779,6 @@ class Main : FragmentActivity() {
             }
         }
     }
-
     @SuppressLint("ClickableViewAccessibility", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -1117,6 +1116,60 @@ class Main : FragmentActivity() {
         b_f.onClick {
             startActivity<Fonts_vibor>()
             menu.close()
+        }
+
+       val akkaunt = menu.view().findViewById<Button>(R.id.akkaunt)
+        akkaunt.onClick {
+            menu.close()
+
+            val menu_ob = DialogWindow(context, R.layout.akaunt)
+
+            menu_ob.view().findViewById<EditText>(R.id.fon_obmenik).backgroundColor = COLOR_FON
+
+            //имя и ид пользователя, нужны будут для удаления своих ссылок и оображении кто добавил
+            val ed_id_user = menu_ob.view().findViewById<EditText>(R.id.editText_id)
+            val ed_name_user = menu_ob.view().findViewById<EditText>(R.id.editText_name)
+
+            ed_id_user.typeface = Main.face
+            ed_id_user.textColor = Main.COLOR_TEXT
+            ed_id_user.hintTextColor = Main.COLOR_TEXTcontext
+
+            ed_name_user.typeface = Main.face
+            ed_name_user.textColor = Main.COLOR_TEXT
+            ed_name_user.hintTextColor = Main.COLOR_TEXTcontext
+
+            ed_id_user.setText(Main.ID_USER)
+            ed_name_user.setText(Main.NAME_USER)
+
+            (menu_ob.view().findViewById<Button>(R.id.button_save_user_dannie)).onClick {
+
+                if(ed_name_user.text.toString() != Main.NAME_USER){
+                    //на имя пофиг пусть ставят любое
+                    Main.NAME_USER = ed_name_user.text.toString()
+                    Main.save_value("name_user",Main.NAME_USER)
+                    toast("Имя изменено на:" +Main.NAME_USER)
+                }
+
+                //id важно будем спрашивать и проверяь
+                if(ed_id_user.text.toString()!=Main.ID_USER){
+                    if(ed_id_user.text.toString().length<4){
+                        context.toast("Id должен быть не меньше 4-х символов")
+                    }else{
+                        alert( "При смене Id Вы потеряете ранее добавленнные ссылки","Внимание") {
+                            yesButton {
+                                Main.ID_USER=ed_id_user.text.toString()
+                                Main.save_value("id_user",Main.ID_USER)
+                                menu_ob.close()
+                                toast("Готово, пароль изменён") }
+                            noButton {}
+                        }.show()
+                    }
+                }else{
+                    menu_ob.close()
+                }
+            }
+
+
         }
     }
 

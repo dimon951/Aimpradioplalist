@@ -88,6 +88,14 @@ class Adapter_history_online_plalist(val data: ArrayList<History>) : androidx.re
                     if(File(history.url).delete()){
                         data.removeAt(p1)
                         notifyDataSetChanged()
+                        //если список пуст закроем
+                        if(data.size==0){
+                            signal("History_online_plalist").send(context)
+                            signal("Online_plalist")
+                                    .putExtra("update", "zaebis")
+                                    .send(context)
+                        }
+
                     }
                 }
                 d.view().findViewById<Button>(R.id.button_dialog_no).onClick {
@@ -98,6 +106,13 @@ class Adapter_history_online_plalist(val data: ArrayList<History>) : androidx.re
                 if(File(history.url).delete()){
                     data.removeAt(p1)
                     notifyDataSetChanged()
+                    //если список пуст закроем
+                    if(data.size==0){
+                        signal("History_online_plalist").send(context)
+                        signal("Online_plalist")
+                                .putExtra("update", "zaebis")
+                                .send(context)
+                    }
                 }
             }
         }

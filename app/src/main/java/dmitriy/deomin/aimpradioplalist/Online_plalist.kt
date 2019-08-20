@@ -24,10 +24,6 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-
-
-
-
 class Online_plalist : Fragment() {
 
     lateinit var ad_online_palist: Adapter_online_palist
@@ -37,6 +33,7 @@ class Online_plalist : Fragment() {
         var position_list_online_palist = 0
         var visible_selekt = false
         var list_selekt = ArrayList<Int>()
+
     }
 
 
@@ -130,13 +127,13 @@ class Online_plalist : Fragment() {
 
         //выделить всЁ
         v.button_selekt_all_op.onClick {
-            val d =ad_online_palist.raduoSearchList
-            if(d.size== list_selekt.size){
+            val d = ad_online_palist.raduoSearchList
+            if (d.size == list_selekt.size) {
                 list_selekt.clear()
                 ad_online_palist.notifyDataSetChanged()
-            }else{
+            } else {
                 list_selekt.clear()
-                for(l in d.withIndex()){
+                for (l in d.withIndex()) {
                     list_selekt.add(l.index)
                     ad_online_palist.notifyDataSetChanged()
                 }
@@ -146,14 +143,14 @@ class Online_plalist : Fragment() {
         //будем слушать сигналы из адаптера
         Slot(context, "Online_plalist_Adapter").onRun {
 
-            when (it.getStringExtra("signal")){
-                "visible"->{
-                    if( v.liner_long_menu.visibility == View.VISIBLE){
+            when (it.getStringExtra("signal")) {
+                "visible" -> {
+                    if (v.liner_long_menu.visibility == View.VISIBLE) {
                         v.liner_long_menu.visibility = View.GONE
                         visible_selekt = false
                         list_selekt.clear()
                         ad_online_palist.notifyDataSetChanged()
-                    }else{
+                    } else {
                         v.liner_long_menu.visibility = View.VISIBLE
                         visible_selekt = true
                     }
@@ -161,27 +158,23 @@ class Online_plalist : Fragment() {
 
 
             }
-
-
-            val d =ad_online_palist.data
-
         }
 
         v.button_open_aimp_op.onClick {
 
-            if(list_selekt.size>0){
+            if (list_selekt.size > 0) {
 
-                val d =  ad_online_palist.raduoSearchList
+                val d = ad_online_palist.raduoSearchList
                 val data = ArrayList<String>()
                 //запишем в строчном формате
                 data.add("#EXTM3U")
                 for (s in d.withIndex()) {
-                    if (d[s.index].url.isNotEmpty()&& list_selekt.contains(s.index)) {
+                    if (d[s.index].url.isNotEmpty() && list_selekt.contains(s.index)) {
                         data.add("\n#EXTINF:-1," + d[s.index].name + " " + d[s.index].kbps + "\n" + d[s.index].url)
                     }
                 }
 
-                val name_file = "Плэйлист:"+d[0].name +" ("+ list_selekt.size.toString() + " частей).m3u"
+                val name_file = "Плэйлист:" + d[0].name + " (" + list_selekt.size.toString() + " частей).m3u"
 
                 //когда прийдёт сигнал что сохранилось все хорошо обновим плейлист
                 Slot(context, "File_created", false).onRun {
@@ -200,7 +193,7 @@ class Online_plalist : Fragment() {
                 val file_function = File_function()
                 //сохраним  временый файл ссылку и ждём сигналы
                 file_function.SaveFile(Main.ROOT + name_file, data.joinToString("\n"))
-            }else{
+            } else {
                 context.toast("Выберите что воспроизводить")
             }
 
@@ -208,19 +201,19 @@ class Online_plalist : Fragment() {
         }
 
         v.button_open_aimp_op.onLongClick {
-            if(list_selekt.size>0){
+            if (list_selekt.size > 0) {
 
-                val d =  ad_online_palist.raduoSearchList
+                val d = ad_online_palist.raduoSearchList
                 val data = ArrayList<String>()
                 //запишем в строчном формате
                 data.add("#EXTM3U")
                 for (s in d.withIndex()) {
-                    if (d[s.index].url.isNotEmpty()&& list_selekt.contains(s.index)) {
+                    if (d[s.index].url.isNotEmpty() && list_selekt.contains(s.index)) {
                         data.add("\n#EXTINF:-1," + d[s.index].name + " " + d[s.index].kbps + "\n" + d[s.index].url)
                     }
                 }
 
-                val name_file = "Плэйлист:"+d[0].name +" ("+ list_selekt.size.toString() + " частей).m3u"
+                val name_file = "Плэйлист:" + d[0].name + " (" + list_selekt.size.toString() + " частей).m3u"
 
                 //когда прийдёт сигнал что сохранилось все хорошо обновим плейлист
                 Slot(context, "File_created", false).onRun {
@@ -239,24 +232,24 @@ class Online_plalist : Fragment() {
                 val file_function = File_function()
                 //сохраним  временый файл ссылку и ждём сигналы
                 file_function.SaveFile(Main.ROOT + name_file, data.joinToString("\n"))
-            }else{
+            } else {
                 context.toast("Выберите что воспроизводить")
             }
         }
 
         v.button_cshre_op.onClick {
-            if(list_selekt.size>0){
-                val d =  ad_online_palist.raduoSearchList
+            if (list_selekt.size > 0) {
+                val d = ad_online_palist.raduoSearchList
                 val data = ArrayList<String>()
                 //запишем в строчном формате
                 data.add("#EXTM3U")
                 for (s in d.withIndex()) {
-                    if (d[s.index].url.isNotEmpty()&& list_selekt.contains(s.index)) {
+                    if (d[s.index].url.isNotEmpty() && list_selekt.contains(s.index)) {
                         data.add("\n#EXTINF:-1," + d[s.index].name + " " + d[s.index].kbps + "\n" + d[s.index].url)
                     }
                 }
                 share(data.joinToString("\n"))
-            }else{
+            } else {
                 context.toast("Выберите чем поделится")
             }
         }
@@ -264,131 +257,148 @@ class Online_plalist : Fragment() {
 
         v.button_add_plalist_op.onClick {
 
-            if(list_selekt.size>0){
-                val d =  ad_online_palist.raduoSearchList
+            if (list_selekt.size > 0) {
+                val d = ad_online_palist.raduoSearchList
                 for (s in d.withIndex()) {
-                    if (d[s.index].url.isNotEmpty()&& list_selekt.contains(s.index)) {
+                    if (d[s.index].url.isNotEmpty() && list_selekt.contains(s.index)) {
                         Main.add_myplalist(d[s.index].name + " " + d[s.index].kbps, d[s.index].url)
                     }
                 }
-            }else{
+            } else {
                 context.toast("Выберите что добавить")
             }
         }
 
 
         v.help_open_tv.onClick {
-            Main.save_value("help_tv","no")
-            if(Main.save_read("help_tv").length>1){
+            Main.save_value("help_tv", "no")
+            if (Main.save_read("help_tv").length > 1) {
                 v.help_open_tv.visibility = View.GONE
-            }else{
+            } else {
                 v.help_open_tv.visibility = View.VISIBLE
             }
         }
 
         v.button_history_online_plalilst.onClick {
-            val hop = DialogWindow(context, R.layout.history_online_plalist)
 
-            //слот будет закрывать это окно
-            Slot(context, "History_online_plalist").onRun { hop.close() }
-
-            //настройка вида----------------------------------------------------------------------------
-            val fon = hop.view().findViewById<LinearLayout>(R.id.fon)
-            fon.setBackgroundColor(Main.COLOR_FON)
-
-            val recikl = hop.view().findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recikl)
-            recikl.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
-
-            //полоса быстрой прокрутки
-            val fS = hop.view().findViewById<VerticalRecyclerViewFastScroller>(R.id.fast_scroller)
-            //получим текущие пораметры
-            val paramL = fS.layoutParams
-            //меняем ширину
-            paramL.width = Main.SIZE_WIDCH_SCROLL
-            //устанавливаем
-            fS.layoutParams = paramL
-            fS.setRecyclerView(recikl)
-            recikl.setOnScrollListener(fS.onScrollListener)
-            //-------------------------------------------------------------------------------------------
-
+            //если нет нечего
             val list_history = read_page_list()
-            val d = ArrayList<History>()
-            val sdf = SimpleDateFormat("dd.M.yyyy hh:mm:ss", Locale.getDefault())
 
-            for (l in list_history.iterator()) {
-                val f = File(l)
-                if (f.isFile) {
-                    d.add(History(f.name, f.absolutePath, sdf.format(f.lastModified()), long_size_to_good_vid(f.length().toDouble())))
+            if (list_history.size == 0) {
+                context.toast("Пусто")
+            } else {
+
+                val hop = DialogWindow(context, R.layout.history_online_plalist)
+
+                //слот будет закрывать это окно
+                Slot(context, "History_online_plalist").onRun { hop.close() }
+
+                //настройка вида----------------------------------------------------------------------------
+                val fon = hop.view().findViewById<LinearLayout>(R.id.fon)
+                fon.setBackgroundColor(Main.COLOR_FON)
+
+                val recikl = hop.view().findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recikl)
+                recikl.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
+
+                //полоса быстрой прокрутки
+                val fS = hop.view().findViewById<VerticalRecyclerViewFastScroller>(R.id.fast_scroller)
+                //получим текущие пораметры
+                val paramL = fS.layoutParams
+                //меняем ширину
+                paramL.width = Main.SIZE_WIDCH_SCROLL
+                //устанавливаем
+                fS.layoutParams = paramL
+                fS.setRecyclerView(recikl)
+                recikl.setOnScrollListener(fS.onScrollListener)
+                //-------------------------------------------------------------------------------------------
+
+                val d = ArrayList<History>()
+                val sdf = SimpleDateFormat("dd.M.yyyy hh:mm:ss", Locale.getDefault())
+
+                for (l in list_history.iterator()) {
+                    val f = File(l)
+                    if (f.isFile) {
+                        d.add(History(f.name, f.absolutePath, sdf.format(f.lastModified()), long_size_to_good_vid(f.length().toDouble())))
+                    }
                 }
-            }
-            val a = Adapter_history_online_plalist(d)
-            recikl.adapter = a
 
 
-            //покажем полный размер кеша
-            //кнопка очистить кеш
-            //при открытии меню будем показыват размер этого кеша
-            val b_c = hop.view().findViewById<Button>(R.id.button_clear_kesh)
+                val a = Adapter_history_online_plalist(d)
+                recikl.adapter = a
 
-            //получим размер
-            val file = File(Main.ROOT)
-            if (file.exists()) {
-                val s = getDirSize(file)
-                if (s > Main.SIZEFILETHEME) {
-                    b_c.text = "Очистить Историю/Кэш (" + long_size_to_good_vid(s.toDouble()) + ")"
-                } else {
+
+                //покажем полный размер кеша
+                //кнопка очистить кеш
+                //при открытии меню будем показыват размер этого кеша
+                val b_c = hop.view().findViewById<Button>(R.id.button_clear_kesh)
+
+                //получим размер
+                val file = File(Main.ROOT)
+                if (file.exists()) {
+                    val s = getDirSize(file)
+                    if (s > Main.SIZEFILETHEME) {
+                        b_c.text = "Очистить Историю/Кэш (" + long_size_to_good_vid(s.toDouble()) + ")"
+                    } else {
+                        b_c.text = "История/Кэш очищен"
+
+                    }
+                } else
                     b_c.text = "История/Кэш очищен"
-                }
-            } else
-                b_c.text = "История/Кэш очищен"
 
-            b_c.onClick {
+                b_c.onClick {
 
-                if (b_c.text == "История/Кэш очищен") {
+                    if (b_c.text == "История/Кэш очищен") {
 
-                    Main.context.toast("Пусто")
+                        signal("History_online_plalist").send(context)
+                        signal("Online_plalist")
+                                .putExtra("update", "zaebis")
+                                .send(context)
+                        Main.context.toast("Пусто")
 
-                } else {
+                    } else {
 
-                    //покажем предупреждающее окошко
-                    val v_d = DialogWindow(Main.context, R.layout.dialog_delete_plalist)
+                        //покажем предупреждающее окошко
+                        val v_d = DialogWindow(Main.context, R.layout.dialog_delete_plalist)
 
-                    v_d.view().findViewById<TextView>(R.id.text_voprosa_del_stncii).text = "Удалить Историю/Кеш?"
+                        v_d.view().findViewById<TextView>(R.id.text_voprosa_del_stncii).text = "Удалить Историю/Кеш?"
 
-                    v_d.view().findViewById<Button>(R.id.button_dialog_delete).onClick {
-                        v_d.close()
-                        //удаляем все
-                        if (file.exists()) {
-                            //файлы
-                            deleteAllFilesFolder(Main.ROOT)
-                            //список этих файлов
-                            hop.close()
-                            //обновим список
-                            //иначе пустую страницу покажем
-                            signal("Online_plalist")
-                                    .putExtra("update", "zaebis")
-                                    .send(context)
-                        }
-                        if (file.exists()) {
-                            val s = getDirSize(file)
-                            if (s > Main.SIZEFILETHEME) {
-                                b_c.text = "Очистить Историю/Кэш (" + long_size_to_good_vid(s.toDouble()) + ")"
+                        v_d.view().findViewById<Button>(R.id.button_dialog_delete).onClick {
+                            v_d.close()
+                            //удаляем все
+                            if (file.exists()) {
+                                //файлы
+                                deleteAllFilesFolder(Main.ROOT)
+                                //список этих файлов
+                                hop.close()
+                                //обновим список
+                                //иначе пустую страницу покажем
+                                signal("Online_plalist")
+                                        .putExtra("update", "zaebis")
+                                        .send(context)
+                                signal("History_online_plalist").send(context)
+                            }
+                            if (file.exists()) {
+                                val s = getDirSize(file)
+                                if (s > Main.SIZEFILETHEME) {
+                                    b_c.text = "Очистить Историю/Кэш (" + long_size_to_good_vid(s.toDouble()) + ")"
+                                } else {
+                                    b_c.text = "История/Кэш очищен"
+                                }
+
                             } else {
                                 b_c.text = "История/Кэш очищен"
                             }
 
-                        } else
-                            b_c.text = "История/Кэш очищен"
+                        }
+                        v_d.view().findViewById<Button>(R.id.button_dialog_no).onClick {
+                            v_d.close()
+                        }
 
-                    }
-                    v_d.view().findViewById<Button>(R.id.button_dialog_no).onClick {
-                        v_d.close()
                     }
 
                 }
-
+                //---------------------------------------
             }
-            //---------------------------------------
         }
 
         v.button_open_online_plalist_radio.onClick {
@@ -401,9 +411,9 @@ class Online_plalist : Fragment() {
 
         v.button_open_online_plalist_tv.onClick {
             Main.download_i_open_m3u_file("https://dl.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u", "tv_plalist", "anim_online_plalist")
-            if(Main.save_read("help_tv").length>1){
+            if (Main.save_read("help_tv").length > 1) {
                 v.help_open_tv.visibility = View.GONE
-            }else{
+            } else {
                 v.help_open_tv.visibility = View.VISIBLE
             }
         }
@@ -417,20 +427,20 @@ class Online_plalist : Fragment() {
 
         val h = Main.save_read(Main.HISORYLAST)
 
-        if(h.length>1){
-            if(File(h).isFile){
+        if (h.length > 1) {
+            if (File(h).isFile) {
                 //пошлём сигнал для загрузки дааных в спискок
                 signal("Online_plalist")
                         .putExtra("update", "zaebis")
                         .putExtra("listfile", h)
                         .send(context)
-            }else{
+            } else {
                 //иначе пустую страницу покажем
                 signal("Online_plalist")
                         .putExtra("update", "zaebis")
                         .send(context)
             }
-        }else{
+        } else {
             //иначе пустую страницу покажем
             signal("Online_plalist")
                     .putExtra("update", "zaebis")
@@ -457,7 +467,7 @@ class Online_plalist : Fragment() {
             //отсортируем по дате создания файла
             d.sortWith(Comparator { o1, o2 ->
                 val a = File(o1).lastModified()
-                val b =File(o2).lastModified()
+                val b = File(o2).lastModified()
                 a.compareTo(b)
             })
         }
@@ -465,7 +475,6 @@ class Online_plalist : Fragment() {
 
         return d
     }
-
 
 
     fun deleteAllFilesFolder(path: String) {
