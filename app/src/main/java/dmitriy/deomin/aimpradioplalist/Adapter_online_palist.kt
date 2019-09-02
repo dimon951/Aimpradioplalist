@@ -112,8 +112,10 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
             Radio("", "", "", "")
         }
 
+        //название будем делать жирным
         //из названия будем удалять тип ссылки
-        p0.name_radio.text = radio.name.replace("<List>", "")
+    //    p0.name_radio.text = Main.Bold_text(radio.name.replace("<List>", ""))
+        p0.name_radio.text =radio.name.replace("<List>", "")
 
 
         if (radio.url.isNotEmpty()) {
@@ -301,7 +303,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                 }
                 //при долгом нажатии предложим скачать
                 text_name_i_url.onClick {
-                    val dw = DialogWindow(context, R.layout.dialog_delete_stancii,true)
+                    val dw = DialogWindow(context, R.layout.dialog_delete_stancii, true)
                     val dw_start = dw.view().findViewById<Button>(R.id.button_dialog_delete)
                     val dw_no = dw.view().findViewById<Button>(R.id.button_dialog_no)
                     val dw_logo = dw.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)

@@ -119,6 +119,15 @@ class Online_plalist : Fragment() {
 
                     //остановим анимацию
                     signal("Main_update").putExtra("signal", "stop_anim_online_plalist").send(context)
+
+                    //скроем или покажем кнопку истории
+                    if (read_page_list().size == 0) {
+                        v.button_history_online_plalilst.visibility= View.GONE
+                    } else {
+                        v.button_history_online_plalilst.visibility= View.VISIBLE
+                    }
+
+
                     //==================================================================
                 }
             }

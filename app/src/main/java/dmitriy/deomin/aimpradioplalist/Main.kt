@@ -14,7 +14,11 @@ import android.os.StrictMode
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import android.text.Editable
+import android.text.Spannable
+import android.text.SpannableStringBuilder
 import android.text.TextWatcher
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
 import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.*
@@ -106,6 +110,27 @@ class Main : FragmentActivity() {
         var COLOR_TEXTcontext: Int = 0
 
         var cho_nagimali_poslednee: Int = 0
+
+
+//
+//        text = new SpannableString("Расписание от " + date);
+//        text.setSpan(new StyleSpan(Typeface.BOLD), 14, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//        text.setSpan(new ForegroundColorSpan(Color.BLUE), 0, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+//        text.setSpan(new RelativeSizeSpan(0.7f), 14, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+
+        //часть текста жирным
+        fun Bold_text(text:String): SpannableStringBuilder {
+            val t = SpannableStringBuilder(text)
+            val end = text.indexOf(".")
+            return if(end>0&&t[0].toString()==" "){
+                t.setSpan(StyleSpan(Typeface.BOLD), 0, end, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+                t
+            }else{
+                t
+            }
+        }
+
 
         //запись в буфер
         fun putText(text: String, context: Context) {
@@ -366,7 +391,7 @@ class Main : FragmentActivity() {
                     //получим данные
                     when (it.getStringExtra("update")) {
                         "zaebis" -> {
-                            play_system_file(ROOT + name + "m3u")
+                            play_system_file(ROOT + name + ".m3u")
                         }
                         "pizdec" -> {
                             context.toast(context.getString(R.string.error))
