@@ -23,7 +23,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
     var raduoSearchList: ArrayList<Radio> = data
     //у списка нажатых строк при первом запуске будем отмечать последнию нажатую строку
     //потом будем добавлять но сохранится только последняя
-    private var cho_nagimal: MutableSet<Int> = mutableSetOf(Main.cho_nagimali_poslednee)
+    private var cho_nagimal: MutableSet<Int> = mutableSetOf(Vse_radio.cho_nagimali_poslednee)
 
     override fun getFilter(): Filter {
         //если поиск включили удалим метки с ранее нажатых строк
@@ -127,7 +127,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
         }
 
         //поменяем цвет у строк которые уже нажимали
-        if (Main.cho_nagimali_poslednee > 0) {
+        if (Vse_radio.cho_nagimali_poslednee > 0) {
             if (cho_nagimal.any { it == p1 }) {
                 p0.name_radio.textColor = Color.DKGRAY
                 p0.url_radio.textColor = Color.DKGRAY
@@ -148,11 +148,11 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
             p0.fon.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
 
             GlobalScope.launch {
-                Main.cho_nagimali_poslednee = p1
+                Vse_radio.cho_nagimali_poslednee = p1
                 //сохраним в список нажатых временый
                 cho_nagimal.add(p1)
                 //сохраняем позицию будет последняя и при запуске сработает
-                Main.save_value_int("nomer_stroki_int", p1)
+                Main.save_value_int("cho_nagimali_poslednee", p1)
             }
 
             //перекрасим

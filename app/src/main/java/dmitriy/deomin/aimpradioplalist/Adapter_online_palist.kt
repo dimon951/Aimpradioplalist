@@ -263,6 +263,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
 
             } else {
                 //сохраняем позицию текушею списка
+                Main.save_value_int("position_list_online_palist",p1)
                 Online_plalist.position_list_online_palist = p1
 
                 val mvr = DialogWindow(context, R.layout.menu_vse_radio)
@@ -359,6 +360,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                 }
 
 
+
                 open_aimp.onLongClick {
                     Main.play_system(name, radio.url)
                 }
@@ -428,9 +430,14 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
 
                 //загрузить список
                 loadlist.onClick {
+                    val n = if(name.length>100){
+                        name.substring(0,100)
+                    }else{
+                        name
+                    }
                     //закрываем основное окошко
                     mvr.close()
-                    Main.download_i_open_m3u_file(radio.url, name, "anim_online_plalist")
+                    Main.download_i_open_m3u_file(radio.url, n, "anim_online_plalist")
                 }
             }
         }

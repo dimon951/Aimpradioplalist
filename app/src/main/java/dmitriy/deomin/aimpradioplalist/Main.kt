@@ -109,7 +109,7 @@ class Main : FragmentActivity() {
         var COLOR_TEXT: Int = 0
         var COLOR_TEXTcontext: Int = 0
 
-        var cho_nagimali_poslednee: Int = 0
+
 
 
 //
@@ -870,8 +870,6 @@ class Main : FragmentActivity() {
         }
         //------------------------------------------------------------------------------
 
-
-        cho_nagimali_poslednee = save_read_int("nomer_stroki_int")
         fon_main.setBackgroundColor(COLOR_FON)
 
 

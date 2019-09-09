@@ -39,7 +39,7 @@ class Moy_plalist : Fragment() {
     lateinit var ad: Adapter_my_list
 
     companion object {
-        var position_list = 0
+        var position_list_my_plalist = 0
         //список файлов которые загружались онлайн
         var list_move_history: ArrayList<String> = ArrayList()
         //файл который загружен сейчас
@@ -55,6 +55,8 @@ class Moy_plalist : Fragment() {
         find.typeface = Main.face
         find.textColor = Main.COLOR_TEXT
         find.hintTextColor = Main.COLOR_TEXTcontext
+
+        position_list_my_plalist = Main.save_read_int("position_list_my_plalist")
 
         val recikl_list = v.findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recicl_my_list)
         recikl_list.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
@@ -130,8 +132,8 @@ class Moy_plalist : Fragment() {
                     //---------------------------------------------------------
 
                     //перемотаем
-                    if (position_list < d.size && position_list >= 0) {
-                        recikl_list.scrollToPosition(position_list)
+                    if (position_list_my_plalist < d.size && position_list_my_plalist >= 0) {
+                        recikl_list.scrollToPosition(position_list_my_plalist)
                     }
 
                     //остановим анимацию
@@ -240,8 +242,8 @@ class Moy_plalist : Fragment() {
                     //---------------------------------------------------------
 
                     //перемотаем
-                    if (position_list < d.size && position_list >= 0) {
-                        recikl_list.scrollToPosition(position_list)
+                    if (position_list_my_plalist < d.size && position_list_my_plalist >= 0) {
+                        recikl_list.scrollToPosition(position_list_my_plalist)
                     }
 
                     //остановим анимацию

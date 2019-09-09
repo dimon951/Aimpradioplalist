@@ -33,7 +33,6 @@ class Online_plalist : Fragment() {
         var position_list_online_palist = 0
         var visible_selekt = false
         var list_selekt = ArrayList<Int>()
-
     }
 
 
@@ -45,6 +44,8 @@ class Online_plalist : Fragment() {
         find.typeface = Main.face
         find.textColor = Main.COLOR_TEXT
         find.hintTextColor = Main.COLOR_TEXTcontext
+
+        position_list_online_palist = Main.save_read_int("position_list_online_palist")
 
         val recikl_list_online = v.findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recicl_online_plalist)
         recikl_list_online.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)

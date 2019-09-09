@@ -34,6 +34,7 @@ class Vse_radio : Fragment() {
     lateinit var find: EditText
 
     companion object {
+        var cho_nagimali_poslednee: Int = 0
         var Numeracia: Int = 1
     }
 
@@ -49,6 +50,7 @@ class Vse_radio : Fragment() {
         find.textColor = Main.COLOR_TEXT
         find.hintTextColor = Main.COLOR_TEXTcontext
 
+        cho_nagimali_poslednee = Main.save_read_int("cho_nagimali_poslednee")
 
         Numeracia = if (Main.save_read_int("setting_numer") == 1) {
             1
@@ -145,8 +147,8 @@ class Vse_radio : Fragment() {
             recikl_vse_list.adapter = adapter_vse_list
 
             //пролистываем до нужного элемента
-            if (Main.cho_nagimali_poslednee > 0 && adapter_vse_list.raduoSearchList.size > Main.cho_nagimali_poslednee) {
-                recikl_vse_list.scrollToPosition(Main.cho_nagimali_poslednee)
+            if (cho_nagimali_poslednee > 0 && adapter_vse_list.raduoSearchList.size > cho_nagimali_poslednee) {
+                recikl_vse_list.scrollToPosition(cho_nagimali_poslednee)
             }
 
             // текст только что изменили в строке поиска

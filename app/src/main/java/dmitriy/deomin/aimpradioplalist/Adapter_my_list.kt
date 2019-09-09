@@ -128,7 +128,8 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             p0.fon.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
 
             //сохраняем позицию текушею списка
-            Moy_plalist.position_list = p1
+            Main.save_value_int("position_list_my_plalist",p1)
+            Moy_plalist.position_list_my_plalist = p1
 
             //=============================================================================================
             //общее окошко с кнопками удалить,переименовать
@@ -341,9 +342,15 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
 
             //загрузить список
             loadlist.onClick {
+
+                val n = if(radio.name.length>100){
+                    radio.name.substring(0,100)
+                }else{
+                    radio.name
+                }
                 //закрываем основное окошко
                 empid.close()
-                Main.download_i_open_m3u_file(radio.url, radio.name, "anim_my_list")
+                Main.download_i_open_m3u_file(radio.url, n, "anim_my_list")
             }
          
         }
