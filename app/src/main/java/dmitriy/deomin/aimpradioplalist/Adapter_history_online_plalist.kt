@@ -87,6 +87,8 @@ class Adapter_history_online_plalist(val data: ArrayList<History>) : androidx.re
                     d.close()
                     if(File(history.url).delete()){
                         data.removeAt(p1)
+                        //пошлём сигнал пусть из истории удалится тоже
+                        signal("histori_del_item").putExtra("item",history.name).send(context)
                         notifyDataSetChanged()
                         //если список пуст закроем
                         if(data.size==0){

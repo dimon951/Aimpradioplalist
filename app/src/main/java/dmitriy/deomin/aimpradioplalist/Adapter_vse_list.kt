@@ -129,11 +129,11 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
         //поменяем цвет у строк которые уже нажимали
         if (Vse_radio.cho_nagimali_poslednee > 0) {
             if (cho_nagimal.any { it == p1 }) {
-                p0.name_radio.textColor = Color.DKGRAY
-                p0.url_radio.textColor = Color.DKGRAY
-                p0.nomer_radio.textColor = Color.DKGRAY
-                p0.kbps.textColor = Color.DKGRAY
-                p0.ganr.textColor = Color.DKGRAY
+                p0.name_radio.textColor = Main.COLOR_SELEKT
+                p0.url_radio.textColor = Main.COLOR_SELEKT
+                p0.nomer_radio.textColor = Main.COLOR_SELEKT
+                p0.kbps.textColor = Main.COLOR_SELEKT
+                p0.ganr.textColor = Main.COLOR_SELEKT
             } else {
                 p0.name_radio.textColor = Main.COLOR_TEXT
                 p0.url_radio.textColor = Main.COLOR_TEXT
@@ -156,11 +156,11 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
             }
 
             //перекрасим
-            p0.name_radio.textColor = Color.DKGRAY
-            p0.url_radio.textColor = Color.DKGRAY
-            p0.nomer_radio.textColor = Color.DKGRAY
-            p0.kbps.textColor = Color.DKGRAY
-            p0.ganr.textColor = Color.DKGRAY
+            p0.name_radio.textColor = Main.COLOR_SELEKT
+            p0.url_radio.textColor = Main.COLOR_SELEKT
+            p0.nomer_radio.textColor = Main.COLOR_SELEKT
+            p0.kbps.textColor = Main.COLOR_SELEKT
+            p0.ganr.textColor = Main.COLOR_SELEKT
 
 
             val mvr = DialogWindow(context, R.layout.menu_vse_radio)

@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentActivity
 import com.github.danielnilsson9.colorpickerview.dialog.ColorPickerDialogFragment
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_FON
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_ITEM
+import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_SELEKT
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_TEXT
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_TEXTcontext
 import dmitriy.deomin.aimpradioplalist.Main.Companion.face
@@ -62,6 +63,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
         edit_fon.typeface = face
         edit_pos1.typeface = face
         edit_text_color.typeface = face
+        button_edit_color_selekt.typeface = face
 
 
         edit_fon.onClick {
@@ -94,6 +96,15 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
             DIALOG_ID = 4
             val f = ColorPickerDialogFragment
                     .newInstance(DIALOG_ID, null, null, resources.getColor(R.color.textcontext), true)
+
+            f.setStyle(DialogFragment.STYLE_NORMAL, R.style.LightPickerDialogTheme)
+            f.show(fragmentManager, "d")
+        }
+
+        button_edit_color_selekt.onClick {
+            DIALOG_ID = 5
+            val f = ColorPickerDialogFragment
+                    .newInstance(DIALOG_ID, null, null, resources.getColor(R.color.textselekt), true)
 
             f.setStyle(DialogFragment.STYLE_NORMAL, R.style.LightPickerDialogTheme)
             f.show(fragmentManager, "d")
@@ -376,6 +387,8 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
         edit_pos1.backgroundColor = COLOR_ITEM
         edit_text_color.textColor = COLOR_TEXT
         edit_textcontext_color.textColor = COLOR_TEXTcontext
+        button_edit_color_selekt.backgroundColor = COLOR_FON
+        button_edit_color_selekt.textColor = COLOR_SELEKT
     }
 
     override fun onColorSelected(dialogId: Int, color: Int) {
@@ -400,6 +413,11 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
             4 -> {
                 save_value_int("color_textcontext", color)
                 COLOR_TEXTcontext = color
+                pererisovka_color()
+            }
+            5 -> {
+                save_value_int("color_selekt", color)
+                COLOR_SELEKT = color
                 pererisovka_color()
             }
         }

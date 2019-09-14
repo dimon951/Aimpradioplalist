@@ -16,6 +16,8 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.startActivity
 import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
 import android.util.Log
+import com.google.common.reflect.TypeToken
+import com.google.gson.Gson
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.share
 import java.io.File
@@ -28,6 +30,8 @@ class Online_plalist : Fragment() {
 
     lateinit var ad_online_palist: Adapter_online_palist
     var open_file_online_palist = ""
+    private var history_navigacia=ArrayList<String>()
+
 
     companion object {
         var position_list_online_palist = 0
@@ -45,7 +49,16 @@ class Online_plalist : Fragment() {
         find.textColor = Main.COLOR_TEXT
         find.hintTextColor = Main.COLOR_TEXTcontext
 
-        position_list_online_palist = Main.save_read_int("position_list_online_palist")
+        //читам из памяти историю навигации
+        //---------------------------------------------------------------------
+        val savhis = Main.save_read("history_navigacia")
+        if(savhis.length>1){
+            val collectionType = object : TypeToken<ArrayList<String>>() {}.type
+            history_navigacia = Gson().fromJson(savhis, collectionType)
+        }
+        //-----------------------------------------------------------------------
+
+        position_list_online_palist = Main.save_read_int(open_file_online_palist)
 
         val recikl_list_online = v.findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recicl_online_plalist)
         recikl_list_online.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
@@ -68,11 +81,18 @@ class Online_plalist : Fragment() {
             //получим данные
             when (it.getStringExtra("update")) {
                 "zaebis" -> {
-                    open_file_online_palist = if (!it.getStringExtra("listfile").isNullOrEmpty()) {
-                        it.getStringExtra("listfile")
+                    if (!it.getStringExtra("listfile").isNullOrEmpty()) {
+                        open_file_online_palist = it.getStringExtra("listfile")
+                        if(it.getStringExtra("history").isNullOrEmpty()){
+                            //добавим в список навигации
+                            history_navigacia.add(open_file_online_palist)
+                            signal("history_save").send(context)
+                        }
                     } else {
-                        Main.HOME_ONLINE_PLALIST
+                        open_file_online_palist = Main.HOME_ONLINE_PLALIST
                     }
+
+                    position_list_online_palist = Main.save_read_int(open_file_online_palist)
 
                     //заново все сделаем
                     //====================================================================================
@@ -123,9 +143,9 @@ class Online_plalist : Fragment() {
 
                     //скроем или покажем кнопку истории
                     if (read_page_list().size == 0) {
-                        v.button_history_online_plalilst.visibility= View.GONE
+                        v.button_history_online_plalilst.visibility = View.GONE
                     } else {
-                        v.button_history_online_plalilst.visibility= View.VISIBLE
+                        v.button_history_online_plalilst.visibility = View.VISIBLE
                     }
 
 
@@ -134,6 +154,25 @@ class Online_plalist : Fragment() {
             }
         }
         //-------------------------------------------------------------------------------------
+
+        Slot(context,"histori_del_item").onRun {
+            if(!it.getStringExtra("item").isNullOrEmpty()){
+                history_navigacia.remove(it.getStringExtra("item"))
+                signal("history_save").send(context)
+            }
+        }
+        //сохраним в память
+        Slot(context,"history_save").onRun {
+            val arrayString = Gson().toJson(history_navigacia)
+            Main.save_value("history_navigacia",arrayString)
+        }
+
+        Slot(context,"save_pozitions").onRun {
+            if(!it.getStringExtra("pos").isNullOrEmpty()){
+                position_list_online_palist = it.getStringExtra("pos").toInt()
+                Main.save_value_int(open_file_online_palist, position_list_online_palist)
+            }
+        }
 
         //выделить всЁ
         v.button_selekt_all_op.onClick {
@@ -289,7 +328,8 @@ class Online_plalist : Fragment() {
             }
         }
 
-        v.button_history_online_plalilst.onClick {
+
+        v.button_history_online_plalilst.onLongClick {
 
             //если нет нечего
             val list_history = read_page_list()
@@ -380,6 +420,11 @@ class Online_plalist : Fragment() {
                                 deleteAllFilesFolder(Main.ROOT)
                                 //список этих файлов
                                 hop.close()
+                                //очистим историю навигации
+                                //------------------------------------------
+                                history_navigacia.clear()
+                                signal("history_save").send(context)
+                                //--------------------------------------------
                                 //обновим список
                                 //иначе пустую страницу покажем
                                 signal("Online_plalist")
@@ -409,6 +454,27 @@ class Online_plalist : Fragment() {
                 }
                 //---------------------------------------
             }
+        }
+
+        v.button_history_online_plalilst.onClick {
+
+            if(this@Online_plalist.history_navigacia.size>1){
+
+                val s = history_navigacia.elementAt(history_navigacia.size-2)
+                val s_del = history_navigacia.elementAt(history_navigacia.size-1)
+                history_navigacia.remove(s_del)
+                signal("history_save").send(context)
+                Main.save_value(Main.HISORYLAST, s)
+                //пошлём сигнал для загрузки дааных п спискок
+                signal("Online_plalist")
+                        .putExtra("update", "zaebis")
+                        .putExtra("listfile", s)
+                        .putExtra("history", "ненадо добавлять в историю")
+                        .send(Main.context)
+
+            }
+
+
         }
 
         v.button_open_online_plalist_radio.onClick {

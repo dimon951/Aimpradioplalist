@@ -3,6 +3,7 @@ package dmitriy.deomin.aimpradioplalist
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
@@ -146,6 +147,24 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
             p0.liner_ganr.visibility = View.GONE
         }
 
+        //если есть сохранёная позиция поменяем у неё цвет
+        if(Online_plalist.position_list_online_palist>0&&Online_plalist.position_list_online_palist==p1){
+            p0.name_radio.textColor = Main.COLOR_SELEKT
+            p0.url_radio.textColor = Main.COLOR_SELEKT
+            p0.nomer_radio.textColor = Main.COLOR_SELEKT
+            p0.kbps.textColor = Main.COLOR_SELEKT
+            p0.ganr.textColor = Main.COLOR_SELEKT
+            p0.text_komentov.textColor = Main.COLOR_SELEKT
+        }else{
+            p0.name_radio.textColor = Main.COLOR_TEXT
+            p0.url_radio.textColor = Main.COLOR_TEXT
+            p0.nomer_radio.textColor = Main.COLOR_TEXT
+            p0.kbps.textColor = Main.COLOR_TEXT
+            p0.ganr.textColor = Main.COLOR_TEXT
+            p0.text_komentov.textColor = Main.COLOR_TEXT
+        }
+
+
 
         p0.btn_like.visibility = View.GONE
 
@@ -233,7 +252,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
 
 
         if (Online_plalist.list_selekt.contains(p1)) {
-            p0.fon.backgroundColor = Main.COLOR_FON
+            p0.fon.backgroundColor = Main.COLOR_SELEKT
         } else {
             p0.fon.backgroundColor = Main.COLOR_ITEM
         }
@@ -249,7 +268,12 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
         p0.itemView.onClick {
             p0.fon.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
 
-
+            p0.name_radio.textColor = Main.COLOR_SELEKT
+            p0.url_radio.textColor = Main.COLOR_SELEKT
+            p0.nomer_radio.textColor = Main.COLOR_SELEKT
+            p0.kbps.textColor = Main.COLOR_SELEKT
+            p0.ganr.textColor = Main.COLOR_SELEKT
+            p0.text_komentov.textColor = Main.COLOR_SELEKT
 
             if (Online_plalist.visible_selekt) {
 
@@ -258,13 +282,12 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                     p0.fon.backgroundColor = Main.COLOR_ITEM
                 } else {
                     Online_plalist.list_selekt.add(p1)
-                    p0.fon.backgroundColor = Main.COLOR_FON
+                    p0.fon.backgroundColor = Main.COLOR_SELEKT
                 }
 
             } else {
                 //сохраняем позицию текушею списка
-                Main.save_value_int("position_list_online_palist",p1)
-                Online_plalist.position_list_online_palist = p1
+                signal("save_pozitions").putExtra("pos",p1.toString()).send(context)
 
                 val mvr = DialogWindow(context, R.layout.menu_vse_radio)
 

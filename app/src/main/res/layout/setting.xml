@@ -44,6 +44,14 @@
             android:text="@string/cvet_textta" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_edit_color_selekt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:onClick="Edit_color_selekt"
+            android:text="Цвет выделения" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_edit_color_textcontext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

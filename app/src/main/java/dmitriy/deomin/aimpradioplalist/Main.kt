@@ -108,6 +108,7 @@ class Main : FragmentActivity() {
         var COLOR_ITEM: Int = 0
         var COLOR_TEXT: Int = 0
         var COLOR_TEXTcontext: Int = 0
+        var COLOR_SELEKT:Int = 0
 
 
 
@@ -861,6 +862,12 @@ class Main : FragmentActivity() {
             Color.BLACK
         } else {
             save_read_int("color_text")
+        }
+        //Цвет выделения
+        COLOR_SELEKT = if (save_read_int("color_selekt") == 0) {
+            Color.GREEN
+        } else {
+            save_read_int("color_selekt")
         }
         //ставим цвеи текста для контекста
         COLOR_TEXTcontext = if (save_read_int("color_textcontext") == 0) {

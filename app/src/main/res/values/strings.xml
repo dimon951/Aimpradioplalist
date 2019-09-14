@@ -268,6 +268,8 @@
 
     <string-array name="vse_radio">
 
+
+        <item>HIP HOP RADIO(новая станция от ТНТ Music) -Музыка- 128kbps\nhttps://tntradio.hostingradio.ru:8027/hhr128.mp3</item>
         <item>Enigma 101 ru -Музыка- 64kbps\nhttp://ic4.101.ru:8000/a175?</item>
         <item>Молодечно FM -Музыка- 128kbps\nhttp://198.100.145.190:8000/MolodechnoFM.ogg</item>
         <item>Радио Прокопьевск Кемеровская область -Музыка- 256kbps\nhttp://radioserver.27trk.ru:8000/prokopievsk.mp3</item>
