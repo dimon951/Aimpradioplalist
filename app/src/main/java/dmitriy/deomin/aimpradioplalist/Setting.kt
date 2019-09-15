@@ -1,5 +1,6 @@
 package dmitriy.deomin.aimpradioplalist
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
@@ -45,6 +46,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
 
     private lateinit var linerfon: LinearLayout
 
+    @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.setting)
@@ -133,7 +135,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                     //сначала получим сохранёные данные а потом к ним допишем
                     val f = File_function()
                     val savedata = f.readArrayList(Main.F_THEM_list)
-                    savedata.add(name_them+"$"+COLOR_FON+"$"+COLOR_ITEM+"$"+COLOR_TEXT+"$"+COLOR_TEXTcontext)
+                    savedata.add(name_them+"$"+COLOR_FON+"$"+COLOR_ITEM+"$"+COLOR_TEXT+"$"+COLOR_TEXTcontext+"$"+ COLOR_SELEKT)
                     f.saveArrayList(Main.F_THEM_list,savedata)
 
                     //закроем окошко
@@ -204,8 +206,8 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
 
             for(i in data_res.indices){
                 val tl = data_res[i].split("$")
-                if(tl.size>4){
-                    data.add(Theme(tl[0],tl[1].toInt(),tl[2].toInt(),tl[3].toInt(),tl[4].toInt()))
+                if(tl.size>5){
+                    data.add(Theme(tl[0],tl[1].toInt(),tl[2].toInt(),tl[3].toInt(),tl[4].toInt(),tl[5].toInt()))
                 }
             }
 
@@ -259,7 +261,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                 this.data[p1]
             }else{
                 //иначе вернём пустой элемент(дальше будут проверки и он не отобразится)
-                Theme("",COLOR_FON,COLOR_ITEM,COLOR_TEXT,COLOR_TEXTcontext)
+                Theme("",COLOR_FON,COLOR_ITEM,COLOR_TEXT,COLOR_TEXTcontext, COLOR_SELEKT)
             }
 
             p0.name_theme.text = theme.name
@@ -273,11 +275,13 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                 COLOR_TEXT = theme.text
                 COLOR_ITEM = theme.item
                 COLOR_TEXTcontext = theme.text_context
+                COLOR_SELEKT = theme.color_selekt
                 // сохраняем в память
                 save_value_int("color_fon", COLOR_FON)
                 save_value_int("color_post1", COLOR_ITEM)
                 save_value_int("color_text", COLOR_TEXT)
                 save_value_int("color_textcontext", COLOR_TEXTcontext)
+                save_value_int("color_selekt", COLOR_SELEKT)
                 //сохраним в память выбраную тему имя
                 Main.save_value(Main.F_THEM_list,theme.name)
                 // перерисовываем
@@ -293,6 +297,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
 
                     //скроем кнопки плей и поделится
                     (empid.view().findViewById<LinearLayout>(R.id.liner_btn_open_share)).visibility = View.GONE
+                    (empid.view().findViewById<Button>(R.id.open_aimp_my_list_one)).visibility = View.GONE
 
                     //кнопка удалить
                     //------------------------------------------------------------------------------
@@ -301,7 +306,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                         //получим весь список , удалим нужный и перезапишем
                         val f = File_function()
                         val list = f.readArrayList(Main.F_THEM_list)
-                        list.remove(theme.name+"$"+theme.fon+"$"+theme.item+"$"+theme.text+"$"+theme.text_context)
+                        list.remove(theme.name+"$"+theme.fon+"$"+theme.item+"$"+theme.text+"$"+theme.text_context+"$"+theme.color_selekt)
                         //когда все запишется пошлём сигнал чтобы список обновился
                         Slot(context, "File_created_save_vse", false).onRun {
                             //получим данные
@@ -345,7 +350,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                                 //получим весь список , переименуем нужный и перезапишем
                                 val f = File_function()
                                 val list = f.readArrayList(Main.F_THEM_list)
-                                list[p1-Main.SIZE_LIST_THEM_DEFALT-1] = name_them+"$"+theme.fon+"$"+theme.item+"$"+theme.text+"$"+theme.text_context
+                                list[p1-Main.SIZE_LIST_THEM_DEFALT-1] = name_them+"$"+theme.fon+"$"+theme.item+"$"+theme.text+"$"+theme.text_context+"$"+theme.color_selekt
                                 //когда все запишется пошлём сигнал чтобы список обновился
                                 Slot(context, "File_created_save_vse", false).onRun {
                                     //получим данные

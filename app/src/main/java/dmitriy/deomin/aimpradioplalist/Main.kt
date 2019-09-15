@@ -124,12 +124,10 @@ class Main : FragmentActivity() {
         fun Bold_text(text:String): SpannableStringBuilder {
             val t = SpannableStringBuilder(text)
             val end = text.indexOf(".")
-            return if(end>0&&t[0].toString()==" "){
+            if(end>0){
                 t.setSpan(StyleSpan(Typeface.BOLD), 0, end, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-                t
-            }else{
-                t
             }
+            return t
         }
 
 

@@ -178,6 +178,7 @@ class Online_plalist : Fragment() {
         v.button_selekt_all_op.onClick {
             val d = ad_online_palist.raduoSearchList
             if (d.size == list_selekt.size) {
+       //         v.button_selekt_all_op.backgroundDrawable = getResources().getDrawable(R.drawable.shape_rectangle)
                 list_selekt.clear()
                 ad_online_palist.notifyDataSetChanged()
             } else {

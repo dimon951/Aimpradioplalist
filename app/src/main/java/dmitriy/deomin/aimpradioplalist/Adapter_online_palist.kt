@@ -113,10 +113,32 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
             Radio("", "", "", "")
         }
 
-        //название будем делать жирным
-        //из названия будем удалять тип ссылки
-    //    p0.name_radio.text = Main.Bold_text(radio.name.replace("<List>", ""))
-        p0.name_radio.text =radio.name.replace("<List>", "")
+
+
+
+        var name_text = radio.name.replace("<List>", "")
+        //добавим переносы для более читабельного вида где это нужно
+        if(name_text.contains(".Автор:")){
+            name_text = name_text.replace(".Автор:",".\nАвтор:")
+        }
+        if(name_text.contains(".Авторы:")){
+            name_text = name_text.replace(".Авторы:",".\nАвторы:")
+        }
+        if(name_text.contains(".Читает:")){
+            name_text = name_text.replace(".Читает:",".\nЧитает:")
+        }
+        if(name_text.contains(".Читают:")){
+            name_text = name_text.replace(".Читают:",".\nЧитают:")
+        }
+        if(name_text.contains(".Длительность:")){
+            name_text = name_text.replace(".Длительность:",".\nДлительность:")
+        }
+        //название будем делать жирным где эт надо
+        if(name_text.contains("Автор:")||name_text.contains("Авторы:")||name_text.contains("Длительность:")){
+            p0.name_radio.text =Main.Bold_text(name_text)
+        }else{
+            p0.name_radio.text =name_text
+        }
 
 
         if (radio.url.isNotEmpty()) {
