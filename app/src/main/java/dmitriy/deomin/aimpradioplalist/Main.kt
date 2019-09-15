@@ -41,6 +41,7 @@ import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import java.io.File
+import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -108,9 +109,7 @@ class Main : FragmentActivity() {
         var COLOR_ITEM: Int = 0
         var COLOR_TEXT: Int = 0
         var COLOR_TEXTcontext: Int = 0
-        var COLOR_SELEKT:Int = 0
-
-
+        var COLOR_SELEKT: Int = 0
 
 
 //
@@ -121,10 +120,10 @@ class Main : FragmentActivity() {
 
 
         //часть текста жирным
-        fun Bold_text(text:String): SpannableStringBuilder {
+        fun Bold_text(text: String): SpannableStringBuilder {
             val t = SpannableStringBuilder(text)
             val end = text.indexOf(".")
-            if(end>0){
+            if (end > 0) {
                 t.setSpan(StyleSpan(Typeface.BOLD), 0, end, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
             }
             return t
@@ -269,6 +268,7 @@ class Main : FragmentActivity() {
 
         //открыть в аимпе ,если передаётся одна станция то создадим файл с ней и откроем его в аимпе
         //если просто имя то значит это уже сохранёный файл ,откроем сразу по имени-адресу с припиской "file://"
+        //".views.Main.MainActivity"
         @SuppressLint("WrongConstant")
         fun play_aimp(name: String, url: String) {
             if (url != "") {
@@ -366,18 +366,25 @@ class Main : FragmentActivity() {
 
         @SuppressLint("WrongConstant")
         fun play_aimp_file(name: String) {
-            val cm = ComponentName(
-                    "com.aimp.player",
-                    "com.aimp.player.views.MainActivity.MainActivity")
 
-            val i = Intent()
-            i.component = cm
+            try {
+                val cm = ComponentName(
+                        "com.aimp.player",
+                        "com.aimp.player.views.MainActivity.MainActivity")
 
-            i.action = Intent.ACTION_VIEW
-            i.setDataAndType(Uri.parse("file://" + File(name).absolutePath), "audio/mpegurl")
-            i.flags = 0x3000000
+                val i = Intent()
+                i.component = cm
 
-            context.startActivity(i)
+                i.action = Intent.ACTION_VIEW
+                i.setDataAndType(Uri.parse("file://" + File(name).absolutePath), "audio/mpegurl")
+                i.flags = 0x3000000
+
+                context.startActivity(i)
+            } catch (e: Exception) {
+                context.toast("Не удалось напрямую, выберите вручную")
+                play_system_file(name)
+            }
+
         }
 
         //тоже если урл не пустой сохраним файл с сылкой и попытаемся открыть в системе
@@ -482,42 +489,47 @@ class Main : FragmentActivity() {
         }
 
         fun play_system_file(name: String) {
-            val i = Intent(Intent.ACTION_VIEW)
-            i.setDataAndType(Uri.parse("file://" + name), "audio/mpegurl")
-            //проверим есть чем открыть или нет
-            if (i.resolveActivity(Main.context.packageManager) != null) {
-                context.startActivity(i)
-            } else {
-                context.toast("Системе не удалось ( ")
+            try {
+                val i = Intent(Intent.ACTION_VIEW)
+                i.setDataAndType(Uri.parse("file://" + name), "audio/mpegurl")
+                //проверим есть чем открыть или нет
+                if (i.resolveActivity(Main.context.packageManager) != null) {
+                    context.startActivity(i)
+                } else {
+                    context.toast("Системе не удалось ( ")
+                }
+            } catch (e: Exception) {
+                context.toast("Error" + e)
             }
+
         }
 
         //добавить в мой плейлист
         fun add_myplalist(name: String, url: String) {
-                //слот получит ответ после добавления станции
-                Slot(context, "File_created").onRun {
-                    //получим данные
-                    when (it.getStringExtra("update")) {
-                        "est" -> context.toast(name+" "+url+" уже есть в плейлисте")
-                        "zaebis" -> {
-                            //пошлём сигнал пусть мой плейлист обновится
-                            signal("Data_add")
-                                    .putExtra("run", true)
-                                    .putExtra("update", "zaebis")
-                                    .putExtra("listfile", "old") //оставим что есть в списке
-                                    .send(context)
-                        }
-                        "pizdec" -> {
-                            context.toast(context.getString(R.string.error))
-                            //запросим разрешения
-                            EbuchieRazreshenia()
-                        }
+            //слот получит ответ после добавления станции
+            Slot(context, "File_created").onRun {
+                //получим данные
+                when (it.getStringExtra("update")) {
+                    "est" -> context.toast(name + " " + url + " уже есть в плейлисте")
+                    "zaebis" -> {
+                        //пошлём сигнал пусть мой плейлист обновится
+                        signal("Data_add")
+                                .putExtra("run", true)
+                                .putExtra("update", "zaebis")
+                                .putExtra("listfile", "old") //оставим что есть в списке
+                                .send(context)
+                    }
+                    "pizdec" -> {
+                        context.toast(context.getString(R.string.error))
+                        //запросим разрешения
+                        EbuchieRazreshenia()
                     }
                 }
+            }
 
-                val file_function = File_function()
-                //запишем в файл выбранную станцию
-                file_function.Add_may_plalist_stansiy(url, name)
+            val file_function = File_function()
+            //запишем в файл выбранную станцию
+            file_function.Add_may_plalist_stansiy(url, name)
         }
 
 
@@ -803,6 +815,7 @@ class Main : FragmentActivity() {
             }
         }
     }
+
     @SuppressLint("ClickableViewAccessibility", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -836,9 +849,9 @@ class Main : FragmentActivity() {
         }
         //-----------------------------------------------------
 
-        face = if(save_read("fonts") == "system"){
+        face = if (save_read("fonts") == "system") {
             Typeface.DEFAULT
-        }else{
+        } else {
             Typeface.createFromAsset(assets, if (save_read("fonts") == "") "fonts/Tweed.ttf" else save_read("fonts"))
         }
 
@@ -1146,7 +1159,7 @@ class Main : FragmentActivity() {
             menu.close()
         }
 
-       val akkaunt = menu.view().findViewById<Button>(R.id.akkaunt)
+        val akkaunt = menu.view().findViewById<Button>(R.id.akkaunt)
         akkaunt.onClick {
             menu.close()
 
@@ -1171,28 +1184,29 @@ class Main : FragmentActivity() {
 
             (menu_ob.view().findViewById<Button>(R.id.button_save_user_dannie)).onClick {
 
-                if(ed_name_user.text.toString() != Main.NAME_USER){
+                if (ed_name_user.text.toString() != Main.NAME_USER) {
                     //на имя пофиг пусть ставят любое
                     Main.NAME_USER = ed_name_user.text.toString()
-                    Main.save_value("name_user",Main.NAME_USER)
-                    toast("Имя изменено на:" +Main.NAME_USER)
+                    Main.save_value("name_user", Main.NAME_USER)
+                    toast("Имя изменено на:" + Main.NAME_USER)
                 }
 
                 //id важно будем спрашивать и проверяь
-                if(ed_id_user.text.toString()!=Main.ID_USER){
-                    if(ed_id_user.text.toString().length<4){
+                if (ed_id_user.text.toString() != Main.ID_USER) {
+                    if (ed_id_user.text.toString().length < 4) {
                         context.toast("Id должен быть не меньше 4-х символов")
-                    }else{
-                        alert( "При смене Id Вы потеряете ранее добавленнные ссылки","Внимание") {
+                    } else {
+                        alert("При смене Id Вы потеряете ранее добавленнные ссылки", "Внимание") {
                             yesButton {
-                                Main.ID_USER=ed_id_user.text.toString()
-                                Main.save_value("id_user",Main.ID_USER)
+                                Main.ID_USER = ed_id_user.text.toString()
+                                Main.save_value("id_user", Main.ID_USER)
                                 menu_ob.close()
-                                toast("Готово, пароль изменён") }
+                                toast("Готово, пароль изменён")
+                            }
                             noButton {}
                         }.show()
                     }
-                }else{
+                } else {
                     menu_ob.close()
                 }
             }

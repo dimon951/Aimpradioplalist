@@ -321,24 +321,6 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                 val instal_aimp2 = mvr.view().findViewById<Button>(R.id.button_download_yandex_aimp)
 
                 val name = radio.name.replace("<List>", "")
-
-                //если aimp установлен скроем кнопку установить аимп
-                if (Main.install_app("com.aimp.player")) {
-                    instal_aimp.visibility = View.GONE
-                    instal_aimp2.visibility = View.GONE
-                    open_aimp.visibility = View.VISIBLE
-                } else {
-                    //если есть магазин покажем и установку через него
-                    if (Main.install_app("com.google.android.gms")) {
-                        instal_aimp.visibility = View.VISIBLE
-                    } else {
-                        instal_aimp.visibility = View.GONE
-                    }
-                    //скачать по ссылке будем показывать всегда
-                    instal_aimp2.visibility = View.VISIBLE
-                    open_aimp.visibility = View.GONE
-                }
-
                 //Имя и урл выбраной станции , при клике будем копировать урл в буфер
                 val text_name_i_url = mvr.view().findViewById<TextView>(R.id.textView_vse_radio)
                 text_name_i_url.text = name + "\n" + radio.url
@@ -347,81 +329,111 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                     Main.putText(radio.url, context)
                     context.toast("url скопирован в буфер")
                 }
-                //при долгом нажатии предложим скачать
-                text_name_i_url.onClick {
-                    val dw = DialogWindow(context, R.layout.dialog_delete_stancii, true)
-                    val dw_start = dw.view().findViewById<Button>(R.id.button_dialog_delete)
-                    val dw_no = dw.view().findViewById<Button>(R.id.button_dialog_no)
-                    val dw_logo = dw.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
-                    val dw_progres = dw.view().findViewById<ProgressBar>(R.id.progressBar)
-                    dw_progres.visibility = View.VISIBLE
 
+                //если выбрато не тв
+                // if(Main.save_read("categoria")!="button_open_online_plalist_tv"){
+                if(true){
 
-                    dw_logo.text = "Попробовать скачать?"
-
-                    dw_start.onClick {
-                        if (dw_logo.text == "Готово,сохранено в папке программы") {
-                            //попробуем его открыть
-                            Main.play_aimp_file(Main.ROOT + radio.name + "." + radio.url.substringAfterLast('.'))
+                    //если aimp установлен скроем кнопку установить аимп
+                    if (Main.install_app("com.aimp.player")) {
+                        instal_aimp.visibility = View.GONE
+                        instal_aimp2.visibility = View.GONE
+                        open_aimp.visibility = View.VISIBLE
+                    } else {
+                        //если есть магазин покажем и установку через него
+                        if (Main.install_app("com.google.android.gms")) {
+                            instal_aimp.visibility = View.VISIBLE
                         } else {
-                            dw_start.visibility = View.GONE
-                            Main.download_file(radio.url, radio.name + "." + radio.url.substringAfterLast('.'), "anim_online_plalist")
-                            dw_logo.text = "Идёт загрузка..."
-                            dw_no.text = "Отмена"
+                            instal_aimp.visibility = View.GONE
                         }
-                    }
-                    dw_start.onLongClick {
-                        if (dw_logo.text == "Готово,сохранено в папке программы") {
-                            Main.play_system_file(Main.ROOT + radio.name + "." + radio.url.substringAfterLast('.'))
-                        }
-                    }
-                    dw_no.onClick {
-                        if (dw_no.text == "Отмена") {
-                            signal("dw_cansel").send(context)
-                        } else {
-                            dw.close()
-                        }
+                        //скачать по ссылке будем показывать всегда
+                        instal_aimp2.visibility = View.VISIBLE
+                        open_aimp.visibility = View.GONE
                     }
 
-                    Slot(context, "dw_progres").onRun {
-                        val totalBytes = it.getStringExtra("totalBytes")
-                        val readBytes = it.getStringExtra("readBytes")
-                        dw_progres.max = totalBytes.toInt()
-                        dw_progres.progress = readBytes.toInt()
+                    //при долгом нажатии предложим скачать
+                    text_name_i_url.onClick {
+                        val dw = DialogWindow(context, R.layout.dialog_delete_stancii, true)
+                        val dw_start = dw.view().findViewById<Button>(R.id.button_dialog_delete)
+                        val dw_no = dw.view().findViewById<Button>(R.id.button_dialog_no)
+                        val dw_logo = dw.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
+                        val dw_progres = dw.view().findViewById<ProgressBar>(R.id.progressBar)
+                        dw_progres.visibility = View.VISIBLE
 
-                        if (totalBytes == readBytes) {
-                            if (totalBytes == "0") {
-                                dw_logo.text = "Отменено,попробовать еще раз?"
-                                dw_no.text = "Нет"
-                                dw_start.visibility = View.VISIBLE
+
+                        dw_logo.text = "Попробовать скачать?"
+
+                        dw_start.onClick {
+                            if (dw_logo.text == "Готово,сохранено в папке программы") {
+                                //попробуем его открыть
+                                Main.play_aimp_file(Main.ROOT + radio.name + "." + radio.url.substringAfterLast('.'))
                             } else {
-                                dw_logo.text = "Готово,сохранено в папке программы"
-                                dw_start.visibility = View.VISIBLE
-                                dw_start.text = "Открыть файл"
-                                dw_no.text = "Нет"
+                                dw_start.visibility = View.GONE
+                                Main.download_file(radio.url, radio.name + "." + radio.url.substringAfterLast('.'), "anim_online_plalist")
+                                dw_logo.text = "Идёт загрузка..."
+                                dw_no.text = "Отмена"
+                            }
+                        }
+                        dw_start.onLongClick {
+                            if (dw_logo.text == "Готово,сохранено в папке программы") {
+                                Main.play_system_file(Main.ROOT + radio.name + "." + radio.url.substringAfterLast('.'))
+                            }
+                        }
+                        dw_no.onClick {
+                            if (dw_no.text == "Отмена") {
+                                signal("dw_cansel").send(context)
+                            } else {
+                                dw.close()
+                            }
+                        }
+
+                        Slot(context, "dw_progres").onRun {
+                            val totalBytes = it.getStringExtra("totalBytes")
+                            val readBytes = it.getStringExtra("readBytes")
+                            dw_progres.max = totalBytes.toInt()
+                            dw_progres.progress = readBytes.toInt()
+
+                            if (totalBytes == readBytes) {
+                                if (totalBytes == "0") {
+                                    dw_logo.text = "Отменено,попробовать еще раз?"
+                                    dw_no.text = "Нет"
+                                    dw_start.visibility = View.VISIBLE
+                                } else {
+                                    dw_logo.text = "Готово,сохранено в папке программы"
+                                    dw_start.visibility = View.VISIBLE
+                                    dw_start.text = "Открыть файл"
+                                    dw_no.text = "Нет"
+                                }
                             }
                         }
                     }
+
+                    open_aimp.onLongClick {
+                        Main.play_system(name, radio.url)
+                    }
+
+                    open_aimp.onClick {
+                        Main.play_aimp(name, radio.url)
+                        mvr.close()
+                    }
+
+                    instal_aimp.onClick {
+                        context.browse("market://details?id=com.aimp.player")
+                    }
+
+                    instal_aimp2.onClick {
+                        context.browse(Main.LINK_DOWLOAD_AIMP)
+                    }
+                }else{
+                    //скроем кнопки не потеме
+                    //------------------------------------------
+                    open_aimp.visibility = View.GONE
+                    instal_aimp.visibility = View.GONE
+                    instal_aimp2.visibility = View.GONE
+                    //---------------------------------------------
+                    context.toast("tvtvtvtvt")
                 }
 
-
-
-                open_aimp.onLongClick {
-                    Main.play_system(name, radio.url)
-                }
-
-                open_aimp.onClick {
-                    Main.play_aimp(name, radio.url)
-                    mvr.close()
-                }
-
-                instal_aimp.onClick {
-                    context.browse("market://details?id=com.aimp.player")
-                }
-
-                instal_aimp2.onClick {
-                    context.browse(Main.LINK_DOWLOAD_AIMP)
-                }
 
                 add_pls.onClick {
 
@@ -484,6 +496,9 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                     mvr.close()
                     Main.download_i_open_m3u_file(radio.url, n, "anim_online_plalist")
                 }
+
+
+
             }
         }
 

@@ -16,8 +16,10 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.support.v4.startActivity
 import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
 import android.util.Log
+import android.view.animation.AnimationUtils
 import com.google.common.reflect.TypeToken
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.edit_my_plalist_item_dialog.*
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.share
 import java.io.File
@@ -30,7 +32,8 @@ class Online_plalist : Fragment() {
 
     lateinit var ad_online_palist: Adapter_online_palist
     var open_file_online_palist = ""
-    private var history_navigacia=ArrayList<String>()
+    private var history_navigacia = ArrayList<String>()
+    var CATEGORIA = ""
 
 
     companion object {
@@ -52,13 +55,16 @@ class Online_plalist : Fragment() {
         //читам из памяти историю навигации
         //---------------------------------------------------------------------
         val savhis = Main.save_read("history_navigacia")
-        if(savhis.length>1){
+        if (savhis.length > 1) {
             val collectionType = object : TypeToken<ArrayList<String>>() {}.type
             history_navigacia = Gson().fromJson(savhis, collectionType)
         }
         //-----------------------------------------------------------------------
 
         position_list_online_palist = Main.save_read_int(open_file_online_palist)
+        CATEGORIA = Main.save_read("categoria")
+        visibleselekt_CATEGORIA(CATEGORIA, v)
+
 
         val recikl_list_online = v.findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recicl_online_plalist)
         recikl_list_online.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
@@ -83,11 +89,50 @@ class Online_plalist : Fragment() {
                 "zaebis" -> {
                     if (!it.getStringExtra("listfile").isNullOrEmpty()) {
                         open_file_online_palist = it.getStringExtra("listfile")
-                        if(it.getStringExtra("history").isNullOrEmpty()){
+                        //
+                        if (it.getStringExtra("history").isNullOrEmpty()) {
                             //добавим в список навигации
                             history_navigacia.add(open_file_online_palist)
                             signal("history_save").send(context)
+                            //добавим указатель на категорию
+                            when(CATEGORIA){
+                                "button_open_online_plalist_tv" ->Main.save_value("url_tv", Main.save_read("url_tv") + " " + open_file_online_palist)
+                                "button_open_online_plalist_radio" ->Main.save_value("url_ra", Main.save_read("url_ra") + " " + open_file_online_palist)
+                                "button_open_online_plalist_audio_book" ->Main.save_value("url_au", Main.save_read("url_au") + " " + open_file_online_palist)
+                                "button_open_online_plalist_musik" ->Main.save_value("url_mu", Main.save_read("url_mu") + " " + open_file_online_palist)
+                            }
+
+                        } else {
+                            val o = Main.save_read("url_tv")
+                            if (o.contains(open_file_online_palist)) {
+                                Main.save_value("url_tv", o.replace(open_file_online_palist, ""))
+                                CATEGORIA = "button_open_online_plalist_tv"
+                                visibleselekt_CATEGORIA(CATEGORIA, v)
+                                Main.save_value("categoria", CATEGORIA)
+                            }
+                            val ra = Main.save_read("url_ra")
+                            if (ra.contains(open_file_online_palist)) {
+                                Main.save_value("url_ra", ra.replace(open_file_online_palist, ""))
+                                CATEGORIA = "button_open_online_plalist_radio"
+                                visibleselekt_CATEGORIA(CATEGORIA, v)
+                                Main.save_value("categoria", CATEGORIA)
+                            }
+                            val au = Main.save_read("url_au")
+                            if (au.contains(open_file_online_palist)) {
+                                Main.save_value("url_au", au.replace(open_file_online_palist, ""))
+                                CATEGORIA = "button_open_online_plalist_audio_book"
+                                visibleselekt_CATEGORIA(CATEGORIA, v)
+                                Main.save_value("categoria", CATEGORIA)
+                            }
+                            val mu = Main.save_read("url_mu")
+                            if (mu.contains(open_file_online_palist)) {
+                                Main.save_value("url_mu", mu.replace(open_file_online_palist, ""))
+                                CATEGORIA = "button_open_online_plalist_musik"
+                                visibleselekt_CATEGORIA(CATEGORIA, v)
+                                Main.save_value("categoria", CATEGORIA)
+                            }
                         }
+
                     } else {
                         open_file_online_palist = Main.HOME_ONLINE_PLALIST
                     }
@@ -155,20 +200,41 @@ class Online_plalist : Fragment() {
         }
         //-------------------------------------------------------------------------------------
 
-        Slot(context,"histori_del_item").onRun {
-            if(!it.getStringExtra("item").isNullOrEmpty()){
-                history_navigacia.remove(it.getStringExtra("item"))
+        Slot(context, "histori_del_item").onRun {
+            if (!it.getStringExtra("item").isNullOrEmpty()) {
+
+                val delitem = it.getStringExtra("item")
+
+                history_navigacia.remove(delitem)
                 signal("history_save").send(context)
+
+                val o = Main.save_read("url_tv")
+                if (o.contains(delitem)) {
+                    Main.save_value("url_tv", o.replace(delitem, ""))
+                }
+                val ra = Main.save_read("url_ra")
+                if (ra.contains(delitem)) {
+                    Main.save_value("url_ra", ra.replace(delitem, ""))
+                }
+                val au = Main.save_read("url_au")
+                if (au.contains(delitem)) {
+                    Main.save_value("url_au", au.replace(delitem, ""))
+                }
+                val mu = Main.save_read("url_mu")
+                if (mu.contains(delitem)) {
+                    Main.save_value("url_mu", mu.replace(delitem, ""))
+                }
+
             }
         }
         //сохраним в память
-        Slot(context,"history_save").onRun {
+        Slot(context, "history_save").onRun {
             val arrayString = Gson().toJson(history_navigacia)
-            Main.save_value("history_navigacia",arrayString)
+            Main.save_value("history_navigacia", arrayString)
         }
 
-        Slot(context,"save_pozitions").onRun {
-            if(!it.getStringExtra("pos").isNullOrEmpty()){
+        Slot(context, "save_pozitions").onRun {
+            if (!it.getStringExtra("pos").isNullOrEmpty()) {
                 position_list_online_palist = it.getStringExtra("pos").toInt()
                 Main.save_value_int(open_file_online_palist, position_list_online_palist)
             }
@@ -178,15 +244,16 @@ class Online_plalist : Fragment() {
         v.button_selekt_all_op.onClick {
             val d = ad_online_palist.raduoSearchList
             if (d.size == list_selekt.size) {
-       //         v.button_selekt_all_op.backgroundDrawable = getResources().getDrawable(R.drawable.shape_rectangle)
                 list_selekt.clear()
                 ad_online_palist.notifyDataSetChanged()
+                v.button_selekt_all_op.backgroundDrawable = resources.getDrawable(R.drawable.selektall)
             } else {
                 list_selekt.clear()
                 for (l in d.withIndex()) {
                     list_selekt.add(l.index)
                     ad_online_palist.notifyDataSetChanged()
                 }
+                v.button_selekt_all_op.backgroundDrawable = resources.getDrawable(R.drawable.un_selektall)
             }
         }
 
@@ -330,8 +397,8 @@ class Online_plalist : Fragment() {
         }
 
 
-        v.button_history_online_plalilst.onLongClick {
-
+        v.button_history_online_plalilst.setOnLongClickListener {
+            v.button_history_online_plalilst.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
             //если нет нечего
             val list_history = read_page_list()
 
@@ -425,6 +492,13 @@ class Online_plalist : Fragment() {
                                 //------------------------------------------
                                 history_navigacia.clear()
                                 signal("history_save").send(context)
+                                //И принадлежность к категории сылок
+                                Main.save_value("url_tv", "")
+                                Main.save_value("url_ra", "")
+                                Main.save_value("url_au", "")
+                                Main.save_value("url_mu", "")
+                                //сбросим на кнопках
+                                visibleselekt_CATEGORIA("del",v)
                                 //--------------------------------------------
                                 //обновим список
                                 //иначе пустую страницу покажем
@@ -455,14 +529,15 @@ class Online_plalist : Fragment() {
                 }
                 //---------------------------------------
             }
+            true
         }
 
         v.button_history_online_plalilst.onClick {
 
-            if(this@Online_plalist.history_navigacia.size>1){
+            if (this@Online_plalist.history_navigacia.size > 1) {
 
-                val s = history_navigacia.elementAt(history_navigacia.size-2)
-                val s_del = history_navigacia.elementAt(history_navigacia.size-1)
+                val s = history_navigacia.elementAt(history_navigacia.size - 2)
+                val s_del = history_navigacia.elementAt(history_navigacia.size - 1)
                 history_navigacia.remove(s_del)
                 signal("history_save").send(context)
                 Main.save_value(Main.HISORYLAST, s)
@@ -478,15 +553,32 @@ class Online_plalist : Fragment() {
 
         }
 
+        //--------категории--------------------------------------------------------------
+
         v.button_open_online_plalist_radio.onClick {
+            CATEGORIA = "button_open_online_plalist_radio"
+            Main.save_value("categoria", CATEGORIA)
+            visibleselekt_CATEGORIA(CATEGORIA, v)
+            Main.save_value("url_ra", Main.ROOT + "radio_plalisty.m3u")
+
             Main.download_i_open_m3u_file("https://dl.dropbox.com/s/sl4x8z3yth5v1u0/Radio.m3u", "radio_plalisty", "anim_online_plalist")
         }
 
         v.button_open_online_plalist_audio_book.onClick {
+            CATEGORIA = "button_open_online_plalist_audio_book"
+            Main.save_value("categoria", CATEGORIA)
+            visibleselekt_CATEGORIA(CATEGORIA, v)
+            Main.save_value("url_au", Main.ROOT + "audio_book.m3u")
+
             Main.download_i_open_m3u_file("https://dl.dropbox.com/s/cd479dcdguk6cg6/Audio_book.m3u", "audio_book", "anim_online_plalist")
         }
 
         v.button_open_online_plalist_tv.onClick {
+            CATEGORIA = "button_open_online_plalist_tv"
+            Main.save_value("categoria", CATEGORIA)
+            Main.save_value("url_tv", Main.ROOT + "tv_plalist.m3u")
+            visibleselekt_CATEGORIA(CATEGORIA, v)
+
             Main.download_i_open_m3u_file("https://dl.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u", "tv_plalist", "anim_online_plalist")
             if (Main.save_read("help_tv").length > 1) {
                 v.help_open_tv.visibility = View.GONE
@@ -495,12 +587,19 @@ class Online_plalist : Fragment() {
             }
         }
         v.button_open_online_plalist_musik.onClick {
+            CATEGORIA = "button_open_online_plalist_musik"
+            Main.save_value("categoria", CATEGORIA)
+            visibleselekt_CATEGORIA(CATEGORIA, v)
+            Main.save_value("url_mu", Main.ROOT + "musik.m3u")
+
             Main.download_i_open_m3u_file("https://dl.dropbox.com/s/oe9kdcksjru82by/Musik.m3u", "musik", "anim_online_plalist")
         }
         v.button_open_online_plalist_obmennik.onClick {
             startActivity<Obmenik>()
         }
         //---------------------------------------------------------
+
+        //----------------------------------------------------------------------------------------------
 
         val h = Main.save_read(Main.HISORYLAST)
 
@@ -525,6 +624,43 @@ class Online_plalist : Fragment() {
         }
 
         return v
+    }
+
+
+    fun visibleselekt_CATEGORIA(cat: String, v: View) {
+        when (cat) {
+            "button_open_online_plalist_radio" -> {
+                v.button_open_online_plalist_radio.backgroundColor = Main.COLOR_ITEM
+                v.button_open_online_plalist_audio_book.backgroundColor = Main.COLOR_FON
+                v.button_open_online_plalist_tv.backgroundColor = Main.COLOR_FON
+                v.button_open_online_plalist_musik.backgroundColor = Main.COLOR_FON
+            }
+            "button_open_online_plalist_audio_book" -> {
+                v.button_open_online_plalist_radio.backgroundColor = Main.COLOR_FON
+                v.button_open_online_plalist_audio_book.backgroundColor = Main.COLOR_ITEM
+                v.button_open_online_plalist_tv.backgroundColor = Main.COLOR_FON
+                v.button_open_online_plalist_musik.backgroundColor = Main.COLOR_FON
+            }
+            "button_open_online_plalist_tv" -> {
+                v.button_open_online_plalist_radio.backgroundColor = Main.COLOR_FON
+                v.button_open_online_plalist_audio_book.backgroundColor = Main.COLOR_FON
+                v.button_open_online_plalist_tv.backgroundColor = Main.COLOR_ITEM
+                v.button_open_online_plalist_musik.backgroundColor = Main.COLOR_FON
+            }
+            "button_open_online_plalist_musik" -> {
+                v.button_open_online_plalist_radio.backgroundColor = Main.COLOR_FON
+                v.button_open_online_plalist_audio_book.backgroundColor = Main.COLOR_FON
+                v.button_open_online_plalist_tv.backgroundColor = Main.COLOR_FON
+                v.button_open_online_plalist_musik.backgroundColor = Main.COLOR_ITEM
+            }
+            "del"->{
+                v.button_open_online_plalist_radio.backgroundColor = Main.COLOR_FON
+                v.button_open_online_plalist_audio_book.backgroundColor = Main.COLOR_FON
+                v.button_open_online_plalist_tv.backgroundColor = Main.COLOR_FON
+                v.button_open_online_plalist_musik.backgroundColor = Main.COLOR_FON
+            }
+        }
+
     }
 
 
