@@ -101,36 +101,36 @@ class Online_plalist : Fragment() {
                                 "button_open_online_plalist_audio_book" ->Main.save_value("url_au", Main.save_read("url_au") + " " + open_file_online_palist)
                                 "button_open_online_plalist_musik" ->Main.save_value("url_mu", Main.save_read("url_mu") + " " + open_file_online_palist)
                             }
+                            visibleselekt_CATEGORIA(CATEGORIA, v)
 
                         } else {
                             val o = Main.save_read("url_tv")
                             if (o.contains(open_file_online_palist)) {
                                 Main.save_value("url_tv", o.replace(open_file_online_palist, ""))
                                 CATEGORIA = "button_open_online_plalist_tv"
-                                visibleselekt_CATEGORIA(CATEGORIA, v)
                                 Main.save_value("categoria", CATEGORIA)
                             }
                             val ra = Main.save_read("url_ra")
                             if (ra.contains(open_file_online_palist)) {
                                 Main.save_value("url_ra", ra.replace(open_file_online_palist, ""))
                                 CATEGORIA = "button_open_online_plalist_radio"
-                                visibleselekt_CATEGORIA(CATEGORIA, v)
                                 Main.save_value("categoria", CATEGORIA)
                             }
                             val au = Main.save_read("url_au")
                             if (au.contains(open_file_online_palist)) {
                                 Main.save_value("url_au", au.replace(open_file_online_palist, ""))
                                 CATEGORIA = "button_open_online_plalist_audio_book"
-                                visibleselekt_CATEGORIA(CATEGORIA, v)
                                 Main.save_value("categoria", CATEGORIA)
                             }
                             val mu = Main.save_read("url_mu")
                             if (mu.contains(open_file_online_palist)) {
                                 Main.save_value("url_mu", mu.replace(open_file_online_palist, ""))
                                 CATEGORIA = "button_open_online_plalist_musik"
-                                visibleselekt_CATEGORIA(CATEGORIA, v)
                                 Main.save_value("categoria", CATEGORIA)
                             }
+
+                            Log.e("ttt",CATEGORIA)
+                            visibleselekt_CATEGORIA(CATEGORIA, v)
                         }
 
                     } else {

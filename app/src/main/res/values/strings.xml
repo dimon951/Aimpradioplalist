@@ -126,9 +126,9 @@
         <item>HR Radio\nhr_radio.png\n
             128kbps~kbps~http://hrradio.hostingradio.ru:8077/hrradio128.mp3~kbps~
         </item>
-        <item>Билайн FM\nbilele_fm.png\n
-            128kbps~kbps~http://beelinefm128.streamr.ru~kbps~
-        </item>
+<!--        <item>Билайн FM\nbilele_fm.png\n-->
+<!--            128kbps~kbps~http://beelinefm128.streamr.ru~kbps~-->
+<!--        </item>-->
         <item>Love радио\nloveradio.png\n
             128kbps~kbps~http://potokovoe.ru:8008/LR.mp3~kbps~
         </item>
@@ -169,6 +169,9 @@
         <item>Радио ПАССАЖ\npassag.png\n
             48kbps~kbps~http://listen.radiopassazh.ru/aac-48~kbps~
             48kbps2~kbps~http://s2.radiopassazh.ru/aac-48~kbps~
+        </item>
+        <item>Типичное FM\ntip.png\n
+            128kbps~kbps~http://play.tipfm.ru:9000/9696~kbps~
         </item>
 <!--        <item>Радио ВТемпе\nv_tempe.png\n-->
 <!--            256kbps~kbps~http://85.114.140.64:8000/stream~kbps~-->
@@ -268,7 +271,7 @@
 
     <string-array name="vse_radio">
 
-
+        <item>Типичное FM -Музыка- 128kbps\nhttp://play.tipfm.ru:9000/9696</item>
         <item>HIP HOP RADIO(новая станция от ТНТ Music) -Музыка- 128kbps\nhttps://tntradio.hostingradio.ru:8027/hhr128.mp3</item>
         <item>Enigma 101 ru -Музыка- 64kbps\nhttp://ic4.101.ru:8000/a175?</item>
         <item>Молодечно FM -Музыка- 128kbps\nhttp://198.100.145.190:8000/MolodechnoFM.ogg</item>

@@ -35,8 +35,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.kotlinpermissions.KotlinPermissions
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.main.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
@@ -45,6 +44,7 @@ import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.concurrent.thread
 
 class Main : FragmentActivity() {
 
@@ -927,6 +927,20 @@ class Main : FragmentActivity() {
         } else {
             mAdView.visibility = View.VISIBLE
         }
+        //-----------------------------------------------------------------------
+//        GlobalScope.launch(Dispatchers.IO) {
+//            delay(7000)
+//            try{
+//                mAdView.visibility = View.GONE
+//                pager.layoutParams.height=0
+//            }
+//            catch (e:Exception){
+//
+//            }
+//        }
+
+
+
 
         //анимация на кнопках*****************************************.
         //тут почемуто глючит текст на кнопках
