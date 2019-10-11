@@ -225,27 +225,36 @@ class File_function {
 
 
     //Функция, которая сохраняет файл, принимая полный путь до файла filePath и сохраняемый текст FileContent:
-    fun SaveFile(filePath: String, kontent: String) {
+    fun SaveFile(filePath: String, k: String) {
 
         //проверим наличие нашей папки  и доспуп к ней
         create_esli_net()
 
         //посмотрим что это за файл может хрень какая , то ошибу покакжем
         //если пустота значит надо файл оччистить
-        if (kontent.contains("http") || kontent == "") {
+        if (k.contains("http") || k == "") {
+
+            Log.e("ttt","1")
 
             //разобьём на список через перенос и удалим мусорные строчки
             //тут нужно делать поиск в каждой строчке так как там разные получаются запросы
-            val lkontent = kontent.split("\n")
             var newkontent = ""
-            for (l in lkontent.listIterator()) {
-                newkontent += if (l.contains("#EXTGRP")) {
-                    val d = l.substringAfter("#EXTGRP").substringBefore("http://")
-                    l.replace("#EXTGRP$d", "")
-                } else {
-                    l
+            if(k.contains("#EXTGRP")){
+                val lkontent = k.split("\n")
+                for (l in lkontent.listIterator()) {
+                    newkontent += if (l.contains("#EXTGRP")) {
+                        val d = l.substringAfter("#EXTGRP").substringBefore("http://")
+                        l.replace("#EXTGRP$d", "")
+                    } else {
+                        l
+                    }
                 }
+            }else{
+              newkontent = k
             }
+
+
+            Log.e("ttt","2")
 
             //удалим мусор и приведём все к одному виду
             var kontent = newkontent
@@ -281,49 +290,41 @@ class File_function {
             kontent = kontent.replace("#EXTINF:-1,", "\n#EXTINF:-1,")
             kontent = kontent.replace("#EXTINF:0,", "\n#EXTINF:0,")
 
+            Log.e("ttt","3")
+
+
+
             //захуярим пока костылём проверочку еще одну
             //заменим все #EXTINF с непонятным хламом на норм вид #EXTINF:-1,
             //1-найдём весь храм а потом заменим его
-            val list = kontent.split("#")
-            var new_kontent = ""
-            for (l in list.iterator()) {
-                //составим новый список приведёный к одному виду
-                if (l.contains(",")) {
-                    new_kontent = new_kontent + "#EXTINF:-1," + l.substring(l.indexOf(",") + 1, l.length)
-                }
-            }
+//            val list = kontent.split("#")
+//            var new_kontent = ""
+//            for (l in list.iterator()) {
+//                //составим новый список приведёный к одному виду
+//                if (l.contains(",")) {
+//                    new_kontent = new_kontent + "#EXTINF:-1," + l.substring(l.indexOf(",") + 1, l.length)
+//                }
+//            }
 
-            //Создание объекта файла.
-            val fhandle = File(filePath)
+
+            Log.e("ttt","zapis v file")
+            val writer = FileWriter(filePath, false)
             try {
-                //Если файл существует, то он будет перезаписан:
-                fhandle.createNewFile()
-                val fOut = FileOutputStream(fhandle)
-                val myOutWriter = OutputStreamWriter(fOut, Main.File_Text_Code)
-                myOutWriter.write(new_kontent)
-                myOutWriter.close()
-                fOut.close()
-
-                //послать сигнал
-                signal("File_created")
-                        .putExtra("run", false)
-                        .putExtra("update", "zaebis")
-                        .send(Main.context)
-
-            } catch (e: IOException) {
-
+                writer.write(kontent)
+            } catch (ex: Exception) {
                 //послать сигнал
                 signal("File_created")
                         .putExtra("run", false)
                         .putExtra("update", "pizdec")
                         .send(Main.context)
+            } finally {
+                writer.close()
+                //послать сигнал
+                signal("File_created")
+                        .putExtra("run", false)
+                        .putExtra("update", "zaebis")
+                        .send(Main.context)
             }
-        } else {
-            //послать сигнал
-            signal("File_created")
-                    .putExtra("run", false)
-                    .putExtra("update", "pizdec")
-                    .send(Main.context)
         }
     }
 

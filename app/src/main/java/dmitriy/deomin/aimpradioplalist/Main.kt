@@ -586,7 +586,6 @@ class Main : FragmentActivity() {
                                         }
                                     }
                                 }
-
                                 val file_function = File_function()
                                 //поехали , сохраняем  и ждём сигналы
                                 file_function.SaveFile(listfile, data)
