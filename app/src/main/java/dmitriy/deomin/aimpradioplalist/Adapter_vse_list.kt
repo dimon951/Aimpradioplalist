@@ -168,28 +168,6 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
             val add_pls = mvr.view().findViewById<Button>(R.id.button_add_plalist)
             val open_aimp = mvr.view().findViewById<Button>(R.id.button_open_aimp)
             val share = mvr.view().findViewById<Button>(R.id.button_cshre)
-            val instal_aimp = mvr.view().findViewById<Button>(R.id.button_instal_aimp)
-            val instal_aimp2 = mvr.view().findViewById<Button>(R.id.button_download_yandex_aimp)
-
-
-            //если aimp установлен скроем кнопку установить аимп
-            if (Main.install_app("com.aimp.player")) {
-                instal_aimp.visibility = View.GONE
-                instal_aimp2.visibility = View.GONE
-                open_aimp.visibility = View.VISIBLE
-            } else {
-                //если есть магазин покажем и установку через него
-                if (Main.install_app("com.google.android.gms")) {
-                    instal_aimp.visibility = View.VISIBLE
-                } else {
-                    instal_aimp.visibility = View.GONE
-                }
-
-                //скачать по ссылке будем показывать всегда
-                instal_aimp2.visibility = View.VISIBLE
-                open_aimp.visibility = View.GONE
-
-            }
 
             //Имя и урл выбраной станции , при клике будем копировать урл в буфер
             val text_name_i_url = mvr.view().findViewById<TextView>(R.id.textView_vse_radio)
@@ -200,17 +178,8 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
                 context.toast("url скопирован в буфер")
             }
 
-
             open_aimp.onLongClick {
                 Main.play_system(name, radio.url)
-            }
-
-            instal_aimp.onClick {
-                context.browse("market://details?id=com.aimp.player")
-            }
-
-            instal_aimp2.onClick {
-                context.browse(Main.LINK_DOWLOAD_AIMP)
             }
 
             add_pls.onClick {

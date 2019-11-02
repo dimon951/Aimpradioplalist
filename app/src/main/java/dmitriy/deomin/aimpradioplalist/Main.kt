@@ -61,7 +61,7 @@ class Main : FragmentActivity() {
         const val File_Text_Code: String = "UTF8"
 
         //ссылка на аимп
-        const val LINK_DOWLOAD_AIMP = "http://www.aimp.ru/files/android/aimp_2.90.854.apk"
+        const val LINK_DOWLOAD_AIMP = "https://www.aimp.ru/files/android/aimp_2.90.858.apk"
 
         //текст в пустом плейлисте(много где требуется)
         const val PUSTO: String = "Плейлист пуст.\n"
@@ -937,9 +937,6 @@ class Main : FragmentActivity() {
 //
 //            }
 //        }
-
-
-
 
         //анимация на кнопках*****************************************.
         //тут почемуто глючит текст на кнопках

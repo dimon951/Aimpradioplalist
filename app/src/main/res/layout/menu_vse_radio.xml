@@ -86,27 +86,6 @@
                 android:gravity="end" />
 
 
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:id="@+id/button_instal_aimp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/pm"
-                android:textColor="@color/green"
-                android:textSize="16sp" />
-
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:id="@+id/button_download_yandex_aimp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/dwn"
-                android:textColor="@color/green"
-                android:textSize="16sp" />
-
         </LinearLayout>
 
         <LinearLayout

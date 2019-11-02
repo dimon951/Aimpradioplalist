@@ -10,8 +10,8 @@ android {
         applicationId "dmitriy.deomin.aimpradioplalist"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 76
-        versionName "76"
+        versionCode 77
+        versionName "77"
     }
     //эта дич нужна чтобы получить версию приложения стрингом
     //--------------------------
@@ -61,7 +61,7 @@ dependencies {
 
     implementation 'com.github.kittinunf.fuel:fuel:2.0.1'
 
-    implementation 'com.google.firebase:firebase-firestore:21.1.1'
+    implementation 'com.google.firebase:firebase-firestore:21.2.1'
 
     //noinspection GradleCompatible
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'

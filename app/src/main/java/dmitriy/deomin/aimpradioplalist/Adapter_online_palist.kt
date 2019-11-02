@@ -114,30 +114,28 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
         }
 
 
-
-
         var name_text = radio.name.replace("<List>", "")
         //добавим переносы для более читабельного вида где это нужно
-        if(name_text.contains(".Автор:")){
-            name_text = name_text.replace(".Автор:",".\nАвтор:")
+        if (name_text.contains(".Автор:")) {
+            name_text = name_text.replace(".Автор:", ".\nАвтор:")
         }
-        if(name_text.contains(".Авторы:")){
-            name_text = name_text.replace(".Авторы:",".\nАвторы:")
+        if (name_text.contains(".Авторы:")) {
+            name_text = name_text.replace(".Авторы:", ".\nАвторы:")
         }
-        if(name_text.contains(".Читает:")){
-            name_text = name_text.replace(".Читает:",".\nЧитает:")
+        if (name_text.contains(".Читает:")) {
+            name_text = name_text.replace(".Читает:", ".\nЧитает:")
         }
-        if(name_text.contains(".Читают:")){
-            name_text = name_text.replace(".Читают:",".\nЧитают:")
+        if (name_text.contains(".Читают:")) {
+            name_text = name_text.replace(".Читают:", ".\nЧитают:")
         }
-        if(name_text.contains(".Длительность:")){
-            name_text = name_text.replace(".Длительность:",".\nДлительность:")
+        if (name_text.contains(".Длительность:")) {
+            name_text = name_text.replace(".Длительность:", ".\nДлительность:")
         }
         //название будем делать жирным где эт надо
-        if(name_text.contains("Автор:")||name_text.contains("Авторы:")||name_text.contains("Длительность:")){
-            p0.name_radio.text =Main.Bold_text(name_text)
-        }else{
-            p0.name_radio.text =name_text
+        if (name_text.contains("Автор:") || name_text.contains("Авторы:") || name_text.contains("Длительность:")) {
+            p0.name_radio.text = Main.Bold_text(name_text)
+        } else {
+            p0.name_radio.text = name_text
         }
 
 
@@ -170,14 +168,14 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
         }
 
         //если есть сохранёная позиция поменяем у неё цвет
-        if(Online_plalist.position_list_online_palist>0&&Online_plalist.position_list_online_palist==p1){
+        if (Online_plalist.position_list_online_palist > 0 && Online_plalist.position_list_online_palist == p1) {
             p0.name_radio.textColor = Main.COLOR_SELEKT
             p0.url_radio.textColor = Main.COLOR_SELEKT
             p0.nomer_radio.textColor = Main.COLOR_SELEKT
             p0.kbps.textColor = Main.COLOR_SELEKT
             p0.ganr.textColor = Main.COLOR_SELEKT
             p0.text_komentov.textColor = Main.COLOR_SELEKT
-        }else{
+        } else {
             p0.name_radio.textColor = Main.COLOR_TEXT
             p0.url_radio.textColor = Main.COLOR_TEXT
             p0.nomer_radio.textColor = Main.COLOR_TEXT
@@ -309,7 +307,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
 
             } else {
                 //сохраняем позицию текушею списка
-                signal("save_pozitions").putExtra("pos",p1.toString()).send(context)
+                signal("save_pozitions").putExtra("pos", p1.toString()).send(context)
 
                 val mvr = DialogWindow(context, R.layout.menu_vse_radio)
 
@@ -317,8 +315,6 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                 val open_aimp = mvr.view().findViewById<Button>(R.id.button_open_aimp)
                 val loadlist = mvr.view().findViewById<Button>(R.id.button_load_list)
                 val share = mvr.view().findViewById<Button>(R.id.button_cshre)
-                val instal_aimp = mvr.view().findViewById<Button>(R.id.button_instal_aimp)
-                val instal_aimp2 = mvr.view().findViewById<Button>(R.id.button_download_yandex_aimp)
 
                 val name = radio.name.replace("<List>", "")
                 //Имя и урл выбраной станции , при клике будем копировать урл в буфер
@@ -330,108 +326,19 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                     context.toast("url скопирован в буфер")
                 }
 
-                //если выбрато не тв
-                // if(Main.save_read("categoria")!="button_open_online_plalist_tv"){
-                if(true){
 
-                    //если aimp установлен скроем кнопку установить аимп
-                    if (Main.install_app("com.aimp.player")) {
-                        instal_aimp.visibility = View.GONE
-                        instal_aimp2.visibility = View.GONE
-                        open_aimp.visibility = View.VISIBLE
-                    } else {
-                        //если есть магазин покажем и установку через него
-                        if (Main.install_app("com.google.android.gms")) {
-                            instal_aimp.visibility = View.VISIBLE
-                        } else {
-                            instal_aimp.visibility = View.GONE
-                        }
-                        //скачать по ссылке будем показывать всегда
-                        instal_aimp2.visibility = View.VISIBLE
-                        open_aimp.visibility = View.GONE
-                    }
+                text_name_i_url.onClick {
+                    Play_audio(radio.name, radio.url)
+                    mvr.close()
+                }
 
-                    //при долгом нажатии предложим скачать
-                    text_name_i_url.onClick {
-                        val dw = DialogWindow(context, R.layout.dialog_delete_stancii, true)
-                        val dw_start = dw.view().findViewById<Button>(R.id.button_dialog_delete)
-                        val dw_no = dw.view().findViewById<Button>(R.id.button_dialog_no)
-                        val dw_logo = dw.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
-                        val dw_progres = dw.view().findViewById<ProgressBar>(R.id.progressBar)
-                        dw_progres.visibility = View.VISIBLE
+                open_aimp.onLongClick {
+                    Main.play_system(name, radio.url)
+                }
 
-
-                        dw_logo.text = "Попробовать скачать?"
-
-                        dw_start.onClick {
-                            if (dw_logo.text == "Готово,сохранено в папке программы") {
-                                //попробуем его открыть
-                                Main.play_aimp_file(Main.ROOT + radio.name + "." + radio.url.substringAfterLast('.'))
-                            } else {
-                                dw_start.visibility = View.GONE
-                                Main.download_file(radio.url, radio.name + "." + radio.url.substringAfterLast('.'), "anim_online_plalist")
-                                dw_logo.text = "Идёт загрузка..."
-                                dw_no.text = "Отмена"
-                            }
-                        }
-                        dw_start.onLongClick {
-                            if (dw_logo.text == "Готово,сохранено в папке программы") {
-                                Main.play_system_file(Main.ROOT + radio.name + "." + radio.url.substringAfterLast('.'))
-                            }
-                        }
-                        dw_no.onClick {
-                            if (dw_no.text == "Отмена") {
-                                signal("dw_cansel").send(context)
-                            } else {
-                                dw.close()
-                            }
-                        }
-
-                        Slot(context, "dw_progres").onRun {
-                            val totalBytes = it.getStringExtra("totalBytes")
-                            val readBytes = it.getStringExtra("readBytes")
-                            dw_progres.max = totalBytes.toInt()
-                            dw_progres.progress = readBytes.toInt()
-
-                            if (totalBytes == readBytes) {
-                                if (totalBytes == "0") {
-                                    dw_logo.text = "Отменено,попробовать еще раз?"
-                                    dw_no.text = "Нет"
-                                    dw_start.visibility = View.VISIBLE
-                                } else {
-                                    dw_logo.text = "Готово,сохранено в папке программы"
-                                    dw_start.visibility = View.VISIBLE
-                                    dw_start.text = "Открыть файл"
-                                    dw_no.text = "Нет"
-                                }
-                            }
-                        }
-                    }
-
-                    open_aimp.onLongClick {
-                        Main.play_system(name, radio.url)
-                    }
-
-                    open_aimp.onClick {
-                        Main.play_aimp(name, radio.url)
-                        mvr.close()
-                    }
-
-                    instal_aimp.onClick {
-                        context.browse("market://details?id=com.aimp.player")
-                    }
-
-                    instal_aimp2.onClick {
-                        context.browse(Main.LINK_DOWLOAD_AIMP)
-                    }
-                }else{
-                    //скроем кнопки не потеме
-                    //------------------------------------------
-                    open_aimp.visibility = View.GONE
-                    instal_aimp.visibility = View.GONE
-                    instal_aimp2.visibility = View.GONE
-                    //---------------------------------------------
-                    context.toast("tvtvtvtvt")
+                open_aimp.onClick {
+                    Main.play_aimp(name, radio.url)
+                    mvr.close()
                 }
 
 
@@ -487,16 +394,15 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
 
                 //загрузить список
                 loadlist.onClick {
-                    val n = if(name.length>100){
-                        name.substring(0,100)
-                    }else{
+                    val n = if (name.length > 100) {
+                        name.substring(0, 100)
+                    } else {
                         name
                     }
                     //закрываем основное окошко
                     mvr.close()
                     Main.download_i_open_m3u_file(radio.url, n, "anim_online_plalist")
                 }
-
 
 
             }
