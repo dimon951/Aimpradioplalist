@@ -333,11 +333,19 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                 }
 
                 open_aimp.onLongClick {
-                    Main.play_system(name, radio.url)
+                    var n=name
+                    if(name.length>90){
+                        n = name.substring(0,90)
+                    }
+                    Main.play_system(n, radio.url)
                 }
 
                 open_aimp.onClick {
-                    Main.play_aimp(name, radio.url)
+                    var n=name
+                    if(name.length>90){
+                        n = name.substring(0,90)
+                    }
+                    Main.play_aimp(n, radio.url)
                     mvr.close()
                 }
 
