@@ -3,7 +3,6 @@ package dmitriy.deomin.aimpradioplalist.custom
 import android.R
 import android.app.AlertDialog
 import android.content.Context
-import androidx.cardview.widget.CardView
 import android.util.AttributeSet
 import android.view.*
 import android.view.animation.AnimationUtils
@@ -106,13 +105,13 @@ class DialogWindow(context: Context, loaut: Int,onTop: Boolean = false) {
 
 
         //сместим немногов низ окно
-        val params = this.alertDialog.window.attributes
+        val params = this.alertDialog.window?.attributes
 
         //https://it-giki.com/post/355.html
-        params.y = 150
+        params!!.y = 150
 
         //применяем правки
-        this.alertDialog.window.attributes = params
+        this.alertDialog.window!!.attributes = params
 
 
         //показываем окно
@@ -131,11 +130,11 @@ class DialogWindow(context: Context, loaut: Int,onTop: Boolean = false) {
 
     fun full_screen(){
         full_skren = if(full_skren){
-            alertDialog.window.setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
+            alertDialog.window!!.setLayout(WindowManager.LayoutParams.WRAP_CONTENT,
                     WindowManager.LayoutParams.WRAP_CONTENT)
             false
         }else{
-            alertDialog.window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+            alertDialog.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT,
                     WindowManager.LayoutParams.MATCH_PARENT)
             true
         }

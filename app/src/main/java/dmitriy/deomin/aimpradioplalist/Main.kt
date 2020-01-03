@@ -139,7 +139,7 @@ class Main : FragmentActivity() {
             } else {
                 val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                 val clip = ClipData.newPlainText(text, text)
-                clipboard.primaryClip = clip
+                clipboard.setPrimaryClip(clip)
             }
         }
 
@@ -172,7 +172,7 @@ class Main : FragmentActivity() {
 
         fun save_read(key_save: String): String {  // чтение настройки
             return if (mSettings.contains(key_save)) {
-                mSettings.getString(key_save, "")
+                mSettings.getString(key_save, "").toString()
             } else ""
         }
 

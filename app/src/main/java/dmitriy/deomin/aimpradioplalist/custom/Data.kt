@@ -37,8 +37,8 @@ data class Like(val user_id: String, val item_id:String, val like: String):Parce
     }
 
     constructor(parcel: Parcel) : this(
-            parcel.readString(),
-            parcel.readString(),
+            parcel.readString().toString(),
+            parcel.readString().toString(),
             (parcel.readByte() != 0.toByte()).toString()) {
     }
 
@@ -56,11 +56,11 @@ data class Like(val user_id: String, val item_id:String, val like: String):Parce
 
 data class Koment(val user_name:String="",val user_id:String="",val text:String="",val data:String="",val kom_id:String=""):Parcelable {
     constructor(parcel: Parcel) : this(
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString()) {
+            parcel.readString().toString(),
+            parcel.readString().toString(),
+            parcel.readString().toString(),
+            parcel.readString().toString(),
+            parcel.readString().toString()) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
