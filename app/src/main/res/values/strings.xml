@@ -341,7 +341,6 @@
         <item>GANGSTA  HIP-HOP -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a8</item>
         <item>АНЕКДОТЫ 128kbps\nhttp://ic7.101.ru:8000/c3_5</item>
         <item>КЛАССИКА ЖАНРА 128kbps\nhttp://ic7.101.ru:8000/c4_1</item>
-        <item>ДЕТСКИЕ СКАЗКИ -Детское- 128kbps\nhttp://ic7.101.ru:8000/c17_27</item>
         <item>PRINCE 64kbps\nhttp://ic7.101.ru:8000/a282</item>
         <item>ELVIS PRESLEY -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a111</item>
         <item>THE BEATLES -Дискография- 128kbps\nhttp://ic7.101.ru:8000/c10_3</item>
@@ -452,11 +451,8 @@
         <item>Алиса -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a137?</item>
         <item>Ария -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a118?</item>
         <item>БГ и Аквариум -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a57?</item>
-        <item>Вадим Захаров -Дискография- 192kbps\nhttp://radio.iccw.ru:8000/zaharovsongs</item>
         <item>Владимир Высоцкий -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a58?</item>
-        <item>Владимир Высоцкий -Дискография- 96kbps\nhttp://radio.iccw.ru:8000/vysotskiy</item>
         <item>Каста -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a121?</item>
-        <item>Кино -Дискография- 64kbps\nhttp://radio.iccw.ru:8000/kino</item>
         <item>Цой и группа «КИНО» -Дискография- 128kbps\nhttp://ic2.101.ru:8000/a103?</item>
         <item>Король и Шут -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a191?</item>
         <item>Любэ -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a158?</item>
@@ -470,8 +466,6 @@
         <item>ТНМК -Дискография- 128kbps\nhttp://music.myradio.ua/tnmk128.mp3</item>
         <item>Филипп Киркоров -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a116</item>
         <item>Чиж и Co -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a221?</item>
-        <item>Чиж и Co -Дискография- 192kbps\nhttp://radio.iccw.ru:8000/chizh</item>
-        <item>Детские сказки -Детское- 128kbps\nhttp://ic2.101.ru:8000/c17_27?</item>
         <item>Europa Plus: Свежее -Музыка- 32kbps\nhttp://hls-01-fresh.emgsound.ru/9/32/playlist.m3u8</item>
         <item>Europa Plus: Свежее -Музыка- 64kbps\nhttp://hls-01-fresh.emgsound.ru/9/64/playlist.m3u8</item>
         <item>Europa Plus: Свежее -Музыка- 128kbps\nhttp://hls-01-fresh.emgsound.ru/9/128/playlist.m3u8</item>
@@ -497,9 +491,6 @@
         <item>Super Radio -Музыка- 64kbps\nhttp://ic6.101.ru:8000/p902901</item>
         <item>Evropa 2 Прага -Музыка- 128kbps\nhttp://icecast3.play.cz/evropa2-128.mp3</item>
         <item>1.FM - Movie Soundtracks Hits Швейцария -Саундтреки- 128kbps\nhttp://prmstrm.1.fm:8000/moviesoundtracks</item>
-        <item>Детские Песни -Детское- 128kbps\nhttp://ic3.101.ru:8000/c3_3</item>
-        <item>Колыбельная -Детское- 256kbps\nhttp://ic3.101.ru:8000/c8_1</item>
-        <item>Детские Сказки -Детское- 128kbps\nhttp://ic3.101.ru:8000/c17_27</item>
         <item>Kids Hits -Детское- 64kbps\nhttp://92.255.229.74:8000/kidshits_aac</item>
         <item>HotMix Radio Baby Франция -Детское- 64kbps\nhttp://streaming.hotmixradio.fr/hotmixradio-baby-64.aac</item>
         <item>ЯпаРадио -Музыка- 128kbps\nhttps://a2.radioheart.ru:9066/live</item>
@@ -838,7 +829,6 @@
         <item>Радио Rock FM Heavy -Музыка- 128kbps\nhttp://jfm1.hostingradio.ru:14536/metal.mp3</item>
         <item>Радио Luxe FM -Музыка- 128kbps\nhttp://streaming.radionomy.com/JamendoLounge</item>
         <item>Радио Дискотека СССР -Музыка- 64kbps\nhttp://91.207.59.26/a144</item>
-        <item>Радио Соня -Детское- 192kbps\nhttp://rusradio.gcdn.co/st30.mp3</item>
         <item>Радио Юмор FM Казахстан -Юмор- 192kbps\nhttp://ne.fm/mp3/radio102</item>
         <item>Радио Ворона FM -Юмор- 128kbps\nhttp://s01.radio-tochka.com:4090/radio</item>
         <item>Радио Владивосток FM -Музыка- 128kbps\nhttp://vladfm.com:8000/vfm</item>
@@ -1283,7 +1273,6 @@
         <item>Говорит Москва 128kbps\nhttp://media.govoritmoskva.ru:8000/rufm_m.mp3</item>
         <item>Rock FM 128kbps\nhttp://rock128.streamr.ru</item>
         <item>Детское радио -Детское- 128kbps\nhttp://ic3.101.ru:8000/v14_1</item>
-        <item>Детское радио -Детское- 128kbps\nhttp://radio.2kom.ru:8000/detskoe</item>
         <item>КП Федеральное -Разговорное- 256kbps\nhttp://kraskp.ru:8000/mskregion</item>
         <item>Romantika -Музыка- 256kbps\nhttp://ic3.101.ru:8000/s30</item>
         <item>Best FM -Музыка- 128kbps\nhttp://best128.streamr.ru</item>
@@ -2009,7 +1998,6 @@
         <item>радио Sixteen 68kbps\nhttp://ic6.101.ru:8000/p166903</item>
         <item>Радио Slavyansk 68kbps\nhttp://ic6.101.ru:8000/p765214</item>
         <item>Радио SLUSAR.SU 68kbps\nhttp://ic6.101.ru:8000/p861697</item>
-        <item>Радио Soundtrack -Саундтреки- 68kbps\nhttp://ic6.101.ru:8000/p771862</item>
         <item>Радио SRK 68kbps\nhttp://ic6.101.ru:8000/p493513</item>
         <item>Радио Star Wars 68kbps\nhttp://ic6.101.ru:8000/p870211</item>
         <item>Радио S-Team 68kbps\nhttp://ic6.101.ru:8000/p799836</item>
@@ -2089,7 +2077,6 @@
         <item>РАДИО ГОРОДА Н 68kbps\nhttp://ic6.101.ru:8000/p553887</item>
         <item>Радио Далекой-Далекой Галактики 68kbps\nhttp://ic6.101.ru:8000/p210158</item>
         <item>Радио Демоненок 68kbps\nhttp://ic6.101.ru:8000/p562808</item>
-        <item>Радио детское. На ночь. -Детское- 68kbps\nhttp://ic6.101.ru:8000/p724104</item>
         <item>Радио ди-джея Вовы 68kbps\nhttp://ic6.101.ru:8000/p404217</item>
         <item>Радио Димы Билана в Великом Новгороде 68kbps\nhttp://ic6.101.ru:8000/p772581</item>
         <item>Радио Для Влюбленных 68kbps\nhttp://ic6.101.ru:8000/p766200</item>
@@ -2270,7 +2257,6 @@
         <item>Радио с ирландским акцентом 68kbps\nhttp://ic6.101.ru:8000/p439372</item>
         <item>Радио Савелово 68kbps\nhttp://ic6.101.ru:8000/p872168</item>
         <item>Радио Саня 68kbps\nhttp://ic6.101.ru:8000/p737610</item>
-        <item>Радио Саундтреки -Саундтреки- 68kbps\nhttp://ic6.101.ru:8000/p772507</item>
         <item>Радио Свободных Пустошей 68kbps\nhttp://ic6.101.ru:8000/p757399</item>
         <item>Радио Свободы 68kbps\nhttp://ic6.101.ru:8000/p752797</item>
         <item>Радио села Гремячий Колодезь 68kbps\nhttp://ic6.101.ru:8000/p717880</item>
@@ -2286,7 +2272,6 @@
         <item>Радио со Вкусом 68kbps\nhttp://ic6.101.ru:8000/p746439</item>
         <item>Радио СОЛНЦЕ 68kbps\nhttp://ic6.101.ru:8000/p498047</item>
         <item>Радио Солянка 68kbps\nhttp://ic6.101.ru:8000/p542270</item>
-        <item>Радио Сплин -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p793729</item>
         <item>РАДИО СПОКОЙСТВИЕ 68kbps\nhttp://ic6.101.ru:8000/p824381</item>
         <item>Радио СПОРТИК 68kbps\nhttp://ic6.101.ru:8000/p848169</item>
         <item>радио спутник FM Екатеринбург 68kbps\nhttp://ic6.101.ru:8000/p849270</item>
@@ -2867,7 +2852,6 @@
         <item>слаич 68kbps\nhttp://ic6.101.ru:8000/p132440</item>
         <item>Следы на песке 68kbps\nhttp://ic6.101.ru:8000/p658686</item>
         <item>Слеза- Сибири 68kbps\nhttp://ic6.101.ru:8000/p514657</item>
-        <item>СЛОТ -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p543137</item>
         <item>СЛОУ 68kbps\nhttp://ic6.101.ru:8000/p524494</item>
         <item>слоупоК!!! К 68kbps\nhttp://ic6.101.ru:8000/p444008</item>
         <item>Случилось сегодня 68kbps\nhttp://ic6.101.ru:8000/p793876</item>
@@ -3578,7 +3562,6 @@
         <item>1asdw1 68kbps\nhttp://ic6.101.ru:8000/p618232</item>
         <item>1ded1 68kbps\nhttp://ic6.101.ru:8000/p293562</item>
         <item>1energyfm 68kbps\nhttp://ic6.101.ru:8000/p805796</item>
-        <item>Marilyn Manson -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p816241</item>
         <item>1n2s3k 68kbps\nhttp://ic6.101.ru:8000/p643985</item>
         <item>1u1 68kbps\nhttp://ic6.101.ru:8000/p848916</item>
         <item>1-е Онлайн Радио Тайшет 68kbps\nhttp://ic6.101.ru:8000/p556255</item>
@@ -4246,7 +4229,6 @@
         <item>BeLiEbErS 68kbps\nhttp://ic6.101.ru:8000/p791719</item>
         <item>Bells Retro Radio 68kbps\nhttp://ic6.101.ru:8000/p818493</item>
         <item>BelPop 68kbps\nhttp://ic6.101.ru:8000/p673181</item>
-        <item>Benny Benassi -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p710311</item>
         <item>BeOnRockWave 68kbps\nhttp://ic6.101.ru:8000/p764083</item>
         <item>beregovo 68kbps\nhttp://ic6.101.ru:8000/p807099</item>
         <item>Berlin Station 68kbps\nhttp://ic6.101.ru:8000/p820974</item>
@@ -7249,7 +7231,6 @@
         <item>Night City Music 68kbps\nhttp://ic6.101.ru:8000/p668261</item>
         <item>Night Faden presents - NF FM 68kbps\nhttp://ic6.101.ru:8000/p762943</item>
         <item>Night Radio 68kbps\nhttp://ic6.101.ru:8000/p698855</item>
-        <item>Nightwish -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p517930</item>
         <item>Nihil Nonsons 68kbps\nhttp://ic6.101.ru:8000/p765593</item>
         <item>NiK FM 68kbps\nhttp://ic6.101.ru:8000/p748727</item>
         <item>Nik54rus 68kbps\nhttp://ic6.101.ru:8000/p737513</item>
@@ -9848,7 +9829,6 @@
         <item>Автосервис30.ru 68kbps\nhttp://ic6.101.ru:8000/p245019</item>
         <item>АвтоШансон 68kbps\nhttp://ic6.101.ru:8000/p819148</item>
         <item>Агата 68kbps\nhttp://ic6.101.ru:8000/p468656</item>
-        <item>Агата Кристи -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p849470</item>
         <item>Агата Кристи  Просто Вадик и Глеб 68kbps\nhttp://ic6.101.ru:8000/p807396</item>
         <item>Агитель 68kbps\nhttp://ic6.101.ru:8000/p89787</item>
         <item>Агутин  Варум 68kbps\nhttp://ic6.101.ru:8000/p319684</item>
@@ -10001,7 +9981,6 @@
         <item>Басс  Кач музыка 68kbps\nhttp://ic6.101.ru:8000/p801681</item>
         <item>БастА ака НоГГанО и NINTENDO 68kbps\nhttp://ic6.101.ru:8000/p407827</item>
         <item>батл bit 68kbps\nhttp://ic6.101.ru:8000/p700277</item>
-        <item>БГ  Аквариум Избранное -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p680870</item>
         <item>Без авторских прав 68kbps\nhttp://ic6.101.ru:8000/p862504</item>
         <item>Без слов 68kbps\nhttp://ic6.101.ru:8000/p744884</item>
         <item>БЕЗ СУЕТЫ 68kbps\nhttp://ic6.101.ru:8000/p338487</item>
@@ -10210,9 +10189,6 @@
         <item>Владимир 68kbps\nhttp://ic6.101.ru:8000/p845531</item>
         <item>ВЛАДИМИР  МИГУЛЯ 68kbps\nhttp://ic6.101.ru:8000/p707541</item>
         <item>Владимир Асмолов 68kbps\nhttp://ic6.101.ru:8000/p709584</item>
-        <item>Владимир Высоцкий -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p591718</item>
-        <item>Владимир Кузьмин -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p506179</item>
-        <item>Владимир Кузьмин лучшее -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p793826</item>
         <item>Владимир Семёнович 68kbps\nhttp://ic6.101.ru:8000/p612955</item>
         <item>Владимир ЦВЕТАЕВ 68kbps\nhttp://ic6.101.ru:8000/p583549</item>
         <item>Владимиров fm 68kbps\nhttp://ic6.101.ru:8000/p789254</item>
@@ -10375,7 +10351,6 @@
         <item>Город Шансона 68kbps\nhttp://ic6.101.ru:8000/p776634</item>
         <item>Города ФМ 68kbps\nhttp://ic6.101.ru:8000/p784348</item>
         <item>Городская Волна  -  Голос нашего города. 68kbps\nhttp://ic6.101.ru:8000/p833301</item>
-        <item>Горшок Король и Шут -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p688110</item>
         <item>Горячая точка 68kbps\nhttp://ic6.101.ru:8000/p247579</item>
         <item>Горячие Головы 68kbps\nhttp://ic6.101.ru:8000/p832455</item>
         <item>ГосТ FM 68kbps\nhttp://ic6.101.ru:8000/p847109</item>
@@ -10385,7 +10360,6 @@
         <item>Гр.Об. 68kbps\nhttp://ic6.101.ru:8000/p863228</item>
         <item>Гравити фолз FM 68kbps\nhttp://ic6.101.ru:8000/p803196</item>
         <item>градус 68kbps\nhttp://ic6.101.ru:8000/p751905</item>
-        <item>Гражданская Оборона -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p615022</item>
         <item>Грай 68kbps\nhttp://ic6.101.ru:8000/p826732</item>
         <item>ГРАММОФОН FM 68kbps\nhttp://ic6.101.ru:8000/p492959</item>
         <item>Грёзы 68kbps\nhttp://ic6.101.ru:8000/p79308</item>
@@ -10395,10 +10369,7 @@
         <item>ГрОбЭкС эфир 68kbps\nhttp://ic6.101.ru:8000/p611403</item>
         <item>группа Стелла 68kbps\nhttp://ic6.101.ru:8000/p702029</item>
         <item>Группа Louna 68kbps\nhttp://ic6.101.ru:8000/p695231</item>
-        <item>ГРУППА ЗВЕРИ -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p832583</item>
-        <item>Группа КНЯZZ и КиШ -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p805257</item>
         <item>Группа кристина,комисар, много поп хитов 68kbps\nhttp://ic6.101.ru:8000/p588704</item>
-        <item>Группа Машина времени -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p820384</item>
         <item>группа Рок-Граница 68kbps\nhttp://ic6.101.ru:8000/p601470</item>
         <item>Группа СВ 68kbps\nhttp://ic6.101.ru:8000/p806950</item>
         <item>группа Уч-кудук 68kbps\nhttp://ic6.101.ru:8000/p806560</item>
@@ -10478,8 +10449,6 @@
         <item>Диско 80-х 68kbps\nhttp://ic6.101.ru:8000/p698750</item>
         <item>Диско РЭП стэйшн 68kbps\nhttp://ic6.101.ru:8000/p778749</item>
         <item>Диско-7 68kbps\nhttp://ic6.101.ru:8000/p455488</item>
-        <item>Мумий Тролль -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p832793</item>
-        <item>Дискография музыки 68kbps\nhttp://ic6.101.ru:8000/p744392</item>
         <item>ДИСКОТЕКА 68kbps\nhttp://ic6.101.ru:8000/p570848</item>
         <item>Дискотека      В Стиле Руки Вверх 68kbps\nhttp://ic6.101.ru:8000/p798412</item>
         <item>Дискотека  80-x(Настальгия) 68kbps\nhttp://ic6.101.ru:8000/p638821</item>
@@ -10571,7 +10540,6 @@
         <item>до ре ми 68kbps\nhttp://ic6.101.ru:8000/p768448</item>
         <item>Добрая (-1) 68kbps\nhttp://ic6.101.ru:8000/p335219</item>
         <item>ДОБРАЯ , ПРАВОСЛАВНАЯ МУЗЫКА 68kbps\nhttp://ic6.101.ru:8000/p439457</item>
-        <item>Добрая сказка -Детское- 64kbps\nhttp://ic6.101.ru:8000/p817739</item>
         <item>Добро 68kbps\nhttp://ic6.101.ru:8000/p592948</item>
         <item>Добро 68kbps\nhttp://ic6.101.ru:8000/p683129</item>
         <item>ДОБРОЕ РАДИО 68kbps\nhttp://ic6.101.ru:8000/p725612</item>
@@ -10752,7 +10720,6 @@
         <item>Земля Хроники Жизни 68kbps\nhttp://ic6.101.ru:8000/p776294</item>
         <item>Земляне 68kbps\nhttp://ic6.101.ru:8000/p529701</item>
         <item>Землянское радио 68kbps\nhttp://ic6.101.ru:8000/p381296</item>
-        <item>Земфира -Дискография- 64kbps\nhttp://ic6.101.ru:8000/p419730</item>
         <item>ЗигZаг 68kbps\nhttp://ic6.101.ru:8000/p754343</item>
         <item>зима 68kbps\nhttp://ic6.101.ru:8000/p426282</item>
         <item>ЗИМА FM 68kbps\nhttp://ic6.101.ru:8000/p564257</item>
@@ -11233,7 +11200,6 @@
         <item>Лучшие песни ШАНСОНА 68kbps\nhttp://ic6.101.ru:8000/p732201</item>
         <item>ЛУЧШИЕ РОК ГРУППЫ ОНЛАЙН 68kbps\nhttp://ic6.101.ru:8000/p763323</item>
         <item>Лучшие русские миксы 68kbps\nhttp://ic6.101.ru:8000/p791278</item>
-        <item>Лучшие саундтреки -Саундтреки- 68kbps\nhttp://ic6.101.ru:8000/p828005</item>
         <item>Лучшие треки 68kbps\nhttp://ic6.101.ru:8000/p645315</item>
         <item>Лучшие хиты 68kbps\nhttp://ic6.101.ru:8000/p701140</item>
         <item>Лучшие Хиты 80Х The Best Hits Of 80s 68kbps\nhttp://ic6.101.ru:8000/p635522</item>
@@ -12173,7 +12139,6 @@
         <item>ПЕСНИ ОТ ДЕВЯНОСТЫХ ДО ДВУХТЫСЯЧНЫХ 68kbps\nhttp://ic6.101.ru:8000/p436412</item>
         <item>Песни перестройки - Songs of Perestroika 68kbps\nhttp://ic6.101.ru:8000/p647310</item>
         <item>песни победы 68kbps\nhttp://ic6.101.ru:8000/p849086</item>
-        <item>Сергей Трофимов -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p732148</item>
         <item>Песни словами которыми говорю 68kbps\nhttp://ic6.101.ru:8000/p798360</item>
         <item>Песни Счастливого Времени 68kbps\nhttp://ic6.101.ru:8000/p842096</item>
         <item>Песни тех лет 68kbps\nhttp://ic6.101.ru:8000/p232276</item>
@@ -12203,7 +12168,6 @@
         <item>Пицца 68kbps\nhttp://ic6.101.ru:8000/p774797</item>
         <item>ПК Слушает 68kbps\nhttp://ic6.101.ru:8000/p805933</item>
         <item>Пламя 68kbps\nhttp://ic6.101.ru:8000/p776582</item>
-        <item>План Ломоносова -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p847402</item>
         <item>Планета 90-х. EURODANCE 68kbps\nhttp://ic6.101.ru:8000/p765816</item>
         <item>планета клаб 68kbps\nhttp://ic6.101.ru:8000/p802171</item>
         <item>Планета рок 68kbps\nhttp://ic6.101.ru:8000/p718126</item>
@@ -12445,7 +12409,6 @@
         <item>Радио Линда FM на 101.ру 68kbps\nhttp://ic6.101.ru:8000/p346901</item>
         <item>Радио Машка 68kbps\nhttp://ic6.101.ru:8000/p622664</item>
         <item>Радио Медикс 68kbps\nhttp://ic6.101.ru:8000/p603776</item>
-        <item>Радио Музыка Мультфильмов -Саундтреки- 68kbps\nhttp://ic6.101.ru:8000/p732503</item>
         <item>Радио Настроение 68kbps\nhttp://ic6.101.ru:8000/p538860</item>
         <item>Радио ПАЛЕ-РОЯЛЬ 68kbps\nhttp://ic6.101.ru:8000/p674695</item>
         <item>Радио ПЕРЕЦ 68kbps\nhttp://ic6.101.ru:8000/p376855</item>
@@ -12560,10 +12523,7 @@
         <item>Юность ушедшая моя 68kbps\nhttp://ic6.101.ru:8000/p400609</item>
         <item>Юность ФМ 68kbps\nhttp://ic6.101.ru:8000/p818411</item>
         <item>ЮРИЙ FM 68kbps\nhttp://ic6.101.ru:8000/p873619</item>
-        <item>ЮРИЙ АНТОНОВ -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p632730</item>
-        <item>Юрий Антонов -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p590691</item>
         <item>Юрий Фил музыка -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p57358</item>
-        <item>Юрий Шатунов -Дискография- 68kbps\nhttp://ic6.101.ru:8000/p832819</item>
         <item>Юрьево -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p591284</item>
         <item>ЮЮ -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p724400</item>
         <item>Я из 90 -Музыка- 68kbps\nhttp://ic6.101.ru:8000/p491824</item>
@@ -13019,29 +12979,20 @@
         <item>GamerSound(Anime) -Саундтреки- 128kbps\nhttp://149.56.147.197:8716/;</item>
         <item>Greek Otaku Radio(Anime) -Саундтреки- 128kbps\nhttp://192.99.4.210:3684/stream</item>
         <item>Friends Forever(Anime) -Саундтреки- 60kbps\nhttp://23.29.71.154:8066/</item>
-        <item>Akihabara Radio(Anime) -Саундтреки- 128kbps\nhttp://sc.akihabara.cl:8814/mp3</item>
-        <item>AnimeNfo Radio(Anime) -Саундтреки- 128kbps\nhttp://emaru.animenfo.com:443/</item>
-        <item>Big B Radio #JPOP | www.bigbradio.net(Anime) -Саундтреки- 128kbps\nhttp://184.95.47.178:9112</item>
         <item>Auto Games DJ(Anime) -Саундтреки- 192kbps\nhttp://aniterasu.com:8000/;?1442956789440.mp3</item>
         <item>Kibo.FM - DJ Kibo(Anime) -Саундтреки- 192kbps\nhttp://listen.kibo.fm:8000</item>
-        <item>Japan FM(Anime) -Саундтреки- 112kbps\nhttp://radio.japanfm.fr/japan</item>
         <item>Blast(Anime) -Саундтреки- 96kbps\nhttp://192.99.150.31:8315/principal</item>
         <item>Initial D World Radio Broadcast(Anime) -Саундтреки- 96kbps\nhttp://69.163.186.124:9001/listen.aac</item>
         <item>dadamoreRadio(Anime) -Саундтреки- 192kbps\nhttp://dadamore2.ddo.jp:8000/</item>
         <item>Hotmixradio Japan(Anime) -Саундтреки- 128kbps\nhttp://hotmixradio-japan.ice.infomaniak.ch/hotmixradio-japan-128.mp3</item>
         <item>JPopsuki Radio!(Anime) -Саундтреки- 192kbps\nhttp://213.239.204.252:8000/stream</item>
-        <item>Japan-A-Radio - Japan s best music mix!(Anime) -Саундтреки- 45kbps\nhttp://audio.misproductions.com/japan48k</item>
-        <item>131(Anime) -Саундтреки- 128kbps\nhttp://stream.anime.com.pl:8000/radioHQ.ogg</item>
-        <item>NSW(Anime) -Саундтреки- 128kbps\nhttp://nsw-radio.de:8000/nswmp3</item>
         <item>Радио ULTRA -Музыка- 128kbps\nhttps://nashe1.hostingradio.ru:18000/ultra-128.mp3</item>
         <item>Радио Лучшие Песни -Музыка- 48kbps\nhttp://85.114.140.64:8000/666</item>
         <item>Phate Radio(Anime) -Саундтреки- 192kbps\nhttp://stream.phate.io/phatecc</item>
         <item>Gensokyo Radio - Music. Games. Touhou.(Anime) -Саундтреки- 128kbps\nhttp://stream.gensokyoradio.net:8000/</item>
         <item>Bot-sama direct(Anime) -Саундтреки- 128kbps\nhttp://edenofthewest.com:8080/eden.mp3</item>
         <item>RadioAnimati(Anime) -Саундтреки- 128kbps\nhttp://server.radioanimati.it:80/</item>
-        <item>Yggdrasil Radio(Anime) -Саундтреки- 128kbps\nhttp://95.211.241.92:9200/</item>
         <item>Radio Anime Nexus(Anime) -Саундтреки- 96kbps\nhttp://radio.animenexus.mx:8000/animenexus</item>
-        <item>Extreme Anime Radio(Anime) -Саундтреки- 128kbps\nhttp://174.37.159.206:8052/stream</item>
         <item>Shinsen-Radio(Anime) -Саундтреки- 128kbps\nhttp://shinsen-radio.org:8000/shinsen-radio.128.mp3</item>
         <item>Final Fantasy Radio(Anime) -Саундтреки- 192kbps\nhttp://finalfantasystation.com:8000/stream.mp3</item>
         <item>Vocaloid Stream(Anime) -Саундтреки- 128kbps\nhttp://142.4.217.133:9848/stream</item>
@@ -13050,7 +13001,6 @@
         <item>ANISON.FM(Anime) -Саундтреки- 128kbps\nhttp://pool.anison.fm:9000/AniSonFM(128)</item>
         <item>Armitage s Dimension Jpop/Jrock/Anime -Саундтреки- 64kbps\nhttp://aac.fr.armitunes.com:8010/</item>
         <item>Vocaloid Radio(Anime) -Саундтреки- 320kbps\nhttp://curiosity.shoutca.st:8019/stream</item>
-        <item>AnimeNfo Radio(Anime) -Саундтреки- 128kbps\nhttp://itori.animenfo.com:443/</item>
 
         <item>Русское радио  128kbps\nhttps://rusradio.hostingradio.ru/rusradio128.mp3</item>
         <item>Русское радио  64kbps\nhttps://rusradio.hostingradio.ru/rusradio64.mp3</item>
