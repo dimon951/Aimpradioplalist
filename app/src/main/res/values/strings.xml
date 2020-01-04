@@ -95,7 +95,6 @@
         <item>Авторадио\navtoradio.png\n
             256kbps~kbps~http://ic7.101.ru:8000/v3_1~kbps~
             128kbps~kbps~http://193.232.148.42:8000/v3_1~kbps~
-            128kbps~kbps~http://91.207.59.26:8000/a3_1~kbps~
         </item>
         <item>Наше Радио\nnashe.png\n
             128kbps~kbps~http://nashe2.hostingradio.ru/nashe-128.mp3~kbps~
@@ -151,10 +150,10 @@
             128kbps~kbps~http://live.novoeradio.by:8000/novoeradio-128k~kbps~
             256kbps~kbps~http://live.novoeradio.by:8000/novoeradio-256k~kbps~
         </item>
-        <item>SHTORM.fm – Русский\nshtorm.png\n
-            128kbps~kbps~http://62.212.72.176:8000/storm_mp3~kbps~
-            64kbps~kbps~http://62.212.72.176:8000/storm_aac~kbps~
-        </item>
+<!--        <item>SHTORM.fm – Русский\nshtorm.png\n-->
+<!--            128kbps~kbps~http://62.212.72.176:8000/storm_mp3~kbps~-->
+<!--            64kbps~kbps~http://62.212.72.176:8000/storm_aac~kbps~-->
+<!--        </item>-->
         <item>РУССКИЙ ХИТ\nrus_hit.png\n
             28kbps~kbps~http://stream2.ruhit.fm:9000/19_ruhit_24_reg_1~kbps~
             64kbps~kbps~http://stream2.ruhit.fm:9000/19_ruhit_56_reg_1~kbps~

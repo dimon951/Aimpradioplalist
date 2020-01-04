@@ -19,8 +19,11 @@ import android.text.SpannableStringBuilder
 import android.text.TextWatcher
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
+import android.util.Log
+import android.util.Patterns
 import android.view.*
 import android.view.animation.AnimationUtils
+import android.webkit.URLUtil
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -41,6 +44,8 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import java.io.File
 import java.lang.Exception
+import java.net.MalformedURLException
+import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -532,73 +537,87 @@ class Main : FragmentActivity() {
             file_function.Add_may_plalist_stansiy(url, name)
         }
 
+        fun isValid(urlString: String): Boolean {
+            try {
+                val url = URL(urlString)
+                return URLUtil.isValidUrl(url.toString()) && Patterns.WEB_URL.matcher(url.toString()).matches()
+            } catch (e: MalformedURLException) {
+
+            }
+            return false
+        }
+
 
         fun download_i_open_m3u_file(url: String, name: String, sourse: String) {
-            //-----------скачиваем файл (читам его)--------
-            GlobalScope.launch {
-                //запустим анимацию
-                signal("Main_update").putExtra("signal", "start_" + sourse).send(context)
+            if (isValid(url)) {
+                //-----------скачиваем файл (читам его)--------
+                GlobalScope.launch {
+                    //запустим анимацию
+                    signal("Main_update").putExtra("signal", "start_" + sourse).send(context)
 
-                url.httpGet().responseString { request, response, result ->
-                    when (result) {
-                        is com.github.kittinunf.result.Result.Failure -> {
-                            val ex = result.getException()
-                            //если ошибка остановим анимацию и покажем ошибку
-                            signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
-                            context.toast(ex.toString())
-                        }
-                        is com.github.kittinunf.result.Result.Success -> {
-                            val data = result.get()
-                            if (data.isNotEmpty()) {
+                    url.httpGet().responseString { request, response, result ->
+                        when (result) {
+                            is com.github.kittinunf.result.Result.Failure -> {
+                                val ex = result.getException()
+                                //если ошибка остановим анимацию и покажем ошибку
+                                signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
+                                context.toast(ex.toString())
+                            }
+                            is com.github.kittinunf.result.Result.Success -> {
+                                val data = result.get()
+                                if (data.isNotEmpty()) {
 
-                                val listfile = Main.ROOT + name.replace("<List>", "") + ".m3u"
+                                    val listfile = Main.ROOT + name.replace("<List>", "") + ".m3u"
 
-                                //когда прийдёт сигнал что все хорошо обновим плейлист
-                                Slot(context, "File_created", false).onRun {
-                                    //получим данные
-                                    when (it.getStringExtra("update")) {
-                                        "zaebis" -> {
-                                            //остановим анимацию
-                                            signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
+                                    //когда прийдёт сигнал что все хорошо обновим плейлист
+                                    Slot(context, "File_created", false).onRun {
+                                        //получим данные
+                                        when (it.getStringExtra("update")) {
+                                            "zaebis" -> {
+                                                //остановим анимацию
+                                                signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
 
-                                            if (sourse == "anim_my_list") {
-                                                //пошлём сигнал пусть мой плейлист обновится
-                                                signal("Data_add")
-                                                        .putExtra("update", "zaebis")
-                                                        .putExtra("listfile", listfile)
-                                                        .send(context)
+                                                if (sourse == "anim_my_list") {
+                                                    //пошлём сигнал пусть мой плейлист обновится
+                                                    signal("Data_add")
+                                                            .putExtra("update", "zaebis")
+                                                            .putExtra("listfile", listfile)
+                                                            .send(context)
+                                                }
+                                                if (sourse == "anim_online_plalist") {
+                                                    save_value(HISORYLAST, listfile)
+                                                    //пошлём сигнал для загрузки дааных п спискок
+                                                    signal("Online_plalist")
+                                                            .putExtra("update", "zaebis")
+                                                            .putExtra("listfile", listfile)
+                                                            .send(context)
+                                                }
+
                                             }
-                                            if (sourse == "anim_online_plalist") {
-                                                save_value(HISORYLAST, listfile)
-                                                //пошлём сигнал для загрузки дааных п спискок
-                                                signal("Online_plalist")
-                                                        .putExtra("update", "zaebis")
-                                                        .putExtra("listfile", listfile)
-                                                        .send(context)
+                                            "pizdec" -> {
+                                                signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
+                                                context.toast(context.getString(R.string.error))
+                                                //запросим разрешения
+                                                EbuchieRazreshenia()
                                             }
-
-                                        }
-                                        "pizdec" -> {
-                                            signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
-                                            context.toast(context.getString(R.string.error))
-                                            //запросим разрешения
-                                            EbuchieRazreshenia()
                                         }
                                     }
+                                    val file_function = File_function()
+                                    //поехали , сохраняем  и ждём сигналы
+                                    file_function.SaveFile(listfile, data)
+                                } else {
+                                    //если нечего нет остановим анимацию и скажем что там пусто
+                                    signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
+                                    context.toast("ошибка,пусто")
                                 }
-                                val file_function = File_function()
-                                //поехали , сохраняем  и ждём сигналы
-                                file_function.SaveFile(listfile, data)
-                            } else {
-                                //если нечего нет остановим анимацию и скажем что там пусто
-                                signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
-                                context.toast("ошибка,пусто")
                             }
                         }
                     }
                 }
+                //--------------------------------------------------------
+            } else {
+                context.toast("Неверный URL")
             }
-            //--------------------------------------------------------
         }
 
         fun download_file(url: String, name: String, sourse: String) {
@@ -959,7 +978,7 @@ class Main : FragmentActivity() {
         Slot(context, "vse_radio_list_size").onRun {
             val size = it.getStringExtra("size")
             if (size_vse_list != size) {
-                vse_radio.text = "Все радио $size\\$size_vse_list"
+                vse_radio.text = "Все радио $size"
             } else {
                 vse_radio.text = "Все радио $size_vse_list"
             }
@@ -1040,8 +1059,9 @@ class Main : FragmentActivity() {
         vse_radio.visibility = View.GONE
         //**************************************************
 
-        //пролистаем на вип радио
-        viewPager.currentItem = 1
+        //посмотрим есть ли ранее сохраненая позиция пейджера(умноженая на 10)
+        // и если есть перейдём , иначе по умолчанию откроем вип радио
+        viewPager.currentItem = pos(save_read_int("page_aktiv"))
 
         //будем слушать эфир постоянно если че обновим
         //-------------------------------------------------------------------------------------
@@ -1055,6 +1075,7 @@ class Main : FragmentActivity() {
                             vse_radio.setBackgroundColor(COLOR_ITEM)
                             vse_radio.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
                             imageSwitcher.setImageResource(mImageIds[0])
+                            save_value_int("page_aktiv", 10)
 
                             popularnoe.setBackgroundColor(COLOR_FON)
                             moy_plalist.setBackgroundColor(COLOR_FON)
@@ -1064,6 +1085,7 @@ class Main : FragmentActivity() {
                             popularnoe.setBackgroundColor(COLOR_ITEM)
                             popularnoe.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
                             imageSwitcher.setImageResource(mImageIds[1])
+                            save_value_int("page_aktiv", 100)
 
                             vse_radio.setBackgroundColor(COLOR_FON)
                             moy_plalist.setBackgroundColor(COLOR_FON)
@@ -1073,6 +1095,7 @@ class Main : FragmentActivity() {
                             moy_plalist.setBackgroundColor(COLOR_ITEM)
                             moy_plalist.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
                             imageSwitcher.setImageResource(mImageIds[2])
+                            save_value_int("page_aktiv", 200)
 
                             vse_radio.setBackgroundColor(COLOR_FON)
                             popularnoe.setBackgroundColor(COLOR_FON)
@@ -1082,6 +1105,7 @@ class Main : FragmentActivity() {
                             online_plalist.setBackgroundColor(COLOR_ITEM)
                             online_plalist.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
                             imageSwitcher.setImageResource(mImageIds[3])
+                            save_value_int("page_aktiv", 300)
 
                             vse_radio.setBackgroundColor(COLOR_FON)
                             popularnoe.setBackgroundColor(COLOR_FON)
@@ -1094,7 +1118,7 @@ class Main : FragmentActivity() {
                     //обновим
                     myadapter.notifyDataSetChanged()
                     viewPager.adapter = myadapter
-                    viewPager.currentItem = 1
+                    viewPager.currentItem = pos(save_read_int("page_aktiv"))
                 }
                 "update_color" -> {
                     fon_main.setBackgroundColor(COLOR_FON)
@@ -1104,7 +1128,7 @@ class Main : FragmentActivity() {
 
                     myadapter.notifyDataSetChanged()
                     viewPager.adapter = myadapter
-                    viewPager.currentItem = 1
+                    viewPager.currentItem = pos(save_read_int("page_aktiv"))
                 }
                 "load_stop_vse_radio" -> {
                     progress_vse_radio.visibility = View.GONE
@@ -1135,6 +1159,10 @@ class Main : FragmentActivity() {
         //получим ебучие разрешения , если не дали их еще
         EbuchieRazreshenia()
 
+
+        //пошлём првый раз сигнал пусть все отработает
+        signal("Main_update").putExtra("signal", pos(save_read_int("page_aktiv")).toString()).send(context)
+
         //при первом запуске программы покажем окошко с изменениями один раз
         // newUpdate()
     }
@@ -1144,6 +1172,18 @@ class Main : FragmentActivity() {
         val t = startWindow.view().findViewById<TextView>(R.id.textView_error_import_podrobno)
         t.text = ""
 
+    }
+
+    fun pos(page: Int): Int {
+        var r = 0
+        when (page) {
+            0 -> r = 1
+            10 -> r = 0
+            100 -> r = 1
+            200 -> r = 2
+            300 -> r = 3
+        }
+        return r
     }
 
     fun Menu_progi(view: View) {
