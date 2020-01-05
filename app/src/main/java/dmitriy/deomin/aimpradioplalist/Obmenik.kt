@@ -85,12 +85,36 @@ class Obmenik : Activity() {
                             .addOnSuccessListener { result ->
                                 for (document in result) {
                                     d.add(Radio(
-                                            (if(document.data["name"]!=null){document.data["name"]}else{""}) as String,
-                                            (if(document.data["kat"]!=null){document.data["kat"]}else{""}) as String,
-                                            (if(document.data["kbps"]!=null){document.data["kbps"]}else{""}) as String,
-                                            (if(document.data["url"]!=null){document.data["url"]}else{""}) as String,
-                                            (if(document.data["user_name"]!=null){document.data["user_name"]}else{""}) as String,
-                                            (if(document.data["user_id"]!=null){document.data["user_id"]}else{""}) as String,
+                                            (if (document.data["name"] != null) {
+                                                document.data["name"].toString()
+                                            } else {
+                                                ""
+                                            }),
+                                            (if (document.data["kat"] != null) {
+                                                document.data["kat"].toString()
+                                            } else {
+                                                ""
+                                            }),
+                                            (if (document.data["kbps"] != null) {
+                                                document.data["kbps"].toString()
+                                            } else {
+                                                ""
+                                            }),
+                                            (if (document.data["url"] != null) {
+                                                document.data["url"].toString()
+                                            } else {
+                                                ""
+                                            }),
+                                            (if (document.data["user_name"] != null) {
+                                                document.data["user_name"].toString()
+                                            } else {
+                                                ""
+                                            }),
+                                            (if (document.data["user_id"] != null) {
+                                                document.data["user_id"].toString()
+                                            } else {
+                                                ""
+                                            }),
                                             (document.id))
                                     )
                                 }
@@ -170,32 +194,34 @@ class Obmenik : Activity() {
                 ed_url.setText(Main.getText(context))
             }
 
-           (menu_add_new.view().findViewById<Button>(R.id.button_add)).onClick {
+            (menu_add_new.view().findViewById<Button>(R.id.button_add)).onClick {
 
                 if (ed_name.text.toString().isEmpty() || ed_url.text.toString().isEmpty()) {
                     context.toast("Введите данные")
                 } else {
 
                     var kategoria = ""
-                    if(ed_kat.text.isNotEmpty()){
+                    if (ed_kat.text.isNotEmpty()) {
                         kategoria = ed_kat.text.toString()
                     }
                     var kbps = ""
-                    if(ed_kbps.text.isNotEmpty()){
+                    if (ed_kbps.text.isNotEmpty()) {
                         kbps = ed_kbps.text.toString()
-                        if(!kbps.contains("kbps")){
+                        if (!kbps.contains("kbps")) {
                             kbps += "kbps"
                         }
                     }
 
-                    val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-                    val currentDate = sdf.format(Date())
+//                    val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+//                    val currentDate = sdf.format(Date())
+                    val calendar = Calendar.getInstance(TimeZone.getTimeZone("Europe/Moscow"))
+                    val currentDate = calendar.getTime()
 
 
                     //добавление в базу
                     val db = FirebaseFirestore.getInstance()
                     val user = hashMapOf(
-                            "date" to currentDate,
+                            "date" to currentDate.toString(),
                             "user_name" to Main.NAME_USER,
                             "user_id" to Main.ID_USER,
                             "kat" to kategoria,

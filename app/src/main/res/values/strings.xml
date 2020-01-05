@@ -273,27 +273,16 @@
         <item>Типичное FM -Музыка- 128kbps\nhttp://play.tipfm.ru:9000/9696</item>
         <item>HIP HOP RADIO(новая станция от ТНТ Music) -Музыка- 128kbps\nhttps://tntradio.hostingradio.ru:8027/hhr128.mp3</item>
         <item>Enigma 101 ru -Музыка- 64kbps\nhttp://ic4.101.ru:8000/a175?</item>
-        <item>Молодечно FM -Музыка- 128kbps\nhttp://198.100.145.190:8000/MolodechnoFM.ogg</item>
         <item>Радио Прокопьевск Кемеровская область -Музыка- 256kbps\nhttp://radioserver.27trk.ru:8000/prokopievsk.mp3</item>
         <item>Радио Мир -Музыка- 256kbps\nhttp://217.77.109.33:8000/mir_256</item>
         <item>Радио Бизнес FM Красноярск -Музыка- 256kbps\nhttp://84.22.145.37:8888/bfm256</item>
-        <item>Красная Плесень 101 ru -Музыка- 64kbps\nhttp://ic6.101.ru:8000/p971267</item>
-        <item>Дмитрий Гревцев 101 ru -Музыка- 64kbps\nhttp://ic6.101.ru:8000/p955291</item>
-        <item>Алексей Брянцев 101 ru -Музыка- 64kbps\nhttp://ic6.101.ru:8000/p927583</item>
         <item>Радио Монте-Карло -Музыка- 128kbps\nhttp://montecarlo.hostingradio.ru/montecarlo128.mp3</item>
         <item>Радио Монте-Карло (Находка) -Музыка- 128kbps\nhttp://178.33.138.231:8023/rmc-nhd</item>
         <item>Радио Монте-Карло (Ростов на Дону) -Музыка- 64kbps\nhttp://online2.gkvr.ru:8000/mc_rnd_64.aac</item>
-        <item>Радио Монте-Карло (С.Петербург) -Музыка- 256kbps\nhttp://78.140.251.2:8104/montezoom</item>
-        <item>Пи FM -Музыка- 320kbps\nhttp://prepros.pifm.ru:80/reserve</item>
         <item>Пи FM -Музыка- 128kbps\nhttp://stream.pifm.ru/mp3</item>
         <item>Пи FM -Музыка- 96kbps\nhttp://prepros.pifm.ru:80/96</item>
-        <item>Пи FM Братск -Музыка- 128kbps\nhttp://prepros.pifm.ru:80/bratsk</item>
         <item>Пи FM Кемерово -Музыка- 128kbps\nhttp://prepros.pifm.ru:80/kemer</item>
-        <item>Пи FM Нижневартовск -Музыка- 128kbps\nhttp://prepros.pifm.ru/nvart</item>
-        <item>Пи FM Новокузнецк -Музыка- 256kbps\nhttp://prepros.pifm.ru/novokuz</item>
-        <item>Радио Сибирь Красноярск -Музыка- 256kbps\nhttp://prepros.pifm.ru/kr</item>
         <item>КП -Разговорное- 256kbps\nhttp://kpradio.hostingradio.ru:8000/russia.radiokp256f.mp3</item>
-        <item>Просто Радио -Музыка- 128kbps\nhttp://a9.radioheart.ru:8028/RH9354</item>
         <item>Смелое радио -Музыка- 128kbps\nhttp://a5.radioheart.ru:8059/nonstop</item>
         <item>Lofi Radio -Музыка- 96kbps\nhttp://comet.shoutca.st:8723/autodj</item>
         <item>Lofi Radio -Музыка- 32kbps\nhttp://comet.shoutca.st:8723/stream32_autodj</item>
@@ -317,7 +306,6 @@
         <item>DISCO -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a80</item>
         <item>ITALO DISCO -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a161</item>
         <item>TRANCE -Музыка- 128kbps\nhttp://ic3.101.ru:8000/c13_3</item>
-        <item>ELECTRONIC -Музыка- 128kbps\nhttp://ic3.101.ru:8000/c15_20</item>
         <item>TECH HOUSE -Музыка- 128kbps\nhttp://ic3.101.ru:8000/c18_5</item>
         <item>NEW AGE -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a120</item>
         <item>AMBIENT -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a23</item>
@@ -334,7 +322,6 @@
         <item>КАБАРЕ «ШАНСОН» -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a49</item>
         <item>РУССКИЕ ПЕСНИ -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c1_1</item>
         <item>АВТОРСКАЯ ПЕСНЯ -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a35</item>
-        <item>JAZZ -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c10_5</item>
         <item>SMOOTH JAZZ -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c2_3</item>
         <item>BLUES -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a76</item>
         <item>FUNK SOUL -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a84</item>
@@ -366,12 +353,9 @@
         <item>COMEDY RADIO -Музыка- 64kbps\nhttp://ic3.101.ru:8000/a202</item>
         <item>РАДИО ЗЕНИТ -Музыка- 128kbps\nhttp://ic6.101.ru:8000/v15_1</item>
         <item>РАДИОЛА -Музыка- 128kbps\nhttp://online1.gkvr.ru:8000/radiola_eka_128.mp3</item>
-        <item>ПЕРВОЕ МУЗЫКАЛЬНОЕ -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c18_15</item>
-        <item>СОКОЛЬНИКИ -Музыка- 128kbps\nhttp://ic6.101.ru:8000/c18_14</item>
         <item>CROCUS CITY HALL -Музыка- 128kbps\nhttp://ic6.101.ru:8000/c18_17</item>
         <item>Мурзилки -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a3</item>
         <item>Радио Актан -Музыка- 128kbps\nhttp://195.191.78.200:8081/mp</item>
-        <item>Виа -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c3_1</item>
         <item>Радио России -Разговорное- 192kbps\nhttp://icecast.vgtrk.cdnvideo.ru:80/rrzonam_mp3_192kbps</item>
         <item>Говорит Москва -Разговорное- 96kbps\nhttp://video.govoritmoskva.ru:8880/rufm.mp3</item>
         <item>Дискотека СССР -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a144</item>
@@ -379,37 +363,20 @@
         <item>Подмосковные вечера -Дискография- 128kbps\nhttp://setmedia.ru:8000/high5</item>
         <item>Михаил Круг -Дискография- 128kbps\nhttp://music.myradio.ua:80/mihail-krug128.mp3</item>
         <item>Михаил Круг -Дискография- 64kbps\nhttp://ic5.101.ru:8000/a110</item>
-        <item>Рояль ретро -Музыка- 320kbps\nhttp://185.39.195.90:8000/nostalgia</item>
-        <item>Рояль шансон -Музыка- 320kbps\nhttp://193.33.170.218:8000/RoyalShanson</item>
         <item>Мелодия Украина -Музыка- 64kbps\nhttp://online-melodiafm.tavrmedia.ua/MelodiaFM_Live</item>
         <item>Шансон -Музыка- 256kbps\nhttp://chanson.hostingradio.ru:8041/chanson2-256.mp3</item>
         <item>Ретро FM -Музыка- 256kbps\nhttp://retroserver.streamr.ru:8043/retro256.mp3</item>
         <item>ITALIA -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a65</item>
-        <item>FRANCE -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c16_17</item>
-        <item>ФРАНЦУЗСКИЙ ШАНСОН -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c17_24</item>
         <item>LATINO -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c7_42</item>
-        <item>УКРАИНА -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c12_4</item>
         <item>COUNTRY -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a78</item>
         <item>REGGAE -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a88</item>
         <item>РУССКОЕ РЕГГИ -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a44</item>
-        <item>МУЗЫКА ВОСТОКА -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c15_18</item>
-        <item>ТАТАРСКАЯ ПОП-МУЗЫКА -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c7_33</item>
         <item>ТАТАРСКАЯ НАРОДНАЯ МУЗЫКА -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a262</item>
         <item>АРХИВ ВАРШАВСКОГО ДОГОВОРА -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c7_25</item>
         <item>Канал главный -Разговорное- 128kbps\nhttps://rs.radioslovo.net:4395/radio</item>
         <item>Канал Библия Новый Завет -Разговорное- 128kbps\nhttps://rs.radioslovo.net:4055/stream</item>
         <item>Канал Библия Ветхий Завет -Разговорное- 128kbps\nhttps://rs.radioslovo.net:4165/stream</item>
         <item>Канал Христианская инструментальная музыка -Музыка- 128kbps\nhttps://rs.radioslovo.net:4275/stream</item>
-        <item>Unistar -Музыка- 128kbps\nhttps://stream.hoster.by/unistar/unistar-128kb/icecast.audio</item>
-        <item>Unistar - Top Channel -Музыка- 128kbps\nhttps://stream.hoster.by/unistar/unistar_top-128/icecast.audio</item>
-        <item>Unistar - Офисный канал -Музыка- 128kbps\nhttps://stream.hoster.by/unistar/unistar_lyric-128/icecast.audio</item>
-        <item>Unistar - Любимые 90е -Музыка- 128kbps\nhttps://stream.hoster.by/unistar/unistar_90e-128/icecast.audio</item>
-        <item>Unistar - Мой Рок-н-ролл -Музыка- 128kbps\nhttps://stream.hoster.by/unistar/unistar_rnr-128/icecast.audio</item>
-        <item>ХИТрое Радио -Музыка- 160kbps\nhttp://www.hitroe.com:8000/stream_original</item>
-        <item>ХИТрое Радио -Музыка- 128kbps\nhttp://www.hitroe.com:8000/stream</item>
-        <item>ХИТрое Радио -Музыка- 112kbps\nhttp://www.hitroe.com:8000/relay_low.ogg</item>
-        <item>ХИТрое Радио -Музыка- 96kbps\nhttp://www.hitroe.com:8000/relay_96kb</item>
-        <item>ХИТрое Радио -Музыка- mono 32kbps\nhttp://www.hitroe.com:8000/relay_32kb</item>
         <item>ХАЙП FM -Музыка- 46kbps\nhttp://hfm.volna.top/HypeFM</item>
         <item>Интерактивная интернет радиостанция 24.00 -Музыка- 192kbps\nhttp://radio2400.ru:8000/play</item>
         <item>Радио Меркурий,Латвия -Музыка- 96kbps\nhttp://89.201.5.115:8000/</item>
@@ -488,7 +455,7 @@
         <item>Europa Plus: TOP 40 -Музыка- 64kbps\nhttp://hls-01-europaplus-top40.emgsound.ru/21/64/playlist.m3u8</item>
         <item>Europa Plus: TOP 40 -Музыка- 128kbps\nhttp://hls-01-europaplus-top40.emgsound.ru/21/128/playlist.m3u8</item>
         <item>Super Radio -Музыка- 128kbps\nhttp://listen6.myradio24.com:9000/finist7747</item>
-        <item>Super Radio -Музыка- 64kbps\nhttp://ic6.101.ru:8000/p902901</item>
+
         <item>Evropa 2 Прага -Музыка- 128kbps\nhttp://icecast3.play.cz/evropa2-128.mp3</item>
         <item>1.FM - Movie Soundtracks Hits Швейцария -Саундтреки- 128kbps\nhttp://prmstrm.1.fm:8000/moviesoundtracks</item>
         <item>Kids Hits -Детское- 64kbps\nhttp://92.255.229.74:8000/kidshits_aac</item>
@@ -505,10 +472,8 @@
         <item>Radio FM+ Болгария -Музыка- 128kbps\nhttp://193.108.24.21:8000/fmplus</item>
         <item>РадиоРадио Старый Оскол -Музыка- 128kbps\nhttp://play.radioradio.ru/sto</item>
         <item>РадиоРадио Сургут -Музыка- 64kbps\nhttp://play.radioradio.ru:80/sur</item>
-        <item>РадиоРадио Белокуриха -Музыка- 64kbps\nhttp://play.radioradio.ru:80/alt</item>
         <item>РадиоРадио Острогожск -Музыка- 64kbps\nhttp://play.radioradio.ru:80/ostr</item>
         <item>РадиоРадио Братск -Музыка- 46kbps\nhttp://play.radioradio.ru/brt</item>
-        <item>РадиоРадио Иркутск -Музыка- 64kbps\nhttp://play.radioradio.ru:80/irk</item>
         <item>РадиоРадио Белгород -Музыка- 64kbps\nhttp://play.radioradio.ru:80/bgd</item>
         <item>РадиоРадио -Музыка- 64kbps\nhttp://play.radioradio.ru:80/64</item>
         <item>РадиоРадио -Музыка- 128kbps\nhttp://play.radioradio.ru:80</item>
@@ -800,7 +765,6 @@
         <item>Record: Гоп ФМ\nhttp://online.radiorecord.ru:8102/gop_128</item>
         <item>Record: СУПЕРДИСКОТЭКА 90-Х\nhttp://online.radiorecord.ru:8102/sd90_128</item>
         <item>Record: Супердискотека 90-х\nhttp://air.radiorecord.ru:8102/sd90_320</item>
-        <item>Лёгкое Радио -Музыка- 96kbps\nhttp://185.236.130.96:8000/;</item>
         <item>Love Radio Казахстан -Музыка- 128kbps\nhttp://s2.free-shoutcast.com:18360/stream.mp3</item>
         <item>Тенгри FM 128kbps\nhttp://195.210.47.197:8000/live</item>
         <item>Dala FM 128kbps\nhttp://95.56.234.40:8080/DALA_128</item>
@@ -831,7 +795,6 @@
         <item>Радио Дискотека СССР -Музыка- 64kbps\nhttp://91.207.59.26/a144</item>
         <item>Радио Юмор FM Казахстан -Юмор- 192kbps\nhttp://ne.fm/mp3/radio102</item>
         <item>Радио Ворона FM -Юмор- 128kbps\nhttp://s01.radio-tochka.com:4090/radio</item>
-        <item>Радио Владивосток FM -Музыка- 128kbps\nhttp://vladfm.com:8000/vfm</item>
         <item>Радио NS -Музыка- 256kbps\nhttp://89.219.35.26:8000/radions</item>
         <item>Радио Брест -Музыка- 96kbps\nhttp://93.84.112.253:8039/live</item>
         <item>КП -Разговорное- 64kbps\nhttps://kpradio.hostingradio.ru:8003/64</item>
@@ -848,7 +811,6 @@
         <item>Радио NRJ Украина -Музыка- 128kbps\nhttp://cast.nrj.in.ua/nrj</item>
         <item>Радио Шансон Украина -Музыка- 64kbps\nhttp://media2.brg.ua:8000/shanson_l</item>
         <item>Радио Жара FM -Музыка- 90kbps\nhttp://live2.zharafm.ru:8000/live</item>
-        <item>Радио Болид -Музыка- 128kbps\nhttp://ca3.radioboss.fm:8104/stream</item>
         <item>Радио Седьмое небо -Музыка- 160kbps\nhttp://91.201.117.219:8000/stream</item>
         <item>Хорошее радио -Музыка- 64kbps\nhttp://radio.horoshee.fm:8000/mp3</item>
         <item>Радио Искатель -Музыка- 128kbps\nhttp://iskatel.hostingradio.ru:8015/iskatel-128.mp3</item>
@@ -884,8 +846,6 @@
         <item>КП Саратов, Энгельс -Разговорное- mono 32kbps\nhttp://saratov.radiokp32.mp3.streamr.ru</item>
         <item>Эльдорадио 101,4 Санкт-Петербург -Музыка- 128kbps\nhttp://emgspb.hostingradio.ru/eldoradio128.mp3</item>
         <item>Эльдорадио 101,4 Санкт-Петербург -Музыка- mono 64kbps\nhttp://emgspb.hostingradio.ru/eldoradio64.mp3</item>
-        <item>Радио Эрмитаж 90,1 FM Санкт-Петербург -Музыка- 128kbps\nhttp://91.190.127.185:8000/live_test</item>
-        <item>Radio Metro FM Санкт-Петербург -Музыка- 128kbps\nhttp://metroclub.ru:8230/;stream.nsv</item>
         <item>Радио Зенит Санкт-Петербург -Музыка- 128kbps\nhttp://ic3.101.ru:8000/v15_1?userid=0&amp;20&amp;81</item>
         <item>Радио «Петербург» Санкт-Петербург -Музыка- 128kbps\nhttp://www.5-tv.ru/radio.mp3</item>
         <item>MOTORADIO.ONLINE  Санкт-Петербург -Музыка- 128kbps\nhttp://stream.motoradio.online:8000/std-mp3</item>
@@ -932,9 +892,6 @@
         <item>Говорит Москва -Разговорное- 64kbps\nhttp://video.govoritmoskva.ru:8880/ru64.mp3</item>
         <item>Говорит Москва -Разговорное- mono 32kbps\nhttp://video.govoritmoskva.ru:8880/ru32.mp3</item>
         <item>Радио Мегаполис Москва -Разговорное- 49kbps\nhttp://109.239.129.43:8010/megapolis-48.aac</item>
-        <item>МосРадио Москва -Музыка- 128kbps\nhttp://217.70.28.155:8004/mosradio128</item>
-        <item>МосРадио Москва -Музыка- 192kbps\nhttp://217.70.28.155:8004/mosradio192</item>
-        <item>МосРадио Москва -Музыка- 320kbps\nhttp://217.70.28.155:8004/mosradio320</item>
         <item>КП Москва -Разговорное- 128kbps\nhttp://kpradio128.streamr.ru/</item>
         <item>КП Москва -Разговорное- 64kbps\nhttp://kpradio64.streamr.ru/</item>
         <item>КП Москва -Разговорное- 32kbps\nhttp://kpradio32.streamr.ru</item>
@@ -948,7 +905,6 @@
         <item>КП Барнаул -Разговорное- 128kbps\nhttp://barnaul.radiokp128.mp3.streamr.ru</item>
         <item>КП Барнаул -Разговорное- 64kbps\nhttp://barnaul.radiokp64.mp3.streamr.ru</item>
         <item>КП Барнаул -Разговорное- 32kbps\nhttp://barnaul.radiokp32.mp3.streamr.ru</item>
-        <item>Heart FM Барнаул -Музыка- 256kbps\nhttp://83.246.143.25:8000/HFMHigh?1414385444183.mp3</item>
         <item>Радио Благовестие Воронеж -Музыка- 128kbps\nhttp://live.borneo.ru:8888/bv128</item>
         <item>Радио Благовестие Воронеж -Музыка- 64kbps\nhttp://live.borneo.ru:8888/bv64</item>
         <item>Радиола Екатеринбург -Музыка- 64kbps\nhttp://online1.gkvr.ru:8000/radiola_eka_64.aac</item>
@@ -967,7 +923,6 @@
         <item>БИМ радио  Казань -Музыка- 128kbps\nhttp://av.bimradio.ru:8066/bim_mp3_128k</item>
         <item>БИМ радио  Казань -Музыка- 256kbps\nhttp://av.bimradio.ru:8066/bim_mp3</item>
         <item>Кузбасс FM Кемерово -Музыка- 256kbps\nhttp://212.75.194.94:8000/KuzbassFM</item>
-        <item>Апекс-Радио Кемерово -Музыка- 128kbps\nhttp://webcast.apexradio.ru:8000/apexkem?6</item>
         <item>Музыкайф! Кемерово -Музыка- 96kbps\nhttp://stream0.radiostyle.ru:8000/musicajf</item>
         <item>Правильное радио Кемерово -Музыка- 128kbps\nhttp://78.41.94.37:8332/;stream.nsv</item>
         <item>Казак FM Краснодар -Музыка- 192kbps\nhttp://193.242.149.55:8000/kfm</item>
@@ -989,7 +944,6 @@
         <item>Cornucopia Broadcasting -Аудиокниги- 96kbps\nhttp://8.38.78.173:8002/;audio.mp3</item>
         <item>BBC Radio 4 Extra -Аудиокниги- 128kbps\nhttp://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4extra_mf_p</item>
         <item>ХАЙП FM -Поп- 46kbps\nhttp://air.volna.top/HypeFM</item>
-        <item>Радио Скала -Музыка- 128kbps\nhttp://85.114.140.64:8000/1105</item>
         <item>RETRO BOLLYWOOD -Саундтреки- 128kbps\nhttp://64.71.79.181:5124/stream</item>
         <item>Soundtrax Movie Soundtracks -Саундтреки- 128kbps\nhttp://edge2.peta.live365.net/b31436_128mp3?cb=688524.mp3</item>
         <item>Музыка кино Украина -Саундтреки- 128kbps\nhttp://music.myradio.ua/kino128.mp3</item>

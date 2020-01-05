@@ -375,7 +375,7 @@ class Main : FragmentActivity() {
             try {
                 val cm = ComponentName(
                         "com.aimp.player",
-                        "com.aimp.player.views.MainActivity.MainActivity")
+                        "com.aimp.player.views.Main.MainActivity")
 
                 val i = Intent()
                 i.component = cm
