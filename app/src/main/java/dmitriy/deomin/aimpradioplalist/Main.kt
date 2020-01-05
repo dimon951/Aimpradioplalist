@@ -621,39 +621,43 @@ class Main : FragmentActivity() {
         }
 
         fun download_file(url: String, name: String, sourse: String) {
-            //-----------скачиваем файл (читам его)--------
-            GlobalScope.launch {
-                //запустим анимацию
-                signal("Main_update").putExtra("signal", "start_" + sourse).send(context)
+            if (isValid(url)) {
+                //-----------скачиваем файл (читам его)--------
+                GlobalScope.launch {
+                    //запустим анимацию
+                    signal("Main_update").putExtra("signal", "start_" + sourse).send(context)
 
-                val d = Fuel.download(url)
-                        .fileDestination { response, url -> File(Main.ROOT + name) }
-                        .progress { readBytes, totalBytes ->
-                            val progress = readBytes.toFloat() / totalBytes.toFloat() * 100
-                            signal("dw_progres")
-                                    .putExtra("readBytes", readBytes.toString())
-                                    .putExtra("totalBytes", totalBytes.toString())
-                                    .send(context)
+                    val d = Fuel.download(url)
+                            .fileDestination { response, url -> File(Main.ROOT + name) }
+                            .progress { readBytes, totalBytes ->
+                                val progress = readBytes.toFloat() / totalBytes.toFloat() * 100
+                                signal("dw_progres")
+                                        .putExtra("readBytes", readBytes.toString())
+                                        .putExtra("totalBytes", totalBytes.toString())
+                                        .send(context)
 
-                            if (progress.toInt() == 100) {
-                                signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
+                                if (progress.toInt() == 100) {
+                                    signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
+                                }
                             }
-                        }
-                        .response { result -> }
+                            .response { result -> }
 
-                //если пошлют сигнал отмены отменим и удалим что скачалось
-                Slot(context, "dw_cansel").onRun {
-                    signal("dw_progres")
-                            .putExtra("readBytes", "0")
-                            .putExtra("totalBytes", "0")
-                            .send(context)
-                    signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
-                    d.cancel()
-                    File(ROOT + name).delete()
+                    //если пошлют сигнал отмены отменим и удалим что скачалось
+                    Slot(context, "dw_cansel").onRun {
+                        signal("dw_progres")
+                                .putExtra("readBytes", "0")
+                                .putExtra("totalBytes", "0")
+                                .send(context)
+                        signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
+                        d.cancel()
+                        File(ROOT + name).delete()
+                    }
+
                 }
-
+                //--------------------------------------------------------
+            } else {
+                context.toast("Неверный URL")
             }
-            //--------------------------------------------------------
         }
 
         //-----------------получаем список из базы------------------------------------
@@ -668,25 +672,17 @@ class Main : FragmentActivity() {
                         for (document in result) {
                             d.add(Koment(
                                     (if (document.data["user_name"] != null) {
-                                        document.data["user_name"]
-                                    } else {
-                                        ""
-                                    }) as String,
+                                        document.data["user_name"].toString()
+                                    } else { "" }),
                                     (if (document.data["user_id"] != null) {
-                                        document.data["user_id"]
-                                    } else {
-                                        ""
-                                    }) as String,
+                                        document.data["user_id"].toString()
+                                    } else { "" }),
                                     (if (document.data["text"] != null) {
-                                        document.data["text"]
-                                    } else {
-                                        ""
-                                    }) as String,
+                                        document.data["text"].toString()
+                                    } else { "" }),
                                     (if (document.data["date"] != null) {
-                                        document.data["date"]
-                                    } else {
-                                        ""
-                                    }) as String,
+                                        document.data["date"].toString()
+                                    } else { "" }),
                                     (document.id))
                             )
                         }
@@ -700,21 +696,24 @@ class Main : FragmentActivity() {
         //-----------------------------------------------------------------------------------
 
         fun add_koment(id_item: String, text: String) {
-            val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-            val currentDate = sdf.format(Date())
+
+            val calendar = Calendar.getInstance(TimeZone.getTimeZone("Europe/Moscow"))
+            val currentDate = calendar.getTime()
+//            val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+//            val currentDate = sdf.format(Date())
             //добавление в базу
             val db = FirebaseFirestore.getInstance()
             val user = hashMapOf(
                     "user_name" to NAME_USER,
                     "user_id" to ID_USER,
                     "text" to text,
-                    "date" to currentDate
+                    "date" to currentDate.toString()
             )
 
             // Add a new document with a generated ID
             db.collection(id_item)
                     .add(user)
-                    .addOnSuccessListener { documentReference ->
+                    .addOnSuccessListener {
                         //если все пучком пошлём сигнал для обновления(пока всего плейлиста)
                         signal("add_koment").putExtra("update", "zaebis").send(context)
                     }
