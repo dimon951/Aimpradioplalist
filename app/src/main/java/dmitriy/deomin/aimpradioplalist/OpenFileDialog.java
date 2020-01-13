@@ -429,12 +429,8 @@ public class OpenFileDialog extends AlertDialog.Builder {
 
                     File_function f = new File_function();
                     String file_telo = "";
-                    //покажем имя файла и краткое содержание если это m3u файл
-                    try {
-                        file_telo = f.read(file.getAbsolutePath());
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
+                    file_telo = f.readFile(file.getAbsolutePath());
+
                     file_telo = file_telo.replace("#EXTM3U", "");
                     file_telo = file_telo.replace("#EXTINF:-1,", "");
 

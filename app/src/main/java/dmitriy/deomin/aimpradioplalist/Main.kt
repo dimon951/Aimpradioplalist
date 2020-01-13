@@ -17,7 +17,6 @@ import android.text.Editable
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.TextWatcher
-import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.util.Log
 import android.util.Patterns
@@ -46,10 +45,10 @@ import java.io.File
 import java.lang.Exception
 import java.net.MalformedURLException
 import java.net.URL
+import java.nio.charset.Charset
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.concurrent.thread
 
 class Main : FragmentActivity() {
 
@@ -63,13 +62,13 @@ class Main : FragmentActivity() {
         lateinit var context: Context
 
         //кодировка файла плейлиста
-        const val File_Text_Code: String = "UTF8"
+        const val File_Text_Code: String = "UTF-8"
 
         //ссылка на аимп
         const val LINK_DOWLOAD_AIMP = "https://www.aimp.ru/files/android/aimp_2.90.858.apk"
 
         //текст в пустом плейлисте(много где требуется)
-        const val PUSTO: String = "Плейлист пуст.\n"
+        const val PUSTO: String = "Плейлист пуст"
 
         //количество строк в моём плейлисте при котором будет показана полоа прокрутки
         const val SIZE_LIST_LINE = 12
@@ -207,7 +206,7 @@ class Main : FragmentActivity() {
             return pi != null
         }
 
-        fun setup_aimp(potok: String, file: String) {
+        fun setup_aimp(url: String, name: String) {
 
             val sa = DialogWindow(context, R.layout.dialog_no_aimp)
 
@@ -232,22 +231,28 @@ class Main : FragmentActivity() {
 
             open_sys.onClick {
 
-                //передаётся один поток то создадим файл и откроем его иначе передаётся уже созданый файл
-                if (potok.isNotEmpty()) {
-                    val name = file.replace("file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/", "")
+                Slot(context,"File_created").onRun {
+                    when(it.getStringExtra("update")){
+                        "zaebis"->{
+                            val i = Intent(Intent.ACTION_VIEW)
+                            i.setDataAndType(Uri.parse(it.getStringExtra("name")), "audio/mpegurl")
+                            //проверим есть чем открыть или нет
+                            if (i.resolveActivity(Main.context.packageManager) != null) {
+                                context.startActivity(i)
+                            } else {
+                                context.toast("Системе не удалось ( ")
+                            }
+                        }
+                        "pizdec"->{ context.toast("Ошибка сохранения файла")}
 
-                    //сохраним  временый файл сслку
-                    val file_function = File_function()
-                    file_function.SaveFile(ROOT + name, potok)
+                    }
                 }
 
-                val i = Intent(Intent.ACTION_VIEW)
-                i.setDataAndType(Uri.parse(file), "audio/mpegurl")
-                //проверим есть чем открыть или нет
-                if (i.resolveActivity(Main.context.packageManager) != null) {
-                    context.startActivity(i)
-                } else {
-                    context.toast("Системе не удалось ( ")
+                //передаётся один поток то создадим файл и откроем его иначе передаётся уже созданый файл
+                if (url.isNotEmpty()) {
+                  create_m3u_file(name, arrayListOf(Radio(name = name,url = url)))
+                }else{
+                    context.toast("Ошибка сохранения файла(нечего сохранять)")
                 }
             }
         }
@@ -284,30 +289,20 @@ class Main : FragmentActivity() {
                         //проверим есть ли аимп
                         if (install_app("com.aimp.player")) {
                             //откроем файл с сылкой в плеере
-                            play_aimp_file(ROOT + name + ".m3u")
+                            play_aimp_file(it.getStringExtra("name"))
                         } else {
                             //иначе предложим системе открыть или установить аимп
-                            setup_aimp(url,
-                                    "file://" + Environment.getExternalStorageDirectory().toString() + "/aimp_radio/" + name + ".m3u")
+                            setup_aimp(url, name)
                         }
                     } else {
                         context.toast(context.getString(R.string.error))
                         //запросим разрешения
                         EbuchieRazreshenia()
                     }
-
                 }
-                //сохраним  временый файл ссылку и будем ждать сигнала чтобы открыть в аимп или системе
-                val file_function = File_function()
-                file_function.SaveFile(ROOT + name + ".m3u",
-                        "#EXTM3U"
-                                + "\n"
-                                + "#EXTINF:-1," + name
-                                + "\n"
-                                + url)
-
-                //если юрл пуст значит передали список что открыть
+                create_m3u_file(name, arrayListOf(Radio(name = name,url = url)))
             } else {
+                //если юрл пуст значит передали список что открыть
                 //проверим что файл есть
                 val f_old = File(name)
                 if (f_old.exists()) {
@@ -402,7 +397,7 @@ class Main : FragmentActivity() {
                     //получим данные
                     when (it.getStringExtra("update")) {
                         "zaebis" -> {
-                            play_system_file(ROOT + name + ".m3u")
+                            play_system_file(it.getStringExtra("name"))
                         }
                         "pizdec" -> {
                             context.toast(context.getString(R.string.error))
@@ -412,17 +407,9 @@ class Main : FragmentActivity() {
 
                     }
                 }
-
-                //сохраним  временый файл сслку
-                val file_function = File_function()
-                file_function.SaveFile(ROOT + name + ".m3u",
-                        "#EXTM3U"
-                                + "\n"
-                                + "#EXTINF:-1," + name
-                                + "\n"
-                                + url)
+                //результат выполнения ждёт слот "File_created"
+                create_m3u_file(name, arrayListOf(Radio(name = name, url = url)))
             } else {
-
 
                 //проверим что файл есть
                 val f_old = File(name)
@@ -532,9 +519,7 @@ class Main : FragmentActivity() {
                 }
             }
 
-            val file_function = File_function()
-            //запишем в файл выбранную станцию
-            file_function.Add_may_plalist_stansiy(url, name)
+           File_function().Add_may_plalist_stansiy(url, name)
         }
 
         fun isValid(urlString: String): Boolean {
@@ -555,7 +540,7 @@ class Main : FragmentActivity() {
                     //запустим анимацию
                     signal("Main_update").putExtra("signal", "start_" + sourse).send(context)
 
-                    url.httpGet().responseString { request, response, result ->
+                    url.httpGet().responseString(Charset.forName(File_Text_Code)) { request, response, result ->
                         when (result) {
                             is com.github.kittinunf.result.Result.Failure -> {
                                 val ex = result.getException()
@@ -567,8 +552,6 @@ class Main : FragmentActivity() {
                                 val data = result.get()
                                 if (data.isNotEmpty()) {
 
-                                    val listfile = Main.ROOT + name.replace("<List>", "") + ".m3u"
-
                                     //когда прийдёт сигнал что все хорошо обновим плейлист
                                     Slot(context, "File_created", false).onRun {
                                         //получим данные
@@ -579,17 +562,18 @@ class Main : FragmentActivity() {
 
                                                 if (sourse == "anim_my_list") {
                                                     //пошлём сигнал пусть мой плейлист обновится
+                                                    Log.e("ttt", it.getStringExtra("name"))
                                                     signal("Data_add")
                                                             .putExtra("update", "zaebis")
-                                                            .putExtra("listfile", listfile)
+                                                            .putExtra("listfile", it.getStringExtra("name"))
                                                             .send(context)
                                                 }
                                                 if (sourse == "anim_online_plalist") {
-                                                    save_value(HISORYLAST, listfile)
+                                                    save_value(HISORYLAST, it.getStringExtra("name"))
                                                     //пошлём сигнал для загрузки дааных п спискок
                                                     signal("Online_plalist")
                                                             .putExtra("update", "zaebis")
-                                                            .putExtra("listfile", listfile)
+                                                            .putExtra("listfile", it.getStringExtra("name"))
                                                             .send(context)
                                                 }
 
@@ -602,9 +586,7 @@ class Main : FragmentActivity() {
                                             }
                                         }
                                     }
-                                    val file_function = File_function()
-                                    //поехали , сохраняем  и ждём сигналы
-                                    file_function.SaveFile(listfile, data)
+                                    create_m3u_file(name, m3u_parser(data))
                                 } else {
                                     //если нечего нет остановим анимацию и скажем что там пусто
                                     signal("Main_update").putExtra("signal", "stop_" + sourse).send(context)
@@ -673,16 +655,24 @@ class Main : FragmentActivity() {
                             d.add(Koment(
                                     (if (document.data["user_name"] != null) {
                                         document.data["user_name"].toString()
-                                    } else { "" }),
+                                    } else {
+                                        ""
+                                    }),
                                     (if (document.data["user_id"] != null) {
                                         document.data["user_id"].toString()
-                                    } else { "" }),
+                                    } else {
+                                        ""
+                                    }),
                                     (if (document.data["text"] != null) {
                                         document.data["text"].toString()
-                                    } else { "" }),
+                                    } else {
+                                        ""
+                                    }),
                                     (if (document.data["date"] != null) {
                                         document.data["date"].toString()
-                                    } else { "" }),
+                                    } else {
+                                        ""
+                                    }),
                                     (document.id))
                             )
                         }

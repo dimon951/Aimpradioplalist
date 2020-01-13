@@ -141,18 +141,9 @@ class Online_plalist : Fragment() {
 
                     //заново все сделаем
                     //====================================================================================
-                    val file_function = File_function()
-                    val mr = file_function.My_plalist(open_file_online_palist)
-                    //адаптеру будем слать список классов Radio
-                    val d = ArrayList<Radio>()
+                    val d = read_and_pars_m3u_file(open_file_online_palist)
 
-                    for (i in mr.indices) {
-                        val m = mr[i].split("\n")
-                        if (m.size > 1) {
-                            d.add(Radio(m[0], "", "", m[1]))
-                        }
-
-                    }
+                    Log.e("t",d.toString())
 
                     ad_online_palist = Adapter_online_palist(d)
                     recikl_list_online.adapter = ad_online_palist
@@ -164,7 +155,7 @@ class Online_plalist : Fragment() {
                     }
 
                     //скроем или покажем полосу прокрутки и поиск
-                    if (mr.size > Main.SIZE_LIST_LINE) {
+                    if (d.size > Main.SIZE_LIST_LINE) {
                         fastScroller.visibility = View.VISIBLE
 
                         find.visibility = View.VISIBLE
@@ -291,14 +282,14 @@ class Online_plalist : Fragment() {
                     }
                 }
 
-                val name_file = "Плэйлист:" + d[0].name + " (" + list_selekt.size.toString() + " частей).m3u"
+                val name_file = "Плэйлист:" + d[0].name + " (" + list_selekt.size.toString() + " частей)"
 
                 //когда прийдёт сигнал что сохранилось все хорошо обновим плейлист
                 Slot(context, "File_created", false).onRun {
                     //получим данные
                     when (it.getStringExtra("update")) {
                         "zaebis" -> {
-                            Main.play_aimp(Main.ROOT + name_file, "")
+                            Main.play_aimp(it.getStringExtra("name"), "")
                         }
                         "pizdec" -> {
                             context.toast(context.getString(R.string.error))
@@ -307,9 +298,7 @@ class Online_plalist : Fragment() {
                         }
                     }
                 }
-                val file_function = File_function()
-                //сохраним  временый файл ссылку и ждём сигналы
-                file_function.SaveFile(Main.ROOT + name_file, data.joinToString("\n"))
+                File_function().SaveFile(name_file, data.toString())
             } else {
                 context.toast("Выберите что воспроизводить")
             }
@@ -330,14 +319,14 @@ class Online_plalist : Fragment() {
                     }
                 }
 
-                val name_file = "Плэйлист:" + d[0].name + " (" + list_selekt.size.toString() + " частей).m3u"
+                val name_file = "Плэйлист:" + d[0].name + " (" + list_selekt.size.toString() + " частей)"
 
                 //когда прийдёт сигнал что сохранилось все хорошо обновим плейлист
                 Slot(context, "File_created", false).onRun {
                     //получим данные
                     when (it.getStringExtra("update")) {
                         "zaebis" -> {
-                            Main.play_system(Main.ROOT + name_file, "")
+                            Main.play_system(it.getStringExtra("name"), "")
                         }
                         "pizdec" -> {
                             context.toast(context.getString(R.string.error))
@@ -346,9 +335,7 @@ class Online_plalist : Fragment() {
                         }
                     }
                 }
-                val file_function = File_function()
-                //сохраним  временый файл ссылку и ждём сигналы
-                file_function.SaveFile(Main.ROOT + name_file, data.joinToString("\n"))
+                File_function().SaveFile(name_file, data.toString())
             } else {
                 context.toast("Выберите что воспроизводить")
             }

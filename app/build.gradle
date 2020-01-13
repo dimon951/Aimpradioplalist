@@ -10,8 +10,8 @@ android {
         applicationId "dmitriy.deomin.aimpradioplalist"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 79
-        versionName "77b"
+        versionCode 80
+        versionName "78"
     }
     //эта дич нужна чтобы получить версию приложения стрингом
     //--------------------------
@@ -33,6 +33,12 @@ android {
         }
     }
 }
+
+//android {
+//    kotlinOptions {
+//        jvmTarget = '1.8'
+//    }
+//}
 
 allprojects {
     repositories {

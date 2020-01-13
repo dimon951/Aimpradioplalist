@@ -166,8 +166,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                     }
 
                     //поехали ,удаляем и ждём сигналы
-                    val file_function = File_function()
-                    file_function.Delet_one_potok(selectedItem, Moy_plalist.open_file)
+                    File_function().Delet_one_potok(selectedItem, Moy_plalist.open_file)
                     //закроем окошко
                     dds.close()
                 }
