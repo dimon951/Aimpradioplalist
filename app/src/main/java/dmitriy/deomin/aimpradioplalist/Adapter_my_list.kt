@@ -128,7 +128,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             p0.fon.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
 
             //сохраняем позицию текушею списка
-            Main.save_value_int("position_list_my_plalist",p1)
+            Main.save_value_int("position_list_my_plalist", p1)
             Moy_plalist.position_list_my_plalist = p1
 
             //=============================================================================================
@@ -138,19 +138,17 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             //кнопка удалить
             //------------------------------------------------------------------------------
             (empid.view().findViewById<Button>(R.id.del)).onClick {
-
                 //закрываем основное окошко
                 empid.close()
-
-                //получаем выбранную строку
-                val selectedItem = radio.name + "\n" + radio.url
 
                 //покажем окошко с вопросом подтверждения удаления
                 val dds = DialogWindow(context, R.layout.dialog_delete_stancii)
 
-                (dds.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)).text = "Точно удалить? \n$selectedItem"
+                (dds.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)).text = "Точно удалить? \n" + radio.name + "\n" + radio.url
 
                 (dds.view().findViewById<Button>(R.id.button_dialog_delete)).onClick {
+                    //закроем окошко
+                    dds.close()
 
                     Slot(context, "File_created", false).onRun {
                         //получим данные
@@ -166,9 +164,9 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                     }
 
                     //поехали ,удаляем и ждём сигналы
-                    File_function().Delet_one_potok(selectedItem, Moy_plalist.open_file)
-                    //закроем окошко
-                    dds.close()
+                    if (data.remove(radio)) {
+                        create_m3u_file("my_plalist", data)
+                    }
                 }
 
                 //кнопка отмены удаления
@@ -207,8 +205,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
 
                         Slot(context, "File_created", false).onRun {
                             //получим данные
-                            val s = it.getStringExtra("update")
-                            when (s) {
+                            when (it.getStringExtra("update")) {
                                 //пошлём сигнал пусть мой плейлист обновится
                                 "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
                                 "pizdec" -> {
@@ -218,10 +215,10 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                                 }
                             }
                         }
-
                         //делаем
-                        val file_function = File_function()
-                        file_function.Rename_potok(radio.name + "\n" + radio.url, edit.text.toString() + "\n" + radio.url, Moy_plalist.open_file)
+                        data[p1] = Radio(name = edit.text.toString(), url = radio.url)
+                        create_m3u_file("my_plalist", data)
+
                     } else {
                         //закрываем окошко
                         nsf.close()
@@ -269,8 +266,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
 
                         Slot(context, "File_created", false).onRun {
                             //получим данные
-                            val s = it.getStringExtra("update")
-                            when (s) {
+                            when (it.getStringExtra("update")) {
                                 //пошлём сигнал пусть мой плейлист обновится
                                 "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
                                 "pizdec" -> {
@@ -282,8 +278,8 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                         }
 
                         //делаем
-                        val file_function = File_function()
-                        file_function.Rename_potok(radio.name + "\n" + radio.url, radio.name + "\n" + edit.text.toString(), Moy_plalist.open_file)
+                        data[p1] = Radio(name = radio.name, url = edit.text.toString())
+                        create_m3u_file("my_plalist", data)
                     } else {
                         //закрываем окошко
                         nsf.close()
@@ -342,16 +338,16 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             //загрузить список
             loadlist.onClick {
 
-                val n = if(radio.name.length>100){
-                    radio.name.substring(0,100)
-                }else{
+                val n = if (radio.name.length > 100) {
+                    radio.name.substring(0, 100)
+                } else {
                     radio.name
                 }
                 //закрываем основное окошко
                 empid.close()
                 Main.download_i_open_m3u_file(radio.url, n, "anim_my_list")
             }
-         
+
         }
     }
 }

@@ -1,6 +1,5 @@
 package dmitriy.deomin.aimpradioplalist
 
-import android.util.Log
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 
 fun m3u_parser(data: String): ArrayList<Radio> {
@@ -46,24 +45,17 @@ private fun esli_est(str: String, list: List<String>): Boolean {
 
 private fun find_name_v_chlame(s: String): String {
 
-    val list_ili_net = if (s.contains("<List>")) {
-        "<List>"
-    } else {
-        ""
-    }
-
-
     if (s.contains("=")) {
         val new_s = s.substringAfterLast('=').substringAfter(',')
-        return clear_name_ot_chlama(list_ili_net + new_s)
+        return clear_name_ot_chlama(new_s)
     } else {
         var new_s = ""
         //если говна нету удалим #EXTINF:-1, может быть разная и отделятся может запятой или пробелом ебаные казлы придумли
         if (s.contains(",")) {
             //если есть запятая по ней будем делить иначе накройняк по пробелу
-            new_s = list_ili_net + s.substringAfter(',')
+            new_s = s.substringAfter(',')
         } else {
-            new_s = list_ili_net + s.substringAfter(' ')
+            new_s = s.substringAfter(' ')
         }
         return clear_name_ot_chlama(new_s)
     }

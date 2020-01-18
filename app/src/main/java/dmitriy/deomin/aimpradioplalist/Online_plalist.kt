@@ -128,8 +128,6 @@ class Online_plalist : Fragment() {
                                 CATEGORIA = "button_open_online_plalist_musik"
                                 Main.save_value("categoria", CATEGORIA)
                             }
-
-                            Log.e("ttt",CATEGORIA)
                             visibleselekt_CATEGORIA(CATEGORIA, v)
                         }
 
@@ -141,21 +139,19 @@ class Online_plalist : Fragment() {
 
                     //заново все сделаем
                     //====================================================================================
-                    val d = read_and_pars_m3u_file(open_file_online_palist)
+                    val data = read_and_pars_m3u_file(open_file_online_palist)
 
-                    Log.e("t",d.toString())
-
-                    ad_online_palist = Adapter_online_palist(d)
+                    ad_online_palist = Adapter_online_palist(data)
                     recikl_list_online.adapter = ad_online_palist
                     //---------------------------------------------------------
 
                     //перемотаем
-                    if (position_list_online_palist < d.size && position_list_online_palist >= 0) {
+                    if (position_list_online_palist < data.size && position_list_online_palist >= 0) {
                         recikl_list_online.scrollToPosition(position_list_online_palist)
                     }
 
                     //скроем или покажем полосу прокрутки и поиск
-                    if (d.size > Main.SIZE_LIST_LINE) {
+                    if (data.size > Main.SIZE_LIST_LINE) {
                         fastScroller.visibility = View.VISIBLE
 
                         find.visibility = View.VISIBLE

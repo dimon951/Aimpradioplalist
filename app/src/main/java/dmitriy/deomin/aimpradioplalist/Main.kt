@@ -65,7 +65,7 @@ class Main : FragmentActivity() {
         const val File_Text_Code: String = "UTF-8"
 
         //ссылка на аимп
-        const val LINK_DOWLOAD_AIMP = "https://www.aimp.ru/files/android/aimp_2.90.858.apk"
+        const val LINK_DOWLOAD_AIMP = "https://www.aimp.ru/?do=download.file&id=13"
 
         //текст в пустом плейлисте(много где требуется)
         const val PUSTO: String = "Плейлист пуст"
@@ -562,7 +562,6 @@ class Main : FragmentActivity() {
 
                                                 if (sourse == "anim_my_list") {
                                                     //пошлём сигнал пусть мой плейлист обновится
-                                                    Log.e("ttt", it.getStringExtra("name"))
                                                     signal("Data_add")
                                                             .putExtra("update", "zaebis")
                                                             .putExtra("listfile", it.getStringExtra("name"))

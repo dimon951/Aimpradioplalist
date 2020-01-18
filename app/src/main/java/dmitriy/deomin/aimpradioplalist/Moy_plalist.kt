@@ -19,6 +19,7 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import dmitriy.deomin.aimpradioplalist.custom.*
+import kotlinx.android.synthetic.main.item_history_online_plalist.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
@@ -27,6 +28,7 @@ import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.email
 import org.jetbrains.anko.support.v4.share
 import org.jetbrains.anko.support.v4.startActivity
+import org.jetbrains.anko.support.v4.toast
 import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
 import java.io.File
 import java.text.SimpleDateFormat
@@ -87,12 +89,12 @@ class Moy_plalist : Fragment() {
             when (it.getStringExtra("update")) {
                 "zaebis" -> {
                     if (!it.getStringExtra("listfile").isNullOrEmpty()) {
-                        if(it.getStringExtra("listfile")=="old"){
+                        if (it.getStringExtra("listfile") == "old") {
                             //оставим все как есть если не открыт мой список
-                            if(open_file!=Main.MY_PLALIST){
+                            if (open_file != Main.MY_PLALIST) {
                                 context.toast("добавлено")
                             }
-                        }else{
+                        } else {
                             //иначе обновим мой список
                             update_list.visibility = View.VISIBLE
                             open_file = it.getStringExtra("listfile")
@@ -116,9 +118,6 @@ class Moy_plalist : Fragment() {
 
                     //остановим анимацию
                     signal("Main_update").putExtra("signal", "stop_anim_my_list").send(context)
-
-
-
 
 
                     //скроем или покажем полосу прокрутки и поиск
@@ -150,13 +149,13 @@ class Moy_plalist : Fragment() {
                         //скажем загрузить последний открытый файл
                         if (list_move_history.size >= 1) {
                             //и удалим последний элемент если там больше 1
-                            open_file = if(list_move_history.size == 1){
+                            open_file = if (list_move_history.size == 1) {
                                 Main.MY_PLALIST
-                            }else{
+                            } else {
                                 list_move_history.removeAt(list_move_history.size - 1)
                                 list_move_history[list_move_history.size - 1]
                             }
-                            if(open_file==Main.MY_PLALIST){
+                            if (open_file == Main.MY_PLALIST) {
                                 update_list.visibility = View.GONE
                                 list_move_history.clear()
                             }
@@ -170,7 +169,7 @@ class Moy_plalist : Fragment() {
                     }
 
                     //заново все сделаем
-                    val d= read_and_pars_m3u_file(open_file)
+                    val d = read_and_pars_m3u_file(open_file)
                     ad = Adapter_my_list(d)
                     recikl_list.adapter = ad
                     //---------------------------------------------------------
@@ -445,25 +444,21 @@ class Moy_plalist : Fragment() {
                 (vponf.view().findViewById<Button>(R.id.button_dell_old_plalist)).onClick {
 
                     //отправим с пустым старым текстом , старое затрётся
-                    open_load_file(context, "")
+                    open_load_file(context, arrayListOf(Radio(name = "", url = "")))
                     //закрываем окошко
                     vponf.close()
                 }
 
                 //добавляем к старому если есть дубликаты пропустим их
                 (vponf.view().findViewById<Button>(R.id.button_add_old_plalist)).onClick {
-
-                    //прочтём текущий со всеми закорючками и отправим для добавления
-                    val old_text: String = File_function().readFile(Main.MY_PLALIST)
-
                     //после выбора файла он прочётся и добавится к старым данным
-                    open_load_file(context, old_text)
+                    open_load_file(context, read_and_pars_m3u_file(Main.MY_PLALIST))
                     //закрываем окошко
                     vponf.close()
                 }
 
             } else {
-                open_load_file(context, "")
+                open_load_file(context, arrayListOf(Radio(name = Main.PUSTO, url = "")))
             }
             //---------------------------------------------------------------------------------
         }
@@ -499,7 +494,7 @@ class Moy_plalist : Fragment() {
                         }
                     }
                 }
-                create_m3u_file(name_file,ad.raduoSearchList)
+                create_m3u_file(name_file, ad.raduoSearchList)
             } else {
                 context.toast("Плэйлист пуст, добавьте хотябы одну станцию")
             }
@@ -525,7 +520,7 @@ class Moy_plalist : Fragment() {
                         }
                     }
                 }
-                create_m3u_file(name_file,ad.raduoSearchList)
+                create_m3u_file(name_file, ad.raduoSearchList)
             } else {
                 context.toast("Плэйлист пуст, добавьте хотябы одну станцию")
             }
@@ -587,16 +582,12 @@ class Moy_plalist : Fragment() {
         return v
     }
 
-    private fun open_load_file(context: Context, str_old: String) {
-        val file_function = File_function()
-
+    private fun open_load_file(context: Context, old_data: ArrayList<Radio>) {
         //создадим папки если нет
-        file_function.create_esli_net()
-
+        File_function().create_esli_net()
 
         //если плейлист пуст откроем окно выбора загрузки файла(память или ссылка)
         val lf = DialogWindow(context, R.layout.load_file)
-
 
         var file_m3u_custom: String
 
@@ -631,33 +622,24 @@ class Moy_plalist : Fragment() {
                                 signal("Main_update").putExtra("signal", "start_anim_my_list").send(context)
 
                                 //читаем выбраный файл в str
-                                var str = file_function.readFile(file_m3u_custom)
-                                //если файл есть и он не пустой зальём его в список по умолчанию
-                                if (str.length > 1) {
-
-                                    //когда прийдёт сигнал что все хорошо обновим плейлист
-                                    Slot(context, "File_created", false).onRun { it ->
-                                        //получим данные
-                                        when (it.getStringExtra("update")) {
-                                            "zaebis" -> {
-                                                //пошлём сигнал пусть мой плейлист обновится
-                                                signal("Data_add").putExtra("update", "zaebis").send(context)
-                                            }
-                                            "pizdec" -> {
-                                                context.toast(context.getString(R.string.error))
-                                                //запросим разрешения
-                                                Main.EbuchieRazreshenia()
-                                            }
+                                val file_data = read_and_pars_m3u_file(file_m3u_custom)
+                                //когда прийдёт сигнал что все хорошо обновим плейлист
+                                Slot(context, "File_created", false).onRun { it ->
+                                    //получим данные
+                                    when (it.getStringExtra("update")) {
+                                        "zaebis" -> {
+                                            //пошлём сигнал пусть мой плейлист обновится
+                                            signal("Data_add").putExtra("update", "zaebis").send(context)
+                                        }
+                                        "pizdec" -> {
+                                            context.toast(context.getString(R.string.error))
+                                            //запросим разрешения
+                                            Main.EbuchieRazreshenia()
                                         }
                                     }
-                                    //поехали , сохраняем  и ждём сигналы
-                                    if (str_old.length > 7) {
-                                        str = str.replace("#EXTM3U", "")
-                                    }
-                                    file_function.SaveFile(Main.MY_PLALIST, str_old + str)
-                                } else {
-                                    context.toast("Файл: $file_m3u_custom пуст")
                                 }
+                                old_data.addAll(file_data)
+                                create_m3u_file("my_plalist", old_data)
                             }
                         }
                     }
@@ -673,11 +655,10 @@ class Moy_plalist : Fragment() {
             lf.close()
 
             //покажем окно ввода ссылки и ранею историю ввода ссылок если есть
-            val f = File_function()
             //сюда будем записывать переботаный стринг в хистори массив
             val d = ArrayList<History>()
             //загружаем историю из файла
-            val history_url_list = f.readArrayList(Main.HISTORY_LINK)
+            val history_url_list = File_function().readArrayList(Main.HISTORY_LINK)
 
             //парсим в нужный вид  и переворачиваем
             for (s in history_url_list.listIterator()) {
@@ -762,15 +743,15 @@ class Moy_plalist : Fragment() {
                     //Имя файла, не особо важно не буду заморачиваться
                     var n = e_n.text.toString()
                     if (n.isEmpty()) {
-                        n = "file"+Main.rnd_int(1,100).toString()
+                        n = "file" + Main.rnd_int(1, 100).toString()
                     }
 
                     save_mass.add("$n$$url_link$$date_time")
-                    f.saveArrayList(Main.HISTORY_LINK, save_mass)
+                    File_function().saveArrayList(Main.HISTORY_LINK, save_mass)
                     //----------------------------------------------------------
 
                     //-----------скачиваем файл (читам его)--------
-                    Main.download_i_open_m3u_file(url_link,n,"anim_my_list")
+                    Main.download_i_open_m3u_file(url_link, n, "anim_my_list")
                 }
             }
         }

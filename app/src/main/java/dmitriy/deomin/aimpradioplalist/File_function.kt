@@ -19,55 +19,8 @@ class File_function {
             val state = Environment.getExternalStorageState()
             return Environment.MEDIA_MOUNTED == state
         }
-    //удаление одной станции из файла
-    //в параметрах получаем строку вида
-    //Авторадио\nhttp://ic7.101.ru:8000/v3_1
-    fun Delet_one_potok(potok: String, file_url: String) {
-        //прочитаем старыйе данные
-        var old_text = ""
-        try {
-            old_text = readFile(file_url)
-            // old_text = read(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u")
-        } catch (e: FileNotFoundException) {
-            e.printStackTrace()
-        }
-        //удалм переносы,потом при сохранении они подставятся
-        old_text = old_text.replace("\n", "")
-        //добавим переносы
-        old_text = old_text.replace("http://", "\nhttp://")
-        old_text = old_text.replace("https://", "\nhttps://")
-
-        //исходный вид строки потока(как в файле записано)
-        //#EXTINF:-1,Авторадио\nhttp://ic7.101.ru:8000/v3_1
-        //теперь удаляем эту вещь из считаного файла и перезаписываем его
-        old_text = old_text.replace("#EXTINF:-1,$potok", "")
-
-        //очищаем и записываем заново, там уже будут слаться сигналы получилось или нет
-        SaveFile("my_plalist", old_text)
-    }
-
-    //переименование
-    fun Rename_potok(potok_old: String, potok_new: String, file_url: String) {
-        //прочитаем старыйе данные
-        var old_text = ""
-
-        //прочитали файл как есть
-        try {
-            //  old_text = read(Environment.getExternalStorageDirectory().toString() + "/aimp_radio/my_plalist.m3u")
-            old_text =readFile(file_url)
-        } catch (e: FileNotFoundException) {
-            e.printStackTrace()
-        }
-
-        //в параметрах получаем строку вида
-        //Авторадио\nhttp://ic7.101.ru:8000/v3_1
-        //теперь заменяем старый поток из считаного файла на новый и перезаписываем его
-        old_text = old_text.replace(potok_old, potok_new)
 
 
-        //очищаем и записываем заново, там уже будут слаться сигналы получилось или нет
-        SaveFile( "my_plalist", old_text)
-    }
 
     //добавляется в текущему плейлисту ещё станцию
     fun Add_may_plalist_stansiy(link: String, name: String) {
