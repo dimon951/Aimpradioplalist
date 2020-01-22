@@ -13,6 +13,9 @@ import android.widget.TextView
 import com.makeramen.roundedimageview.RoundedTransformationBuilder
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
+import dmitriy.deomin.aimpradioplalist.`fun`.add_myplalist
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 import dmitriy.deomin.aimpradioplalist.custom.RadioPop
 import org.jetbrains.anko.email
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -150,14 +153,14 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : androidx.recyclerview.w
         }
 
         p0.play.onClick {
-            Main.play_aimp(radiopop.name, popurl)
+            play_aimp(radiopop.name, popurl)
         }
         p0.play.onLongClick {
-            Main.play_system(radiopop.name,popurl)
+            play_system(radiopop.name,popurl)
         }
 
         p0.add.onClick {
-            Main.add_myplalist(radiopop.name, popurl)
+            add_myplalist(radiopop.name, popurl)
         }
 
 

@@ -8,6 +8,9 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp_file
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system_file
+import dmitriy.deomin.aimpradioplalist.`fun`.save_value
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.History
 import dmitriy.deomin.aimpradioplalist.custom.send
@@ -56,9 +59,9 @@ class Adapter_history_online_plalist(val data: ArrayList<History>) : androidx.re
 
             //если тыкают в плейлист
             if (history.url.substringAfterLast('.') == "mp3") {
-                Main.play_aimp_file(history.url)
+                play_aimp_file(history.url)
             } else {
-                Main.save_value(Main.HISORYLAST, history.url)
+                save_value(Main.HISORYLAST, history.url)
                 //пошлём сигнал для загрузки дааных п спискок
                 signal("Online_plalist")
                         .putExtra("update", "zaebis")
@@ -71,7 +74,7 @@ class Adapter_history_online_plalist(val data: ArrayList<History>) : androidx.re
             p0.liner.startAnimation(AnimationUtils.loadAnimation(Main.context, R.anim.myalpha))
             //если долго тыкают в плейлист
             if (history.url.substringAfterLast('.') == "mp3") {
-                Main.play_system_file(history.url)
+                play_system_file(history.url)
             } else {
 
             }

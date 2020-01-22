@@ -19,7 +19,9 @@ import android.util.Log
 import android.view.animation.AnimationUtils
 import com.google.common.reflect.TypeToken
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.edit_my_plalist_item_dialog.*
+import dmitriy.deomin.aimpradioplalist.`fun`.*
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.share
 import java.io.File
@@ -32,8 +34,7 @@ class Online_plalist : Fragment() {
 
     lateinit var ad_online_palist: Adapter_online_palist
     var open_file_online_palist = ""
-    private var history_navigacia = ArrayList<String>()
-    var CATEGORIA = ""
+    private var list_history = ArrayList<String>()
 
 
     companion object {
@@ -54,16 +55,16 @@ class Online_plalist : Fragment() {
 
         //читам из памяти историю навигации
         //---------------------------------------------------------------------
-        val savhis = Main.save_read("history_navigacia")
-        if (savhis.length > 1) {
-            val collectionType = object : TypeToken<ArrayList<String>>() {}.type
-            history_navigacia = Gson().fromJson(savhis, collectionType)
-        }
+//        val savhis = Main.save_read("history_navigacia")
+//        if (savhis.length > 1) {
+//            val collectionType = object : TypeToken<ArrayList<String>>() {}.type
+//            history_navigacia = Gson().fromJson(savhis, collectionType)
+//        }
         //-----------------------------------------------------------------------
 
-        position_list_online_palist = Main.save_read_int(open_file_online_palist)
-        CATEGORIA = Main.save_read("categoria")
-        visibleselekt_CATEGORIA(CATEGORIA, v)
+        position_list_online_palist = save_read_int(open_file_online_palist)
+//        CATEGORIA = Main.save_read("categoria")
+//        visibleselekt_CATEGORIA(CATEGORIA, v)
 
 
         val recikl_list_online = v.findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recicl_online_plalist)
@@ -87,60 +88,21 @@ class Online_plalist : Fragment() {
             //получим данные
             when (it.getStringExtra("update")) {
                 "zaebis" -> {
-                    if (!it.getStringExtra("listfile").isNullOrEmpty()) {
-                        open_file_online_palist = it.getStringExtra("listfile")
-                        //
-                        if (it.getStringExtra("history").isNullOrEmpty()) {
-                            //добавим в список навигации
-                            history_navigacia.add(open_file_online_palist)
-                            signal("history_save").send(context)
-                            //добавим указатель на категорию
-                            when(CATEGORIA){
-                                "button_open_online_plalist_tv" ->Main.save_value("url_tv", Main.save_read("url_tv") + " " + open_file_online_palist)
-                                "button_open_online_plalist_radio" ->Main.save_value("url_ra", Main.save_read("url_ra") + " " + open_file_online_palist)
-                                "button_open_online_plalist_audio_book" ->Main.save_value("url_au", Main.save_read("url_au") + " " + open_file_online_palist)
-                                "button_open_online_plalist_musik" ->Main.save_value("url_mu", Main.save_read("url_mu") + " " + open_file_online_palist)
-                            }
-                            visibleselekt_CATEGORIA(CATEGORIA, v)
-
-                        } else {
-                            val o = Main.save_read("url_tv")
-                            if (o.contains(open_file_online_palist)) {
-                                Main.save_value("url_tv", o.replace(open_file_online_palist, ""))
-                                CATEGORIA = "button_open_online_plalist_tv"
-                                Main.save_value("categoria", CATEGORIA)
-                            }
-                            val ra = Main.save_read("url_ra")
-                            if (ra.contains(open_file_online_palist)) {
-                                Main.save_value("url_ra", ra.replace(open_file_online_palist, ""))
-                                CATEGORIA = "button_open_online_plalist_radio"
-                                Main.save_value("categoria", CATEGORIA)
-                            }
-                            val au = Main.save_read("url_au")
-                            if (au.contains(open_file_online_palist)) {
-                                Main.save_value("url_au", au.replace(open_file_online_palist, ""))
-                                CATEGORIA = "button_open_online_plalist_audio_book"
-                                Main.save_value("categoria", CATEGORIA)
-                            }
-                            val mu = Main.save_read("url_mu")
-                            if (mu.contains(open_file_online_palist)) {
-                                Main.save_value("url_mu", mu.replace(open_file_online_palist, ""))
-                                CATEGORIA = "button_open_online_plalist_musik"
-                                Main.save_value("categoria", CATEGORIA)
-                            }
-                            visibleselekt_CATEGORIA(CATEGORIA, v)
-                        }
-
-                    } else {
-                        open_file_online_palist = Main.HOME_ONLINE_PLALIST
+                    if (it.getStringExtra("url") != null) {
+                        open_file_online_palist = it.getStringExtra("url")
+                        //добавим в список навигации
+                        list_history.add(open_file_online_palist)
                     }
 
-                    position_list_online_palist = Main.save_read_int(open_file_online_palist)
+                    position_list_online_palist = save_read_int(open_file_online_palist)
 
-                    //заново все сделаем
+                    //получим переданные данные
                     //====================================================================================
-                    val data = read_and_pars_m3u_file(open_file_online_palist)
-
+                    val data = if (it.getParcelableArrayListExtra<Radio>("pars_data") != null) {
+                        it.getParcelableArrayListExtra<Radio>("pars_data")
+                    } else {
+                        read_and_pars_m3u_file(open_file_online_palist)
+                    }
                     ad_online_palist = Adapter_online_palist(data)
                     recikl_list_online.adapter = ad_online_palist
                     //---------------------------------------------------------
@@ -165,65 +127,21 @@ class Online_plalist : Fragment() {
                         })
                     } else {
                         fastScroller.visibility = View.GONE
-
                         find.setText("")
                         find.visibility = View.GONE
                     }
-
                     //остановим анимацию
                     signal("Main_update").putExtra("signal", "stop_anim_online_plalist").send(context)
-
-                    //скроем или покажем кнопку истории
-                    if (read_page_list().size == 0) {
-                        v.button_history_online_plalilst.visibility = View.GONE
-                    } else {
-                        v.button_history_online_plalilst.visibility = View.VISIBLE
-                    }
-
-
                     //==================================================================
                 }
             }
         }
         //-------------------------------------------------------------------------------------
 
-        Slot(context, "histori_del_item").onRun {
-            if (!it.getStringExtra("item").isNullOrEmpty()) {
-
-                val delitem = it.getStringExtra("item")
-
-                history_navigacia.remove(delitem)
-                signal("history_save").send(context)
-
-                val o = Main.save_read("url_tv")
-                if (o.contains(delitem)) {
-                    Main.save_value("url_tv", o.replace(delitem, ""))
-                }
-                val ra = Main.save_read("url_ra")
-                if (ra.contains(delitem)) {
-                    Main.save_value("url_ra", ra.replace(delitem, ""))
-                }
-                val au = Main.save_read("url_au")
-                if (au.contains(delitem)) {
-                    Main.save_value("url_au", au.replace(delitem, ""))
-                }
-                val mu = Main.save_read("url_mu")
-                if (mu.contains(delitem)) {
-                    Main.save_value("url_mu", mu.replace(delitem, ""))
-                }
-
-            }
-        }
-        //сохраним в память
-        Slot(context, "history_save").onRun {
-            val arrayString = Gson().toJson(history_navigacia)
-            Main.save_value("history_navigacia", arrayString)
-        }
-
         Slot(context, "save_pozitions").onRun {
             if (!it.getStringExtra("pos").isNullOrEmpty()) {
                 position_list_online_palist = it.getStringExtra("pos").toInt()
-                Main.save_value_int(open_file_online_palist, position_list_online_palist)
+                save_value_int(open_file_online_palist, position_list_online_palist)
             }
         }
 
@@ -285,12 +203,12 @@ class Online_plalist : Fragment() {
                     //получим данные
                     when (it.getStringExtra("update")) {
                         "zaebis" -> {
-                            Main.play_aimp(it.getStringExtra("name"), "")
+                            play_aimp(it.getStringExtra("name"), "")
                         }
                         "pizdec" -> {
                             context.toast(context.getString(R.string.error))
                             //запросим разрешения
-                            Main.EbuchieRazreshenia()
+                            EbuchieRazreshenia()
                         }
                     }
                 }
@@ -322,12 +240,12 @@ class Online_plalist : Fragment() {
                     //получим данные
                     when (it.getStringExtra("update")) {
                         "zaebis" -> {
-                            Main.play_system(it.getStringExtra("name"), "")
+                            play_system(it.getStringExtra("name"), "")
                         }
                         "pizdec" -> {
                             context.toast(context.getString(R.string.error))
                             //запросим разрешения
-                            Main.EbuchieRazreshenia()
+                            EbuchieRazreshenia()
                         }
                     }
                 }
@@ -361,7 +279,7 @@ class Online_plalist : Fragment() {
                 val d = ad_online_palist.raduoSearchList
                 for (s in d.withIndex()) {
                     if (d[s.index].url.isNotEmpty() && list_selekt.contains(s.index)) {
-                        Main.add_myplalist(d[s.index].name + " " + d[s.index].kbps, d[s.index].url)
+                        add_myplalist(d[s.index].name + " " + d[s.index].kbps, d[s.index].url)
                     }
                 }
             } else {
@@ -371,8 +289,8 @@ class Online_plalist : Fragment() {
 
 
         v.help_open_tv.onClick {
-            Main.save_value("help_tv", "no")
-            if (Main.save_read("help_tv").length > 1) {
+            save_value("help_tv", "no")
+            if (save_read("help_tv").length > 1) {
                 v.help_open_tv.visibility = View.GONE
             } else {
                 v.help_open_tv.visibility = View.VISIBLE
@@ -382,200 +300,155 @@ class Online_plalist : Fragment() {
 
         v.button_history_online_plalilst.setOnLongClickListener {
             v.button_history_online_plalilst.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
-            //если нет нечего
-            val list_history = read_page_list()
 
-            if (list_history.size == 0) {
-                context.toast("Пусто")
-            } else {
+            val hop = DialogWindow(context, R.layout.history_online_plalist)
 
-                val hop = DialogWindow(context, R.layout.history_online_plalist)
+            //слот будет закрывать это окно
+            Slot(context, "History_online_plalist").onRun { hop.close() }
 
-                //слот будет закрывать это окно
-                Slot(context, "History_online_plalist").onRun { hop.close() }
+            //настройка вида----------------------------------------------------------------------------
+            val fon = hop.view().findViewById<LinearLayout>(R.id.fon)
+            fon.setBackgroundColor(Main.COLOR_FON)
 
-                //настройка вида----------------------------------------------------------------------------
-                val fon = hop.view().findViewById<LinearLayout>(R.id.fon)
-                fon.setBackgroundColor(Main.COLOR_FON)
+            val recikl = hop.view().findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recikl)
+            recikl.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
 
-                val recikl = hop.view().findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recikl)
-                recikl.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
+            //полоса быстрой прокрутки
+            val fS = hop.view().findViewById<VerticalRecyclerViewFastScroller>(R.id.fast_scroller)
+            //получим текущие пораметры
+            val paramL = fS.layoutParams
+            //меняем ширину
+            paramL.width = Main.SIZE_WIDCH_SCROLL
+            //устанавливаем
+            fS.layoutParams = paramL
+            fS.setRecyclerView(recikl)
+            recikl.setOnScrollListener(fS.onScrollListener)
+            //-------------------------------------------------------------------------------------------
 
-                //полоса быстрой прокрутки
-                val fS = hop.view().findViewById<VerticalRecyclerViewFastScroller>(R.id.fast_scroller)
-                //получим текущие пораметры
-                val paramL = fS.layoutParams
-                //меняем ширину
-                paramL.width = Main.SIZE_WIDCH_SCROLL
-                //устанавливаем
-                fS.layoutParams = paramL
-                fS.setRecyclerView(recikl)
-                recikl.setOnScrollListener(fS.onScrollListener)
-                //-------------------------------------------------------------------------------------------
+            val d = ArrayList<History>()
+            val sdf = SimpleDateFormat("dd.M.yyyy hh:mm:ss", Locale.getDefault())
 
-                val d = ArrayList<History>()
-                val sdf = SimpleDateFormat("dd.M.yyyy hh:mm:ss", Locale.getDefault())
-
-                for (l in list_history.iterator()) {
-                    val f = File(l)
-                    if (f.isFile) {
-                        d.add(History(f.name, f.absolutePath, sdf.format(f.lastModified()), long_size_to_good_vid(f.length().toDouble())))
-                    }
+            for (l in list_history.iterator()) {
+                val f = File(l)
+                if (f.isFile) {
+                    d.add(History(f.name, f.absolutePath, sdf.format(f.lastModified()), long_size_to_good_vid(f.length().toDouble())))
                 }
+            }
 
 
-                val a = Adapter_history_online_plalist(d)
-                recikl.adapter = a
+            val a = Adapter_history_online_plalist(d)
+            recikl.adapter = a
 
 
-                //покажем полный размер кеша
-                //кнопка очистить кеш
-                //при открытии меню будем показыват размер этого кеша
-                val b_c = hop.view().findViewById<Button>(R.id.button_clear_kesh)
+            //покажем полный размер кеша
+            //кнопка очистить кеш
+            //при открытии меню будем показыват размер этого кеша
+            val b_c = hop.view().findViewById<Button>(R.id.button_clear_kesh)
 
-                //получим размер
-                val file = File(Main.ROOT)
-                if (file.exists()) {
-                    val s = getDirSize(file)
-                    if (s > Main.SIZEFILETHEME) {
-                        b_c.text = "Очистить Историю/Кэш (" + long_size_to_good_vid(s.toDouble()) + ")"
-                    } else {
-                        b_c.text = "История/Кэш очищен"
-
-                    }
-                } else
+            //получим размер
+            val file = File(Main.ROOT)
+            if (file.exists()) {
+                val s = getDirSize(file)
+                if (s > Main.SIZEFILETHEME) {
+                    b_c.text = "Очистить Историю/Кэш (" + long_size_to_good_vid(s.toDouble()) + ")"
+                } else {
                     b_c.text = "История/Кэш очищен"
 
-                b_c.onClick {
+                }
+            } else
+                b_c.text = "История/Кэш очищен"
 
-                    if (b_c.text == "История/Кэш очищен") {
+            b_c.onClick {
 
-                        signal("History_online_plalist").send(context)
-                        signal("Online_plalist")
-                                .putExtra("update", "zaebis")
-                                .send(context)
-                        Main.context.toast("Пусто")
+                if (b_c.text == "История/Кэш очищен") {
 
-                    } else {
+                    signal("History_online_plalist").send(context)
+                    signal("Online_plalist")
+                            .putExtra("update", "zaebis")
+                            .send(context)
+                    Main.context.toast("Пусто")
 
-                        //покажем предупреждающее окошко
-                        val v_d = DialogWindow(Main.context, R.layout.dialog_delete_plalist)
+                } else {
 
-                        v_d.view().findViewById<TextView>(R.id.text_voprosa_del_stncii).text = "Удалить Историю/Кеш?"
+                    //покажем предупреждающее окошко
+                    val v_d = DialogWindow(Main.context, R.layout.dialog_delete_plalist)
 
-                        v_d.view().findViewById<Button>(R.id.button_dialog_delete).onClick {
-                            v_d.close()
-                            //удаляем все
-                            if (file.exists()) {
-                                //файлы
-                                deleteAllFilesFolder(Main.ROOT)
-                                //список этих файлов
-                                hop.close()
-                                //очистим историю навигации
-                                //------------------------------------------
-                                history_navigacia.clear()
-                                signal("history_save").send(context)
-                                //И принадлежность к категории сылок
-                                Main.save_value("url_tv", "")
-                                Main.save_value("url_ra", "")
-                                Main.save_value("url_au", "")
-                                Main.save_value("url_mu", "")
-                                //сбросим на кнопках
-                                visibleselekt_CATEGORIA("del",v)
-                                //--------------------------------------------
-                                //обновим список
-                                //иначе пустую страницу покажем
-                                signal("Online_plalist")
-                                        .putExtra("update", "zaebis")
-                                        .send(context)
-                                signal("History_online_plalist").send(context)
-                            }
-                            if (file.exists()) {
-                                val s = getDirSize(file)
-                                if (s > Main.SIZEFILETHEME) {
-                                    b_c.text = "Очистить Историю/Кэш (" + long_size_to_good_vid(s.toDouble()) + ")"
-                                } else {
-                                    b_c.text = "История/Кэш очищен"
-                                }
+                    v_d.view().findViewById<TextView>(R.id.text_voprosa_del_stncii).text = "Удалить Историю/Кеш?"
 
+                    v_d.view().findViewById<Button>(R.id.button_dialog_delete).onClick {
+                        v_d.close()
+                        //удаляем все
+                        if (file.exists()) {
+                            //файлы
+                            deleteAllFilesFolder(Main.ROOT)
+                            //список этих файлов
+                            hop.close()
+                            //очистим историю навигации
+                            //------------------------------------------
+                            list_history.clear()
+                            signal("history_save").send(context)
+                            //И принадлежность к категории сылок
+                            save_value("url_tv", "")
+                            save_value("url_ra", "")
+                            save_value("url_au", "")
+                            save_value("url_mu", "")
+                            //сбросим на кнопках
+                            visibleselekt_CATEGORIA("del", v)
+                            //--------------------------------------------
+                            //обновим список
+                            //иначе пустую страницу покажем
+                            signal("Online_plalist")
+                                    .putExtra("update", "zaebis")
+                                    .send(context)
+                            signal("History_online_plalist").send(context)
+                        }
+                        if (file.exists()) {
+                            val s = getDirSize(file)
+                            if (s > Main.SIZEFILETHEME) {
+                                b_c.text = "Очистить Историю/Кэш (" + long_size_to_good_vid(s.toDouble()) + ")"
                             } else {
                                 b_c.text = "История/Кэш очищен"
                             }
 
-                        }
-                        v_d.view().findViewById<Button>(R.id.button_dialog_no).onClick {
-                            v_d.close()
+                        } else {
+                            b_c.text = "История/Кэш очищен"
                         }
 
                     }
+                    v_d.view().findViewById<Button>(R.id.button_dialog_no).onClick {
+                        v_d.close()
+                    }
 
                 }
-                //---------------------------------------
+
             }
+            //---------------------------------------
+
             true
         }
 
         v.button_history_online_plalilst.onClick {
-
-            if (this@Online_plalist.history_navigacia.size > 1) {
-
-                val s = history_navigacia.elementAt(history_navigacia.size - 2)
-                val s_del = history_navigacia.elementAt(history_navigacia.size - 1)
-                history_navigacia.remove(s_del)
-                signal("history_save").send(context)
-                Main.save_value(Main.HISORYLAST, s)
-                //пошлём сигнал для загрузки дааных п спискок
-                signal("Online_plalist")
-                        .putExtra("update", "zaebis")
-                        .putExtra("listfile", s)
-                        .putExtra("history", "ненадо добавлять в историю")
-                        .send(Main.context)
-
+            if (list_history.size > 0) {
+                download_i_open_m3u_file(list_history[list_history.size - 1], "anim_online_plalist")
+                list_history.remove(list_history[list_history.size - 1])
             }
-
-
         }
 
         //--------категории--------------------------------------------------------------
 
         v.button_open_online_plalist_radio.onClick {
-            CATEGORIA = "button_open_online_plalist_radio"
-            Main.save_value("categoria", CATEGORIA)
-            visibleselekt_CATEGORIA(CATEGORIA, v)
-            Main.save_value("url_ra", Main.ROOT + "radio_plalisty.m3u")
-
-            Main.download_i_open_m3u_file("https://dl.dropbox.com/s/sl4x8z3yth5v1u0/Radio.m3u", "radio_plalisty", "anim_online_plalist")
+            download_i_open_m3u_file("https://dl.dropbox.com/s/sl4x8z3yth5v1u0/Radio.m3u", "anim_online_plalist")
         }
 
         v.button_open_online_plalist_audio_book.onClick {
-            CATEGORIA = "button_open_online_plalist_audio_book"
-            Main.save_value("categoria", CATEGORIA)
-            visibleselekt_CATEGORIA(CATEGORIA, v)
-            Main.save_value("url_au", Main.ROOT + "audio_book.m3u")
-
-            Main.download_i_open_m3u_file("https://dl.dropbox.com/s/cd479dcdguk6cg6/Audio_book.m3u", "audio_book", "anim_online_plalist")
+            download_i_open_m3u_file("https://dl.dropbox.com/s/cd479dcdguk6cg6/Audio_book.m3u", "anim_online_plalist")
         }
 
         v.button_open_online_plalist_tv.onClick {
-            CATEGORIA = "button_open_online_plalist_tv"
-            Main.save_value("categoria", CATEGORIA)
-            Main.save_value("url_tv", Main.ROOT + "tv_plalist.m3u")
-            visibleselekt_CATEGORIA(CATEGORIA, v)
-
-            Main.download_i_open_m3u_file("https://dl.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u", "tv_plalist", "anim_online_plalist")
-            if (Main.save_read("help_tv").length > 1) {
-                v.help_open_tv.visibility = View.GONE
-            } else {
-                v.help_open_tv.visibility = View.VISIBLE
-            }
+            download_i_open_m3u_file("https://dl.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u", "anim_online_plalist")
         }
         v.button_open_online_plalist_musik.onClick {
-            CATEGORIA = "button_open_online_plalist_musik"
-            Main.save_value("categoria", CATEGORIA)
-            visibleselekt_CATEGORIA(CATEGORIA, v)
-            Main.save_value("url_mu", Main.ROOT + "musik.m3u")
-
-            Main.download_i_open_m3u_file("https://dl.dropbox.com/s/oe9kdcksjru82by/Musik.m3u", "musik", "anim_online_plalist")
+            download_i_open_m3u_file("https://dl.dropbox.com/s/oe9kdcksjru82by/Musik.m3u", "anim_online_plalist")
         }
         v.button_open_online_plalist_obmennik.onClick {
             startActivity<Obmenik>()
@@ -584,7 +457,7 @@ class Online_plalist : Fragment() {
 
         //----------------------------------------------------------------------------------------------
 
-        val h = Main.save_read(Main.HISORYLAST)
+        val h = save_read(Main.HISORYLAST)
 
         if (h.length > 1) {
             if (File(h).isFile) {
@@ -636,7 +509,7 @@ class Online_plalist : Fragment() {
                 v.button_open_online_plalist_tv.backgroundColor = Main.COLOR_FON
                 v.button_open_online_plalist_musik.backgroundColor = Main.COLOR_ITEM
             }
-            "del"->{
+            "del" -> {
                 v.button_open_online_plalist_radio.backgroundColor = Main.COLOR_FON
                 v.button_open_online_plalist_audio_book.backgroundColor = Main.COLOR_FON
                 v.button_open_online_plalist_tv.backgroundColor = Main.COLOR_FON

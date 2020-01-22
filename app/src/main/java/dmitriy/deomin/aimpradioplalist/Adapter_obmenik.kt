@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
 import com.google.firebase.firestore.FirebaseFirestore
+import dmitriy.deomin.aimpradioplalist.`fun`.*
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -200,12 +203,12 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                     Slot(context,"add_koment",false).onRun {
                         if(it.getStringExtra("update")=="zaebis"){
                             add_kom.close()
-                            Main.load_koment(id)
+                            load_koment(id)
                         }else{
                             context.toast("ошибка")
                         }
                     }
-                    Main.add_koment(radio.id,ed.text.toString())
+                    add_koment(radio.id,ed.text.toString())
                 }
             }
             //-------------------------------------------------------------------------------------
@@ -213,12 +216,12 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
         }
         p0.btn_update_koment.onClick {
             //обновить текуший список коментов
-            Main.load_koment(id)
+            load_koment(id)
         }
 
         GlobalScope.launch {
             //Загрузим в начале просто количество коментов
-            Main.load_koment(id)
+            load_koment(id)
         }
         //------------------------------------------------------------------------
 
@@ -293,7 +296,7 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
 
 
                 (menu_add_new.view().findViewById<Button>(R.id.button_paste_iz_bufera_obmenik)).onClick {
-                    ed_url.setText(Main.getText(context))
+                    ed_url.setText(getText_сlipboard(context))
                 }
 
                 (menu_add_new.view().findViewById<Button>(R.id.button_add)).onClick {
@@ -353,17 +356,17 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             text_name_i_url.text = name + "\n" + radio.url
             text_name_i_url.onClick {
                 text_name_i_url.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-                Main.putText(radio.url, context)
+                putText_сlipboard(radio.url, context)
                 context.toast("url скопирован в буфер")
             }
 
 
             open_aimp.onLongClick {
-                Main.play_system(name, radio.url)
+                play_system(name, radio.url)
             }
 
             add_pls.onClick {
-                Main.add_myplalist(name, radio.url)
+                add_myplalist(name, radio.url)
                 mvr.close()
             }
 
@@ -376,7 +379,7 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             }
 
             open_aimp.onClick {
-                Main.play_aimp(name, radio.url)
+                play_aimp(name, radio.url)
                 mvr.close()
             }
         }

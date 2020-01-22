@@ -1,6 +1,8 @@
-package dmitriy.deomin.aimpradioplalist
+package dmitriy.deomin.aimpradioplalist.`fun`
 
 
+import android.util.Log
+import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 import java.io.File
 import java.io.FileReader

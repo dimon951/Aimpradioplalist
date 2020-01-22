@@ -5,27 +5,17 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.WindowManager
-import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
-import com.kotlinpermissions.ifNotNullOrElse
+import dmitriy.deomin.aimpradioplalist.`fun`.getText_сlipboard
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.obmenik.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.sdk27.coroutines.onLongClick
-import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -191,7 +181,7 @@ class Obmenik : Activity() {
 
 
             (menu_add_new.view().findViewById<Button>(R.id.button_paste_iz_bufera_obmenik)).onClick {
-                ed_url.setText(Main.getText(context))
+                ed_url.setText(getText_сlipboard(context))
             }
 
             (menu_add_new.view().findViewById<Button>(R.id.button_add)).onClick {

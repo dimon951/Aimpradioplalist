@@ -2,16 +2,15 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
-import com.github.kittinunf.fuel.httpGet
+import dmitriy.deomin.aimpradioplalist.`fun`.*
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 import dmitriy.deomin.aimpradioplalist.custom.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
@@ -128,7 +127,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             p0.fon.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
 
             //сохраняем позицию текушею списка
-            Main.save_value_int("position_list_my_plalist", p1)
+            save_value_int("position_list_my_plalist", p1)
             Moy_plalist.position_list_my_plalist = p1
 
             //=============================================================================================
@@ -158,7 +157,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                             "pizdec" -> {
                                 context.toast(context.getString(R.string.error))
                                 //запросим разрешения
-                                Main.EbuchieRazreshenia()
+                                EbuchieRazreshenia()
                             }
                         }
                     }
@@ -211,7 +210,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                                 "pizdec" -> {
                                     context.toast(context.getString(R.string.error))
                                     //запросим разрешения
-                                    Main.EbuchieRazreshenia()
+                                    EbuchieRazreshenia()
                                 }
                             }
                         }
@@ -229,7 +228,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
 
             //при долгон нажатии будем копироваь имя в буфер
             btn_renem.onLongClick {
-                Main.putText(radio.name, context)
+                putText_сlipboard(radio.name, context)
                 context.toast("Имя скопировано в буфер")
             }
 
@@ -272,7 +271,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                                 "pizdec" -> {
                                     context.toast(context.getString(R.string.error))
                                     //запросим разрешения
-                                    Main.EbuchieRazreshenia()
+                                    EbuchieRazreshenia()
                                 }
                             }
                         }
@@ -288,7 +287,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                 }
             }
             btn_url.onLongClick {
-                Main.putText(radio.url, context)
+                putText_сlipboard(radio.url, context)
                 context.toast("Url скопирован в буфер")
             }
             //-------------------------------------------------------------------------
@@ -319,13 +318,13 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             playAimp.onClick {
                 //закрываем основное окошко
                 empid.close()
-                Main.play_aimp(radio.name, radio.url)
+                play_aimp(radio.name, radio.url)
             }
             //открыть в сстеме
             playSystem.onLongClick {
                 //закрываем основное окошко
                 empid.close()
-                Main.play_system(radio.name, radio.url)
+                play_system(radio.name, radio.url)
             }
 
             //поделится
@@ -337,15 +336,9 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
 
             //загрузить список
             loadlist.onClick {
-
-                val n = if (radio.name.length > 100) {
-                    radio.name.substring(0, 100)
-                } else {
-                    radio.name
-                }
                 //закрываем основное окошко
                 empid.close()
-                Main.download_i_open_m3u_file(radio.url, n, "anim_my_list")
+                download_i_open_m3u_file(radio.url, "anim_my_list")
             }
 
         }

@@ -5,6 +5,7 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import dmitriy.deomin.aimpradioplalist.`fun`.save_value
 import kotlinx.android.synthetic.main.fonts_vibor.*
 import org.jetbrains.anko.toast
 
@@ -34,65 +35,65 @@ class Fonts_vibor : Activity() {
     }
 
     fun save_System(v: View) {
-        Main.save_value("fonts", "system")
+        save_value("fonts", "system")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
     fun save_Tweed(v: View) {
-        Main.save_value("fonts", "fonts/Tweed.ttf")
+        save_value("fonts", "fonts/Tweed.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
     fun save_SonyEricssonLogo(v: View) {
-        Main.save_value("fonts", "fonts/SonyEricssonLogo.ttf")
+        save_value("fonts", "fonts/SonyEricssonLogo.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Whitney(v: View) {
-        Main.save_value("fonts", "fonts/Whitney.ttf")
+        save_value("fonts", "fonts/Whitney.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Bemount(v: View) {
-        Main.save_value("fonts", "fonts/Bemount.ttf")
+        save_value("fonts", "fonts/Bemount.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Stolzl_Book(v: View) {
-        Main.save_value("fonts", "fonts/Stolzl_Book.ttf")
+        save_value("fonts", "fonts/Stolzl_Book.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Snowstorm(v: View) {
-        Main.save_value("fonts", "fonts/Snowstorm.ttf")
+        save_value("fonts", "fonts/Snowstorm.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Izhitsa(v: View) {
-        Main.save_value("fonts", "fonts/Izhitsa.ttf")
+        save_value("fonts", "fonts/Izhitsa.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Rotonda(v: View) {
-        Main.save_value("fonts", "fonts/Rotonda.ttf")
+        save_value("fonts", "fonts/Rotonda.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Frezer(v: View) {
-        Main.save_value("fonts", "fonts/Frezer.ttf")
+        save_value("fonts", "fonts/Frezer.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Futured(v: View) {
-        Main.save_value("fonts", "fonts/Futured.ttf")
+        save_value("fonts", "fonts/Futured.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Yarin(v: View) {
-        Main.save_value("fonts", "fonts/Yarin.ttf")
+        save_value("fonts", "fonts/Yarin.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
     fun save_Sensei(v: View) {
-        Main.save_value("fonts", "fonts/Sensei.ttf")
+        save_value("fonts", "fonts/Sensei.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 

@@ -2,10 +2,6 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
-import android.graphics.Color
-import android.net.Uri
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +13,9 @@ import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
-import android.view.View.OnLongClickListener
+import dmitriy.deomin.aimpradioplalist.`fun`.*
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 
 
 class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_online_palist.ViewHolder>(), Filterable {
@@ -133,7 +131,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
         }
         //название будем делать жирным где эт надо
         if (name_text.contains("Автор:") || name_text.contains("Авторы:") || name_text.contains("Длительность:")) {
-            p0.name_radio.text = Main.Bold_text(name_text)
+            p0.name_radio.text = Bold_text(name_text)
         } else {
             p0.name_radio.text = name_text
         }
@@ -247,12 +245,12 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                     Slot(context, "add_koment", false).onRun {
                         if (it.getStringExtra("update") == "zaebis") {
                             add_kom.close()
-                            Main.load_koment(id)
+                            load_koment(id)
                         } else {
                             context.toast("ошибка")
                         }
                     }
-                    Main.add_koment(id, ed.text.toString())
+                  add_koment(id, ed.text.toString())
                 }
             }
             //-------------------------------------------------------------------------------------
@@ -260,12 +258,12 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
         }
         p0.btn_update_koment.onClick {
             //обновить текуший список коментов
-            Main.load_koment(id)
+            load_koment(id)
         }
 
         GlobalScope.launch {
             //Загрузим в начале просто количество коментов
-            Main.load_koment(id)
+            load_koment(id)
         }
 
         //-----------------------------------------------------------------------
@@ -322,7 +320,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                 text_name_i_url.text = name + "\n" + radio.url
                 text_name_i_url.onLongClick {
                     text_name_i_url.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-                    Main.putText(radio.url, context)
+                    putText_сlipboard(radio.url, context)
                     context.toast("url скопирован в буфер")
                 }
 
@@ -337,7 +335,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                     if(name.length>90){
                         n = name.substring(0,90)
                     }
-                    Main.play_system(n, radio.url)
+                    play_system(n, radio.url)
                 }
 
                 open_aimp.onClick {
@@ -345,7 +343,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                     if(name.length>90){
                         n = name.substring(0,90)
                     }
-                    Main.play_aimp(n, radio.url)
+                    play_aimp(n, radio.url)
                     mvr.close()
                 }
 
@@ -365,7 +363,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                         dw_no.text = "Нет"
 
                         dw_start.onClick {
-                            Main.add_myplalist(radio.name, radio.url)
+                            add_myplalist(radio.name, radio.url)
                             dw.close()
                         }
                         dw_no.onClick {
@@ -373,7 +371,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                         }
 
                     } else {
-                        Main.add_myplalist(radio.name, radio.url)
+                        add_myplalist(radio.name, radio.url)
                         mvr.close()
                     }
 
@@ -402,14 +400,9 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
 
                 //загрузить список
                 loadlist.onClick {
-                    val n = if (name.length > 100) {
-                        name.substring(0, 100)
-                    } else {
-                        name
-                    }
                     //закрываем основное окошко
                     mvr.close()
-                    Main.download_i_open_m3u_file(radio.url, n, "anim_online_plalist")
+                    download_i_open_m3u_file(radio.url,"anim_online_plalist")
                 }
 
 

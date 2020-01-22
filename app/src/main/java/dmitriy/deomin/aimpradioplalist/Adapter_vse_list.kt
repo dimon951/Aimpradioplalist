@@ -2,12 +2,16 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.annotation.SuppressLint
 import android.content.*
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
+import dmitriy.deomin.aimpradioplalist.`fun`.add_myplalist
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
+import dmitriy.deomin.aimpradioplalist.`fun`.putText_сlipboard
+import dmitriy.deomin.aimpradioplalist.`fun`.save_value_int
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -152,7 +156,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
                 //сохраним в список нажатых временый
                 cho_nagimal.add(p1)
                 //сохраняем позицию будет последняя и при запуске сработает
-                Main.save_value_int("cho_nagimali_poslednee", p1)
+                save_value_int("cho_nagimali_poslednee", p1)
             }
 
             //перекрасим
@@ -174,16 +178,16 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
             text_name_i_url.text = name + "\n" + radio.url
             text_name_i_url.onClick {
                 text_name_i_url.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-                Main.putText(radio.url, context)
+                putText_сlipboard(radio.url, context)
                 context.toast("url скопирован в буфер")
             }
 
             open_aimp.onLongClick {
-                Main.play_system(name, radio.url)
+                play_system(name, radio.url)
             }
 
             add_pls.onClick {
-                Main.add_myplalist(name, radio.url)
+                add_myplalist(name, radio.url)
                 mvr.close()
             }
 
@@ -196,7 +200,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
             }
 
             open_aimp.onClick {
-                Main.play_aimp(name, radio.url)
+                play_aimp(name, radio.url)
                 mvr.close()
             }
         }

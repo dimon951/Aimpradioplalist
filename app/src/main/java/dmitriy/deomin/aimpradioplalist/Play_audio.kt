@@ -6,6 +6,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
+import dmitriy.deomin.aimpradioplalist.`fun`.download_file
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp_file
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system_file
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Slot
 import dmitriy.deomin.aimpradioplalist.custom.send
@@ -110,17 +113,17 @@ class Play_audio(name:String,url:String){
             dw_start.onClick {
                 if (dw_logo.text == "Готово,сохранено в папке программы") {
                     //попробуем его открыть
-                    Main.play_aimp_file(Main.ROOT + name + "." + url.substringAfterLast('.'))
+                    play_aimp_file(Main.ROOT + name + "." + url.substringAfterLast('.'))
                 } else {
                     dw_start.visibility = View.GONE
-                    Main.download_file(url, name + "." + url.substringAfterLast('.'), "anim_online_plalist")
+                    download_file(url, name + "." + url.substringAfterLast('.'), "anim_online_plalist")
                     dw_logo.text = "Идёт загрузка..."
                     dw_no.text = "Отмена"
                 }
             }
             dw_start.onLongClick {
                 if (dw_logo.text == "Готово,сохранено в папке программы") {
-                    Main.play_system_file(Main.ROOT + name + "." + url.substringAfterLast('.'))
+                    play_system_file(Main.ROOT + name + "." + url.substringAfterLast('.'))
                 }
             }
             dw_no.onClick {

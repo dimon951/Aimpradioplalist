@@ -14,6 +14,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import dmitriy.deomin.aimpradioplalist.`fun`.save_read
+import dmitriy.deomin.aimpradioplalist.`fun`.save_read_int
+import dmitriy.deomin.aimpradioplalist.`fun`.save_value
+import dmitriy.deomin.aimpradioplalist.`fun`.save_value_int
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.vse_radio.view.*
 import kotlinx.coroutines.GlobalScope
@@ -50,9 +54,9 @@ class Vse_radio : Fragment() {
         find.textColor = Main.COLOR_TEXT
         find.hintTextColor = Main.COLOR_TEXTcontext
 
-        cho_nagimali_poslednee = Main.save_read_int("cho_nagimali_poslednee")
+        cho_nagimali_poslednee = save_read_int("cho_nagimali_poslednee")
 
-        Numeracia = if (Main.save_read_int("setting_numer") == 1) {
+        Numeracia = if (save_read_int("setting_numer") == 1) {
             1
         } else {
             0
@@ -192,8 +196,8 @@ class Vse_radio : Fragment() {
         }
         //---------------------------------------------------------------
         //при первой загрузке будем ставить текст на кнопке , потом при смене будем менять тамже
-        val t = if (Main.save_read("button_text_filter1").isNotEmpty()) {
-            Main.save_read("button_text_filter1")
+        val t = if (save_read("button_text_filter1").isNotEmpty()) {
+            save_read("button_text_filter1")
         } else {
             "Дискография"
         }
@@ -215,8 +219,8 @@ class Vse_radio : Fragment() {
             val e_t = vntvrf.view().findViewById<EditText>(R.id.new_text_filter_editText)
             e_t.typeface = Main.face
             e_t.setTextColor(Main.COLOR_TEXT)
-            e_t.setText(if (Main.save_read("button_text_filter1").isNotEmpty()) {
-                Main.save_read("button_text_filter1")
+            e_t.setText(if (save_read("button_text_filter1").isNotEmpty()) {
+                save_read("button_text_filter1")
             } else {
                 "Дискография"
             })
@@ -224,12 +228,12 @@ class Vse_radio : Fragment() {
             (vntvrf.view().findViewById<Button>(R.id.new_text_filter_button)).onClick {
 
                 if (e_t.text.toString().isNotEmpty()) {
-                    Main.save_value("button_text_filter1", e_t.text.toString())
-                    v.kod_diskografii.text = Main.save_read("button_text_filter1")
+                    save_value("button_text_filter1", e_t.text.toString())
+                    v.kod_diskografii.text = save_read("button_text_filter1")
                 } else {
                     toast("Значения нет, восстановим по умолчанию")
-                    Main.save_value("button_text_filter1", "Дискография")
-                    v.kod_diskografii.text = Main.save_read("button_text_filter1")
+                    save_value("button_text_filter1", "Дискография")
+                    v.kod_diskografii.text = save_read("button_text_filter1")
                 }
                 vntvrf.close()
             }
@@ -292,14 +296,14 @@ class Vse_radio : Fragment() {
             }
 
             num.onClick {
-                if (Main.save_read_int("setting_numer") == 0) {
-                    Main.save_value_int("setting_numer", 1)
+                if (save_read_int("setting_numer") == 0) {
+                    save_value_int("setting_numer", 1)
                     Numeracia = 1
                     num.paintFlags = Paint.UNDERLINE_TEXT_FLAG
                     num.setTypeface(Main.face, Typeface.BOLD)
                     recikl_vse_list.adapter!!.notifyDataSetChanged()
                 } else {
-                    Main.save_value_int("setting_numer", 0)
+                    save_value_int("setting_numer", 0)
                     Numeracia = 0
                     num.paintFlags = 0
                     num.typeface = Main.face

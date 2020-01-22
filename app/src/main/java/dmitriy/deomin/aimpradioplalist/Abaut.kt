@@ -7,6 +7,8 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.RelativeLayout
 import android.widget.TextView
+import dmitriy.deomin.aimpradioplalist.`fun`.save_read
+import dmitriy.deomin.aimpradioplalist.`fun`.save_value
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -41,11 +43,11 @@ class Abaut : Activity() {
 
         (findViewById<Button>(R.id.donat)).onClick {
             //если даже просто нажмут отключим показ рекламы
-            if (Main.save_read("reklama_pokaz") == "of") {
+            if (save_read("reklama_pokaz") == "of") {
                 //если не первый  раз нажимают поблагодарим за возможный донат
                 toast("Спасибо")
             } else {
-                Main.save_value("reklama_pokaz", "of")
+                save_value("reklama_pokaz", "of")
                 longToast("Если решили кинуть копеечку спасибо! , реклама будет скрыта после перезагрузки")
             }
 

@@ -1,35 +1,36 @@
-package dmitriy.deomin.aimpradioplalist
+package dmitriy.deomin.aimpradioplalist.`fun`
 
+import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 
 fun m3u_parser(data: String): ArrayList<Radio> {
 
     //список говнища которое нужно удалить(начинается строка)
-    val chlam: List<String> = listOf("#EXTINF", "#EXTM3U", "#PLAYLIST", "#EXTGRP")
+    val m3uTeg: List<String> = listOf("#EXTINF", "#EXTM3U", "#PLAYLIST", "#EXTGRP")
 
     //если плейлист не пустой
     if (data.contains("http")) {
-        val list_radio = ArrayList<Radio>()
+        val listRadio = ArrayList<Radio>()
         var name = ""
         var url = ""
 
-        val list_data = data.lines()
+        val listData = data.lines()
 
-        for (l in list_data) {
+        for (l in listData) {
 
-            if (esli_est(l, chlam)) {
+            if (esli_est(l, m3uTeg)) {
                 name = find_name_v_chlame(l)
             } else {
                 if (l.contains("http")) url = l
             }
 
             if (name.isNotEmpty() && url.isNotEmpty()) {
-                list_radio.add(Radio(name = name, url = url))
+                listRadio.add(Radio(name = name, url = url))
                 name = ""
                 url = ""
             }
         }
-        return list_radio
+        return listRadio
     } else {
         return arrayListOf(Radio(name = Main.PUSTO, url = ""))
     }
@@ -66,7 +67,6 @@ private fun clear_name_ot_chlama(s: String): String {
     // Удаляет все кроме букв и цифр в строке
     // ^ меняет режим фильтрации(на противоположный)
     //return s.replace(Regex("[^a-zA-Zа-яА-Я0-9 ]"), "")
-
 
     //пока просто уберу ненужные
     return s.replace("/", "")

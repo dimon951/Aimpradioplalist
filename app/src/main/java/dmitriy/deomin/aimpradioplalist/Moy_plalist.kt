@@ -7,19 +7,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import android.view.animation.AnimationUtils
 import android.widget.*
-import com.github.kittinunf.fuel.httpGet
-import com.google.firebase.FirebaseApp
-import com.google.firebase.FirebaseOptions
-import com.google.firebase.firestore.FirebaseFirestore
+import dmitriy.deomin.aimpradioplalist.`fun`.*
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
+import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 import dmitriy.deomin.aimpradioplalist.custom.*
-import kotlinx.android.synthetic.main.item_history_online_plalist.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
@@ -27,8 +21,6 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.email
 import org.jetbrains.anko.support.v4.share
-import org.jetbrains.anko.support.v4.startActivity
-import org.jetbrains.anko.support.v4.toast
 import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
 import java.io.File
 import java.text.SimpleDateFormat
@@ -58,7 +50,7 @@ class Moy_plalist : Fragment() {
         find.textColor = Main.COLOR_TEXT
         find.hintTextColor = Main.COLOR_TEXTcontext
 
-        position_list_my_plalist = Main.save_read_int("position_list_my_plalist")
+        position_list_my_plalist = save_read_int("position_list_my_plalist")
 
         val recikl_list = v.findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recicl_my_list)
         recikl_list.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
@@ -256,7 +248,7 @@ class Moy_plalist : Fragment() {
                                 "pizdec" -> {
                                     context.toast(context.getString(R.string.error))
                                     //запросим разрешения
-                                    Main.EbuchieRazreshenia()
+                                    EbuchieRazreshenia()
                                 }
                             }
                         }
@@ -291,7 +283,7 @@ class Moy_plalist : Fragment() {
                             "pizdec" -> {
                                 context.toast(context.getString(R.string.error))
                                 //запросим разрешения
-                                Main.EbuchieRazreshenia()
+                                EbuchieRazreshenia()
                             }
                         }
                     }
@@ -320,7 +312,7 @@ class Moy_plalist : Fragment() {
             edit_name.typeface = Main.face
             edit_name.textColor = Main.COLOR_TEXT
 
-            (auu.view().findViewById<Button>(R.id.button_paste_url_add)).onClick { edit.setText(Main.getText(context)) }
+            (auu.view().findViewById<Button>(R.id.button_paste_url_add)).onClick { edit.setText(getText_сlipboard(context)) }
 
             (auu.view().findViewById<Button>(R.id.button_add_url)).onClick {
 
@@ -343,7 +335,7 @@ class Moy_plalist : Fragment() {
                                 "pizdec" -> {
                                     context.toast(context.getString(R.string.error))
                                     //запросим разрешения
-                                    Main.EbuchieRazreshenia()
+                                    EbuchieRazreshenia()
                                 }
                             }
                         }
@@ -418,7 +410,7 @@ class Moy_plalist : Fragment() {
                                 "pizdec" -> {
                                     context.toast(context.getString(R.string.error))
                                     //запросим разрешения
-                                    Main.EbuchieRazreshenia()
+                                    EbuchieRazreshenia()
                                 }
                             }
                         }
@@ -485,12 +477,12 @@ class Moy_plalist : Fragment() {
                     //получим данные
                     when (it.getStringExtra("update")) {
                         "zaebis" -> {
-                            Main.play_aimp(it.getStringExtra("name"), "")
+                            play_aimp(it.getStringExtra("name"), "")
                         }
                         "pizdec" -> {
                             context.toast(context.getString(R.string.error))
                             //запросим разрешения
-                            Main.EbuchieRazreshenia()
+                            EbuchieRazreshenia()
                         }
                     }
                 }
@@ -511,12 +503,12 @@ class Moy_plalist : Fragment() {
                     //получим данные
                     when (it.getStringExtra("update")) {
                         "zaebis" -> {
-                            Main.play_system(it.getStringExtra("name"), "")
+                            play_system(it.getStringExtra("name"), "")
                         }
                         "pizdec" -> {
                             context.toast(context.getString(R.string.error))
                             //запросим разрешения
-                            Main.EbuchieRazreshenia()
+                            EbuchieRazreshenia()
                         }
                     }
                 }
@@ -595,7 +587,7 @@ class Moy_plalist : Fragment() {
         (lf.view().findViewById<Button>(R.id.load_fs)).onClick {
 
             //посмотрим есть старый путь
-            val old_dir = Main.save_read("startdir")
+            val old_dir = save_read("startdir")
             val startdir: String
             startdir = if (old_dir.length > 2) {
                 old_dir
@@ -615,7 +607,7 @@ class Moy_plalist : Fragment() {
                             lf.close()
 
                             //сохраним путь ,потом тамж и откроем
-                            Main.save_value("startdir", File(file_m3u_custom).parent)
+                            save_value("startdir", File(file_m3u_custom).parent)
 
                             GlobalScope.launch {
                                 //запустим анимацию
@@ -634,7 +626,7 @@ class Moy_plalist : Fragment() {
                                         "pizdec" -> {
                                             context.toast(context.getString(R.string.error))
                                             //запросим разрешения
-                                            Main.EbuchieRazreshenia()
+                                            EbuchieRazreshenia()
                                         }
                                     }
                                 }
@@ -703,7 +695,7 @@ class Moy_plalist : Fragment() {
             r.adapter = a
 
             //вставка из буфера
-            (dvvul.view().findViewById<Button>(R.id.button_paste_list_url_add)).onClick { e.setText(Main.getText(context)) }
+            (dvvul.view().findViewById<Button>(R.id.button_paste_list_url_add)).onClick { e.setText(getText_сlipboard(context)) }
 
             //если по истории кто кликнет то установим тот текст в эдит
             Slot(Main.context, "clik_history_item").onRun {
@@ -743,7 +735,7 @@ class Moy_plalist : Fragment() {
                     //Имя файла, не особо важно не буду заморачиваться
                     var n = e_n.text.toString()
                     if (n.isEmpty()) {
-                        n = "file" + Main.rnd_int(1, 100).toString()
+                        n = "file" + rnd_int(1, 100).toString()
                     }
 
                     save_mass.add("$n$$url_link$$date_time")
@@ -751,7 +743,7 @@ class Moy_plalist : Fragment() {
                     //----------------------------------------------------------
 
                     //-----------скачиваем файл (читам его)--------
-                    Main.download_i_open_m3u_file(url_link, n, "anim_my_list")
+                    download_i_open_m3u_file(url_link,"anim_my_list")
                 }
             }
         }

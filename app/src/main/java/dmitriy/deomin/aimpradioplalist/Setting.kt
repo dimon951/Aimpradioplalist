@@ -4,9 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import androidx.core.app.*
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,7 +21,10 @@ import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_SELEKT
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_TEXT
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_TEXTcontext
 import dmitriy.deomin.aimpradioplalist.Main.Companion.face
-import dmitriy.deomin.aimpradioplalist.Main.Companion.save_value_int
+import dmitriy.deomin.aimpradioplalist.`fun`.EbuchieRazreshenia
+import dmitriy.deomin.aimpradioplalist.`fun`.save_read_int
+import dmitriy.deomin.aimpradioplalist.`fun`.save_value
+import dmitriy.deomin.aimpradioplalist.`fun`.save_value_int
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.setting.*
 import org.jetbrains.anko.backgroundColor
@@ -154,7 +154,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                     "pizdec" -> {
                         context.toast(context.getString(R.string.error))
                         //запросим разрешения
-                        Main.EbuchieRazreshenia()
+                        EbuchieRazreshenia()
                     }
                 }
             }
@@ -164,7 +164,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
 
         //----список тем-------------------------
         //---------------------------------------------------------------------------------
-        if(Main.save_read_int("visible")==1){
+        if(save_read_int("visible")==1){
             list_them.visibility=View.VISIBLE
         }else{
             list_them.visibility=View.GONE
@@ -283,7 +283,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                 save_value_int("color_textcontext", COLOR_TEXTcontext)
                 save_value_int("color_selekt", COLOR_SELEKT)
                 //сохраним в память выбраную тему имя
-                Main.save_value(Main.F_THEM_list,theme.name)
+                save_value(Main.F_THEM_list,theme.name)
                 // перерисовываем
                 signal("pererisovka").send(context)
             }
@@ -317,7 +317,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                                 "pizdec" -> {
                                     context.toast(context.getString(R.string.error))
                                     //запросим разрешения
-                                    Main.EbuchieRazreshenia()
+                                    EbuchieRazreshenia()
                                 }
                             }
                         }
@@ -360,7 +360,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                                         "pizdec" -> {
                                             context.toast(context.getString(R.string.error))
                                             //запросим разрешения
-                                            Main.EbuchieRazreshenia()
+                                            EbuchieRazreshenia()
                                         }
                                     }
                                 }
