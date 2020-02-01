@@ -2,30 +2,22 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.annotation.SuppressLint
 import android.content.*
-import android.graphics.Color
 import android.graphics.Typeface
-import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.os.StrictMode
 import androidx.viewpager.widget.ViewPager
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.*
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentStatePagerAdapter
 import dmitriy.deomin.aimpradioplalist.`fun`.*
+import dmitriy.deomin.aimpradioplalist.`fun`.menu.menu_main
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.main.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
-import java.io.File
-import java.lang.Exception
 
 class Main : FragmentActivity() {
 
@@ -78,7 +70,6 @@ class Main : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
-
         //эта штука нужна чтобы выключить нововведение чертей, и сократить 100500 строк ненужного кода
         //It will ignore URI exposure  (оставляет "file://" как я понял )
         //---------------------------------------------------------------------------------------------
@@ -88,7 +79,10 @@ class Main : FragmentActivity() {
         context = this
 
         //во весь экран
-        this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
+
+
         //сохранялка
         mSettings = getSharedPreferences("mysettings", Context.MODE_PRIVATE)
 
@@ -118,11 +112,15 @@ class Main : FragmentActivity() {
             myView
         }
         imageSwitcher.setImageResource(mImageIds[1])
+        imageSwitcher.onClick {
+            menu_main(imageSwitcher)
+        }
+
 
         val viewPager: ViewPager = findViewById(R.id.pager)
         viewPager.offscreenPageLimit = 4
-        val myadapter = Myadapter(supportFragmentManager)
-        viewPager.adapter = myadapter
+        val adapter = Adapter_main_viewpager(supportFragmentManager)
+        viewPager.adapter = adapter
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {}
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
@@ -153,16 +151,6 @@ class Main : FragmentActivity() {
         val size_vse_list = resources.getStringArray(R.array.vse_radio).size.toString()
         //Сначала будем ставить общее количество всего радио
         vse_radio.text = "Все радио $size_vse_list"
-
-        //будем слушать изменение списка всего радио и рисовать на кнопке общее/текущее количество
-        Slot(context, "vse_radio_list_size").onRun {
-            val size = it.getStringExtra("size")
-            if (size_vse_list != size) {
-                vse_radio.text = "Все радио $size"
-            } else {
-                vse_radio.text = "Все радио $size_vse_list"
-            }
-        }
 
         vse_radio.onClick {
             viewPager.currentItem = 0
@@ -241,7 +229,7 @@ class Main : FragmentActivity() {
 
         //посмотрим есть ли ранее сохраненая позиция пейджера(умноженая на 10)
         // и если есть перейдём , иначе по умолчанию откроем вип радио
-        viewPager.currentItem = pos(save_read_int("page_aktiv"))
+        viewPager.currentItem = konvert_read_save_pos(save_read_int("page_aktiv"))
 
         //будем слушать эфир постоянно если че обновим
         //-------------------------------------------------------------------------------------
@@ -296,9 +284,9 @@ class Main : FragmentActivity() {
                 //обновляем пайджер
                 "update" -> {
                     //обновим
-                    myadapter.notifyDataSetChanged()
-                    viewPager.adapter = myadapter
-                    viewPager.currentItem = pos(save_read_int("page_aktiv"))
+                    adapter.notifyDataSetChanged()
+                    viewPager.adapter = adapter
+                    viewPager.currentItem = konvert_read_save_pos(save_read_int("page_aktiv"))
                 }
                 "update_color" -> {
                     fon_main.setBackgroundColor(COLOR_FON)
@@ -306,9 +294,9 @@ class Main : FragmentActivity() {
                     popularnoe.setTextColor(COLOR_TEXT)
                     moy_plalist.setTextColor(COLOR_TEXT)
 
-                    myadapter.notifyDataSetChanged()
-                    viewPager.adapter = myadapter
-                    viewPager.currentItem = pos(save_read_int("page_aktiv"))
+                    adapter.notifyDataSetChanged()
+                    viewPager.adapter = adapter
+                    viewPager.currentItem = konvert_read_save_pos(save_read_int("page_aktiv"))
                 }
                 "load_stop_vse_radio" -> {
                     progress_vse_radio.visibility = View.GONE
@@ -335,51 +323,27 @@ class Main : FragmentActivity() {
             }
         }
 
+        //будем слушать изменение списка всего радио и рисовать на кнопке общее/текущее количество
+        Slot(context, "vse_radio_list_size").onRun {
+            val size = it.getStringExtra("size")
+            if (size_vse_list != size) {
+                vse_radio.text = "Все радио $size"
+            } else {
+                vse_radio.text = "Все радио $size_vse_list"
+            }
+        }
+
+        //--------------------------------------------------------------------------------------
+
 
         //получим ебучие разрешения , если не дали их еще
         EbuchieRazreshenia()
 
         //пошлём првый раз сигнал пусть все отработает
-        signal("Main_update").putExtra("signal", pos(save_read_int("page_aktiv")).toString()).send(context)
+        signal("Main_update").putExtra("signal", konvert_read_save_pos(save_read_int("page_aktiv")).toString()).send(context)
 
         //при первом запуске программы покажем окошко с изменениями один раз
         // newUpdate()
     }
 
-    fun newUpdate() {
-        val startWindow = DialogWindow(context, R.layout.error_import)
-        val t = startWindow.view().findViewById<TextView>(R.id.textView_error_import_podrobno)
-        t.text = ""
-
-    }
-
-    fun pos(page: Int): Int {
-        var r = 0
-        when (page) {
-            0 -> r = 1
-            10 -> r = 0
-            100 -> r = 1
-            200 -> r = 2
-            300 -> r = 3
-        }
-        return r
-    }
-
-    //заполняем наш скролер
-    class Myadapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
-
-        override fun getItem(position: Int): Fragment? {
-            when (position) {
-                0 -> return Vse_radio()
-                1 -> return Pop_radio()
-                2 -> return Moy_plalist()
-                3 -> return Online_plalist()
-            }
-            return null
-        }
-
-        override fun getCount(): Int {
-            return 4
-        }
-    }
 }

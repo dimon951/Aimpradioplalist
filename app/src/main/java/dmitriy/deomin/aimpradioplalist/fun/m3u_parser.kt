@@ -1,6 +1,7 @@
 package dmitriy.deomin.aimpradioplalist.`fun`
 
 import dmitriy.deomin.aimpradioplalist.Main
+import dmitriy.deomin.aimpradioplalist.`fun`.file.clear_name_ot_chlama
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 
 fun m3u_parser(data: String): ArrayList<Radio> {
@@ -62,12 +63,3 @@ private fun find_name_v_chlame(s: String): String {
     }
 }
 
-
-private fun clear_name_ot_chlama(s: String): String {
-    // Удаляет все кроме букв и цифр в строке
-    // ^ меняет режим фильтрации(на противоположный)
-    //return s.replace(Regex("[^a-zA-Zа-яА-Я0-9 ]"), "")
-
-    //пока просто уберу ненужные
-    return s.replace("/", "")
-}

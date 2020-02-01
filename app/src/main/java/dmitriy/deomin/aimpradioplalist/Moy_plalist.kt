@@ -255,7 +255,7 @@ class Moy_plalist : Fragment() {
 
                         //переведём наш список в норм вид
                         //перезапишем и ждём ответа
-                        File_function().SaveFile("my_plalist", data.toString())
+                        File_function().SaveFile("my_plalist", data.joinToString(separator = "\n"))
                     }
                     (ddp.view().findViewById<Button>(R.id.button_dialog_no)).onClick {
                         ddp.close()
@@ -415,7 +415,7 @@ class Moy_plalist : Fragment() {
                             }
                         }
                         //сохраним  временый файл ссылку и ждём сигналы
-                        File_function().SaveFile(name.text.toString(), data.toString())
+                        File_function().SaveFile(name.text.toString(), data.joinToString(separator = "\n"))
                     }
                 }
             } else {

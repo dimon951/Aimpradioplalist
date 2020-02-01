@@ -167,21 +167,12 @@
         android:orientation="vertical">
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
-            android:id="@+id/help_open_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@null"
-            android:text="Тв плейлисты открывайте видео проигрывателем из системы,долгим нажатием кнопки плей"
-            android:visibility="gone" />
-
-        <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_history_online_plalilst"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@null"
-            android:text="Назад/История(Кеш)" />
+            android:text="Назад/Кеш" />
 
     </LinearLayout>
 

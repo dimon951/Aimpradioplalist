@@ -1,6 +1,4 @@
 package dmitriy.deomin.aimpradioplalist.`fun`
-
-import android.util.Log
 import dmitriy.deomin.aimpradioplalist.File_function
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 

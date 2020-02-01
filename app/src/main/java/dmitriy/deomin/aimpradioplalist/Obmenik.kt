@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import dmitriy.deomin.aimpradioplalist.`fun`.data_time
 import dmitriy.deomin.aimpradioplalist.`fun`.getText_сlipboard
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.obmenik.*
@@ -202,16 +203,10 @@ class Obmenik : Activity() {
                         }
                     }
 
-//                    val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-//                    val currentDate = sdf.format(Date())
-                    val calendar = Calendar.getInstance(TimeZone.getTimeZone("Europe/Moscow"))
-                    val currentDate = calendar.getTime()
-
-
                     //добавление в базу
                     val db = FirebaseFirestore.getInstance()
                     val user = hashMapOf(
-                            "date" to currentDate.toString(),
+                            "date" to data_time(),
                             "user_name" to Main.NAME_USER,
                             "user_id" to Main.ID_USER,
                             "kat" to kategoria,

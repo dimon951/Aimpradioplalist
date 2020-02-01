@@ -55,6 +55,8 @@ data class Theme(val name: String, val fon: Int, val item: Int, val text: Int, v
 
 data class History(val name: String, val url: String, val data_time: String, val size: String = "")
 
+data class HistoryNav(val url:String,val kat:String="del")
+
 data class Like(val user_id: String, val item_id: String, val like: String) : Parcelable {
     override fun describeContents(): Int {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -67,8 +69,7 @@ data class Like(val user_id: String, val item_id: String, val like: String) : Pa
     constructor(parcel: Parcel) : this(
             parcel.readString().toString(),
             parcel.readString().toString(),
-            (parcel.readByte() != 0.toByte()).toString()) {
-    }
+            (parcel.readByte() != 0.toByte()).toString())
 
     companion object CREATOR : Parcelable.Creator<Like> {
         override fun createFromParcel(parcel: Parcel): Like {
