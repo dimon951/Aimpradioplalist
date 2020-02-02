@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system_file
+import dmitriy.deomin.aimpradioplalist.`fun`.read_and_pars_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.save_value
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.History
@@ -61,12 +62,12 @@ class Adapter_history_online_plalist(val data: ArrayList<History>) : androidx.re
             if (history.url.substringAfterLast('.') == "mp3") {
                 play_aimp_file(history.url)
             } else {
-                save_value(Main.HISORYLAST, history.url)
                 //пошлём сигнал для загрузки дааных п спискок
-                signal("Online_plalist")
+                signal("Data_add")
                         .putExtra("update", "zaebis")
                         .putExtra("listfile", history.url)
                         .send(Main.context)
+                signal("Main_update").putExtra("signal","move2").send(Main.context)
             }
 
         }

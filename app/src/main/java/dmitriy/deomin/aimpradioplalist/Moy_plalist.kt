@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.*
 import dmitriy.deomin.aimpradioplalist.`fun`.*
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
@@ -65,12 +66,6 @@ class Moy_plalist : Fragment() {
         fastScroller.layoutParams = paramL
         fastScroller.setRecyclerView(recikl_list)
         recikl_list.setOnScrollListener(fastScroller.onScrollListener)
-
-
-        //скроем панель показа ошибки
-        val leiner_error = v.findViewById<LinearLayout>(R.id.lener_error)
-        val text_erro = v.findViewById<TextView>(R.id.textViewerror_loadd_file)
-        leiner_error.visibility = View.GONE
 
         val update_list = v.findViewById<Button>(R.id.button_close_list)
 
@@ -135,29 +130,28 @@ class Moy_plalist : Fragment() {
                 }
 
                 "move_back" -> {
-
                     //если в истории чтото есть вообще
                     if (list_move_history.isNotEmpty()) {
-                        //скажем загрузить последний открытый файл
-                        if (list_move_history.size >= 1) {
-                            //и удалим последний элемент если там больше 1
-                            open_file = if (list_move_history.size == 1) {
-                                Main.MY_PLALIST
-                            } else {
-                                list_move_history.removeAt(list_move_history.size - 1)
-                                list_move_history[list_move_history.size - 1]
-                            }
-                            if (open_file == Main.MY_PLALIST) {
+                        //Если в истории что то есть
+                        if (list_move_history.size > 1) {
+                            Log.e("ttt", list_move_history.toString())
+                            //удаляем текущию открытую страницу
+                            list_move_history.removeAt(list_move_history.size - 1)
+                            //передаём предыдующию
+                            Log.e("ttt", list_move_history.toString())
+                            open_file = list_move_history.last()
+                        }else{
+                            if (list_move_history.size == 1) {
+                                open_file = Main.MY_PLALIST
                                 update_list.visibility = View.GONE
                                 list_move_history.clear()
                             }
-
-                        } else {
-                            update_list.visibility = View.GONE
-                            list_move_history.clear()
-                            open_file = ""
-                            return@onRun
                         }
+                    } else {
+                        update_list.visibility = View.GONE
+                        list_move_history.clear()
+                        open_file = ""
+                        return@onRun
                     }
 
                     //заново все сделаем
@@ -743,7 +737,7 @@ class Moy_plalist : Fragment() {
                     //----------------------------------------------------------
 
                     //-----------скачиваем файл (читам его)--------
-                    download_i_open_m3u_file(url_link,"anim_my_list")
+                    download_i_open_m3u_file(url_link, "anim_my_list")
                 }
             }
         }

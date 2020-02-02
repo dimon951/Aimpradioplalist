@@ -319,7 +319,7 @@ class Main : FragmentActivity() {
                     online_plalist.visibility = View.VISIBLE
                     progress_online_plalist.visibility = View.GONE
                 }
-
+                "move2"->viewPager.setCurrentItem(2)
             }
         }
 

@@ -22,11 +22,14 @@
             android:value="true" />
         <meta-data
             android:name="com.google.android.gms.ads.ca-app-pub-7908895047124036~7402987509"
-            android:value="ca-app-pub-7908895047124036/8879720700" /> <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+            android:value="ca-app-pub-7908895047124036/8879720700" />
+        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <activity
             android:name=".Main"
-            android:configChanges="orientation|screenSize">
+            android:configChanges="orientation|screenSize"
 
+            android:windowSoftInputMode="stateHidden">
+            <!-- это нужно стобы убрать фокус с edittext -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

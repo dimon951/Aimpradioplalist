@@ -72,9 +72,9 @@ fun Intent.send(context: Context) {
 }
 
 //созданим signal тотже интент только имя поменяем
-class signal(name: String) : Intent() {
+class signal(name_slot: String) : Intent() {
     init {
-        this.action = name
+        this.action = name_slot
     }
 }
 //-----------------------------------------------------------

@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.*
 import androidx.fragment.app.Fragment
 import dmitriy.deomin.aimpradioplalist.custom.*
@@ -44,6 +45,7 @@ class Online_plalist : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.online_plalist, null)
         val context: Context = Main.context
+
         //настройка вида----------------------------------------------------------------------------
         val find = v.findViewById<EditText>(R.id.editText_find_online_plalist)
         find.typeface = Main.face
@@ -433,16 +435,15 @@ class Online_plalist : Fragment() {
                 download_i_open_m3u_file(list_history.last().url, "anim_online_plalist")
                 selekt_CATEGORIA(list_history.last().kat,v)
                 save_value("categoria",list_history.last().kat)
+            }else{
+                //если там последняя страница списка
+                if (list_history.size == 1) {
+                    //передаём предыдующию
+                    download_i_open_m3u_file(list_history.last().url, "anim_online_plalist")
+                    selekt_CATEGORIA(list_history.last().kat,v)
+                    save_value("categoria",list_history.last().kat)
+                }
             }
-            //если там последняя страница списка
-            if (list_history.size == 1) {
-                //передаём предыдующию
-                download_i_open_m3u_file(list_history.last().url, "anim_online_plalist")
-                selekt_CATEGORIA(list_history.last().kat,v)
-                save_value("categoria",list_history.last().kat)
-            }
-
-
         }
 
         //--------категории--------------------------------------------------------------

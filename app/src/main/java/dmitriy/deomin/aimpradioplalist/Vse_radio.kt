@@ -27,7 +27,9 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.textColor
+import org.jetbrains.anko.toast
 import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
+import java.lang.Exception
 
 import java.util.ArrayList
 
@@ -152,7 +154,12 @@ class Vse_radio : Fragment() {
 
             //пролистываем до нужного элемента
             if (cho_nagimali_poslednee > 0 && adapter_vse_list.raduoSearchList.size > cho_nagimali_poslednee) {
-                recikl_vse_list.scrollToPosition(cho_nagimali_poslednee)
+                try {
+                    recikl_vse_list.scrollToPosition(cho_nagimali_poslednee)
+                }catch (e:Exception){
+                    context.toast("Не найдена позиция в списке")
+                }
+
             }
 
             // текст только что изменили в строке поиска
