@@ -1,4 +1,4 @@
-package dmitriy.deomin.aimpradioplalist.`fun`
+package dmitriy.deomin.aimpradioplalist.`fun`.m3u
 
 import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.`fun`.file.clear_name_ot_chlama

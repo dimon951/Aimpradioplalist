@@ -7,7 +7,6 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.widget.*
 import androidx.fragment.app.Fragment
 import dmitriy.deomin.aimpradioplalist.custom.*
@@ -18,6 +17,9 @@ import org.jetbrains.anko.support.v4.startActivity
 import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
 import android.view.animation.AnimationUtils
 import dmitriy.deomin.aimpradioplalist.`fun`.*
+import dmitriy.deomin.aimpradioplalist.`fun`.file.getDirSize
+import dmitriy.deomin.aimpradioplalist.`fun`.file.long_size_to_good_vid
+import dmitriy.deomin.aimpradioplalist.`fun`.m3u.download_i_open_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
@@ -477,6 +479,11 @@ class Online_plalist : Fragment() {
             download_i_open_m3u_file(open_url_online_palist, "anim_online_plalist")
             //Отметим категорию
             selekt_CATEGORIA(save_read("categoria"), v)
+        }else{
+            //иначе пустую страницу покажем
+            signal("Online_plalist")
+                    .putExtra("update", "zaebis")
+                    .send(context)
         }
 
         return v
@@ -550,22 +557,7 @@ class Online_plalist : Fragment() {
         }
     }
 
-    fun getDirSize(dir: File): Long {
-        var size: Long = 0
-        if (dir.isFile) {
-            size = dir.length()
-        } else {
-            val subFiles = dir.listFiles()
-            for (file in subFiles) {
-                size += if (file.isFile) {
-                    file.length()
-                } else {
-                    getDirSize(file)
-                }
-            }
-        }
-        return size
-    }
+
 
     override fun onPause() {
         //сохраним последнию открытую страницу

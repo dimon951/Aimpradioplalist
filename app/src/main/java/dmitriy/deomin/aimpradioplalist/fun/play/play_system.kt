@@ -10,7 +10,7 @@ import android.widget.EditText
 import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.`fun`.EbuchieRazreshenia
-import dmitriy.deomin.aimpradioplalist.`fun`.create_m3u_file
+import dmitriy.deomin.aimpradioplalist.`fun`.m3u.create_m3u_file
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 import dmitriy.deomin.aimpradioplalist.custom.Slot

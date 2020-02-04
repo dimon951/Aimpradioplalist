@@ -1,4 +1,4 @@
-package dmitriy.deomin.aimpradioplalist.`fun`
+package dmitriy.deomin.aimpradioplalist.`fun`.file
 
 //переводит размер файла в нормальный вид
 fun long_size_to_good_vid(size: Double): String {

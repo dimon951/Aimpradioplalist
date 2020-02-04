@@ -14,6 +14,7 @@ import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import dmitriy.deomin.aimpradioplalist.`fun`.*
+import dmitriy.deomin.aimpradioplalist.`fun`.m3u.download_i_open_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 
@@ -402,7 +403,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                 loadlist.onClick {
                     //закрываем основное окошко
                     mvr.close()
-                    download_i_open_m3u_file(radio.url,"anim_online_plalist")
+                    download_i_open_m3u_file(radio.url, "anim_online_plalist")
                 }
 
 

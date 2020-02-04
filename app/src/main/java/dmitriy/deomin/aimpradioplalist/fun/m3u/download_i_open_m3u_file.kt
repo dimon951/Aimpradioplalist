@@ -1,7 +1,9 @@
-package dmitriy.deomin.aimpradioplalist.`fun`
+package dmitriy.deomin.aimpradioplalist.`fun`.m3u
 
 import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.`fun`.file.url_to_name
+import dmitriy.deomin.aimpradioplalist.`fun`.hhtp_get
+import dmitriy.deomin.aimpradioplalist.`fun`.isValidURL
 import dmitriy.deomin.aimpradioplalist.custom.Slot
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal

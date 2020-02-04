@@ -1,4 +1,4 @@
-package dmitriy.deomin.aimpradioplalist.`fun`
+package dmitriy.deomin.aimpradioplalist.`fun`.m3u
 import dmitriy.deomin.aimpradioplalist.File_function
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 
