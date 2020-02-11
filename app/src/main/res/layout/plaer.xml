@@ -37,6 +37,7 @@
                 android:id="@+id/text_logo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10dp"
                 android:layout_weight="2"
                 android:gravity="center|left"
                 android:text="TextView" />
@@ -48,22 +49,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="TextView"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
-        <dmitriy.deomin.aimpradioplalist.custom.Btn
-            android:id="@+id/download"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="Скачать" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-        <dmitriy.deomin.aimpradioplalist.custom.Btn
-            android:id="@+id/go"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="play" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/go"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@android:drawable/ic_media_play" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/download"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@android:drawable/ic_menu_save" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

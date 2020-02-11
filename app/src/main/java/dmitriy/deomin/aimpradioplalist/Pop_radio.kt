@@ -18,7 +18,7 @@ import java.util.*
 
 class Pop_radio : Fragment() {
 
-    @SuppressLint("InflateParams")
+    @SuppressLint("InflateParams", "WrongConstant")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.pop_radio, null)
 

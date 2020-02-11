@@ -1,7 +1,6 @@
 package dmitriy.deomin.aimpradioplalist
 
-import android.os.Environment
-import android.widget.Toast
+import dmitriy.deomin.aimpradioplalist.`fun`.file.create_esli_net
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
@@ -12,15 +11,6 @@ import kotlin.collections.ArrayList
 
 
 class File_function {
-
-    /* Проверяет, доступно ли external storage для чтения и записи */
-    private val isExternalStorageWritable: Boolean
-        get() {
-            val state = Environment.getExternalStorageState()
-            return Environment.MEDIA_MOUNTED == state
-        }
-
-
 
     //добавляется в текущему плейлисту ещё станцию
     fun Add_may_plalist_stansiy(link: String, name: String) {
@@ -57,17 +47,6 @@ class File_function {
 
     }
 
-    fun create_esli_net() {
-        if (isExternalStorageWritable) {
-            val sddir = File(Main.ROOT)
-            if (!sddir.exists()) {
-                sddir.mkdirs()
-            }
-        } else {
-            Toast.makeText(Main.context, "Нет доступа к памяти", Toast.LENGTH_LONG).show()
-            return
-        }
-    }
 
     //Функция, которая сохраняет файл, принимая полный путь до файла filePath и сохраняемый текст FileContent:
     fun SaveFile(name: String, data: String) {

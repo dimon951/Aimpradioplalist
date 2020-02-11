@@ -2,11 +2,13 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.media.MediaPlayer
 import android.net.Uri
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import dmitriy.deomin.aimpradioplalist.`fun`.download_file
+import dmitriy.deomin.aimpradioplalist.`fun`.formatTimeToEnd
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system_file
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
@@ -16,8 +18,9 @@ import dmitriy.deomin.aimpradioplalist.custom.signal
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import java.io.IOException
-
-
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class Play_audio(name:String,url:String){
@@ -37,10 +40,12 @@ class Play_audio(name:String,url:String){
 
         val plaer = DialogWindow(Main.context,R.layout.plaer,true)
 
+
+        //когда проигрывание закончилось
         mediaPlayer?.setOnCompletionListener {
             mediaPlayer?.stop()
             playStatus = false
-            plaer.view().findViewById<Button>(R.id.go).text="play"
+            plaer.view().findViewById<Button>(R.id.go).setBackgroundResource(android.R.drawable.ic_media_play)
         }
 
         plaer.view().findViewById<Button>(R.id.close).onClick {
@@ -59,13 +64,14 @@ class Play_audio(name:String,url:String){
             if (playStatus) {
                 mediaPlayer?.stop()
                 playStatus = false
-                plaer.view().findViewById<Button>(R.id.go).text="play"
+                plaer.view().findViewById<Button>(R.id.go).setBackgroundResource(android.R.drawable.ic_media_play)
                 // старт
             } else {
                 try {
                     mediaPlayer?.prepare()
                     mediaPlayer?.start()
-                    plaer.view().findViewById<Button>(R.id.go).text="stop"
+                    plaer.view().findViewById<Button>(R.id.go).setBackgroundResource(android.R.drawable.ic_media_pause)
+                    plaer.view().findViewById<TextView>(R.id.info).text="Продолжительность: "+formatTimeToEnd(mediaPlayer?.duration!!.toLong())
                 } catch (e: IllegalStateException) {
                     e.printStackTrace()
                 } catch (e: IOException) {
@@ -74,6 +80,8 @@ class Play_audio(name:String,url:String){
 
                 playStatus = true
             }
+
+
         }
 
 
@@ -136,5 +144,7 @@ class Play_audio(name:String,url:String){
         }
 
     }
+
+
 
 }

@@ -14,6 +14,8 @@ import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import dmitriy.deomin.aimpradioplalist.`fun`.*
+import dmitriy.deomin.aimpradioplalist.`fun`.file.clear_name_ot_chlama
+import dmitriy.deomin.aimpradioplalist.`fun`.file.long_name_resize
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.download_i_open_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
@@ -53,6 +55,8 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
             override fun publishResults(charSequence: CharSequence, filterResults: FilterResults) {
                 if (filterResults.values != null) {
                     this@Adapter_online_palist.raduoSearchList = filterResults.values as ArrayList<Radio>
+                    notifyDataSetChanged()
+                }else{
                     notifyDataSetChanged()
                 }
             }
@@ -251,7 +255,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                             context.toast("ошибка")
                         }
                     }
-                  add_koment(id, ed.text.toString())
+                    add_koment(id, ed.text.toString())
                 }
             }
             //-------------------------------------------------------------------------------------
@@ -327,24 +331,28 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
 
 
                 text_name_i_url.onClick {
-                    Play_audio(radio.name, radio.url)
+                    if (save_read("categoria") == "2") {
+                        if(isValidURL(radio.url)){
+                            Play_audio(radio.name, radio.url)
+                        }else{
+                            context.toast("Возможно ссылка битая, нельзя открыть")
+                        }
+                    } else {
+                        context.toast("Доступно пока только для аудиокниг")
+                    }
                     mvr.close()
                 }
 
                 open_aimp.onLongClick {
-                    var n=name
-                    if(name.length>90){
-                        n = name.substring(0,90)
-                    }
-                    play_system(n, radio.url)
+                    play_system(long_name_resize(name), radio.url)
                 }
 
                 open_aimp.onClick {
-                    var n=name
-                    if(name.length>90){
-                        n = name.substring(0,90)
+                    if (save_read("categoria") == "3") {
+                        play_system(long_name_resize(name), radio.url)
+                    } else {
+                        play_aimp(long_name_resize(name), radio.url)
                     }
-                    play_aimp(n, radio.url)
                     mvr.close()
                 }
 
@@ -405,11 +413,8 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                     mvr.close()
                     download_i_open_m3u_file(radio.url, "anim_online_plalist")
                 }
-
-
             }
         }
-
 
     }
 }

@@ -70,11 +70,8 @@
             128kbps~kbps~http://stream1.radiord.ru:8000/live96.aac~kbps~
         </item>
         <item>ENERGY\nenergy.png\n
-            256kbps~kbps~http://ic2.101.ru:8000/v1_1~kbps~
-            256kbps~kbps~http://ic3.101.ru:8000/s20~kbps~
             320kbps~kbps~http://nrj.babahhcdn.com/NRJ?.mp3~kbps~
             128kbps~kbps~http://energydance.ice.infomaniak.ch/energydance-high.mp3~kbps~
-            128kbps~kbps~http://91.207.59.26/a99~kbps~
         </item>
         <item>DFM\ndfm_moskva.png\n
             64kbps~kbps~https://dfm.hostingradio.ru/dfm64.mp3~kbps~
@@ -269,7 +266,6 @@
         <item>От радио Ваня:Рэп и Хип-Хап -Музыка- 128kbps\nhttp://icecast-radiovanya.cdnvideo.ru:8000/rv_rap</item>
         <item>От радио Ваня:Веселый Dance -Музыка- 128kbps\nhttp://icecast-radiovanya.cdnvideo.ru:8000/rv_Happy_Dance</item>
         <item>От радио Ваня:Олдскул -Музыка- 128kbps\nhttp://icecast-radiovanya.cdnvideo.ru:8000/rv_retro</item>
-
         <item>Типичное FM -Музыка- 128kbps\nhttp://play.tipfm.ru:9000/9696</item>
         <item>HIP HOP RADIO(новая станция от ТНТ Music) -Музыка- 128kbps\nhttps://tntradio.hostingradio.ru:8027/hhr128.mp3</item>
         <item>Enigma 101 ru -Музыка- 64kbps\nhttp://ic4.101.ru:8000/a175?</item>
@@ -282,7 +278,6 @@
         <item>Пи FM -Музыка- 128kbps\nhttp://stream.pifm.ru/mp3</item>
         <item>Пи FM -Музыка- 96kbps\nhttp://prepros.pifm.ru:80/96</item>
         <item>Пи FM Кемерово -Музыка- 128kbps\nhttp://prepros.pifm.ru:80/kemer</item>
-        <item>КП -Разговорное- 256kbps\nhttp://kpradio.hostingradio.ru:8000/russia.radiokp256f.mp3</item>
         <item>Смелое радио -Музыка- 128kbps\nhttp://a5.radioheart.ru:8059/nonstop</item>
         <item>Lofi Radio -Музыка- 96kbps\nhttp://comet.shoutca.st:8723/autodj</item>
         <item>Lofi Radio -Музыка- 32kbps\nhttp://comet.shoutca.st:8723/stream32_autodj</item>
@@ -348,7 +343,6 @@
         <item>РАДИО ENERGY -Музыка- 128kbps\nhttp://ic7.101.ru:8000/a99</item>
         <item>RELAX FM -Музыка- 86kbps\nhttp://ic3.101.ru:8000/a200</item>
         <item>РАДИО ROMANTIKA -Музыка- 64kbps\nhttp://ic3.101.ru:8000/a101</item>
-        <item>ДЕТСКОЕ РАДИО -Музыка- 64kbps\nhttp://ic3.101.ru:8000/a199</item>
         <item>ЮМОР FM -Музыка- 64kbps\nhttp://ic3.101.ru:8000/a102</item>
         <item>COMEDY RADIO -Музыка- 64kbps\nhttp://ic3.101.ru:8000/a202</item>
         <item>РАДИО ЗЕНИТ -Музыка- 128kbps\nhttp://ic6.101.ru:8000/v15_1</item>
@@ -385,54 +379,15 @@
         <item>Русь -Музыка- 192kbps\nradio-holding.ru:9000/rus</item>
         <item>Родина -Музыка- 128kbps\ncast.modnoeradio.ru:8000/live</item>
         <item>Мелодия -Музыка- 128kbps\nstream128.melodiafm.spb.ru:8000/melodia128</item>
-        <item>ABBA -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a104?</item>
-        <item>Boney M -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a114?</item>
-        <item>DDT -Дискография- 64kbps\nhhttp://ic2.101.ru:8000/a112?</item>
-        <item>Deep Purple -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a125?</item>
-        <item>Depeche Mode -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a105?</item>
-        <item>Elton John -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a142?</item>
-        <item>Elvis Presley -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a111?</item>
         <item>Katy Perry? -Дискография- 64kbps\nhttp://icy.unitedradio.it/101SpecialArtist.aac</item>
-        <item>Linkin Park -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a149?</item>
-        <item>Madonna -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a128?</item>
-        <item>Metallica -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a123?</item>
-        <item>Michael Jackson -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a52?</item>
-        <item>Modern Talking -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a115?</item>
-        <item>Mylene Farmer -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a166?</item>
-        <item>Наутилус Помпилиус -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a126?</item>
         <item>Наутилус Помпилиус -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a126</item>
-        <item>Pink Floyd -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a53?</item>
-        <item>Robbie Williams -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a138?</item>
-        <item>Sandra -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a179?</item>
-        <item>Scropions -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a113?</item>
-        <item>Queen -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a54?</item>
         <item>Queen -Дискография- 48kbps\nhttp://stream.open.fm/185</item>
-        <item>AC/DC -Дискография- 192kbps\nhttp://streams.radiobob.de/bob-acdc/mp3-192/radiosure/</item>
         <item>Andrea -Дискография- 128kbps\nhttp://streams.schlagerplanetradio.com/andrea/mp3-128/radiosure/</item>
         <item>Roland Kaiser -Дискография- 128kbps\nhttp://streams.schlagerplanetradio.com/kaiser/mp3-128</item>
-        <item>The Beatles -Дискография- 128kbps\nhttp://ic2.101.ru:8000/c10_3?</item>
         <item>The Rolling Stones -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a117</item>
-        <item>U2 -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a109?</item>
-        <item>Агата Кристи -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a139?</item>
-        <item>Александр Розенбаум -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a153?</item>
-        <item>Алиса -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a137?</item>
-        <item>Ария -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a118?</item>
-        <item>БГ и Аквариум -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a57?</item>
-        <item>Владимир Высоцкий -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a58?</item>
-        <item>Каста -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a121?</item>
-        <item>Цой и группа «КИНО» -Дискография- 128kbps\nhttp://ic2.101.ru:8000/a103?</item>
-        <item>Король и Шут -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a191?</item>
-        <item>Любэ -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a158?</item>
-        <item>Машина Времени -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a59?</item>
-        <item>Михаил Круг -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a110?</item>
-        <item>Муслим Магомаев -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a156?</item>
         <item>Океан Эльзы -Дискография- 128kbps\nhttp://music.myradio.ua/okeanelzy128.mp3</item>
-        <item>Пикник -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a157?</item>
         <item>Руки вверх! -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a163</item>
-        <item>Стас Михайлов -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a154</item>
         <item>ТНМК -Дискография- 128kbps\nhttp://music.myradio.ua/tnmk128.mp3</item>
-        <item>Филипп Киркоров -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a116</item>
-        <item>Чиж и Co -Дискография- 64kbps\nhttp://ic2.101.ru:8000/a221?</item>
         <item>Europa Plus: Свежее -Музыка- 32kbps\nhttp://hls-01-fresh.emgsound.ru/9/32/playlist.m3u8</item>
         <item>Europa Plus: Свежее -Музыка- 64kbps\nhttp://hls-01-fresh.emgsound.ru/9/64/playlist.m3u8</item>
         <item>Europa Plus: Свежее -Музыка- 128kbps\nhttp://hls-01-fresh.emgsound.ru/9/128/playlist.m3u8</item>
@@ -891,7 +846,6 @@
         <item>Говорит Москва -Разговорное- 128kbps\nhttp://video.govoritmoskva.ru:8880/rufm_m.mp3</item>
         <item>Говорит Москва -Разговорное- 64kbps\nhttp://video.govoritmoskva.ru:8880/ru64.mp3</item>
         <item>Говорит Москва -Разговорное- mono 32kbps\nhttp://video.govoritmoskva.ru:8880/ru32.mp3</item>
-        <item>Радио Мегаполис Москва -Разговорное- 49kbps\nhttp://109.239.129.43:8010/megapolis-48.aac</item>
         <item>КП Москва -Разговорное- 128kbps\nhttp://kpradio128.streamr.ru/</item>
         <item>КП Москва -Разговорное- 64kbps\nhttp://kpradio64.streamr.ru/</item>
         <item>КП Москва -Разговорное- 32kbps\nhttp://kpradio32.streamr.ru</item>
@@ -941,14 +895,11 @@
         <item>Vocal Trance Radio 320kbps\nhttp://176.9.36.203:8000/vocaltrance_320</item>
         <item>ЗвукоКнига -Аудиокниги- 128kbps\nhttp://94.181.45.104:8005/;</item>
         <item>Old Time Radio -Аудиокниги- mono 64kbps\nhttp://199.189.86.43:8170/</item>
-        <item>Cornucopia Broadcasting -Аудиокниги- 96kbps\nhttp://8.38.78.173:8002/;audio.mp3</item>
         <item>BBC Radio 4 Extra -Аудиокниги- 128kbps\nhttp://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4extra_mf_p</item>
         <item>ХАЙП FM -Поп- 46kbps\nhttp://air.volna.top/HypeFM</item>
         <item>RETRO BOLLYWOOD -Саундтреки- 128kbps\nhttp://64.71.79.181:5124/stream</item>
         <item>Soundtrax Movie Soundtracks -Саундтреки- 128kbps\nhttp://edge2.peta.live365.net/b31436_128mp3?cb=688524.mp3</item>
         <item>Музыка кино Украина -Саундтреки- 128kbps\nhttp://music.myradio.ua/kino128.mp3</item>
-        <item>Музыка кино Украина -Саундтреки- 192kbps\nhttp://relay.radio.obozrevatel.com:8000/kino192.mp3</item>
-        <item>Музыка кино Украина -Саундтреки- 128kbps\nhttp://relay.radio.obozrevatel.com:8000/kino128.ogg</item>
         <item>Black Star Radio 128kbps\nhttps://blackstarradio.hostingradio.ru:8024/blackstarradio128.mp3?radiostatistica=radiopotok</item>
         <item>Турбо FM 128kbps\nhttp://m2m128.hostingradio.ru:8074/m2m128.mp3</item>
         <item>Радио День -Музыка- 48kbps\nhttp://air.radioday.fm/48</item>
@@ -1135,7 +1086,6 @@
         <item>Танцевальные хиты 128kbps\nhttp://relay.radio.obozrevatel.com/dance128.mp3</item>
         <item>Соул 128kbps\nhttp://relay.radio.obozrevatel.com/soul128.mp3</item>
         <item>Скрябин 128kbps\nhttp://relay.radio.obozrevatel.com/skryabin128.mp3</item>
-        <item>Саундтреки -Саундтреки- 128kbps\nhttp://relay.radio.obozrevatel.com/soundtrack128.mp3</item>
         <item>Русский рэп 128kbps\nhttp://relay.radio.obozrevatel.com/rep128.mp3</item>
         <item>Русский рок 128kbps\nhttp://relay.radio.obozrevatel.com/RusRock128.mp3</item>
         <item>Русская поп-музыка 128kbps\nhttp://relay.radio.obozrevatel.com/Rus-pop128.mp3</item>
@@ -1161,14 +1111,9 @@
         <item>Баллады 128kbps\nhttp://relay.radio.obozrevatel.com/Ballads128.mp3</item>
         <item>Блюз 128kbps\nhttp://relay.radio.obozrevatel.com/blues128.mp3</item>
         <item>Breakbeat 128kbps\nhttp://relay.radio.obozrevatel.com/breakbeat128.mp3</item>
-        <item>Виктор Цой и Кино -Дискография- 128kbps\nhttp://relay.radio.obozrevatel.com/viktor-tsoy-i-gruppa-kino128.mp3</item>
-        <item>Владимир Высоцкий -Дискография- 128kbps\nhttp://relay.radio.obozrevatel.com/pesni-vysockogo128.mp3</item>
         <item>Gangsta Rap 128kbps\nhttp://relay.radio.obozrevatel.com/gangstarap128.mp3</item>
         <item>Gotic 128kbps\nhttp://relay.radio.obozrevatel.com/Gothic128.mp3</item>
-        <item>Depeche Mode -Дискография- 128kbps\nhttp://relay.radio.obozrevatel.com/depechemode128.mp3</item>
         <item>Dubstep 128kbps\nhttp://relay.radio.obozrevatel.com/dubstep128.mp3</item>
-        <item>Детские песни -Детское- 128kbps\nhttp://relay.radio.obozrevatel.com/kids-songs128.mp3</item>
-        <item>Детские сказки -Детское- 128kbps\nhttp://relay.radio.obozrevatel.com/fairytales128.mp3</item>
         <item>Джаз 128kbps\nhttp://relay.radio.obozrevatel.com/Jazz128.mp3</item>
         <item>Джаз-Рок 128kbps\nhttp://relay.radio.obozrevatel.com/JazzRockFusion128.mp3</item>
         <item>Дискотека 80-х 128kbps\nhttp://relay.radio.obozrevatel.com/Disco128.mp3</item>
@@ -1179,11 +1124,8 @@
         <item>Кантри 128kbps\nhttp://relay.radio.obozrevatel.com/country128.mp3</item>
         <item>Классика рока (ex Hard Rock) 128kbps\nhttp://relay.radio.obozrevatel.com/HardRock128.mp3</item>
         <item>Cool-school 128kbps\nhttp://relay.radio.obozrevatel.com/coolschool128.mp3</item>
-        <item>Михаил Круг -Дискография- 128kbps\nhttp://relay.radio.obozrevatel.com/mihail-krug128.mp3</item>
         <item>Мировые хиты 128kbps\nhttp://relay.radio.obozrevatel.com/world-hit128.mp3</item>
-        <item>Океан Ельзи -Дискография- 128kbps\nhttp://relay.radio.obozrevatel.com/okeanelzy128.mp3</item>
         <item>Прикольные песни 128kbps\nhttp://relay.radio.obozrevatel.com/Kapec128.mp3</item>
-        <item>Queen -Дискография- 128kbps\nhttp://relay.radio.obozrevatel.com/queen128.mp3</item>
         <item>Музыка для сна 128kbps\nhttp://relay.radio.obozrevatel.com/sleepmusic128.mp3</item>
         <item>Музыка Казантипа 128kbps\nhttp://relay.radio.obozrevatel.com/Kazantip128.mp3</item>
         <item>Музыка из фильмов -Саундтреки- 128kbps\nhttp://relay.radio.obozrevatel.com/kino128.mp3</item>
@@ -1226,7 +1168,6 @@
         <item>Спорт FM 128kbps\nhttp://sportfm128.streamr.ru</item>
         <item>Говорит Москва 128kbps\nhttp://media.govoritmoskva.ru:8000/rufm_m.mp3</item>
         <item>Rock FM 128kbps\nhttp://rock128.streamr.ru</item>
-        <item>Детское радио -Детское- 128kbps\nhttp://ic3.101.ru:8000/v14_1</item>
         <item>КП Федеральное -Разговорное- 256kbps\nhttp://kraskp.ru:8000/mskregion</item>
         <item>Romantika -Музыка- 256kbps\nhttp://ic3.101.ru:8000/s30</item>
         <item>Best FM -Музыка- 128kbps\nhttp://best128.streamr.ru</item>
@@ -2274,12 +2215,9 @@
         <item>Радио Лучшие Песни -Музыка- 48kbps\nhttp://85.114.140.64:8000/666</item>
         <item>Phate Radio(Anime) -Саундтреки- 192kbps\nhttp://stream.phate.io/phatecc</item>
         <item>Gensokyo Radio - Music. Games. Touhou.(Anime) -Саундтреки- 128kbps\nhttp://stream.gensokyoradio.net:8000/</item>
-        <item>Bot-sama direct(Anime) -Саундтреки- 128kbps\nhttp://edenofthewest.com:8080/eden.mp3</item>
-        <item>RadioAnimati(Anime) -Саундтреки- 128kbps\nhttp://server.radioanimati.it:80/</item>
         <item>Radio Anime Nexus(Anime) -Саундтреки- 96kbps\nhttp://radio.animenexus.mx:8000/animenexus</item>
         <item>Shinsen-Radio(Anime) -Саундтреки- 128kbps\nhttp://shinsen-radio.org:8000/shinsen-radio.128.mp3</item>
         <item>Final Fantasy Radio(Anime) -Саундтреки- 192kbps\nhttp://finalfantasystation.com:8000/stream.mp3</item>
-        <item>Vocaloid Stream(Anime) -Саундтреки- 128kbps\nhttp://142.4.217.133:9848/stream</item>
         <item>R/a/dio(Anime) -Саундтреки- 192kbps\nhttp://stream.r-a-d.io/main.mp3</item>
         <item>Any-anime.ru(Anime) -Саундтреки- 320kbps\nhttp://radio.flex.ru:8000/radionami</item>
         <item>ANISON.FM(Anime) -Саундтреки- 128kbps\nhttp://pool.anison.fm:9000/AniSonFM(128)</item>

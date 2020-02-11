@@ -12,6 +12,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.widget.*
 import dmitriy.deomin.aimpradioplalist.`fun`.*
+import dmitriy.deomin.aimpradioplalist.`fun`.file.create_esli_net
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.create_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.download_i_open_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
@@ -572,7 +573,7 @@ class Moy_plalist : Fragment() {
 
     private fun open_load_file(context: Context, old_data: ArrayList<Radio>) {
         //создадим папки если нет
-        File_function().create_esli_net()
+       create_esli_net()
 
         //если плейлист пуст откроем окно выбора загрузки файла(память или ссылка)
         val lf = DialogWindow(context, R.layout.load_file)

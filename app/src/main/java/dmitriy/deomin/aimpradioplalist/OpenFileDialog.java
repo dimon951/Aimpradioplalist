@@ -92,7 +92,7 @@ public class OpenFileDialog extends AlertDialog.Builder {
     public OpenFileDialog(Context context) {
         super(context);
         isOnlyFoldersFilter = false;
-        enebled_button=true;
+        enebled_button = true;
         title = createTitle(context);
         changeTitle();
         LinearLayout linearLayout = createMainLayout(context);
@@ -131,7 +131,7 @@ public class OpenFileDialog extends AlertDialog.Builder {
             public boolean accept(File file, String fileName) {
                 File tempFile = new File(String.format("%s/%s", file.getPath(), fileName));
                 if (tempFile.isFile())
-                    return tempFile.getName().matches(filter) || tempFile.getName().matches(".*\\.m3u8")||tempFile.getName().matches(".*\\.txt");
+                    return tempFile.getName().matches(filter) || tempFile.getName().matches(".*\\.m3u8") || tempFile.getName().matches(".*\\.txt");
                 return true;
             }
         };
@@ -326,7 +326,7 @@ public class OpenFileDialog extends AlertDialog.Builder {
                     RebuildFiles(adapter);
                 } else {
                     //если открыли в режиме удаления то при клике на файле будем предлогать удать
-                    if(!enebled_button){
+                    if (!enebled_button) {
                         //покажем диалог подтверждения удаления файла
                         final AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(Main.context, android.R.style.Theme_Holo));
                         final View content = LayoutInflater.from(Main.context).inflate(R.layout.dialog_delete_stancii, null);
@@ -340,22 +340,9 @@ public class OpenFileDialog extends AlertDialog.Builder {
                         Button del_no = content.findViewById(R.id.button_dialog_no);
                         textView.setMovementMethod(new ScrollingMovementMethod());
 
-
-//                        File_function f = new File_function();
-//                        String file_telo = "";
-//                        //покажем имя файла и краткое содержание если это m3u файл
-//                        try {
-//                            file_telo = f.read(file.getAbsolutePath());
-//                        } catch (FileNotFoundException e) {
-//                            e.printStackTrace();
-//                        }
-//                        file_telo = file_telo.replace("#EXTM3U", "");
-//                        file_telo = file_telo.replace("#EXTINF:-1,", "");
-
                         final String name = file.getName();
                         String info = "Удалить:" + name + " ?";
                         textView.setText(info);
-
 
                         del.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -388,10 +375,8 @@ public class OpenFileDialog extends AlertDialog.Builder {
                             }
                         });
 
-
-
                         adapter.notifyDataSetChanged();
-                    }else{
+                    } else {
                         //иначе будем выделять или снимать
                         if (index != selectedIndex)
                             selectedIndex = index;
@@ -470,7 +455,7 @@ public class OpenFileDialog extends AlertDialog.Builder {
                         }
                     });
 
-            }
+                }
                 return false;
             }
         });

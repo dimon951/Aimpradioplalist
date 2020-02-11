@@ -147,8 +147,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
             //когда все запишется пошлём сигнал чтобы добавилась тема в список
             Slot(context, "File_created_save_vse", false).onRun {
                 //получим данные
-                val s = it.getStringExtra("update")
-                when (s) {
+                when (it.getStringExtra("update")) {
                     //пошлём сигнал пусть мой плейлист обновится
                     "zaebis" -> {signal("list_them__load").send(context);context.toast("Готово");}
                     "pizdec" -> {
@@ -310,8 +309,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                         //когда все запишется пошлём сигнал чтобы список обновился
                         Slot(context, "File_created_save_vse", false).onRun {
                             //получим данные
-                            val s = it.getStringExtra("update")
-                            when (s) {
+                            when (it.getStringExtra("update")) {
                                 //пошлём сигнал пусть мой плейлист обновится
                                 "zaebis" -> signal("list_them__load").send(context)
                                 "pizdec" -> {

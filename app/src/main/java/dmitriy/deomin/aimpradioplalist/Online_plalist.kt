@@ -25,6 +25,7 @@ import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.share
 import java.io.File
+import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -122,7 +123,12 @@ class Online_plalist : Fragment() {
 
                     //перемотаем
                     if (position_list_online_palist < data.size && position_list_online_palist >= 0) {
-                        recikl_list_online.scrollToPosition(position_list_online_palist)
+                        try {
+                            recikl_list_online.scrollToPosition(position_list_online_palist)
+                        } catch (e: Exception) {
+                            Main.context.toast("Позиция не найдена")
+                        }
+
                     }
 
                     //скроем или покажем полосу прокрутки и поиск
@@ -435,51 +441,51 @@ class Online_plalist : Fragment() {
                 list_history.removeAt(list_history.size - 1)
                 //передаём предыдующию
                 download_i_open_m3u_file(list_history.last().url, "anim_online_plalist")
-                selekt_CATEGORIA(list_history.last().kat,v)
-                save_value("categoria",list_history.last().kat)
-            }else{
+                selekt_CATEGORIA(list_history.last().kat, v)
+                save_value("categoria", list_history.last().kat)
+            } else {
                 //если там последняя страница списка
                 if (list_history.size == 1) {
                     //передаём предыдующию
                     download_i_open_m3u_file(list_history.last().url, "anim_online_plalist")
-                    selekt_CATEGORIA(list_history.last().kat,v)
-                    save_value("categoria",list_history.last().kat)
+                    selekt_CATEGORIA(list_history.last().kat, v)
+                    save_value("categoria", list_history.last().kat)
                 }
             }
         }
 
         //--------категории--------------------------------------------------------------
-        v.button_open_online_plalist_radio.onClick{
+        v.button_open_online_plalist_radio.onClick {
             download_i_open_m3u_file("https://dl.dropbox.com/s/sl4x8z3yth5v1u0/Radio.m3u", "anim_online_plalist")
-            save_value("categoria","1")
-            selekt_CATEGORIA("1",v)
+            save_value("categoria", "1")
+            selekt_CATEGORIA("1", v)
         }
-        v.button_open_online_plalist_audio_book.onClick{
+        v.button_open_online_plalist_audio_book.onClick {
             download_i_open_m3u_file("https://dl.dropbox.com/s/cd479dcdguk6cg6/Audio_book.m3u", "anim_online_plalist")
-            save_value("categoria","2")
-            selekt_CATEGORIA("2",v)
+            save_value("categoria", "2")
+            selekt_CATEGORIA("2", v)
         }
-        v.button_open_online_plalist_tv.onClick{
+        v.button_open_online_plalist_tv.onClick {
             download_i_open_m3u_file("https://dl.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u", "anim_online_plalist")
-            save_value("categoria","3")
-            selekt_CATEGORIA("3",v)
+            save_value("categoria", "3")
+            selekt_CATEGORIA("3", v)
         }
-        v.button_open_online_plalist_musik.onClick{
+        v.button_open_online_plalist_musik.onClick {
             download_i_open_m3u_file("https://dl.dropbox.com/s/oe9kdcksjru82by/Musik.m3u", "anim_online_plalist")
-            save_value("categoria","4")
-            selekt_CATEGORIA("4",v)
+            save_value("categoria", "4")
+            selekt_CATEGORIA("4", v)
         }
-        v.button_open_online_plalist_obmennik.onClick{
+        v.button_open_online_plalist_obmennik.onClick {
             startActivity<Obmenik>()
         }
         //---------------------------------------------------------
 
         //загрузим последнию открытую страницу
-        if(isValidURL(open_url_online_palist)){
+        if (isValidURL(open_url_online_palist)) {
             download_i_open_m3u_file(open_url_online_palist, "anim_online_plalist")
             //Отметим категорию
             selekt_CATEGORIA(save_read("categoria"), v)
-        }else{
+        } else {
             //иначе пустую страницу покажем
             signal("Online_plalist")
                     .putExtra("update", "zaebis")
@@ -556,7 +562,6 @@ class Online_plalist : Fragment() {
             if (myFile.isFile && myFile.name != "theme.txt" && myFile.name != "history_url.txt" && myFile.name != "my_plalist.m3u") myFile.delete()
         }
     }
-
 
 
     override fun onPause() {
