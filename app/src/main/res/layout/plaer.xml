@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dmitriy.deomin.aimpradioplalist.custom.Fon_item xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="5dp"
@@ -20,13 +21,27 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <dmitriy.deomin.aimpradioplalist.custom.Btn
-            android:id="@+id/close"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="right"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@android:drawable/btn_dialog" />
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/full_scren"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="right"
+                android:background="@android:drawable/ic_menu_set_as" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/close"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="right"
+                android:background="@android:drawable/btn_dialog" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,6 +65,20 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/progressBar_load_audio"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="0"
+            tools:visibility="visible" />
 
         <LinearLayout
             android:layout_width="match_parent"

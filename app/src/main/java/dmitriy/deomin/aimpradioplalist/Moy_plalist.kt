@@ -322,8 +322,7 @@ class Moy_plalist : Fragment() {
 
                         Slot(context, "File_created", false).onRun {
                             //получим данные
-                            val s = it.getStringExtra("update")
-                            when (s) {
+                            when (it.getStringExtra("update")) {
                                 "est" -> context.toast("Такая станция уже есть в плейлисте")
                                 "zaebis" -> {
                                     //пошлём сигнал пусть мой плейлист обновится
@@ -336,8 +335,13 @@ class Moy_plalist : Fragment() {
                                 }
                             }
                         }
+                        val name = if(edit_name.text.toString().isEmpty()){
+                            "no_name"
+                        }else{
+                            edit_name.text.toString()
+                        }
                         //делаем
-                        File_function().Add_may_plalist_stansiy(edit.text.toString(), edit_name.text.toString())
+                        File_function().Add_may_plalist_stansiy(edit.text.toString(), name)
                         auu.close()
                     } else {
                         edit.setText("http://" + edit.text.toString())

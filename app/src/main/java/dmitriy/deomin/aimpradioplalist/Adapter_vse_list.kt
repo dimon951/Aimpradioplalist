@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
 import dmitriy.deomin.aimpradioplalist.`fun`.add_myplalist
+import dmitriy.deomin.aimpradioplalist.`fun`.isValidURL
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 import dmitriy.deomin.aimpradioplalist.`fun`.putText_сlipboard
@@ -178,8 +179,12 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
             text_name_i_url.text = name + "\n" + radio.url
             text_name_i_url.onClick {
                 text_name_i_url.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-                putText_сlipboard(radio.url, context)
-                context.toast("url скопирован в буфер")
+                if(isValidURL(radio.url)){
+                    Play_audio(radio.name, radio.url)
+                }else{
+                    context.toast("Возможно ссылка битая, нельзя открыть")
+                }
+                mvr.close()
             }
 
             open_aimp.onLongClick {

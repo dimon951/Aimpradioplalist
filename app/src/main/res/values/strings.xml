@@ -91,7 +91,6 @@
         </item>
         <item>Авторадио\navtoradio.png\n
             256kbps~kbps~http://ic7.101.ru:8000/v3_1~kbps~
-            128kbps~kbps~http://193.232.148.42:8000/v3_1~kbps~
         </item>
         <item>Наше Радио\nnashe.png\n
             128kbps~kbps~http://nashe2.hostingradio.ru/nashe-128.mp3~kbps~
@@ -107,10 +106,6 @@
         </item>
         <item>Юмор Fm\nyomorfm.png\n
             128kbps~kbps~http://yumfm128.streamr.ru~kbps~
-            112kbps~kbps~http://91.207.59.26/a102~kbps~
-            256kbps~kbps~http://ic7.101.ru:8000/v5_1~kbps~
-            256kbps~kbps~http://ic2.101.ru:8000/v5_1~kbps~
-            24kbps mono~kbps~http://ic2.101.ru:8000/n5_1~kbps~
         </item>
         <item>Европа плюс\nevropa_plus.png\n
             128kbps~kbps~http://hls-02-europaplus.emgsound.ru/11/128/playlist.m3u8~kbps~
@@ -189,7 +184,7 @@
             320kbps~kbps~http://icecast.vgtrk.cdnvideo.ru/mayakfm~kbps~
         </item>
         <item>Анекдоты \nanekdoty.png\n
-            128kbps~kbps~http://ic2.101.ru:8000/c3_5~kbps~
+            128kbps~kbps~http://ic7.101.ru:8000/c3_5~kbps~
         </item>
         <item>Классика \nclasik_radio.png\n
             64kbps~kbps~https://orfeyfm.hostingradio.ru:8034/orfeyfm64.mp3~kbps~

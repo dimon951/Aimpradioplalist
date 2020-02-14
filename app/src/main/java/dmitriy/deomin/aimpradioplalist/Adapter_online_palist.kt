@@ -330,15 +330,11 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                 }
 
 
-                text_name_i_url.onClick {
-                    if (save_read("categoria") == "2") {
-                        if(isValidURL(radio.url)){
-                            Play_audio(radio.name, radio.url)
-                        }else{
-                            context.toast("Возможно ссылка битая, нельзя открыть")
-                        }
-                    } else {
-                        context.toast("Доступно пока только для аудиокниг")
+                text_name_i_url.onClick{
+                    if(isValidURL(radio.url)){
+                        Play_audio(radio.name, radio.url)
+                    }else{
+                        context.toast("Возможно ссылка битая, нельзя открыть")
                     }
                     mvr.close()
                 }

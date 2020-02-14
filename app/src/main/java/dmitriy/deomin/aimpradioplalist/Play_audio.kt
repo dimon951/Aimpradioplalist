@@ -1,90 +1,96 @@
 package dmitriy.deomin.aimpradioplalist
-
-import android.media.MediaPlayer
 import android.net.Uri
-import android.util.Log
+import android.os.Build
 import android.view.View
-import android.widget.Button
-import android.widget.ProgressBar
-import android.widget.TextView
+import android.view.ViewGroup
+import android.widget.*
+import android.widget.LinearLayout
 import dmitriy.deomin.aimpradioplalist.`fun`.download_file
-import dmitriy.deomin.aimpradioplalist.`fun`.formatTimeToEnd
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system_file
+import dmitriy.deomin.aimpradioplalist.`fun`.putText_сlipboard
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Slot
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
-import java.io.IOException
-import java.text.DateFormat
-import java.text.SimpleDateFormat
-import java.util.*
+import org.jetbrains.anko.toast
 
 
-class Play_audio(name:String,url:String){
-    var playStatus = false //статус проигрывания
-    var mediaPlayer: MediaPlayer? = null
-
+class Play_audio(name: String, url: String) {
     init {
-        // предварительная настройка
-        try {
-            mediaPlayer = MediaPlayer()
-            mediaPlayer!!.setDataSource(Main.context, Uri.parse(url))
-        } catch (e: IllegalStateException) {
-            e.printStackTrace()
-        } catch (e: IOException) {
-            e.printStackTrace()
+        val plaer = DialogWindow(Main.context, R.layout.plaer, true)
+
+        val progressBar = plaer.view().findViewById<ProgressBar>(R.id.progressBar_load_audio)
+        progressBar.visibility = View.GONE
+
+        plaer.view().findViewById<TextView>(R.id.text_logo).text = url
+        plaer.view().findViewById<TextView>(R.id.text_logo).onClick {
+            putText_сlipboard(url, Main.context)
+            Main.context.toast("url скопирован в буфер")
         }
 
-        val plaer = DialogWindow(Main.context,R.layout.plaer,true)
 
 
-        //когда проигрывание закончилось
-        mediaPlayer?.setOnCompletionListener {
-            mediaPlayer?.stop()
-            playStatus = false
-            plaer.view().findViewById<Button>(R.id.go).setBackgroundResource(android.R.drawable.ic_media_play)
+        plaer.view().findViewById<TextView>(R.id.info).text = name
+
+        val btnplay = plaer.view().findViewById<Button>(R.id.go)
+        val vv = plaer.view().findViewById<VideoView>(R.id.videoView)
+
+        val param_full = LinearLayout.LayoutParams( /*width*/
+                ViewGroup.LayoutParams.MATCH_PARENT,  /*height*/
+                ViewGroup.LayoutParams.MATCH_PARENT,  /*weight*/
+                1.0f
+        )
+        val param_smol =vv.layoutParams
+
+        plaer.view().findViewById<Button>(R.id.full_scren).onClick {
+            vv.layoutParams = param_full
         }
+
+        vv.onClick {
+            vv.layoutParams = param_smol
+        }
+
+        val mediacontroller = MediaController(Main.context)
+        mediacontroller.setAnchorView(vv)
+        val uri = Uri.parse(url)
+
+        vv!!.setOnCompletionListener {
+            vv.pause()
+            btnplay.setBackgroundResource(android.R.drawable.ic_media_play)
+        }
+
+        btnplay!!.setOnClickListener {
+            if (!vv.isPlaying) {
+                progressBar!!.visibility = View.VISIBLE
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    vv.setVideoURI(uri, mapOf("user-agent" to "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36"))
+                }else{
+                    vv.setVideoURI(uri)
+                }
+                vv.setMediaController(mediacontroller)
+                vv.requestFocus()
+                vv.start()
+                btnplay.setBackgroundResource(android.R.drawable.ic_media_pause)
+            } else {
+                vv.pause()
+                btnplay.setBackgroundResource(android.R.drawable.ic_media_play)
+            }
+
+        }
+
+        vv.setOnPreparedListener { progressBar!!.visibility = View.GONE }
 
         plaer.view().findViewById<Button>(R.id.close).onClick {
-            if (playStatus) {
-                mediaPlayer?.stop()
-                playStatus = false
+            if (vv.isPlaying) {
+                vv.stopPlayback()
             }
             plaer.close()
         }
 
-        plaer.view().findViewById<TextView>(R.id.text_logo).text=url
-
-
-        plaer.view().findViewById<Button>(R.id.go).onClick {
-            // стоп
-            if (playStatus) {
-                mediaPlayer?.stop()
-                playStatus = false
-                plaer.view().findViewById<Button>(R.id.go).setBackgroundResource(android.R.drawable.ic_media_play)
-                // старт
-            } else {
-                try {
-                    mediaPlayer?.prepare()
-                    mediaPlayer?.start()
-                    plaer.view().findViewById<Button>(R.id.go).setBackgroundResource(android.R.drawable.ic_media_pause)
-                    plaer.view().findViewById<TextView>(R.id.info).text="Продолжительность: "+formatTimeToEnd(mediaPlayer?.duration!!.toLong())
-                } catch (e: IllegalStateException) {
-                    e.printStackTrace()
-                } catch (e: IOException) {
-                    e.printStackTrace()
-                }
-
-                playStatus = true
-            }
-
-
-        }
-
-
+        //---------------------download--------------------------------------------------
         plaer.view().findViewById<Button>(R.id.download).onClick {
 
             val dw = DialogWindow(Main.context, R.layout.dialog_delete_stancii, true)
@@ -142,9 +148,7 @@ class Play_audio(name:String,url:String){
                 }
             }
         }
-
+        //-------------------------------------------------------------------------------
     }
-
-
 
 }
