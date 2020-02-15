@@ -151,8 +151,6 @@ class Obmenik : Activity() {
             }
         }
 
-
-
         button_add_new_obmenik.onClick {
 
             val menu_add_new = DialogWindow(context, R.layout.add_new_url_obmenik)

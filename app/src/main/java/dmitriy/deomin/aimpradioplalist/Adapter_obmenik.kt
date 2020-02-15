@@ -356,8 +356,12 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             text_name_i_url.text = name + "\n" + radio.url
             text_name_i_url.onClick {
                 text_name_i_url.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-                putText_сlipboard(radio.url, context)
-                context.toast("url скопирован в буфер")
+                if(isValidURL(radio.url)){
+                    Play_audio(radio.name, radio.url,context=context)
+                }else{
+                    context.toast("Возможно ссылка битая, нельзя открыть")
+                }
+                mvr.close()
             }
 
 

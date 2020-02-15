@@ -1,11 +1,17 @@
 package dmitriy.deomin.aimpradioplalist
+
+import android.content.Context
 import android.net.Uri
 import android.os.Build
+import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.*
 import android.widget.LinearLayout
 import dmitriy.deomin.aimpradioplalist.`fun`.download_file
+import dmitriy.deomin.aimpradioplalist.`fun`.formatTimeToEnd
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system_file
 import dmitriy.deomin.aimpradioplalist.`fun`.putText_сlipboard
@@ -15,25 +21,36 @@ import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
+import org.jetbrains.anko.sdk27.coroutines.onSeekBarChangeListener
 import org.jetbrains.anko.toast
+import java.util.concurrent.TimeUnit
 
 
-class Play_audio(name: String, url: String) {
+class Play_audio(name: String, url: String,context: Context = Main.context) {
+
     init {
-        val plaer = DialogWindow(Main.context, R.layout.plaer, true)
+        val plaer = DialogWindow(context, R.layout.plaer, true)
 
+        //анимация при запуске
         val progressBar = plaer.view().findViewById<ProgressBar>(R.id.progressBar_load_audio)
         progressBar.visibility = View.GONE
 
-        plaer.view().findViewById<TextView>(R.id.text_logo).text = url
-        plaer.view().findViewById<TextView>(R.id.text_logo).onClick {
-            putText_сlipboard(url, Main.context)
-            Main.context.toast("url скопирован в буфер")
+        //прогресс бар воспроизведения
+        val seekBar = plaer.view().findViewById<SeekBar>(R.id.seekBar)
+
+        plaer.view().findViewById<TextView>(R.id.info).text = name
+
+        val time =plaer.view().findViewById<TextView>(R.id.time)
+
+        val text_name_i_url = plaer.view().findViewById<TextView>(R.id.text_logo)
+        text_name_i_url.text = url
+        text_name_i_url.onClick {
+            text_name_i_url.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
+            putText_сlipboard(url, context)
+            context.toast("url скопирован в буфер")
         }
 
 
-
-        plaer.view().findViewById<TextView>(R.id.info).text = name
 
         val btnplay = plaer.view().findViewById<Button>(R.id.go)
         val vv = plaer.view().findViewById<VideoView>(R.id.videoView)
@@ -43,7 +60,7 @@ class Play_audio(name: String, url: String) {
                 ViewGroup.LayoutParams.MATCH_PARENT,  /*weight*/
                 1.0f
         )
-        val param_smol =vv.layoutParams
+        val param_smol = vv.layoutParams
 
         plaer.view().findViewById<Button>(R.id.full_scren).onClick {
             vv.layoutParams = param_full
@@ -53,8 +70,7 @@ class Play_audio(name: String, url: String) {
             vv.layoutParams = param_smol
         }
 
-        val mediacontroller = MediaController(Main.context)
-        mediacontroller.setAnchorView(vv)
+        val mediacontroller = MediaController(context)
         val uri = Uri.parse(url)
 
         vv!!.setOnCompletionListener {
@@ -62,17 +78,33 @@ class Play_audio(name: String, url: String) {
             btnplay.setBackgroundResource(android.R.drawable.ic_media_play)
         }
 
+        val threadHandler = Handler()
+        class UpdateSeekBarThread(): Runnable{
+            override fun run() {
+                val currentPosition: Int = vv.getCurrentPosition()
+                time.text= formatTimeToEnd(vv.duration.toLong())+"/"+formatTimeToEnd(currentPosition.toLong())
+                seekBar.setMax(vv.duration)
+                seekBar.setProgress(currentPosition)
+                threadHandler.postDelayed(this, 50)
+            }
+
+        }
+
         btnplay!!.setOnClickListener {
             if (!vv.isPlaying) {
                 progressBar!!.visibility = View.VISIBLE
+
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     vv.setVideoURI(uri, mapOf("user-agent" to "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36"))
-                }else{
+                } else {
                     vv.setVideoURI(uri)
                 }
                 vv.setMediaController(mediacontroller)
-                vv.requestFocus()
+                vv.requestFocus(0)
                 vv.start()
+                // Create a thread to update position of SeekBar.
+                val updateSeekBarThread = UpdateSeekBarThread()
+                threadHandler.postDelayed(updateSeekBarThread, 500)
                 btnplay.setBackgroundResource(android.R.drawable.ic_media_pause)
             } else {
                 vv.pause()
@@ -90,10 +122,31 @@ class Play_audio(name: String, url: String) {
             plaer.close()
         }
 
+        seekBar?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                // Write code to perform some action when progress is changed.
+
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {
+                // Write code to perform some action when touch is started.
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+                // Write code to perform some action when touch is stopped.
+                if(vv.duration>seekBar.progress){
+                    vv.seekTo(seekBar.progress)
+                }
+            }
+        })
+
+
+
+
         //---------------------download--------------------------------------------------
         plaer.view().findViewById<Button>(R.id.download).onClick {
 
-            val dw = DialogWindow(Main.context, R.layout.dialog_delete_stancii, true)
+            val dw = DialogWindow(context, R.layout.dialog_delete_stancii, true)
             val dw_start = dw.view().findViewById<Button>(R.id.button_dialog_delete)
             val dw_no = dw.view().findViewById<Button>(R.id.button_dialog_no)
             val dw_logo = dw.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
@@ -101,7 +154,7 @@ class Play_audio(name: String, url: String) {
             dw_progres.visibility = View.VISIBLE
 
 
-            Slot(Main.context, "dw_progres").onRun {
+            Slot(context, "dw_progres").onRun {
                 val totalBytes = it.getStringExtra("totalBytes")
                 val readBytes = it.getStringExtra("readBytes")
                 dw_progres.max = totalBytes.toInt()
@@ -122,7 +175,7 @@ class Play_audio(name: String, url: String) {
             }
 
 
-            dw_logo.text = "Попробовать скачать?"
+            dw_logo.text = "Попробовать скачать?\n(не работает для потока)"
 
             dw_start.onClick {
                 if (dw_logo.text == "Готово,сохранено в папке программы") {
@@ -142,7 +195,7 @@ class Play_audio(name: String, url: String) {
             }
             dw_no.onClick {
                 if (dw_no.text == "Отмена") {
-                    signal("dw_cansel").send(Main.context)
+                    signal("dw_cansel").send(context)
                 } else {
                     dw.close()
                 }
@@ -150,5 +203,4 @@ class Play_audio(name: String, url: String) {
         }
         //-------------------------------------------------------------------------------
     }
-
 }
