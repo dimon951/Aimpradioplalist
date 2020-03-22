@@ -53,8 +53,6 @@ class Main : FragmentActivity() {
 
         var ID_USER = ""  //ид пользователя
 
-        const val HISORYLAST = "history_last"//название файла истроии онлайн плейлиста
-
         var face: Typeface = Typeface.DEFAULT//шрифт
 
         lateinit var mSettings: SharedPreferences // сохранялка
@@ -81,15 +79,11 @@ class Main : FragmentActivity() {
         //во весь экран
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
-
-
         //сохранялка
         mSettings = getSharedPreferences("mysettings", Context.MODE_PRIVATE)
 
-
         //данные пользователя
         load_user_data()
-
 
         face = if (save_read("fonts") == "system") {
             Typeface.DEFAULT

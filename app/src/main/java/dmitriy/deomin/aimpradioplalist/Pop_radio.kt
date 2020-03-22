@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import dmitriy.deomin.aimpradioplalist.adapters.Adapter_pop_radio
 import dmitriy.deomin.aimpradioplalist.custom.Link
 import dmitriy.deomin.aimpradioplalist.custom.RadioPop
 import dmitriy.deomin.aimpradioplalist.custom.Slot

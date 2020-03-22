@@ -1,4 +1,4 @@
-package dmitriy.deomin.aimpradioplalist
+package dmitriy.deomin.aimpradioplalist.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,6 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
+import dmitriy.deomin.aimpradioplalist.Main
+import dmitriy.deomin.aimpradioplalist.Moy_plalist
+import dmitriy.deomin.aimpradioplalist.R
+import dmitriy.deomin.aimpradioplalist.Vse_radio
 import dmitriy.deomin.aimpradioplalist.`fun`.*
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.create_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.download_i_open_m3u_file

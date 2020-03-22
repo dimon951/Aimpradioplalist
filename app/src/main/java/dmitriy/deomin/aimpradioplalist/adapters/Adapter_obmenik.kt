@@ -1,4 +1,4 @@
-package dmitriy.deomin.aimpradioplalist
+package dmitriy.deomin.aimpradioplalist.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,6 +8,10 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
 import com.google.firebase.firestore.FirebaseFirestore
+import dmitriy.deomin.aimpradioplalist.Main
+import dmitriy.deomin.aimpradioplalist.Play_audio
+import dmitriy.deomin.aimpradioplalist.R
+import dmitriy.deomin.aimpradioplalist.Vse_radio
 import dmitriy.deomin.aimpradioplalist.`fun`.*
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
@@ -357,7 +361,7 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             text_name_i_url.onClick {
                 text_name_i_url.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
                 if(isValidURL(radio.url)){
-                    Play_audio(radio.name, radio.url,context=context)
+                    Play_audio(radio.name, radio.url, context = context)
                 }else{
                     context.toast("Возможно ссылка битая, нельзя открыть")
                 }

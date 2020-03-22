@@ -6,8 +6,6 @@ import android.graphics.Paint
 import android.graphics.Typeface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -18,6 +16,7 @@ import dmitriy.deomin.aimpradioplalist.`fun`.save_read
 import dmitriy.deomin.aimpradioplalist.`fun`.save_read_int
 import dmitriy.deomin.aimpradioplalist.`fun`.save_value
 import dmitriy.deomin.aimpradioplalist.`fun`.save_value_int
+import dmitriy.deomin.aimpradioplalist.adapters.Adapter_vse_list
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.vse_radio.view.*
 import kotlinx.coroutines.GlobalScope

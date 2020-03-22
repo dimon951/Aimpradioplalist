@@ -1,9 +1,8 @@
-package dmitriy.deomin.aimpradioplalist
+package dmitriy.deomin.aimpradioplalist.adapters
 
 import android.content.*
 import android.graphics.Paint
 import android.graphics.Typeface
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +12,8 @@ import android.widget.TextView
 import com.makeramen.roundedimageview.RoundedTransformationBuilder
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.Transformation
+import dmitriy.deomin.aimpradioplalist.Main
+import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.`fun`.add_myplalist
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system

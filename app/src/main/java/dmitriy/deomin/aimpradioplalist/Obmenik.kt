@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import dmitriy.deomin.aimpradioplalist.`fun`.data_time
 import dmitriy.deomin.aimpradioplalist.`fun`.getText_сlipboard
+import dmitriy.deomin.aimpradioplalist.adapters.Adapter_obmenik
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.obmenik.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import java.util.*
 import kotlin.collections.ArrayList
 
 class Obmenik : Activity() {

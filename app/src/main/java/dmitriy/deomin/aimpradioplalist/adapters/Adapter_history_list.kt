@@ -1,4 +1,4 @@
-package dmitriy.deomin.aimpradioplalist
+package dmitriy.deomin.aimpradioplalist.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,6 +8,9 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import dmitriy.deomin.aimpradioplalist.File_function
+import dmitriy.deomin.aimpradioplalist.Main
+import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.custom.History
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal

@@ -22,6 +22,8 @@ import dmitriy.deomin.aimpradioplalist.`fun`.file.long_size_to_good_vid
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.download_i_open_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
+import dmitriy.deomin.aimpradioplalist.adapters.Adapter_history_online_plalist
+import dmitriy.deomin.aimpradioplalist.adapters.Adapter_online_palist
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.share
 import java.io.File

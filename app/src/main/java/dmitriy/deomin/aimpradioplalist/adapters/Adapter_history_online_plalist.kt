@@ -1,4 +1,4 @@
-package dmitriy.deomin.aimpradioplalist
+package dmitriy.deomin.aimpradioplalist.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,10 +8,10 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import dmitriy.deomin.aimpradioplalist.Main
+import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system_file
-import dmitriy.deomin.aimpradioplalist.`fun`.read_and_pars_m3u_file
-import dmitriy.deomin.aimpradioplalist.`fun`.save_value
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.History
 import dmitriy.deomin.aimpradioplalist.custom.send

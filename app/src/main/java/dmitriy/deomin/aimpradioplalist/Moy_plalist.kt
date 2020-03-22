@@ -17,6 +17,8 @@ import dmitriy.deomin.aimpradioplalist.`fun`.m3u.create_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.download_i_open_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
+import dmitriy.deomin.aimpradioplalist.adapters.Adapter_history_list
+import dmitriy.deomin.aimpradioplalist.adapters.Adapter_my_list
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

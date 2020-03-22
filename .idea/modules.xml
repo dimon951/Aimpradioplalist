@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Aimpradioplalist.iml" filepath="$PROJECT_DIR$/.idea/Aimpradioplalist.iml" />
-      <module fileurl="file://$PROJECT_DIR$/aimplist.iml" filepath="$PROJECT_DIR$/aimplist.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/aimplist-app.iml" filepath="$PROJECT_DIR$/app/aimplist-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aimplist.iml" filepath="$PROJECT_DIR$/aimplist.iml" group="aimplist" />
+      <module fileurl="file://$PROJECT_DIR$/app/aimplist-app.iml" filepath="$PROJECT_DIR$/app/aimplist-app.iml" group="aimplist/app" />
       <module fileurl="file://$PROJECT_DIR$/android_studio_proekty.iml" filepath="$PROJECT_DIR$/android_studio_proekty.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/android_studio_proekty-app.iml" filepath="$PROJECT_DIR$/app/android_studio_proekty-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
