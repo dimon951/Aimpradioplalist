@@ -38,6 +38,8 @@ class Obmenik : Activity() {
         find.textColor = Main.COLOR_TEXT
         find.hintTextColor = Main.COLOR_TEXTcontext
 
+        button_close_list_obmenik.onClick { finish() }
+
         val recikl_list = list_obmenik
         recikl_list.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this) as RecyclerView.LayoutManager?
 

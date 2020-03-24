@@ -1,5 +1,6 @@
 package dmitriy.deomin.aimpradioplalist
 
+import dmitriy.deomin.aimpradioplalist.`fun`.file.clear_name_ot_chlama
 import dmitriy.deomin.aimpradioplalist.`fun`.file.create_esli_net
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 import dmitriy.deomin.aimpradioplalist.custom.send
@@ -54,10 +55,12 @@ class File_function {
             //проверим наличие нашей папки  и доспуп к ней
             create_esli_net()
 
-            val all_name = Main.ROOT +name+".m3u"
+            val all_name = Main.ROOT + clear_name_ot_chlama(name)+".m3u"
 
-            val writer = FileWriter(all_name, false)
+            lateinit var writer:FileWriter
+
             try {
+                writer = FileWriter(all_name, false)
                 writer.write(data)
             } catch (ex: Exception) {
                 //послать сигнал
@@ -82,9 +85,9 @@ class File_function {
     fun writeToFile(name: String, str: String) {
         GlobalScope.launch {
             create_esli_net()
-
-            val writer = FileWriter(Main.ROOT + name, false)
+            lateinit var writer:FileWriter
             try {
+                writer = FileWriter(Main.ROOT + name, false)
                 writer.write(str + "\n")
             } catch (ex: Exception) {
                 println(ex.message)

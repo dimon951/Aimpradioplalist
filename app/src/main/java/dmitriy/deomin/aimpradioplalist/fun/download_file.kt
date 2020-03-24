@@ -2,6 +2,7 @@ package dmitriy.deomin.aimpradioplalist.`fun`
 
 import com.github.kittinunf.fuel.Fuel
 import dmitriy.deomin.aimpradioplalist.Main
+import dmitriy.deomin.aimpradioplalist.`fun`.file.create_esli_net
 import dmitriy.deomin.aimpradioplalist.custom.Slot
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
@@ -12,6 +13,8 @@ import java.io.File
 
 fun download_file(url: String, name: String, sourse: String) {
     if (isValidURL(url)) {
+        //проверим есть ли наши папки
+        create_esli_net()
         //-----------скачиваем файл (читам его)--------
         GlobalScope.launch {
             //запустим анимацию

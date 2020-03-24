@@ -117,9 +117,11 @@
         <item>HR Radio\nhr_radio.png\n
             128kbps~kbps~http://hrradio.hostingradio.ru:8077/hrradio128.mp3~kbps~
         </item>
-<!--        <item>Билайн FM\nbilele_fm.png\n-->
-<!--            128kbps~kbps~http://beelinefm128.streamr.ru~kbps~-->
-<!--        </item>-->
+        <item>Радио НЕСТАНДАРТ\nnestandart.png\n
+            128kbps~kbps~http://listen.radionestandart.ru:8200/128.mp3~kbps~
+            64kbps~kbps~http://listen.radionestandart.ru:8200/64.aac~kbps~
+            48kbps~kbps~http://listen.radionestandart.ru:8200/48.aac~kbps~
+        </item>
         <item>Love радио\nloveradio.png\n
             128kbps~kbps~http://potokovoe.ru:8008/LR.mp3~kbps~
         </item>
