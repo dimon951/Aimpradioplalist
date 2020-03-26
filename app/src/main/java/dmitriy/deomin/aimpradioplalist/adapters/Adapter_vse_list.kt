@@ -15,6 +15,7 @@ import dmitriy.deomin.aimpradioplalist.`fun`.add_myplalist
 import dmitriy.deomin.aimpradioplalist.`fun`.isValidURL
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
+import dmitriy.deomin.aimpradioplalist.`fun`.putText_сlipboard
 import dmitriy.deomin.aimpradioplalist.`fun`.save_value_int
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.coroutines.GlobalScope
@@ -175,6 +176,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
 
             val add_pls = mvr.view().findViewById<Button>(R.id.button_add_plalist)
             val open_aimp = mvr.view().findViewById<Button>(R.id.button_open_aimp)
+            val open_custom = mvr.view().findViewById<Button>(R.id.open_custom_plaer)
             val share = mvr.view().findViewById<Button>(R.id.button_cshre)
 
             //Имя и урл выбраной станции , при клике будем копировать урл в буфер
@@ -182,16 +184,14 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
             text_name_i_url.text = name + "\n" + radio.url
             text_name_i_url.onClick {
                 text_name_i_url.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-                if(isValidURL(radio.url)){
-                    Play_audio(radio.name, radio.url)
-                }else{
-                    context.toast("Возможно ссылка битая, нельзя открыть")
-                }
+                putText_сlipboard(radio.url, context)
+                context.toast("Url скопирован в буфер")
                 mvr.close()
             }
 
             open_aimp.onLongClick {
                 play_system(name, radio.url)
+                mvr.close()
             }
 
             add_pls.onClick {
@@ -209,6 +209,15 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
 
             open_aimp.onClick {
                 play_aimp(name, radio.url)
+                mvr.close()
+            }
+
+            open_custom.onClick {
+                if(isValidURL(radio.url)){
+                    Play_audio(radio.name, radio.url)
+                }else{
+                    context.toast("Возможно ссылка битая, нельзя открыть")
+                }
                 mvr.close()
             }
         }

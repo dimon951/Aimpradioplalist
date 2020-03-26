@@ -1,5 +1,6 @@
 package dmitriy.deomin.aimpradioplalist
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.net.Uri
 import android.os.Build
@@ -19,6 +20,7 @@ import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Slot
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
+import org.jetbrains.anko.backgroundDrawable
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.sdk27.coroutines.onSeekBarChangeListener
@@ -75,16 +77,17 @@ class Play_audio(name: String, url: String,context: Context = Main.context) {
 
         vv!!.setOnCompletionListener {
             vv.pause()
-            btnplay.setBackgroundResource(android.R.drawable.ic_media_play)
+           btnplay.setBackgroundDrawable(context.resources.getDrawable(R.drawable.iconka_play))
         }
 
         val threadHandler = Handler()
         class UpdateSeekBarThread(): Runnable{
+            @SuppressLint("SetTextI18n")
             override fun run() {
-                val currentPosition: Int = vv.getCurrentPosition()
+                val currentPosition: Int = vv.currentPosition
                 time.text= formatTimeToEnd(vv.duration.toLong())+"/"+formatTimeToEnd(currentPosition.toLong())
-                seekBar.setMax(vv.duration)
-                seekBar.setProgress(currentPosition)
+                seekBar.max = vv.duration
+                seekBar.progress = currentPosition
                 threadHandler.postDelayed(this, 50)
             }
 
@@ -105,10 +108,10 @@ class Play_audio(name: String, url: String,context: Context = Main.context) {
                 // Create a thread to update position of SeekBar.
                 val updateSeekBarThread = UpdateSeekBarThread()
                 threadHandler.postDelayed(updateSeekBarThread, 500)
-                btnplay.setBackgroundResource(android.R.drawable.ic_media_pause)
+                btnplay.setBackgroundDrawable(context.resources.getDrawable(R.drawable.iconka_pausa))
             } else {
                 vv.pause()
-                btnplay.setBackgroundResource(android.R.drawable.ic_media_play)
+                btnplay.setBackgroundDrawable(context.resources.getDrawable(R.drawable.iconka_play))
             }
 
         }

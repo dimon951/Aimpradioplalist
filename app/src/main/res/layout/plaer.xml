@@ -115,7 +115,7 @@
                 android:id="@+id/go"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:background="@android:drawable/ic_media_play" />
+                android:background="@drawable/iconka_play" />
 
             <Space
                 android:layout_width="wrap_content"

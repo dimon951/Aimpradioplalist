@@ -7,10 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
-import dmitriy.deomin.aimpradioplalist.Main
-import dmitriy.deomin.aimpradioplalist.Moy_plalist
-import dmitriy.deomin.aimpradioplalist.R
-import dmitriy.deomin.aimpradioplalist.Vse_radio
+import dmitriy.deomin.aimpradioplalist.*
 import dmitriy.deomin.aimpradioplalist.`fun`.*
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.create_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.download_i_open_m3u_file
@@ -300,7 +297,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
 
 
             val playAimp = empid.view().findViewById<Button>(R.id.open_aimp_my_list_one)
-            val playSystem = empid.view().findViewById<Button>(R.id.open_aimp_my_list_one)
+            val play_custom = empid.view().findViewById<Button>(R.id.open_custom_plaer)
             val loadlist = empid.view().findViewById<Button>(R.id.loadlist)
 
 
@@ -308,14 +305,14 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             if (radio.name.contains("<List>")) {
                 //скроем кнопки открытия в плеере
                 playAimp.visibility = View.GONE
-                playSystem.visibility = View.GONE
+                play_custom.visibility = View.GONE
                 //покажем кнопку загрузки списка
                 loadlist.visibility = View.VISIBLE
 
             } else {
                 //иначе покажем
                 playAimp.visibility = View.VISIBLE
-                playSystem.visibility = View.VISIBLE
+                play_custom.visibility = View.VISIBLE
                 //скроем кнопку загрузки списка
                 loadlist.visibility = View.GONE
             }
@@ -327,10 +324,20 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                 play_aimp(radio.name, radio.url)
             }
             //открыть в сстеме
-            playSystem.onLongClick {
+            playAimp.onLongClick {
                 //закрываем основное окошко
                 empid.close()
                 play_system(radio.name, radio.url)
+            }
+            //открыть в своим ебучим плеером
+            play_custom.onClick {
+                //закрываем основное окошко
+                empid.close()
+                if(isValidURL(radio.url)){
+                    Play_audio(radio.name, radio.url, context = context)
+                }else{
+                    context.toast("Возможно ссылка битая, нельзя открыть")
+                }
             }
 
             //поделится

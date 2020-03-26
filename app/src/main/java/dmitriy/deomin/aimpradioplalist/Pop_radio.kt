@@ -14,6 +14,8 @@ import dmitriy.deomin.aimpradioplalist.custom.RadioPop
 import dmitriy.deomin.aimpradioplalist.custom.Slot
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import org.jetbrains.anko.support.v4.toast
+import java.io.FileReader
 import java.util.*
 
 
@@ -68,10 +70,13 @@ class Pop_radio : Fragment() {
                             })))
                 }
             }
-            // создаем адаптер
-            val adapter_pop_radio = Adapter_pop_radio(data)
-            recycl_pop_radio.adapter = adapter_pop_radio
-
+            try {
+                // создаем адаптер
+                val adapter_pop_radio = Adapter_pop_radio(data)
+                recycl_pop_radio.adapter = adapter_pop_radio
+            } catch (e: Exception) {
+               toast("Ошибка чтения данных")
+            }
         }
 
 

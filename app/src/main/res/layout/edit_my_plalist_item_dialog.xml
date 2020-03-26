@@ -18,22 +18,6 @@
         android:layout_height="match_parent"
         android:layout_marginTop="5dp"
         android:orientation="vertical">
-
-        <dmitriy.deomin.aimpradioplalist.custom.Btn
-            android:id="@+id/open_aimp_my_list_one"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:background="@android:drawable/ic_media_play" />
-
-        <dmitriy.deomin.aimpradioplalist.custom.Btn
-            android:id="@+id/loadlist"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:background="@drawable/dw_list"
-            android:visibility="gone" />
-
         <dmitriy.deomin.aimpradioplalist.custom.Btn
         android:id="@+id/reneme"
         android:layout_width="match_parent"
@@ -63,6 +47,30 @@
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:orientation="horizontal">
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/open_custom_plaer"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@drawable/iconka_play" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/open_aimp_my_list_one"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@android:drawable/ic_media_play" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/loadlist"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@drawable/dw_list"
+                android:visibility="gone" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/shareaimp_my_list_one"
