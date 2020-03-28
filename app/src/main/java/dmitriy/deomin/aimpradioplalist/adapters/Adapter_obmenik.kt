@@ -375,7 +375,6 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                 mvr.close()
             }
 
-
             open_aimp.onLongClick {
                 play_system(name, radio.url)
                 mvr.close()

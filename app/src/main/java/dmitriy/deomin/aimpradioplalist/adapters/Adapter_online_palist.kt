@@ -395,11 +395,13 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                 if (radio.name.contains("<List>")) {
                     //скроем кнопки открытия в плеере
                     open_aimp.visibility = View.GONE
+                    open_custom.visibility = View.GONE
                     //покажем кнопку загрузки списка
                     loadlist.visibility = View.VISIBLE
                 } else {
                     //иначе покажем
                     open_aimp.visibility = View.VISIBLE
+                    open_custom.visibility = View.VISIBLE
                     //скроем кнопку загрузки списка
                     loadlist.visibility = View.GONE
                 }

@@ -49,6 +49,11 @@ fun download_file(url: String, name: String, sourse: String) {
         }
         //--------------------------------------------------------
     } else {
+        signal("dw_progres")
+                .putExtra("readBytes", "0")
+                .putExtra("totalBytes", "0")
+                .send(Main.context)
+        signal("Main_update").putExtra("signal", "stop_" + sourse).send(Main.context)
         Main.context.toast("Неверный URL")
     }
 }

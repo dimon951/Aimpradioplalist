@@ -12,6 +12,7 @@ import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system_file
+import dmitriy.deomin.aimpradioplalist.`fun`.windows.menu_saved_file
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.History
 import dmitriy.deomin.aimpradioplalist.custom.send
@@ -60,7 +61,7 @@ class Adapter_history_online_plalist(val data: ArrayList<History>) : androidx.re
 
             //если тыкают в плейлист
             if (history.url.substringAfterLast('.') == "mp3") {
-                play_aimp_file(history.url)
+                menu_saved_file(context, history.url,false)
             } else {
                 //пошлём сигнал для загрузки дааных п спискок
                 signal("Data_add")

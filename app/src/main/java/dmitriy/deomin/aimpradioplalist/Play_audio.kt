@@ -12,10 +12,12 @@ import android.view.animation.AnimationUtils
 import android.widget.*
 import android.widget.LinearLayout
 import dmitriy.deomin.aimpradioplalist.`fun`.download_file
+import dmitriy.deomin.aimpradioplalist.`fun`.file.is_existence_file
 import dmitriy.deomin.aimpradioplalist.`fun`.formatTimeToEnd
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system_file
 import dmitriy.deomin.aimpradioplalist.`fun`.putText_сlipboard
+import dmitriy.deomin.aimpradioplalist.`fun`.windows.menu_saved_file
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Slot
 import dmitriy.deomin.aimpradioplalist.custom.send
@@ -28,7 +30,7 @@ import org.jetbrains.anko.toast
 import java.util.concurrent.TimeUnit
 
 
-class Play_audio(name: String, url: String,context: Context = Main.context) {
+class Play_audio(name: String, url: String, context: Context = Main.context) {
 
     init {
         val plaer = DialogWindow(context, R.layout.plaer, true)
@@ -42,7 +44,7 @@ class Play_audio(name: String, url: String,context: Context = Main.context) {
 
         plaer.view().findViewById<TextView>(R.id.info).text = name
 
-        val time =plaer.view().findViewById<TextView>(R.id.time)
+        val time = plaer.view().findViewById<TextView>(R.id.time)
 
         val text_name_i_url = plaer.view().findViewById<TextView>(R.id.text_logo)
         text_name_i_url.text = url
@@ -51,7 +53,6 @@ class Play_audio(name: String, url: String,context: Context = Main.context) {
             putText_сlipboard(url, context)
             context.toast("url скопирован в буфер")
         }
-
 
 
         val btnplay = plaer.view().findViewById<Button>(R.id.go)
@@ -77,15 +78,16 @@ class Play_audio(name: String, url: String,context: Context = Main.context) {
 
         vv!!.setOnCompletionListener {
             vv.pause()
-           btnplay.setBackgroundDrawable(context.resources.getDrawable(R.drawable.iconka_play))
+            btnplay.setBackgroundDrawable(context.resources.getDrawable(R.drawable.iconka_play))
         }
 
         val threadHandler = Handler()
-        class UpdateSeekBarThread(): Runnable{
+
+        class UpdateSeekBarThread() : Runnable {
             @SuppressLint("SetTextI18n")
             override fun run() {
                 val currentPosition: Int = vv.currentPosition
-                time.text= formatTimeToEnd(vv.duration.toLong())+"/"+formatTimeToEnd(currentPosition.toLong())
+                time.text = formatTimeToEnd(vv.duration.toLong()) + "/" + formatTimeToEnd(currentPosition.toLong())
                 seekBar.max = vv.duration
                 seekBar.progress = currentPosition
                 threadHandler.postDelayed(this, 50)
@@ -137,70 +139,76 @@ class Play_audio(name: String, url: String,context: Context = Main.context) {
 
             override fun onStopTrackingTouch(seekBar: SeekBar) {
                 // Write code to perform some action when touch is stopped.
-                if(vv.duration>seekBar.progress){
+                if (vv.duration > seekBar.progress) {
                     vv.seekTo(seekBar.progress)
                 }
             }
         })
 
 
-
-
         //---------------------download--------------------------------------------------
         plaer.view().findViewById<Button>(R.id.download).onClick {
 
-            val dw = DialogWindow(context, R.layout.dialog_delete_stancii, true)
-            val dw_start = dw.view().findViewById<Button>(R.id.button_dialog_delete)
-            val dw_no = dw.view().findViewById<Button>(R.id.button_dialog_no)
-            val dw_logo = dw.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
-            val dw_progres = dw.view().findViewById<ProgressBar>(R.id.progressBar)
-            dw_progres.visibility = View.VISIBLE
+            //проврим существование файла
+            val file_pach = Main.ROOT + name + "." + url.substringAfterLast('.')
+            if (is_existence_file(file_pach)) {
+                menu_saved_file(context, file_pach)
+            } else {
+
+                val dw = DialogWindow(context, R.layout.dialog_delete_stancii, true)
+                val dw_start = dw.view().findViewById<Button>(R.id.button_dialog_delete)
+                val dw_no = dw.view().findViewById<Button>(R.id.button_dialog_no)
+                val dw_logo = dw.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
+                val dw_progres = dw.view().findViewById<ProgressBar>(R.id.progressBar)
+                dw_progres.visibility = View.VISIBLE
 
 
-            Slot(context, "dw_progres").onRun {
-                val totalBytes = it.getStringExtra("totalBytes")
-                val readBytes = it.getStringExtra("readBytes")
-                dw_progres.max = totalBytes.toInt()
-                dw_progres.progress = readBytes.toInt()
+                Slot(context, "dw_progres").onRun {
+                    val totalBytes = it.getStringExtra("totalBytes")
+                    val readBytes = it.getStringExtra("readBytes")
+                    dw_progres.max = totalBytes.toInt()
+                    dw_progres.progress = readBytes.toInt()
 
-                if (totalBytes == readBytes) {
-                    if (totalBytes == "0") {
-                        dw_logo.text = "Отменено,попробовать еще раз?"
-                        dw_no.text = "Нет"
-                        dw_start.visibility = View.VISIBLE
-                    } else {
-                        dw_logo.text = "Готово,сохранено в папке программы"
-                        dw_start.visibility = View.VISIBLE
-                        dw_start.text = "Открыть файл"
-                        dw_no.text = "Нет"
+                    if (totalBytes == readBytes) {
+                        if (totalBytes == "0") {
+                            dw_logo.text = "Отменено,попробовать еще раз?"
+                            dw_no.text = "Нет"
+                            dw_start.visibility = View.VISIBLE
+                        } else {
+                            dw_logo.text = "Готово,сохранено в папке программы"
+                            dw_start.visibility = View.VISIBLE
+                            dw_start.text = "Открыть файл"
+                            dw_no.text = "Нет"
+                        }
                     }
                 }
-            }
 
+                dw_logo.text = "Попробовать скачать?\n(не работает для потока)"
 
-            dw_logo.text = "Попробовать скачать?\n(не работает для потока)"
-
-            dw_start.onClick {
-                if (dw_logo.text == "Готово,сохранено в папке программы") {
-                    //попробуем его открыть
-                    play_aimp_file(Main.ROOT + name + "." + url.substringAfterLast('.'))
-                } else {
-                    dw_start.visibility = View.GONE
-                    download_file(url, name + "." + url.substringAfterLast('.'), "anim_online_plalist")
-                    dw_logo.text = "Идёт загрузка..."
-                    dw_no.text = "Отмена"
+                dw_start.onClick {
+                    if (dw_logo.text == "Готово,сохранено в папке программы") {
+                        //попробуем его открыть
+                        play_aimp_file(Main.ROOT + name + "." + url.substringAfterLast('.'))
+                        dw.close()
+                    } else {
+                        dw_start.visibility = View.GONE
+                        dw_logo.text = "Идёт загрузка..."
+                        dw_no.text = "Отмена"
+                        download_file(url, name + "." + url.substringAfterLast('.'), "anim_online_plalist")
+                    }
                 }
-            }
-            dw_start.onLongClick {
-                if (dw_logo.text == "Готово,сохранено в папке программы") {
-                    play_system_file(Main.ROOT + name + "." + url.substringAfterLast('.'))
+                dw_start.onLongClick {
+                    if (dw_logo.text == "Готово,сохранено в папке программы") {
+                        play_system_file(Main.ROOT + name + "." + url.substringAfterLast('.'))
+                        dw.close()
+                    }
                 }
-            }
-            dw_no.onClick {
-                if (dw_no.text == "Отмена") {
-                    signal("dw_cansel").send(context)
-                } else {
-                    dw.close()
+                dw_no.onClick {
+                    if (dw_no.text == "Отмена") {
+                        signal("dw_cansel").send(context)
+                    } else {
+                        dw.close()
+                    }
                 }
             }
         }

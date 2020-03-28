@@ -64,14 +64,13 @@
         <item>Радио для двоих\nrd.png\n
             160kbps~kbps~http://163.172.160.245:8081/radio/for2/icecast.audio~kbps~
             160kbps~kbps~http://icecast-radiofortwo.cdnvideo.ru/radiofortwo~kbps~
-            54kbps~kbps~https://str.pcradio.ru/rddfm_ru-hi~kbps~
         </item>
         <item>Радио Родных Дорог\nrrd.png\n
             128kbps~kbps~http://stream1.radiord.ru:8000/live96.aac~kbps~
         </item>
         <item>ENERGY\nenergy.png\n
-            320kbps~kbps~http://nrj.babahhcdn.com/NRJ?.mp3~kbps~
             128kbps~kbps~http://energydance.ice.infomaniak.ch/energydance-high.mp3~kbps~
+            128kbps~kbps~https://pub0201.101.ru:8000/stream/air/aac/64/99~kbps~
         </item>
         <item>DFM\ndfm_moskva.png\n
             64kbps~kbps~https://dfm.hostingradio.ru/dfm64.mp3~kbps~
@@ -257,7 +256,7 @@
     </string-array>
 
     <string-array name="vse_radio">
-
+        <item>NRJ STREAM TX -Музыка- 320kbps\nhttp://nrj.babahhcdn.com/NRJ?.mp3</item>
         <item>От радио Ваня:Не лихие 90-е -Музыка- 128kbps\nhttp://icecast-radiovanya.cdnvideo.ru:8000/rv_90</item>
         <item>От радио Ваня:Свежий бит -Музыка- 128kbps\nhttp://icecast-radiovanya.cdnvideo.ru:8000/rv_hit</item>
         <item>От радио Ваня:Рэп и Хип-Хап -Музыка- 128kbps\nhttp://icecast-radiovanya.cdnvideo.ru:8000/rv_rap</item>

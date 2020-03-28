@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dmitriy.deomin.aimpradioplalist.custom.Fon_item
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="@null"
+    android:elevation="0dp"
+    android:foregroundGravity="center"
+    app:cardBackgroundColor="@color/cardview_shadow_start_color"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardPreventCornerOverlap="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <dmitriy.deomin.aimpradioplalist.custom.Text
+            android:id="@+id/text_poesnalka"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@null"
+            android:gravity="center"
+            android:maxHeight="300dp"
+            android:text="Файл уже загружен"
+            android:textSize="20sp"
+            android:textStyle="normal|bold" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Text
+            android:id="@+id/logo_menu_saved_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@null"
+            android:gravity="center"
+            android:maxHeight="300dp"
+            android:text="TextView"
+            android:textSize="20sp"
+            android:textStyle="normal|bold" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Text
+            android:id="@+id/tetx_info_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@null"
+            android:gravity="center"
+            android:maxHeight="300dp"
+            android:text="TextView"
+            android:textSize="16sp"
+            android:textStyle="normal|bold" />
+
+        <LinearLayout
+            android:id="@+id/menu_saved_file_buttton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_del"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="10dp"
+                android:background="@android:drawable/ic_menu_delete"
+                android:textColor="@color/green"
+                android:textSize="16sp"
+                android:layout_marginEnd="10dp" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_add_plalist"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="10dp"
+                android:background="@android:drawable/ic_menu_add"
+                android:textColor="@color/green"
+                android:textSize="16sp"
+                android:layout_marginEnd="10dp" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/open_custom_plaer"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/iconka_play"
+                android:layout_marginEnd="10dp" />
+
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_open_aimp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="10dp"
+                android:background="@android:drawable/ic_media_play"
+                android:textColor="@color/green"
+                android:textSize="16sp"
+                android:layout_marginEnd="10dp" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_cshre"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@android:drawable/ic_menu_share"
+                android:gravity="end" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</dmitriy.deomin.aimpradioplalist.custom.Fon_item>
