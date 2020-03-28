@@ -10,7 +10,7 @@ val m3uTeg_govna: List<String> = listOf("#EXTM3U", "#PLAYLIST", "#EXTGRP")
 fun m3u_parser(data: String): ArrayList<Radio> {
 
     //если плейлист не пустой
-    if (data.contains("http")) {
+    if (data.contains("http") or data.contains("/storage/") ) {
         val listRadio = ArrayList<Radio>()
         var name = ""
         var url = ""
@@ -22,7 +22,7 @@ fun m3u_parser(data: String): ArrayList<Radio> {
             if(!if_govno_find(l)){
                 if (l.contains("#EXTINF")) {
                     name = find_name_v_chlame(l)
-                } else if(l.contains("http")){
+                } else if(l.contains("http") or l.contains("/storage/")){
                      url = l
                 }
                 if (name.isNotEmpty() && url.isNotEmpty()) {

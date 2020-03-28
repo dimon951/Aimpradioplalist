@@ -211,6 +211,7 @@ class Play_audio(name: String, url: String, context: Context = Main.context) {
                     }
                 }
             }
+            plaer.close()
         }
         //-------------------------------------------------------------------------------
     }
