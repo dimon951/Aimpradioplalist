@@ -1,8 +1,6 @@
 package dmitriy.deomin.aimpradioplalist.`fun`.windows
 
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -18,7 +16,6 @@ import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
-import org.jetbrains.anko.share
 import org.jetbrains.anko.toast
 import java.io.File
 
@@ -26,8 +23,7 @@ fun menu_saved_file(context: Context, file: String, info: Boolean = true) {
     val dw = DialogWindow(context, R.layout.menu_saved_file)
 
     //Если файл есть посмотрим его вес
-    val s = getDirSize(File(file))
-    val size_file = long_size_to_good_vid(s.toDouble())
+    val size_file = long_size_to_good_vid(getDirSize(File(file)).toDouble())
 
     dw.view().findViewById<TextView>(R.id.logo_menu_saved_file).text = file
     dw.view().findViewById<TextView>(R.id.tetx_info_file).text = size_file
@@ -41,15 +37,15 @@ fun menu_saved_file(context: Context, file: String, info: Boolean = true) {
 
         val d = DialogWindow(context, R.layout.dialog_delete_stancii)
 
-        d.view().findViewById<TextView>(R.id.text_voprosa_del_stncii).text = "Удалить "+file +" ("+size_file+") ?"
+        d.view().findViewById<TextView>(R.id.text_voprosa_del_stncii).text = "Удалить $file ($size_file) ?"
 
         val da = d.view().findViewById<Button>(R.id.button_dialog_delete)
         da.onClick {
             d.close()
-            if(File(file).delete()){
+            if (File(file).delete()) {
                 context.toast("Готово")
                 dw.close()
-            }else{
+            } else {
                 context.toast("Неудачно")
             }
         }
@@ -76,7 +72,9 @@ fun menu_saved_file(context: Context, file: String, info: Boolean = true) {
         dw.close()
     }
     dw.view().findViewById<Button>(R.id.button_cshre).onClick {
-
+        signal("Main_update")
+                .putExtra("signal","send_mp3")
+                .putExtra("pach_mp3_file",file).send(context)
         dw.close()
     }
 }

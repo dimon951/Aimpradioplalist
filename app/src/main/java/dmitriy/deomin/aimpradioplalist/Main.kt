@@ -10,6 +10,9 @@ import androidx.viewpager.widget.ViewPager
 import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.*
+import androidx.core.app.ShareCompat
+import androidx.core.content.ContextCompat.startActivity
+import androidx.core.content.FileProvider
 import androidx.fragment.app.FragmentActivity
 import dmitriy.deomin.aimpradioplalist.`fun`.*
 import dmitriy.deomin.aimpradioplalist.`fun`.menu.menu_main
@@ -18,6 +21,7 @@ import kotlinx.android.synthetic.main.main.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
+import java.io.File
 
 class Main : FragmentActivity() {
 
@@ -313,7 +317,8 @@ class Main : FragmentActivity() {
                     online_plalist.visibility = View.VISIBLE
                     progress_online_plalist.visibility = View.GONE
                 }
-                "move2"->viewPager.setCurrentItem(2)
+                "move2" -> viewPager.setCurrentItem(2)
+                "send_mp3" -> shareAudioFile(it.getStringExtra("pach_mp3_file"))
             }
         }
 
@@ -338,6 +343,39 @@ class Main : FragmentActivity() {
 
         //при первом запуске программы покажем окошко с изменениями один раз
         // newUpdate()
+    }
+
+
+    fun shareAudioFile(audioFile: String) {
+        /*
+       manifest
+       <provider
+       android:name="androidx.core.content.FileProvider"
+       android:authorities="${applicationId}.fileprovider"
+       android:exported="false"
+       android:grantUriPermissions="true">
+
+       <meta-data
+       android:name="android.support.FILE_PROVIDER_PATHS"
+       android:resource="@xml/file_paths"/>
+       </provider>
+
+       file_paths.xml
+       <?xml version="1.0" encoding="utf-8"?>
+       <paths xmlns:android="http://schemas.android.com/apk/res/android">
+           <external-path
+               name="external_files"
+               path="." />
+       </paths>
+        */
+        val uri = FileProvider.getUriForFile(context, "dmitriy.deomin.aimpradioplalist.fileprovider", File(audioFile))
+
+        val shareIntent: Intent = ShareCompat.IntentBuilder.from(this)
+                .setType("audio/mp3")
+                .setStream(uri)
+                .intent
+
+        startActivity(Intent.createChooser(shareIntent, "Выберите как поделится файлом"))
     }
 
 }
