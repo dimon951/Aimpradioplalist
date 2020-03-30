@@ -162,7 +162,14 @@ class Main : FragmentActivity() {
             val name = nsf.view().findViewById<EditText>(R.id.edit_new_name)
             name.typeface = face
             name.textColor = COLOR_TEXT
-            name.setText("Всё радио")
+
+            var name_save_file_vse_radio = "Всё радио"
+
+            //если в поиске есть текст то подставм его
+            if(Vse_radio.find_text.isNotEmpty())name_save_file_vse_radio = Vse_radio.find_text
+
+            name.setText(name_save_file_vse_radio)
+
             (nsf.view().findViewById<Button>(R.id.button_save)).onClick {
                 if (name.text.toString().isNotEmpty()) {
                     nsf.close()
@@ -179,13 +186,8 @@ class Main : FragmentActivity() {
 
             //когда все запишется отключим анимацию
             Slot(context, "File_created_save_vse", false).onRun {
-                //получим данные
-                when (it.getStringExtra("update")) {
-                    "zaebis" -> context.toast(rnd_ok())
-                    "pizdec" -> context.toast(Main.context.getString(R.string.error))
-                }
                 when (it.getStringExtra("anim")) {
-                    "anim_of" -> {
+                    "anim_of" ->{
                         progress_vse_radio.visibility = View.GONE
                         vse_radio.visibility = View.VISIBLE
                     }
@@ -198,16 +200,6 @@ class Main : FragmentActivity() {
         }
         //при долгом нажатии будем весь список популярного радио сохранять
         popularnoe.onLongClick {
-            //когда все запишется пошлём сигнал чтобы список обновился
-            Slot(context, "File_created_save_vse", false).onRun {
-                //получим данные
-                when (it.getStringExtra("update")) {
-                    //пошлём сигнал пусть мой плейлист обновится
-                    "zaebis" -> context.toast("Весь список сохранен в " + ROOT)
-
-                    "pizdec" -> context.toast(Main.context.getString(R.string.error))
-                }
-            }
             signal("save_all_popularnoe").send(context)
         }
 

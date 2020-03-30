@@ -30,7 +30,7 @@ class File_function {
         if (old_text.length > Main.PUSTO.length) {
             //разобьём всю кучу
             val mas = old_text.lines()
-            var data:ArrayList<Radio>
+            var data: ArrayList<Radio>
             for (s in mas) {
                 //если такая уже есть выходим и шлём сигнал что закрылось окошко
                 if (s == link) {
@@ -40,10 +40,10 @@ class File_function {
                 }
             }
             //если цикл прошёл мимо то добавим станцию
-            SaveFile("my_plalist","$old_text\n#EXTINF:-1,$name\n$link")
+            SaveFile("my_plalist", "$old_text\n#EXTINF:-1,$name\n$link")
         } else {
             //если наш плейлист пуст добавим в начале файла #EXTM3U
-            SaveFile( "my_plalist", "#EXTM3U\n#EXTINF:-1,$name\n$link")
+            SaveFile("my_plalist", "#EXTM3U\n#EXTINF:-1,$name\n$link")
         }
 
     }
@@ -55,13 +55,11 @@ class File_function {
             //проверим наличие нашей папки  и доспуп к ней
             create_esli_net()
 
-            val all_name = Main.ROOT + clear_name_ot_chlama(name)+".m3u"
-
-            lateinit var writer:FileWriter
-
+            val all_name = Main.ROOT + clear_name_ot_chlama(name) + ".m3u"
             try {
-                writer = FileWriter(all_name, false)
+                val writer = FileWriter(all_name, false)
                 writer.write(data)
+                writer.close()
             } catch (ex: Exception) {
                 //послать сигнал
                 signal("File_created")
@@ -69,12 +67,11 @@ class File_function {
                         .putExtra("update", "pizdec")
                         .send(Main.context)
             } finally {
-                writer.close()
                 //послать сигнал
                 signal("File_created")
                         .putExtra("run", false)
                         .putExtra("update", "zaebis")
-                        .putExtra("name",all_name)
+                        .putExtra("name", all_name)
                         .send(Main.context)
             }
         }
@@ -84,11 +81,12 @@ class File_function {
     //запись в файл
     fun writeToFile(name: String, str: String) {
         GlobalScope.launch {
+            //создадим папки если нет
             create_esli_net()
-            lateinit var writer:FileWriter
             try {
-                writer = FileWriter(Main.ROOT + name, false)
+                val writer = FileWriter(Main.ROOT + name, false)
                 writer.write(str + "\n")
+                writer.close()
             } catch (ex: Exception) {
                 println(ex.message)
                 //послать сигнал
@@ -98,7 +96,6 @@ class File_function {
                         .putExtra("anim", "anim_of")
                         .send(Main.context)
             } finally {
-                writer.close()
                 //послать сигнал
                 signal("File_created_save_vse")
                         .putExtra("run", false)
@@ -119,9 +116,9 @@ class File_function {
             ""
         } else {
             try {
-              FileReader(fileName).readText()
+                FileReader(fileName).readText()
             } catch (e: Exception) {
-               ""
+                ""
             }
         }
     }
@@ -159,6 +156,4 @@ class File_function {
         }
         return chtoto
     }
-
-
 }

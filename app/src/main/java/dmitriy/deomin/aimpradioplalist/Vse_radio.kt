@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import dmitriy.deomin.aimpradioplalist.`fun`.m3u.create_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.save_read
 import dmitriy.deomin.aimpradioplalist.`fun`.save_read_int
 import dmitriy.deomin.aimpradioplalist.`fun`.save_value
@@ -41,6 +42,7 @@ class Vse_radio : Fragment() {
     companion object {
         var cho_nagimali_poslednee: Int = 0
         var Numeracia: Int = 1
+        var find_text = ""
     }
 
     @SuppressLint("WrongConstant", "InflateParams")
@@ -166,39 +168,31 @@ class Vse_radio : Fragment() {
                 override fun afterTextChanged(s: Editable) {}
                 override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
                 override fun onTextChanged(text: CharSequence, start: Int, before: Int, count: Int) {
-                    adapter_vse_list.filter.filter(text)
+                    find_text = text.toString()
+                    adapter_vse_list.filter.filter(find_text)
                 }
             })
 
-
             //этот слот будет висеть и если что будет сохранять текущий список в память
             Slot(context, "save_all_vse_lest").onRun {
-                //получаем имя для плейлиста
-                var n = it.getStringExtra("name_list")
-
                 adapter_vse_list.notifyDataSetChanged()
                 val data = adapter_vse_list.raduoSearchList
                 if (data.isNotEmpty()) {
                     GlobalScope.launch {
-                        val f = File_function()
-                        //составим норм список
-                        val s_data = ArrayList<String>()
-                        s_data.add("#EXTM3U")
-                        for (s in data.iterator()) {
-                            s_data.add("\n#EXTINF:-1," + s.name + " " + s.kbps + "\n" + s.url)
-                        }
-                        if (s_data.size > 0) {
-                            if (n.isNotEmpty()) {
-                                f.saveArrayList(n + ".m3u", s_data)
-                            } else {
-                                n = data.size.toString()
-                                f.saveArrayList("vse_list_radio" + n + ".m3u", s_data)
+                        Slot(context, "File_created", false).onRun {
+                            //получим данные
+                            when (it.getStringExtra("update")) {
+                                //узнаем результат сохранения
+                                "zaebis" -> Main.context.toast("Весь список сохранен в " + it.getStringExtra("name"))
+                                "pizdec" -> Main.context.toast(Main.context.getString(R.string.error))
                             }
+                            //послать сигнал отключить анимацию на кнопке
+                            signal("File_created_save_vse").putExtra("anim", "anim_of").send(Main.context)
                         }
+                        create_m3u_file(it.getStringExtra("name_list"),data)
                     }
                 }
             }
-
         }
         //---------------------------------------------------------------
         //при первой загрузке будем ставить текст на кнопке , потом при смене будем менять тамже
