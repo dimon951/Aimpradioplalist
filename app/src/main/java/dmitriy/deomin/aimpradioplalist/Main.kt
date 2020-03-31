@@ -309,6 +309,12 @@ class Main : FragmentActivity() {
                     online_plalist.visibility = View.VISIBLE
                     progress_online_plalist.visibility = View.GONE
                 }
+                "start_anim_download_app" -> {
+
+                }
+                "stop_anim_download_app" -> {
+
+                }
                 "move2" -> viewPager.setCurrentItem(2)
                 "send_mp3" -> shareAudioFile(it.getStringExtra("pach_mp3_file"))
             }

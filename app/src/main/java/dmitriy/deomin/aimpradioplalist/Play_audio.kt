@@ -2,6 +2,7 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.media.AudioAttributes
 import android.net.Uri
 import android.os.Build
 import android.os.Handler
@@ -11,6 +12,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
 import android.widget.LinearLayout
+import androidx.core.content.FileProvider
 import dmitriy.deomin.aimpradioplalist.`fun`.download_file
 import dmitriy.deomin.aimpradioplalist.`fun`.file.is_existence_file
 import dmitriy.deomin.aimpradioplalist.`fun`.formatTimeToEnd
@@ -27,6 +29,7 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.sdk27.coroutines.onSeekBarChangeListener
 import org.jetbrains.anko.toast
+import java.io.File
 import java.util.concurrent.TimeUnit
 
 
@@ -74,7 +77,9 @@ class Play_audio(name: String, url: String, context: Context = Main.context) {
         }
 
         val mediacontroller = MediaController(context)
-        val uri = Uri.parse(url)
+       val uri = Uri.parse(url)
+
+
 
         vv!!.setOnCompletionListener {
             vv.pause()
@@ -100,7 +105,7 @@ class Play_audio(name: String, url: String, context: Context = Main.context) {
                 progressBar!!.visibility = View.VISIBLE
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    vv.setVideoURI(uri, mapOf("user-agent" to "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36"))
+                   vv.setVideoURI(uri, mapOf("user-agent" to "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36"))
                 } else {
                     vv.setVideoURI(uri)
                 }
@@ -143,6 +148,7 @@ class Play_audio(name: String, url: String, context: Context = Main.context) {
                     vv.seekTo(seekBar.progress)
                 }
             }
+
         })
 
 
