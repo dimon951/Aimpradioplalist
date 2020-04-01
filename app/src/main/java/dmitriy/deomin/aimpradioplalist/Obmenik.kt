@@ -113,7 +113,7 @@ class Obmenik : Activity() {
                                 }
 
                                 //перевернём список
-                                d.reverse()
+                                //d.reverse()
 
                                 ao = Adapter_obmenik(d)
                                 recikl_list.adapter = ao

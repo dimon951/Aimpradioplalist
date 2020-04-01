@@ -45,10 +45,6 @@ fun menu_setup_aimp(url: String, name: String) {
 
     dw_aimp_link.text = "Скачать Aimp (Долгим нажатием файл загрузится через программу)"
 
-    dw_aimp_link.onClick {
-        Main.context.browse(Main.LINK_DOWLOAD_AIMP)
-    }
-
     dw_aimp_link.setOnLongClickListener {
 
         val name_app = "aimp_setup.apk"
@@ -74,6 +70,10 @@ fun menu_setup_aimp(url: String, name: String) {
         dw_progres.visibility = View.VISIBLE
         download_file(Main.LINK_DOWLOAD_AIMP,name_app,"anim_download_app")
         true
+    }
+
+    dw_aimp_link.setOnClickListener {
+        Main.context.browse(Main.LINK_DOWLOAD_AIMP)
     }
 
     open_sys.onClick {

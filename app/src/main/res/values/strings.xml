@@ -2309,6 +2309,9 @@
         <item>Радио для двоих -Музыка- 160kbps\nhttp://163.172.160.245:8081/radio/for2/icecast.audio</item>
         <item>Радио для двоих -Музыка- 160kbps\nhttp://icecast-radiofortwo.cdnvideo.ru/radiofortwo</item>
         <item>Радио для двоих -Музыка- 54kbps\nhttps://str.pcradio.ru/rddfm_ru-hi</item>
+        <item>Радио НЕСТАНДАРТ -Музыка- 128kbps\nhttp://listen.radionestandart.ru:8200/128.mp3</item>
+        <item>Радио НЕСТАНДАРТ -Музыка- 64kbps\nhttp://listen.radionestandart.ru:8200/64.aac</item>
+        <item>Радио НЕСТАНДАРТ -Музыка- 48kbps\nhttp://listen.radionestandart.ru:8200/48.aac</item>
     </string-array>
     <string name="title_activity_obmenik">Obmenik</string>
 

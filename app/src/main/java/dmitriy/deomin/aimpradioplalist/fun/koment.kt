@@ -6,7 +6,6 @@ import dmitriy.deomin.aimpradioplalist.custom.Koment
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
 import org.jetbrains.anko.toast
-import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -83,8 +82,9 @@ fun add_koment(id_item: String, text: String) {
 }
 
 fun edit_koment(id_item: String, text: String, id_komenta: String) {
-    val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-    val currentDate = sdf.format(Date())
+
+    val calendar = Calendar.getInstance(TimeZone.getTimeZone("Europe/Moscow"))
+    val currentDate = calendar.getTime()
     //добавление в базу
     val db = FirebaseFirestore.getInstance()
     val user = hashMapOf(
