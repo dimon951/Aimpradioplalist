@@ -2,13 +2,14 @@ package dmitriy.deomin.aimpradioplalist
 
 import dmitriy.deomin.aimpradioplalist.`fun`.file.clear_name_ot_chlama
 import dmitriy.deomin.aimpradioplalist.`fun`.file.create_esli_net
-import dmitriy.deomin.aimpradioplalist.custom.Radio
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.io.*
-import kotlin.collections.ArrayList
+import java.io.File
+import java.io.FileNotFoundException
+import java.io.FileReader
+import java.io.FileWriter
 
 
 class File_function {
@@ -30,7 +31,6 @@ class File_function {
         if (old_text.length > Main.PUSTO.length) {
             //разобьём всю кучу
             val mas = old_text.lines()
-            var data: ArrayList<Radio>
             for (s in mas) {
                 //если такая уже есть выходим и шлём сигнал что закрылось окошко
                 if (s == link) {

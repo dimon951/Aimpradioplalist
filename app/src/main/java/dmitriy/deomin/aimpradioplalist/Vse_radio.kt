@@ -2,21 +2,19 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Paint
-import android.graphics.Typeface
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import androidx.fragment.app.Fragment
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.create_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.save_read
 import dmitriy.deomin.aimpradioplalist.`fun`.save_read_int
 import dmitriy.deomin.aimpradioplalist.`fun`.save_value
-import dmitriy.deomin.aimpradioplalist.`fun`.save_value_int
 import dmitriy.deomin.aimpradioplalist.adapters.Adapter_vse_list
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.vse_radio.view.*
@@ -29,9 +27,7 @@ import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
 import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
-import java.lang.Exception
-
-import java.util.ArrayList
+import java.util.*
 
 
 class Vse_radio : Fragment() {
@@ -277,38 +273,6 @@ class Vse_radio : Fragment() {
                 find.setText("")
             } else {
                 find.setText(v.kod_256bit.text)
-            }
-        }
-
-        val setting = v.findViewById<Button>(R.id.button_settig_vse_radio)
-        setting.onClick {
-
-            val svr = DialogWindow(context, R.layout.setting_vse_radio)
-
-            val num = svr.view().findViewById<Button>(R.id.button_seting_number)
-
-            if (Numeracia == 1) {
-                num.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-                num.setTypeface(Main.face, Typeface.BOLD)
-            } else {
-                num.paintFlags = 0
-                num.typeface = Main.face
-            }
-
-            num.onClick {
-                if (save_read_int("setting_numer") == 0) {
-                    save_value_int("setting_numer", 1)
-                    Numeracia = 1
-                    num.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-                    num.setTypeface(Main.face, Typeface.BOLD)
-                    recikl_vse_list.adapter!!.notifyDataSetChanged()
-                } else {
-                    save_value_int("setting_numer", 0)
-                    Numeracia = 0
-                    num.paintFlags = 0
-                    num.typeface = Main.face
-                    recikl_vse_list.adapter!!.notifyDataSetChanged()
-                }
             }
         }
 

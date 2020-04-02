@@ -7,18 +7,20 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.WindowManager
-import android.widget.Button
 import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
-import dmitriy.deomin.aimpradioplalist.`fun`.data_time
-import dmitriy.deomin.aimpradioplalist.`fun`.getText_сlipboard
+import dmitriy.deomin.aimpradioplalist.`fun`.windows.window_add_new_url_obmenik
 import dmitriy.deomin.aimpradioplalist.adapters.Adapter_obmenik
-import dmitriy.deomin.aimpradioplalist.custom.*
+import dmitriy.deomin.aimpradioplalist.custom.Radio
+import dmitriy.deomin.aimpradioplalist.custom.Slot
+import dmitriy.deomin.aimpradioplalist.custom.send
+import dmitriy.deomin.aimpradioplalist.custom.signal
 import kotlinx.android.synthetic.main.obmenik.*
-import org.jetbrains.anko.*
+import org.jetbrains.anko.backgroundColor
+import org.jetbrains.anko.hintTextColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import kotlin.collections.ArrayList
+import org.jetbrains.anko.textColor
 
 class Obmenik : Activity() {
 
@@ -154,83 +156,7 @@ class Obmenik : Activity() {
         }
 
         button_add_new_obmenik.onClick {
-
-            val menu_add_new = DialogWindow(context, R.layout.add_new_url_obmenik)
-
-            val ed_name = menu_add_new.view().findViewById<EditText>(R.id.editText_name_new)
-            val ed_url = menu_add_new.view().findViewById<EditText>(R.id.editText_url_new)
-            val ed_kat = menu_add_new.view().findViewById<EditText>(R.id.editText_kategoria_new)
-            val ed_kbps = menu_add_new.view().findViewById<EditText>(R.id.editText_kbps_new)
-
-            ed_name.typeface = Main.face
-            ed_name.textColor = Main.COLOR_TEXT
-            ed_name.hintTextColor = Main.COLOR_TEXTcontext
-
-            ed_url.typeface = Main.face
-            ed_url.textColor = Main.COLOR_TEXT
-            ed_url.hintTextColor = Main.COLOR_TEXTcontext
-
-            ed_kat.typeface = Main.face
-            ed_kat.textColor = Main.COLOR_TEXT
-            ed_kat.hintTextColor = Main.COLOR_TEXTcontext
-
-            ed_kbps.typeface = Main.face
-            ed_kbps.textColor = Main.COLOR_TEXT
-            ed_kbps.hintTextColor = Main.COLOR_TEXTcontext
-
-
-
-
-            (menu_add_new.view().findViewById<Button>(R.id.button_paste_iz_bufera_obmenik)).onClick {
-                ed_url.setText(getText_сlipboard(context))
-            }
-
-            (menu_add_new.view().findViewById<Button>(R.id.button_add)).onClick {
-
-                if (ed_name.text.toString().isEmpty() || ed_url.text.toString().isEmpty()) {
-                    context.toast("Введите данные")
-                } else {
-
-                    var kategoria = ""
-                    if (ed_kat.text.isNotEmpty()) {
-                        kategoria = ed_kat.text.toString()
-                    }
-                    var kbps = ""
-                    if (ed_kbps.text.isNotEmpty()) {
-                        kbps = ed_kbps.text.toString()
-                        if (!kbps.contains("kbps")) {
-                            kbps += "kbps"
-                        }
-                    }
-
-                    //добавление в базу
-                    val db = FirebaseFirestore.getInstance()
-                    val user = hashMapOf(
-                            "date" to data_time(),
-                            "user_name" to Main.NAME_USER,
-                            "user_id" to Main.ID_USER,
-                            "kat" to kategoria,
-                            "kbps" to kbps,
-                            "name" to ed_name.text.toString(),
-                            "url" to ed_url.text.toString()
-                    )
-
-                    // Add a new document with a generated ID
-                    db.collection("radio_obmenik")
-                            .add(user)
-                            .addOnSuccessListener { documentReference ->
-                                //  Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-                                menu_add_new.close()
-                                //если все пучком пошлём сигнал для обновления(пока всего плейлиста)
-                                signal("Obmennik").putExtra("update", "zaebis").send(context)
-                            }
-                            .addOnFailureListener { e ->
-                                context.toast(e.toString())
-                            }
-                }
-            }
-
-
+            window_add_new_url_obmenik(context)
         }
 
         button_update_all_obmenik.onClick {

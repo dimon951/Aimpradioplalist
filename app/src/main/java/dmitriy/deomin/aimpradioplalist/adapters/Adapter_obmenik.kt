@@ -7,24 +7,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
-import com.google.firebase.firestore.FirebaseFirestore
 import dmitriy.deomin.aimpradioplalist.Main
-import dmitriy.deomin.aimpradioplalist.Play_audio
 import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.Vse_radio
-import dmitriy.deomin.aimpradioplalist.`fun`.*
-import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
-import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
+import dmitriy.deomin.aimpradioplalist.`fun`.add_koment
+import dmitriy.deomin.aimpradioplalist.`fun`.load_koment
 import dmitriy.deomin.aimpradioplalist.`fun`.windows.menu_vse_radio_obmenik
-import dmitriy.deomin.aimpradioplalist.custom.*
+import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
+import dmitriy.deomin.aimpradioplalist.custom.Koment
+import dmitriy.deomin.aimpradioplalist.custom.Radio
+import dmitriy.deomin.aimpradioplalist.custom.Slot
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.jetbrains.anko.*
+import org.jetbrains.anko.hintTextColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.sdk27.coroutines.onLongClick
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.ArrayList
+import org.jetbrains.anko.textColor
+import org.jetbrains.anko.toast
 
 class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_obmenik.ViewHolder>(), Filterable {
 
@@ -85,7 +83,6 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
         //
         val liner_reiting = itemView.findViewById<LinearLayout>(R.id.liner_reiting)
         val btn_koment = itemView.findViewById<Button>(R.id.button_komenty)
-        val btn_like = itemView.findViewById<Button>(R.id.button_like)
         //
         val liner_text_komentov = itemView.findViewById<LinearLayout>(R.id.liner_text_komentov)
         val btn_add_koment = itemView.findViewById<Button>(R.id.btn_add_new_koment)
@@ -162,7 +159,6 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
         //покажем понель пока коментарии откроем
         val id = radio.id
         p0.liner_reiting.visibility = View.VISIBLE
-        p0.btn_like.visibility = View.GONE
 
         GlobalScope.launch {
             Slot(context, "load_koment").onRun {

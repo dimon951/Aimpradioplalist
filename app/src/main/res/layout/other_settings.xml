@@ -18,19 +18,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@null"
-        android:gravity="center"
         android:orientation="vertical">
-
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_seting_number"
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:background="@null"
             android:text="@string/numeracia_spiska" />
 
-
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_seting_size_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@null"
+            android:text="Размер текста" />
     </LinearLayout>
+
 </dmitriy.deomin.aimpradioplalist.custom.Fon_item>

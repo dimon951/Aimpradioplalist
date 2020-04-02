@@ -229,16 +229,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
 
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:id="@+id/button_like"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_marginLeft="10dp"
-                android:background="@android:color/transparent"
-                android:drawableLeft="@drawable/like_ico"
-                android:textSize="8sp"
-                tools:text="22" />
-
         </LinearLayout>
 
         <LinearLayout

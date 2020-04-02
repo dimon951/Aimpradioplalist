@@ -20,6 +20,8 @@ class Fonts_vibor : Activity() {
 
         fonts_vibor.setBackgroundColor(Main.COLOR_FON)
 
+        button_font_system.typeface = Typeface.DEFAULT
+
         button_font_tweed.typeface = Typeface.createFromAsset(assets, "fonts/Tweed.ttf")
         button_font_SonyEricssonLogo.typeface = Typeface.createFromAsset(assets, "fonts/SonyEricssonLogo.ttf")
         button_font_Whitney.typeface = Typeface.createFromAsset(assets, "fonts/Whitney.ttf")
@@ -27,11 +29,10 @@ class Fonts_vibor : Activity() {
         button_Stolzl_Book.typeface = Typeface.createFromAsset(assets, "fonts/Stolzl_Book.ttf")
         button_font_Snowstorm.typeface = Typeface.createFromAsset(assets, "fonts/Snowstorm.ttf")
         button_font_Izhitsa.typeface = Typeface.createFromAsset(assets, "fonts/Izhitsa.ttf")
-        button_font_Sensei.typeface = Typeface.createFromAsset(assets, "fonts/Sensei.ttf")
+        button_font_Digits.typeface = Typeface.createFromAsset(assets, "fonts/Digits.ttf")
         button_font_Yarin.typeface = Typeface.createFromAsset(assets, "fonts/Yarin.ttf")
         button_font_Frezer.typeface = Typeface.createFromAsset(assets, "fonts/Frezer.ttf")
         button_font_Futured.typeface = Typeface.createFromAsset(assets, "fonts/Futured.ttf")
-        button_font_Rotonda.typeface = Typeface.createFromAsset(assets, "fonts/Rotonda.ttf")
     }
 
     fun save_System(v: View) {
@@ -72,11 +73,6 @@ class Fonts_vibor : Activity() {
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
-    fun save_Rotonda(v: View) {
-        save_value("fonts", "fonts/Rotonda.ttf")
-        toast("Хорошо,теперь нужно перезапустить программу")
-    }
-
     fun save_Frezer(v: View) {
         save_value("fonts", "fonts/Frezer.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
@@ -92,8 +88,8 @@ class Fonts_vibor : Activity() {
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 
-    fun save_Sensei(v: View) {
-        save_value("fonts", "fonts/Sensei.ttf")
+    fun save_Digits(v: View) {
+        save_value("fonts", "fonts/Digits.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 

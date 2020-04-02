@@ -161,9 +161,6 @@
         <item>Типичное FM\ntip.png\n
             128kbps~kbps~http://play.tipfm.ru:9000/9696~kbps~
         </item>
-<!--        <item>Радио ВТемпе\nv_tempe.png\n-->
-<!--            256kbps~kbps~http://85.114.140.64:8000/stream~kbps~-->
-<!--        </item>-->
         <item>Максимум\nmaximum.png\n
             64kbps~kbps~https://maximum.hostingradio.ru/maximum64.mp3~kbps~
             96kbps~kbps~https://maximum.hostingradio.ru/maximum96.aacp~kbps~

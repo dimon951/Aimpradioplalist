@@ -33,6 +33,15 @@
                 android:id="@+id/button_font_tweed"
                 android:onClick="save_Tweed"
                 android:background="@null" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_font_Digits"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:onClick="save_Digits"
+                android:text="Выбрать этот шрифт(Digits)" />
+
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Whitney)"
                 android:layout_width="match_parent"
@@ -77,13 +86,6 @@
                 android:onClick="save_Izhitsa"
                 android:background="@null" />
             <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:text="Выбрать этот шрифт(Rotonda)"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/button_font_Rotonda"
-                android:onClick="save_Rotonda"
-                android:background="@null" />
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Frezer)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -104,13 +106,7 @@
                 android:id="@+id/button_font_Yarin"
                 android:onClick="save_Yarin"
                 android:background="@null" />
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:text="Выбрать этот шрифт(Sensei)"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/button_font_Sensei"
-                android:onClick="save_Sensei"
-                android:background="@null" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

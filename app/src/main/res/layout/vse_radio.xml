@@ -28,19 +28,6 @@
                 android:hint="Поиск"
                 android:paddingLeft="5dp" />
 
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:id="@+id/button_settig_vse_radio"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="4dp"
-                android:layout_marginRight="4dp"
-                android:background="@android:color/transparent"
-                android:drawableEnd="@android:drawable/ic_menu_preferences"
-                android:drawableRight="@android:drawable/ic_menu_preferences"
-                android:foregroundGravity="center"
-                android:gravity="center"
-                android:paddingRight="5dp" />
         </LinearLayout>
 
         <LinearLayout

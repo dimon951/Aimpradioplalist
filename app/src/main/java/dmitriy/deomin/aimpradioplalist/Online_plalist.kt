@@ -7,16 +7,14 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
-import androidx.fragment.app.Fragment
-import dmitriy.deomin.aimpradioplalist.custom.*
-import kotlinx.android.synthetic.main.online_plalist.view.*
-import org.jetbrains.anko.*
-import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.support.v4.startActivity
-import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
 import android.view.animation.AnimationUtils
+import android.widget.Button
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.fragment.app.Fragment
 import dmitriy.deomin.aimpradioplalist.`fun`.*
+import dmitriy.deomin.aimpradioplalist.`fun`.file.deleteAllFilesFolder
 import dmitriy.deomin.aimpradioplalist.`fun`.file.getDirSize
 import dmitriy.deomin.aimpradioplalist.`fun`.file.long_size_to_good_vid
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.download_i_open_m3u_file
@@ -24,10 +22,15 @@ import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 import dmitriy.deomin.aimpradioplalist.adapters.Adapter_history_online_plalist
 import dmitriy.deomin.aimpradioplalist.adapters.Adapter_online_palist
+import dmitriy.deomin.aimpradioplalist.custom.*
+import kotlinx.android.synthetic.main.online_plalist.view.*
+import org.jetbrains.anko.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.share
+import org.jetbrains.anko.support.v4.startActivity
+import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
 import java.io.File
-import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -554,17 +557,8 @@ class Online_plalist : Fragment() {
                 a.compareTo(b)
             })
         }
-
-
         return d
     }
-
-    fun deleteAllFilesFolder(path: String) {
-        for (myFile in File(path).listFiles()) {
-            if (myFile.isFile && myFile.name != "theme.txt" && myFile.name != "history_url.txt" && myFile.name != "my_plalist.m3u") myFile.delete()
-        }
-    }
-
 
     override fun onPause() {
         //сохраним последнию открытую страницу

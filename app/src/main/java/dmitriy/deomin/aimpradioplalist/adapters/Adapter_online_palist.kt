@@ -7,19 +7,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
-import dmitriy.deomin.aimpradioplalist.*
+import dmitriy.deomin.aimpradioplalist.Main
+import dmitriy.deomin.aimpradioplalist.Online_plalist
+import dmitriy.deomin.aimpradioplalist.R
+import dmitriy.deomin.aimpradioplalist.Vse_radio
+import dmitriy.deomin.aimpradioplalist.`fun`.Bold_text
+import dmitriy.deomin.aimpradioplalist.`fun`.add_koment
+import dmitriy.deomin.aimpradioplalist.`fun`.load_koment
+import dmitriy.deomin.aimpradioplalist.`fun`.windows.menu_vse_radio_online_plalist
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.jetbrains.anko.*
+import org.jetbrains.anko.backgroundColor
+import org.jetbrains.anko.hintTextColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.sdk27.coroutines.onLongClick
-import dmitriy.deomin.aimpradioplalist.`fun`.*
-import dmitriy.deomin.aimpradioplalist.`fun`.file.long_name_resize
-import dmitriy.deomin.aimpradioplalist.`fun`.m3u.download_i_open_m3u_file
-import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
-import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
-import dmitriy.deomin.aimpradioplalist.`fun`.windows.menu_vse_radio_online_plalist
+import org.jetbrains.anko.textColor
+import org.jetbrains.anko.toast
 
 
 class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_online_palist.ViewHolder>(), Filterable {
@@ -85,7 +88,6 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
         //
         val liner_reiting = itemView.findViewById<LinearLayout>(R.id.liner_reiting)
         val btn_koment = itemView.findViewById<Button>(R.id.button_komenty)
-        val btn_like = itemView.findViewById<Button>(R.id.button_like)
         //
         val liner_text_komentov = itemView.findViewById<LinearLayout>(R.id.liner_text_komentov)
         val btn_add_koment = itemView.findViewById<Button>(R.id.btn_add_new_koment)
@@ -187,10 +189,6 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
             p0.ganr.textColor = Main.COLOR_TEXT
             p0.text_komentov.textColor = Main.COLOR_TEXT
         }
-
-
-
-        p0.btn_like.visibility = View.GONE
 
         //покажем понель пока коментарии откроем
         p0.liner_reiting.visibility = View.VISIBLE

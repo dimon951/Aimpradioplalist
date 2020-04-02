@@ -40,6 +40,13 @@
             android:text="@string/edit_fonts" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_other_settings"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:text="Прочие настройки" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/akkaunt"
             android:layout_width="200dp"
             android:layout_height="50dp"
