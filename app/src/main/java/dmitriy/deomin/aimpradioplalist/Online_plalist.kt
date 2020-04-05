@@ -459,6 +459,14 @@ class Online_plalist : Fragment() {
             }
         }
 
+        //установим размер текста кнопкам
+        v.button_open_online_plalist_radio.textSize=Main.SIZE_TEXT_ONLINE_BUTTON
+        v.button_open_online_plalist_audio_book.textSize=Main.SIZE_TEXT_ONLINE_BUTTON
+        v.button_open_online_plalist_tv.textSize=Main.SIZE_TEXT_ONLINE_BUTTON
+        v.button_open_online_plalist_musik.textSize=Main.SIZE_TEXT_ONLINE_BUTTON
+        v.button_open_online_plalist_obmennik.textSize=Main.SIZE_TEXT_ONLINE_BUTTON
+        v.button_history_online_plalilst.textSize=Main.SIZE_TEXT_ONLINE_BUTTON
+
         //--------категории--------------------------------------------------------------
         v.button_open_online_plalist_radio.onClick {
             download_i_open_m3u_file("https://dl.dropbox.com/s/sl4x8z3yth5v1u0/Radio.m3u", "anim_online_plalist")

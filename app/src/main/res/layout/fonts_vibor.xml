@@ -78,13 +78,7 @@
                 android:id="@+id/button_font_Snowstorm"
                 android:onClick="save_Snowstorm"
                 android:background="@null"/>
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:text="Выбрать этот шрифт(Izhitsa)"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/button_font_Izhitsa"
-                android:onClick="save_Izhitsa"
-                android:background="@null" />
+
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Frezer)"
                 android:layout_width="match_parent"

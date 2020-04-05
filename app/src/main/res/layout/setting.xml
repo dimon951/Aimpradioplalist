@@ -22,7 +22,7 @@
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_edit_fon_color"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:background="@null"
             android:onClick="Edit_color_fon"
             android:text="@string/cvet_fon" />
@@ -30,7 +30,7 @@
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_edit_color_posty"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:background="@null"
             android:onClick="Edit_color_fon"
             android:text="@string/cvet_stanciy" />
@@ -38,7 +38,7 @@
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_edit_color_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:background="@null"
             android:onClick="Edit_color_fon"
             android:text="@string/cvet_textta" />
@@ -46,7 +46,7 @@
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_edit_color_selekt"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:background="@null"
             android:onClick="Edit_color_selekt"
             android:text="Цвет выделения" />
@@ -54,7 +54,7 @@
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_edit_color_textcontext"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:background="@null"
             android:onClick="Edit_color_fon"
             android:text="@string/cvet_texta_contexta" />
@@ -62,7 +62,7 @@
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_save_them_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:background="@android:color/transparent"
             android:text="Сохранить в список тем" />
 

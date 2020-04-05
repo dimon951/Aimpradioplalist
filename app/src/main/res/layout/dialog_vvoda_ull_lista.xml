@@ -118,7 +118,7 @@
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_add_list_url"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:background="@null"
             android:text="@android:string/ok" />
     </LinearLayout>

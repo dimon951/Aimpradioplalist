@@ -191,6 +191,15 @@ class Vse_radio : Fragment() {
             }
         }
         //---------------------------------------------------------------
+        //установим размер текста копкам поиска
+        v.kod_diskografii.textSize=Main.SIZE_TEXT_VSE_BUTTON
+        v.kod_32bit.textSize=Main.SIZE_TEXT_VSE_BUTTON
+        v.kod_64bit.textSize=Main.SIZE_TEXT_VSE_BUTTON
+        v.kod_96bit.textSize=Main.SIZE_TEXT_VSE_BUTTON
+        v.kod_128bit.textSize=Main.SIZE_TEXT_VSE_BUTTON
+        v.kod_256bit.textSize=Main.SIZE_TEXT_VSE_BUTTON
+
+
         //при первой загрузке будем ставить текст на кнопке , потом при смене будем менять тамже
         val t = if (save_read("button_text_filter1").isNotEmpty()) {
             save_read("button_text_filter1")

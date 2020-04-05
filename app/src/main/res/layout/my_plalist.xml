@@ -59,10 +59,10 @@
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_close_list"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@null"
-            android:text="@string/Close"/>
+            android:text="@string/Close" />
     </LinearLayout>
 
     <LinearLayout

@@ -56,6 +56,10 @@ class Obmenik : Activity() {
         fastScroller.setRecyclerView(recikl_list)
         recikl_list.setOnScrollListener(fastScroller.onScrollListener)
 
+        //размер текста
+        button_menu_obmenik.textSize=Main.SIZE_TEXT_ONLINE_BUTTON
+        button_close_list_obmenik.textSize=Main.SIZE_TEXT_ONLINE_BUTTON
+
         val d = ArrayList<Radio>()
 
         Slot(context, "Obmennik").onRun { it ->

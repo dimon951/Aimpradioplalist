@@ -57,32 +57,6 @@ data class History(val name: String, val url: String, val data_time: String, val
 
 data class HistoryNav(val url:String,val kat:String="del")
 
-data class Like(val user_id: String, val item_id: String, val like: String) : Parcelable {
-    override fun describeContents(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun writeToParcel(dest: Parcel?, flags: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    constructor(parcel: Parcel) : this(
-            parcel.readString().toString(),
-            parcel.readString().toString(),
-            (parcel.readByte() != 0.toByte()).toString())
-
-    companion object CREATOR : Parcelable.Creator<Like> {
-        override fun createFromParcel(parcel: Parcel): Like {
-            return Like(parcel)
-        }
-
-        override fun newArray(size: Int): Array<Like?> {
-            return arrayOfNulls(size)
-        }
-    }
-
-}
-
 data class Koment(val user_name: String = "", val user_id: String = "", val text: String = "", val data: String = "", val kom_id: String = "") : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readString().toString(),

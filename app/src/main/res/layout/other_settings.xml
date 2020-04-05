@@ -34,7 +34,17 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:background="@null"
-            android:text="Размер текста" />
+            android:text="Размер текста"
+            tools:visibility="visible" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_seting_full_screen"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@null"
+            android:text="Во весь экран"
+            tools:visibility="visible" />
     </LinearLayout>
 
 </dmitriy.deomin.aimpradioplalist.custom.Fon_item>

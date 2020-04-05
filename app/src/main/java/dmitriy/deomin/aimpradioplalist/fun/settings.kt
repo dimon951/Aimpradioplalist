@@ -43,4 +43,16 @@ fun save_read_int(key_save: String): Int {  // чтение настройки
         Main.mSettings.getInt(key_save, 0)
     } else 0
 }
+
+fun save_value_float(Key: String, Value: Float) { //сохранение строки
+    val editor = Main.mSettings.edit()
+    editor.putFloat(Key, Value)
+    editor.apply()
+}
+
+fun save_read_float(key_save: String): Float {  // чтение настройки
+    return if (Main.mSettings.contains(key_save)) {
+        Main.mSettings.getFloat(key_save, 0F)
+    } else 0F
+}
 //-------------------

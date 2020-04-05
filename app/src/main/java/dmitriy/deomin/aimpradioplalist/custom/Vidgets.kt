@@ -1,28 +1,28 @@
 package dmitriy.deomin.aimpradioplalist.custom
 
-import android.R
 import android.app.AlertDialog
 import android.content.Context
 import android.util.AttributeSet
 import android.view.*
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.TextView
 import dmitriy.deomin.aimpradioplalist.Main
 
-class Btn : Button {
+class Btn : androidx.appcompat.widget.AppCompatButton {
     constructor(context: Context) : super(context) {
         this.typeface = Main.face
+        this.gravity = Gravity.CENTER
         this.setTextColor(Main.COLOR_TEXT)
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         this.typeface = Main.face
+        this.gravity = Gravity.CENTER
         this.setTextColor(Main.COLOR_TEXT)
     }
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         this.typeface = Main.face
+        this.gravity = Gravity.CENTER
         this.setTextColor(Main.COLOR_TEXT)
     }
 
@@ -49,7 +49,7 @@ class Fon_item : androidx.cardview.widget.CardView {
     }
 }
 
-class Text : TextView {
+class Text : androidx.appcompat.widget.AppCompatTextView {
     constructor(context: Context) : super(context) {
         this.typeface = Main.face
         this.setTextColor(Main.COLOR_TEXT)
@@ -66,20 +66,63 @@ class Text : TextView {
     }
 }
 
-class Textcoontext : TextView {
+class Textcoontext : androidx.appcompat.widget.AppCompatTextView {
     constructor(context: Context) : super(context) {
         this.typeface = Main.face
         this.setTextColor(Main.COLOR_TEXTcontext)
+        this.textSize = Main.SIZE_TEXT_CONTEXT_text
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         this.typeface = Main.face
         this.setTextColor(Main.COLOR_TEXTcontext)
+        this.textSize = Main.SIZE_TEXT_CONTEXT_text
     }
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         this.typeface = Main.face
         this.setTextColor(Main.COLOR_TEXTcontext)
+        this.textSize = Main.SIZE_TEXT_CONTEXT_text
+    }
+}
+
+class TextNameItem : androidx.appcompat.widget.AppCompatTextView {
+    constructor(context: Context) : super(context) {
+        this.typeface = Main.face
+        this.setTextColor(Main.COLOR_TEXT)
+        this.textSize = Main.SIZE_TEXT_NAME
+    }
+
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+        this.typeface = Main.face
+        this.setTextColor(Main.COLOR_TEXT)
+        this.textSize = Main.SIZE_TEXT_NAME
+    }
+
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        this.typeface = Main.face
+        this.setTextColor(Main.COLOR_TEXT)
+        this.textSize = Main.SIZE_TEXT_NAME
+    }
+}
+
+class TextInfo : androidx.appcompat.widget.AppCompatTextView {
+    constructor(context: Context) : super(context) {
+        this.typeface = Main.face
+        this.setTextColor(Main.COLOR_TEXT)
+        this.textSize = Main.SIZE_TEXT_CONTEXT
+    }
+
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+        this.typeface = Main.face
+        this.setTextColor(Main.COLOR_TEXT)
+        this.textSize = Main.SIZE_TEXT_CONTEXT
+    }
+
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        this.typeface = Main.face
+        this.setTextColor(Main.COLOR_TEXT)
+        this.textSize = Main.SIZE_TEXT_CONTEXT
     }
 }
 
@@ -103,7 +146,6 @@ class DialogWindow(context: Context, loaut: Int,onTop: Boolean = false) {
             alertDialog.setCanceledOnTouchOutside(true)
         }
 
-
         //сместим немногов низ окно
         val params = this.alertDialog.window?.attributes
 
@@ -113,11 +155,8 @@ class DialogWindow(context: Context, loaut: Int,onTop: Boolean = false) {
         //применяем правки
         this.alertDialog.window!!.attributes = params
 
-
         //показываем окно
         this.alertDialog.show()
-
-
     }
 
     fun view(): View {
@@ -139,4 +178,6 @@ class DialogWindow(context: Context, loaut: Int,onTop: Boolean = false) {
             true
         }
     }
+
+
 }

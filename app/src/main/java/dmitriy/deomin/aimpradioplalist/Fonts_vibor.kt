@@ -28,7 +28,6 @@ class Fonts_vibor : Activity() {
         button_font_bemount.typeface = Typeface.createFromAsset(assets, "fonts/Bemount.ttf")
         button_Stolzl_Book.typeface = Typeface.createFromAsset(assets, "fonts/Stolzl_Book.ttf")
         button_font_Snowstorm.typeface = Typeface.createFromAsset(assets, "fonts/Snowstorm.ttf")
-        button_font_Izhitsa.typeface = Typeface.createFromAsset(assets, "fonts/Izhitsa.ttf")
         button_font_Digits.typeface = Typeface.createFromAsset(assets, "fonts/Digits.ttf")
         button_font_Yarin.typeface = Typeface.createFromAsset(assets, "fonts/Yarin.ttf")
         button_font_Frezer.typeface = Typeface.createFromAsset(assets, "fonts/Frezer.ttf")
@@ -65,11 +64,6 @@ class Fonts_vibor : Activity() {
 
     fun save_Snowstorm(v: View) {
         save_value("fonts", "fonts/Snowstorm.ttf")
-        toast("Хорошо,теперь нужно перезапустить программу")
-    }
-
-    fun save_Izhitsa(v: View) {
-        save_value("fonts", "fonts/Izhitsa.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 

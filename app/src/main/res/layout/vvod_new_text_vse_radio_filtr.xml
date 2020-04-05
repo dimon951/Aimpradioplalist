@@ -45,7 +45,7 @@
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/new_text_filter_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:background="@null"
             android:text="@android:string/ok" />
 

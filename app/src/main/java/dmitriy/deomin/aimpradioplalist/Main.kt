@@ -60,12 +60,24 @@ class Main : FragmentActivity() {
         var face: Typeface = Typeface.DEFAULT//шрифт
 
         lateinit var mSettings: SharedPreferences // сохранялка
+        //цвета
         var COLOR_FON: Int = 0
         var COLOR_ITEM: Int = 0
         var COLOR_TEXT: Int = 0
         var COLOR_TEXTcontext: Int = 0
         var COLOR_SELEKT: Int = 0
+        //размер текста
+        //--menu
+        var SIZE_TEXT_MAIN_BUTTON = 0F
+        var SIZE_TEXT_VSE_BUTTON =0F
+        var SIZE_TEXT_ONLINE_BUTTON =0F
+        //--item
+        var SIZE_TEXT_NAME=0F
+        var SIZE_TEXT_CONTEXT=0F
+        //--context
+        var SIZE_TEXT_CONTEXT_text = 0F
 
+        var FULLSCRIN = 1
     }
 
     @SuppressLint("ClickableViewAccessibility", "SetTextI18n")
@@ -79,15 +91,27 @@ class Main : FragmentActivity() {
         StrictMode.setVmPolicy(builder.build())
         //-----------------------------------------------------------------------------------------
         context = this
-
-        //во весь экран
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-
         //сохранялка
         mSettings = getSharedPreferences("mysettings", Context.MODE_PRIVATE)
 
+        FULLSCRIN = if(save_read_int("fullsckrin")==0){1}else{save_read_int("fullsckrin")}
+
+        if(FULLSCRIN>0){
+            //во весь экран
+            window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        }
+
+
+
+
         //данные пользователя
         load_user_data()
+        //загружаются выбраные цвета
+        load_color_in_KONSTANTS()
+        //размер текта кнопок и тд
+        load_text_size_CONSTANTS()
+
+
 
         face = if (save_read("fonts") == "system") {
             Typeface.DEFAULT
@@ -95,12 +119,8 @@ class Main : FragmentActivity() {
             Typeface.createFromAsset(assets, if (save_read("fonts") == "") "fonts/Tweed.ttf" else save_read("fonts"))
         }
 
-
-        load_color_in_KONSTANTS()
-
         //ставим цвет фона(тема)
         fon_main.setBackgroundColor(COLOR_FON)
-
 
         val mImageIds: IntArray = intArrayOf(R.drawable.titl_text1, R.drawable.titl_text2, R.drawable.titl_text3, R.drawable.titl_text4)
         val imageSwitcher: ImageSwitcher = this.findViewById(R.id.imageSwitcher)
@@ -138,12 +158,19 @@ class Main : FragmentActivity() {
         //перерисуем
         vse_radio.setTextColor(COLOR_TEXT)
         vse_radio.typeface = face
+        vse_radio.textSize = SIZE_TEXT_MAIN_BUTTON
+
         popularnoe.setTextColor(COLOR_TEXT)
         popularnoe.typeface = face
+        popularnoe.textSize = SIZE_TEXT_MAIN_BUTTON
+
         moy_plalist.setTextColor(COLOR_TEXT)
         moy_plalist.typeface = face
+        moy_plalist.textSize = SIZE_TEXT_MAIN_BUTTON
+
         online_plalist.setTextColor(COLOR_TEXT)
         online_plalist.typeface = face
+        online_plalist.textSize = SIZE_TEXT_MAIN_BUTTON
 
 
         val size_vse_list = resources.getStringArray(R.array.vse_radio).size.toString()
@@ -283,6 +310,16 @@ class Main : FragmentActivity() {
                     vse_radio.setTextColor(COLOR_TEXT)
                     popularnoe.setTextColor(COLOR_TEXT)
                     moy_plalist.setTextColor(COLOR_TEXT)
+
+                    adapter.notifyDataSetChanged()
+                    viewPager.adapter = adapter
+                    viewPager.currentItem = konvert_read_save_pos(save_read_int("page_aktiv"))
+                }
+                "update_text_size" -> {
+                    vse_radio.textSize = SIZE_TEXT_MAIN_BUTTON
+                    popularnoe.textSize = SIZE_TEXT_MAIN_BUTTON
+                    moy_plalist.textSize = SIZE_TEXT_MAIN_BUTTON
+                    online_plalist.textSize = SIZE_TEXT_MAIN_BUTTON
 
                     adapter.notifyDataSetChanged()
                     viewPager.adapter = adapter

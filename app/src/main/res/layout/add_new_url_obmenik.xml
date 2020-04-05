@@ -68,14 +68,14 @@
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_paste_iz_bufera_obmenik"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:background="@null"
                 android:text="Вставить из буфера url" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_add"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:background="@null"
                 android:text="Ок" />
 

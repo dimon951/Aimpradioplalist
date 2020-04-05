@@ -51,7 +51,7 @@
             64kbps~kbps~https://rusradio.hostingradio.ru/rusradio64.mp3~kbps~
             96kbps~kbps~https://rusradio.hostingradio.ru/rusradio96.aacp~kbps~
         </item>
-        <item>Радио Рекорд\nrecord.png\n
+        <item>Радио Record\nrecord.png\n
             64kbps~kbps~http://air.radiorecord.ru:805/rr_64~kbps~
             128kbps~kbps~http://air.radiorecord.ru:8101/rr_128~kbps~
             128kbps~kbps~http://air.radiorecord.ru:805/rr_128~kbps~
@@ -253,6 +253,27 @@
     </string-array>
 
     <string-array name="vse_radio">
+        <item>Record: Руки Вверх 320kbps\nhttp://air.radiorecord.ru:805/rv_320</item>
+        <item>Record: Руки Вверх 128kbps\nhttp://air.radiorecord.ru:805/rv_128</item>
+        <item>Record: Руки Вверх 64kbps\nhttp://air.radiorecord.ru:805/rv_64</item>
+        <item>Эхо Москвы (Федеральный1) -Разговорное- 32kbps mono\nhttp://ice912.echo.msk.ru:9120/stream</item>
+        <item>Эхо Москвы (Федеральный2) -Разговорное- 16kbps\nhttp://ice912.echo.msk.ru:9120/16.aac</item>
+        <item>Эхо Москвы (Федеральный3) -Разговорное- 24kbps\nhttp://ice912.echo.msk.ru:9120/24.aac</item>
+        <item>Эхо Москвы (Федеральный4) -Разговорное- 32kbps\nhttp://ice912.echo.msk.ru:9120/32.aac</item>
+        <item>Эхо Москвы -Разговорное- 128kbps\nhttp://den.101.ru:4000/ho_63_05</item>
+        <item>Эхо Барнаула -Разговорное- 128kbps\nhttp://176.118.30.252:8000/echo_brn</item>
+        <item>Эхо Вологды -Разговорное- 64kbps mono\nhttp://s0.radioheart.ru:8000/echovologdy</item>
+        <item>Эхо Волгограда -Разговорное- 128kbps\nhttps://online.echovolgograd.ru/echovolgograd</item>
+        <item>Эхо Екатеринбурга -Разговорное- 128kbps\nhttp://online.echoekb.ru:8000/echoekb</item>
+        <item>Эхо Казани -Разговорное- 128kbps\nhttp://78.138.169.182:8002/echo</item>
+        <item>Эхо Кирова -Разговорное- 128kbps\nhttp://echokirova.ru:8000/radio.mp3</item>
+        <item>Эхо Махачкалы -Разговорное- 88kbps\nhttp://91.205.129.127:5000/</item>
+        <item>Эхо Нижнего Новгорода -Разговорное- 24kbps mono\nhttp://95.79.31.115:8000/</item>
+        <item>Эхо Оренбурга (Поток #1) -Разговорное- 128kbps\nhttp://radio.omg56.ru:8000/Echo_msk_Oren</item>
+        <item>Эхо Оренбурга (Поток #2) -Разговорное- 128kbps\nhttp://echomsk.1743.ru:8000/echomsk</item>
+        <item>Эхо Пензы -Разговорное- 128kbps\nhttp://212.109.216.83:8000/echo</item>
+        <item>Эхо Перми -Разговорное- 128kbps\nhttp://echoperm.radio-tochka.com:8000/</item>
+        <item>Эхо Пскова -Разговорное- 128kbps\nhttp://echo.pln24.ru/echo.mp3</item>
         <item>NRJ STREAM TX -Музыка- 320kbps\nhttp://nrj.babahhcdn.com/NRJ?.mp3</item>
         <item>От радио Ваня:Не лихие 90-е -Музыка- 128kbps\nhttp://icecast-radiovanya.cdnvideo.ru:8000/rv_90</item>
         <item>От радио Ваня:Свежий бит -Музыка- 128kbps\nhttp://icecast-radiovanya.cdnvideo.ru:8000/rv_hit</item>
@@ -2220,11 +2241,11 @@
         <item>Русское радио  128kbps\nhttps://rusradio.hostingradio.ru/rusradio128.mp3</item>
         <item>Русское радио  64kbps\nhttps://rusradio.hostingradio.ru/rusradio64.mp3</item>
         <item>Русское радио  96kbps\nhttps://rusradio.hostingradio.ru/rusradio96.aacp</item>
-        <item>Радио Рекорд  64kbps\nhttp://air.radiorecord.ru:805/rr_64</item>
-        <item>Радио Рекорд  128kbps\nhttp://air.radiorecord.ru:8101/rr_128</item>
-        <item>Радио Рекорд  128kbps\nhttp://air.radiorecord.ru:805/rr_128</item>
-        <item>Радио Рекорд  192kbps\nhttp://air.radiorecord.ru:8101/rr_320</item>
-        <item>Радио Рекорд  192kbps\nhttp://air.radiorecord.ru:805/rr_320</item>
+        <item>Радио Record 64kbps\nhttp://air.radiorecord.ru:805/rr_64</item>
+        <item>Радио Record 128kbps\nhttp://air.radiorecord.ru:8101/rr_128</item>
+        <item>Радио Record 128kbps\nhttp://air.radiorecord.ru:805/rr_128</item>
+        <item>Радио Record 192kbps\nhttp://air.radiorecord.ru:8101/rr_320</item>
+        <item>Радио Record 192kbps\nhttp://air.radiorecord.ru:805/rr_320</item>
         <item>Русская Волна  48kbps\nhttp://rp.volna.top/RuWave48</item>
         <item>Радио Родных Дорог  128kbps\nhttp://stream1.radiord.ru:8000/live96.aac</item>
         <item>ENERGY  256kbps\nhttp://ic2.101.ru:8000/v1_1</item>
@@ -2291,8 +2312,6 @@
         <item>Шансон  96kbps\nhttp://chanson.hostingradio.ru:8041/chanson96.aacp</item>
         <item>Шансон  128kbps\nhttp://chanson.hostingradio.ru:8041/chanson128.mp3</item>
         <item>Шансон  256kbps\nhttp://chanson.hostingradio.ru:8041/chanson256.mp3</item>
-        <item>Эхо Москвы  96kbps\nhttp://den.101.ru:4000/ho_63_05</item>
-        <item>Эхо Москвы  32kbps mono\nhttp://ice912.echo.msk.ru:9120/stream</item>
         <item>Маяк  192kbps\nhttp://icecast.vgtrk.cdnvideo.ru/mayakfm_mp3_192kbps</item>
         <item>Маяк  128kbps\nhttp://icecast.vgtrk.cdnvideo.ru/mayakfm_mp3_128kbps</item>
         <item>Маяк  320kbps\nhttp://icecast.vgtrk.cdnvideo.ru/mayakfm</item>

@@ -2,35 +2,23 @@ package dmitriy.deomin.aimpradioplalist
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.media.AudioAttributes
 import android.net.Uri
 import android.os.Build
 import android.os.Handler
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
 import android.widget.LinearLayout
-import androidx.core.content.FileProvider
-import dmitriy.deomin.aimpradioplalist.`fun`.download_file
 import dmitriy.deomin.aimpradioplalist.`fun`.file.is_existence_file
 import dmitriy.deomin.aimpradioplalist.`fun`.formatTimeToEnd
-import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp_file
-import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system_file
 import dmitriy.deomin.aimpradioplalist.`fun`.putText_сlipboard
+import dmitriy.deomin.aimpradioplalist.`fun`.windows.download_file_window
 import dmitriy.deomin.aimpradioplalist.`fun`.windows.menu_saved_file
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
-import dmitriy.deomin.aimpradioplalist.custom.Slot
-import dmitriy.deomin.aimpradioplalist.custom.send
-import dmitriy.deomin.aimpradioplalist.custom.signal
-import org.jetbrains.anko.backgroundDrawable
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.sdk27.coroutines.onLongClick
-import org.jetbrains.anko.sdk27.coroutines.onSeekBarChangeListener
 import org.jetbrains.anko.toast
-import java.io.File
-import java.util.concurrent.TimeUnit
+
 
 
 class Play_audio(name: String, url: String, context: Context = Main.context) {
@@ -77,7 +65,7 @@ class Play_audio(name: String, url: String, context: Context = Main.context) {
         }
 
         val mediacontroller = MediaController(context)
-       val uri = Uri.parse(url)
+        val uri = Uri.parse(url)
 
 
 
@@ -104,11 +92,7 @@ class Play_audio(name: String, url: String, context: Context = Main.context) {
             if (!vv.isPlaying) {
                 progressBar!!.visibility = View.VISIBLE
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                   vv.setVideoURI(uri, mapOf("user-agent" to "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36"))
-                } else {
-                    vv.setVideoURI(uri)
-                }
+                vv.setVideoURI(uri)
                 vv.setMediaController(mediacontroller)
                 vv.requestFocus(0)
                 vv.start()
@@ -154,71 +138,21 @@ class Play_audio(name: String, url: String, context: Context = Main.context) {
 
         //---------------------download--------------------------------------------------
         plaer.view().findViewById<Button>(R.id.download).onClick {
-
             //проврим существование файла
             val file_pach = Main.ROOT + name + "." + url.substringAfterLast('.')
             if (is_existence_file(file_pach)) {
+                //если файл уже скачен , покажем меню для скаченого файла
                 menu_saved_file(context, file_pach)
             } else {
-
-                val dw = DialogWindow(context, R.layout.dialog_delete_stancii, true)
-                val dw_start = dw.view().findViewById<Button>(R.id.button_dialog_delete)
-                val dw_no = dw.view().findViewById<Button>(R.id.button_dialog_no)
-                val dw_logo = dw.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
-                val dw_progres = dw.view().findViewById<ProgressBar>(R.id.progressBar)
-                dw_progres.visibility = View.VISIBLE
-
-
-                Slot(context, "dw_progres").onRun {
-                    val totalBytes = it.getStringExtra("totalBytes")
-                    val readBytes = it.getStringExtra("readBytes")
-                    dw_progres.max = totalBytes.toInt()
-                    dw_progres.progress = readBytes.toInt()
-
-                    if (totalBytes == readBytes) {
-                        if (totalBytes == "0") {
-                            dw_logo.text = "Отменено,попробовать еще раз?"
-                            dw_no.text = "Нет"
-                            dw_start.visibility = View.VISIBLE
-                        } else {
-                            dw_logo.text = "Готово,сохранено в папке программы"
-                            dw_start.visibility = View.VISIBLE
-                            dw_start.text = "Открыть файл"
-                            dw_no.text = "Нет"
-                        }
-                    }
-                }
-
-                dw_logo.text = "Попробовать скачать?\n(не работает для потока)"
-
-                dw_start.onClick {
-                    if (dw_logo.text == "Готово,сохранено в папке программы") {
-                        //попробуем его открыть
-                        play_aimp_file(Main.ROOT + name + "." + url.substringAfterLast('.'))
-                        dw.close()
-                    } else {
-                        dw_start.visibility = View.GONE
-                        dw_logo.text = "Идёт загрузка..."
-                        dw_no.text = "Отмена"
-                        download_file(url, name + "." + url.substringAfterLast('.'), "anim_online_plalist")
-                    }
-                }
-                dw_start.onLongClick {
-                    if (dw_logo.text == "Готово,сохранено в папке программы") {
-                        play_system_file(Main.ROOT + name + "." + url.substringAfterLast('.'))
-                        dw.close()
-                    }
-                }
-                dw_no.onClick {
-                    if (dw_no.text == "Отмена") {
-                        signal("dw_cansel").send(context)
-                    } else {
-                        dw.close()
-                    }
-                }
+                //иначе скачаем его
+                download_file_window(context,name,url)
             }
             plaer.close()
         }
         //-------------------------------------------------------------------------------
     }
+
+
+
+
 }

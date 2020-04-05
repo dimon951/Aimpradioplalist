@@ -11,14 +11,14 @@ import dmitriy.deomin.aimpradioplalist.Vse_radio
 //адаптер главного вьюпейджера
 class Adapter_main_viewpager(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
-    override fun getItem(position: Int): Fragment? {
+    override fun getItem(position: Int): Fragment {
         when (position) {
             0 -> return Vse_radio()
             1 -> return Pop_radio()
             2 -> return Moy_plalist()
             3 -> return Online_plalist()
         }
-        return null
+        return Pop_radio()
     }
 
     override fun getCount(): Int {

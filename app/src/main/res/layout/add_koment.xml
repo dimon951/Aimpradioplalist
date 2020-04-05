@@ -40,7 +40,7 @@
             android:background="@null"
             android:ems="10"
             android:gravity="center"
-            android:hint="text"
+            android:hint="коментарий"
             android:inputType=""
             android:maxHeight="300dp"
             android:minHeight="40dp" />
@@ -48,7 +48,7 @@
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/btn_ad_kom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:background="@null"
             android:text="@android:string/ok" />
     </LinearLayout>

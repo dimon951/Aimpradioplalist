@@ -27,7 +27,7 @@
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/name_thme"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="Button" />
     </LinearLayout>
 </dmitriy.deomin.aimpradioplalist.custom.Fon_item>

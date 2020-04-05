@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dmitriy.deomin.aimpradioplalist.custom.Fon_item
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="@null"
+    android:elevation="0dp"
+    app:cardBackgroundColor="@color/cardview_shadow_start_color"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardPreventCornerOverlap="false">
+
+    <LinearLayout
+        android:id="@+id/menu_progi_alert"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_setting_menu_button"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@null"
+            android:text="Кнопки главного меню" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_setting_vse_button"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:text="Кнопки всего радио" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_setting_online_button"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:text="Кнопки онлайн плейлиста" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_setting_item_name"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:text="Имя элемента списка" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_setting_item_context"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@null"
+            android:text="Доп инфо элемента списка" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_setting_item_context2"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@null"
+            android:text="Контекст элемента списка" />
+
+
+    </LinearLayout>
+</dmitriy.deomin.aimpradioplalist.custom.Fon_item>
