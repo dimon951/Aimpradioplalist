@@ -33,7 +33,6 @@
             android:layout_weight="1"
             android:background="@null"
             android:text="@string/vseRadio"
-            android:textSize="14sp"
             android:visibility="gone" />
 
         <ProgressBar
@@ -47,7 +46,7 @@
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/popularnoe"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@null"
             android:text="@string/popularnoe"
@@ -74,7 +73,7 @@
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/online_plalist"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@null"
             android:text="Онлайн плейлисты"
