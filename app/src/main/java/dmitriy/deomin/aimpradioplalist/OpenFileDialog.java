@@ -20,6 +20,8 @@ import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.util.*;
 
+import static dmitriy.deomin.aimpradioplalist.fun.file.ReadFileKt.readFile;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Scogun
@@ -411,10 +413,8 @@ public class OpenFileDialog extends AlertDialog.Builder {
                     Button del_no = content.findViewById(R.id.button_dialog_no);
                     textView.setMovementMethod(new ScrollingMovementMethod());
 
-
-                    File_function f = new File_function();
                     String file_telo = "";
-                    file_telo = f.readFile(file.getAbsolutePath());
+                    file_telo = readFile(file.getAbsolutePath());
 
                     file_telo = file_telo.replace("#EXTM3U", "");
                     file_telo = file_telo.replace("#EXTINF:-1,", "");

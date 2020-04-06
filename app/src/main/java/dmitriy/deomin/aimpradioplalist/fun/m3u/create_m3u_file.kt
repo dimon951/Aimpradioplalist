@@ -1,5 +1,5 @@
 package dmitriy.deomin.aimpradioplalist.`fun`.m3u
-import dmitriy.deomin.aimpradioplalist.File_function
+import dmitriy.deomin.aimpradioplalist.`fun`.file.saveFile
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 
 fun create_m3u_file(name: String, data: ArrayList<Radio>) {
@@ -11,5 +11,5 @@ fun create_m3u_file(name: String, data: ArrayList<Radio>) {
 
     //сохраним  временый файл ссылку
     // вернёт сигнал "File_created"
-    File_function().SaveFile(name.replace("<List>", ""), m3uData)
+    saveFile(name.replace("<List>", ""), m3uData)
 }

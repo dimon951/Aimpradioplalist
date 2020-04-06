@@ -1,8 +1,8 @@
 package dmitriy.deomin.aimpradioplalist.`fun`
 
-import dmitriy.deomin.aimpradioplalist.File_function
 import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.R
+import dmitriy.deomin.aimpradioplalist.`fun`.m3u.add_may_plalist_stansiy
 import dmitriy.deomin.aimpradioplalist.custom.Slot
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
@@ -33,5 +33,5 @@ fun add_myplalist(name: String, url: String) {
 
 
 
-    File_function().Add_may_plalist_stansiy(url, name)
+    add_may_plalist_stansiy(url, name)
 }

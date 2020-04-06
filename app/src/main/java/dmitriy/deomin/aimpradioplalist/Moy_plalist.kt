@@ -12,7 +12,8 @@ import android.text.TextWatcher
 import android.util.Log
 import android.widget.*
 import dmitriy.deomin.aimpradioplalist.`fun`.*
-import dmitriy.deomin.aimpradioplalist.`fun`.file.create_esli_net
+import dmitriy.deomin.aimpradioplalist.`fun`.file.*
+import dmitriy.deomin.aimpradioplalist.`fun`.m3u.add_may_plalist_stansiy
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.create_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.download_i_open_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
@@ -20,6 +21,7 @@ import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 import dmitriy.deomin.aimpradioplalist.adapters.Adapter_history_list
 import dmitriy.deomin.aimpradioplalist.adapters.Adapter_my_list
 import dmitriy.deomin.aimpradioplalist.custom.*
+import kotlinx.android.synthetic.main.my_plalist.view.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
@@ -55,6 +57,8 @@ class Moy_plalist : Fragment() {
         find.typeface = Main.face
         find.textColor = Main.COLOR_TEXT
         find.hintTextColor = Main.COLOR_TEXTcontext
+
+        v.button_close_list.textSize = Main.SIZE_TEXT_NAME
 
         position_list_my_plalist = save_read_int("position_list_my_plalist")
 
@@ -254,7 +258,7 @@ class Moy_plalist : Fragment() {
 
                         //переведём наш список в норм вид
                         //перезапишем и ждём ответа
-                        File_function().SaveFile("my_plalist", data.joinToString(separator = "\n"))
+                        saveFile("my_plalist", data.joinToString(separator = "\n"))
                     }
                     (ddp.view().findViewById<Button>(R.id.button_dialog_no)).onClick {
                         ddp.close()
@@ -288,7 +292,7 @@ class Moy_plalist : Fragment() {
                     }
 
                     //перезапишем и ждём ответа
-                    File_function().SaveFile("my_plalist", "")
+                    saveFile("my_plalist", "")
                 }
                 (ddp.view().findViewById<Button>(R.id.button_dialog_no)).onClick {
                     ddp.close()
@@ -343,7 +347,7 @@ class Moy_plalist : Fragment() {
                             edit_name.text.toString()
                         }
                         //делаем
-                        File_function().Add_may_plalist_stansiy(edit.text.toString(), name)
+                        add_may_plalist_stansiy(edit.text.toString(), name)
                         auu.close()
                     } else {
                         edit.setText("http://" + edit.text.toString())
@@ -418,7 +422,7 @@ class Moy_plalist : Fragment() {
                             }
                         }
                         //сохраним  временый файл ссылку и ждём сигналы
-                        File_function().SaveFile(name.text.toString(), data.joinToString(separator = "\n"))
+                        saveFile(name.text.toString(), data.joinToString(separator = "\n"))
                     }
                 }
             } else {
@@ -653,7 +657,7 @@ class Moy_plalist : Fragment() {
             //сюда будем записывать переботаный стринг в хистори массив
             val d = ArrayList<History>()
             //загружаем историю из файла
-            val history_url_list = File_function().readArrayList(Main.HISTORY_LINK)
+            val history_url_list = readArrayList(Main.HISTORY_LINK)
 
             //парсим в нужный вид  и переворачиваем
             for (s in history_url_list.listIterator()) {
@@ -742,7 +746,7 @@ class Moy_plalist : Fragment() {
                     }
 
                     save_mass.add("$n$$url_link$$date_time")
-                    File_function().saveArrayList(Main.HISTORY_LINK, save_mass)
+                    saveArrayList(Main.HISTORY_LINK, save_mass)
                     //----------------------------------------------------------
 
                     //-----------скачиваем файл (читам его)--------

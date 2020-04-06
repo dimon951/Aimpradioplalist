@@ -8,9 +8,9 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
-import dmitriy.deomin.aimpradioplalist.File_function
 import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.R
+import dmitriy.deomin.aimpradioplalist.`fun`.file.saveArrayList
 import dmitriy.deomin.aimpradioplalist.custom.History
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
@@ -67,7 +67,7 @@ class Adapter_history_list(val data: ArrayList<History>) : androidx.recyclerview
                         save_data.add(d.name + "$" + d.url + "$" + d.data_time)
                     }
                 }
-                File_function().saveArrayList(Main.HISTORY_LINK, save_data)
+                saveArrayList(Main.HISTORY_LINK, save_data)
             }
             //не буду нечего слушать и проверять так пока сделаю
             data.removeAt(p1)

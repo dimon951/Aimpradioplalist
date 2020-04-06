@@ -17,6 +17,7 @@ import dmitriy.deomin.aimpradioplalist.`fun`.*
 import dmitriy.deomin.aimpradioplalist.`fun`.file.deleteAllFilesFolder
 import dmitriy.deomin.aimpradioplalist.`fun`.file.getDirSize
 import dmitriy.deomin.aimpradioplalist.`fun`.file.long_size_to_good_vid
+import dmitriy.deomin.aimpradioplalist.`fun`.file.saveFile
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.download_i_open_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
@@ -59,7 +60,6 @@ class Online_plalist : Fragment() {
         find.typeface = Main.face
         find.textColor = Main.COLOR_TEXT
         find.hintTextColor = Main.COLOR_TEXTcontext
-
 
         //Загрузим последний урл открытой страницы
         open_url_online_palist = save_read("history_last")
@@ -238,7 +238,7 @@ class Online_plalist : Fragment() {
                         }
                     }
                 }
-                File_function().SaveFile(name_file, data.joinToString(separator = "\n"))
+                saveFile(name_file, data.joinToString(separator = "\n"))
             } else {
                 context.toast("Выберите что воспроизводить")
             }
@@ -275,7 +275,7 @@ class Online_plalist : Fragment() {
                         }
                     }
                 }
-                File_function().SaveFile(name_file, data.joinToString(separator = "\n"))
+                saveFile(name_file, data.joinToString(separator = "\n"))
             } else {
                 context.toast("Выберите что воспроизводить")
             }

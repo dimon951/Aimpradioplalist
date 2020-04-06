@@ -22,6 +22,8 @@ import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_TEXT
 import dmitriy.deomin.aimpradioplalist.Main.Companion.COLOR_TEXTcontext
 import dmitriy.deomin.aimpradioplalist.Main.Companion.face
 import dmitriy.deomin.aimpradioplalist.`fun`.EbuchieRazreshenia
+import dmitriy.deomin.aimpradioplalist.`fun`.file.readArrayList
+import dmitriy.deomin.aimpradioplalist.`fun`.file.saveArrayList
 import dmitriy.deomin.aimpradioplalist.`fun`.save_read_int
 import dmitriy.deomin.aimpradioplalist.`fun`.save_value
 import dmitriy.deomin.aimpradioplalist.`fun`.save_value_int
@@ -133,10 +135,9 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                     name_them = name.text.toString()
 
                     //сначала получим сохранёные данные а потом к ним допишем
-                    val f = File_function()
-                    val savedata = f.readArrayList(Main.F_THEM_list)
+                    val savedata = readArrayList(Main.F_THEM_list)
                     savedata.add(name_them+"$"+COLOR_FON+"$"+COLOR_ITEM+"$"+COLOR_TEXT+"$"+COLOR_TEXTcontext+"$"+ COLOR_SELEKT)
-                    f.saveArrayList(Main.F_THEM_list,savedata)
+                    saveArrayList(Main.F_THEM_list,savedata)
 
                     //закроем окошко
                     nsf.close()
@@ -188,8 +189,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
             val data_res = ArrayList<String>()
             data_res.addAll(resources.getStringArray(R.array.list_theme))
             //и посмотрим есть ли в памяти чо если есть добавим
-            val f = File_function()
-            val data_mamory = f.readArrayList(Main.F_THEM_list)
+            val data_mamory = readArrayList(Main.F_THEM_list)
             if(data_mamory.size>0){
                 for (s in data_mamory.iterator()){
                     if(s.length>7){
@@ -303,8 +303,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                     (empid.view().findViewById<Button>(R.id.del)).onClick {
                         empid.close()
                         //получим весь список , удалим нужный и перезапишем
-                        val f = File_function()
-                        val list = f.readArrayList(Main.F_THEM_list)
+                        val list = readArrayList(Main.F_THEM_list)
                         list.remove(theme.name+"$"+theme.fon+"$"+theme.item+"$"+theme.text+"$"+theme.text_context+"$"+theme.color_selekt)
                         //когда все запишется пошлём сигнал чтобы список обновился
                         Slot(context, "File_created_save_vse", false).onRun {
@@ -319,7 +318,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                                 }
                             }
                         }
-                        f.saveArrayList(Main.F_THEM_list,list)
+                        saveArrayList(Main.F_THEM_list,list)
                     }
 
                     //кнопка переименовать
@@ -346,8 +345,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                                 name_them = name.text.toString()
 
                                 //получим весь список , переименуем нужный и перезапишем
-                                val f = File_function()
-                                val list = f.readArrayList(Main.F_THEM_list)
+                                val list = readArrayList(Main.F_THEM_list)
                                 list[p1-Main.SIZE_LIST_THEM_DEFALT-1] = name_them+"$"+theme.fon+"$"+theme.item+"$"+theme.text+"$"+theme.text_context+"$"+theme.color_selekt
                                 //когда все запишется пошлём сигнал чтобы список обновился
                                 Slot(context, "File_created_save_vse", false).onRun {
@@ -362,7 +360,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
                                         }
                                     }
                                 }
-                                f.saveArrayList(Main.F_THEM_list,list)
+                                saveArrayList(Main.F_THEM_list,list)
                                 //закроем окошко
                                 nsf.close()
                             }
