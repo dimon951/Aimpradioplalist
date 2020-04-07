@@ -31,9 +31,7 @@ fun download_i_open_m3u_file(url: String, who_called: String) {
                 val parsData = m3u_parser(it.getStringExtra("data"))
                 if (who_called == "anim_my_list") {
                     Slot(Main.context, "File_created", false).onRun {
-                        //остановим анимацию
-                        signal("Main_update").putExtra("signal", "stop_anim_my_list").send(Main.context)
-                        //пошлём сигнал пусть мой плейлист обновится
+                        //пошлём сигнал пусть мой плейлист обновится, и анимацию тамже остановят
                         signal("Data_add")
                                 .putExtra("update", "zaebis")
                                 .putExtra("listfile", it.getStringExtra("name"))
@@ -45,9 +43,8 @@ fun download_i_open_m3u_file(url: String, who_called: String) {
                     create_m3u_file(url_to_name(url), parsData)
                 }
                 if (who_called == "anim_online_plalist") {
-                    //остановим анимацию
-                    signal("Main_update").putExtra("signal", "stop_anim_online_plalist").send(Main.context)
-                    //пошлём сигнал для загрузки дааных п спискок
+
+                    //пошлём сигнал для загрузки дааных п спискок и тамже остановится анимация
                     signal("Online_plalist")
                             .putExtra("update", "zaebis")
                             .putExtra("url", url)

@@ -158,7 +158,7 @@
     <dmitriy.deomin.aimpradioplalist.custom.Btn
         android:id="@+id/button_history_online_plalilst"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:background="@null"
         android:text="Назад/Кеш" />
 </LinearLayout>
