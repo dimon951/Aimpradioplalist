@@ -30,7 +30,7 @@
             android:text="Добавить коментарий"
             android:textSize="20sp" />
 
-        <EditText
+        <dmitriy.deomin.aimpradioplalist.custom.Find
             android:id="@+id/ed_add_kom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

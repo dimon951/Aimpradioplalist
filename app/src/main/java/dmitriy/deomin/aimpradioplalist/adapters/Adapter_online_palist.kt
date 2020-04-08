@@ -12,17 +12,15 @@ import dmitriy.deomin.aimpradioplalist.Online_plalist
 import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.Vse_radio
 import dmitriy.deomin.aimpradioplalist.`fun`.Bold_text
-import dmitriy.deomin.aimpradioplalist.`fun`.add_koment
 import dmitriy.deomin.aimpradioplalist.`fun`.load_koment
+import dmitriy.deomin.aimpradioplalist.`fun`.windows.add_koment_window
 import dmitriy.deomin.aimpradioplalist.`fun`.windows.menu_vse_radio_online_plalist
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.backgroundColor
-import org.jetbrains.anko.hintTextColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.textColor
-import org.jetbrains.anko.toast
 
 
 class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_online_palist.ViewHolder>(), Filterable {
@@ -87,7 +85,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
         val user_name = itemView.findViewById<TextView>(R.id.user_name)
         //
         val liner_reiting = itemView.findViewById<LinearLayout>(R.id.liner_reiting)
-        val btn_koment = itemView.findViewById<Button>(R.id.button_komenty)
+        val btn_koment = itemView.findViewById<TextView>(R.id.button_komenty)
         //
         val liner_text_komentov = itemView.findViewById<LinearLayout>(R.id.liner_text_komentov)
         val btn_add_koment = itemView.findViewById<Button>(R.id.btn_add_new_koment)
@@ -109,7 +107,6 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
 
-
         //заполним данными(тут в логах бывает падает - обращение к несуществующему элементу)
         //поэтому будем проверять чтобы общее количество было больше текушего номера
         val radio: Radio = if (this.raduoSearchList.size > p1) {
@@ -118,7 +115,6 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
             //иначе вернём пустой элемент(дальше будут проверки и он не отобразится)
             Radio("", "", "", "")
         }
-
 
         var name_text = radio.name.replace("<List>", "")
         //добавим переносы для более читабельного вида где это нужно
@@ -143,7 +139,6 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
         } else {
             p0.name_radio.text = name_text
         }
-
 
         if (radio.url.isNotEmpty()) {
             p0.liner_url.visibility = View.VISIBLE
@@ -181,6 +176,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
             p0.kbps.textColor = Main.COLOR_SELEKT
             p0.ganr.textColor = Main.COLOR_SELEKT
             p0.text_komentov.textColor = Main.COLOR_SELEKT
+            p0.btn_koment.textColor = Main.COLOR_SELEKT
         } else {
             p0.name_radio.textColor = Main.COLOR_TEXT
             p0.url_radio.textColor = Main.COLOR_TEXT
@@ -188,6 +184,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
             p0.kbps.textColor = Main.COLOR_TEXT
             p0.ganr.textColor = Main.COLOR_TEXT
             p0.text_komentov.textColor = Main.COLOR_TEXT
+            p0.btn_koment.textColor = Main.COLOR_TEXT
         }
 
         //покажем понель пока коментарии откроем
@@ -199,7 +196,6 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
         if (id.isEmpty()) {
             id = "pustoy_plalist"
         }
-
 
         GlobalScope.launch {
             Slot(context, "load_koment").onRun {
@@ -234,31 +230,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
             }
         }
         p0.btn_add_koment.onClick {
-            //добавление коментариев
-            //-------------------------------------------------------------------------------
-            val add_kom = DialogWindow(context, R.layout.add_koment)
-            val ed = add_kom.view().findViewById<EditText>(R.id.ed_add_kom)
-            ed.typeface = Main.face
-            ed.textColor = Main.COLOR_TEXT
-            ed.hintTextColor = Main.COLOR_TEXTcontext
-            add_kom.view().findViewById<Button>(R.id.btn_ad_kom).onClick {
-
-                if (ed.text.toString().isEmpty()) {
-                    context.toast("введите текст")
-                } else {
-                    Slot(context, "add_koment", false).onRun {
-                        if (it.getStringExtra("update") == "zaebis") {
-                            add_kom.close()
-                            load_koment(id)
-                        } else {
-                            context.toast("ошибка")
-                        }
-                    }
-                    add_koment(id, ed.text.toString())
-                }
-            }
-            //-------------------------------------------------------------------------------------
-
+            add_koment_window(context,id)
         }
         p0.btn_update_koment.onClick {
             //обновить текуший список коментов
@@ -313,6 +285,5 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
                 menu_vse_radio_online_plalist(context,radio)
             }
         }
-
     }
 }

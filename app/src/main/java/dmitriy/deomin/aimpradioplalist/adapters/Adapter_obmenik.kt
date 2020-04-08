@@ -12,6 +12,7 @@ import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.Vse_radio
 import dmitriy.deomin.aimpradioplalist.`fun`.add_koment
 import dmitriy.deomin.aimpradioplalist.`fun`.load_koment
+import dmitriy.deomin.aimpradioplalist.`fun`.windows.add_koment_window
 import dmitriy.deomin.aimpradioplalist.`fun`.windows.menu_vse_radio_obmenik
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Koment
@@ -80,9 +81,11 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
         // коментарии ,лайки, инфо
         val liner_user = itemView.findViewById<LinearLayout>(R.id.liner_user_add_info)
         val user_name = itemView.findViewById<TextView>(R.id.user_name)
+
         //
         val liner_reiting = itemView.findViewById<LinearLayout>(R.id.liner_reiting)
-        val btn_koment = itemView.findViewById<Button>(R.id.button_komenty)
+        val btn_koment = itemView.findViewById<TextView>(R.id.button_komenty)
+
         //
         val liner_text_komentov = itemView.findViewById<LinearLayout>(R.id.liner_text_komentov)
         val btn_add_koment = itemView.findViewById<Button>(R.id.btn_add_new_koment)
@@ -171,9 +174,13 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
                     })
                     //обнулим количество коментов и заново запишем
                     p0.text_komentov.text = ""
-                    var t =""
-                    for(kom in data.iterator()){
-                        t= t+ "\n"+ (if(kom.user_name.isEmpty()){"no_name"}else{kom.user_name})+ ": "+kom.text
+                    var t = ""
+                    for (kom in data.iterator()) {
+                        t = t + "\n" + (if (kom.user_name.isEmpty()) {
+                            "no_name"
+                        } else {
+                            kom.user_name
+                        }) + ": " + kom.text
                     }
                     p0.text_komentov.text = t
                 }
@@ -182,38 +189,15 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
 
 
         p0.btn_koment.onClick {
-            if(p0.liner_text_komentov.visibility==View.GONE){
+            if (p0.liner_text_komentov.visibility == View.GONE) {
                 p0.liner_text_komentov.visibility = View.VISIBLE
-            }else{
-                p0.liner_text_komentov.visibility =View.GONE
+            } else {
+                p0.liner_text_komentov.visibility = View.GONE
             }
         }
         p0.btn_add_koment.onClick {
             //добавление коментариев
-            //-------------------------------------------------------------------------------
-            val add_kom = DialogWindow(context, R.layout.add_koment)
-            val ed = add_kom.view().findViewById<EditText>(R.id.ed_add_kom)
-            ed.typeface = Main.face
-            ed.textColor = Main.COLOR_TEXT
-            ed.hintTextColor = Main.COLOR_TEXTcontext
-            add_kom.view().findViewById<Button>(R.id.btn_ad_kom).onClick {
-
-                if(ed.text.toString().isEmpty()){
-                    context.toast("введите текст")
-                }else {
-                    Slot(context,"add_koment",false).onRun {
-                        if(it.getStringExtra("update")=="zaebis"){
-                            add_kom.close()
-                            load_koment(id)
-                        }else{
-                            context.toast("ошибка")
-                        }
-                    }
-                    add_koment(radio.id,ed.text.toString())
-                }
-            }
-            //-------------------------------------------------------------------------------------
-
+            add_koment_window(context, id)
         }
         p0.btn_update_koment.onClick {
             //обновить текуший список коментов
@@ -229,7 +213,7 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
         //обработка нажатий
         p0.itemView.onClick {
             p0.fon.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
-            menu_vse_radio_obmenik(context,radio,name)
+            menu_vse_radio_obmenik(context, radio, name)
         }
     }
 }

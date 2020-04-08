@@ -36,11 +36,11 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : androidx.recyclerview.w
         val add = itemView.findViewById<Button>(R.id.button_add)
         val play = itemView.findViewById<Button>(R.id.button_open)
         val share = itemView.findViewById<Button>(R.id.button_cshre)
-        val kbps1 = itemView.findViewById<Button>(R.id.pop_vibr_kbts_1)
-        val kbps2 = itemView.findViewById<Button>(R.id.pop_vibr_kbts_2)
-        val kbps3 = itemView.findViewById<Button>(R.id.pop_vibr_kbts_3)
-        val kbps4 = itemView.findViewById<Button>(R.id.pop_vibr_kbts_4)
-        val kbps5 = itemView.findViewById<Button>(R.id.pop_vibr_kbts_5)
+        val kbps1 = itemView.findViewById<TextView>(R.id.pop_vibr_kbts_1)
+        val kbps2 = itemView.findViewById<TextView>(R.id.pop_vibr_kbts_2)
+        val kbps3 = itemView.findViewById<TextView>(R.id.pop_vibr_kbts_3)
+        val kbps4 = itemView.findViewById<TextView>(R.id.pop_vibr_kbts_4)
+        val kbps5 = itemView.findViewById<TextView>(R.id.pop_vibr_kbts_5)
     }
 
     private var transformation: Transformation = RoundedTransformationBuilder()
@@ -131,12 +131,6 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : androidx.recyclerview.w
         //по умолчанию ставим первую кнопку
         bold_underline(p0, 1)
         var popurl = radiopop.link1.url
-
-        p0.kbps1.textColor = Main.COLOR_TEXT
-        p0.kbps2.textColor = Main.COLOR_TEXT
-        p0.kbps3.textColor = Main.COLOR_TEXT
-        p0.kbps4.textColor = Main.COLOR_TEXT
-        p0.kbps5.textColor = Main.COLOR_TEXT
 
         //при кликах на кнопках качества будем обновлять вид и ссылку
         p0.kbps1.onClick { bold_underline(p0, 1); popurl = radiopop.link1.url }

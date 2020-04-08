@@ -98,6 +98,13 @@ class TextInfo : androidx.appcompat.widget.AppCompatTextView {
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs){init()}
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {init()}
 
+    override fun setOnClickListener(l: OnClickListener?) {
+        val wrapper = OnClickListener {
+            startAnimation(AnimationUtils.loadAnimation(this.context, dmitriy.deomin.aimpradioplalist.R.anim.myalpha))
+            l?.onClick(it)
+        }
+        super.setOnClickListener(wrapper)
+    }
     fun init(){
         this.typeface = Main.face
         this.setTextColor(Main.COLOR_TEXT)

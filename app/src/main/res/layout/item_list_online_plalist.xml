@@ -216,13 +216,12 @@
             android:visibility="gone">
 
 
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
+            <dmitriy.deomin.aimpradioplalist.custom.TextInfo
                 android:id="@+id/button_komenty"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:background="@null"
-                android:text="Коментарий"
-                android:textSize="12sp" />
+                android:text="Коментарий" />
 
             <Space
                 android:layout_width="wrap_content"
