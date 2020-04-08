@@ -23,7 +23,6 @@ class Fonts_vibor : Activity() {
         button_font_system.typeface = Typeface.DEFAULT
 
         button_font_tweed.typeface = Typeface.createFromAsset(assets, "fonts/Tweed.ttf")
-        button_font_SonyEricssonLogo.typeface = Typeface.createFromAsset(assets, "fonts/SonyEricssonLogo.ttf")
         button_font_Whitney.typeface = Typeface.createFromAsset(assets, "fonts/Whitney.ttf")
         button_font_bemount.typeface = Typeface.createFromAsset(assets, "fonts/Bemount.ttf")
         button_Stolzl_Book.typeface = Typeface.createFromAsset(assets, "fonts/Stolzl_Book.ttf")
@@ -40,10 +39,6 @@ class Fonts_vibor : Activity() {
     }
     fun save_Tweed(v: View) {
         save_value("fonts", "fonts/Tweed.ttf")
-        toast("Хорошо,теперь нужно перезапустить программу")
-    }
-    fun save_SonyEricssonLogo(v: View) {
-        save_value("fonts", "fonts/SonyEricssonLogo.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
 

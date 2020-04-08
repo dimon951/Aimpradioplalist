@@ -50,14 +50,6 @@
                 android:onClick="save_Whitney"
                 android:background="@null"/>
             <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:text="Выбрать этот шрифт(SonyEricssonLogo)"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/button_font_SonyEricssonLogo"
-                android:onClick="save_SonyEricssonLogo"
-                android:background="@null" />
-
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:text="Выбрать этот шрифт(Bemount)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
