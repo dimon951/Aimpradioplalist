@@ -12,8 +12,8 @@ fun load_text_size_CONSTANTS(){
     }
 
     Main.SIZE_TEXT_VSE_BUTTON = if (save_read_float("SIZE_TEXT_VSE_BUTTON") == 0F) {
-        save_value_float("SIZE_TEXT_VSE_BUTTON",10F)
-        10F
+        save_value_float("SIZE_TEXT_VSE_BUTTON",12F)
+        12F
     } else {
         save_read_float("SIZE_TEXT_VSE_BUTTON")
     }
@@ -33,15 +33,15 @@ fun load_text_size_CONSTANTS(){
     }
 
     Main.SIZE_TEXT_CONTEXT = if (save_read_float("SIZE_TEXT_CONTEXT") == 0F) {
-        save_value_float("SIZE_TEXT_CONTEXT",10F)
-        10F
+        save_value_float("SIZE_TEXT_CONTEXT",14F)
+        14F
     } else {
         save_read_float("SIZE_TEXT_CONTEXT")
     }
 
     Main.SIZE_TEXT_CONTEXT_text = if (save_read_float("SIZE_TEXT_CONTEXT_text") == 0F) {
-        save_value_float("SIZE_TEXT_CONTEXT_text",8F)
-       8F
+        save_value_float("SIZE_TEXT_CONTEXT_text",10F)
+       10F
     } else {
         save_read_float("SIZE_TEXT_CONTEXT_text")
     }
