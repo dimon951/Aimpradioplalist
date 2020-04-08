@@ -21,6 +21,7 @@ import dmitriy.deomin.aimpradioplalist.`fun`.file.saveFile
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.download_i_open_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
+import dmitriy.deomin.aimpradioplalist.`fun`.windows.history_online_plalist
 import dmitriy.deomin.aimpradioplalist.adapters.Adapter_history_online_plalist
 import dmitriy.deomin.aimpradioplalist.adapters.Adapter_online_palist
 import dmitriy.deomin.aimpradioplalist.custom.*
@@ -57,9 +58,6 @@ class Online_plalist : Fragment() {
 
         //настройка вида----------------------------------------------------------------------------
         val find = v.findViewById<EditText>(R.id.editText_find_online_plalist)
-        find.typeface = Main.face
-        find.textColor = Main.COLOR_TEXT
-        find.hintTextColor = Main.COLOR_TEXTcontext
 
         //Загрузим последний урл открытой страницы
         open_url_online_palist = save_read("history_last")
@@ -183,13 +181,9 @@ class Online_plalist : Fragment() {
                         visible_selekt = true
                     }
                 }
-
-
             }
         }
-
         //-------------------------------------------------------------------------------------
-
 
         //выделить всЁ
         v.button_selekt_all_op.onClick {
@@ -314,127 +308,7 @@ class Online_plalist : Fragment() {
 
         v.button_history_online_plalilst.setOnLongClickListener {
             v.button_history_online_plalilst.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
-
-            val hop = DialogWindow(context, R.layout.history_online_plalist)
-
-            //слот будет закрывать это окно
-            Slot(context, "History_online_plalist").onRun { hop.close() }
-
-            //настройка вида----------------------------------------------------------------------------
-            val fon = hop.view().findViewById<LinearLayout>(R.id.fon)
-            fon.setBackgroundColor(Main.COLOR_FON)
-
-            val recikl = hop.view().findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recikl)
-            recikl.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
-
-            //полоса быстрой прокрутки
-            val fS = hop.view().findViewById<VerticalRecyclerViewFastScroller>(R.id.fast_scroller)
-            //получим текущие пораметры
-            val paramL = fS.layoutParams
-            //меняем ширину
-            paramL.width = Main.SIZE_WIDCH_SCROLL
-            //устанавливаем
-            fS.layoutParams = paramL
-            fS.setRecyclerView(recikl)
-            recikl.setOnScrollListener(fS.onScrollListener)
-            //-------------------------------------------------------------------------------------------
-
-            val d = ArrayList<History>()
-            val sdf = SimpleDateFormat("dd.M.yyyy hh:mm:ss", Locale.getDefault())
-
-            val kesh = read_page_list()
-
-            for (l in kesh.iterator()) {
-                val f = File(l)
-                if (f.isFile) {
-                    d.add(History(f.name, f.absolutePath, sdf.format(f.lastModified()), long_size_to_good_vid(f.length().toDouble())))
-                }
-            }
-
-
-            val a = Adapter_history_online_plalist(d)
-            recikl.adapter = a
-
-
-            //покажем полный размер кеша
-            //кнопка очистить кеш
-            //при открытии меню будем показыват размер этого кеша
-            val b_c = hop.view().findViewById<Button>(R.id.button_clear_kesh)
-
-            //получим размер
-            val file = File(Main.ROOT)
-            if (file.exists()) {
-                val s = getDirSize(file)
-                if (s > Main.SIZEFILETHEME) {
-                    b_c.text = "Очистить Кэш (" + long_size_to_good_vid(s.toDouble()) + ")"
-                } else {
-                    b_c.text = "Кэш очищен"
-
-                }
-            } else
-                b_c.text = "Кэш очищен"
-
-            b_c.onClick {
-
-                if (b_c.text == "Кэш очищен") {
-
-                    signal("History_online_plalist").send(context)
-                    signal("Online_plalist")
-                            .putExtra("update", "zaebis")
-                            .send(context)
-                    Main.context.toast("Пусто")
-
-                } else {
-
-                    //покажем предупреждающее окошко
-                    val v_d = DialogWindow(Main.context, R.layout.dialog_delete_plalist)
-
-                    v_d.view().findViewById<TextView>(R.id.text_voprosa_del_stncii).text = "Удалить Кеш?"
-
-                    v_d.view().findViewById<Button>(R.id.button_dialog_delete).onClick {
-                        v_d.close()
-                        //удаляем все
-                        if (file.exists()) {
-                            //файлы
-                            deleteAllFilesFolder(Main.ROOT)
-                            //список этих файлов
-                            hop.close()
-                            //очистим историю навигации
-                            //------------------------------------------
-                            list_history.clear()
-                            signal("history_save").send(context)
-                            //сбросим на кнопках
-                            selekt_CATEGORIA("del", v)
-                            //--------------------------------------------
-                            //обновим список
-                            //иначе пустую страницу покажем
-                            signal("Online_plalist")
-                                    .putExtra("update", "zaebis")
-                                    .send(context)
-                            signal("History_online_plalist").send(context)
-                        }
-                        if (file.exists()) {
-                            val s = getDirSize(file)
-                            if (s > Main.SIZEFILETHEME) {
-                                b_c.text = "Очистить Кэш (" + long_size_to_good_vid(s.toDouble()) + ")"
-                            } else {
-                                b_c.text = "Кэш очищен"
-                            }
-
-                        } else {
-                            b_c.text = "Кэш очищен"
-                        }
-
-                    }
-                    v_d.view().findViewById<Button>(R.id.button_dialog_no).onClick {
-                        v_d.close()
-                    }
-
-                }
-
-            }
-            //---------------------------------------
-
+            history_online_plalist(context, list_history, v)
             true
         }
 
@@ -446,47 +320,47 @@ class Online_plalist : Fragment() {
                 list_history.removeAt(list_history.size - 1)
                 //передаём предыдующию
                 download_i_open_m3u_file(list_history.last().url, "anim_online_plalist")
-                selekt_CATEGORIA(list_history.last().kat, v)
+                selekt_CATEGORIA_ONLINE_PLALIST(list_history.last().kat, v)
                 save_value("categoria", list_history.last().kat)
             } else {
                 //если там последняя страница списка
                 if (list_history.size == 1) {
                     //передаём предыдующию
                     download_i_open_m3u_file(list_history.last().url, "anim_online_plalist")
-                    selekt_CATEGORIA(list_history.last().kat, v)
+                    selekt_CATEGORIA_ONLINE_PLALIST(list_history.last().kat, v)
                     save_value("categoria", list_history.last().kat)
                 }
             }
         }
 
         //установим размер текста кнопкам
-        v.button_open_online_plalist_radio.textSize=Main.SIZE_TEXT_ONLINE_BUTTON
-        v.button_open_online_plalist_audio_book.textSize=Main.SIZE_TEXT_ONLINE_BUTTON
-        v.button_open_online_plalist_tv.textSize=Main.SIZE_TEXT_ONLINE_BUTTON
-        v.button_open_online_plalist_musik.textSize=Main.SIZE_TEXT_ONLINE_BUTTON
-        v.button_open_online_plalist_obmennik.textSize=Main.SIZE_TEXT_ONLINE_BUTTON
-        v.button_history_online_plalilst.textSize=Main.SIZE_TEXT_ONLINE_BUTTON
+        v.button_open_online_plalist_radio.textSize = Main.SIZE_TEXT_ONLINE_BUTTON
+        v.button_open_online_plalist_audio_book.textSize = Main.SIZE_TEXT_ONLINE_BUTTON
+        v.button_open_online_plalist_tv.textSize = Main.SIZE_TEXT_ONLINE_BUTTON
+        v.button_open_online_plalist_musik.textSize = Main.SIZE_TEXT_ONLINE_BUTTON
+        v.button_open_online_plalist_obmennik.textSize = Main.SIZE_TEXT_ONLINE_BUTTON
+        v.button_history_online_plalilst.textSize = Main.SIZE_TEXT_ONLINE_BUTTON
 
         //--------категории--------------------------------------------------------------
         v.button_open_online_plalist_radio.onClick {
             download_i_open_m3u_file("https://dl.dropbox.com/s/sl4x8z3yth5v1u0/Radio.m3u", "anim_online_plalist")
             save_value("categoria", "1")
-            selekt_CATEGORIA("1", v)
+            selekt_CATEGORIA_ONLINE_PLALIST("1", v)
         }
         v.button_open_online_plalist_audio_book.onClick {
             download_i_open_m3u_file("https://dl.dropbox.com/s/cd479dcdguk6cg6/Audio_book.m3u", "anim_online_plalist")
             save_value("categoria", "2")
-            selekt_CATEGORIA("2", v)
+            selekt_CATEGORIA_ONLINE_PLALIST("2", v)
         }
         v.button_open_online_plalist_tv.onClick {
             download_i_open_m3u_file("https://dl.dropbox.com/s/4m3nvh3hlx60cy7/plialist_tv.m3u", "anim_online_plalist")
             save_value("categoria", "3")
-            selekt_CATEGORIA("3", v)
+            selekt_CATEGORIA_ONLINE_PLALIST("3", v)
         }
         v.button_open_online_plalist_musik.onClick {
             download_i_open_m3u_file("https://dl.dropbox.com/s/oe9kdcksjru82by/Musik.m3u", "anim_online_plalist")
             save_value("categoria", "4")
-            selekt_CATEGORIA("4", v)
+            selekt_CATEGORIA_ONLINE_PLALIST("4", v)
         }
         v.button_open_online_plalist_obmennik.onClick {
             startActivity<Obmenik>()
@@ -497,76 +371,16 @@ class Online_plalist : Fragment() {
         if (isValidURL(open_url_online_palist)) {
             download_i_open_m3u_file(open_url_online_palist, "anim_online_plalist")
             //Отметим категорию
-            selekt_CATEGORIA(save_read("categoria"), v)
+            selekt_CATEGORIA_ONLINE_PLALIST(save_read("categoria"), v)
         } else {
             //иначе пустую страницу покажем
             signal("Online_plalist")
                     .putExtra("update", "zaebis")
                     .send(context)
         }
-
         return v
     }
 
-
-    fun selekt_CATEGORIA(cat: String, v: View) {
-        when (cat) {
-            "1" -> {
-                v.button_open_online_plalist_radio.backgroundColor = Main.COLOR_ITEM
-                v.button_open_online_plalist_audio_book.backgroundColor = Main.COLOR_FON
-                v.button_open_online_plalist_tv.backgroundColor = Main.COLOR_FON
-                v.button_open_online_plalist_musik.backgroundColor = Main.COLOR_FON
-            }
-            "2" -> {
-                v.button_open_online_plalist_radio.backgroundColor = Main.COLOR_FON
-                v.button_open_online_plalist_audio_book.backgroundColor = Main.COLOR_ITEM
-                v.button_open_online_plalist_tv.backgroundColor = Main.COLOR_FON
-                v.button_open_online_plalist_musik.backgroundColor = Main.COLOR_FON
-            }
-            "3" -> {
-                v.button_open_online_plalist_radio.backgroundColor = Main.COLOR_FON
-                v.button_open_online_plalist_audio_book.backgroundColor = Main.COLOR_FON
-                v.button_open_online_plalist_tv.backgroundColor = Main.COLOR_ITEM
-                v.button_open_online_plalist_musik.backgroundColor = Main.COLOR_FON
-            }
-            "4" -> {
-                v.button_open_online_plalist_radio.backgroundColor = Main.COLOR_FON
-                v.button_open_online_plalist_audio_book.backgroundColor = Main.COLOR_FON
-                v.button_open_online_plalist_tv.backgroundColor = Main.COLOR_FON
-                v.button_open_online_plalist_musik.backgroundColor = Main.COLOR_ITEM
-            }
-            "del" -> {
-                v.button_open_online_plalist_radio.backgroundColor = Main.COLOR_FON
-                v.button_open_online_plalist_audio_book.backgroundColor = Main.COLOR_FON
-                v.button_open_online_plalist_tv.backgroundColor = Main.COLOR_FON
-                v.button_open_online_plalist_musik.backgroundColor = Main.COLOR_FON
-            }
-        }
-
-    }
-
-    fun read_page_list(): ArrayList<String> {
-        val dir = File(Main.ROOT) //path указывает на директорию
-        val arrFiles = dir.listFiles()
-
-
-        val d = ArrayList<String>()
-
-        if (arrFiles != null) {
-            for (s in arrFiles.iterator()) {
-                if (s.isFile && s.name != "history_url.txt" && s.name != "theme.txt" && s.name != "my_plalist.m3u") {
-                    d.add(s.absolutePath)
-                }
-            }
-            //отсортируем по дате создания файла
-            d.sortWith(Comparator { o1, o2 ->
-                val a = File(o1).lastModified()
-                val b = File(o2).lastModified()
-                a.compareTo(b)
-            })
-        }
-        return d
-    }
 
     override fun onPause() {
         //сохраним последнию открытую страницу

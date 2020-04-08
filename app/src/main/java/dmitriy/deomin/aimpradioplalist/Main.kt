@@ -49,7 +49,7 @@ class Main : FragmentActivity() {
 
         const val SIZE_LIST_THEM_DEFALT = 7//количество стандартных тем
 
-        const val SIZE_WIDCH_SCROLL = 50//толщина полосы прокрутки
+        const val SIZE_WIDCH_SCROLL = 60//толщина полосы прокрутки
 
         const val SIZEFILETHEME = 2000//размер в байтах при который не учитывать для отображения размера кеша
 

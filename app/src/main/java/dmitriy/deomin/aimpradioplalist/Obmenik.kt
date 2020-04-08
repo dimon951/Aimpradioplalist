@@ -36,9 +36,6 @@ class Obmenik : Activity() {
         fon_obmenik.backgroundColor = Main.COLOR_FON
 
         val find = findViewById<EditText>(R.id.editText_find_obmennik)
-        find.typeface = Main.face
-        find.textColor = Main.COLOR_TEXT
-        find.hintTextColor = Main.COLOR_TEXTcontext
 
         button_close_list_obmenik.onClick { finish() }
 

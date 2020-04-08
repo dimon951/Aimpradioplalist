@@ -18,7 +18,7 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <EditText
+            <dmitriy.deomin.aimpradioplalist.custom.Find
                 android:id="@+id/editText_find"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

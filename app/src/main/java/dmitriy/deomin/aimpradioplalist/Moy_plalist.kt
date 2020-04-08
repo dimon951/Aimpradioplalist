@@ -46,9 +46,6 @@ class Moy_plalist : Fragment() {
         val context: Context = Main.context
 
         val find = v.findViewById<EditText>(R.id.editText_find_my_list)
-        find.typeface = Main.face
-        find.textColor = Main.COLOR_TEXT
-        find.hintTextColor = Main.COLOR_TEXTcontext
 
         v.button_close_list.textSize = Main.SIZE_TEXT_NAME
 
@@ -165,9 +162,6 @@ class Moy_plalist : Fragment() {
                         recikl_list.scrollToPosition(position_list_my_plalist)
                     }
 
-                    //остановим анимацию
-                    signal("Main_update").putExtra("signal", "stop_anim_my_list").send(context)
-
                     //скроем или покажем полосу прокрутки и поиск
                     if (d.size > Main.SIZE_LIST_LINE) {
                         fastScroller.visibility = View.VISIBLE
@@ -187,6 +181,8 @@ class Moy_plalist : Fragment() {
                         find.setText("")
                         find.visibility = View.GONE
                     }
+                    //остановим анимацию
+                    signal("Main_update").putExtra("signal", "stop_anim_my_list").send(context)
                     //==================================================================
                 }
             }

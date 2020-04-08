@@ -49,9 +49,6 @@ class Vse_radio : Fragment() {
         context = Main.context
 
         find = v.findViewById<EditText>(R.id.editText_find)
-        find.typeface = Main.face
-        find.textColor = Main.COLOR_TEXT
-        find.hintTextColor = Main.COLOR_TEXTcontext
 
         cho_nagimali_poslednee = save_read_int("cho_nagimali_poslednee")
 
