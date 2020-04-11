@@ -8,6 +8,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- это нужно чтобы в 10 android ошибок с памятью небыло-->
+    <!--    android:requestLegacyExternalStorage="true"-->
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
