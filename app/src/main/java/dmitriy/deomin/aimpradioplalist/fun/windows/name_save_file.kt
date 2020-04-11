@@ -13,6 +13,7 @@ import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Slot
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
+import org.jetbrains.anko.longToast
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
@@ -63,15 +64,8 @@ fun name_save_file(context: Context, ad: Adapter_my_list){
             Slot(context, "File_created", false).onRun {
                 //получим данные
                 when (it.getStringExtra("update")) {
-                    "zaebis" -> {
-                        //пошлём сигнал пусть мой плейлист обновится
-                        signal("Data_add").putExtra("update", "zaebis").send(context)
-                    }
-                    "pizdec" -> {
-                        context.toast(context.getString(R.string.error))
-                        //запросим разрешения
-                        EbuchieRazreshenia()
-                    }
+                    "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
+                    "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
                 }
             }
             //сохраним  временый файл ссылку и ждём сигналы

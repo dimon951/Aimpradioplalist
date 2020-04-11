@@ -10,6 +10,7 @@ import android.view.WindowManager
 import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import dmitriy.deomin.aimpradioplalist.`fun`.data_time.Data_time_milis_to_good_format
 import dmitriy.deomin.aimpradioplalist.`fun`.windows.window_add_new_url_obmenik
 import dmitriy.deomin.aimpradioplalist.adapters.Adapter_obmenik
 import dmitriy.deomin.aimpradioplalist.custom.Radio
@@ -29,8 +30,11 @@ class Obmenik : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.obmenik)
-        //во весь экран
-        this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        if (Main.FULLSCRIN > 0) {
+            //во весь экран
+            this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        }
+
         val context: Context = this
 
         fon_obmenik.backgroundColor = Main.COLOR_FON
@@ -54,8 +58,8 @@ class Obmenik : Activity() {
         recikl_list.setOnScrollListener(fastScroller.onScrollListener)
 
         //размер текста
-        button_menu_obmenik.textSize=Main.SIZE_TEXT_ONLINE_BUTTON
-        button_close_list_obmenik.textSize=Main.SIZE_TEXT_ONLINE_BUTTON
+        button_menu_obmenik.textSize = Main.SIZE_TEXT_ONLINE_BUTTON
+        button_close_list_obmenik.textSize = Main.SIZE_TEXT_ONLINE_BUTTON
 
         val d = ArrayList<Radio>()
 
@@ -80,43 +84,28 @@ class Obmenik : Activity() {
                             .get()
                             .addOnSuccessListener { result ->
                                 for (document in result) {
-                                    d.add(Radio(
-                                            (if (document.data["name"] != null) {
-                                                document.data["name"].toString()
-                                            } else {
-                                                ""
-                                            }),
-                                            (if (document.data["kat"] != null) {
-                                                document.data["kat"].toString()
-                                            } else {
-                                                ""
-                                            }),
-                                            (if (document.data["kbps"] != null) {
-                                                document.data["kbps"].toString()
-                                            } else {
-                                                ""
-                                            }),
-                                            (if (document.data["url"] != null) {
-                                                document.data["url"].toString()
-                                            } else {
-                                                ""
-                                            }),
-                                            (if (document.data["user_name"] != null) {
-                                                document.data["user_name"].toString()
-                                            } else {
-                                                ""
-                                            }),
-                                            (if (document.data["user_id"] != null) {
-                                                document.data["user_id"].toString()
-                                            } else {
-                                                ""
-                                            }),
-                                            (document.id))
-                                    )
+
+                                    val name = if (document.data["name"] != null) document.data["name"].toString() else ""
+                                    val kat = if (document.data["kat"] != null) document.data["kat"].toString() else ""
+                                    val kbps = if (document.data["kbps"] != null) document.data["kbps"].toString() else ""
+                                    val url = if (document.data["url"] != null) document.data["url"].toString() else ""
+                                    var data = if (document.data["date"] != null) document.data["date"].toString() else ""
+
+                                    //переведём дату в норм вид
+                                    data = if(data.contains("/")||data.contains(":")||data.contains(" ")) data
+                                    else Data_time_milis_to_good_format(data.toLong())
+
+                                    val user_name = if (document.data["user_name"] != null)
+                                        document.data["user_name"].toString()+"\n"+data
+                                    else "\n"+data
+
+                                    val user_id = if (document.data["user_id"] != null) document.data["user_id"].toString() else ""
+
+                                    d.add(Radio(name, kat, kbps, url, user_name, user_id, (document.id)))
                                 }
 
                                 //перевернём список
-                                //d.reverse()
+                                d.reverse()
 
                                 ao = Adapter_obmenik(d)
                                 recikl_list.adapter = ao

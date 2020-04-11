@@ -15,6 +15,7 @@ import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 import dmitriy.deomin.aimpradioplalist.custom.Slot
 import org.jetbrains.anko.browse
+import org.jetbrains.anko.longToast
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.toast
 
@@ -90,9 +91,7 @@ fun menu_setup_aimp(url: String, name: String) {
                         Main.context.toast("Системе не удалось ( ")
                     }
                 }
-                "pizdec" -> {
-                    Main.context.toast("Ошибка сохранения файла")
-                }
+                "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
 
             }
         }

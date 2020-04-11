@@ -14,7 +14,7 @@ import dmitriy.deomin.aimpradioplalist.Vse_radio
 import dmitriy.deomin.aimpradioplalist.`fun`.Bold_text
 import dmitriy.deomin.aimpradioplalist.`fun`.load_koment
 import dmitriy.deomin.aimpradioplalist.`fun`.windows.add_koment_window
-import dmitriy.deomin.aimpradioplalist.`fun`.windows.menu_vse_radio_online_plalist
+import dmitriy.deomin.aimpradioplalist.`fun`.menu.menu_vse_radio_online_plalist
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -76,8 +76,6 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
         val liner_kbps = itemView.findViewById<LinearLayout>(R.id.liner_kbps)
         val liner_ganr = itemView.findViewById<LinearLayout>(R.id.liner_ganr)
         val liner_url = itemView.findViewById<LinearLayout>(R.id.liner_url)
-        val liner_fon = itemView.findViewById<LinearLayout>(R.id.liner_fon)
-
 
         //------------------------------------------------------------------------------------
         // коментарии ,лайки, инфо
@@ -85,7 +83,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
         val user_name = itemView.findViewById<TextView>(R.id.user_name)
         //
         val liner_reiting = itemView.findViewById<LinearLayout>(R.id.liner_reiting)
-        val btn_koment = itemView.findViewById<TextView>(R.id.button_komenty)
+        val btn_koment = itemView.findViewById<TextView>(R.id.button_komenty)//это textview ну как кнопка
         //
         val liner_text_komentov = itemView.findViewById<LinearLayout>(R.id.liner_text_komentov)
         val btn_add_koment = itemView.findViewById<Button>(R.id.btn_add_new_koment)
@@ -268,6 +266,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
             p0.kbps.textColor = Main.COLOR_SELEKT
             p0.ganr.textColor = Main.COLOR_SELEKT
             p0.text_komentov.textColor = Main.COLOR_SELEKT
+            p0.btn_koment.textColor = Main.COLOR_SELEKT
 
             if (Online_plalist.visible_selekt) {
 
@@ -282,7 +281,7 @@ class Adapter_online_palist(val data: ArrayList<Radio>) : androidx.recyclerview.
             } else {
                 //сохраняем позицию текушею списка
                 signal("save_pozitions").putExtra("pos", p1.toString()).send(context)
-                menu_vse_radio_online_plalist(context,radio)
+                menu_vse_radio_online_plalist(context, radio)
             }
         }
     }

@@ -22,7 +22,6 @@ import org.jetbrains.anko.email
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.share
-import org.jetbrains.anko.textColor
 import java.util.ArrayList
 
 
@@ -49,8 +48,6 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : androidx.recyclerview.w
             .cornerRadiusDp(10f)
             .oval(false)
             .build()
-
-
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         val v = LayoutInflater.from(p0.context).inflate(R.layout.item_list_radio_pop, p0, false)
         context = p0.context

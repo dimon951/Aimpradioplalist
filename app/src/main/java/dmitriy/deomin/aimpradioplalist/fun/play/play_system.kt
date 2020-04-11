@@ -14,6 +14,7 @@ import dmitriy.deomin.aimpradioplalist.`fun`.m3u.create_m3u_file
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 import dmitriy.deomin.aimpradioplalist.custom.Slot
+import org.jetbrains.anko.longToast
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
@@ -28,15 +29,8 @@ fun play_system(name: String, url: String) {
         Slot(Main.context, "File_created").onRun {
             //получим данные
             when (it.getStringExtra("update")) {
-                "zaebis" -> {
-                    play_system_file(it.getStringExtra("name"))
-                }
-                "pizdec" -> {
-                    Main.context.toast(Main.context.getString(R.string.error))
-                    //запросим разрешения
-                    EbuchieRazreshenia()
-                }
-
+                "zaebis" -> play_system_file(it.getStringExtra("name"))
+                "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
             }
         }
         //результат выполнения ждёт слот "File_created"

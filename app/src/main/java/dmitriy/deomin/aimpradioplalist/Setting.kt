@@ -52,8 +52,11 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.setting)
-        //во весь экран
-        this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
+        if(Main.FULLSCRIN >0){
+            //во весь экран
+            this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        }
 
         context = this
 

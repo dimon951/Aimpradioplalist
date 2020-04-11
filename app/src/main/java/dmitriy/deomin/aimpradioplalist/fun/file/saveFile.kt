@@ -1,10 +1,12 @@
 package dmitriy.deomin.aimpradioplalist.`fun`.file
 
 import dmitriy.deomin.aimpradioplalist.Main
+import dmitriy.deomin.aimpradioplalist.`fun`.EbuchieRazreshenia
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import org.jetbrains.anko.toast
 import java.io.FileOutputStream
 import java.io.FileWriter
 
@@ -29,6 +31,7 @@ fun saveFile(name: String, data: String) {
                 signal("File_created")
                         .putExtra("run", false)
                         .putExtra("update", "pizdec")
+                        .putExtra("erorr", "Ошибка записи"+e.message)
                         .send(Main.context)
                 e.printStackTrace()
             } finally {
@@ -46,8 +49,11 @@ fun saveFile(name: String, data: String) {
             signal("File_created")
                     .putExtra("run", false)
                     .putExtra("update", "pizdec")
+                    .putExtra("erorr", "Ошибка,неудалось создать файл:"+e.message)
                     .send(Main.context)
             e.printStackTrace()
+            //запросим разрешения
+            EbuchieRazreshenia()
         }
     }
 }

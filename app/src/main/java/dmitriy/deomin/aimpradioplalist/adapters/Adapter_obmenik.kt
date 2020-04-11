@@ -7,23 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
-import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.Vse_radio
-import dmitriy.deomin.aimpradioplalist.`fun`.add_koment
 import dmitriy.deomin.aimpradioplalist.`fun`.load_koment
 import dmitriy.deomin.aimpradioplalist.`fun`.windows.add_koment_window
-import dmitriy.deomin.aimpradioplalist.`fun`.windows.menu_vse_radio_obmenik
-import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
+import dmitriy.deomin.aimpradioplalist.`fun`.menu.menu_vse_radio_obmenik
 import dmitriy.deomin.aimpradioplalist.custom.Koment
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 import dmitriy.deomin.aimpradioplalist.custom.Slot
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.jetbrains.anko.hintTextColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.textColor
-import org.jetbrains.anko.toast
 
 class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_obmenik.ViewHolder>(), Filterable {
 

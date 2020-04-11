@@ -13,6 +13,7 @@ import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.Vse_radio
 import dmitriy.deomin.aimpradioplalist.`fun`.add_myplalist
 import dmitriy.deomin.aimpradioplalist.`fun`.isValidURL
+import dmitriy.deomin.aimpradioplalist.`fun`.menu.menu_vse_radio
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 import dmitriy.deomin.aimpradioplalist.`fun`.putText_сlipboard
@@ -107,8 +108,6 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
             Radio("","","","")
         }
 
-        val name = radio.name
-
         p0.url_radio.text = radio.url
 
         //если kbps нет вообще скроем
@@ -172,54 +171,7 @@ class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widge
             p0.ganr.textColor = Main.COLOR_SELEKT
 
 
-            val mvr = DialogWindow(context, R.layout.menu_vse_radio)
-
-            val add_pls = mvr.view().findViewById<Button>(R.id.button_add_plalist)
-            val open_aimp = mvr.view().findViewById<Button>(R.id.button_open_aimp)
-            val open_custom = mvr.view().findViewById<Button>(R.id.open_custom_plaer)
-            val share = mvr.view().findViewById<Button>(R.id.button_cshre)
-
-            //Имя и урл выбраной станции , при клике будем копировать урл в буфер
-            val text_name_i_url = mvr.view().findViewById<TextView>(R.id.textView_vse_radio)
-            text_name_i_url.text = name + "\n" + radio.url
-            text_name_i_url.onClick {
-                text_name_i_url.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myalpha))
-                putText_сlipboard(radio.url, context)
-                context.toast("Url скопирован в буфер")
-                mvr.close()
-            }
-
-            open_aimp.onLongClick {
-                play_system(name, radio.url)
-                mvr.close()
-            }
-
-            add_pls.onClick {
-                add_myplalist(name, radio.url)
-                mvr.close()
-            }
-
-            share.onClick {
-                //сосавим строчку как в m3u вайле
-                context.share(name + "\n" + radio.url)
-            }
-            share.onLongClick {
-                context.email("deomindmitriy@gmail.com", "aimp_radio_plalist",name + "\n" + radio.url)
-            }
-
-            open_aimp.onClick {
-                play_aimp(name, radio.url)
-                mvr.close()
-            }
-
-            open_custom.onClick {
-                if(isValidURL(radio.url)){
-                    Play_audio(radio.name, radio.url)
-                }else{
-                    context.toast("Возможно ссылка битая, нельзя открыть")
-                }
-                mvr.close()
-            }
+            menu_vse_radio(context,radio)
         }
     }
 }

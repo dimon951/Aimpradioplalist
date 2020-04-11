@@ -12,6 +12,7 @@ import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Slot
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
+import org.jetbrains.anko.longToast
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
@@ -46,11 +47,7 @@ fun add_url_user(context:Context){
                             //пошлём сигнал пусть мой плейлист обновится
                             signal("Data_add").putExtra("update", "zaebis").send(context)
                         }
-                        "pizdec" -> {
-                            context.toast(context.getString(R.string.error))
-                            //запросим разрешения
-                            EbuchieRazreshenia()
-                        }
+                        "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
                     }
                 }
                 val name = if(edit_name.text.toString().isEmpty()){

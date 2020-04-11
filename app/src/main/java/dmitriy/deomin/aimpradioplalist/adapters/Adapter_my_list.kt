@@ -9,15 +9,9 @@ import android.view.animation.AnimationUtils
 import android.widget.*
 import dmitriy.deomin.aimpradioplalist.*
 import dmitriy.deomin.aimpradioplalist.`fun`.*
-import dmitriy.deomin.aimpradioplalist.`fun`.m3u.create_m3u_file
-import dmitriy.deomin.aimpradioplalist.`fun`.m3u.download_i_open_m3u_file
-import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
-import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
-import dmitriy.deomin.aimpradioplalist.`fun`.windows.menu_my_list
+import dmitriy.deomin.aimpradioplalist.`fun`.menu.menu_my_list
 import dmitriy.deomin.aimpradioplalist.custom.*
-import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.sdk27.coroutines.onLongClick
 
 class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_my_list.ViewHolder>(), Filterable {
 
@@ -134,7 +128,7 @@ class Adapter_my_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             save_value_int("position_list_my_plalist", p1)
             Moy_plalist.position_list_my_plalist = p1
 
-            menu_my_list(context,radio,data,p1)
+            menu_my_list(context, radio, data, p1)
         }
     }
 }

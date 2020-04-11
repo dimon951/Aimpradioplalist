@@ -6,6 +6,7 @@ import dmitriy.deomin.aimpradioplalist.`fun`.m3u.add_may_plalist_stansiy
 import dmitriy.deomin.aimpradioplalist.custom.Slot
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
+import org.jetbrains.anko.longToast
 import org.jetbrains.anko.toast
 
 //добавить в мой плейлист
@@ -23,11 +24,7 @@ fun add_myplalist(name: String, url: String) {
                         .putExtra("listfile", "old") //оставим что есть в списке
                         .send(Main.context)
             }
-            "pizdec" -> {
-                Main.context.toast(Main.context.getString(R.string.error))
-                //запросим разрешения
-                EbuchieRazreshenia()
-            }
+            "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
         }
     }
 

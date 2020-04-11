@@ -18,11 +18,8 @@ import dmitriy.deomin.aimpradioplalist.adapters.Adapter_history_list
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.jetbrains.anko.backgroundColor
-import org.jetbrains.anko.hintTextColor
+import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.textColor
-import org.jetbrains.anko.toast
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -73,15 +70,8 @@ fun open_load_file(context: Context, old_data: ArrayList<Radio>) {
                             Slot(context, "File_created", false).onRun { it ->
                                 //получим данные
                                 when (it.getStringExtra("update")) {
-                                    "zaebis" -> {
-                                        //пошлём сигнал пусть мой плейлист обновится
-                                        signal("Data_add").putExtra("update", "zaebis").send(context)
-                                    }
-                                    "pizdec" -> {
-                                        context.toast(context.getString(R.string.error))
-                                        //запросим разрешения
-                                        EbuchieRazreshenia()
-                                    }
+                                    "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
+                                    "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
                                 }
                             }
                             old_data.addAll(file_data)

@@ -4,12 +4,10 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import dmitriy.deomin.aimpradioplalist.Abaut
-import dmitriy.deomin.aimpradioplalist.Fonts_vibor
 import dmitriy.deomin.aimpradioplalist.Main.Companion.context
 import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.Setting
 import dmitriy.deomin.aimpradioplalist.`fun`.windows.akkaunt
-import dmitriy.deomin.aimpradioplalist.`fun`.windows.other_settings
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.startActivity
@@ -26,11 +24,6 @@ fun menu_main(view: View) {
 
     menu.view().findViewById<Button>(R.id.button_setting).onClick {
         context.startActivity<Setting>()
-        menu.close()
-    }
-
-    menu.view().findViewById<Button>(R.id.button_edit_fonts).onClick {
-        context.startActivity<Fonts_vibor>()
         menu.close()
     }
 

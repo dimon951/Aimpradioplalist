@@ -259,14 +259,8 @@ class Moy_plalist : Fragment() {
                 Slot(context, "File_created", false).onRun {
                     //получим данные
                     when (it.getStringExtra("update")) {
-                        "zaebis" -> {
-                            play_aimp(it.getStringExtra("name"), "")
-                        }
-                        "pizdec" -> {
-                            context.toast(context.getString(R.string.error))
-                            //запросим разрешения
-                            EbuchieRazreshenia()
-                        }
+                        "zaebis" -> play_aimp(it.getStringExtra("name"), "")
+                        "pizdec" -> context.longToast(it.getStringExtra("erorr"))
                     }
                 }
                 create_m3u_file(name_file, ad.raduoSearchList)
@@ -285,14 +279,8 @@ class Moy_plalist : Fragment() {
                 Slot(context, "File_created", false).onRun {
                     //получим данные
                     when (it.getStringExtra("update")) {
-                        "zaebis" -> {
-                            play_system(it.getStringExtra("name"), "")
-                        }
-                        "pizdec" -> {
-                            context.toast(context.getString(R.string.error))
-                            //запросим разрешения
-                            EbuchieRazreshenia()
-                        }
+                        "zaebis" -> play_system(it.getStringExtra("name"), "")
+                        "pizdec" -> context.longToast(it.getStringExtra("erorr"))
                     }
                 }
                 create_m3u_file(name_file, ad.raduoSearchList)

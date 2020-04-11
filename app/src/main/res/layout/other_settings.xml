@@ -21,6 +21,13 @@
         android:orientation="vertical">
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
+            android:id="@+id/button_edit_fonts"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:text="@string/edit_fonts" />
+
+        <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_seting_number"
             android:layout_width="match_parent"
             android:layout_height="50dp"

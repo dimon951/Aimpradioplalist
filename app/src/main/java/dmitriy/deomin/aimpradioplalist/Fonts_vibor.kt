@@ -15,8 +15,11 @@ class Fonts_vibor : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fonts_vibor)
 
-        //во весь экран
-        this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        if (Main.FULLSCRIN > 0) {
+            //во весь экран
+            this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        }
+
 
         fonts_vibor.setBackgroundColor(Main.COLOR_FON)
 
@@ -37,6 +40,7 @@ class Fonts_vibor : Activity() {
         save_value("fonts", "system")
         toast("Хорошо,теперь нужно перезапустить программу")
     }
+
     fun save_Tweed(v: View) {
         save_value("fonts", "fonts/Tweed.ttf")
         toast("Хорошо,теперь нужно перезапустить программу")

@@ -15,6 +15,7 @@ import dmitriy.deomin.aimpradioplalist.`fun`.menu.menu_setup_aimp
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 import dmitriy.deomin.aimpradioplalist.custom.Slot
+import org.jetbrains.anko.longToast
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.textColor
 import org.jetbrains.anko.toast
@@ -26,24 +27,24 @@ import java.io.File
 @SuppressLint("WrongConstant")
 fun play_aimp(name: String, url: String) {
     if (url != "") {
+
         Slot(Main.context, "File_created").onRun {
             //получим данные
-            val s = it.getStringExtra("update")
-            if (s == "zaebis") {
-                //проверим есть ли аимп
-                if (is_install_app("com.aimp.player")) {
-                    //откроем файл с сылкой в плеере
-                    play_aimp_file(it.getStringExtra("name"))
-                } else {
-                    //иначе предложим системе открыть или установить аимп
-                    menu_setup_aimp(url, name)
+            when (it.getStringExtra("update")) {
+                "zaebis" -> {
+                    //проверим есть ли аимп
+                    if (is_install_app("com.aimp.player")) {
+                        //откроем файл с сылкой в плеере
+                        play_aimp_file(it.getStringExtra("name"))
+                    } else {
+                        //иначе предложим системе открыть или установить аимп
+                        menu_setup_aimp(url, name)
+                    }
                 }
-            } else {
-                Main.context.toast(Main.context.getString(R.string.error))
-                //запросим разрешения
-                EbuchieRazreshenia()
+                "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
             }
         }
+
         create_m3u_file(name, arrayListOf(Radio(name = name, url = url)))
     } else {
         //если юрл пуст значит передали список что открыть

@@ -7,6 +7,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.`fun`.data_time.data_time
+import dmitriy.deomin.aimpradioplalist.`fun`.data_time.get_Data_time_milsek
 import dmitriy.deomin.aimpradioplalist.`fun`.getText_сlipboard
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.send
@@ -68,7 +69,7 @@ fun window_add_new_url_obmenik(context:Context){
             //добавление в базу
             val db = FirebaseFirestore.getInstance()
             val user = hashMapOf(
-                    "date" to data_time(),
+                    "date" to get_Data_time_milsek().toString(),
                     "user_name" to Main.NAME_USER,
                     "user_id" to Main.ID_USER,
                     "kat" to kategoria,

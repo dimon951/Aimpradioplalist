@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.vse_radio.view.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.hintTextColor
+import org.jetbrains.anko.longToast
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.toast
@@ -176,8 +177,8 @@ class Vse_radio : Fragment() {
                             //получим данные
                             when (it.getStringExtra("update")) {
                                 //узнаем результат сохранения
-                                "zaebis" -> Main.context.toast("Весь список сохранен в " + it.getStringExtra("name"))
-                                "pizdec" -> Main.context.toast(Main.context.getString(R.string.error))
+                                "zaebis" -> Main.context.longToast("Весь список сохранен в " + it.getStringExtra("name"))
+                                "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
                             }
                             //послать сигнал отключить анимацию на кнопке
                             signal("File_created_save_vse").putExtra("anim", "anim_of").send(Main.context)

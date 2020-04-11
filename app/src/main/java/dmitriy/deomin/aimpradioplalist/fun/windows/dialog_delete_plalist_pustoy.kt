@@ -3,6 +3,7 @@ package dmitriy.deomin.aimpradioplalist.`fun`.windows
 import android.content.Context
 import android.widget.Button
 import android.widget.TextView
+import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.`fun`.EbuchieRazreshenia
 import dmitriy.deomin.aimpradioplalist.`fun`.file.saveFile
@@ -10,6 +11,7 @@ import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Slot
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
+import org.jetbrains.anko.longToast
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.toast
 
@@ -28,11 +30,7 @@ fun dialog_delete_plalist_pustoy(context:Context){
                     //пошлём сигнал пусть мой плейлист обновится
                     signal("Data_add").putExtra("update", "zaebis").send(context)
                 }
-                "pizdec" -> {
-                    context.toast(context.getString(R.string.error))
-                    //запросим разрешения
-                    EbuchieRazreshenia()
-                }
+                "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
             }
         }
 

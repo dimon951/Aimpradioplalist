@@ -1,20 +1,28 @@
-package dmitriy.deomin.aimpradioplalist.`fun`.windows
+package dmitriy.deomin.aimpradioplalist.`fun`.menu
 
 import android.annotation.SuppressLint
 import android.graphics.Paint
 import android.graphics.Typeface
 import android.widget.Button
+import dmitriy.deomin.aimpradioplalist.Fonts_vibor
 import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.Vse_radio
 import dmitriy.deomin.aimpradioplalist.`fun`.save_read_int
 import dmitriy.deomin.aimpradioplalist.`fun`.save_value_int
+import dmitriy.deomin.aimpradioplalist.`fun`.windows.setting_size_text_vidgets
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.startActivity
 
 @SuppressLint("SetTextI18n")
 fun other_settings(){
     val svr = DialogWindow(Main.context, R.layout.other_settings)
+
+    svr.view().findViewById<Button>(R.id.button_edit_fonts).onClick {
+        Main.context.startActivity<Fonts_vibor>()
+        svr.close()
+    }
 
     //--------------------------------------------------------------------------------------
     val numeracia = svr.view().findViewById<Button>(R.id.button_seting_number)

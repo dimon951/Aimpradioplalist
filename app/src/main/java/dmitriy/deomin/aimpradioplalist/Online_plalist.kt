@@ -222,14 +222,8 @@ class Online_plalist : Fragment() {
                 Slot(context, "File_created", false).onRun {
                     //получим данные
                     when (it.getStringExtra("update")) {
-                        "zaebis" -> {
-                            play_aimp(it.getStringExtra("name"), "")
-                        }
-                        "pizdec" -> {
-                            context.toast(context.getString(R.string.error))
-                            //запросим разрешения
-                            EbuchieRazreshenia()
-                        }
+                        "zaebis" -> play_aimp(it.getStringExtra("name"), "")
+                        "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
                     }
                 }
                 saveFile(name_file, data.joinToString(separator = "\n"))
@@ -259,14 +253,8 @@ class Online_plalist : Fragment() {
                 Slot(context, "File_created", false).onRun {
                     //получим данные
                     when (it.getStringExtra("update")) {
-                        "zaebis" -> {
-                            play_system(it.getStringExtra("name"), "")
-                        }
-                        "pizdec" -> {
-                            context.toast(context.getString(R.string.error))
-                            //запросим разрешения
-                            EbuchieRazreshenia()
-                        }
+                        "zaebis" -> play_system(it.getStringExtra("name"), "")
+                        "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
                     }
                 }
                 saveFile(name_file, data.joinToString(separator = "\n"))

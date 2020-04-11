@@ -1,4 +1,4 @@
-package dmitriy.deomin.aimpradioplalist.`fun`.windows
+package dmitriy.deomin.aimpradioplalist.`fun`.menu
 
 import android.content.Context
 import android.view.View
@@ -8,7 +8,6 @@ import android.widget.TextView
 import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.Play_audio
 import dmitriy.deomin.aimpradioplalist.R
-import dmitriy.deomin.aimpradioplalist.`fun`.EbuchieRazreshenia
 import dmitriy.deomin.aimpradioplalist.`fun`.file.is_existence_file
 import dmitriy.deomin.aimpradioplalist.`fun`.isValidURL
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.create_m3u_file
@@ -17,12 +16,9 @@ import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 import dmitriy.deomin.aimpradioplalist.`fun`.putText_сlipboard
 import dmitriy.deomin.aimpradioplalist.custom.*
-import org.jetbrains.anko.hintTextColor
+import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
-import org.jetbrains.anko.share
-import org.jetbrains.anko.textColor
-import org.jetbrains.anko.toast
 
 fun menu_my_list(context: Context, radio: Radio, data:ArrayList<Radio>,p1:Int){
     //=============================================================================================
@@ -49,11 +45,7 @@ fun menu_my_list(context: Context, radio: Radio, data:ArrayList<Radio>,p1:Int){
                 when (it.getStringExtra("update")) {
                     //пошлём сигнал пусть мой плейлист обновится
                     "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
-                    "pizdec" -> {
-                        context.toast(context.getString(R.string.error))
-                        //запросим разрешения
-                        EbuchieRazreshenia()
-                    }
+                    "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
                 }
             }
 
@@ -102,11 +94,7 @@ fun menu_my_list(context: Context, radio: Radio, data:ArrayList<Radio>,p1:Int){
                     when (it.getStringExtra("update")) {
                         //пошлём сигнал пусть мой плейлист обновится
                         "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
-                        "pizdec" -> {
-                            context.toast(context.getString(R.string.error))
-                            //запросим разрешения
-                            EbuchieRazreshenia()
-                        }
+                        "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
                     }
                 }
                 //делаем
@@ -163,11 +151,7 @@ fun menu_my_list(context: Context, radio: Radio, data:ArrayList<Radio>,p1:Int){
                     when (it.getStringExtra("update")) {
                         //пошлём сигнал пусть мой плейлист обновится
                         "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
-                        "pizdec" -> {
-                            context.toast(context.getString(R.string.error))
-                            //запросим разрешения
-                            EbuchieRazreshenia()
-                        }
+                        "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
                     }
                 }
 

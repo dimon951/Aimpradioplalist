@@ -15,8 +15,7 @@
         android:layout_weight="1"
         android:background="@null"
         android:gravity="center"
-        android:orientation="vertical"
-        android:paddingLeft="40dp">
+        android:orientation="vertical">
 
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
@@ -59,12 +58,28 @@
             android:onClick="Edit_color_fon"
             android:text="@string/cvet_texta_contexta" />
 
-        <dmitriy.deomin.aimpradioplalist.custom.Btn
-            android:id="@+id/button_save_them_list"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@android:color/transparent"
-            android:text="Сохранить в список тем" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_save_them_list"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:drawable/ic_menu_save" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/open_list_them"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/list_theme" />
+        </LinearLayout>
 
 
     </LinearLayout>
@@ -75,28 +90,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <dmitriy.deomin.aimpradioplalist.custom.Btn
-            android:id="@+id/open_list_them"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="right"
-            android:background="@drawable/list_theme" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_them"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:visibility="visible">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/list_them"
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:visibility="visible">
-
-            </androidx.recyclerview.widget.RecyclerView>
-        </LinearLayout>
+        </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
 
