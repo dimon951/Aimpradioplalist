@@ -310,6 +310,8 @@ class Main : FragmentActivity() {
                     vse_radio.setTextColor(COLOR_TEXT)
                     popularnoe.setTextColor(COLOR_TEXT)
                     moy_plalist.setTextColor(COLOR_TEXT)
+                    online_plalist.setTextColor(COLOR_TEXT)
+
 
                     adapter.notifyDataSetChanged()
                     viewPager.adapter = adapter
