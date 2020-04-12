@@ -248,6 +248,52 @@ class Main : FragmentActivity() {
         // и если есть перейдём , иначе по умолчанию откроем вип радио
         viewPager.currentItem = konvert_read_save_pos(save_read_int("page_aktiv"))
 
+
+        fun update_color_main_button(s:String){
+            when (s.toInt()) {
+                0 -> {
+                    vse_radio.setBackgroundColor(COLOR_ITEM)
+                    vse_radio.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
+                    imageSwitcher.setImageResource(mImageIds[0])
+                    save_value_int("page_aktiv", 10)
+
+                    popularnoe.setBackgroundColor(COLOR_FON)
+                    moy_plalist.setBackgroundColor(COLOR_FON)
+                    online_plalist.setBackgroundColor(COLOR_FON)
+                }
+                1 -> {
+                    popularnoe.setBackgroundColor(COLOR_ITEM)
+                    popularnoe.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
+                    imageSwitcher.setImageResource(mImageIds[1])
+                    save_value_int("page_aktiv", 100)
+
+                    vse_radio.setBackgroundColor(COLOR_FON)
+                    moy_plalist.setBackgroundColor(COLOR_FON)
+                    online_plalist.setBackgroundColor(COLOR_FON)
+                }
+                2 -> {
+                    moy_plalist.setBackgroundColor(COLOR_ITEM)
+                    moy_plalist.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
+                    imageSwitcher.setImageResource(mImageIds[2])
+                    save_value_int("page_aktiv", 200)
+
+                    vse_radio.setBackgroundColor(COLOR_FON)
+                    popularnoe.setBackgroundColor(COLOR_FON)
+                    online_plalist.setBackgroundColor(COLOR_FON)
+                }
+                3 -> {
+                    online_plalist.setBackgroundColor(COLOR_ITEM)
+                    online_plalist.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
+                    imageSwitcher.setImageResource(mImageIds[3])
+                    save_value_int("page_aktiv", 300)
+
+                    vse_radio.setBackgroundColor(COLOR_FON)
+                    popularnoe.setBackgroundColor(COLOR_FON)
+                    moy_plalist.setBackgroundColor(COLOR_FON)
+                }
+            }
+        }
+
         //будем слушать эфир постоянно если че обновим
         //-------------------------------------------------------------------------------------
         Slot(context, "Main_update").onRun {
@@ -255,48 +301,7 @@ class Main : FragmentActivity() {
             when (val s = it.getStringExtra("signal")) {
                 //меняем кота
                 "0", "1", "2", "3" -> {
-                    when (s.toInt()) {
-                        0 -> {
-                            vse_radio.setBackgroundColor(COLOR_ITEM)
-                            vse_radio.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
-                            imageSwitcher.setImageResource(mImageIds[0])
-                            save_value_int("page_aktiv", 10)
-
-                            popularnoe.setBackgroundColor(COLOR_FON)
-                            moy_plalist.setBackgroundColor(COLOR_FON)
-                            online_plalist.setBackgroundColor(COLOR_FON)
-                        }
-                        1 -> {
-                            popularnoe.setBackgroundColor(COLOR_ITEM)
-                            popularnoe.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
-                            imageSwitcher.setImageResource(mImageIds[1])
-                            save_value_int("page_aktiv", 100)
-
-                            vse_radio.setBackgroundColor(COLOR_FON)
-                            moy_plalist.setBackgroundColor(COLOR_FON)
-                            online_plalist.setBackgroundColor(COLOR_FON)
-                        }
-                        2 -> {
-                            moy_plalist.setBackgroundColor(COLOR_ITEM)
-                            moy_plalist.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
-                            imageSwitcher.setImageResource(mImageIds[2])
-                            save_value_int("page_aktiv", 200)
-
-                            vse_radio.setBackgroundColor(COLOR_FON)
-                            popularnoe.setBackgroundColor(COLOR_FON)
-                            online_plalist.setBackgroundColor(COLOR_FON)
-                        }
-                        3 -> {
-                            online_plalist.setBackgroundColor(COLOR_ITEM)
-                            online_plalist.startAnimation(AnimationUtils.loadAnimation(context, R.anim.myscale))
-                            imageSwitcher.setImageResource(mImageIds[3])
-                            save_value_int("page_aktiv", 300)
-
-                            vse_radio.setBackgroundColor(COLOR_FON)
-                            popularnoe.setBackgroundColor(COLOR_FON)
-                            moy_plalist.setBackgroundColor(COLOR_FON)
-                        }
-                    }
+                    update_color_main_button(s)
                 }
                 //обновляем пайджер
                 "update" -> {
@@ -306,16 +311,17 @@ class Main : FragmentActivity() {
                     viewPager.currentItem = konvert_read_save_pos(save_read_int("page_aktiv"))
                 }
                 "update_color" -> {
+                    adapter.notifyDataSetChanged()
+                    viewPager.adapter = adapter
+                    viewPager.currentItem = konvert_read_save_pos(save_read_int("page_aktiv"))
+
                     fon_main.setBackgroundColor(COLOR_FON)
                     vse_radio.setTextColor(COLOR_TEXT)
                     popularnoe.setTextColor(COLOR_TEXT)
                     moy_plalist.setTextColor(COLOR_TEXT)
                     online_plalist.setTextColor(COLOR_TEXT)
 
-
-                    adapter.notifyDataSetChanged()
-                    viewPager.adapter = adapter
-                    viewPager.currentItem = konvert_read_save_pos(save_read_int("page_aktiv"))
+                    update_color_main_button(konvert_read_save_pos(save_read_int("page_aktiv")).toString())
                 }
                 "update_text_size" -> {
                     vse_radio.textSize = SIZE_TEXT_MAIN_BUTTON

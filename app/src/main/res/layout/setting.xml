@@ -78,7 +78,7 @@
                 android:id="@+id/open_list_them"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/list_theme" />
+                android:background="@android:drawable/ic_menu_agenda" />
         </LinearLayout>
 
 

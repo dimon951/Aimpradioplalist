@@ -70,7 +70,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:background="@drawable/dw_list"
+                android:background="@android:drawable/ic_menu_agenda"
                 android:visibility="gone" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
