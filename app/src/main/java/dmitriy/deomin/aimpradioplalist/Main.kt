@@ -150,7 +150,7 @@ class Main : FragmentActivity() {
 
 
         //реклама
-       // reklama(this.contentView!!)
+        reklama(this.contentView!!)
 
 
         //анимация на кнопках*****************************************.

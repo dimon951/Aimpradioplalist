@@ -255,6 +255,18 @@
     </string-array>
 
     <string-array name="vse_radio">
+
+        <item>HDR [Hard Dance Radio] 256kbps\nhttp://hdr.asuscomm.com:8000/hard_dance.m3u</item>
+        <item>TechnoBase FM 192kbps\nhttp://listen.technobase.fm/tunein-dsl-pls</item>
+        <item>Pulse Radio 192kbps\nhttp://icecast.pulsradio.com:80/pulsHD.mp3</item>
+        <item>DFM HandsUp! 96kbps\nhttp://dfm-handsup.hostingradio.ru/handsup96.aacp.m3u</item>
+        <item>DFM PUMP 96kbps\nhttp://dfm-pump.hostingradio.ru/pump96.aacp.m3u</item>
+        <item>Record: Dancecore 320kbps\nhttp://air2.radiorecord.ru:9003/dc_320.m3u</item>
+        <item>Hardstyle 320kbps\nhttp://air2.radiorecord.ru:9003/teo_320.m3u</item>
+        <item>Hard Bass 320kbps\nhttp://air2.radiorecord.ru:9003/hbass_320.m3u</item>
+        <item>Rave FM 320kbps\nhttp://air2.radiorecord.ru:9003/rave_320.m3u</item>
+        <item>Radio.R41 128kbps\nhttp://radio.r41.ru/SvoeFM</item>
+        <item>Отличное Радио: Dance 128kbps\nhttps://myradio24.org/ordance</item>
         <item>Record: Руки Вверх 320kbps\nhttp://air.radiorecord.ru:805/rv_320</item>
         <item>Record: Руки Вверх 128kbps\nhttp://air.radiorecord.ru:805/rv_128</item>
         <item>Record: Руки Вверх 64kbps\nhttp://air.radiorecord.ru:805/rv_64</item>
