@@ -21,30 +21,4 @@ fun reklama(view: View){
         mAdView.visibility = View.VISIBLE
     }
     //-----------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-//        GlobalScope.launch(Dispatchers.IO) {
-//            delay(7000)
-//            try{
-//                mAdView.visibility = View.GONE
-//                pager.layoutParams.height=0
-//            }
-//            catch (e:Exception){
-//
-//            }
-//        }
-
-
-
-
-
-
-
 }

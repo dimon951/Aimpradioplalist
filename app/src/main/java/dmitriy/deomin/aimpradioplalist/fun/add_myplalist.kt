@@ -27,8 +27,5 @@ fun add_myplalist(name: String, url: String) {
             "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
         }
     }
-
-
-
     add_may_plalist_stansiy(url, name)
 }

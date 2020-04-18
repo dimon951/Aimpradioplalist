@@ -10,8 +10,8 @@ android {
         applicationId "dmitriy.deomin.aimpradioplalist"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 91
-        versionName "91"
+        versionCode 92
+        versionName "92"
     }
     //эта дич нужна чтобы получить версию приложения стрингом в Abaut
     //--------------------------
