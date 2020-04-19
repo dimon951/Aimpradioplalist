@@ -106,18 +106,15 @@ class Main : FragmentActivity() {
 
         //данные пользователя
         load_user_data()
+
         //загружаются выбраные цвета
         load_color_in_KONSTANTS()
+
         //размер текта кнопок и тд
         load_text_size_CONSTANTS()
 
-
-
-        face = if (save_read("fonts") == "system") {
-            Typeface.DEFAULT
-        } else {
-            Typeface.createFromAsset(assets, if (save_read("fonts") == "") "fonts/Tweed.ttf" else save_read("fonts"))
-        }
+        //загружаем шрифт
+        load_font()
 
         //ставим цвет фона(тема)
         fon_main.setBackgroundColor(COLOR_FON)
@@ -148,10 +145,8 @@ class Main : FragmentActivity() {
             }
         })
 
-
         //реклама
         reklama(this.contentView!!)
-
 
         //анимация на кнопках*****************************************.
         //тут почемуто глючит текст на кнопках
@@ -187,8 +182,6 @@ class Main : FragmentActivity() {
             val nsf = DialogWindow(context, R.layout.name_save_file)
 
             val name = nsf.view().findViewById<EditText>(R.id.edit_new_name)
-            name.typeface = face
-            name.textColor = COLOR_TEXT
 
             var name_save_file_vse_radio = "Всё радио"
 
@@ -376,7 +369,6 @@ class Main : FragmentActivity() {
         }
 
         //--------------------------------------------------------------------------------------
-
 
         //получим ебучие разрешения , если не дали их еще
         EbuchieRazreshenia()

@@ -1,31 +1,41 @@
 package dmitriy.deomin.aimpradioplalist
 
 import android.annotation.SuppressLint
-import android.content.*
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.widget.*
-import dmitriy.deomin.aimpradioplalist.`fun`.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import androidx.fragment.app.Fragment
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.create_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
+import dmitriy.deomin.aimpradioplalist.`fun`.read_and_pars_m3u_file
+import dmitriy.deomin.aimpradioplalist.`fun`.save_read_int
+import dmitriy.deomin.aimpradioplalist.`fun`.send_email
+import dmitriy.deomin.aimpradioplalist.`fun`.share_text
 import dmitriy.deomin.aimpradioplalist.`fun`.windows.*
 import dmitriy.deomin.aimpradioplalist.adapters.Adapter_my_list
-import dmitriy.deomin.aimpradioplalist.custom.*
+import dmitriy.deomin.aimpradioplalist.custom.Radio
+import dmitriy.deomin.aimpradioplalist.custom.Slot
+import dmitriy.deomin.aimpradioplalist.custom.send
+import dmitriy.deomin.aimpradioplalist.custom.signal
 import kotlinx.android.synthetic.main.my_plalist.view.*
-import org.jetbrains.anko.*
+import org.jetbrains.anko.longToast
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
 import org.jetbrains.anko.support.v4.email
 import org.jetbrains.anko.support.v4.share
+import org.jetbrains.anko.support.v4.toast
+import org.jetbrains.anko.toast
 import xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
-import kotlin.collections.ArrayList
+import java.lang.Exception
 
 
 class Moy_plalist : Fragment() {
@@ -305,7 +315,7 @@ class Moy_plalist : Fragment() {
                         data.add("\n#EXTINF:-1," + s.name + " " + s.kbps + "\n" + s.url)
                     }
                 }
-                share(data.joinToString("\n"))
+                share_text(data.joinToString("\n"))
             } else {
                 context.toast("Плэйлист пуст, добавьте хотябы одну станцию")
             }
@@ -326,7 +336,7 @@ class Moy_plalist : Fragment() {
                         data.add("\n#EXTINF:-1," + s.name + " " + s.kbps + "\n" + s.url)
                     }
                 }
-                email("deomindmitriy@gmail.com", "aimp_radio_plalist", data.joinToString("\n"))
+                send_email("deomindmitriy@gmail.com", data.joinToString("\n"))
             } else {
                 context.toast("Плэйлист пуст, добавьте хотябы одну станцию")
             }

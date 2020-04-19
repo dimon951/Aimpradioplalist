@@ -256,6 +256,8 @@
 
     <string-array name="vse_radio">
 
+        <item>Советская волна AAC -Музыка- 128kbps\nhttp://station.waveradio.org/soviet</item>
+        <item>Советская волна MP3 -Музыка- 128kbps\nhttp://station.waveradio.org/soviet.mp3</item>
         <item>HDR [Hard Dance Radio] -Музыка- 256kbps\nhttp://hdr.asuscomm.com:8000/hard_dance.m3u</item>
         <item>TechnoBase FM -Музыка- 192kbps\nhttp://listen.technobase.fm/tunein-dsl-pls</item>
         <item>Pulse Radio -Музыка- 192kbps\nhttp://icecast.pulsradio.com:80/pulsHD.mp3</item>
