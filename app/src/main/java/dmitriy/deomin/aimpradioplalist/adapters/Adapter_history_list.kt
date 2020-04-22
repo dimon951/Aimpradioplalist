@@ -11,6 +11,7 @@ import android.widget.TextView
 import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.`fun`.file.saveArrayList
+import dmitriy.deomin.aimpradioplalist.`fun`.share_text
 import dmitriy.deomin.aimpradioplalist.custom.History
 import dmitriy.deomin.aimpradioplalist.custom.send
 import dmitriy.deomin.aimpradioplalist.custom.signal
@@ -76,7 +77,7 @@ class Adapter_history_list(val data: ArrayList<History>) : androidx.recyclerview
 
 
         p0.share.onClick {
-            context.share(history.url)
+            share_text(history.url)
         }
     }
 }

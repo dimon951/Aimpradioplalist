@@ -17,6 +17,8 @@ import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.`fun`.add_myplalist
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
+import dmitriy.deomin.aimpradioplalist.`fun`.send_email
+import dmitriy.deomin.aimpradioplalist.`fun`.share_text
 import dmitriy.deomin.aimpradioplalist.custom.RadioPop
 import org.jetbrains.anko.email
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -138,10 +140,10 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : androidx.recyclerview.w
 
 
         p0.share.onClick {
-            context.share(radiopop.name+"\n"+popurl)
+            share_text(radiopop.name+"\n"+popurl)
         }
         p0.share.onLongClick {
-            context.email("deomindmitriy@gmail.com", "aimp_radio_plalist", radiopop.name+"\n"+popurl)
+            send_email("deomindmitriy@gmail.com", radiopop.name+"\n"+popurl)
         }
 
         p0.play.onClick {

@@ -15,6 +15,7 @@ import dmitriy.deomin.aimpradioplalist.`fun`.m3u.download_i_open_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 import dmitriy.deomin.aimpradioplalist.`fun`.putText_сlipboard
+import dmitriy.deomin.aimpradioplalist.`fun`.share_text
 import dmitriy.deomin.aimpradioplalist.custom.*
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -224,7 +225,7 @@ fun menu_my_list(context: Context, radio: Radio, data:ArrayList<Radio>,p1:Int){
     (empid.view().findViewById<Button>(R.id.shareaimp_my_list_one)).onClick {
         //закрываем основное окошко
         empid.close()
-        context.share(radio.name + "\n" + radio.url)
+        share_text(radio.name + "\n" + radio.url)
     }
 
     //загрузить список

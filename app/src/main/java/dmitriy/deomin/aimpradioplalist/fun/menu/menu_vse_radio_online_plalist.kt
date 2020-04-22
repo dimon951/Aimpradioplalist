@@ -8,15 +8,12 @@ import android.widget.TextView
 import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.Play_audio
 import dmitriy.deomin.aimpradioplalist.R
-import dmitriy.deomin.aimpradioplalist.`fun`.add_myplalist
+import dmitriy.deomin.aimpradioplalist.`fun`.*
 import dmitriy.deomin.aimpradioplalist.`fun`.file.is_existence_file
 import dmitriy.deomin.aimpradioplalist.`fun`.file.long_name_resize
-import dmitriy.deomin.aimpradioplalist.`fun`.isValidURL
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.download_i_open_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
-import dmitriy.deomin.aimpradioplalist.`fun`.putText_сlipboard
-import dmitriy.deomin.aimpradioplalist.`fun`.save_read
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 import org.jetbrains.anko.email
@@ -83,7 +80,7 @@ fun menu_vse_radio_online_plalist(context: Context, radio: Radio) {
                 val dw_no = dw.view().findViewById<Button>(R.id.button_dialog_no)
                 val dw_logo = dw.view().findViewById<TextView>(R.id.text_voprosa_del_stncii)
 
-                dw_logo.text = "Текущая ссылка содержит список плейлистов(или еще ссылок).\n Все равно добавить ?"
+                dw_logo.text = "Текущая ссылка содержит список\n Все равно добавить ?"
                 dw_start.text = "Да"
                 dw_no.text = "Нет"
 
@@ -104,10 +101,10 @@ fun menu_vse_radio_online_plalist(context: Context, radio: Radio) {
 
         share.onClick {
             //сосавим строчку как в m3u вайле
-            context.share(radio.name + "\n" + radio.url)
+            share_text(radio.name + "\n" + radio.url)
         }
         share.onLongClick {
-            context.email("deomindmitriy@gmail.com", "aimp_radio_plalist", radio.name + "\n" + radio.url)
+            send_email("deomindmitriy@gmail.com",  radio.name + "\n" + radio.url)
         }
 
         //если текуший элемент список ссылок

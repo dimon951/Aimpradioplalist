@@ -274,7 +274,7 @@ class Online_plalist : Fragment() {
                         data.add("\n#EXTINF:-1," + d[s.index].name + " " + d[s.index].kbps + "\n" + d[s.index].url)
                     }
                 }
-                share(data.joinToString("\n"))
+                share_text(data.joinToString("\n"))
             } else {
                 context.toast("Выберите чем поделится")
             }

@@ -11,13 +11,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.Play_audio
 import dmitriy.deomin.aimpradioplalist.R
-import dmitriy.deomin.aimpradioplalist.`fun`.add_myplalist
+import dmitriy.deomin.aimpradioplalist.`fun`.*
 import dmitriy.deomin.aimpradioplalist.`fun`.file.is_existence_file
-import dmitriy.deomin.aimpradioplalist.`fun`.getText_сlipboard
-import dmitriy.deomin.aimpradioplalist.`fun`.isValidURL
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
-import dmitriy.deomin.aimpradioplalist.`fun`.putText_сlipboard
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 import dmitriy.deomin.aimpradioplalist.custom.send
@@ -188,10 +185,10 @@ fun menu_vse_radio_obmenik(context: Context, radio: Radio,name:String){
 
     share.onClick {
         //сосавим строчку как в m3u вайле
-        context.share(name + "\n" + radio.url)
+        share_text(name + "\n" + radio.url)
     }
     share.onLongClick {
-        context.email("deomindmitriy@gmail.com", "aimp_radio_plalist", name + "\n" + radio.url)
+        send_email("deomindmitriy@gmail.com",  name + "\n" + radio.url)
     }
 
     open_aimp.onClick {
