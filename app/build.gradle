@@ -10,8 +10,8 @@ android {
         applicationId "dmitriy.deomin.aimpradioplalist"
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 92
-        versionName "92"
+        versionCode 93
+        versionName "93"
     }
     //эта дич нужна чтобы получить версию приложения стрингом в Abaut
     //--------------------------
@@ -53,11 +53,11 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     implementation "org.jetbrains.anko:anko:0.10.8"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.70"
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0'
-    implementation 'com.google.firebase:firebase-ads:19.0.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0'
+    implementation 'com.google.firebase:firebase-ads:19.1.0'
     implementation 'com.google.firebase:firebase-firestore:21.4.2'
-    implementation 'com.google.android.gms:play-services-ads:19.0.1'
+    implementation 'com.google.android.gms:play-services-ads:19.1.0'
 
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.github.danielnilsson9:color-picker-view:1.4.0@aar'
