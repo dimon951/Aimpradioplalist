@@ -161,20 +161,24 @@ class Adapter_obmenik(val data: ArrayList<Radio>) : androidx.recyclerview.widget
             Slot(context, "load_koment").onRun {
                 if (it.getStringExtra("id") == id) {
                     val data = it.getParcelableArrayListExtra<Koment>("data")
-                    p0.btn_koment.text = "Коментарии: " + (if (data.size > 0) {
-                        data.size
-                    } else {
-                        0
-                    })
+                    if (data != null) {
+                        p0.btn_koment.text = "Коментарии: " + (if (data.size > 0) {
+                            data.size
+                        } else {
+                            0
+                        })
+                    }
                     //обнулим количество коментов и заново запишем
                     p0.text_komentov.text = ""
                     var t = ""
-                    for (kom in data.iterator()) {
-                        t = t + "\n" + (if (kom.user_name.isEmpty()) {
-                            "no_name"
-                        } else {
-                            kom.user_name
-                        }) + ": " + kom.text
+                    if (data != null) {
+                        for (kom in data.iterator()) {
+                            t = t + "\n" + (if (kom.user_name.isEmpty()) {
+                                "no_name"
+                            } else {
+                                kom.user_name
+                            }) + ": " + kom.text
+                        }
                     }
                     p0.text_komentov.text = t
                 }

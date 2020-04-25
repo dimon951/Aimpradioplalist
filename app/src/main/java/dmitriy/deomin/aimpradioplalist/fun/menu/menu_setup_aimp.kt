@@ -53,8 +53,12 @@ fun menu_setup_aimp(url: String, name: String) {
         Slot(Main.context, "dw_progres").onRun {
             val totalBytes = it.getStringExtra("totalBytes")
             val readBytes = it.getStringExtra("readBytes")
-            dw_progres.max = totalBytes.toInt()
-            dw_progres.progress = readBytes.toInt()
+            if (totalBytes != null) {
+                dw_progres.max = totalBytes.toInt()
+            }
+            if (readBytes != null) {
+                dw_progres.progress = readBytes.toInt()
+            }
 
             if (totalBytes == readBytes) {
                 if (totalBytes == "0") {
@@ -91,7 +95,7 @@ fun menu_setup_aimp(url: String, name: String) {
                         Main.context.toast("Системе не удалось ( ")
                     }
                 }
-                "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
+                "pizdec" -> Main.context.longToast(it.getStringExtra("erorr")!!)
 
             }
         }

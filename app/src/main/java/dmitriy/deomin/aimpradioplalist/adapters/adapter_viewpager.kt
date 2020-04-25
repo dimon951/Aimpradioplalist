@@ -1,4 +1,4 @@
-package dmitriy.deomin.aimpradioplalist.`fun`
+package dmitriy.deomin.aimpradioplalist.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

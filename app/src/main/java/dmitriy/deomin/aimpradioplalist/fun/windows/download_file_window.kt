@@ -29,8 +29,12 @@ fun download_file_window(context:Context,name:String,url:String){
     Slot(context, "dw_progres").onRun {
         val totalBytes = it.getStringExtra("totalBytes")
         val readBytes = it.getStringExtra("readBytes")
-        dw_progres.max = totalBytes.toInt()
-        dw_progres.progress = readBytes.toInt()
+        if (totalBytes != null) {
+            dw_progres.max = totalBytes.toInt()
+        }
+        if (readBytes != null) {
+            dw_progres.progress = readBytes.toInt()
+        }
 
         if (totalBytes == readBytes) {
             if (totalBytes == "0") {

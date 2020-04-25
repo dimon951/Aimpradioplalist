@@ -178,12 +178,12 @@ class Vse_radio : Fragment() {
                             when (it.getStringExtra("update")) {
                                 //узнаем результат сохранения
                                 "zaebis" -> Main.context.longToast("Весь список сохранен в " + it.getStringExtra("name"))
-                                "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
+                                "pizdec" -> Main.context.longToast(it.getStringExtra("erorr")!!)
                             }
                             //послать сигнал отключить анимацию на кнопке
                             signal("File_created_save_vse").putExtra("anim", "anim_of").send(Main.context)
                         }
-                        create_m3u_file(it.getStringExtra("name_list"),data)
+                        create_m3u_file(it.getStringExtra("name_list")!!,data)
                     }
                 }
             }

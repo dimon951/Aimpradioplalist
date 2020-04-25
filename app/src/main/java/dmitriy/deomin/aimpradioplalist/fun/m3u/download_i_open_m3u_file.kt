@@ -28,7 +28,7 @@ fun download_i_open_m3u_file(url: String, who_called: String) {
         Slot(Main.context, "hhtp_get", false).onRun {
             if (it.getStringExtra("data") != "error") {
                 //парсим полученые данные
-                val parsData = m3u_parser(it.getStringExtra("data"))
+                val parsData = m3u_parser(it.getStringExtra("data")!!)
                 if (who_called == "anim_my_list") {
                     Slot(Main.context, "File_created", false).onRun {
                         //пошлём сигнал пусть мой плейлист обновится, и анимацию тамже остановят

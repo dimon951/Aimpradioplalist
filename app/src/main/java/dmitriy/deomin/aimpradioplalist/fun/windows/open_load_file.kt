@@ -71,7 +71,7 @@ fun open_load_file(context: Context, old_data: ArrayList<Radio>) {
                                 //получим данные
                                 when (it.getStringExtra("update")) {
                                     "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
-                                    "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
+                                    "pizdec" -> Main.context.longToast(it.getStringExtra("erorr")!!)
                                 }
                             }
                             old_data.addAll(file_data)
@@ -145,11 +145,15 @@ fun open_load_file(context: Context, old_data: ArrayList<Radio>) {
         Slot(Main.context, "clik_history_item").onRun {
             val t = it.getStringExtra("url")
             val n = it.getStringExtra("name")
-            if (t.isNotEmpty()) {
-                e.setText(t)
+            if (t != null) {
+                if (t.isNotEmpty()) {
+                    e.setText(t)
+                }
             }
-            if (n.isNotEmpty()) {
-                e_n.setText(n)
+            if (n != null) {
+                if (n.isNotEmpty()) {
+                    e_n.setText(n)
+                }
             }
 
         }

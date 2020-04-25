@@ -46,7 +46,7 @@ fun menu_my_list(context: Context, radio: Radio, data:ArrayList<Radio>,p1:Int){
                 when (it.getStringExtra("update")) {
                     //пошлём сигнал пусть мой плейлист обновится
                     "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
-                    "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
+                    "pizdec" -> Main.context.longToast(it.getStringExtra("erorr")!!)
                 }
             }
 
@@ -95,7 +95,7 @@ fun menu_my_list(context: Context, radio: Radio, data:ArrayList<Radio>,p1:Int){
                     when (it.getStringExtra("update")) {
                         //пошлём сигнал пусть мой плейлист обновится
                         "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
-                        "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
+                        "pizdec" -> Main.context.longToast(it.getStringExtra("erorr")!!)
                     }
                 }
                 //делаем
@@ -152,7 +152,7 @@ fun menu_my_list(context: Context, radio: Radio, data:ArrayList<Radio>,p1:Int){
                     when (it.getStringExtra("update")) {
                         //пошлём сигнал пусть мой плейлист обновится
                         "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
-                        "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
+                        "pizdec" -> Main.context.longToast(it.getStringExtra("erorr")!!)
                     }
                 }
 

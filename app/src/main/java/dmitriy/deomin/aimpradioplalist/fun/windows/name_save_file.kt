@@ -65,7 +65,7 @@ fun name_save_file(context: Context, ad: Adapter_my_list){
                 //получим данные
                 when (it.getStringExtra("update")) {
                     "zaebis" -> signal("Data_add").putExtra("update", "zaebis").send(context)
-                    "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
+                    "pizdec" -> Main.context.longToast(it.getStringExtra("erorr")!!)
                 }
             }
             //сохраним  временый файл ссылку и ждём сигналы

@@ -29,8 +29,8 @@ fun play_system(name: String, url: String) {
         Slot(Main.context, "File_created").onRun {
             //получим данные
             when (it.getStringExtra("update")) {
-                "zaebis" -> play_system_file(it.getStringExtra("name"))
-                "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
+                "zaebis" -> play_system_file(it.getStringExtra("name")!!)
+                "pizdec" -> Main.context.longToast(it.getStringExtra("erorr")!!)
             }
         }
         //результат выполнения ждёт слот "File_created"

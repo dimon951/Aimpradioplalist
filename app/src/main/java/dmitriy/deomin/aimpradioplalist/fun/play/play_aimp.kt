@@ -35,13 +35,13 @@ fun play_aimp(name: String, url: String) {
                     //проверим есть ли аимп
                     if (is_install_app("com.aimp.player")) {
                         //откроем файл с сылкой в плеере
-                        play_aimp_file(it.getStringExtra("name"))
+                        play_aimp_file(it.getStringExtra("name")!!)
                     } else {
                         //иначе предложим системе открыть или установить аимп
                         menu_setup_aimp(url, name)
                     }
                 }
-                "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
+                "pizdec" -> Main.context.longToast(it.getStringExtra("erorr")!!)
             }
         }
 

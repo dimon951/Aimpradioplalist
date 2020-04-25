@@ -92,7 +92,7 @@ class Moy_plalist : Fragment() {
                         } else {
                             //иначе обновим мой список
                             update_list.visibility = View.VISIBLE
-                            open_file = it.getStringExtra("listfile")
+                            open_file = it.getStringExtra("listfile")!!
                             list_move_history.add(open_file)
                         }
                     } else {
@@ -269,8 +269,8 @@ class Moy_plalist : Fragment() {
                 Slot(context, "File_created", false).onRun {
                     //получим данные
                     when (it.getStringExtra("update")) {
-                        "zaebis" -> play_aimp(it.getStringExtra("name"), "")
-                        "pizdec" -> context.longToast(it.getStringExtra("erorr"))
+                        "zaebis" -> play_aimp(it.getStringExtra("name")!!, "")
+                        "pizdec" -> context.longToast(it.getStringExtra("erorr")!!)
                     }
                 }
                 create_m3u_file(name_file, ad.raduoSearchList)
@@ -289,8 +289,8 @@ class Moy_plalist : Fragment() {
                 Slot(context, "File_created", false).onRun {
                     //получим данные
                     when (it.getStringExtra("update")) {
-                        "zaebis" -> play_system(it.getStringExtra("name"), "")
-                        "pizdec" -> context.longToast(it.getStringExtra("erorr"))
+                        "zaebis" -> play_system(it.getStringExtra("name")!!, "")
+                        "pizdec" -> context.longToast(it.getStringExtra("erorr")!!)
                     }
                 }
                 create_m3u_file(name_file, ad.raduoSearchList)

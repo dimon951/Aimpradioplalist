@@ -52,7 +52,7 @@ fun dialog_delete_plalist(context:Context,ad: Adapter_my_list){
                     //пошлём сигнал пусть мой плейлист обновится
                     signal("Data_add").putExtra("update", "zaebis").send(context)
                 }
-                "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
+                "pizdec" -> Main.context.longToast(it.getStringExtra("erorr")!!)
             }
         }
 

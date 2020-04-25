@@ -11,11 +11,11 @@ import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.core.app.ShareCompat
-import androidx.core.content.ContextCompat.startActivity
 import androidx.core.content.FileProvider
 import androidx.fragment.app.FragmentActivity
 import dmitriy.deomin.aimpradioplalist.`fun`.*
 import dmitriy.deomin.aimpradioplalist.`fun`.menu.menu_main
+import dmitriy.deomin.aimpradioplalist.adapters.Adapter_main_viewpager
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.main.*
 import org.jetbrains.anko.*
@@ -350,7 +350,7 @@ class Main : FragmentActivity() {
 
                 }
                 "move2" -> viewPager.currentItem = 2
-                "send_mp3" -> shareAudioFile(it.getStringExtra("pach_mp3_file"))
+                "send_mp3" -> shareAudioFile(it.getStringExtra("pach_mp3_file")!!)
             }
         }
 

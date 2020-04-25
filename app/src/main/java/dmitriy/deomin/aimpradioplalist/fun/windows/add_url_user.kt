@@ -47,7 +47,7 @@ fun add_url_user(context:Context){
                             //пошлём сигнал пусть мой плейлист обновится
                             signal("Data_add").putExtra("update", "zaebis").send(context)
                         }
-                        "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
+                        "pizdec" -> Main.context.longToast(it.getStringExtra("erorr")!!)
                     }
                 }
                 val name = if(edit_name.text.toString().isEmpty()){

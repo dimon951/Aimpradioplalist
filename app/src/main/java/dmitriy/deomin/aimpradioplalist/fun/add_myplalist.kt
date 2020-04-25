@@ -24,7 +24,7 @@ fun add_myplalist(name: String, url: String) {
                         .putExtra("listfile", "old") //оставим что есть в списке
                         .send(Main.context)
             }
-            "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
+            "pizdec" -> Main.context.longToast(it.getStringExtra("erorr")!!)
         }
     }
     add_may_plalist_stansiy(url, name)

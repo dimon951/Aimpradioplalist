@@ -92,7 +92,7 @@ class Online_plalist : Fragment() {
                     //Посмотрим что за адресс передан
                     //-----------------------------------------------------------------------
                     if (it.getStringExtra("url") != null) {
-                        open_url_online_palist = it.getStringExtra("url")
+                        open_url_online_palist = it.getStringExtra("url")!!
 
                         //Если список истории пуст добавим в него без проверок
                         if (list_history.isEmpty()) {
@@ -120,7 +120,7 @@ class Online_plalist : Fragment() {
                     }
 
 
-                    ad_online_palist = Adapter_online_palist(data)
+                    ad_online_palist = Adapter_online_palist(data!!)
                     recikl_list_online.adapter = ad_online_palist
                     //---------------------------------------------------------
 
@@ -161,7 +161,7 @@ class Online_plalist : Fragment() {
 
         Slot(context, "save_pozitions").onRun {
             if (!it.getStringExtra("pos").isNullOrEmpty()) {
-                position_list_online_palist = it.getStringExtra("pos").toInt()
+                position_list_online_palist = it.getStringExtra("pos")!!.toInt()
                 save_value_int(open_url_online_palist, position_list_online_palist)
             }
         }
@@ -222,8 +222,8 @@ class Online_plalist : Fragment() {
                 Slot(context, "File_created", false).onRun {
                     //получим данные
                     when (it.getStringExtra("update")) {
-                        "zaebis" -> play_aimp(it.getStringExtra("name"), "")
-                        "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
+                        "zaebis" -> play_aimp(it.getStringExtra("name")!!, "")
+                        "pizdec" -> Main.context.longToast(it.getStringExtra("erorr")!!)
                     }
                 }
                 saveFile(name_file, data.joinToString(separator = "\n"))
@@ -253,8 +253,8 @@ class Online_plalist : Fragment() {
                 Slot(context, "File_created", false).onRun {
                     //получим данные
                     when (it.getStringExtra("update")) {
-                        "zaebis" -> play_system(it.getStringExtra("name"), "")
-                        "pizdec" -> Main.context.longToast(it.getStringExtra("erorr"))
+                        "zaebis" -> play_system(it.getStringExtra("name")!!, "")
+                        "pizdec" -> Main.context.longToast(it.getStringExtra("erorr")!!)
                     }
                 }
                 saveFile(name_file, data.joinToString(separator = "\n"))
