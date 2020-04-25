@@ -29,8 +29,7 @@
             android:name=".Main"
             android:configChanges="orientation|screenSize"
             android:windowSoftInputMode="stateHidden">
-
-            <!-- это нужно стобы убрать фокус с edittext -->
+            <!-- это windowSoftInputMode="stateHidden" нужно стобы убрать фокус с edittext -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,8 +42,8 @@
         <activity android:name=".Abaut" />
         <activity android:name=".Setting" />
         <activity android:name=".Fonts_vibor" />
-        <activity android:name=".Politika_ebuchay"/>
-        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <activity android:name=".Politika"/>
+
         <!-- эта хуйня нужна чтобы можно было файлом поделиться -->
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -55,6 +54,8 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
     </application>
 
 </manifest>

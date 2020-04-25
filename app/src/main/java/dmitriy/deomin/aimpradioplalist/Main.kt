@@ -101,9 +101,6 @@ class Main : FragmentActivity() {
             window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         }
 
-
-
-
         //данные пользователя
         load_user_data()
 
@@ -130,7 +127,6 @@ class Main : FragmentActivity() {
         imageSwitcher.onClick {
             menu_main(imageSwitcher)
         }
-
 
         val viewPager: ViewPager = findViewById(R.id.pager)
         viewPager.offscreenPageLimit = 4
@@ -353,7 +349,7 @@ class Main : FragmentActivity() {
                 "stop_anim_download_app" -> {
 
                 }
-                "move2" -> viewPager.setCurrentItem(2)
+                "move2" -> viewPager.currentItem = 2
                 "send_mp3" -> shareAudioFile(it.getStringExtra("pach_mp3_file"))
             }
         }
