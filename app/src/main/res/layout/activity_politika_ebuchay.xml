@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fon_politiki"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <dmitriy.deomin.aimpradioplalist.custom.Text
+        android:id="@+id/textpolitiki"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="This Privacy Policy was last modified on April 25, 2020. My Apps (&quot;us&quot;, &quot;we&quot;, &quot;our&quot;) apps created by DeominDmitriy. This page informs you of our policies regarding the collection, use, and disclosure of Personal Information we receive from users of My Apps. We do not collect any information about you or your app usage. By using My Apps, you agree to the collection and use of information in accordance with this policy. Information Collection and Use: My Apps does not collect any personal information about you, your app usage,your contacts, your accounts, and/or your website usage. Other third parties, including but not limited to Google and Apple, may be collecting your data. This data may include your device's Internet Protocol (&quot;IP&quot;) address, browser type, browser version, the type of app, the time and date of your use, the time spent on those pages, and other statistics. Third parties, including but not limited to Google and Apple, may also be collecting your information for advertising purposes. To learn more about how Google (AdSense and/or AdMob) uses your data and how you can control your data that is sent to them, please visit: http://www.google.com/policies/privacy/partners/. To learn more about how Apple (iAd) uses your data and how you can opt-out of their Limited Ad Tracking, please visit: https://support.apple.com/en-us/HT202074. Cookies: My Apps does not collect any personal information about you, your app usage, and/or your website usage and therefore does not use cookies. Third parties, including but not limited to Google and Apple, may be placing and reading cookies on users' browsers, or using web beacons to collect information as a result of ad serving on our apps and websites. Changes to This Privacy Policy: This policy is subject to change without notice. Please check this page for the latest privacy policy. If you disagree with this policy, please discontinue use of the application. Contact Us: If you have any questions about this Privacy Policy, please contact us at deomindmitriy@gmail.com."
+        android:textSize="18sp" />
+
+</LinearLayout>

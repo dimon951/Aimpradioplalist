@@ -5,6 +5,7 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import dmitriy.deomin.aimpradioplalist.Abaut
 import dmitriy.deomin.aimpradioplalist.Main.Companion.context
+import dmitriy.deomin.aimpradioplalist.Politika_ebuchay
 import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.Setting
 import dmitriy.deomin.aimpradioplalist.`fun`.windows.akkaunt
@@ -33,6 +34,10 @@ fun menu_main(view: View) {
     }
     menu.view().findViewById<Button>(R.id.button_other_settings).onClick {
         other_settings()
+        menu.close()
+    }
+    menu.view().findViewById<Button>(R.id.button_politika).onClick {
+        context.startActivity<Politika_ebuchay>()
         menu.close()
     }
 }

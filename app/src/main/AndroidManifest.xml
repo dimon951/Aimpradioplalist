@@ -8,9 +8,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- это нужно чтобы в 10 android ошибок с памятью небыло-->
-    <!--    android:requestLegacyExternalStorage="true"-->
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,14 +24,12 @@
             android:value="true" />
         <meta-data
             android:name="com.google.android.gms.ads.ca-app-pub-7908895047124036~7402987509"
-            android:value="ca-app-pub-7908895047124036/8879720700" />
-        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++ -->
-
+            android:value="ca-app-pub-7908895047124036/8879720700" /> <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <activity
             android:name=".Main"
             android:configChanges="orientation|screenSize"
-
             android:windowSoftInputMode="stateHidden">
+
             <!-- это нужно стобы убрать фокус с edittext -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,9 +43,9 @@
         <activity android:name=".Abaut" />
         <activity android:name=".Setting" />
         <activity android:name=".Fonts_vibor" />
-        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++-->
-
-        <!-- эта хуйня нужна чтобы можно было файлом поделиться-->
+        <activity android:name=".Politika_ebuchay"/>
+        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++ -->
+        <!-- эта хуйня нужна чтобы можно было файлом поделиться -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="dmitriy.deomin.aimpradioplalist.fileprovider"
@@ -60,7 +55,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-        <!-- +++++++++++++++++++++++++++++++++++++++++++++++++-->
-
     </application>
+
 </manifest>

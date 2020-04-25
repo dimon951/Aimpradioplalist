@@ -2346,5 +2346,14 @@
         <item>Радио НЕСТАНДАРТ -Музыка- 48kbps\nhttp://listen.radionestandart.ru:8200/48.aac</item>
     </string-array>
     <string name="title_activity_obmenik">Obmenik</string>
+    <string name="title_activity_politika_ebuchay">Politika_ebuchay</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 </resources>
