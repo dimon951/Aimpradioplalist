@@ -42,10 +42,7 @@
          \n
     </string>
 
-    <string name="banner_ad_unit_id">ca-app-pub-7908895047124036/8879720700</string>
-
     <string-array name="pop_radio">
-
         <item>Русское радио\nruskoe_radio.png\n
             128kb~kbps~https://rusradio.hostingradio.ru/rusradio128.mp3~kbps~
             64kb~kbps~https://rusradio.hostingradio.ru/rusradio64.mp3~kbps~

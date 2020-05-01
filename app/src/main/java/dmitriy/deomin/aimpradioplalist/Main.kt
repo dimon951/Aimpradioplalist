@@ -13,6 +13,7 @@ import android.widget.*
 import androidx.core.app.ShareCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.FragmentActivity
+import com.google.firebase.FirebaseApp
 import dmitriy.deomin.aimpradioplalist.`fun`.*
 import dmitriy.deomin.aimpradioplalist.`fun`.menu.menu_main
 import dmitriy.deomin.aimpradioplalist.adapters.Adapter_main_viewpager
@@ -140,10 +141,6 @@ class Main : FragmentActivity() {
                 signal("Main_update").putExtra("signal", position.toString()).send(context)
             }
         })
-
-        //реклама
-        reklama(this.contentView!!)
-
         //анимация на кнопках*****************************************.
         //тут почемуто глючит текст на кнопках
         //перерисуем

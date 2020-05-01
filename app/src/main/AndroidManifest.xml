@@ -16,15 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
-
-        <!-- эта поебень нужна для рекламмы -->
-        <!-- ++++++++++++++++++++++++++++++++++++++ -->
-        <meta-data
-            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
-            android:value="true" />
-        <meta-data
-            android:name="com.google.android.gms.ads.ca-app-pub-7908895047124036~7402987509"
-            android:value="ca-app-pub-7908895047124036/8879720700" /> <!-- +++++++++++++++++++++++++++++++++++++++++++++++++++ -->
         <activity
             android:name=".Main"
             android:configChanges="orientation|screenSize"
