@@ -178,6 +178,9 @@
             128kb~kbps~http://icecast.vgtrk.cdnvideo.ru/mayakfm_mp3_128kbps~kbps~
             320kb~kbps~http://icecast.vgtrk.cdnvideo.ru/mayakfm~kbps~
         </item>
+        <item>Южная волна\nugnay_volna.png\n
+            128kb~kbps~https://c28.radioboss.fm/stream/130~kbps~
+        </item>
         <item>Анекдоты \nanekdoty.png\n
             128kb~kbps~http://ic7.101.ru:8000/c3_5~kbps~
         </item>
@@ -2341,6 +2344,7 @@
         <item>Радио НЕСТАНДАРТ -Музыка- 128kbps\nhttp://listen.radionestandart.ru:8200/128.mp3</item>
         <item>Радио НЕСТАНДАРТ -Музыка- 64kbps\nhttp://listen.radionestandart.ru:8200/64.aac</item>
         <item>Радио НЕСТАНДАРТ -Музыка- 48kbps\nhttp://listen.radionestandart.ru:8200/48.aac</item>
+        <item>Южная волна -Музыка- 128kbps\nhttps://c28.radioboss.fm/stream/130</item>
     </string-array>
     <string name="title_activity_obmenik">Obmenik</string>
     <string name="title_activity_politika_ebuchay">Politika_ebuchay</string>

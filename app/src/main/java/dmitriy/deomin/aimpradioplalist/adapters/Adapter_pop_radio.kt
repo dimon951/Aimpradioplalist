@@ -19,6 +19,7 @@ import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 import dmitriy.deomin.aimpradioplalist.`fun`.send_email
 import dmitriy.deomin.aimpradioplalist.`fun`.share_text
+import dmitriy.deomin.aimpradioplalist.`fun`.windows.window_ifo_o_station
 import dmitriy.deomin.aimpradioplalist.custom.RadioPop
 import org.jetbrains.anko.email
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -72,6 +73,11 @@ class Adapter_pop_radio(val data: ArrayList<RadioPop>) : androidx.recyclerview.w
                 .load("file:///android_asset/ava_pop/" + radiopop.ava_url)
                 .transform(transformation)
                 .into(p0.ava)
+
+        //при клике на аву будем показывать инфу о станции
+        p0.ava.onClick {
+            window_ifo_o_station(radiopop.ava_url)
+        }
 
         //кнопки качеста скрываем пустые
         p0.kbps1.visibility = if (!radiopop.link1.kbps.isEmpty()) {
