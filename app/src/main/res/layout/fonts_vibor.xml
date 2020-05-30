@@ -10,13 +10,14 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:background="@null">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@null">
+            android:background="@null"
+            android:orientation="vertical">
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_font_system"
@@ -27,12 +28,12 @@
                 android:text="Системный" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:text="Выбрать этот шрифт(Tweed)"
+                android:id="@+id/button_font_tweed"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/button_font_tweed"
+                android:background="@null"
                 android:onClick="save_Tweed"
-                android:background="@null" />
+                android:text="Выбрать этот шрифт(Tweed)" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_font_Digits"
@@ -43,56 +44,70 @@
                 android:text="Выбрать этот шрифт(Digits)" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:text="Выбрать этот шрифт(Whitney)"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
                 android:id="@+id/button_font_Whitney"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
                 android:onClick="save_Whitney"
-                android:background="@null"/>
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:text="Выбрать этот шрифт(Bemount)"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/button_font_bemount"
-                android:onClick="save_Bemount"
-                android:background="@null" />
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:text="Выбрать этот шрифт(Stolzl-Book)"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/button_Stolzl_Book"
-                android:onClick="save_Stolzl_Book"
-                android:background="@null" />
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:text="Выбрать этот шрифт(Snowstorm)"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/button_font_Snowstorm"
-                android:onClick="save_Snowstorm"
-                android:background="@null"/>
+                android:text="Выбрать этот шрифт(Whitney)" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:text="Выбрать этот шрифт(Frezer)"
+                android:id="@+id/button_font_bemount"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="@null"
+                android:onClick="save_Bemount"
+                android:text="Выбрать этот шрифт(Bemount)" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_Stolzl_Book"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:onClick="save_Stolzl_Book"
+                android:text="Выбрать этот шрифт(Stolzl-Book)" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
+                android:id="@+id/button_font_Snowstorm"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
+                android:onClick="save_Snowstorm"
+                android:text="Выбрать этот шрифт(Snowstorm)" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_font_Frezer"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
                 android:onClick="save_Frezer"
-                android:background="@null" />
+                android:text="Выбрать этот шрифт(Frezer)" />
+
             <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:text="Выбрать этот шрифт(Futured)"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
                 android:id="@+id/button_font_Futured"
-                android:onClick="save_Futured"
-                android:background="@null" />
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:text="Выбрать этот шрифт(Yarin)"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="@null"
+                android:onClick="save_Futured"
+                android:text="Выбрать этот шрифт(Futured)" />
+
+            <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_font_Yarin"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@null"
                 android:onClick="save_Yarin"
-                android:background="@null" />
+                android:text="Выбрать этот шрифт(Yarin)" />
 
         </LinearLayout>
     </ScrollView>
+
+    <dmitriy.deomin.aimpradioplalist.custom.Btn
+        android:id="@+id/button_close_setting_font"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0"
+        android:background="@null"
+        android:text="Ok" />
+
 </LinearLayout>

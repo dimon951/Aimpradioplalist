@@ -1,4 +1,4 @@
-package dmitriy.deomin.aimpradioplalist.`fun`.menu
+package dmitriy.deomin.aimpradioplalist.menu
 
 import android.content.Context
 import android.view.animation.AnimationUtils
@@ -11,10 +11,8 @@ import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
 import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Radio
-import org.jetbrains.anko.email
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
-import org.jetbrains.anko.share
 import org.jetbrains.anko.toast
 fun menu_vse_radio(context:Context,radio:Radio){
 

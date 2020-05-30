@@ -45,7 +45,6 @@
     <string-array name="pop_radio">
         <item>Русское радио\nruskoe_radio.png\n
             128kb~kbps~https://rusradio.hostingradio.ru/rusradio128.mp3~kbps~
-            64kb~kbps~https://rusradio.hostingradio.ru/rusradio64.mp3~kbps~
             96kb~kbps~https://rusradio.hostingradio.ru/rusradio96.aacp~kbps~
         </item>
         <item>Радио Record\nrecord.png\n
@@ -70,7 +69,6 @@
             128kb~kbps~https://pub0201.101.ru:8000/stream/air/aac/64/99~kbps~
         </item>
         <item>DFM\ndfm_moskva.png\n
-            64kb~kbps~https://dfm.hostingradio.ru/dfm64.mp3~kbps~
             96kb~kbps~https://dfm.hostingradio.ru/dfm96.aacp~kbps~
             128kb~kbps~https://dfm.hostingradio.ru/dfm128.mp3~kbps~
         </item>
@@ -80,9 +78,9 @@
         <item>ТМ-Радио\ntm.png\n
             128kb~kbps~http://radio.tmstudia.ru:8001/live~kbps~
         </item>
-        <item>Радио Гамаюн \ngamanun.png\n
-            128kb~kbps~http://gamaun.online:8010/radio~kbps~
+        <item>Радио Гамаюн\ngamanun.png\n
             64kb~kbps~http://gamaun.online:8000/radio~kbps~
+            128kb~kbps~http://gamaun.online:8010/radio~kbps~
             256kb~kbps~http://gamaun.online:8020/radio~kbps~
         </item>
         <item>Авторадио\navtoradio.png\n
@@ -118,9 +116,9 @@
             64kb~kbps~http://listen.radionestandart.ru:8200/64.aac~kbps~
             48kb~kbps~http://listen.radionestandart.ru:8200/48.aac~kbps~
         </item>
-        <item>Love радио\nloveradio.png\n
-            128kb~kbps~http://potokovoe.ru:8008/LR.mp3~kbps~
-        </item>
+<!--        <item>Love радио\nloveradio.png\n-->
+<!--            128kb~kbps~http://163.172.160.245:8081/radio/loveradio/icecast.audio?wmsAuthSign=c2VydmVyX3RpbWU9Ni8zLzIwMTggMTI6NTY6MzcgUE0maGFzaF92YWx1ZT1pVm9xV3BzOFplRG1xOFNqc0ZmNUJnPT0mdmFsaWRtaW51dGVzPTcyMA==~kbps~-->
+<!--        </item>-->
         <item>Дорожное Радио\ndorognoe.png\n
             64kb~kbps~http://dorognoe.hostingradio.ru:8000/dorognoe~kbps~
             98kb~kbps~https://hls-01-dorognoe.emgsound.ru/15/playlist.m3u8~kbps~
@@ -129,7 +127,6 @@
         </item>
         <item>Радио Дача\nradio_dacha.png\n
             96kb~kbps~http://listen.vdfm.ru:8000/dacha~kbps~
-            96kb~kbps~http://listen23.vdfm.ru:8000/dacha~kbps~
         </item>
         <item>Радио Ваня\nradiovanya.png\n
             96kb~kbps~http://91.219.74.220:8000/Vanya-high.mp3~kbps~
@@ -159,7 +156,6 @@
             128kb~kbps~http://play.tipfm.ru:9000/9696~kbps~
         </item>
         <item>Максимум\nmaximum.png\n
-            64kb~kbps~https://maximum.hostingradio.ru/maximum64.mp3~kbps~
             96kb~kbps~https://maximum.hostingradio.ru/maximum96.aacp~kbps~
             128kb~kbps~https://maximum.hostingradio.ru/maximum128.mp3~kbps~
         </item>
@@ -181,7 +177,7 @@
         <item>Южная волна\nugnay_volna.png\n
             128kb~kbps~https://c28.radioboss.fm/stream/130~kbps~
         </item>
-        <item>Анекдоты \nanekdoty.png\n
+        <item>Анекдоты\nanekdoty.png\n
             128kb~kbps~http://ic7.101.ru:8000/c3_5~kbps~
         </item>
         <item>Классика \nclasik_radio.png\n

@@ -14,7 +14,7 @@ import dmitriy.deomin.aimpradioplalist.Vse_radio
 import dmitriy.deomin.aimpradioplalist.`fun`.Bold_text
 import dmitriy.deomin.aimpradioplalist.`fun`.load_koment
 import dmitriy.deomin.aimpradioplalist.`fun`.windows.add_koment_window
-import dmitriy.deomin.aimpradioplalist.`fun`.menu.menu_vse_radio_online_plalist
+import dmitriy.deomin.aimpradioplalist.menu.menu_vse_radio_online_plalist
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

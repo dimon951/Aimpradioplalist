@@ -11,7 +11,7 @@ import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.Vse_radio
 import dmitriy.deomin.aimpradioplalist.`fun`.load_koment
 import dmitriy.deomin.aimpradioplalist.`fun`.windows.add_koment_window
-import dmitriy.deomin.aimpradioplalist.`fun`.menu.menu_vse_radio_obmenik
+import dmitriy.deomin.aimpradioplalist.menu.menu_vse_radio_obmenik
 import dmitriy.deomin.aimpradioplalist.custom.Koment
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 import dmitriy.deomin.aimpradioplalist.custom.Slot

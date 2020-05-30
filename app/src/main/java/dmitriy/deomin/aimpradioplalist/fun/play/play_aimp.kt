@@ -8,10 +8,9 @@ import android.widget.Button
 import android.widget.EditText
 import dmitriy.deomin.aimpradioplalist.Main
 import dmitriy.deomin.aimpradioplalist.R
-import dmitriy.deomin.aimpradioplalist.`fun`.EbuchieRazreshenia
 import dmitriy.deomin.aimpradioplalist.`fun`.m3u.create_m3u_file
 import dmitriy.deomin.aimpradioplalist.`fun`.is_install_app
-import dmitriy.deomin.aimpradioplalist.`fun`.menu.menu_setup_aimp
+import dmitriy.deomin.aimpradioplalist.menu.menu_setup_aimp
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import dmitriy.deomin.aimpradioplalist.custom.Radio
 import dmitriy.deomin.aimpradioplalist.custom.Slot

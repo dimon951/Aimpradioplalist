@@ -9,7 +9,7 @@ import android.view.animation.AnimationUtils
 import android.widget.*
 import dmitriy.deomin.aimpradioplalist.*
 import dmitriy.deomin.aimpradioplalist.`fun`.*
-import dmitriy.deomin.aimpradioplalist.`fun`.menu.menu_my_list
+import dmitriy.deomin.aimpradioplalist.menu.menu_my_list
 import dmitriy.deomin.aimpradioplalist.custom.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 

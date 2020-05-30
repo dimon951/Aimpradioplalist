@@ -28,7 +28,7 @@ import dmitriy.deomin.aimpradioplalist.`fun`.save_read_int
 import dmitriy.deomin.aimpradioplalist.`fun`.save_value
 import dmitriy.deomin.aimpradioplalist.`fun`.save_value_int
 import dmitriy.deomin.aimpradioplalist.custom.*
-import kotlinx.android.synthetic.main.setting.*
+import kotlinx.android.synthetic.main.setting_color.*
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.sdk27.coroutines.onLongClick
@@ -37,13 +37,14 @@ import org.jetbrains.anko.toast
 import java.util.*
 
 
-class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogListener {
+class Setting_color : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogListener {
 
     private var DIALOG_ID: Int = 0
     private lateinit var edit_fon: Button
     private lateinit var edit_pos1: Button
     private lateinit var edit_text_color: Button
     private lateinit var edit_textcontext_color: Button
+    private lateinit var edit_button_ok: Button
     lateinit var context: Context
 
     private lateinit var linerfon: LinearLayout
@@ -51,11 +52,23 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.setting)
+        setContentView(R.layout.setting_color)
 
         if(Main.FULLSCRIN >0){
             //во весь экран
             this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        }
+        if(Main.NAVBUTTON >0){
+            //скрывем кнопки навигации
+            val decorView = window.decorView
+            val uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+            decorView.systemUiVisibility = uiOptions
+            //будем слушать  если покажется опять - закроем
+            window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
+                if (visibility and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) decorView.systemUiVisibility =
+                        uiOptions
+            }
+            //-----------------------------------------------------------------------------
         }
 
         context = this
@@ -64,6 +77,7 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
         edit_pos1 = findViewById(R.id.button_edit_color_posty)
         edit_text_color = findViewById(R.id.button_edit_color_text)
         edit_textcontext_color = findViewById(R.id.button_edit_color_textcontext)
+        edit_button_ok = findViewById(R.id.button_close_setting_color)
         linerfon = findViewById(R.id.fon_setting)
 
         //устанавливаем шрифт
@@ -71,6 +85,8 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
         edit_pos1.typeface = face
         edit_text_color.typeface = face
         button_edit_color_selekt.typeface = face
+        edit_button_ok.typeface = face
+
 
 
         edit_fon.onClick {
@@ -220,6 +236,8 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
 
             list_them.smoothScrollToPosition( list_them.adapter!!.itemCount)
         }
+
+        edit_button_ok.onClick { finish() }
 
 
 
@@ -391,8 +409,11 @@ class Setting : FragmentActivity(), ColorPickerDialogFragment.ColorPickerDialogL
         edit_pos1.backgroundColor = COLOR_ITEM
         edit_text_color.textColor = COLOR_TEXT
         edit_textcontext_color.textColor = COLOR_TEXTcontext
+        edit_textcontext_color.textColor = COLOR_TEXTcontext
         button_edit_color_selekt.backgroundColor = COLOR_FON
         button_edit_color_selekt.textColor = COLOR_SELEKT
+        edit_button_ok.backgroundColor = COLOR_FON
+        edit_button_ok.textColor = COLOR_TEXT
     }
 
     override fun onColorSelected(dialogId: Int, color: Int) {

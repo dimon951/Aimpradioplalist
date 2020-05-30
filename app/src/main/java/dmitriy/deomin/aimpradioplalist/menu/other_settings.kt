@@ -1,4 +1,4 @@
-package dmitriy.deomin.aimpradioplalist.`fun`.menu
+package dmitriy.deomin.aimpradioplalist.menu
 
 import android.annotation.SuppressLint
 import android.graphics.Paint
@@ -94,8 +94,35 @@ fun other_settings(){
         }
     }
 
+    val navbutton = svr.view().findViewById<Button>(R.id.button_seting_navbutton)
+    if (Main.NAVBUTTON==1) {
+        navbutton.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+        navbutton.setTypeface(Main.face, Typeface.BOLD)
+        navbutton.text = "Скрыть кнопки навигации(Включенно)\nприменятся после перезапуска"
+    } else {
+        navbutton.paintFlags = 0
+        navbutton.typeface = Main.face
+        navbutton.text = "Скрыть кнопки навигации(Выключенно)\nприменятся после перезапуска"
+    }
 
+    navbutton.onClick {
+        if (save_read_int("navbutton")==-1) {
 
+            save_value_int("navbutton", 1)
+            Main.NAVBUTTON = 1
 
+            navbutton.paintFlags = 0
+            navbutton.setTypeface(Main.face, Typeface.BOLD)
+            navbutton.text = "Скрыть кнопки навигации(Включенно)\nприменятся после перезапуска"
+
+        } else {
+            save_value_int("navbutton", -1)
+            Main.NAVBUTTON = -1
+
+            navbutton.typeface = Main.face
+            navbutton.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+            navbutton.text = "Скрыть кнопки навигации(Выключенно)\nприменятся после перезапуска"
+        }
+    }
 
 }

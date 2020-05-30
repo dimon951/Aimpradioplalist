@@ -30,8 +30,7 @@
         <activity
             android:name=".Obmenik"
             android:configChanges="orientation|screenSize" />
-        <activity android:name=".Abaut" />
-        <activity android:name=".Setting" />
+        <activity android:name=".Setting_color" />
         <activity android:name=".Fonts_vibor" />
         <activity android:name=".Politika"/>
 

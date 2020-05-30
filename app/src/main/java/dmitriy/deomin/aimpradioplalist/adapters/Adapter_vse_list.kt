@@ -8,22 +8,15 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
 import dmitriy.deomin.aimpradioplalist.Main
-import dmitriy.deomin.aimpradioplalist.Play_audio
 import dmitriy.deomin.aimpradioplalist.R
 import dmitriy.deomin.aimpradioplalist.Vse_radio
-import dmitriy.deomin.aimpradioplalist.`fun`.add_myplalist
-import dmitriy.deomin.aimpradioplalist.`fun`.isValidURL
-import dmitriy.deomin.aimpradioplalist.`fun`.menu.menu_vse_radio
-import dmitriy.deomin.aimpradioplalist.`fun`.play.play_aimp
-import dmitriy.deomin.aimpradioplalist.`fun`.play.play_system
-import dmitriy.deomin.aimpradioplalist.`fun`.putText_сlipboard
+import dmitriy.deomin.aimpradioplalist.menu.menu_vse_radio
 import dmitriy.deomin.aimpradioplalist.`fun`.save_value_int
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import org.jetbrains.anko.sdk27.coroutines.onLongClick
 
 
 class Adapter_vse_list(val data: ArrayList<Radio>) : androidx.recyclerview.widget.RecyclerView.Adapter<Adapter_vse_list.ViewHolder>(), Filterable {

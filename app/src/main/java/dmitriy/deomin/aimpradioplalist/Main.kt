@@ -13,9 +13,8 @@ import android.widget.*
 import androidx.core.app.ShareCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.FragmentActivity
-import com.google.firebase.FirebaseApp
 import dmitriy.deomin.aimpradioplalist.`fun`.*
-import dmitriy.deomin.aimpradioplalist.`fun`.menu.menu_main
+import dmitriy.deomin.aimpradioplalist.menu.menu_main
 import dmitriy.deomin.aimpradioplalist.adapters.Adapter_main_viewpager
 import dmitriy.deomin.aimpradioplalist.custom.*
 import kotlinx.android.synthetic.main.main.*
@@ -79,6 +78,7 @@ class Main : FragmentActivity() {
         var SIZE_TEXT_CONTEXT_text = 0F
 
         var FULLSCRIN = 1
+        var NAVBUTTON = 1
     }
 
     @SuppressLint("ClickableViewAccessibility", "SetTextI18n")
@@ -96,10 +96,23 @@ class Main : FragmentActivity() {
         mSettings = getSharedPreferences("mysettings", Context.MODE_PRIVATE)
 
         FULLSCRIN = if(save_read_int("fullsckrin")==0){1}else{save_read_int("fullsckrin")}
+        NAVBUTTON = if(save_read_int("navbutton")==0){1}else{save_read_int("navbutton")}
 
         if(FULLSCRIN>0){
             //во весь экран
             window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        }
+        if(NAVBUTTON>0){
+            //скрывем кнопки навигации
+            val decorView = window.decorView
+            val uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+            decorView.systemUiVisibility = uiOptions
+            //будем слушать  если покажется опять - закроем
+            window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
+                if (visibility and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) decorView.systemUiVisibility =
+                        uiOptions
+            }
+            //-----------------------------------------------------------------------------
         }
 
         //данные пользователя

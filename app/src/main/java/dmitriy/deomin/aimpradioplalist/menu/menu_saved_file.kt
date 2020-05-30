@@ -1,4 +1,4 @@
-package dmitriy.deomin.aimpradioplalist.`fun`.menu
+package dmitriy.deomin.aimpradioplalist.menu
 
 import android.content.Context
 import android.view.View

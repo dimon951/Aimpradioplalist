@@ -34,6 +34,18 @@ class Obmenik : Activity() {
             //во весь экран
             this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         }
+        if(Main.NAVBUTTON >0){
+            //скрывем кнопки навигации
+            val decorView = window.decorView
+            val uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+            decorView.systemUiVisibility = uiOptions
+            //будем слушать  если покажется опять - закроем
+            window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
+                if (visibility and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) decorView.systemUiVisibility =
+                        uiOptions
+            }
+            //-----------------------------------------------------------------------------
+        }
 
         val context: Context = this
 

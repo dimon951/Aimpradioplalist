@@ -1,12 +1,12 @@
-package dmitriy.deomin.aimpradioplalist.`fun`.menu
+package dmitriy.deomin.aimpradioplalist.menu
 
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.Button
-import dmitriy.deomin.aimpradioplalist.Abaut
 import dmitriy.deomin.aimpradioplalist.Main.Companion.context
 import dmitriy.deomin.aimpradioplalist.R
-import dmitriy.deomin.aimpradioplalist.Setting
+import dmitriy.deomin.aimpradioplalist.Setting_color
+import dmitriy.deomin.aimpradioplalist.`fun`.windows.abaut
 import dmitriy.deomin.aimpradioplalist.`fun`.windows.akkaunt
 import dmitriy.deomin.aimpradioplalist.custom.DialogWindow
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -18,12 +18,12 @@ fun menu_main(view: View) {
     val menu = DialogWindow(context, R.layout.menu_progi)
 
     menu.view().findViewById<Button>(R.id.button_abaut).onClick {
-        context.startActivity<Abaut>()
+        abaut()
         menu.close()
     }
 
     menu.view().findViewById<Button>(R.id.button_setting).onClick {
-        context.startActivity<Setting>()
+        context.startActivity<Setting_color>()
         menu.close()
     }
 
