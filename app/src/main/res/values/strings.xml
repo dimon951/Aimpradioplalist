@@ -177,6 +177,9 @@
         <item>Южная волна\nugnay_volna.png\n
             128kb~kbps~https://c28.radioboss.fm/stream/130~kbps~
         </item>
+        <item>Правильное радио\npravelnoe.png\n
+            128kb~kbps~http://stream.pravilnoeradio.ru:8000/pr_mpeg~kbps~
+        </item>
         <item>Анекдоты\nanekdoty.png\n
             128kb~kbps~http://ic7.101.ru:8000/c3_5~kbps~
         </item>
@@ -254,7 +257,7 @@
 
         <item>Советская волна AAC -Музыка- 128kbps\nhttp://station.waveradio.org/soviet</item>
         <item>Советская волна MP3 -Музыка- 128kbps\nhttp://station.waveradio.org/soviet.mp3</item>
-        <item>HDR [Hard Dance Radio] -Музыка- 256kbps\nhttp://hdr.asuscomm.com:8000/hard_dance.m3u</item>
+        <item>HDR [Hard Dance Radio] -Музыка- 192kbps\nhttp://hdr.asuscomm.com:8000/hard_dance.m3u</item>
         <item>TechnoBase FM -Музыка- 192kbps\nhttp://listen.technobase.fm/tunein-dsl-pls</item>
         <item>Pulse Radio -Музыка- 192kbps\nhttp://icecast.pulsradio.com:80/pulsHD.mp3</item>
         <item>DFM HandsUp! -Музыка- 96kbps\nhttp://dfm-handsup.hostingradio.ru/handsup96.aacp.m3u</item>
@@ -263,7 +266,7 @@
         <item>Hardstyle -Музыка- 320kbps\nhttp://air2.radiorecord.ru:9003/teo_320.m3u</item>
         <item>Hard Bass -Музыка- 320kbps\nhttp://air2.radiorecord.ru:9003/hbass_320.m3u</item>
         <item>Rave FM -Музыка- 320kbps\nhttp://air2.radiorecord.ru:9003/rave_320.m3u</item>
-        <item>Radio.R41 -Музыка- 128kbps\nhttp://radio.r41.ru/SvoeFM</item>
+        <item>Radio.R41 -Музыка- 192kbps\nhttp://radio.r41.ru/SvoeFM</item>
         <item>Отличное Радио: Dance -Музыка- 128kbps\nhttps://myradio24.org/ordance</item>
         <item>Record: Руки Вверх -Музыка- 320kbps\nhttp://air.radiorecord.ru:805/rv_320</item>
         <item>Record: Руки Вверх -Музыка- 128kbps\nhttp://air.radiorecord.ru:805/rv_128</item>
@@ -280,10 +283,10 @@
         <item>Эхо Казани -Разговорное- 128kbps\nhttp://78.138.169.182:8002/echo</item>
         <item>Эхо Кирова -Разговорное- 128kbps\nhttp://echokirova.ru:8000/radio.mp3</item>
         <item>Эхо Махачкалы -Разговорное- 88kbps\nhttp://91.205.129.127:5000/</item>
-        <item>Эхо Нижнего Новгорода -Разговорное- 24kbps mono\nhttp://95.79.31.115:8000/</item>
+
         <item>Эхо Оренбурга (Поток #1) -Разговорное- 128kbps\nhttp://radio.omg56.ru:8000/Echo_msk_Oren</item>
         <item>Эхо Оренбурга (Поток #2) -Разговорное- 128kbps\nhttp://echomsk.1743.ru:8000/echomsk</item>
-        <item>Эхо Пензы -Разговорное- 128kbps\nhttp://212.109.216.83:8000/echo</item>
+
         <item>Эхо Перми -Разговорное- 128kbps\nhttp://echoperm.radio-tochka.com:8000/</item>
         <item>Эхо Пскова -Разговорное- 128kbps\nhttp://echo.pln24.ru/echo.mp3</item>
         <item>NRJ STREAM TX -Музыка- 320kbps\nhttp://nrj.babahhcdn.com/NRJ?.mp3</item>
@@ -295,7 +298,7 @@
         <item>Типичное FM -Музыка- 128kbps\nhttp://play.tipfm.ru:9000/9696</item>
         <item>HIP HOP RADIO(новая станция от ТНТ Music) -Музыка- 128kbps\nhttps://tntradio.hostingradio.ru:8027/hhr128.mp3</item>
         <item>Enigma 101 ru -Музыка- 64kbps\nhttp://ic4.101.ru:8000/a175?</item>
-        <item>Радио Прокопьевск Кемеровская область -Музыка- 256kbps\nhttp://radioserver.27trk.ru:8000/prokopievsk.mp3</item>
+        <item>Радио Прокопьевск Кемеровская область -Музыка- 192kbps\nhttp://radioserver.27trk.ru:8000/prokopievsk.mp3</item>
         <item>Радио Мир -Музыка- 256kbps\nhttp://217.77.109.33:8000/mir_256</item>
         <item>Радио Бизнес FM Красноярск -Музыка- 256kbps\nhttp://84.22.145.37:8888/bfm256</item>
         <item>Радио Монте-Карло -Музыка- 128kbps\nhttp://montecarlo.hostingradio.ru/montecarlo128.mp3</item>
@@ -305,9 +308,6 @@
         <item>Пи FM -Музыка- 96kbps\nhttp://prepros.pifm.ru:80/96</item>
         <item>Пи FM Кемерово -Музыка- 128kbps\nhttp://prepros.pifm.ru:80/kemer</item>
         <item>Смелое радио -Музыка- 128kbps\nhttp://a5.radioheart.ru:8059/nonstop</item>
-        <item>Lofi Radio -Музыка- 96kbps\nhttp://comet.shoutca.st:8723/autodj</item>
-        <item>Lofi Radio -Музыка- 32kbps\nhttp://comet.shoutca.st:8723/stream32_autodj</item>
-        <item>Lofi Radio -Музыка- 192kbps\nhttp://comet.shoutca.st:8723/stream192_autodj</item>
         <item>ТНТ MUSIC RADIO -Музыка- 128kbps\nhttp://tntradio.hostingradio.ru:8027/tntradio128.mp3</item>
         <item>CLUB DANCE -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c4_2</item>
         <item>ДИСКОТЕКА 80-Х -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a1</item>
@@ -326,8 +326,8 @@
         <item>ДИСКОТЕКА СССР -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a144</item>
         <item>DISCO -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a80</item>
         <item>ITALO DISCO -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a161</item>
-        <item>TRANCE -Музыка- 128kbps\nhttp://ic3.101.ru:8000/c13_3</item>
-        <item>TECH HOUSE -Музыка- 128kbps\nhttp://ic3.101.ru:8000/c18_5</item>
+        <item>TRANCE -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c13_3</item>
+        <item>TECH HOUSE -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c18_5</item>
         <item>NEW AGE -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a120</item>
         <item>AMBIENT -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a23</item>
         <item>SOULFUL HOUSE -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c13_29</item>
@@ -341,7 +341,6 @@
         <item>BRITPOP -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a206</item>
         <item>ШАНСОН -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a50</item>
         <item>КАБАРЕ «ШАНСОН» -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a49</item>
-        <item>РУССКИЕ ПЕСНИ -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c1_1</item>
         <item>АВТОРСКАЯ ПЕСНЯ -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a35</item>
         <item>SMOOTH JAZZ -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c2_3</item>
         <item>BLUES -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a76</item>
@@ -367,10 +366,10 @@
         <item>BONEY M. -Дискография- 64kbps\nhttp://ic7.101.ru:8000/a114</item>
         <item>LIKE FM -Музыка- 128kbps\nhttp://ic7.101.ru:8000/a219</item>
         <item>РАДИО ENERGY -Музыка- 128kbps\nhttp://ic7.101.ru:8000/a99</item>
-        <item>RELAX FM -Музыка- 86kbps\nhttp://ic3.101.ru:8000/a200</item>
-        <item>РАДИО ROMANTIKA -Музыка- 64kbps\nhttp://ic3.101.ru:8000/a101</item>
-        <item>ЮМОР FM -Музыка- 64kbps\nhttp://ic3.101.ru:8000/a102</item>
-        <item>COMEDY RADIO -Музыка- 64kbps\nhttp://ic3.101.ru:8000/a202</item>
+        <item>RELAX FM -Музыка- 86kbps\nhttp://ic7.101.ru:8000/a200</item>
+        <item>РАДИО ROMANTIKA -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a101</item>
+        <item>ЮМОР FM -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a102</item>
+        <item>COMEDY RADIO -Музыка- 64kbps\nhttp://ic7.101.ru:8000/a202</item>
         <item>РАДИО ЗЕНИТ -Музыка- 128kbps\nhttp://ic6.101.ru:8000/v15_1</item>
         <item>РАДИОЛА -Музыка- 128kbps\nhttp://online1.gkvr.ru:8000/radiola_eka_128.mp3</item>
         <item>CROCUS CITY HALL -Музыка- 128kbps\nhttp://ic6.101.ru:8000/c18_17</item>
@@ -398,7 +397,6 @@
         <item>Канал Библия Ветхий Завет -Разговорное- 128kbps\nhttps://rs.radioslovo.net:4165/stream</item>
         <item>Канал Христианская инструментальная музыка -Музыка- 128kbps\nhttps://rs.radioslovo.net:4275/stream</item>
         <item>ХАЙП FM -Музыка- 46kbps\nhttp://hfm.volna.top/HypeFM</item>
-        <item>Интерактивная интернет радиостанция 24.00 -Музыка- 192kbps\nhttp://radio2400.ru:8000/play</item>
         <item>Радио Меркурий,Латвия -Музыка- 96kbps\nhttp://89.201.5.115:8000/</item>
         <item>Русское Ретро Латвия, Рига -Музыка- 128kbps\nhttps://live.retrofm.lv/russkoeretro128</item>
         <item>Радиола -Музыка- 128kbps\nonline1.gkvr.ru:8000/radiola_eka_128.mp3</item>
@@ -436,8 +434,6 @@
         <item>Europa Plus: TOP 40 -Музыка- 64kbps\nhttp://hls-01-europaplus-top40.emgsound.ru/21/64/playlist.m3u8</item>
         <item>Europa Plus: TOP 40 -Музыка- 128kbps\nhttp://hls-01-europaplus-top40.emgsound.ru/21/128/playlist.m3u8</item>
         <item>Super Radio -Музыка- 128kbps\nhttp://listen6.myradio24.com:9000/finist7747</item>
-
-        <item>Evropa 2 Прага -Музыка- 128kbps\nhttp://icecast3.play.cz/evropa2-128.mp3</item>
         <item>1.FM - Movie Soundtracks Hits Швейцария -Саундтреки- 128kbps\nhttp://prmstrm.1.fm:8000/moviesoundtracks</item>
         <item>Kids Hits -Детское- 64kbps\nhttp://92.255.229.74:8000/kidshits_aac</item>
         <item>HotMix Radio Baby Франция -Детское- 64kbps\nhttp://streaming.hotmixradio.fr/hotmixradio-baby-64.aac</item>
@@ -447,25 +443,21 @@
         <item>Отличное радио -Музыка- 192kbps\nhttps://listen1.myradio24.com/8234</item>
         <item>Отличное радио -Музыка- 192kbps\nhttp://radio.oneex.ru:9000/8234</item>
         <item>Отличное радио -Музыка- 192kbps\nhttps://myradio24.org/8234</item>
-        <item>Отличное радио -Музыка- 320kbps\nhttps://listen1.myradio24.com/8234_320.mp3</item>
         <item>Радио Тироз Таджикистан -Музыка- 64kbps\nhttp://142.4.223.16:8440/live</item>
         <item>Полезное радио Феодосия -Музыка- 64kbps\nhttp://195.161.114.53:8000/feocast</item>
         <item>Radio FM+ Болгария -Музыка- 128kbps\nhttp://193.108.24.21:8000/fmplus</item>
         <item>РадиоРадио Старый Оскол -Музыка- 128kbps\nhttp://play.radioradio.ru/sto</item>
-        <item>РадиоРадио Сургут -Музыка- 64kbps\nhttp://play.radioradio.ru:80/sur</item>
         <item>РадиоРадио Острогожск -Музыка- 64kbps\nhttp://play.radioradio.ru:80/ostr</item>
         <item>РадиоРадио Братск -Музыка- 46kbps\nhttp://play.radioradio.ru/brt</item>
         <item>РадиоРадио Белгород -Музыка- 64kbps\nhttp://play.radioradio.ru:80/bgd</item>
         <item>РадиоРадио -Музыка- 64kbps\nhttp://play.radioradio.ru:80/64</item>
         <item>РадиоРадио -Музыка- 128kbps\nhttp://play.radioradio.ru:80</item>
         <item>РадиоРадио -Музыка- 128kbps\nhttp://play.radioradio.ru/mp3</item>
-        <item>Новороссия Рокс -Музыка- 128kbps\nhttp://93.157.14.109:8000/nfm</item>
         <item>СОЮЗ: Книга Вслух -Аудиокниги- 128kbps\nhttp://soyuztop.ru:4000/radio</item>
         <item>Relax fm: Nature -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c19_1</item>
         <item>Relax fm: Jazz -Музыка- 128kbps\nhttp://ic5.101.ru:8000/c19_2</item>
         <item>Relax fm: Latino -Музыка- 128kbps\nhttp://ic5.101.ru:8000/c19_3</item>
         <item>Relax fm: Life -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c19_5</item>
-        <item>Relax fm: Gold -Музыка- 128kbps\nhttp://91.207.59.26/c19_4</item>
         <item>Relax fm: Gold -Музыка- 128kbps\nhttp://ic7.101.ru:8000/c19_4</item>
         <item>ЖАРА fm -Музыка- 86kbps\nhttp://live3.zharafm.ru:8000/live</item>
         <item>Живое радио: Музыка релакс -Музыка- 64kbps\nhttp://air.jivoe.in:8000/relax64.mp3</item>
@@ -720,7 +712,6 @@
         <item>Record: Pump n Klubb\nhttp://air.radiorecord.ru:8102/pump_320</item>
         <item>Record: PUMP N KLUBB\nhttp://online.radiorecord.ru:8102/pump_128</item>
         <item>Record\nhttp://online.radiorecord.ru:8101/rr_128</item>
-        <item>Record\nhttp://radio.2kom.ru:8000/Radio_Record</item>
         <item>Record Chill-Out\nhttp://air.radiorecord.ru:8102/chil_320</item>
         <item>Record: CHILL-OUT\nhttp://online.radiorecord.ru:8102/chil_128</item>
         <item>Record Club\nhttp://air.radiorecord.ru:8102/club_320</item>
@@ -746,11 +737,8 @@
         <item>Record: Гоп ФМ\nhttp://online.radiorecord.ru:8102/gop_128</item>
         <item>Record: СУПЕРДИСКОТЭКА 90-Х\nhttp://online.radiorecord.ru:8102/sd90_128</item>
         <item>Record: Супердискотека 90-х\nhttp://air.radiorecord.ru:8102/sd90_320</item>
-        <item>Love Radio Казахстан -Музыка- 128kbps\nhttp://s2.free-shoutcast.com:18360/stream.mp3</item>
-        <item>Тенгри FM 128kbps\nhttp://195.210.47.197:8000/live</item>
         <item>Dala FM 128kbps\nhttp://95.56.234.40:8080/DALA_128</item>
         <item>DFM Deep 96kbps\nhttps://dfm-dfmdeep.hostingradio.ru/dfmdeep96.aacp</item>
-        <item>RADIO DEEP HOUSE 128kbps\nhttp://77.244.213.155:8000/5a92b5354c40a400068d2a02</item>
         <item>Радио Бессмертный Полк 96kbps\nhttps://rr-bessmertnyipolk.hostingradio.ru/bessmertnyipolk96.aacp</item>
         <item>Радио Русский Рок 96kbps\nhttps://rr-russkijrok.hostingradio.ru/russkijrok96.aacp</item>
         <item>Радио Золотой Граммофон 96kbps\nhttps://rr-zolotoigrammofon.hostingradio.ru/zolotoigrammofon96.aacp</item>
@@ -763,7 +751,6 @@
         <item>Радио Gakku FM 128kbps\nhttps://stream.gakku.tv/radio/live</item>
         <item>Радио Вголос FM 112kbps\nhttp://ua.uar.net:8000/vgolos</item>
         <item>Радио Незалежність 40kbps\nhttp://82.207.109.117:8000/</item>
-        <item>Radio Veten 64kbps\nhttp://s2.free-shoutcast.com:18742/;stream.mp3</item>
         <item>Ванильное радио Rus 128kbps\nhttp://stream.vanilnoeradio.ru:8060/radio</item>
         <item>Ванильное радио Relax 128kbps\nhttp://stream.vanilnoeradio.ru:8040/radio</item>
         <item>Ванильное радио Dance 128kbps\nhttp://stream.vanilnoeradio.ru:8070/radio</item>
@@ -904,7 +891,6 @@
         <item>БИМ радио  Казань -Музыка- 256kbps\nhttp://av.bimradio.ru:8066/bim_mp3</item>
         <item>Кузбасс FM Кемерово -Музыка- 256kbps\nhttp://212.75.194.94:8000/KuzbassFM</item>
         <item>Музыкайф! Кемерово -Музыка- 96kbps\nhttp://stream0.radiostyle.ru:8000/musicajf</item>
-        <item>Правильное радио Кемерово -Музыка- 128kbps\nhttp://78.41.94.37:8332/;stream.nsv</item>
         <item>Казак FM Краснодар -Музыка- 192kbps\nhttp://193.242.149.55:8000/kfm</item>
         <item>DFM Краснодар 106.0 FM  -Музыка- 192kbps\nhttp://195.128.153.151:8000/dfm_krasnodar</item>
         <item>DFM Краснодар 106.0 FM  -Музыка- 96kbps\nhttp://195.128.153.151:8000/dfm_krasnodar_96</item>
@@ -2341,6 +2327,7 @@
         <item>Радио НЕСТАНДАРТ -Музыка- 64kbps\nhttp://listen.radionestandart.ru:8200/64.aac</item>
         <item>Радио НЕСТАНДАРТ -Музыка- 48kbps\nhttp://listen.radionestandart.ru:8200/48.aac</item>
         <item>Южная волна -Музыка- 128kbps\nhttps://c28.radioboss.fm/stream/130</item>
+        <item>Правильное радио -Музыка- 128kbps\nhttp://stream.pravilnoeradio.ru:8000/pr_mpeg</item>
     </string-array>
     <string name="title_activity_obmenik">Obmenik</string>
     <string name="title_activity_politika_ebuchay">Politika_ebuchay</string>
