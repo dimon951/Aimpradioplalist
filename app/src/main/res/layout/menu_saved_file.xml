@@ -30,7 +30,7 @@
             android:background="@null"
             android:gravity="center"
             android:maxHeight="300dp"
-            android:text="Файл уже загружен"
+            android:text="@string/file_uge_zagrugen"
             android:textSize="20sp"
             android:textStyle="normal|bold" />
 

@@ -39,7 +39,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:paddingRight="10dp"
-            android:text="Радио"
+            android:text="@string/radio"
             android:textSize="14sp" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
@@ -49,7 +49,7 @@
             android:layout_weight="0.9"
             android:background="@null"
             android:paddingRight="10dp"
-            android:text="Аудиокниги"
+            android:text="@string/audio_book"
             android:textSize="14sp" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
@@ -59,7 +59,7 @@
             android:layout_weight="1.1"
             android:background="@null"
             android:paddingRight="10dp"
-            android:text="Тв"
+            android:text="@string/tv"
             android:textSize="14sp" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
@@ -69,7 +69,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:paddingRight="10dp"
-            android:text="Музыка"
+            android:text="@string/musik"
             android:textSize="14sp" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
@@ -79,7 +79,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:paddingRight="10dp"
-            android:text="Обменник"
+            android:text="@string/obmenik"
             android:textSize="14sp" />
     </LinearLayout>
 

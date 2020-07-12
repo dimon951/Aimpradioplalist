@@ -27,7 +27,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:gravity="center"
-            android:text="Добавить коментарий"
+            android:text="@string/add_koment"
             android:textSize="20sp" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Find
@@ -40,7 +40,7 @@
             android:background="@null"
             android:ems="10"
             android:gravity="center"
-            android:hint="коментарий"
+            android:hint="@string/komentarii"
             android:inputType=""
             android:maxHeight="300dp"
             android:minHeight="40dp" />

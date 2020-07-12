@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?><!--отключение бакграунда где он не нужен вроде как увеличит производительность(android:background="@null")-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -25,8 +26,10 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:hint="Поиск"
-                android:paddingLeft="5dp" />
+                android:hint="@string/poisk"
+                android:paddingLeft="5dp"
+                tools:ignore="NestedWeights,RtlSymmetry"
+                android:paddingStart="5dp" />
 
         </LinearLayout>
 

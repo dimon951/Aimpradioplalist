@@ -25,7 +25,7 @@
                 android:layout_height="50dp"
                 android:background="@null"
                 android:onClick="save_System"
-                android:text="Системный" />
+                android:text="@string/system" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_font_tweed"
@@ -33,7 +33,7 @@
                 android:layout_height="50dp"
                 android:background="@null"
                 android:onClick="save_Tweed"
-                android:text="Выбрать этот шрифт(Tweed)" />
+                android:text="@string/set_etot_tweed" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_font_Digits"
@@ -41,7 +41,7 @@
                 android:layout_height="50dp"
                 android:background="@null"
                 android:onClick="save_Digits"
-                android:text="Выбрать этот шрифт(Digits)" />
+                android:text="@string/set_etot_digits" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_font_Whitney"
@@ -49,7 +49,7 @@
                 android:layout_height="50dp"
                 android:background="@null"
                 android:onClick="save_Whitney"
-                android:text="Выбрать этот шрифт(Whitney)" />
+                android:text="@string/set_etot_whitney" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_font_bemount"
@@ -57,7 +57,7 @@
                 android:layout_height="50dp"
                 android:background="@null"
                 android:onClick="save_Bemount"
-                android:text="Выбрать этот шрифт(Bemount)" />
+                android:text="@string/set_etot_bemount" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_Stolzl_Book"
@@ -65,7 +65,7 @@
                 android:layout_height="50dp"
                 android:background="@null"
                 android:onClick="save_Stolzl_Book"
-                android:text="Выбрать этот шрифт(Stolzl-Book)" />
+                android:text="@string/set_etot_stolzl_book" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_font_Snowstorm"
@@ -73,7 +73,7 @@
                 android:layout_height="50dp"
                 android:background="@null"
                 android:onClick="save_Snowstorm"
-                android:text="Выбрать этот шрифт(Snowstorm)" />
+                android:text="@string/set_etot_snowstorm" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_font_Frezer"
@@ -81,7 +81,7 @@
                 android:layout_height="50dp"
                 android:background="@null"
                 android:onClick="save_Frezer"
-                android:text="Выбрать этот шрифт(Frezer)" />
+                android:text="@string/set_etot_frezer" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_font_Futured"
@@ -89,7 +89,7 @@
                 android:layout_height="50dp"
                 android:background="@null"
                 android:onClick="save_Futured"
-                android:text="Выбрать этот шрифт(Futured)" />
+                android:text="@string/set_etot_futured" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_font_Yarin"
@@ -97,7 +97,7 @@
                 android:layout_height="50dp"
                 android:background="@null"
                 android:onClick="save_Yarin"
-                android:text="Выбрать этот шрифт(Yarin)" />
+                android:text="@string/set_etot_yarin" />
 
         </LinearLayout>
     </ScrollView>
@@ -108,6 +108,6 @@
         android:layout_height="50dp"
         android:layout_weight="0"
         android:background="@null"
-        android:text="Ok" />
+        android:text="@string/ok" />
 
 </LinearLayout>

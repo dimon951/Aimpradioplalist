@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Online radio</string>
-    <string name="abaut_text">
+    <string name="abaut_text" translatable="false">
          \n
         +++++
          \n
@@ -206,7 +206,6 @@
         <item>Замечательно</item>
     </string-array>
 
-    <string name="error">Ошибочка, возможно нет разрешений</string>
     <string name="vseRadio">Все радио</string>
     <string name="popularnoe">Популярное</string>
     <string name="myPlalist">Мой плейлист</string>
@@ -223,7 +222,7 @@
     <string name="add_potok">Добавить поток</string>
     <string name="save">Сохранить</string>
     <string name="input_name">Введите имя</string>
-    <string name="my_playlist2">my_playlist2</string>
+    <string name="my_playlist2" translatable="false">my_playlist2</string>
     <string name="error_to_start">ошибки при загрузке</string>
     <string name="poisk">Поиск</string>
     <string name="Close">Назад</string>
@@ -2329,15 +2328,63 @@
         <item>Южная волна -Музыка- 128kbps\nhttps://c28.radioboss.fm/stream/130</item>
         <item>Правильное радио -Музыка- 128kbps\nhttp://stream.pravilnoeradio.ru:8000/pr_mpeg</item>
     </string-array>
-    <string name="title_activity_obmenik">Obmenik</string>
-    <string name="title_activity_politika_ebuchay">Politika_ebuchay</string>
+    <string name="title_activity_obmenik" translatable="false">Obmenik</string>
+    <string name="title_activity_politika_ebuchay" translatable="false">Politika_ebuchay</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="previous" translatable="false">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hello_first_fragment" translatable="false">Hello first fragment</string>
+    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
+    <string name="error">Ошибка, возможно нет разрешений</string>
+    <string name="add_koment">Добавить коментарий</string>
+    <string name="komentarii">коментарий</string>
+    <string name="add_link">Добавить ссылку</string>
+    <string name="tema_tip_link">Тема,тип ссылки</string>
+    <string name="kbps">Качество, kbps</string>
+    <string name="name">Имя,название(!)</string>
+    <string name="paste_url">Вставить из буфера url</string>
+    <string name="ok">Ок</string>
+    <string name="url_dres">url,адрес потока(!)</string>
+    <string name="system">Системный</string>
+    <string name="set_etot_tweed">Выбрать этот шрифт(Tweed)</string>
+    <string name="set_etot_digits">Выбрать этот шрифт(Digits)</string>
+    <string name="set_etot_whitney">Выбрать этот шрифт(Whitney)</string>
+    <string name="set_etot_bemount">Выбрать этот шрифт(Bemount)</string>
+    <string name="set_etot_stolzl_book">Выбрать этот шрифт(Stolzl-Book)</string>
+    <string name="set_etot_snowstorm">Выбрать этот шрифт(Snowstorm)</string>
+    <string name="set_etot_frezer">Выбрать этот шрифт(Frezer)</string>
+    <string name="set_etot_futured">Выбрать этот шрифт(Futured)</string>
+    <string name="set_etot_yarin">Выбрать этот шрифт(Yarin)</string>
+    <string name="selekt_file">Выбрать файл</string>
+    <string name="link_fole">Ссылка на файл</string>
+    <string name="Online_plalist_vkladka">Онлайн плейлисты</string>
+    <string name="button_main_menu">Кнопки главного меню</string>
+    <string name="button_all_radio">Кнопки всего радио</string>
+    <string name="button_online_plalist">Кнопки онлайн плейлиста</string>
+    <string name="name_elementa_list">Имя элемента списка</string>
+    <string name="dop_info">Доп инфо элемента списка</string>
+    <string name="kontekst_elementa">Контекст элемента списка</string>
+    <string name="ater_setting">Прочие настройки</string>
+    <string name="akkaunt">Аккаунт</string>
+    <string name="file_uge_zagrugen">Файл уже загружен</string>
+    <string name="zakrit">Закрыть</string>
+    <string name="radio">Радио</string>
+    <string name="audio_book">Аудиокниги</string>
+    <string name="tv">Тв</string>
+    <string name="musik">Музыка</string>
+    <string name="size_text">Размер текста</string>
+    <string name="full_skrin">Во весь экран</string>
+    <string name="button_nav">Показ кнопок навигации</string>
+    <string name="color_selekt">Цвет выделения</string>
+    <string name="voprov_chto_delat">Что сделать с текущим плейлистом?</string>
+    <string name="zateret">Затереть</string>
+    <string name="add">Дописать</string>
+    <string name="kinnder" translatable="false">Детское</string>
+    <string name="razgovornoe" translatable="false">Разговорное</string>
+    <string name="saundtreki" translatable="false">Саундтреки</string>
+    <string name="input_new_text">Введите новый текст</string>
 
 </resources>

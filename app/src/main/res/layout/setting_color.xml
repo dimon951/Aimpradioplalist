@@ -56,7 +56,7 @@
                 android:layout_height="50dp"
                 android:background="@null"
                 android:onClick="Edit_color_selekt"
-                android:text="Цвет выделения" />
+                android:text="@string/color_selekt" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn
                 android:id="@+id/button_edit_color_textcontext"

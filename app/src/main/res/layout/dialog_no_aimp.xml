@@ -14,13 +14,6 @@
     app:cardPreventCornerOverlap="false">
 
 
-    <ProgressBar
-        android:id="@+id/progressBar2"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
-
     <LinearLayout
         android:id="@+id/dialog_fon"
         android:layout_width="match_parent"
@@ -64,15 +57,6 @@
                 android:layout_gravity="left"
                 android:background="@null"
                 android:text="Установить Aimp через Play Market"
-                android:textSize="14sp" />
-
-            <dmitriy.deomin.aimpradioplalist.custom.Btn
-                android:id="@+id/button_dialog_dowload_aimp_link"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="left"
-                android:background="@null"
-                android:text="Скачать Aimp "
                 android:textSize="14sp" />
 
             <dmitriy.deomin.aimpradioplalist.custom.Btn

@@ -33,8 +33,6 @@ class Main : FragmentActivity() {
 
         const val File_Text_Code: String = "UTF-8"//кодировка файла плейлиста
 
-        const val LINK_DOWLOAD_AIMP = "https://www.aimp.ru/?do=download.file&id=13" //ссылка на аимп
-
         const val PUSTO: String = "Плейлист пуст" //текст в пустом плейлисте(много где требуется)
 
         const val SIZE_LIST_LINE = 12//количество строк в моём плейлисте при котором будет показана полоа прокрутки

@@ -31,14 +31,14 @@
             android:layout_height="50dp"
             android:layout_marginBottom="10dp"
             android:background="@null"
-            android:text="Выбрать файл" />
+            android:text="@string/selekt_file" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/load_url"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@null"
-            android:text="Ссылка на файл"
+            android:text="@string/link_fole"
             android:visibility="visible" />
     </LinearLayout>
 </dmitriy.deomin.aimpradioplalist.custom.Fon_item>

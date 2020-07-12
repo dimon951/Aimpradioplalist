@@ -37,14 +37,14 @@
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:background="@null"
-            android:text="Прочие настройки" />
+            android:text="@string/ater_setting" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/akkaunt"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:background="@null"
-            android:text="Аккаунт" />
+            android:text="@string/akkaunt" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_abaut"

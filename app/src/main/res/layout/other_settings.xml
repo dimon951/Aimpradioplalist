@@ -41,7 +41,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:background="@null"
-            android:text="Размер текста"
+            android:text="@string/size_text"
             tools:visibility="visible" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
@@ -50,7 +50,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:background="@null"
-            android:text="Во весь экран"
+            android:text="@string/full_skrin"
             tools:visibility="visible" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
@@ -59,7 +59,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:background="@null"
-            android:text="Показ кнопок навигации"
+            android:text="@string/button_nav"
             tools:visibility="visible" />
     </LinearLayout>
 

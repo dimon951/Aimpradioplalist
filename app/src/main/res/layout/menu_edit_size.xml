@@ -30,28 +30,28 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:background="@null"
-            android:text="Кнопки главного меню" />
+            android:text="@string/button_main_menu" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_setting_vse_button"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:background="@null"
-            android:text="Кнопки всего радио" />
+            android:text="@string/button_all_radio" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_setting_online_button"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:background="@null"
-            android:text="Кнопки онлайн плейлиста" />
+            android:text="@string/button_online_plalist" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_setting_item_name"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:background="@null"
-            android:text="Имя элемента списка" />
+            android:text="@string/name_elementa_list" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_setting_item_context"
@@ -59,7 +59,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:background="@null"
-            android:text="Доп инфо элемента списка" />
+            android:text="@string/dop_info" />
 
         <dmitriy.deomin.aimpradioplalist.custom.Btn
             android:id="@+id/button_setting_item_context2"
@@ -67,7 +67,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:background="@null"
-            android:text="Контекст элемента списка" />
+            android:text="@string/kontekst_elementa" />
 
 
     </LinearLayout>
